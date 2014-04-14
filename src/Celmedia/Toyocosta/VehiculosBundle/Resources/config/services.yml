@@ -1,0 +1,18 @@
+parameters:
+#    celmedia_toyocosta_vehiculos.example.class: Celmedia\Toyocosta\VehiculosBundle\Example
+
+services:
+#    celmedia_toyocosta_vehiculos.example:
+#        class: %celmedia_toyocosta_vehiculos.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+    celmedia_toyocosta_vehiculos.admin.vehiculo:
+        class: Celmedia\Toyocosta\VehiculosBundle\Admin\VehiculoAdmin
+        arguments: [~, Celmedia\Toyocosta\VehiculosBundle\Entity\Vehiculo, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Vehiculo}
+
+    celmedia_toyocosta_vehiculos.admin.vehiculo_colores:
+        class: Celmedia\Toyocosta\VehiculosBundle\Admin\VehiculoColoresAdmin
+        arguments: [~, Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoColores, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: VehiculoColores}

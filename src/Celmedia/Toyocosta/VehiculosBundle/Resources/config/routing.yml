@@ -1,0 +1,7 @@
+# celmedia_toyocosta_vehiculos_homepage:
+#     pattern:  /hello/{name}
+#     defaults: { _controller: CelmediaToyocostaVehiculosBundle:Default:index }
+
+toyocosta_homepage:
+    pattern:  /home
+    defaults: { _controller: CelmediaToyocostaVehiculosBundle:Default:index }

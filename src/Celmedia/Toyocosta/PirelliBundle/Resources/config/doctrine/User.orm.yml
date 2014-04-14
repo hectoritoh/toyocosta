@@ -1,0 +1,11 @@
+Celmedia\Toyocosta\PirelliBundle\Entity\User:
+    type: entity
+    table: user_toyocosta
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY

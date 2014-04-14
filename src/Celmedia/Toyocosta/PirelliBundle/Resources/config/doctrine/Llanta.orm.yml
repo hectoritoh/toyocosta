@@ -1,0 +1,47 @@
+Celmedia\Toyocosta\PirelliBundle\Entity\Llanta:
+    type: entity
+    table: pirelli_llanta
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        modelo:
+            type: string
+            length: 140
+            nullable: false
+        medida:
+            type: string
+            length: 140
+            nullable: false
+        rin:
+            type: float
+            nullable: false
+        diseno:
+            type: string
+            length: 140
+            nullable: false
+        segmento:
+            type: string
+            length: 140
+            nullable: false
+        linea:
+            type: string
+            length: 140
+        precio:
+            type: float
+            nullable: false
+        imagen:
+            type: text
+            nullable: false
+        estado:
+            type: integer
+            unsigned: false
+            nullable: false
+
+    lifecycleCallbacks:
+        prePersist:   [ lifecycleFileUpload ]
+        preUpdate:    [ lifecycleFileUpload ]

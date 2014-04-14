@@ -1,0 +1,12 @@
+# Acme/DemoBundle/Resources/config/admin.yml
+services:
+    sonata.admin.post:
+        class: Celmedia\Toyocosta\PirelliBundle\Admin\LlantaAdmin
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: "Front-end", label: "Llantas Pirelli" }
+        arguments:
+            - ~
+            - Celmedia\Toyocosta\PirelliBundle\Entity\Llanta
+            - ~
+        calls:
+            - [ setTranslationDomain, [CelmediaToyocostaPirelliBundle]]

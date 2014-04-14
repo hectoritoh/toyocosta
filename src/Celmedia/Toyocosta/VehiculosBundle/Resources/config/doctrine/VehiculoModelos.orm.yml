@@ -1,0 +1,51 @@
+Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoModelos:
+    type: entity
+    table: vehiculo_modelos
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        nombre:
+            type: string
+            length: 140
+            nullable: false
+        descripcion:
+            type: text
+            nullable: false
+        precio:
+            type: float
+            nullable: false
+        precio_neto:
+            type: float
+            nullable: false
+        archivo_pdf:
+            type: text
+            nullable: true
+        imagen_modelo:
+            type: text
+            nullable: false
+        estado:
+            type: integer
+            unsigned: false
+            nullable: false
+
+    oneToMany:
+      especificaciones:
+        targetEntity: ModeloEspecificaciones
+        mappedBy: modelo
+
+    manyToOne:
+      vehiculomodel:
+        targetEntity: Vehiculo
+        inversedBy: modelos
+        joinColumn:
+          name: vehiculo_id
+          referencedColumnName: id
+
+    lifecycleCallbacks:
+        prePersist:   [ lifecycleFileUpload ]
+        preUpdate:    [ lifecycleFileUpload ]

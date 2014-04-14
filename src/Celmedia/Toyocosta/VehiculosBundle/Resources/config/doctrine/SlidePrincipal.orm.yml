@@ -1,0 +1,35 @@
+Celmedia\Toyocosta\VehiculosBundle\Entity\SlidePrincipal:
+    type: entity
+    table: slide_principal
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        link:
+            type: string
+            length: 500
+            nullable: false
+        descripcion:
+            type: text
+            nullable: true
+        imagen_banner:
+            type: text
+            nullable: false
+        fecha_creacion:
+            type: datetime
+            nullable: false
+        fecha_modificacion:
+            type: datetime
+            nullable: false
+        estado:
+            type: integer
+            unsigned: false
+            nullable: false
+
+    lifecycleCallbacks:
+        prePersist:   [ lifecycleFileUpload ]
+        preUpdate:    [ lifecycleFileUpload ]

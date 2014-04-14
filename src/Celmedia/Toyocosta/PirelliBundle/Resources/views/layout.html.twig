@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="">
+        <meta name="author" content="">
+        <!-- <link rel="shortcut icon" href="../../assets/ico/favicon.ico"> -->
+        <title>Toyocosta</title>
+
+    {% stylesheets
+    "@CelmediaToyocostaPirelliBundle/Resources/public/css/bootstrap.min.css"
+    "@CelmediaToyocostaPirelliBundle/Resources/public/css/menu.toyocosta.css"
+    "@CelmediaToyocostaPirelliBundle/Resources/public/css/jquery.selectbox/jquery.selectbox.css"
+    "@CelmediaToyocostaPirelliBundle/Resources/public/css/reset.css"
+    "@CelmediaToyocostaPirelliBundle/Resources/public/css/estilo.pirelli.css"
+     %}
+        <link type="text/css" rel="stylesheet" media="all" href="{{ asset_url }}" />
+    {% endstylesheets %}
+    </head>
+
+    <body>
+
+
+
+    {% include 'CelmediaToyocostaPirelliBundle:Blocks:top.menu.html.twig' %}
+    {% include 'CelmediaToyocostaPirelliBundle:Pages:pirelli.html.twig' %}
+
+
+
+
+
+
+
+    {% include 'CelmediaToyocostaPirelliBundle:Blocks:footer.html.twig' %}
+     {% javascripts
+        '@CelmediaToyocostaPirelliBundle/Resources/public/js/jquery.js'
+        '@CelmediaToyocostaPirelliBundle/Resources/public/js/jquery.selectbox/jquery.selectbox-0.2.js'        
+        '@CelmediaToyocostaPirelliBundle/Resources/public/js/script.js' 
+        '@CelmediaToyocostaPirelliBundle/Resources/public/js/script.pirelli.js'
+        '@CelmediaToyocostaPirelliBundle/Resources/public/js/bootstrap.min.js' 
+        %}
+        <script type="text/javascript" src="{{ asset_url }}"></script>
+     {% endjavascripts %}                          
+    </body>
+</html>

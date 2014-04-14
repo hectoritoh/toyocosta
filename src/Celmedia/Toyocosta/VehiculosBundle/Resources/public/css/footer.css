@@ -1,0 +1,97 @@
+#footer{
+	/*background-color: #1D363B;*/
+	background-image: url('../../bundles/celmediatoyocostapirelli/images/Textura/textura.png');
+	background-repeat: repeat;
+	color: #fff;
+	bottom: 0;
+	height: auto;
+}
+.text-footer{
+	font-size: 15px;
+	font-weight: bold;
+
+}
+.links-footer a{
+	color: #fff;
+	font-size: 12px;
+}
+.copy-footer{
+	text-align: center;
+	font-size: 10px;
+}
+.tweet-icon{
+	background-image: url('../../bundles/celmediatoyocostapirelli/images/Iconos/tweet-icon.png');
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	height: 23px;
+	margin-bottom: 10px;
+}
+.face-icon{
+	background-image: url('../../bundles/celmediatoyocostapirelli/images/Iconos/face-icon.png');
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	height: 23px;
+	margin-bottom: 10px;
+}
+.blog-icon{
+	background-image: url('../../bundles/celmediatoyocostapirelli/images/Iconos/blog-icon.png');
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	height: 23px;
+	margin-bottom: 10px;
+}
+/*FOOTER BANNERS*/
+.cita-footer{
+	background-image: url("../../bundles/celmediatoyocostapirelli/images/Banners/Cita.jpg");
+	background-repeat: no-repeat;
+	height: 108px;
+}
+.exonerados-footer{
+	background-image: url("../../bundles/celmediatoyocostapirelli/images/Banners/Exonerados.jpg");
+	background-repeat: no-repeat;
+	height: 108px;
+}
+.avaluo-footer{
+	background-image: url("../../bundles/celmediatoyocostapirelli/images/Banners/Avaluo.jpg");
+	background-repeat: no-repeat;
+	height: 108px;
+}
+.montacargas-footer{
+	background-image: url("../../bundles/celmediatoyocostapirelli/images/Banners/Montacargas.jpg");
+	background-repeat: no-repeat;
+	height: 108px;
+}
+.seminuevos-footer{
+	background-image: url("../../bundles/celmediatoyocostapirelli/images/Banners/Seminuevos.jpg");
+	background-repeat: no-repeat;
+	height: 108px;
+}
+.mas-footer{
+	background-image: url('../../bundles/celmediatoyocostapirelli/images/Iconos/mas.png');
+	background-repeat: no-repeat;
+	height: 27px;
+}
+.text-banner-footer{
+	font-size: 15px;
+}
+.footer-banners{
+	background-image: url('../../bundles/celmediatoyocostapirelli/images/Textura/rayas.png');
+	background-repeat: repeat;
+	/*padding: 6px 0px 30px;*/
+}
+.border-rojo{
+	border-top: 3px solid #D62C2F;
+}
+.fondo{
+	background-image: url('../../bundles/celmediatoyocostapirelli/images/Textura/rayas.png');
+	background-repeat: repeat;
+	height: 20px;
+}
+.logo-toyota{
+	padding-top: 6px;
+	padding-bottom: 8px;
+}
+.accesos{
+	padding-top: 30px;
+	padding-bottom: 30px;
+}

@@ -1,0 +1,37 @@
+Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoColores:
+    type: entity
+    table: vehiculo_colores
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        nombre:
+            type: string
+            length: 140
+            nullable: false
+        valor_color:
+            type: string
+            length: 7
+            nullable: false
+        imagen_color:
+            type: text
+            nullable: false
+        estado:
+            type: integer
+            unsigned: false
+            nullable: false
+    manyToOne:
+      vehiculo:
+        targetEntity: Vehiculo
+        inversedBy: colores
+        joinColumn:
+          name: vehiculo_id
+          referencedColumnName: id
+
+    lifecycleCallbacks:
+        prePersist:   [ lifecycleFileUpload ]
+        preUpdate:    [ lifecycleFileUpload ]

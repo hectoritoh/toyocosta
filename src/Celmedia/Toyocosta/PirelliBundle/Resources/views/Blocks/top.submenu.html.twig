@@ -1,0 +1,48 @@
+<div class="alto-pirelli">
+  
+</div>
+<div class="row">
+
+  <div class="submenu">
+    
+      <nav class="navbar navbar-default nav-pirelli" role="navigation">
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#" style="padding-top:0px;">
+              {% image '@CelmediaToyocostaPirelliBundle/Resources/public/images/Logos/pirelli.jpg' %}
+                <img src="{{ asset_url }}" alt="llanta" class="img-responsive" />
+              {% endimage %}
+            </a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav" id="nav-list-pirelli">
+              <li  {% if app.request.get('_route') == 'pirelli_home' %} class="active" {% endif %}   >           
+                <a href="{{ path('pirelli_home') }}">LLANTAS AUTO</a>
+              </li>
+              <li  {% if app.request.get('_route') == 'pirelli_camioneta' %}  class="active"  {% endif %}   >
+                <a href="{{ path('pirelli_camioneta') }}">LLANTAS CAMIONETA</a>
+              </li>
+              <li  {% if app.request.get('_route') == 'pirelli_suv' %}  class="active"  {% endif %}  >
+                <a href="{{ path('pirelli_suv') }}">LLANTAS SUV</a>
+              </li>
+              <li  {% if app.request.get('_route') == 'pirelli_industrial' %}  class="active"  {% endif %} >
+                <a href="{{ path('pirelli_industrial') }}">LLANTAS INDUSTRIAL</a>
+              </li>
+              <li><a href="">SUBDISTRIBUIDORES</a></li>
+            </ul>
+          </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+      </nav>
+
+
+  </div>
+</div>

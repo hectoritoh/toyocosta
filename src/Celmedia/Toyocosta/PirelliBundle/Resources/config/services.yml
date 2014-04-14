@@ -1,0 +1,7 @@
+parameters:
+#    celmedia_toyocosta_pirelli.example.class: Celmedia\Toyocosta\PirelliBundle\Example
+
+services:
+#    celmedia_toyocosta_pirelli.example:
+#        class: %celmedia_toyocosta_pirelli.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]

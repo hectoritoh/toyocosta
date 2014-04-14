@@ -1,0 +1,83 @@
+Celmedia\Toyocosta\VehiculosBundle\Entity\Vehiculo:
+    type: entity
+    table: vehiculo
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        nombre:
+            type: string
+            length: 140
+            nullable: false
+        precio:
+            type: float
+            nullable: false
+        precio_neto:
+            type: float
+            nullable: false
+        descripcion:
+            type: text
+            nullable: false
+        imagen_banner:
+            type: text
+            nullable: false
+        imagen_thumb:
+            type: text
+            nullable: false
+        estado:
+            type: integer
+            unsigned: false
+            nullable: false
+        created:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: create
+        updated:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: update
+
+    # manyToMany:
+    #   colores:
+    #     targetEntity: VehiculoColores
+    #     joinTable:
+    #       name: vehiculo_color
+    #       joinColumns:
+    #         vehiculo_id:
+    #           referencedColumnName: id
+    #       inverseJoinColumns:
+    #         color_id:
+    #           referencedColumnName: id
+    #           unique: true
+
+
+    oneToMany:
+      colores:
+        targetEntity: VehiculoColores
+        mappedBy: vehiculo
+      galeria:
+        targetEntity: VehiculoGaleria
+        mappedBy: vehiculogaleria
+      modelos:
+        targetEntity: VehiculoModelos
+        mappedBy: vehiculomodel
+
+
+    manyToOne:
+      categoria:
+        targetEntity: CategoriaVehiculo
+        inversedBy: vehiculos
+        joinColumn:
+          name: categoria_id
+          referencedColumnName: id
+
+
+    lifecycleCallbacks:
+        prePersist:   [ lifecycleFileUpload ]
+        preUpdate:    [ lifecycleFileUpload ]

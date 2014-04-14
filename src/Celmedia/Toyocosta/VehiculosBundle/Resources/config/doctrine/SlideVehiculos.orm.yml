@@ -1,0 +1,33 @@
+Celmedia\Toyocosta\VehiculosBundle\Entity\SlideVehiculos:
+    type: entity
+    table: slide_vehiculos
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        imagen:
+            type: text
+            nullable: false
+        menu_posicion:
+            type: integer
+            nullable: false
+        estado:
+            type: integer
+            unsigned: false
+            nullable: false
+
+    manyToOne:
+      categoriaveh:
+        targetEntity: CategoriaVehiculo
+        inversedBy: slides
+        joinColumn:
+          name: categoria_id
+          referencedColumnName: id
+
+    lifecycleCallbacks:
+        prePersist:   [ lifecycleFileUpload ]
+        preUpdate:    [ lifecycleFileUpload ]

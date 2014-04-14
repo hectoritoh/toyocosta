@@ -1,0 +1,37 @@
+Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoGaleria:
+    type: entity
+    table: vehiculo_galeria
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        tipo:
+            type: string
+            length: 140
+            nullable: false
+        url:
+            type: text
+            nullable: false
+        orden:
+            type: integer
+            nullable: true
+        estado:
+            type: integer
+            unsigned: false
+            nullable: false
+
+    manyToOne:
+      vehiculogaleria:
+        targetEntity: Vehiculo
+        inversedBy: galeria
+        joinColumn:
+          name: vehiculo_id
+          referencedColumnName: id
+
+    lifecycleCallbacks:
+        prePersist:   [ lifecycleFileUpload ]
+        preUpdate:    [ lifecycleFileUpload ]

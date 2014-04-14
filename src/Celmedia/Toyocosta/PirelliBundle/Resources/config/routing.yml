@@ -1,0 +1,29 @@
+pirelli_home:
+    pattern:  /index
+    defaults: { _controller: CelmediaToyocostaPirelliBundle:Default:index }
+
+pirelli_home:
+    pattern:  /
+    defaults: { _controller: CelmediaToyocostaPirelliBundle:Default:index }
+
+
+
+pirelli_camioneta:
+    pattern:  /camioneta
+    defaults: { _controller: CelmediaToyocostaPirelliBundle:Default:camionetaPirelli }
+
+pirelli_suv:
+    pattern:  /suv
+    defaults: { _controller: CelmediaToyocostaPirelliBundle:Default:suvPirelli }
+
+pirelli_industrial:
+    pattern:  /industrial
+    defaults: { _controller: CelmediaToyocostaPirelliBundle:Default:industrialPirelli }
+
+pirelli_buscador:
+    pattern:  /buscando
+    defaults: { _controller: CelmediaToyocostaPirelliBundle:Default:buscadorPirelli }
+
+pirelli_filtro:
+    pattern:  /filtro
+    defaults: { _controller: CelmediaToyocostaPirelliBundle:Default:filtroBuscadorPirelli }

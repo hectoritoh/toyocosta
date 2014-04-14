@@ -1,0 +1,80 @@
+<div id="carousel-vehiculos" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators carousel-vehiculos">
+    <li data-target="#carousel-vehiculos" data-slide-to="0" class="active">
+    	<br />
+    	{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/Autos/bullet_click.png' %}
+     		<img src="{{ asset_url }}" alt="Corolla" class="img-indicator" />
+      	{% endimage %}
+    </li>
+    <li data-target="#carousel-vehiculos" data-slide-to="1">
+    	<!-- {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/Autos/bullet1.png' %}
+     		<img src="{{ asset_url }}" alt="Yaris" class="img-indicator" />
+      	{% endimage %} -->
+      	<p class="txt-indicador"><br />YARIS <br/>SEDAN</p>
+    </li>
+    <li data-target="#carousel-vehiculos" data-slide-to="2">
+    	<!-- {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/Autos/bullet2.png' %}
+     		<img src="{{ asset_url }}" alt="Prius" class="img-indicator" />
+      	{% endimage %} -->
+      	<p class="txt-indicador"><br />PRIUS <br />HIBRIDO</p>
+    </li>
+  </ol>
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">
+    <div class="item active">
+
+      {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/Autos-bg.jpg' %}
+      <img src="{{ asset_url }}" alt="Autos" class="img-responsive" />
+      {% endimage %}
+  
+      <div class="carousel-caption position-caption">
+          <div class="row">
+            <div class="col-md-2 cuadro-caption">
+            	<!-- <div class="borde-diagonal"></div> -->
+            	<ul class="list-caption">
+            		<li class="link-caption"><a href="#">Solicita Cotizaci&oacute;n</a></li>
+            		<li class="link-caption"><a href="#">Test Driver</a></li>
+            		<li class="link-caption"><a href="#">Ver m&aacute;s</a></li>
+            	</ul>
+            </div>
+          </div>
+      </div>
+    </div>
+    <!-- <div class="item">
+
+      {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/Autos-bg.jpg' %}
+      <img src="{{ asset_url }}" alt="Autos" class="img-responsive" />
+      {% endimage %}
+  
+      <div class="carousel-caption btn-caption">
+          <a href="#">
+            <div class="row">
+            </div>
+          </a>
+      </div>
+    </div>
+    <div class="item">
+
+        {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/Autos-bg.jpg' %}
+        <img src="{{ asset_url }}" alt="Autos" class="img-responsive" />
+        {% endimage %}
+    
+        <div class="carousel-caption btn-caption">
+            <a href="#">
+              <div class="row">
+              </div>
+            </a>
+        </div>
+    </div> -->
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-vehiculos" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-vehiculos" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+</div>
