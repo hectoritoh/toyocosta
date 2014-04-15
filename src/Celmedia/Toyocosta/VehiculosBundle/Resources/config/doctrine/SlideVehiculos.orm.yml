@@ -19,6 +19,16 @@ Celmedia\Toyocosta\VehiculosBundle\Entity\SlideVehiculos:
             type: integer
             unsigned: false
             nullable: false
+        created:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: create
+        updated:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: update
 
     manyToOne:
       categoriaveh:

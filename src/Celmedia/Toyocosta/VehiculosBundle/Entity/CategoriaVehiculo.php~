@@ -170,4 +170,9 @@ class CategoriaVehiculo
     {
         return $this->slides;
     }
+
+
+    function __toString(){
+        return "". $this->nombre;
+    }
 }

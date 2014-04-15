@@ -24,13 +24,23 @@ Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoColores:
             type: integer
             unsigned: false
             nullable: false
+        created:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: create
+        updated:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: update
     manyToOne:
-      vehiculo:
-        targetEntity: Vehiculo
-        inversedBy: colores
-        joinColumn:
-          name: vehiculo_id
-          referencedColumnName: id
+        vehiculo:
+          targetEntity: Vehiculo
+          inversedBy: colores
+          joinColumn:
+            name: vehiculo_id
+            referencedColumnName: id
 
     lifecycleCallbacks:
         prePersist:   [ lifecycleFileUpload ]

@@ -68,7 +68,7 @@ class VehiculoAdmin extends Admin
 
         // use $fileFieldOptions so we can add other options to the field
         $fileFieldOptions = array('required' => false);
-        if ($obj && ($webPath = __DIR__.'/../../../pirelli/web/'. 'uploads/vehiculo/banner/' .    $obj->getImagenBanner())) {
+        if ($obj && ($webPath = '/../../../../toyocosta/web/'. 'uploads/vehiculo/banner/' .    $obj->getImagenBanner())) {
             // get the container so the full path to the image can be set
             $container = $this->getConfigurationPool()->getContainer();
             $fullPath = $container->get('request')->getBasePath().'/'.$webPath;
@@ -78,7 +78,7 @@ class VehiculoAdmin extends Admin
         }
         // use $fileFieldOptions so we can add other options to the field
         $fileFieldOptions2 = array('required' => false);
-        if ($obj && ($webPath = __DIR__.'/../../../pirelli/web/'. 'uploads/vehiculo/thumb/' .    $obj->getImagenThumb())) {
+        if ($obj && ($webPath = '/../../../../toyocosta/web/'. 'uploads/vehiculo/thumb/' .    $obj->getImagenThumb())) {
             // get the container so the full path to the image can be set
             $container = $this->getConfigurationPool()->getContainer();
             $fullPath = $container->get('request')->getBasePath().'/'.$webPath;

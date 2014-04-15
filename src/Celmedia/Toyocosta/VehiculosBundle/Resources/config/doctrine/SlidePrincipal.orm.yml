@@ -19,16 +19,20 @@ Celmedia\Toyocosta\VehiculosBundle\Entity\SlidePrincipal:
         imagen_banner:
             type: text
             nullable: false
-        fecha_creacion:
-            type: datetime
-            nullable: false
-        fecha_modificacion:
-            type: datetime
-            nullable: false
         estado:
             type: integer
             unsigned: false
             nullable: false
+        created:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: create
+        updated:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: update
 
     lifecycleCallbacks:
         prePersist:   [ lifecycleFileUpload ]

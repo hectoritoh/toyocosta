@@ -3,6 +3,7 @@
 namespace Celmedia\Toyocosta\VehiculosBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * Vehiculo
@@ -50,9 +51,34 @@ class Vehiculo
     private $estado;
 
     /**
+     * @var \DateTime
+     */
+    private $created;
+
+    /**
+     * @var \DateTime
+     */
+    private $updated;
+
+    /**
      * @var \Doctrine\Common\Collections\Collection
      */
     private $colores;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $galeria;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $modelos;
+
+    /**
+     * @var \Celmedia\Toyocosta\VehiculosBundle\Entity\CategoriaVehiculo
+     */
+    private $categoria;
 
     /**
      * Constructor
@@ -60,6 +86,8 @@ class Vehiculo
     public function __construct()
     {
         $this->colores = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->galeria = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->modelos = new \Doctrine\Common\Collections\ArrayCollection();
     }
     
     /**
@@ -234,6 +262,52 @@ class Vehiculo
     }
 
     /**
+     * Set created
+     *
+     * @param \DateTime $created
+     * @return Vehiculo
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+    
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime 
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * Set updated
+     *
+     * @param \DateTime $updated
+     * @return Vehiculo
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+    
+        return $this;
+    }
+
+    /**
+     * Get updated
+     *
+     * @return \DateTime 
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
+
+    /**
      * Add colores
      *
      * @param \Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoColores $colores
@@ -265,46 +339,6 @@ class Vehiculo
     {
         return $this->colores;
     }
-    /**
-     * @ORM\PrePersist
-     */
-    public function lifecycleFileUpload()
-    {
-        // Add your code here
-    }
-    /**
-     * @var \Celmedia\Toyocosta\VehiculosBundle\Entity\Vehiculo
-     */
-    private $categoria;
-
-
-    /**
-     * Set categoria
-     *
-     * @param \Celmedia\Toyocosta\VehiculosBundle\Entity\Vehiculo $categoria
-     * @return Vehiculo
-     */
-    public function setCategoria(\Celmedia\Toyocosta\VehiculosBundle\Entity\Vehiculo $categoria = null)
-    {
-        $this->categoria = $categoria;
-    
-        return $this;
-    }
-
-    /**
-     * Get categoria
-     *
-     * @return \Celmedia\Toyocosta\VehiculosBundle\Entity\Vehiculo 
-     */
-    public function getCategoria()
-    {
-        return $this->categoria;
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $galeria;
-
 
     /**
      * Add galeria
@@ -338,11 +372,6 @@ class Vehiculo
     {
         return $this->galeria;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $modelos;
-
 
     /**
      * Add modelos
@@ -375,5 +404,172 @@ class Vehiculo
     public function getModelos()
     {
         return $this->modelos;
+    }
+
+    /**
+     * Set categoria
+     *
+     * @param \Celmedia\Toyocosta\VehiculosBundle\Entity\CategoriaVehiculo $categoria
+     * @return Vehiculo
+     */
+    public function setCategoria(\Celmedia\Toyocosta\VehiculosBundle\Entity\CategoriaVehiculo $categoria = null)
+    {
+        $this->categoria = $categoria;
+    
+        return $this;
+    }
+
+    /**
+     * Get categoria
+     *
+     * @return \Celmedia\Toyocosta\VehiculosBundle\Entity\CategoriaVehiculo 
+     */
+    public function getCategoria()
+    {
+        return $this->categoria;
+    }
+    /**
+     * @ORM\PrePersist
+     */
+    public function lifecycleFileUpload()
+    {
+        // Add your code here
+        $this->uploadFileThumb();
+        $this->uploadFileBanner();
+
+    }
+
+
+
+
+
+
+
+/**
+ * Unmapped property to handle file uploads
+ */
+private $fileThumb;
+
+/**
+ * Sets file.
+ *
+ * @param UploadedFile $file
+ */
+public function setFileThumb(UploadedFile $fileThumb = null)
+{
+    $this->fileThumb = $fileThumb;
+}
+
+/**
+ * Get file.
+ *
+ * @return UploadedFile
+ */
+public function getFileThumb()
+{
+    return $this->fileThumb;
+}
+
+/**
+ * Manages the copying of the file to the relevant place on the server
+ */
+public function uploadFileThumb()
+{
+    // the file property can be empty if the field is not required
+    if (null === $this->getFileThumb()) {
+        return;
+    }
+
+    // move takes the target directory and target filename as params
+    $this->getFileThumb()->move(
+       __DIR__.'/../../../../../web/'. 'uploads/vehiculo/thumb' ,
+        $this->getFileThumb()->getClientOriginalName()
+    );
+
+    // set the path property to the filename where you've saved the file
+    $this->imagen_thumb = $this->getFileThumb()->getClientOriginalName();
+
+    // clean up the file property as you won't need it anymore
+    $this->setFileThumb(null);
+}
+
+
+
+
+
+
+
+
+/**
+ * Unmapped property to handle file uploads
+ */
+private $fileBanner;
+
+/**
+ * Sets file.
+ *
+ * @param UploadedFile $file
+ */
+public function setFileBanner(UploadedFile $fileBanner = null)
+{
+    $this->fileBanner = $fileBanner;
+}
+
+/**
+ * Get file.
+ *
+ * @return UploadedFile
+ */
+public function getFileBanner()
+{
+    return $this->fileBanner;
+}
+
+/**
+ * Manages the copying of the file to the relevant place on the server
+ */
+public function uploadFileBanner()
+{
+    // the file property can be empty if the field is not required
+    if (null === $this->getFileBanner()) {
+        return;
+    }
+
+    // move takes the target directory and target filename as params
+    $this->getFileBanner()->move(
+       __DIR__.'/../../../../../web/'. 'uploads/vehiculo/banner' ,
+        $this->getFileBanner()->getClientOriginalName()
+    );
+
+    // set the path property to the filename where you've saved the file
+    $this->imagen_banner = $this->getFileBanner()->getClientOriginalName();
+
+    // clean up the file property as you won't need it anymore
+    $this->setFilebanner(null);
+}
+
+
+
+    /**
+     * Add galeria
+     *
+     * @param \Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoGaleria $galeria
+     * @return Vehiculo
+     */
+    public function addGalerium(\Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoGaleria $galeria)
+    {
+        $this->galeria[] = $galeria;
+
+        return $this;
+    }
+
+    /**
+     * Remove galeria
+     *
+     * @param \Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoGaleria $galeria
+     */
+    public function removeGalerium(\Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoGaleria $galeria)
+    {
+        $this->galeria->removeElement($galeria);
     }
 }

@@ -549,4 +549,27 @@ public function uploadFileBanner()
 }
 
 
+
+    /**
+     * Add galeria
+     *
+     * @param \Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoGaleria $galeria
+     * @return Vehiculo
+     */
+    public function addGalerium(\Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoGaleria $galeria)
+    {
+        $this->galeria[] = $galeria;
+
+        return $this;
+    }
+
+    /**
+     * Remove galeria
+     *
+     * @param \Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoGaleria $galeria
+     */
+    public function removeGalerium(\Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoGaleria $galeria)
+    {
+        $this->galeria->removeElement($galeria);
+    }
 }

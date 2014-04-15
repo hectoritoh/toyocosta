@@ -32,6 +32,16 @@ Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoModelos:
             type: integer
             unsigned: false
             nullable: false
+        created:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: create
+        updated:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: update
 
     oneToMany:
       especificaciones:

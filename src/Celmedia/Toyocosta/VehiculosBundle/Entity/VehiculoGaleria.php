@@ -34,6 +34,11 @@ class VehiculoGaleria
      */
     private $estado;
 
+    /**
+     * @var \Celmedia\Toyocosta\VehiculosBundle\Entity\Vehiculo
+     */
+    private $vehiculogaleria;
+
 
     /**
      * Get id
@@ -54,7 +59,7 @@ class VehiculoGaleria
     public function setTipo($tipo)
     {
         $this->tipo = $tipo;
-    
+
         return $this;
     }
 
@@ -77,7 +82,7 @@ class VehiculoGaleria
     public function setUrl($url)
     {
         $this->url = $url;
-    
+
         return $this;
     }
 
@@ -100,7 +105,7 @@ class VehiculoGaleria
     public function setOrden($orden)
     {
         $this->orden = $orden;
-    
+
         return $this;
     }
 
@@ -123,7 +128,7 @@ class VehiculoGaleria
     public function setEstado($estado)
     {
         $this->estado = $estado;
-    
+
         return $this;
     }
 
@@ -136,18 +141,6 @@ class VehiculoGaleria
     {
         return $this->estado;
     }
-    /**
-     * @ORM\PrePersist
-     */
-    public function lifecycleFileUpload()
-    {
-        // Add your code here
-    }
-    /**
-     * @var \Celmedia\Toyocosta\VehiculosBundle\Entity\Vehiculo
-     */
-    private $vehiculogaleria;
-
 
     /**
      * Set vehiculogaleria
@@ -158,7 +151,7 @@ class VehiculoGaleria
     public function setVehiculogaleria(\Celmedia\Toyocosta\VehiculosBundle\Entity\Vehiculo $vehiculogaleria = null)
     {
         $this->vehiculogaleria = $vehiculogaleria;
-    
+
         return $this;
     }
 
@@ -170,5 +163,12 @@ class VehiculoGaleria
     public function getVehiculogaleria()
     {
         return $this->vehiculogaleria;
+    }
+    /**
+     * @ORM\PrePersist
+     */
+    public function lifecycleFileUpload()
+    {
+        // Add your code here
     }
 }

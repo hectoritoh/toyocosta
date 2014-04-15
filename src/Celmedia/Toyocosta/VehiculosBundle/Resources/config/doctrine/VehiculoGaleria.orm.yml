@@ -1,4 +1,4 @@
-Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoGaleria:
+Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoGaleria123:
     type: entity
     table: vehiculo_galeria
     fields:
@@ -23,6 +23,16 @@ Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoGaleria:
             type: integer
             unsigned: false
             nullable: false
+        created_at:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: create
+        updated_at:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: update
 
     manyToOne:
       vehiculogaleria:
