@@ -30,19 +30,19 @@ class SlidePrincipal
     private $imagen_banner;
 
     /**
-     * @var \DateTime
-     */
-    private $fecha_creacion;
-
-    /**
-     * @var \DateTime
-     */
-    private $fecha_modificacion;
-
-    /**
      * @var integer
      */
     private $estado;
+
+    /**
+     * @var \DateTime
+     */
+    private $created;
+
+    /**
+     * @var \DateTime
+     */
+    private $updated;
 
 
     /**
@@ -64,7 +64,7 @@ class SlidePrincipal
     public function setLink($link)
     {
         $this->link = $link;
-    
+
         return $this;
     }
 
@@ -87,7 +87,7 @@ class SlidePrincipal
     public function setDescripcion($descripcion)
     {
         $this->descripcion = $descripcion;
-    
+
         return $this;
     }
 
@@ -110,7 +110,7 @@ class SlidePrincipal
     public function setImagenBanner($imagenBanner)
     {
         $this->imagen_banner = $imagenBanner;
-    
+
         return $this;
     }
 
@@ -125,52 +125,6 @@ class SlidePrincipal
     }
 
     /**
-     * Set fecha_creacion
-     *
-     * @param \DateTime $fechaCreacion
-     * @return SlidePrincipal
-     */
-    public function setFechaCreacion($fechaCreacion)
-    {
-        $this->fecha_creacion = $fechaCreacion;
-    
-        return $this;
-    }
-
-    /**
-     * Get fecha_creacion
-     *
-     * @return \DateTime 
-     */
-    public function getFechaCreacion()
-    {
-        return $this->fecha_creacion;
-    }
-
-    /**
-     * Set fecha_modificacion
-     *
-     * @param \DateTime $fechaModificacion
-     * @return SlidePrincipal
-     */
-    public function setFechaModificacion($fechaModificacion)
-    {
-        $this->fecha_modificacion = $fechaModificacion;
-    
-        return $this;
-    }
-
-    /**
-     * Get fecha_modificacion
-     *
-     * @return \DateTime 
-     */
-    public function getFechaModificacion()
-    {
-        return $this->fecha_modificacion;
-    }
-
-    /**
      * Set estado
      *
      * @param integer $estado
@@ -179,7 +133,7 @@ class SlidePrincipal
     public function setEstado($estado)
     {
         $this->estado = $estado;
-    
+
         return $this;
     }
 
@@ -191,6 +145,52 @@ class SlidePrincipal
     public function getEstado()
     {
         return $this->estado;
+    }
+
+    /**
+     * Set created
+     *
+     * @param \DateTime $created
+     * @return SlidePrincipal
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime 
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * Set updated
+     *
+     * @param \DateTime $updated
+     * @return SlidePrincipal
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+
+        return $this;
+    }
+
+    /**
+     * Get updated
+     *
+     * @return \DateTime 
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
     }
     /**
      * @ORM\PrePersist

@@ -24,6 +24,11 @@ class VehiculoEspecificacionesDetalle
      */
     private $valor;
 
+    /**
+     * @var \Celmedia\Toyocosta\VehiculosBundle\Entity\ModeloEspecificaciones
+     */
+    private $modeloespecificacion;
+
 
     /**
      * Get id
@@ -44,7 +49,7 @@ class VehiculoEspecificacionesDetalle
     public function setNombre($nombre)
     {
         $this->nombre = $nombre;
-    
+
         return $this;
     }
 
@@ -67,7 +72,7 @@ class VehiculoEspecificacionesDetalle
     public function setValor($valor)
     {
         $this->valor = $valor;
-    
+
         return $this;
     }
 
@@ -80,18 +85,6 @@ class VehiculoEspecificacionesDetalle
     {
         return $this->valor;
     }
-    /**
-     * @ORM\PrePersist
-     */
-    public function lifecycleFileUpload()
-    {
-        // Add your code here
-    }
-    /**
-     * @var \Celmedia\Toyocosta\VehiculosBundle\Entity\ModeloEspecificaciones
-     */
-    private $modeloespecificacion;
-
 
     /**
      * Set modeloespecificacion
@@ -102,7 +95,7 @@ class VehiculoEspecificacionesDetalle
     public function setModeloespecificacion(\Celmedia\Toyocosta\VehiculosBundle\Entity\ModeloEspecificaciones $modeloespecificacion = null)
     {
         $this->modeloespecificacion = $modeloespecificacion;
-    
+
         return $this;
     }
 
@@ -114,5 +107,12 @@ class VehiculoEspecificacionesDetalle
     public function getModeloespecificacion()
     {
         return $this->modeloespecificacion;
+    }
+    /**
+     * @ORM\PrePersist
+     */
+    public function lifecycleFileUpload()
+    {
+        // Add your code here
     }
 }

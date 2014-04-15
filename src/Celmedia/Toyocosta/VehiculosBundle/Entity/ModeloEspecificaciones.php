@@ -19,6 +19,23 @@ class ModeloEspecificaciones
      */
     private $nombre;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $detalles;
+
+    /**
+     * @var \Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoModelos
+     */
+    private $modelo;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->detalles = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -39,7 +56,7 @@ class ModeloEspecificaciones
     public function setNombre($nombre)
     {
         $this->nombre = $nombre;
-    
+
         return $this;
     }
 
@@ -52,31 +69,7 @@ class ModeloEspecificaciones
     {
         return $this->nombre;
     }
-    /**
-     * @ORM\PrePersist
-     */
-    public function lifecycleFileUpload()
-    {
-        // Add your code here
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $detalles;
 
-    /**
-     * @var \Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoModelos
-     */
-    private $modelo;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->detalles = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-    
     /**
      * Add detalles
      *
@@ -86,7 +79,7 @@ class ModeloEspecificaciones
     public function addDetalle(\Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoEspecificacionesDetalle $detalles)
     {
         $this->detalles[] = $detalles;
-    
+
         return $this;
     }
 
@@ -119,7 +112,7 @@ class ModeloEspecificaciones
     public function setModelo(\Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoModelos $modelo = null)
     {
         $this->modelo = $modelo;
-    
+
         return $this;
     }
 
@@ -131,5 +124,12 @@ class ModeloEspecificaciones
     public function getModelo()
     {
         return $this->modelo;
+    }
+    /**
+     * @ORM\PrePersist
+     */
+    public function lifecycleFileUpload()
+    {
+        // Add your code here
     }
 }

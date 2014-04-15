@@ -1,4 +1,4 @@
-Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoGaleria123:
+Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoGaleria:
     type: entity
     table: vehiculo_galeria
     fields:
