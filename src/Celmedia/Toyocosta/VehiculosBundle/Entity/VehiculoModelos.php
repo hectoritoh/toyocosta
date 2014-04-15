@@ -3,6 +3,7 @@
 namespace Celmedia\Toyocosta\VehiculosBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * VehiculoModelos
@@ -355,5 +356,118 @@ class VehiculoModelos
     public function lifecycleFileUpload()
     {
         // Add your code here
+        $this->uploadFileModelo();
+        $this->uploadFilePdf();
+    }
+
+
+
+
+    /**
+     * Unmapped property to handle file uploads
+     */
+    private $fileModelo;
+
+    /**
+     * Sets file.
+     *
+     * @param UploadedFile $file
+     */
+    public function setFileModelo(UploadedFile $fileModelo = null)
+    {
+        $this->fileModelo = $fileModelo;
+    }
+
+    /**
+     * Get file.
+     *
+     * @return UploadedFile
+     */
+    public function getFileModelo()
+    {
+        return $this->fileModelo;
+    }
+
+    /**
+     * Manages the copying of the file to the relevant place on the server
+     */
+    public function uploadFileModelo()
+    {
+        // the file property can be empty if the field is not required
+        if (null === $this->getFileModelo()) {
+            return;
+        }
+
+        // move takes the target directory and target filename as params
+        $this->getFileModelo()->move(
+           __DIR__.'/../../../../../web/'. 'uploads/vehiculo/modelo' ,
+            $this->getFileModelo()->getClientOriginalName()
+        );
+
+        // set the path property to the filename where you've saved the file
+        $this->imagen_modelo = $this->getFileModelo()->getClientOriginalName();
+
+        // clean up the file property as you won't need it anymore
+        $this->setFileModelo(null);
+    }
+
+
+
+
+
+    /**
+     * Unmapped property to handle file uploads
+     */
+    private $filePdf;
+
+    /**
+     * Sets file.
+     *
+     * @param UploadedFile $file
+     */
+    public function setFilePdf(UploadedFile $filePdf = null)
+    {
+        $this->filePdf = $filePdf;
+    }
+
+    /**
+     * Get file.
+     *
+     * @return UploadedFile
+     */
+    public function getFilePdf()
+    {
+        return $this->filePdf;
+    }
+
+    /**
+     * Manages the copying of the file to the relevant place on the server
+     */
+    public function uploadFilePdf()
+    {
+        // the file property can be empty if the field is not required
+        if (null === $this->getFilePdf()) {
+            return;
+        }
+
+        // move takes the target directory and target filename as params
+        $this->getFilePdf()->move(
+           __DIR__.'/../../../../../web/'. 'uploads/vehiculo/modelo/pdf' ,
+            $this->getFilePdf()->getClientOriginalName()
+        );
+
+        // set the path property to the filename where you've saved the file
+        $this->archivo_pdf = $this->getFilePdf()->getClientOriginalName();
+
+        // clean up the file property as you won't need it anymore
+        $this->setFilePdf(null);
+    }
+
+
+
+
+    public function __toString()
+    {
+        return $this->getNombre();
     }
 }

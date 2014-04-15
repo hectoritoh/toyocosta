@@ -8,7 +8,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
-class CategoriaVehiculoAdmin extends Admin
+class VehiculoGaleriaAdmin extends Admin
 {
     /**
      * @param DatagridMapper $datagridMapper
@@ -17,8 +17,12 @@ class CategoriaVehiculoAdmin extends Admin
     {
         $datagridMapper
             ->add('id')
-            ->add('nombre')
+            ->add('tipo')
+            ->add('url')
+            ->add('orden')
             ->add('estado')
+            ->add('created_at')
+            ->add('updated_at')
         ;
     }
 
@@ -29,8 +33,16 @@ class CategoriaVehiculoAdmin extends Admin
     {
         $listMapper
             ->add('id')
-            ->add('nombre')
-            ->add('estado')
+            ->add('tipo')
+            ->add('url')
+            ->add('orden')
+            ->add('estado', 'choice', array(
+           'choices' => array(
+               '1' => 'Publicado',
+               '0' => 'No publicado'
+               )))
+            ->add('created_at')
+            ->add('updated_at')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -47,7 +59,11 @@ class CategoriaVehiculoAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('nombre')
+            ->add('tipo', 'choice', array('choices' => array('video' => 'video',
+                'imagen' => "imagen")))
+            ->add('url')
+            ->add('orden')
+            ->add('vehiculogaleria')
             ->add('estado', 'choice', array(
            'choices' => array(
                '1' => 'Publicado',
@@ -63,8 +79,12 @@ class CategoriaVehiculoAdmin extends Admin
     {
         $showMapper
             ->add('id')
-            ->add('nombre')
+            ->add('tipo')
+            ->add('url')
+            ->add('orden')
             ->add('estado')
+            ->add('created_at')
+            ->add('updated_at')
         ;
     }
 }

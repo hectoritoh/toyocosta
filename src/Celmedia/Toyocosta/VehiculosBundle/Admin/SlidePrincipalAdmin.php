@@ -8,7 +8,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
-class CategoriaVehiculoAdmin extends Admin
+class SlidePrincipalAdmin extends Admin
 {
     /**
      * @param DatagridMapper $datagridMapper
@@ -17,8 +17,12 @@ class CategoriaVehiculoAdmin extends Admin
     {
         $datagridMapper
             ->add('id')
-            ->add('nombre')
+            ->add('link')
+            ->add('descripcion')
+            ->add('imagen_banner')
             ->add('estado')
+            ->add('created')
+            ->add('updated')
         ;
     }
 
@@ -29,8 +33,12 @@ class CategoriaVehiculoAdmin extends Admin
     {
         $listMapper
             ->add('id')
-            ->add('nombre')
+            ->add('link')
+            ->add('descripcion')
+            ->add('imagen_banner')
             ->add('estado')
+            ->add('created')
+            ->add('updated')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -47,12 +55,14 @@ class CategoriaVehiculoAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('nombre')
+            ->add('link')
+            ->add('descripcion')
+            ->add('imagen_banner')
             ->add('estado', 'choice', array(
            'choices' => array(
                '1' => 'Publicado',
                '0' => 'No publicado'
-               )));
+               )))
         ;
     }
 
@@ -63,8 +73,12 @@ class CategoriaVehiculoAdmin extends Admin
     {
         $showMapper
             ->add('id')
-            ->add('nombre')
+            ->add('link')
+            ->add('descripcion')
+            ->add('imagen_banner')
             ->add('estado')
+            ->add('created')
+            ->add('updated')
         ;
     }
 }

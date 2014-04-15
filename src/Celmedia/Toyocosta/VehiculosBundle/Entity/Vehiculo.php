@@ -572,4 +572,10 @@ public function uploadFileBanner()
     {
         $this->galeria->removeElement($galeria);
     }
+
+
+    public function __toString()
+    {
+        return $this->getNombre();
+    }
 }

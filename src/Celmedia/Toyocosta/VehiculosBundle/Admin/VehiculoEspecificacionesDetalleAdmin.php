@@ -8,7 +8,7 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
-class CategoriaVehiculoAdmin extends Admin
+class VehiculoEspecificacionesDetalleAdmin extends Admin
 {
     /**
      * @param DatagridMapper $datagridMapper
@@ -18,7 +18,7 @@ class CategoriaVehiculoAdmin extends Admin
         $datagridMapper
             ->add('id')
             ->add('nombre')
-            ->add('estado')
+            ->add('valor')
         ;
     }
 
@@ -30,7 +30,7 @@ class CategoriaVehiculoAdmin extends Admin
         $listMapper
             ->add('id')
             ->add('nombre')
-            ->add('estado')
+            ->add('valor')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -48,11 +48,8 @@ class CategoriaVehiculoAdmin extends Admin
     {
         $formMapper
             ->add('nombre')
-            ->add('estado', 'choice', array(
-           'choices' => array(
-               '1' => 'Publicado',
-               '0' => 'No publicado'
-               )));
+            ->add('valor')
+            ->add('modeloespecificacion')
         ;
     }
 
@@ -64,7 +61,7 @@ class CategoriaVehiculoAdmin extends Admin
         $showMapper
             ->add('id')
             ->add('nombre')
-            ->add('estado')
+            ->add('valor')
         ;
     }
 }

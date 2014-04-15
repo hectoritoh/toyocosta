@@ -22,3 +22,39 @@ services:
         arguments: [~, Celmedia\Toyocosta\VehiculosBundle\Entity\CategoriaVehiculo, CelmediaToyocostaVehiculosBundle:CategoriaVehiculoAdmin]
         tags:
             - {name: sonata.admin, manager_type: orm, group: admin, label: CategoriaVehiculo}
+
+    celmedia_toyocosta_vehiculos.admin.vehiculo_galeria:
+        class: Celmedia\Toyocosta\VehiculosBundle\Admin\VehiculoGaleriaAdmin
+        arguments: [~, Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoGaleria, CelmediaToyocostaVehiculosBundle:VehiculoGaleriaAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: VehiculoGaleria}
+
+    celmedia_toyocosta_vehiculos.admin.vehiculo_modelos:
+        class: Celmedia\Toyocosta\VehiculosBundle\Admin\VehiculoModelosAdmin
+        arguments: [~, Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoModelos, CelmediaToyocostaVehiculosBundle:VehiculoModelosAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: VehiculoModelos}
+
+    celmedia_toyocosta_vehiculos.admin.slide_principal:
+        class: Celmedia\Toyocosta\VehiculosBundle\Admin\SlidePrincipalAdmin
+        arguments: [~, Celmedia\Toyocosta\VehiculosBundle\Entity\SlidePrincipal, CelmediaToyocostaVehiculosBundle:SlidePrincipalAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: SlidePrincipal}
+
+    celmedia_toyocosta_vehiculos.admin.slide_vehiculos:
+        class: Celmedia\Toyocosta\VehiculosBundle\Admin\SlideVehiculosAdmin
+        arguments: [~, Celmedia\Toyocosta\VehiculosBundle\Entity\SlideVehiculos, CelmediaToyocostaVehiculosBundle:SlideVehiculosAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: SlideVehiculos}
+
+    celmedia_toyocosta_vehiculos.admin.modelo_especificaciones:
+        class: Celmedia\Toyocosta\VehiculosBundle\Admin\ModeloEspecificacionesAdmin
+        arguments: [~, Celmedia\Toyocosta\VehiculosBundle\Entity\ModeloEspecificaciones, CelmediaToyocostaVehiculosBundle:ModeloEspecificacionesAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: ModeloEspecificaciones}
+
+    celmedia_toyocosta_vehiculos.admin.vehiculo_especificaciones_detalle:
+        class: Celmedia\Toyocosta\VehiculosBundle\Admin\VehiculoEspecificacionesDetalleAdmin
+        arguments: [~, Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoEspecificacionesDetalle, CelmediaToyocostaVehiculosBundle:VehiculoEspecificacionesDetalleAdmin]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: VehiculoEspecificacionesDetalle}

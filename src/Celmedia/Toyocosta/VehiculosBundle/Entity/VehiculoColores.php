@@ -227,4 +227,10 @@ class VehiculoColores
     {
         // Add your code here
     }
+
+    public function __toString()
+    {
+        return $this->getNombre();
+    }
+
 }
