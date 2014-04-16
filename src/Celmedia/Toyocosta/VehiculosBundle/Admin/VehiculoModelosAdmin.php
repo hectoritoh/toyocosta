@@ -81,7 +81,7 @@ class VehiculoModelosAdmin extends Admin
             $fullPath = $container->get('request')->getBasePath().'/'.$webPath;
 
             // add a 'help' option containing the preview's img tag
-            $fileFieldOptions2['help'] = '<img src="'.$fullPath.'" class="admin-preview" />';
+            // $fileFieldOptions2['help'] = '<img src="'.$fullPath.'" class="admin-preview" />';
         }
 
 
@@ -93,6 +93,14 @@ class VehiculoModelosAdmin extends Admin
             ->add('precio_neto')
             ->add('filePdf', 'file', $fileFieldOptions2)
             ->add('fileModelo', 'file', $fileFieldOptions)
+            ->add('especificaciones', 'sonata_type_collection', array(
+                 'by_reference' => false,
+                       // Prevents the "Delete" option from being displayed
+                 'type_options' => array('delete' => true)) , array(
+                 'edit' => 'inline',
+                 'inline' => 'table',
+                 'sortable' => 'position',
+             ))
             ->add('estado', 'choice', array(
            'choices' => array(
                '1' => 'Publicado',

@@ -35,6 +35,16 @@ class VehiculoColores
     private $estado;
 
     /**
+     * @var \DateTime
+     */
+    private $created;
+
+    /**
+     * @var \DateTime
+     */
+    private $updated;
+
+    /**
      * @var \Celmedia\Toyocosta\VehiculosBundle\Entity\Vehiculo
      */
     private $vehiculo;
@@ -59,7 +69,7 @@ class VehiculoColores
     public function setNombre($nombre)
     {
         $this->nombre = $nombre;
-    
+
         return $this;
     }
 
@@ -82,7 +92,7 @@ class VehiculoColores
     public function setValorColor($valorColor)
     {
         $this->valor_color = $valorColor;
-    
+
         return $this;
     }
 
@@ -105,7 +115,7 @@ class VehiculoColores
     public function setImagenColor($imagenColor)
     {
         $this->imagen_color = $imagenColor;
-    
+
         return $this;
     }
 
@@ -128,7 +138,7 @@ class VehiculoColores
     public function setEstado($estado)
     {
         $this->estado = $estado;
-    
+
         return $this;
     }
 
@@ -143,6 +153,52 @@ class VehiculoColores
     }
 
     /**
+     * Set created
+     *
+     * @param \DateTime $created
+     * @return VehiculoColores
+     */
+    public function setCreated($created)
+    {
+        $this->created = $created;
+
+        return $this;
+    }
+
+    /**
+     * Get created
+     *
+     * @return \DateTime 
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * Set updated
+     *
+     * @param \DateTime $updated
+     * @return VehiculoColores
+     */
+    public function setUpdated($updated)
+    {
+        $this->updated = $updated;
+
+        return $this;
+    }
+
+    /**
+     * Get updated
+     *
+     * @return \DateTime 
+     */
+    public function getUpdated()
+    {
+        return $this->updated;
+    }
+
+    /**
      * Set vehiculo
      *
      * @param \Celmedia\Toyocosta\VehiculosBundle\Entity\Vehiculo $vehiculo
@@ -151,7 +207,7 @@ class VehiculoColores
     public function setVehiculo(\Celmedia\Toyocosta\VehiculosBundle\Entity\Vehiculo $vehiculo = null)
     {
         $this->vehiculo = $vehiculo;
-    
+
         return $this;
     }
 
@@ -171,4 +227,10 @@ class VehiculoColores
     {
         // Add your code here
     }
+
+    public function __toString()
+    {
+        return $this->getNombre();
+    }
+
 }

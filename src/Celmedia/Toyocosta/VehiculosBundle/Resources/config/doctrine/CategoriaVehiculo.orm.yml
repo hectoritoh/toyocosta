@@ -24,7 +24,7 @@ Celmedia\Toyocosta\VehiculosBundle\Entity\CategoriaVehiculo:
             mappedBy: categoria
         slides:
             targetEntity: SlideVehiculos
-            mappedBy: categoriaveh
+            mappedBy: categoria_vehiculo
 
     lifecycleCallbacks:
         prePersist:   [ lifecycleFileUpload ]

@@ -24,6 +24,24 @@ class CategoriaVehiculo
      */
     private $estado;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $vehiculos;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $slides;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->vehiculos = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->slides = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -44,7 +62,7 @@ class CategoriaVehiculo
     public function setNombre($nombre)
     {
         $this->nombre = $nombre;
-    
+
         return $this;
     }
 
@@ -67,7 +85,7 @@ class CategoriaVehiculo
     public function setEstado($estado)
     {
         $this->estado = $estado;
-    
+
         return $this;
     }
 
@@ -80,45 +98,26 @@ class CategoriaVehiculo
     {
         return $this->estado;
     }
-    /**
-     * @ORM\PrePersist
-     */
-    public function lifecycleFileUpload()
-    {
-        // Add your code here
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $vehiculos;
 
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->vehiculos = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-    
     /**
      * Add vehiculos
      *
-     * @param \Celmedia\Toyocosta\VehiculosBundle\Entity\CategoriaVehiculo $vehiculos
+     * @param \Celmedia\Toyocosta\VehiculosBundle\Entity\Vehiculo $vehiculos
      * @return CategoriaVehiculo
      */
-    public function addVehiculo(\Celmedia\Toyocosta\VehiculosBundle\Entity\CategoriaVehiculo $vehiculos)
+    public function addVehiculo(\Celmedia\Toyocosta\VehiculosBundle\Entity\Vehiculo $vehiculos)
     {
         $this->vehiculos[] = $vehiculos;
-    
+
         return $this;
     }
 
     /**
      * Remove vehiculos
      *
-     * @param \Celmedia\Toyocosta\VehiculosBundle\Entity\CategoriaVehiculo $vehiculos
+     * @param \Celmedia\Toyocosta\VehiculosBundle\Entity\Vehiculo $vehiculos
      */
-    public function removeVehiculo(\Celmedia\Toyocosta\VehiculosBundle\Entity\CategoriaVehiculo $vehiculos)
+    public function removeVehiculo(\Celmedia\Toyocosta\VehiculosBundle\Entity\Vehiculo $vehiculos)
     {
         $this->vehiculos->removeElement($vehiculos);
     }
@@ -132,11 +131,6 @@ class CategoriaVehiculo
     {
         return $this->vehiculos;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $slides;
-
 
     /**
      * Add slides
@@ -147,7 +141,7 @@ class CategoriaVehiculo
     public function addSlide(\Celmedia\Toyocosta\VehiculosBundle\Entity\SlideVehiculos $slides)
     {
         $this->slides[] = $slides;
-    
+
         return $this;
     }
 
@@ -170,9 +164,17 @@ class CategoriaVehiculo
     {
         return $this->slides;
     }
+    /**
+     * @ORM\PrePersist
+     */
+    public function lifecycleFileUpload()
+    {
+        // Add your code here
+    }
 
 
-    function __toString(){
-        return "". $this->nombre;
+     public function __toString()
+    {
+        return $this->getNombre();
     }
 }

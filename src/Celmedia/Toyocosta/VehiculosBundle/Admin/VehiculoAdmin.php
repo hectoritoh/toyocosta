@@ -101,6 +101,14 @@ class VehiculoAdmin extends Admin
              'inline' => 'table',
              'sortable' => 'position',
          ))
+        ->add('galeria', 'sonata_type_collection', array(
+             'by_reference' => false,
+                   // Prevents the "Delete" option from being displayed
+             'type_options' => array('delete' => true)) , array(
+             'edit' => 'inline',
+             'inline' => 'table',
+             'sortable' => 'position',
+         ))
         ->add('descripcion')
         ->add('fileThumb' , 'file' , $fileFieldOptions2)
         ->add('fileBanner', 'file', $fileFieldOptions )

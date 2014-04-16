@@ -17,7 +17,9 @@ class ModeloEspecificacionesAdmin extends Admin
     {
         $datagridMapper
             ->add('id')
+            ->add('categoria')
             ->add('nombre')
+            ->add('valor')
         ;
     }
 
@@ -28,7 +30,9 @@ class ModeloEspecificacionesAdmin extends Admin
     {
         $listMapper
             ->add('id')
+            ->add('categoria')
             ->add('nombre')
+            ->add('valor')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -45,7 +49,15 @@ class ModeloEspecificacionesAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
+            ->add('categoria', 'choice', array(
+           'choices' => array(
+               'Mecanica' => 'Mecanica',
+               'Exterior' => 'Exterior',
+               'Interior' => 'Interior',
+               'Seguridad' => 'Seguridad'
+               )))
             ->add('nombre')
+            ->add('valor')
         ;
     }
 
@@ -56,7 +68,9 @@ class ModeloEspecificacionesAdmin extends Admin
     {
         $showMapper
             ->add('id')
+            ->add('categoria')
             ->add('nombre')
+            ->add('valor')
         ;
     }
 }

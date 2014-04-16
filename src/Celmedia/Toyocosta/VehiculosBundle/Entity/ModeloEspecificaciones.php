@@ -17,25 +17,23 @@ class ModeloEspecificaciones
     /**
      * @var string
      */
+    private $categoria;
+
+    /**
+     * @var string
+     */
     private $nombre;
 
     /**
-     * @var \Doctrine\Common\Collections\Collection
+     * @var string
      */
-    private $detalles;
+    private $valor;
 
     /**
      * @var \Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoModelos
      */
     private $modelo;
 
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->detalles = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
      * Get id
@@ -45,6 +43,29 @@ class ModeloEspecificaciones
     public function getId()
     {
         return $this->id;
+    }
+
+    /**
+     * Set categoria
+     *
+     * @param string $categoria
+     * @return ModeloEspecificaciones
+     */
+    public function setCategoria($categoria)
+    {
+        $this->categoria = $categoria;
+
+        return $this;
+    }
+
+    /**
+     * Get categoria
+     *
+     * @return string 
+     */
+    public function getCategoria()
+    {
+        return $this->categoria;
     }
 
     /**
@@ -71,36 +92,26 @@ class ModeloEspecificaciones
     }
 
     /**
-     * Add detalles
+     * Set valor
      *
-     * @param \Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoEspecificacionesDetalle $detalles
+     * @param string $valor
      * @return ModeloEspecificaciones
      */
-    public function addDetalle(\Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoEspecificacionesDetalle $detalles)
+    public function setValor($valor)
     {
-        $this->detalles[] = $detalles;
+        $this->valor = $valor;
 
         return $this;
     }
 
     /**
-     * Remove detalles
+     * Get valor
      *
-     * @param \Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoEspecificacionesDetalle $detalles
+     * @return string 
      */
-    public function removeDetalle(\Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoEspecificacionesDetalle $detalles)
+    public function getValor()
     {
-        $this->detalles->removeElement($detalles);
-    }
-
-    /**
-     * Get detalles
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getDetalles()
-    {
-        return $this->detalles;
+        return $this->valor;
     }
 
     /**
@@ -131,11 +142,5 @@ class ModeloEspecificaciones
     public function lifecycleFileUpload()
     {
         // Add your code here
-    }
-
-
-     public function __toString()
-    {
-        return $this->getNombre();
     }
 }

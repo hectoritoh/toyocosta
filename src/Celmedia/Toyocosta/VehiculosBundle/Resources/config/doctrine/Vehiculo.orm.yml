@@ -43,20 +43,6 @@ Celmedia\Toyocosta\VehiculosBundle\Entity\Vehiculo:
               timestampable:
                 on: update
 
-    # manyToMany:
-    #   colores:
-    #     targetEntity: VehiculoColores
-    #     joinTable:
-    #       name: vehiculo_color
-    #       joinColumns:
-    #         vehiculo_id:
-    #           referencedColumnName: id
-    #       inverseJoinColumns:
-    #         color_id:
-    #           referencedColumnName: id
-    #           unique: true
-
-
     oneToMany:
       colores:
         targetEntity: VehiculoColores
@@ -67,6 +53,9 @@ Celmedia\Toyocosta\VehiculosBundle\Entity\Vehiculo:
       modelos:
         targetEntity: VehiculoModelos
         mappedBy: vehiculomodel
+      slides_vehiculos:
+        targetEntity: SlideVehiculos
+        mappedBy: vehiculo_slide
 
 
     manyToOne:

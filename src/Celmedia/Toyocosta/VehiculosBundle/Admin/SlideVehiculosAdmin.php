@@ -17,7 +17,8 @@ class SlideVehiculosAdmin extends Admin
     {
         $datagridMapper
             ->add('id')
-            ->add('imagen')
+            ->add('imagen_slide')
+            ->add('imagen_thumb')
             ->add('menu_posicion')
             ->add('estado')
             ->add('created')
@@ -32,7 +33,8 @@ class SlideVehiculosAdmin extends Admin
     {
         $listMapper
             ->add('id')
-            ->add('imagen')
+            ->add('imagen_slide')
+            ->add('imagen_thumb')
             ->add('menu_posicion')
             ->add('estado')
             ->add('created')
@@ -53,9 +55,11 @@ class SlideVehiculosAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('imagen')
+            ->add('categoria_vehiculo')
+            ->add('vehiculo_slide')
+            ->add('imagen_slide')
+            ->add('imagen_thumb')
             ->add('menu_posicion')
-            ->add('categoriaveh')
             ->add('estado', 'choice', array(
            'choices' => array(
                '1' => 'Publicado',
@@ -71,7 +75,8 @@ class SlideVehiculosAdmin extends Admin
     {
         $showMapper
             ->add('id')
-            ->add('imagen')
+            ->add('imagen_slide')
+            ->add('imagen_thumb')
             ->add('menu_posicion')
             ->add('estado')
             ->add('created')

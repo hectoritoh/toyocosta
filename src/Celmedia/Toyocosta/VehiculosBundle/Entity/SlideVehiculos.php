@@ -17,7 +17,12 @@ class SlideVehiculos
     /**
      * @var string
      */
-    private $imagen;
+    private $imagen_slide;
+
+    /**
+     * @var string
+     */
+    private $imagen_thumb;
 
     /**
      * @var integer
@@ -42,7 +47,12 @@ class SlideVehiculos
     /**
      * @var \Celmedia\Toyocosta\VehiculosBundle\Entity\CategoriaVehiculo
      */
-    private $categoriaveh;
+    private $categoria_vehiculo;
+
+    /**
+     * @var \Celmedia\Toyocosta\VehiculosBundle\Entity\Vehiculo
+     */
+    private $vehiculo_slide;
 
 
     /**
@@ -56,26 +66,49 @@ class SlideVehiculos
     }
 
     /**
-     * Set imagen
+     * Set imagen_slide
      *
-     * @param string $imagen
+     * @param string $imagenSlide
      * @return SlideVehiculos
      */
-    public function setImagen($imagen)
+    public function setImagenSlide($imagenSlide)
     {
-        $this->imagen = $imagen;
+        $this->imagen_slide = $imagenSlide;
 
         return $this;
     }
 
     /**
-     * Get imagen
+     * Get imagen_slide
      *
      * @return string 
      */
-    public function getImagen()
+    public function getImagenSlide()
     {
-        return $this->imagen;
+        return $this->imagen_slide;
+    }
+
+    /**
+     * Set imagen_thumb
+     *
+     * @param string $imagenThumb
+     * @return SlideVehiculos
+     */
+    public function setImagenThumb($imagenThumb)
+    {
+        $this->imagen_thumb = $imagenThumb;
+
+        return $this;
+    }
+
+    /**
+     * Get imagen_thumb
+     *
+     * @return string 
+     */
+    public function getImagenThumb()
+    {
+        return $this->imagen_thumb;
     }
 
     /**
@@ -171,26 +204,49 @@ class SlideVehiculos
     }
 
     /**
-     * Set categoriaveh
+     * Set categoria_vehiculo
      *
-     * @param \Celmedia\Toyocosta\VehiculosBundle\Entity\CategoriaVehiculo $categoriaveh
+     * @param \Celmedia\Toyocosta\VehiculosBundle\Entity\CategoriaVehiculo $categoriaVehiculo
      * @return SlideVehiculos
      */
-    public function setCategoriaveh(\Celmedia\Toyocosta\VehiculosBundle\Entity\CategoriaVehiculo $categoriaveh = null)
+    public function setCategoriaVehiculo(\Celmedia\Toyocosta\VehiculosBundle\Entity\CategoriaVehiculo $categoriaVehiculo = null)
     {
-        $this->categoriaveh = $categoriaveh;
+        $this->categoria_vehiculo = $categoriaVehiculo;
 
         return $this;
     }
 
     /**
-     * Get categoriaveh
+     * Get categoria_vehiculo
      *
      * @return \Celmedia\Toyocosta\VehiculosBundle\Entity\CategoriaVehiculo 
      */
-    public function getCategoriaveh()
+    public function getCategoriaVehiculo()
     {
-        return $this->categoriaveh;
+        return $this->categoria_vehiculo;
+    }
+
+    /**
+     * Set vehiculo_slide
+     *
+     * @param \Celmedia\Toyocosta\VehiculosBundle\Entity\Vehiculo $vehiculoSlide
+     * @return SlideVehiculos
+     */
+    public function setVehiculoSlide(\Celmedia\Toyocosta\VehiculosBundle\Entity\Vehiculo $vehiculoSlide = null)
+    {
+        $this->vehiculo_slide = $vehiculoSlide;
+
+        return $this;
+    }
+
+    /**
+     * Get vehiculo_slide
+     *
+     * @return \Celmedia\Toyocosta\VehiculosBundle\Entity\Vehiculo 
+     */
+    public function getVehiculoSlide()
+    {
+        return $this->vehiculo_slide;
     }
     /**
      * @ORM\PrePersist

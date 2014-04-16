@@ -572,4 +572,48 @@ public function uploadFileBanner()
     {
         $this->galeria->removeElement($galeria);
     }
+
+
+    public function __toString()
+    {
+        return $this->getNombre();
+    }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $slides_vehiculos;
+
+
+    /**
+     * Add slides_vehiculos
+     *
+     * @param \Celmedia\Toyocosta\VehiculosBundle\Entity\SlideVehiculos $slidesVehiculos
+     * @return Vehiculo
+     */
+    public function addSlidesVehiculo(\Celmedia\Toyocosta\VehiculosBundle\Entity\SlideVehiculos $slidesVehiculos)
+    {
+        $this->slides_vehiculos[] = $slidesVehiculos;
+
+        return $this;
+    }
+
+    /**
+     * Remove slides_vehiculos
+     *
+     * @param \Celmedia\Toyocosta\VehiculosBundle\Entity\SlideVehiculos $slidesVehiculos
+     */
+    public function removeSlidesVehiculo(\Celmedia\Toyocosta\VehiculosBundle\Entity\SlideVehiculos $slidesVehiculos)
+    {
+        $this->slides_vehiculos->removeElement($slidesVehiculos);
+    }
+
+    /**
+     * Get slides_vehiculos
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getSlidesVehiculos()
+    {
+        return $this->slides_vehiculos;
+    }
 }

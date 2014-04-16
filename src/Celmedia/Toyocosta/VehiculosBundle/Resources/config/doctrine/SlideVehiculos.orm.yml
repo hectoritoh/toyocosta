@@ -9,7 +9,10 @@ Celmedia\Toyocosta\VehiculosBundle\Entity\SlideVehiculos:
             nullable: false
             generator:
                 strategy: IDENTITY
-        imagen:
+        imagen_slide:
+            type: text
+            nullable: false
+        imagen_thumb:
             type: text
             nullable: false
         menu_posicion:
@@ -31,11 +34,17 @@ Celmedia\Toyocosta\VehiculosBundle\Entity\SlideVehiculos:
                 on: update
 
     manyToOne:
-      categoriaveh:
+      categoria_vehiculo:
         targetEntity: CategoriaVehiculo
         inversedBy: slides
         joinColumn:
           name: categoria_id
+          referencedColumnName: id
+      vehiculo_slide:
+        targetEntity: Vehiculo
+        inversedBy: slides_vehiculos
+        joinColumn:
+          name: vehiculo_id
           referencedColumnName: id
 
     lifecycleCallbacks:

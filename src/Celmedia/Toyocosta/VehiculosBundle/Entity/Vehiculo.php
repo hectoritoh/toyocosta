@@ -76,6 +76,11 @@ class Vehiculo
     private $modelos;
 
     /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $slides_vehiculos;
+
+    /**
      * @var \Celmedia\Toyocosta\VehiculosBundle\Entity\CategoriaVehiculo
      */
     private $categoria;
@@ -88,8 +93,9 @@ class Vehiculo
         $this->colores = new \Doctrine\Common\Collections\ArrayCollection();
         $this->galeria = new \Doctrine\Common\Collections\ArrayCollection();
         $this->modelos = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->slides_vehiculos = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     /**
      * Get id
      *
@@ -109,7 +115,7 @@ class Vehiculo
     public function setNombre($nombre)
     {
         $this->nombre = $nombre;
-    
+
         return $this;
     }
 
@@ -132,7 +138,7 @@ class Vehiculo
     public function setPrecio($precio)
     {
         $this->precio = $precio;
-    
+
         return $this;
     }
 
@@ -155,7 +161,7 @@ class Vehiculo
     public function setPrecioNeto($precioNeto)
     {
         $this->precio_neto = $precioNeto;
-    
+
         return $this;
     }
 
@@ -178,7 +184,7 @@ class Vehiculo
     public function setDescripcion($descripcion)
     {
         $this->descripcion = $descripcion;
-    
+
         return $this;
     }
 
@@ -201,7 +207,7 @@ class Vehiculo
     public function setImagenBanner($imagenBanner)
     {
         $this->imagen_banner = $imagenBanner;
-    
+
         return $this;
     }
 
@@ -224,7 +230,7 @@ class Vehiculo
     public function setImagenThumb($imagenThumb)
     {
         $this->imagen_thumb = $imagenThumb;
-    
+
         return $this;
     }
 
@@ -247,7 +253,7 @@ class Vehiculo
     public function setEstado($estado)
     {
         $this->estado = $estado;
-    
+
         return $this;
     }
 
@@ -270,7 +276,7 @@ class Vehiculo
     public function setCreated($created)
     {
         $this->created = $created;
-    
+
         return $this;
     }
 
@@ -293,7 +299,7 @@ class Vehiculo
     public function setUpdated($updated)
     {
         $this->updated = $updated;
-    
+
         return $this;
     }
 
@@ -316,7 +322,7 @@ class Vehiculo
     public function addColore(\Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoColores $colores)
     {
         $this->colores[] = $colores;
-    
+
         return $this;
     }
 
@@ -346,10 +352,10 @@ class Vehiculo
      * @param \Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoGaleria $galeria
      * @return Vehiculo
      */
-    public function addGaleria(\Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoGaleria $galeria)
+    public function addGalerium(\Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoGaleria $galeria)
     {
         $this->galeria[] = $galeria;
-    
+
         return $this;
     }
 
@@ -358,7 +364,7 @@ class Vehiculo
      *
      * @param \Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoGaleria $galeria
      */
-    public function removeGaleria(\Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoGaleria $galeria)
+    public function removeGalerium(\Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoGaleria $galeria)
     {
         $this->galeria->removeElement($galeria);
     }
@@ -382,7 +388,7 @@ class Vehiculo
     public function addModelo(\Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoModelos $modelos)
     {
         $this->modelos[] = $modelos;
-    
+
         return $this;
     }
 
@@ -407,6 +413,39 @@ class Vehiculo
     }
 
     /**
+     * Add slides_vehiculos
+     *
+     * @param \Celmedia\Toyocosta\VehiculosBundle\Entity\SlideVehiculos $slidesVehiculos
+     * @return Vehiculo
+     */
+    public function addSlidesVehiculo(\Celmedia\Toyocosta\VehiculosBundle\Entity\SlideVehiculos $slidesVehiculos)
+    {
+        $this->slides_vehiculos[] = $slidesVehiculos;
+
+        return $this;
+    }
+
+    /**
+     * Remove slides_vehiculos
+     *
+     * @param \Celmedia\Toyocosta\VehiculosBundle\Entity\SlideVehiculos $slidesVehiculos
+     */
+    public function removeSlidesVehiculo(\Celmedia\Toyocosta\VehiculosBundle\Entity\SlideVehiculos $slidesVehiculos)
+    {
+        $this->slides_vehiculos->removeElement($slidesVehiculos);
+    }
+
+    /**
+     * Get slides_vehiculos
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getSlidesVehiculos()
+    {
+        return $this->slides_vehiculos;
+    }
+
+    /**
      * Set categoria
      *
      * @param \Celmedia\Toyocosta\VehiculosBundle\Entity\CategoriaVehiculo $categoria
@@ -415,7 +454,7 @@ class Vehiculo
     public function setCategoria(\Celmedia\Toyocosta\VehiculosBundle\Entity\CategoriaVehiculo $categoria = null)
     {
         $this->categoria = $categoria;
-    
+
         return $this;
     }
 
@@ -433,15 +472,16 @@ class Vehiculo
      */
     public function lifecycleFileUpload()
     {
-        // Add your code here
+             // Add your code here
         $this->uploadFileThumb();
         $this->uploadFileBanner();
-
     }
 
 
-
-
+    public function __toString()
+    {
+        return $this->getNombre();
+    }
 
 
 
@@ -549,33 +589,4 @@ public function uploadFileBanner()
 }
 
 
-
-    /**
-     * Add galeria
-     *
-     * @param \Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoGaleria $galeria
-     * @return Vehiculo
-     */
-    public function addGalerium(\Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoGaleria $galeria)
-    {
-        $this->galeria[] = $galeria;
-
-        return $this;
-    }
-
-    /**
-     * Remove galeria
-     *
-     * @param \Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoGaleria $galeria
-     */
-    public function removeGalerium(\Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoGaleria $galeria)
-    {
-        $this->galeria->removeElement($galeria);
-    }
-
-
-    public function __toString()
-    {
-        return $this->getNombre();
-    }
 }

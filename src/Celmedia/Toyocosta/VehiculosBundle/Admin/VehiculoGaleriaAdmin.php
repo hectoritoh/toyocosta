@@ -63,7 +63,6 @@ class VehiculoGaleriaAdmin extends Admin
                 'imagen' => "imagen")))
             ->add('url')
             ->add('orden')
-            ->add('vehiculogaleria')
             ->add('estado', 'choice', array(
            'choices' => array(
                '1' => 'Publicado',
