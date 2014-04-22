@@ -346,6 +346,7 @@ class Vehiculo
         return $this->colores;
     }
 
+
     /**
      * Add galeria
      *

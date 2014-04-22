@@ -50,11 +50,30 @@ class VehiculoColoresAdmin extends Admin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
+        
+
+        $obj = $this->getSubject();
+
+        // use $fileFieldOptions so we can add other options to the field
+        $fileFieldOptions = array('required' => false);
+        if ($obj && ($webPath = '/../../../../toyocosta/web/'. 'uploads/vehiculo/color/' .    $obj->getImagenColor())) {
+            // get the container so the full path to the image can be set
+            $container = $this->getConfigurationPool()->getContainer();
+            $fullPath = $container->get('request')->getBasePath().'/'.$webPath;
+
+            // add a 'help' option containing the preview's img tag
+            $fileFieldOptions['help'] = '<img src="'.$fullPath.'" class="admin-preview" />';
+        }
+
         $formMapper
- 
             ->add('nombre')
             ->add('valor_color')
-            ->add('imagen_color')
+            ->add('ImagenVehiculo', 'file' , $fileFieldOptions)
+            ->add('estado', 'choice', array(
+           'choices' => array(
+               '1' => 'Publicado',
+               '0' => 'No publicado'
+               )))
 
         ;
     }
@@ -72,4 +91,5 @@ class VehiculoColoresAdmin extends Admin
             ->add('estado')
         ;
     }
+
 }

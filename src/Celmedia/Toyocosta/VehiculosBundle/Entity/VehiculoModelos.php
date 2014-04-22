@@ -76,6 +76,7 @@ class VehiculoModelos
     public function __construct()
     {
         $this->especificaciones = new \Doctrine\Common\Collections\ArrayCollection();
+
     }
 
     /**
@@ -360,7 +361,10 @@ class VehiculoModelos
         $this->uploadFilePdf();
     }
 
-
+    public function __toString()
+    {
+        return $this->getNombre();
+    }
 
 
     /**
@@ -464,10 +468,4 @@ class VehiculoModelos
     }
 
 
-
-
-    public function __toString()
-    {
-        return $this->getNombre();
-    }
 }

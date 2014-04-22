@@ -7,16 +7,35 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
+use Sonata\AdminBundle\Validator\ErrorElement;
 
 class VehiculoAdmin extends Admin
 {
+
+
+    public  function preUpdate( $obj ){
+
+
+        foreach ($obj->getGaleria() as $galeria ){
+
+            $galeria->setVehiculogaleria( $obj );
+        }
+
+
+        foreach ($obj->getColores() as $color ) {
+
+                $color->setVehiculo( $obj );
+        }
+  
+    }
+
+
     /**
      * @param DatagridMapper $datagridMapper
      */
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-        ->add('id')
         ->add('nombre')
         ->add('precio')
         ->add('precio_neto')
@@ -33,7 +52,6 @@ class VehiculoAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-        ->add('id')
         ->add('nombre')
         ->add('categoria')
         ->add('precio')
@@ -93,31 +111,45 @@ class VehiculoAdmin extends Admin
         ->add('categoria')
         ->add('precio')
         ->add('precio_neto')
-        ->add('colores', 'sonata_type_collection', array(
-             'by_reference' => false,
-                   // Prevents the "Delete" option from being displayed
-             'type_options' => array('delete' => true)) , array(
-             'edit' => 'inline',
-             'inline' => 'table',
-             'sortable' => 'position',
-         ))
-        ->add('galeria', 'sonata_type_collection', array(
-             'by_reference' => false,
-                   // Prevents the "Delete" option from being displayed
-             'type_options' => array('delete' => true)) , array(
-             'edit' => 'inline',
-             'inline' => 'table',
-             'sortable' => 'position',
-         ))
         ->add('descripcion')
         ->add('fileThumb' , 'file' , $fileFieldOptions2)
         ->add('fileBanner', 'file', $fileFieldOptions )
+        ->with('Colores del Vehiculo')
+            ->add('colores', 'sonata_type_collection', array(
+                 'by_reference' => false,
+                       // Prevents the "Delete" option from being displayed
+                 'type_options' => array('delete' => true)) , array(
+                 'edit' => 'inline',
+                 'inline' => 'table',
+                 'sortable' => 'position',
+             ))
+        ->end()
+        ->with('Galeria')
+            ->add('galeria', 'sonata_type_collection', array(
+                 'by_reference' => false,
+                       // Prevents the "Delete" option from being displayed
+                 'type_options' => array('delete' => true)) , array(
+                 'edit' => 'inline',
+                 'inline' => 'table',
+                 'sortable' => 'position',
+             ))
+        ->end()
+        // ->with('Modelos del Vehiculo')
+        //     ->add('modelos', 'sonata_type_collection', array(
+        //          'by_reference' => false,
+        //          'type_options' => array('delete' => true)) , array(
+        //          'edit' => 'inline',
+        //          'inline' => 'standard',
+        //          'sortable' => 'position',
+        //      ))
+        // ->end()
         ->add('estado', 'choice', array(
            'choices' => array(
                '1' => 'Publicado',
                '0' => 'No publicado'
                )));
         ;
+
     }
 
     /**
@@ -126,7 +158,6 @@ class VehiculoAdmin extends Admin
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
-        ->add('id')
         ->add('nombre')
         ->add('precio')
         ->add('precio_neto')
@@ -134,6 +165,30 @@ class VehiculoAdmin extends Admin
         ->add('imagen_banner')
         ->add('imagen_thumb')
         ->add('estado')
+        ->with('Videos y Fotos')
+            ->add('galeria')
+        ->end()
+        ->with('Colores de Vehiculo')
+            ->add('colores')
+        ->end()
         ;
     }
+
+    public function validate(ErrorElement $errorElement, $object)
+    {
+        // conditional validation, see the related section for more information
+        if ($object->getColores()) {
+            // nombre cannot be empty when the post is enabled
+            $errorElement
+                ->with('nombre')
+                    ->assertNotBlank()
+                    ->assertNotNull()
+                ->end()
+                
+            ;
+        }
+    }
+
+
+
 }

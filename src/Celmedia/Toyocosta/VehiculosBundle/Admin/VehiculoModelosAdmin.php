@@ -10,6 +10,19 @@ use Sonata\AdminBundle\Show\ShowMapper;
 
 class VehiculoModelosAdmin extends Admin
 {
+    
+
+    public  function preUpdate( $obj ){
+
+
+        foreach ($obj->getEspecificaciones() as $especificacion ){
+
+            $especificacion->setModelo( $obj );
+        }
+
+  
+    }
+
     /**
      * @param DatagridMapper $datagridMapper
      */
@@ -93,14 +106,16 @@ class VehiculoModelosAdmin extends Admin
             ->add('precio_neto')
             ->add('filePdf', 'file', $fileFieldOptions2)
             ->add('fileModelo', 'file', $fileFieldOptions)
-            ->add('especificaciones', 'sonata_type_collection', array(
+            ->with('Especificaciones')
+                ->add('especificaciones', 'sonata_type_collection', array(
                  'by_reference' => false,
                        // Prevents the "Delete" option from being displayed
                  'type_options' => array('delete' => true)) , array(
                  'edit' => 'inline',
-                 'inline' => 'table',
+                 'inline' => 'standard',
                  'sortable' => 'position',
-             ))
+                ))
+            ->end()
             ->add('estado', 'choice', array(
            'choices' => array(
                '1' => 'Publicado',

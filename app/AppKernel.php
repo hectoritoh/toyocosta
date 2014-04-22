@@ -28,7 +28,11 @@ class AppKernel extends Kernel
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new Liip\ImagineBundle\LiipImagineBundle(),
 
-
+            // formmatter
+            new Sonata\MarkItUpBundle\SonataMarkItUpBundle(),
+            new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
+            new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
+            new Sonata\FormatterBundle\SonataFormatterBundle(),
 
             new Celmedia\Toyocosta\PirelliBundle\CelmediaToyocostaPirelliBundle(),
             new Celmedia\Toyocosta\VehiculosBundle\CelmediaToyocostaVehiculosBundle(),

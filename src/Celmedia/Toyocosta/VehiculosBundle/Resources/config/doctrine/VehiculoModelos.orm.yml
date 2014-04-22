@@ -47,6 +47,7 @@ Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoModelos:
       especificaciones:
         targetEntity: ModeloEspecificaciones
         mappedBy: modelo
+        cascade: ["persist"]
 
     manyToOne:
       vehiculomodel:

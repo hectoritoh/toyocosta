@@ -35,6 +35,7 @@ class ModeloEspecificaciones
     private $modelo;
 
 
+
     /**
      * Get id
      *
@@ -142,5 +143,10 @@ class ModeloEspecificaciones
     public function lifecycleFileUpload()
     {
         // Add your code here
+    }
+
+    public function __toString()
+    {
+        return $this->getNombre();
     }
 }

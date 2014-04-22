@@ -15,46 +15,40 @@ services:
         class: Celmedia\Toyocosta\VehiculosBundle\Admin\VehiculoColoresAdmin
         arguments: [~, Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoColores, SonataAdminBundle:CRUD]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: admin, label: VehiculoColores}
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Colores de Vehiculo}
 
     celmedia_toyocosta_vehiculos.admin.categoria_vehiculo:
         class: Celmedia\Toyocosta\VehiculosBundle\Admin\CategoriaVehiculoAdmin
         arguments: [~, Celmedia\Toyocosta\VehiculosBundle\Entity\CategoriaVehiculo, CelmediaToyocostaVehiculosBundle:CategoriaVehiculoAdmin]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: admin, label: CategoriaVehiculo}
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Categorias de Vehiculo}
 
     celmedia_toyocosta_vehiculos.admin.vehiculo_galeria:
         class: Celmedia\Toyocosta\VehiculosBundle\Admin\VehiculoGaleriaAdmin
         arguments: [~, Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoGaleria, CelmediaToyocostaVehiculosBundle:VehiculoGaleriaAdmin]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: admin, label: VehiculoGaleria}
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Galeria de Vehiculo}
 
     celmedia_toyocosta_vehiculos.admin.vehiculo_modelos:
         class: Celmedia\Toyocosta\VehiculosBundle\Admin\VehiculoModelosAdmin
         arguments: [~, Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoModelos, CelmediaToyocostaVehiculosBundle:VehiculoModelosAdmin]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: admin, label: VehiculoModelos}
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Modelos de Vehiculo}
 
     celmedia_toyocosta_vehiculos.admin.slide_principal:
         class: Celmedia\Toyocosta\VehiculosBundle\Admin\SlidePrincipalAdmin
         arguments: [~, Celmedia\Toyocosta\VehiculosBundle\Entity\SlidePrincipal, CelmediaToyocostaVehiculosBundle:SlidePrincipalAdmin]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: admin, label: SlidePrincipal}
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Slide Principal}
 
     celmedia_toyocosta_vehiculos.admin.slide_vehiculos:
         class: Celmedia\Toyocosta\VehiculosBundle\Admin\SlideVehiculosAdmin
         arguments: [~, Celmedia\Toyocosta\VehiculosBundle\Entity\SlideVehiculos, CelmediaToyocostaVehiculosBundle:SlideVehiculosAdmin]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: admin, label: SlideVehiculos}
+            - {name: sonata.admin, manager_type: orm, group: admin, label: Slide de Vehiculos}
 
-    # celmedia_toyocosta_vehiculos.admin.modelo_especificaciones:
-    #     class: Celmedia\Toyocosta\VehiculosBundle\Admin\ModeloEspecificacionesAdmin
-    #     arguments: [~, Celmedia\Toyocosta\VehiculosBundle\Entity\ModeloEspecificaciones, CelmediaToyocostaVehiculosBundle:ModeloEspecificacionesAdmin]
-    #     tags:
-    #         - {name: sonata.admin, manager_type: orm, group: admin, label: ModeloEspecificaciones}
-
-    # celmedia_toyocosta_vehiculos.admin.vehiculo_especificaciones_detalle:
-    #     class: Celmedia\Toyocosta\VehiculosBundle\Admin\VehiculoEspecificacionesDetalleAdmin
-    #     arguments: [~, Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoEspecificacionesDetalle, CelmediaToyocostaVehiculosBundle:VehiculoEspecificacionesDetalleAdmin]
-    #     tags:
-    #         - {name: sonata.admin, manager_type: orm, group: admin, label: VehiculoEspecificacionesDetalle}
+    celmedia_toyocosta_vehiculos.admin.modelo_especificaciones:
+        class: Celmedia\Toyocosta\VehiculosBundle\Admin\ModeloEspecificacionesAdmin
+        arguments: [~, Celmedia\Toyocosta\VehiculosBundle\Entity\ModeloEspecificaciones, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: admin, label: ModeloEspecificaciones}

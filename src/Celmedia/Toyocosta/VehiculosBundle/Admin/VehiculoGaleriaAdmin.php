@@ -10,6 +10,9 @@ use Sonata\AdminBundle\Show\ShowMapper;
 
 class VehiculoGaleriaAdmin extends Admin
 {
+    
+    
+
     /**
      * @param DatagridMapper $datagridMapper
      */
