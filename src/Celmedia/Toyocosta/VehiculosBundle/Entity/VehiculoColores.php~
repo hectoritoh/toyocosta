@@ -3,6 +3,7 @@
 namespace Celmedia\Toyocosta\VehiculosBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * VehiculoColores
@@ -226,11 +227,69 @@ class VehiculoColores
     public function lifecycleFileUpload()
     {
         // Add your code here
+        $this->uploadImagenVehiculo();
     }
 
     public function __toString()
     {
         return $this->getNombre();
     }
+
+
+
+/**
+ * Unmapped property to handle file uploads
+ */
+private $ImagenVehiculo;
+
+/**
+ * Sets file.
+ *
+ * @param UploadedFile $file
+ */
+public function setImagenVehiculo(UploadedFile $ImagenVehiculo = null)
+{
+    $this->ImagenVehiculo = $ImagenVehiculo;
+}
+
+/**
+ * Get file.
+ *
+ * @return UploadedFile
+ */
+public function getImagenVehiculo()
+{
+    return $this->ImagenVehiculo;
+}
+
+/**
+ * Manages the copying of the file to the relevant place on the server
+ */
+public function uploadImagenVehiculo()
+{
+    // the file property can be empty if the field is not required
+    if (null === $this->getImagenVehiculo()) {
+        return;
+    }
+
+    // move takes the target directory and target filename as params
+    $this->getImagenVehiculo()->move(
+       __DIR__.'/../../../../../web/'. 'uploads/vehiculo/color' ,
+        $this->getImagenVehiculo()->getClientOriginalName()
+    );
+
+    // set the path property to the filename where you've saved the file
+    $this->imagen_color = $this->getImagenVehiculo()->getClientOriginalName();
+
+    // clean up the file property as you won't need it anymore
+    $this->setImagenVehiculo(null);
+}
+
+
+
+
+
+
+
 
 }

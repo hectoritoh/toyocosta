@@ -255,6 +255,7 @@ class SlideVehiculos
     public function lifecycleFileUpload()
     {
         $this->uploadFileSlide();
+        $this->uploadFileThumb();
     }
 
 

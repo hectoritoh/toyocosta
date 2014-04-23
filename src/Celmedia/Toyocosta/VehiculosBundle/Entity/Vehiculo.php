@@ -4,7 +4,6 @@ namespace Celmedia\Toyocosta\VehiculosBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
-
 /**
  * Vehiculo
  */
@@ -29,6 +28,11 @@ class Vehiculo
      * @var float
      */
     private $precio_neto;
+
+    /**
+     * @var string
+     */
+    private $informacion;
 
     /**
      * @var string
@@ -173,6 +177,29 @@ class Vehiculo
     public function getPrecioNeto()
     {
         return $this->precio_neto;
+    }
+
+    /**
+     * Set informacion
+     *
+     * @param string $informacion
+     * @return Vehiculo
+     */
+    public function setInformacion($informacion)
+    {
+        $this->informacion = $informacion;
+
+        return $this;
+    }
+
+    /**
+     * Get informacion
+     *
+     * @return string 
+     */
+    public function getInformacion()
+    {
+        return $this->informacion;
     }
 
     /**
@@ -346,7 +373,6 @@ class Vehiculo
         return $this->colores;
     }
 
-
     /**
      * Add galeria
      *
@@ -473,7 +499,7 @@ class Vehiculo
      */
     public function lifecycleFileUpload()
     {
-             // Add your code here
+        
         $this->uploadFileThumb();
         $this->uploadFileBanner();
     }
@@ -588,6 +614,7 @@ public function uploadFileBanner()
     // clean up the file property as you won't need it anymore
     $this->setFilebanner(null);
 }
+
 
 
 }

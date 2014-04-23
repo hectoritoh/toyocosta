@@ -3,6 +3,7 @@
 namespace Celmedia\Toyocosta\VehiculosBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * SlideVehiculos
@@ -253,6 +254,114 @@ class SlideVehiculos
      */
     public function lifecycleFileUpload()
     {
-        // Add your code here
+        $this->uploadFileSlide();
+        $this->uploadFileThumb();
     }
+
+
+
+/**
+ * Unmapped property to handle file uploads
+ */
+private $FileSlide;
+
+/**
+ * Sets file.
+ *
+ * @param UploadedFile $file
+ */
+public function setFileSlide(UploadedFile $FileSlide = null)
+{
+    $this->FileSlide = $FileSlide;
+}
+
+/**
+ * Get file.
+ *
+ * @return UploadedFile
+ */
+public function getFileSlide()
+{
+    return $this->FileSlide;
+}
+
+/**
+ * Manages the copying of the file to the relevant place on the server
+ */
+public function uploadFileSlide()
+{
+    // the file property can be empty if the field is not required
+    if (null === $this->getFileSlide()) {
+        return;
+    }
+
+    // move takes the target directory and target filename as params
+    $this->getFileSlide()->move(
+       __DIR__.'/../../../../../web/'. 'uploads/vehiculo/SlideVehiculos' ,
+        $this->getFileSlide()->getClientOriginalName()
+    );
+
+    // set the path property to the filename where you've saved the file
+    $this->imagen_slide = $this->getFileSlide()->getClientOriginalName();
+
+    // clean up the file property as you won't need it anymore
+    $this->setFileSlide(null);
+}
+
+
+
+
+
+
+/**
+ * Unmapped property to handle file uploads
+ */
+private $FileThumb;
+
+/**
+ * Sets file.
+ *
+ * @param UploadedFile $file
+ */
+public function setFileThumb(UploadedFile $FileThumb = null)
+{
+    $this->FileThumb = $FileThumb;
+}
+
+/**
+ * Get file.
+ *
+ * @return UploadedFile
+ */
+public function getFileThumb()
+{
+    return $this->FileThumb;
+}
+
+/**
+ * Manages the copying of the file to the relevant place on the server
+ */
+public function uploadFileThumb()
+{
+    // the file property can be empty if the field is not required
+    if (null === $this->getFileThumb()) {
+        return;
+    }
+
+    // move takes the target directory and target filename as params
+    $this->getFileThumb()->move(
+       __DIR__.'/../../../../../web/'. 'uploads/vehiculo/SlideVehiculos' ,
+        $this->getFileThumb()->getClientOriginalName()
+    );
+
+    // set the path property to the filename where you've saved the file
+    $this->imagen_thumb = $this->getFileThumb()->getClientOriginalName();
+
+    // clean up the file property as you won't need it anymore
+    $this->setFileThumb(null);
+}
+
+
+
+
 }

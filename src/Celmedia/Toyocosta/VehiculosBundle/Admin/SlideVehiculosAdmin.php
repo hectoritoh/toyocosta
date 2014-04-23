@@ -66,7 +66,7 @@ class SlideVehiculosAdmin extends Admin
             $fullPath = $container->get('request')->getBasePath().'/'.$webPath;
 
             // add a 'help' option containing the preview's img tag
-            $fileFieldOptions['help'] = '<img src="'.$fullPath.'" class="admin-preview" />';
+            $fileFieldOptions['help'] = '<img src="'.$fullPath.'" class="img-responsive" />';
         }
         // use $fileFieldOptions so we can add other options to the field
         $fileFieldOptions2 = array('required' => false);
@@ -76,7 +76,7 @@ class SlideVehiculosAdmin extends Admin
             $fullPath = $container->get('request')->getBasePath().'/'.$webPath;
 
             // add a 'help' option containing the preview's img tag
-            $fileFieldOptions2['help'] = '<img src="'.$fullPath.'" class="admin-preview" />';
+            $fileFieldOptions2['help'] = '<img src="'.$fullPath.'" class="img-responsive" />';
         }
 
 

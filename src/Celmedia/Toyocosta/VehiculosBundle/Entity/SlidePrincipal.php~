@@ -3,6 +3,7 @@
 namespace Celmedia\Toyocosta\VehiculosBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 
 /**
  * SlidePrincipal
@@ -197,6 +198,60 @@ class SlidePrincipal
      */
     public function lifecycleFileUpload()
     {
-        // Add your code here
+        $this->uploadImagenSlide();
     }
+
+
+
+    /**
+ * Unmapped property to handle file uploads
+ */
+private $ImagenSlide;
+
+/**
+ * Sets file.
+ *
+ * @param UploadedFile $file
+ */
+public function setImagenSlide(UploadedFile $ImagenSlide = null)
+{
+    $this->ImagenSlide = $ImagenSlide;
+}
+
+/**
+ * Get file.
+ *
+ * @return UploadedFile
+ */
+public function getImagenSlide()
+{
+    return $this->ImagenSlide;
+}
+
+/**
+ * Manages the copying of the file to the relevant place on the server
+ */
+public function uploadImagenSlide()
+{
+    // the file property can be empty if the field is not required
+    if (null === $this->getImagenSlide()) {
+        return;
+    }
+
+    // move takes the target directory and target filename as params
+    $this->getImagenSlide()->move(
+       __DIR__.'/../../../../../web/'. 'uploads/vehiculo/SlidePrincipal' ,
+        $this->getImagenSlide()->getClientOriginalName()
+    );
+
+    // set the path property to the filename where you've saved the file
+    $this->imagen_banner = $this->getImagenSlide()->getClientOriginalName();
+
+    // clean up the file property as you won't need it anymore
+    $this->setImagenSlide(null);
+}
+
+
+
+
 }

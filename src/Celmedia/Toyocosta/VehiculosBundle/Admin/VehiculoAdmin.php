@@ -13,6 +13,7 @@ class VehiculoAdmin extends Admin
 {
 
 
+
     public  function preUpdate( $obj ){
 
 
@@ -36,13 +37,17 @@ class VehiculoAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-        ->add('nombre')
-        ->add('precio')
-        ->add('precio_neto')
-        ->add('descripcion')
-        ->add('imagen_banner')
-        ->add('imagen_thumb')
-        ->add('estado')
+            ->add('id')
+            ->add('nombre')
+            ->add('precio')
+            ->add('precio_neto')
+            ->add('informacion')
+            ->add('descripcion')
+            ->add('imagen_banner')
+            ->add('imagen_thumb')
+            ->add('estado')
+            ->add('created')
+            ->add('updated')
         ;
     }
 
@@ -52,23 +57,24 @@ class VehiculoAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-        ->add('nombre')
-        ->add('categoria')
-        ->add('precio')
-        ->add('precio_neto')
-        ->add('descripcion')
-        ->add('imagen_banner')
-        ->add('imagen_thumb')
-        ->add('estado', 'choice', array(
+            ->add('id')
+            ->add('nombre')
+            ->add('precio')
+            ->add('precio_neto')
+            ->add('informacion')
+            ->add('descripcion')
+            ->add('imagen_banner')
+            ->add('imagen_thumb')
+            ->add('estado', 'choice', array(
            'choices' => array(
                '1' => 'Publicado',
                '0' => 'No publicado'
                )))
-        ->add('_action', 'actions', array(
-            'actions' => array(
-                'show' => array(),
-                'edit' => array(),
-                'delete' => array(),
+            ->add('_action', 'actions', array(
+                'actions' => array(
+                    'show' => array(),
+                    'edit' => array(),
+                    'delete' => array(),
                 )
             ))
         ;
@@ -79,10 +85,9 @@ class VehiculoAdmin extends Admin
      */
     protected function configureFormFields(FormMapper $formMapper)
     {
+        
 
-
-
-     $obj = $this->getSubject();
+        $obj = $this->getSubject();
 
         // use $fileFieldOptions so we can add other options to the field
         $fileFieldOptions = array('required' => false);
@@ -92,7 +97,7 @@ class VehiculoAdmin extends Admin
             $fullPath = $container->get('request')->getBasePath().'/'.$webPath;
 
             // add a 'help' option containing the preview's img tag
-            $fileFieldOptions['help'] = '<img src="'.$fullPath.'" class="admin-preview" />';
+            $fileFieldOptions['help'] = '<img src="'.$fullPath.'" class="img-responsive" />';
         }
         // use $fileFieldOptions so we can add other options to the field
         $fileFieldOptions2 = array('required' => false);
@@ -102,54 +107,56 @@ class VehiculoAdmin extends Admin
             $fullPath = $container->get('request')->getBasePath().'/'.$webPath;
 
             // add a 'help' option containing the preview's img tag
-            $fileFieldOptions2['help'] = '<img src="'.$fullPath.'" class="admin-preview" />';
+            $fileFieldOptions2['help'] = '<img src="'.$fullPath.'" class="img-responsive" />';
         }
 
 
-        $formMapper
-        ->add('nombre')
-        ->add('categoria')
-        ->add('precio')
-        ->add('precio_neto')
-        ->add('descripcion')
-        ->add('fileThumb' , 'file' , $fileFieldOptions2)
-        ->add('fileBanner', 'file', $fileFieldOptions )
-        ->with('Colores del Vehiculo')
-            ->add('colores', 'sonata_type_collection', array(
-                 'by_reference' => false,
-                       // Prevents the "Delete" option from being displayed
-                 'type_options' => array('delete' => true)) , array(
-                 'edit' => 'inline',
-                 'inline' => 'table',
-                 'sortable' => 'position',
-             ))
-        ->end()
-        ->with('Galeria')
-            ->add('galeria', 'sonata_type_collection', array(
-                 'by_reference' => false,
-                       // Prevents the "Delete" option from being displayed
-                 'type_options' => array('delete' => true)) , array(
-                 'edit' => 'inline',
-                 'inline' => 'table',
-                 'sortable' => 'position',
-             ))
-        ->end()
-        // ->with('Modelos del Vehiculo')
-        //     ->add('modelos', 'sonata_type_collection', array(
-        //          'by_reference' => false,
-        //          'type_options' => array('delete' => true)) , array(
-        //          'edit' => 'inline',
-        //          'inline' => 'standard',
-        //          'sortable' => 'position',
-        //      ))
-        // ->end()
-        ->add('estado', 'choice', array(
-           'choices' => array(
-               '1' => 'Publicado',
-               '0' => 'No publicado'
-               )));
-        ;
 
+        $formMapper
+            ->add('id')
+            ->add('nombre')
+            ->add('precio')
+            ->add('precio_neto')
+            ->add('informacion')
+            ->add('descripcion')
+            ->add('fileThumb' , 'file' , $fileFieldOptions2)
+            ->add('fileBanner', 'file', $fileFieldOptions )
+            ->with('Colores del Vehiculo')
+                ->add('colores', 'sonata_type_collection', array(
+                     'by_reference' => false,
+                           // Prevents the "Delete" option from being displayed
+                     'type_options' => array('delete' => true)) , array(
+                     'edit' => 'inline',
+                     'inline' => 'table',
+                     'sortable' => 'position',
+                 ))
+            ->end()
+            ->with('Galeria')
+                ->add('galeria', 'sonata_type_collection', array(
+                     'by_reference' => false,
+                           // Prevents the "Delete" option from being displayed
+                     'type_options' => array('delete' => true)) , array(
+                     'edit' => 'inline',
+                     'inline' => 'table',
+                     'sortable' => 'position',
+                 ))
+            ->end()
+            // ->with('Modelos del Vehiculo')
+            //     ->add('modelos', 'sonata_type_collection', array(
+            //          'by_reference' => false,
+            //          'type_options' => array('delete' => true)) , array(
+            //          'edit' => 'inline',
+            //          'inline' => 'standard',
+            //          'sortable' => 'position',
+            //      ))
+            // ->end()
+            ->add('estado', 'choice', array(
+               'choices' => array(
+                   '1' => 'Publicado',
+                   '0' => 'No publicado'
+                   )));
+            
+            ;
     }
 
     /**
@@ -158,21 +165,24 @@ class VehiculoAdmin extends Admin
     protected function configureShowFields(ShowMapper $showMapper)
     {
         $showMapper
-        ->add('nombre')
-        ->add('precio')
-        ->add('precio_neto')
-        ->add('descripcion')
-        ->add('imagen_banner')
-        ->add('imagen_thumb')
-        ->add('estado')
-        ->with('Videos y Fotos')
-            ->add('galeria')
-        ->end()
-        ->with('Colores de Vehiculo')
-            ->add('colores')
-        ->end()
+            ->add('id')
+            ->add('nombre')
+            ->add('precio')
+            ->add('precio_neto')
+            ->add('informacion')
+            ->add('descripcion')
+            ->add('imagen_banner')
+            ->add('imagen_thumb')
+            ->add('estado')
+            ->with('Videos y Fotos')
+                ->add('galeria')
+            ->end()
+            ->with('Colores de Vehiculo')
+                ->add('colores')
+            ->end()
         ;
     }
+
 
     public function validate(ErrorElement $errorElement, $object)
     {
@@ -184,11 +194,11 @@ class VehiculoAdmin extends Admin
                     ->assertNotBlank()
                     ->assertNotNull()
                 ->end()
-                
             ;
+            
         }
-    }
 
+    }
 
 
 }

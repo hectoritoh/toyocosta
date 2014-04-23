@@ -19,6 +19,9 @@ Celmedia\Toyocosta\VehiculosBundle\Entity\Vehiculo:
         precio_neto:
             type: float
             nullable: false
+        informacion:
+            type: text
+            nullable: false
         descripcion:
             type: text
             nullable: false
