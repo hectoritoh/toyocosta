@@ -12,6 +12,13 @@ class DefaultController extends Controller
     // }
     public function indexAction()
     {
-        return $this->render('CelmediaToyocostaVehiculosBundle::layout.html.twig');
+
+
+    	$em = $this->getDoctrine()->getManager();
+		$slideVehiculos =$em->getRepository('CelmediaToyocostaVehiculosBundle:SlideVehiculos')->findBy(array("estado"=> 1 ));
+
+        return $this->render('CelmediaToyocostaVehiculosBundle::layout.html.twig' , array( "slideVehiculos" => $slideVehiculos ));
+
+        // return $this->render('CelmediaToyocostaVehiculosBundle::layout.html.twig');
     }
 }
