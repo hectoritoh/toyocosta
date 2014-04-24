@@ -23,51 +23,35 @@
 
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
-    <div class="item active">
 
-      {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/Autos-bg.jpg' %}
-      <img src="{{ asset_url }}" alt="Autos" class="img-responsive" />
-      {% endimage %}
-  
-      <div class="carousel-caption position-caption">
-          <div class="row">
-            <div class="col-md-2 cuadro-caption">
-            	<!-- <div class="borde-diagonal"></div> -->
-            	<ul class="list-caption">
-            		<li class="link-caption"><a href="#">Solicita Cotizaci&oacute;n</a></li>
-            		<li class="link-caption"><a href="#">Test Driver</a></li>
-            		<li class="link-caption"><a href="#">Ver m&aacute;s</a></li>
-            	</ul>
-            </div>
-          </div>
-      </div>
-    </div>
-    <!-- <div class="item">
+  {% for item in slideVehiculos %}
 
-      {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/Autos-bg.jpg' %}
-      <img src="{{ asset_url }}" alt="Autos" class="img-responsive" />
-      {% endimage %}
-  
-      <div class="carousel-caption btn-caption">
-          <a href="#">
-            <div class="row">
-            </div>
-          </a>
-      </div>
-    </div>
-    <div class="item">
+  <div class="item {% if loop.first %} active {% endif %}">
 
-        {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/Autos-bg.jpg' %}
-        <img src="{{ asset_url }}" alt="Autos" class="img-responsive" />
-        {% endimage %}
+    <img src="{{ asset('uploads/vehiculo/SlideVehiculos/'   ~   item.imagenSlide ) }}" alt="Autos" class="img-responsive" />
+        
     
-        <div class="carousel-caption btn-caption">
-            <a href="#">
-              <div class="row">
-              </div>
-            </a>
+    <div class="carousel-caption position-caption">
+
+        <div class="row">
+          <div class="col-md-2 cuadro-caption">
+            <!-- <div class="borde-diagonal"></div> -->
+            <ul class="list-caption">
+              <li class="link-caption"><a href="#">Solicita Cotizaci&oacute;n</a></li>
+              <li class="link-caption"><a href="#">Test Driver</a></li>
+              <li class="link-caption"><a href="#">Ver m&aacute;s</a></li>
+            </ul>
+          </div>
         </div>
-    </div> -->
+
+
+    </div>
+  </div>
+
+
+  {% endfor %}
+
+
   </div>
 
   <!-- Controls -->
