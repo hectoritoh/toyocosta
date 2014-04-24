@@ -1,46 +1,54 @@
-	<form name="filtro_buscador" action="{{ path('pirelli_filtro') }}" method="post">
+	{#
+        <form name="filtro_buscador" action="{{ path('pirelli_filtro') }}" method="post">
+    #}
+
+
         <input type="hidden" name="categoriallanta" value="{{ tipo_llanta }}" />
-        <div class="row">
+        <div class="row">        
             <div class="col-md-3 unido" >
                 <div class="styled-select" style="height: 50px;">
-                    <select name="selectmodelo" id="selectmodelo" class="form-control select-pirelli" onchange="this.form.submit();">
+                    <select name="selectmodelo" id="selectmodelo" class="form-control select-pirelli">
                         <option class="style-option" value="0">Modelo</option>
                         {% for llantamodelo in modelos %}
-                        <option class="style-option" value="{{ llantamodelo.modelo }}" >{{ llantamodelo.modelo }}</option>
+                            <option class="style-option" value="{{ llantamodelo.modelo }}" {% if llanta_modelo == llantamodelo.modelo %} selected="selected" {% endif %} > {{ llantamodelo.modelo }}</option>
                         {% endfor %}
                     </select>
                 </div>
             </div>
             <div class="col-md-3 unido" >
                 <div class="styled-select" style="height: 50px;">
-                    <select name="selectmedida" id="selectmedida" class="form-control select-pirelli" onchange="this.form.submit();">
+                    <select name="selectmedida" id="selectmedida" class="form-control select-pirelli">
                         <option class="style-option" value="0">Medida</option>
                         {% for llantamedida in medidas %}
-                        <option class="style-option" value="{{ llantamedida.medida }}">{{ llantamedida.medida }}</option>
+                        <option class="style-option" value="{{ llantamedida.medida }}" {% if llanta_medida == llantamedida.medida %} selected {% endif %} >{{ llantamedida.medida }}</option>
                         {% endfor %}
                     </select>
                 </div>
             </div>
             <div class="col-md-3 unido" >
                 <div class="styled-select" style="height: 50px;">
-                    <select name="selectrin" id="selectrin" class="form-control select-pirelli" onchange="this.form.submit();">
+                    <select name="selectrin" id="selectrin" class="form-control select-pirelli">
                         <option class="style-option" value="0">Rin</option>
                         {% for llantarin in rines %}
-                        <option class="style-option" value="{{ llantarin.rin }}">{{ llantarin.rin }}</option>
+                        <option class="style-option" value="{{ llantarin.rin }}" {% if llanta_rin == llantarin.rin %} selected {% endif %} >{{ llantarin.rin }}</option>
                         {% endfor %}
                     </select>
                 </div>
             </div>
             <div class="col-md-3 unido" >
                 <div class="styled-select" style="height: 50px;">
-                    <select name="selectlinea" id="selectlinea" class="form-control select-pirelli" onchange="this.form.submit();">
+                    <select name="selectlinea" id="selectlinea" class="form-control select-pirelli">
                         <option class="style-option" value="0">Linea</option>
                         {% for llantalinea in lineas %}
-                        <option class="style-option" value="{{ llantalinea.linea }}">{{ llantalinea.linea }}</option>
+                        <option class="style-option" value="{{ llantalinea.linea }}" {% if llanta_linea == llantalinea.linea %} selected {% endif %}  >{{ llantalinea.linea }}</option>
                         {% endfor %}
                     </select>
                 </div>
             </div>
         </div>
 
-    </form>
+        
+
+{#
+    </form>}
+#}
