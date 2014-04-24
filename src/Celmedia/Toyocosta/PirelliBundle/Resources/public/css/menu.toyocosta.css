@@ -19,7 +19,9 @@
 	padding-right: 0px;
 }
 .icon-facebook{
-	background-image: url('../../web/bundles/celmediatoyocostapirelli/images/Iconos/facebook.png');
+	/*SE MODIFICO PARA QUE APAREZCAN LAS IMGS EN EL LOCAL*/
+	/*background-image: url('../../web/bundles/celmediatoyocostapirelli/images/Iconos/facebook.png');*/
+	background-image: url('../../../web/bundles/celmediatoyocostapirelli/images/Iconos/facebook.png');
 	background-repeat: no-repeat;
 	background-position: 0px 0px;
 	height: 35px;
@@ -27,7 +29,8 @@
 	width: 34px;
 }
 .icon-twitter{
-	background-image: url('../../web/bundles/celmediatoyocostapirelli/images/Iconos/twitter.png');
+	/*background-image: url('../../web/bundles/celmediatoyocostapirelli/images/Iconos/twitter.png');*/
+	background-image: url('../../../web/bundles/celmediatoyocostapirelli/images/Iconos/twitter.png');
 	background-repeat: no-repeat;
 	background-position: 0px 0px;
 	height: 35px;
@@ -35,7 +38,8 @@
 	width: 34px;
 }
 .btn-buscar{
-	background-image: url('../../web/bundles/celmediatoyocostapirelli/images/Iconos/buscador.png');
+	/*background-image: url('../../web/bundles/celmediatoyocostapirelli/images/Iconos/buscador.png');*/
+	background-image: url('../../../web/bundles/celmediatoyocostapirelli/images/Iconos/buscador.png');
 	background-repeat: no-repeat;
 	background-position: 0px -57px;
 	height: 50px;
@@ -44,7 +48,8 @@
 	padding: 6px 28px;
 }
 .btn-buscar:hover{
-	background-image: url('../../web/bundles/celmediatoyocostapirelli/images/Iconos/buscador.png');
+	/*background-image: url('../../web/bundles/celmediatoyocostapirelli/images/Iconos/buscador.png');*/
+	background-image: url('../../../web/bundles/celmediatoyocostapirelli/images/Iconos/buscador.png');
 	background-repeat: no-repeat;
 	background-position: 0px 0px;
 	height: 50px;
