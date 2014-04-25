@@ -22,16 +22,16 @@
                         <form name="buscador" action="{{ path('pirelli_buscador') }}" method="post" >
                             <div class="col-md-8">                            
                                 {% if llanta_modelo is not defined or llanta_modelo is null %}
-                                    {% set llanta_modelo = 0 %}
+                                    {% set llanta_modelo = "0" %}
                                 {% endif %}
                                 {% if llanta_medida is not defined or llanta_medida is null %}
-                                    {% set llanta_medida = 0 %}
+                                    {% set llanta_medida = "0" %}
                                 {% endif %}
                                 {% if llanta_rin is not defined or llanta_rin is null %}
-                                    {% set llanta_rin = 0 %}
+                                    {% set llanta_rin = "0" %}
                                 {% endif %}
                                 {% if llanta_linea is not defined or llanta_linea is null %}
-                                    {% set llanta_linea = 0 %}
+                                    {% set llanta_linea = "0" %}
                                 {% endif %}
 
                                 {{ render(controller("CelmediaToyocostaPirelliBundle:Default:getFiltros" , { 'segmento': tipo_llanta , 'llanta_modelo': llanta_modelo, 'llanta_medida': llanta_medida, 'llanta_rin': llanta_rin, 'llanta_linea': llanta_linea  }))   }}

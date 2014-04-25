@@ -27,6 +27,7 @@ class DefaultController extends Controller
 
         return $this->render('CelmediaToyocostaPirelliBundle::layout.html.twig' , array( "tipo_llanta" => "camioneta" ,   "llantas" => $llantas ));
     }
+
     public function suvPirelliAction()
     {
 
@@ -36,6 +37,7 @@ class DefaultController extends Controller
 
         return $this->render('CelmediaToyocostaPirelliBundle::layout.html.twig' , array( "tipo_llanta" => "suv" , "llantas" => $llantas ));
     }
+
     public function industrialPirelliAction()
     {
 
@@ -122,15 +124,23 @@ class DefaultController extends Controller
         $connection = $em->getConnection();
 
         $sqlQuery = "SELECT * FROM pirelli_llanta WHERE segmento='$tipo_llanta'";
+
+        //Si el modelo existe, esta definido se agrega al query
         if($modelo){
             $sqlQuery .= " AND modelo='$modelo'";
         }
+
+        //Si la medida existe, esta definida se agrega al query
         if($medida){
             $sqlQuery .= " AND medida='$medida'";
         }
+
+        //Si el ri existe, esta definido se agrega al query
         if($rin){
             $sqlQuery .= " AND rin='$rin'";
         }
+
+        //Si la linea existe, esta definida se agrega al query
         if($linea){
             $sqlQuery .= " AND linea='$linea'";
         }

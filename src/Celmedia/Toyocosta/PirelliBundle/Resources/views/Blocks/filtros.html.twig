@@ -10,7 +10,7 @@
                     <select name="selectmodelo" id="selectmodelo" class="form-control select-pirelli">
                         <option class="style-option" value="0">Modelo</option>
                         {% for llantamodelo in modelos %}
-                            <option class="style-option" value="{{ llantamodelo.modelo }}" {% if llanta_modelo == llantamodelo.modelo %} selected="selected" {% endif %} > {{ llantamodelo.modelo }}</option>
+                            <option class="style-option" value="{{ llantamodelo.modelo }}" {% if llanta_modelo == llantamodelo.modelo %} selected="selected" {% endif %} >{{ llantamodelo.modelo }}</option>
                         {% endfor %}
                     </select>
                 </div>
