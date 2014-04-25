@@ -1,73 +1,65 @@
 <div id="carousel-vehiculos" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
   <ol class="carousel-indicators carousel-vehiculos">
-    <li data-target="#carousel-vehiculos" data-slide-to="0" class="active">
-    	<br />
-    	{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/Autos/bullet_click.png' %}
-     		<img src="{{ asset_url }}" alt="Corolla" class="img-indicator" />
-      	{% endimage %}
-    </li>
-    <li data-target="#carousel-vehiculos" data-slide-to="1">
-    	<!-- {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/Autos/bullet1.png' %}
-     		<img src="{{ asset_url }}" alt="Yaris" class="img-indicator" />
-      	{% endimage %} -->
-      	<p class="txt-indicador"><br />YARIS <br/>SEDAN</p>
-    </li>
-    <li data-target="#carousel-vehiculos" data-slide-to="2">
-    	<!-- {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/Autos/bullet2.png' %}
-     		<img src="{{ asset_url }}" alt="Prius" class="img-indicator" />
-      	{% endimage %} -->
-      	<p class="txt-indicador"><br />PRIUS <br />HIBRIDO</p>
-    </li>
+
+    {% set i = 0 %}
+    {% for bullet in slideVehiculos %}
+
+      <li data-target="#carousel-vehiculos" data-slide-to="{{ i }}" class="miniaturas {% if loop.first %} active {% endif %}">
+            <br />
+            <img src="{{ asset('uploads/vehiculo/SlideVehiculos/'   ~   bullet.imagenThumb ) }}" alt="Autos" class="img-indicator"/>
+
+          <!-- <div class="fondo-bullet">
+            <p class="txt-indicador"><br />YARIS <br/>SEDAN</p>
+          </div> -->
+          
+      </li>
+
+      {% set i = i + 1 %}
+    {% endfor %}
+
   </ol>
 
   <!-- Wrapper for slides -->
   <div class="carousel-inner">
-    <div class="item active">
 
-      {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/Autos-bg.jpg' %}
-      <img src="{{ asset_url }}" alt="Autos" class="img-responsive" />
-      {% endimage %}
-  
-      <div class="carousel-caption position-caption">
-          <div class="row">
-            <div class="col-md-2 cuadro-caption">
-            	<!-- <div class="borde-diagonal"></div> -->
-            	<ul class="list-caption">
-            		<li class="link-caption"><a href="#">Solicita Cotizaci&oacute;n</a></li>
-            		<li class="link-caption"><a href="#">Test Driver</a></li>
-            		<li class="link-caption"><a href="#">Ver m&aacute;s</a></li>
-            	</ul>
+  {% for item in slideVehiculos %}
+
+  <div class="item {% if loop.first %} active {% endif %}">
+
+    <img src="{{ asset('uploads/vehiculo/SlideVehiculos/'   ~   item.imagenSlide ) }}" alt="Autos" class="img-responsive" />
+        
+    
+    <div class="carousel-caption position-caption">
+        <div class="row distancia">
+          <div class="cuadro-precio">
+            <h4 class="txt-caption">Precio <span class="precio-caption">$30160</span></h4>
+            <p class="parrafo-caption">*Version y accesorios pueden variar segun la disponibilidad.</p>
+          </div>
+
+        </div>
+        <div class="row">
+          <div class="cuadro-caption">
+            <div class="col-md-2">
+
+              <ul class="list-caption">
+                <li class="link-caption"><a class="link" href="#">Solicita Cotizaci&oacute;n</a></li>
+                <li class="link-caption"><a class="link" href="#">Test Driver</a></li>
+                <li class="link-caption"><a class="link" href="#">Ver m&aacute;s</a></li>
+              </ul>
+
             </div>
           </div>
-      </div>
-    </div>
-    <!-- <div class="item">
-
-      {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/Autos-bg.jpg' %}
-      <img src="{{ asset_url }}" alt="Autos" class="img-responsive" />
-      {% endimage %}
-  
-      <div class="carousel-caption btn-caption">
-          <a href="#">
-            <div class="row">
-            </div>
-          </a>
-      </div>
-    </div>
-    <div class="item">
-
-        {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/Autos-bg.jpg' %}
-        <img src="{{ asset_url }}" alt="Autos" class="img-responsive" />
-        {% endimage %}
-    
-        <div class="carousel-caption btn-caption">
-            <a href="#">
-              <div class="row">
-              </div>
-            </a>
         </div>
-    </div> -->
+
+
+    </div>
+  </div>
+
+
+  {% endfor %}
+
+
   </div>
 
   <!-- Controls -->

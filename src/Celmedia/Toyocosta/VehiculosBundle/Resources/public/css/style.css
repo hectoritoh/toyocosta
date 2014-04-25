@@ -69,11 +69,13 @@
 		width: 70px;
 		height: 69px;
 		border: 0px solid #fff;
-		border-radius: 75px;
-		background-color: #FFFFFF;
+		/*border-radius: 75px;
+		background-color: #FFFFFF;*/
 	}
+	/*POSICION PRECIO Y ACCESOS DE SLIDERS VEHICULOS*/
 	.position-caption{
-		margin-bottom: 90px;
+		left: 12%;
+		bottom: 32%;
 	}
  }
  
@@ -109,13 +111,15 @@
 	text-shadow: 0px 0px 0px transparent;
 }
 .glyphicon-chevron-left{
-	background-image: url("../../../web/img/Iconos/left.png");
+	/*background-image: url("../../../web/img/Iconos/left.png");*/
+	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/varios/left.png"); 
 	height: 105px;
 	width: 100%;
 	background-repeat: no-repeat;
 }
 .glyphicon-chevron-right{
-	background-image: url("../../../web/img/Iconos/right.png");
+	/*background-image: url("../../../web/img/Iconos/right.png");*/
+	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/varios/right.png"); 
 	height: 105px;
 	width: 100%;
 	background-repeat: no-repeat;
@@ -128,26 +132,72 @@
 .img-indicator{
 	margin-bottom: 12px;
 }
+.cuadro-precio{
+	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/varios/recuadro-precio.png");
+	background-repeat: no-repeat; 
+	height: 70px;
+	padding-left: 14px;
+	padding-right: 14px;
+	padding-top: 2px;
+}
 .cuadro-caption{
-	border-left: 2px solid red;
+	/*border-left: 2px solid red;
 	border-top-right-radius: 5px;
 	background-image: url("../../../web/img/Autos-box/Fondo.png");
-	height: 80px;
+	height: 80px;*/
+
+	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/varios/recuadro-accesos.png"); 
+	background-repeat: no-repeat;
+	height: 149px;
+}
+.txt-caption{
+    font-size: 18px;
+    text-align: left;
+    color: #000000;
+    margin-top: 5px;
+	margin-bottom: 1px;
+}
+.parrafo-caption{
+	font-size: 12px;
+    text-align: left;
+    color: #000000;
+}
+.precio-caption{
+	font-size: 34px;
+    color: #DF192A;
+    font-weight: bold;
 }
 .list-caption{
-	padding-left: 16px;
 	text-align: left;
+	padding-left: 0px;
 }
-.link-caption{
+.link-caption {
 	list-style-type: none;
-	border-bottom: 1px solid #555555;
-	margin-right: 18px;
+	border-bottom: 1px solid #63676A;
+	margin-left: 18px;
+	margin-right: 28px;
+	padding: 13px;
 }
-.link-caption a{
-	text-decoration: none;
+.link-caption:hover{
+	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/varios/mayorq.png"); 
+	background-repeat: no-repeat;
+	background-position: 145px 18px;
+}
+.link{
 	color: #FFFFFF;
 	font-size: 14px;
 }
-.borde-diagonal{
-
+.link:hover{
+	text-decoration: none;
+	color: #FFFFFF;
+}
+.distancia{
+	margin-bottom: 74px;
+}
+.fondo-bullet{
+	width: 70px;
+	height: 69px;
+	border: 0px solid #fff;
+	border-radius: 75px;
+	background-color: #FFFFFF;
 }
