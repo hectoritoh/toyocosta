@@ -275,6 +275,13 @@ button.close-ficha{
 	color: #fff;
 	border-color:transparent;
 }
+.btn-buscar-filtro{
+	height: 50px;
+	color: #FFFFFF;
+	width: 90%;
+	background-image: none;
+	background-color: #999999;
+}
 .modal-descripcion{
 	margin-top: 20px;
 }

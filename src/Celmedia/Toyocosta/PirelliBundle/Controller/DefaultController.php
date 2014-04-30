@@ -14,6 +14,7 @@ class DefaultController extends Controller
     	$em = $this->getDoctrine()->getManager();
 		$llantas =$em->getRepository('CelmediaToyocostaPirelliBundle:Llanta')->findBy(array("estado"=> 1, "segmento"=> "automovil"));
 
+
         return $this->render('CelmediaToyocostaPirelliBundle::layout.html.twig' , array( "tipo_llanta" => "automovil" ,   "llantas" => $llantas ));
     }
 
@@ -24,9 +25,9 @@ class DefaultController extends Controller
 		$llantas =$em->getRepository('CelmediaToyocostaPirelliBundle:Llanta')->findBy(array("estado"=> 1, "segmento"=> "camioneta"));
 
 
-
         return $this->render('CelmediaToyocostaPirelliBundle::layout.html.twig' , array( "tipo_llanta" => "camioneta" ,   "llantas" => $llantas ));
     }
+
     public function suvPirelliAction()
     {
 
@@ -34,9 +35,9 @@ class DefaultController extends Controller
 		$llantas =$em->getRepository('CelmediaToyocostaPirelliBundle:Llanta')->findBy(array("estado"=> 1, "segmento"=> "suv"));
 
 
-
         return $this->render('CelmediaToyocostaPirelliBundle::layout.html.twig' , array( "tipo_llanta" => "suv" , "llantas" => $llantas ));
     }
+
     public function industrialPirelliAction()
     {
 
@@ -49,7 +50,7 @@ class DefaultController extends Controller
 
 
 
-    public function getFiltrosAction( $segmento )
+    public function getFiltrosAction( $segmento , $llanta_modelo, $llanta_medida, $llanta_rin, $llanta_linea )
     {
 
         $em = $this->getDoctrine()->getManager();
@@ -74,21 +75,23 @@ class DefaultController extends Controller
         $lineas = $query4->getResult();
 
 
-        return $this->render('CelmediaToyocostaPirelliBundle:Blocks:filtros.html.twig' ,  array( "tipo_llanta" => $segmento ,   "modelos" => $modelos, "medidas" => $medidas, "rines" => $rines, "lineas" => $lineas));
+        return $this->render('CelmediaToyocostaPirelliBundle:Blocks:filtros.html.twig' ,  array( "tipo_llanta" => $segmento , "modelos" => $modelos, "medidas" => $medidas, "rines" => $rines, "lineas" => $lineas, "llanta_modelo" => $llanta_modelo, "llanta_medida" => $llanta_medida, "llanta_rin" => $llanta_rin, "llanta_linea" => $llanta_linea));
     }
 
 
 
 
     public function buscadorPirelliAction(Request $request){
+        /*
 
+        // Código de Yuri
 
         $keyword = $request->get('buscar');
         $tipo_llanta = $request->get('categoria');
         $keyword = strtolower ($keyword) ;
 
 
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
         $qb = $em->createQueryBuilder();
         $llantas = $qb->select('n')->from('Celmedia\Toyocosta\PirelliBundle\Entity\Llanta', 'n')
                 ->where($qb->expr()->like('n.segmento', $qb->expr()->literal('%' .  $tipo_llanta . '%')))
@@ -107,21 +110,66 @@ class DefaultController extends Controller
                     "llantas" => $llantas,
                         )
         );
+        */
+
+        
+        $tipo_llanta = $request->get('categoriallanta');
+        $modelo = $request->get('selectmodelo');
+        $medida = $request->get('selectmedida');
+        $rin = $request->get('selectrin');
+        $linea = $request->get('selectlinea');
 
 
+        $em = $this->getDoctrine()->getManager();
+        $connection = $em->getConnection();
+
+        $sqlQuery = "SELECT * FROM pirelli_llanta WHERE segmento='$tipo_llanta'";
+
+        //Si el modelo existe, esta definido se agrega al query
+        if($modelo){
+            $sqlQuery .= " AND modelo='$modelo'";
+        }
+
+        //Si la medida existe, esta definida se agrega al query
+        if($medida){
+            $sqlQuery .= " AND medida='$medida'";
+        }
+
+        //Si el ri existe, esta definido se agrega al query
+        if($rin){
+            $sqlQuery .= " AND rin='$rin'";
+        }
+
+        //Si la linea existe, esta definida se agrega al query
+        if($linea){
+            $sqlQuery .= " AND linea='$linea'";
+        }
+
+        $statement = $connection->prepare($sqlQuery);
+        $statement->execute();
+        $llantas = $statement->fetchAll();
+
+        return $this->render('CelmediaToyocostaPirelliBundle::layout.html.twig', array(
+                    "tipo_llanta" => $tipo_llanta,
+                    "llantas" => $llantas,
+                    "llanta_modelo" => $modelo,
+                    "llanta_medida" => $medida,
+                    "llanta_rin" => $rin,
+                    "llanta_linea" => $linea,
+                )
+        );
     }
 
 
     public function filtroBuscadorPirelliAction(Request $request){
 
         $tipo_llanta = $request->get('categoriallanta');
-
         $modelo = $request->get('selectmodelo');
         $medida = $request->get('selectmedida');
         $rin = $request->get('selectrin');
         $linea = $request->get('selectlinea');
 
-        $em = $this->getDoctrine()->getEntityManager();
+        $em = $this->getDoctrine()->getManager();
         $connection = $em->getConnection();
         $statement = $connection->prepare("SELECT * FROM pirelli_llanta WHERE segmento = '$tipo_llanta' AND (modelo = '$modelo' OR medida = '$medida' OR rin = '$rin' OR linea = '$linea') ");
         $statement->execute();
@@ -130,7 +178,7 @@ class DefaultController extends Controller
         return $this->render('CelmediaToyocostaPirelliBundle::layout.html.twig', array(
                     "tipo_llanta" => $tipo_llanta,
                     "llantas" => $llantas,
-                        )
+                    )
         );
 
 
@@ -140,13 +188,13 @@ class DefaultController extends Controller
         // $em = $this->getDoctrine()->getManager();
         // $llantas =$em->getRepository('CelmediaToyocostaPirelliBundle:Llanta')->findBy(array("estado"=> 1, "segmento"=> $tipo_llanta, "modelo"=> $modelo, "medida"=> $medida));
 
-        // $em = $this->getDoctrine()->getEntityManager();
+        // $em = $this->getDoctrine()->getManager();
         // $connection = $em->getConnection();
         // $statement = $connection->prepare("SELECT * FROM pirelli_llanta WHERE segmento='.$tipo_llanta.'");
         // $statement->execute();
         // $llantas = $statement->fetchAll();
 
-        // $em = $this->getDoctrine()->getEntityManager();
+        // $em = $this->getDoctrine()->getManager();
         // $qb = $em->createQueryBuilder();
         // $llantas = $qb->select('a')->from('Celmedia\Toyocosta\PirelliBundle\Entity\Llanta', 'a')
         //         ->where($qb->expr()->like('a.segmento', $qb->expr()->literal('%' .  $tipo_llanta . '%')))

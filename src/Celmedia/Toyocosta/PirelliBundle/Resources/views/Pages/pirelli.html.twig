@@ -6,27 +6,47 @@
         </div>
     </div>
 
+
+
     <div class="row buscador-pirelli">
-    	<div class="form-group">
+        <div class="form-group">
 
-    		<div class="col-md-12">
-    			<div class="form">
+            <div class="col-md-12">
+                <div class="form">
 
-    				<div class="row">
-    					<div class="col-md-1 bloque-vacio">
+                    <div class="row">
+                        <div class="col-md-1 bloque-vacio">
 
-    					</div>
+                        </div>
                         
-    					<div class="col-md-8">
-    					
-                          {{ render(controller("CelmediaToyocostaPirelliBundle:Default:getFiltros" , { 'segmento': tipo_llanta }))    }}
-
-    					</div>
                         <form name="buscador" action="{{ path('pirelli_buscador') }}" method="post" >
-    					<div class="col-md-3" style="padding-left: 0px;">
-                            <input type="hidden"  name="categoria" value="{{ tipo_llanta }}" />
-    						<input name="buscar" class="form-control input-lg input-buscador input-search" type="text" placeholder="Buscar">
-    					</div>
+                            <div class="col-md-8">                            
+                                {% if llanta_modelo is not defined or llanta_modelo is null %}
+                                    {% set llanta_modelo = "0" %}
+                                {% endif %}
+                                {% if llanta_medida is not defined or llanta_medida is null %}
+                                    {% set llanta_medida = "0" %}
+                                {% endif %}
+                                {% if llanta_rin is not defined or llanta_rin is null %}
+                                    {% set llanta_rin = "0" %}
+                                {% endif %}
+                                {% if llanta_linea is not defined or llanta_linea is null %}
+                                    {% set llanta_linea = "0" %}
+                                {% endif %}
+
+                                {{ render(controller("CelmediaToyocostaPirelliBundle:Default:getFiltros" , { 'segmento': tipo_llanta , 'llanta_modelo': llanta_modelo, 'llanta_medida': llanta_medida, 'llanta_rin': llanta_rin, 'llanta_linea': llanta_linea  }))   }}
+
+                            </div>
+                            <div class="col-md-2" style="padding-left: 0px; text-align: center;">
+                                <input type="hidden"  name="categoria" value="{{ tipo_llanta }}" />
+
+                                <input type="submit" class="btn btn-buscar-filtro" value="Buscar" />
+
+                                {#
+        						  <input name="buscar" class="form-control input-lg input-buscador input-search" type="text" placeholder="Buscar">
+                                #}
+
+                            </div>
                         </form>
     				</div>
 

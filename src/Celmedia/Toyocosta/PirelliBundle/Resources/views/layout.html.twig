@@ -11,9 +11,9 @@
 
     {% stylesheets
     "@CelmediaToyocostaPirelliBundle/Resources/public/css/bootstrap.min.css"
-    "@CelmediaToyocostaPirelliBundle/Resources/public/css/menu.toyocosta.css"
-    "@CelmediaToyocostaPirelliBundle/Resources/public/css/jquery.selectbox/jquery.selectbox.css"
     "@CelmediaToyocostaPirelliBundle/Resources/public/css/reset.css"
+    "@CelmediaToyocostaPirelliBundle/Resources/public/css/jquery.selectbox/jquery.selectbox.css"
+    "@CelmediaToyocostaPirelliBundle/Resources/public/css/menu.toyocosta.css"
     "@CelmediaToyocostaPirelliBundle/Resources/public/css/estilo.pirelli.css"
      %}
         <link type="text/css" rel="stylesheet" media="all" href="{{ asset_url }}" />
@@ -36,10 +36,10 @@
     {% include 'CelmediaToyocostaPirelliBundle:Blocks:footer.html.twig' %}
      {% javascripts
         '@CelmediaToyocostaPirelliBundle/Resources/public/js/jquery.js'
+        '@CelmediaToyocostaPirelliBundle/Resources/public/js/bootstrap.min.js' 
         '@CelmediaToyocostaPirelliBundle/Resources/public/js/jquery.selectbox/jquery.selectbox-0.2.js'        
         '@CelmediaToyocostaPirelliBundle/Resources/public/js/script.js' 
         '@CelmediaToyocostaPirelliBundle/Resources/public/js/script.pirelli.js'
-        '@CelmediaToyocostaPirelliBundle/Resources/public/js/bootstrap.min.js' 
         %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
      {% endjavascripts %}                          
