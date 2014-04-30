@@ -293,8 +293,8 @@ button.close-ficha{
 	background-repeat: no-repeat;
 	height: 108px;
 }
-.avaluo-footer{
-	background-image: url("../../bundles/celmediatoyocostapirelli/images/Banners/Avaluo.jpg");
+.pirelli-footer{
+	background-image: url("../../bundles/celmediatoyocostapirelli/images/Banners/pirellibanner.jpg");
 	background-repeat: no-repeat;
 	height: 108px;
 }
@@ -430,6 +430,7 @@ button.close-ficha{
 .logo-toyota{
 	padding-top: 6px;
 	padding-bottom: 8px;
+	border-bottom: 1px solid #537982; /*29/04/14*/
 }
 .accesos{
 	padding-top: 30px;

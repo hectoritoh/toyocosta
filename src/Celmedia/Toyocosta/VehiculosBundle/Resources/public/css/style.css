@@ -69,9 +69,23 @@
 		width: 70px;
 		height: 69px;
 		border: 0px solid #fff;
-		/*border-radius: 75px;
-		background-color: #FFFFFF;*/
 	}
+	/*CAROUSEL CAMIONETAS*/
+	.carousel-camionetas .active {
+		width: 70px;
+		height: 0px;
+		margin: 1px;
+	}
+	.carousel-camionetas li:first-child
+	{
+		background-color: transparent;
+	}
+	.carousel-camionetas li{
+		width: 70px;
+		height: 69px;
+		border: 0px solid #fff;
+	}
+
 	/*POSICION PRECIO Y ACCESOS DE SLIDERS VEHICULOS*/
 	.position-caption{
 		left: 12%;
@@ -110,6 +124,17 @@
 	color: #767676;
 	text-shadow: 0px 0px 0px transparent;
 }
+.btn-rojo{
+	background-color: #D62C2F;
+	color: #FFFFFF;
+	text-shadow: 0px 0px 0px transparent;
+}
+.btn-rojo:hover{
+	background-color: #E80000;
+	color: #FFFFFF;
+}
+
+
 .glyphicon-chevron-left{
 	/*background-image: url("../../../web/img/Iconos/left.png");*/
 	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/varios/left.png"); 
@@ -200,4 +225,32 @@
 	border: 0px solid #fff;
 	border-radius: 75px;
 	background-color: #FFFFFF;
+}
+.img-indicator{
+	display: none;
+}
+
+
+
+.active > .fondo-bullet{
+	display: none;
+}
+
+.active > .img-indicator{
+	display: inline;
+}
+
+.fondo-montacarga{
+	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/slide/montacargas.jpg"); 
+	background-repeat: no-repeat;
+	height: 864px;
+}
+.equipos{
+	margin-top: 120px;
+	margin-bottom: 50px;
+}
+.fondo-pirelli{
+	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/slide/montacargas.jpg"); 
+	background-repeat: no-repeat;
+	height: 864px;
 }

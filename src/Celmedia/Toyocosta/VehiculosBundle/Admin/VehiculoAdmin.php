@@ -57,7 +57,6 @@ class VehiculoAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('id')
             ->add('nombre')
             ->add('precio')
             ->add('precio_neto')
@@ -113,7 +112,7 @@ class VehiculoAdmin extends Admin
 
 
         $formMapper
-            ->add('id')
+            ->add('categoria')
             ->add('nombre')
             ->add('precio')
             ->add('precio_neto')

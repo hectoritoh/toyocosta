@@ -23,19 +23,42 @@
 	/*background-image: url('../../web/bundles/celmediatoyocostapirelli/images/Iconos/facebook.png');*/
 	background-image: url('../../../web/bundles/celmediatoyocostapirelli/images/Iconos/facebook.png');
 	background-repeat: no-repeat;
-	background-position: 0px 0px;
+	background-position: 0px -36px;
 	height: 35px;
 	display: block;
 	width: 34px;
+}
+.icon-facebook:hover{
+	background-image: url('../../../web/bundles/celmediatoyocostapirelli/images/Iconos/facebook.png');
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
 }
 .icon-twitter{
 	/*background-image: url('../../web/bundles/celmediatoyocostapirelli/images/Iconos/twitter.png');*/
 	background-image: url('../../../web/bundles/celmediatoyocostapirelli/images/Iconos/twitter.png');
 	background-repeat: no-repeat;
-	background-position: 0px 0px;
+	background-position: 0px -36px;
 	height: 35px;
 	display: block;
 	width: 34px;
+}
+.icon-twitter:hover{
+	background-image: url('../../../web/bundles/celmediatoyocostapirelli/images/Iconos/twitter.png');
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+}
+.icon-blog{
+	background-image: url('../../../web/bundles/celmediatoyocostapirelli/images/Iconos/blog.png');
+	background-repeat: no-repeat;
+	background-position: 0px -36px;
+	height: 35px;
+	display: block;
+	width: 34px;
+}
+.icon-blog:hover{
+	background-image: url('../../../web/bundles/celmediatoyocostapirelli/images/Iconos/blog.png');
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
 }
 .btn-buscar{
 	/*background-image: url('../../web/bundles/celmediatoyocostapirelli/images/Iconos/buscador.png');*/
