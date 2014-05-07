@@ -13,7 +13,7 @@ $(document).ready(function(){
       });
 
       //Select Box 
-      $('#selectmodelo, #selectmedida, #selectrin, #selectlinea').selectbox();
+      $('#selectmodelo, #selectmedida, #selectrin, #selectprecio').selectbox();
 
 
 });

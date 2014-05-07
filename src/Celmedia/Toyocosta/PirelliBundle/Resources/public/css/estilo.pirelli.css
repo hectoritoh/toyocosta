@@ -246,13 +246,13 @@ button.close-ficha{
 	color: #818181;
 }
 .modal-text-tipo{
-	font-size: 28px;
+	font-size: 24px;
 	color: #353535;
 	margin-top: 10px;
 }
 .modal-text-precio{
 	color: #DF1724;
-	font-size: 28px;
+	font-size: 24px;
 	margin-top: 10px;
 }
 .modal-divisor{
@@ -276,18 +276,18 @@ button.close-ficha{
 	border-color:transparent;
 }
 .btn-buscar-filtro{
-	height: 50px;
+	height: 40px;
 	color: #FFFFFF;
 	width: 90%;
 	background-image: none;
 	background-color: #999999;
 }
 .modal-descripcion{
-	margin-top: 20px;
+	margin-top: 22px;
+	margin-bottom: 32px;
 }
 .modal-botones{
-	margin-top: 20px;
-	margin-bottom: 20px;
+	padding-bottom: 26px;
 }
 /*FOOTER BANNERS*/
 .cita-footer{
@@ -446,4 +446,8 @@ button.close-ficha{
 .relleno{
 	padding-left: 15px;
 	padding-right: 15px;
+}
+.espacio{
+	padding-top: 46px;
+	padding-bottom: 55px;
 }

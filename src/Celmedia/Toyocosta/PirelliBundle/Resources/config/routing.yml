@@ -1,9 +1,9 @@
-pirelli_home:
-    pattern:  /index
-    defaults: { _controller: CelmediaToyocostaPirelliBundle:Default:index }
+# pirelli_home:
+#     pattern:  /index
+#     defaults: { _controller: CelmediaToyocostaPirelliBundle:Default:index }
 
 pirelli_home:
-    pattern:  /
+    pattern:  /pirelli
     defaults: { _controller: CelmediaToyocostaPirelliBundle:Default:index }
 
 
@@ -19,6 +19,10 @@ pirelli_suv:
 pirelli_industrial:
     pattern:  /industrial
     defaults: { _controller: CelmediaToyocostaPirelliBundle:Default:industrialPirelli }
+
+pirelli_camion:
+    pattern:  /camion
+    defaults: { _controller: CelmediaToyocostaPirelliBundle:Default:camionPirelli }
 
 pirelli_buscador:
     pattern:  /buscando

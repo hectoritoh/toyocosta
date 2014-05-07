@@ -3,5 +3,5 @@
 #     defaults: { _controller: CelmediaToyocostaVehiculosBundle:Default:index }
 
 toyocosta_homepage:
-    pattern:  /home
+    pattern:  /
     defaults: { _controller: CelmediaToyocostaVehiculosBundle:Default:index }

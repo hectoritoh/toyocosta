@@ -30,14 +30,14 @@
                                 {% if llanta_rin is not defined or llanta_rin is null %}
                                     {% set llanta_rin = "0" %}
                                 {% endif %}
-                                {% if llanta_linea is not defined or llanta_linea is null %}
-                                    {% set llanta_linea = "0" %}
+                                {% if llanta_precio is not defined or llanta_precio is null %}
+                                    {% set llanta_precio = "0" %}
                                 {% endif %}
 
-                                {{ render(controller("CelmediaToyocostaPirelliBundle:Default:getFiltros" , { 'segmento': tipo_llanta , 'llanta_modelo': llanta_modelo, 'llanta_medida': llanta_medida, 'llanta_rin': llanta_rin, 'llanta_linea': llanta_linea  }))   }}
+                                {{ render(controller("CelmediaToyocostaPirelliBundle:Default:getFiltros" , { 'segmento': tipo_llanta , 'llanta_modelo': llanta_modelo, 'llanta_medida': llanta_medida, 'llanta_rin': llanta_rin, 'llanta_precio': llanta_precio }))   }}
 
                             </div>
-                            <div class="col-md-2" style="padding-left: 0px; text-align: center;">
+                            <div class="col-md-2" style="text-align: center; padding-top: 4px;padding-bottom: 5px;border-bottom: 1px solid #ccc;border-left: 1px solid #ccc;">
                                 <input type="hidden"  name="categoria" value="{{ tipo_llanta }}" />
 
                                 <input type="submit" class="btn btn-buscar-filtro" value="Buscar" />
@@ -48,6 +48,9 @@
 
                             </div>
                         </form>
+                        <div class="col-md-1 bloque-vacio">
+
+                        </div>
     				</div>
 
     			</div>
@@ -101,9 +104,9 @@
                             <div class="col-md-10 fondo-ficha contenedor-centrar">
                                 <a id="llanta{{ i }}" data-toggle="modal" href="#Modal_llanta{{ i }}">
                                 <div class="row img-ficha">
-                                    {% image '@CelmediaToyocostaPirelliBundle/Resources/public/images/llanta.jpg' %}
-                                    <img src="{{ asset_url }}" alt="llanta" class="img-responsive" />
-                                    {% endimage %}
+
+                                    <img src="{{ asset('uploads/pirelli/'   ~   llanta.imagen ) }}" alt="{{ llanta.modelo }}" class="img-responsive"/>
+
                                 </div>
                                 </a>
                                 <div class="row relleno">
@@ -126,98 +129,100 @@
                                     <div class="col-md-6">
                                         <p class="text-detalle">Rin</p>
                                         <p class="text-detalle">Medida</p>
-                                        <p class="text-detalle">Linea</p>
                                     </div>
                                     <div class="col-md-6">
                                         <p class="text-detalle">{{  llanta.rin }}</p>
                                         <p class="text-detalle">{{  llanta.medida }}</p>
-                                        <p class="text-detalle">{{  llanta.linea }}</p>
                                     </div>
                                 </div>
 
                             </div>
 
                             <!-- Modal -->
-                            <div class="modal fade" id="Modal_llanta{{ i }}" tabindex="-1" role="dialog">
-                                <div class="modal-dialog">
+                            <div class="modal fade"  class="modal fade "  id="Modal_llanta{{ i }}" tabindex="-1" role="dialog">
+                                <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header header-ficha">
                                             <button type="button" class="close close-ficha" data-dismiss="modal" aria-hidden="true"></button>
                                         </div>
                                         <div class="modal-body body-ficha" style="padding:0px;">
-                                            <div class="row fondo-ficha relleno">
-                                                <div class="col-md-6">
-                                                    <p class="modal-text-tipo">{{  llanta.modelo }}</p>
+
+                                            <div class="col-md-6">
+                                                
+                                                <div class="row">
+
+                                                    <img src="{{ asset('uploads/pirelli/'   ~   llanta.imagen ) }}" alt="{{ llanta.modelo }}" class="img-responsive contenedor-centrar"/>
+
                                                 </div>
-                                                <div class="col-md-6 text-right">
-                                                    <p class="modal-text-precio">${{  llanta.precio}}</p>
-                                                </div>
-                                            </div>
-                                            <div class="row">
-                                                {% image '@CelmediaToyocostaPirelliBundle/Resources/public/images/llanta-lightbox.png' %}
-                                                <img src="{{ asset_url }}" alt="llanta" class="img-responsive contenedor-centrar" />
-                                                {% endimage %}
 
                                             </div>
-                                            <div class="row fondo-ficha relleno">
+                                            <div class="col-md-6" style="">
 
-                                                <div class="col-md-12 modal-descripcion">
-                                                    <div class="row">
+                                                <div class="row fondo-ficha relleno espacio">
+
+                                                    <div class="col-md-10 col-md-offset-1">
                                                         <div class="col-md-6">
-                                                            <p class="modal-text">Medida:</p>
+                                                            <p class="modal-text-tipo">{{  llanta.modelo }}</p>
                                                         </div>
                                                         <div class="col-md-6 text-right">
-                                                            <p class="modal-text-desc">{{  llanta.medida }}</p>
+                                                            <p class="modal-text-precio">${{  llanta.precio}}</p>
                                                         </div>
+                                                    </div>
+
+                                                    <div class="col-md-10 col-md-offset-1 modal-descripcion">
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <p class="modal-text">Medida:</p>
+                                                            </div>
+                                                            <div class="col-md-6 text-right">
+                                                                <p class="modal-text-desc">{{  llanta.medida }}</p>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="modal-divisor"></div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <p class="modal-text">Rin:</p>
+                                                            </div>
+                                                            <div class="col-md-6 text-right">
+                                                                <p class="modal-text-desc">{{  llanta.rin }}</p>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="modal-divisor"></div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <p class="modal-text">Modelo:</p>
+                                                            </div>
+                                                            <div class="col-md-6 text-right">
+                                                                <p class="modal-text-desc">{{  llanta.modelo }}</p>
+                                                            </div>
+
+                                                        </div>
+                                                        <div class="modal-divisor"></div>
+                                                        <div class="row">
+                                                            <div class="col-md-6">
+                                                                <p class="modal-text">Segmento:</p>
+                                                            </div>
+                                                            <div class="col-md-6 text-right">
+                                                                <p class="modal-text-desc">{{  llanta.segmento }}</p>
+                                                            </div>
+
+                                                        </div>
+                                                        
+                                                    </div>
+
+                                                    <div class="col-md-12 modal-botones">
+                                                        <div class="col-md-10 col-md-offset-1 btn btn-descarga">Descargar Cat&aacute;logo</div>
 
                                                     </div>
-                                                    <div class="modal-divisor"></div>
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <p class="modal-text">Rin:</p>
-                                                        </div>
-                                                        <div class="col-md-6 text-right">
-                                                            <p class="modal-text-desc">{{  llanta.rin }}</p>
-                                                        </div>
-
+                                                    <div class="col-md-12">
+                                                         <div class="col-md-10 col-md-offset-1 btn btn-info">M&aacute;s informaci&oacute;n</div>
                                                     </div>
-                                                    <div class="modal-divisor"></div>
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <p class="modal-text">Diseño:</p>
-                                                        </div>
-                                                        <div class="col-md-6 text-right">
-                                                            <p class="modal-text-desc">{{  llanta.diseno }}</p>
-                                                        </div>
-
-                                                    </div>
-                                                    <div class="modal-divisor"></div>
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <p class="modal-text">Segmento:</p>
-                                                        </div>
-                                                        <div class="col-md-6 text-right">
-                                                            <p class="modal-text-desc">{{  llanta.segmento }}</p>
-                                                        </div>
-
-                                                    </div>
-                                                    <div class="modal-divisor"></div>
-                                                    <div class="row">
-                                                        <div class="col-md-6">
-                                                            <p class="modal-text">Linea:</p>
-                                                        </div>
-                                                        <div class="col-md-6 text-right">
-                                                            <p class="modal-text-desc">{{  llanta.linea }}</p>
-                                                        </div>
-
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-12 modal-botones">
-                                                    <div class="col-md-5 btn btn-descarga">Descargar Cat&aacute;logo</div>
-                                                    <div class="col-md-5 col-md-offset-2 btn btn-info">M&aacute;s informaci&oacute;n</div>
 
                                                 </div>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>

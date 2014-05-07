@@ -226,10 +226,17 @@
 	border-radius: 75px;
 	background-color: #FFFFFF;
 }
+.img-bullet{
+	width: 70px;
+	height: 69px;
+}
 .img-indicator{
 	display: none;
 }
-
+/*.img-bullet{
+	display: none;
+}
+*/
 
 
 .active > .fondo-bullet{
@@ -239,6 +246,10 @@
 .active > .img-indicator{
 	display: inline;
 }
+/*.active > .img-bullet{
+	display: inline;
+}
+*/
 
 .fondo-montacarga{
 	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/slide/montacargas.jpg"); 

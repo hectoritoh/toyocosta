@@ -18,13 +18,24 @@ class LlantaAdmin extends Admin
 
         // use $fileFieldOptions so we can add other options to the field
         $fileFieldOptions = array('required' => false);
-        if ($obj && ($webPath = __DIR__.'/../../../../../../Pirelli/web/'. 'uploads/documents/' .    $obj->getImagen())) {
+        if ($obj && ($webPath = __DIR__.'../../../../../../../../../../../../toyocosta/web/'. 'uploads/pirelli/' .    $obj->getImagen())) {
             // get the container so the full path to the image can be set
             $container = $this->getConfigurationPool()->getContainer();
             $fullPath = $container->get('request')->getBasePath().'/'.$webPath;
 
             // add a 'help' option containing the preview's img tag
-            $fileFieldOptions['help'] = '<img src="'.$fullPath.'" class="admin-preview" />';
+            $fileFieldOptions['help'] = '<img src="'.$fullPath.'" class="img-responsive" />';
+        }
+
+        // use $fileFieldOptions so we can add other options to the field
+        $fileFieldOptions2 = array('required' => false);
+        if ($obj && ($webPath = __DIR__.'../../../../../../../../../../../../toyocosta/web/'. 'uploads/pirelli/fichas' .    $obj->getFicha())) {
+            // get the container so the full path to the image can be set
+            $container = $this->getConfigurationPool()->getContainer();
+            $fullPath = $container->get('request')->getBasePath().'/'.$webPath;
+
+            // add a 'help' option containing the preview's img tag
+            $fileFieldOptions2['help'] = '<img src="'.$fullPath.'" class="img-responsive" />';
         }
 
 
@@ -33,10 +44,16 @@ class LlantaAdmin extends Admin
             ->add('file', 'file',  $fileFieldOptions)
             ->add('medida')
             ->add('rin')
-            ->add('diseno') 
-            ->add('segmento') 
-            ->add('linea')
+             ->add('segmento', 'choice', array(
+           'choices' => array(
+               'Automovil' => 'Automovil',
+               'Camioneta' => 'Camioneta',
+               'Suv' => 'Suv',
+               'Industrial' => 'Industrial',
+               'Camion' => 'Camion'
+               )))
             ->add('precio')
+            ->add('fileFicha', 'file', $fileFieldOptions2)
             ->add('estado' , 'choice', array('choices' => array(1 => 'Publicado' , 0 => 'No publicado') ) ) //if no type is specified, SonataAdminBundle tries to guess it
 
         ;

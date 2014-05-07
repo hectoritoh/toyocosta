@@ -20,21 +20,17 @@ Celmedia\Toyocosta\PirelliBundle\Entity\Llanta:
         rin:
             type: float
             nullable: false
-        diseno:
-            type: string
-            length: 140
-            nullable: false
         segmento:
             type: string
             length: 140
             nullable: false
-        linea:
-            type: string
-            length: 140
         precio:
             type: float
             nullable: false
         imagen:
+            type: text
+            nullable: false
+        ficha:
             type: text
             nullable: false
         estado:

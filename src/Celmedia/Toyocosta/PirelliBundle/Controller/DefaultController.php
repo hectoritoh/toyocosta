@@ -48,9 +48,19 @@ class DefaultController extends Controller
         return $this->render('CelmediaToyocostaPirelliBundle::layout.html.twig' , array( "tipo_llanta" => "industrial" , "llantas" => $llantas ));
     }
 
+    public function camionPirelliAction()
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $llantas =$em->getRepository('CelmediaToyocostaPirelliBundle:Llanta')->findBy(array("estado"=> 1, "segmento"=> "camion"));
 
 
-    public function getFiltrosAction( $segmento , $llanta_modelo, $llanta_medida, $llanta_rin, $llanta_linea )
+        return $this->render('CelmediaToyocostaPirelliBundle::layout.html.twig' , array( "tipo_llanta" => "camion" , "llantas" => $llantas ));
+    }
+
+    
+
+    public function getFiltrosAction( $segmento , $llanta_modelo, $llanta_medida, $llanta_rin, $llanta_precio)
     {
 
         $em = $this->getDoctrine()->getManager();
@@ -71,11 +81,15 @@ class DefaultController extends Controller
         $rines = $query3->getResult();
 
         // Linea por Automovil
-        $query4 = $repository->createQueryBuilder('li')->where('li.segmento = :segmento')->setParameter('segmento', $segmento)->groupBy('li.linea')->getQuery();
-        $lineas = $query4->getResult();
+        // $query4 = $repository->createQueryBuilder('li')->where('li.segmento = :segmento')->setParameter('segmento', $segmento)->groupBy('li.linea')->getQuery();
+        // $lineas = $query4->getResult();
 
+        // Precio
+        $query4 = $repository->createQueryBuilder('pre')->where('pre.segmento = :segmento')->setParameter('segmento', $segmento)->groupBy('pre.precio')->getQuery();
+        $precios = $query4->getResult();
 
-        return $this->render('CelmediaToyocostaPirelliBundle:Blocks:filtros.html.twig' ,  array( "tipo_llanta" => $segmento , "modelos" => $modelos, "medidas" => $medidas, "rines" => $rines, "lineas" => $lineas, "llanta_modelo" => $llanta_modelo, "llanta_medida" => $llanta_medida, "llanta_rin" => $llanta_rin, "llanta_linea" => $llanta_linea));
+        // return $this->render('CelmediaToyocostaPirelliBundle:Blocks:filtros.html.twig' ,  array( "tipo_llanta" => $segmento , "modelos" => $modelos, "medidas" => $medidas, "rines" => $rines, "lineas" => $lineas, "llanta_modelo" => $llanta_modelo, "llanta_medida" => $llanta_medida, "llanta_rin" => $llanta_rin, "llanta_linea" => $llanta_linea));
+        return $this->render('CelmediaToyocostaPirelliBundle:Blocks:filtros.html.twig' ,  array( "tipo_llanta" => $segmento , "modelos" => $modelos, "medidas" => $medidas, "rines" => $rines, "precios" => $precios, "llanta_modelo" => $llanta_modelo, "llanta_medida" => $llanta_medida, "llanta_rin" => $llanta_rin, "llanta_precio" => $llanta_precio));
     }
 
 
@@ -117,8 +131,9 @@ class DefaultController extends Controller
         $modelo = $request->get('selectmodelo');
         $medida = $request->get('selectmedida');
         $rin = $request->get('selectrin');
-        $linea = $request->get('selectlinea');
+        // $linea = $request->get('selectlinea');
 
+        $precio = $request->get('selectprecio');
 
         $em = $this->getDoctrine()->getManager();
         $connection = $em->getConnection();
@@ -141,8 +156,13 @@ class DefaultController extends Controller
         }
 
         //Si la linea existe, esta definida se agrega al query
-        if($linea){
-            $sqlQuery .= " AND linea='$linea'";
+        // if($linea){
+        //     $sqlQuery .= " AND linea='$linea'";
+        // }
+
+        //Si precio existe, esta definida se agrega al query
+        if($precio){
+            $sqlQuery .= " AND precio='$precio'";
         }
 
         $statement = $connection->prepare($sqlQuery);
@@ -155,7 +175,7 @@ class DefaultController extends Controller
                     "llanta_modelo" => $modelo,
                     "llanta_medida" => $medida,
                     "llanta_rin" => $rin,
-                    "llanta_linea" => $linea,
+                    "llanta_precio" => $precio,
                 )
         );
     }
@@ -168,10 +188,11 @@ class DefaultController extends Controller
         $medida = $request->get('selectmedida');
         $rin = $request->get('selectrin');
         $linea = $request->get('selectlinea');
+        $precio = $request->get('selectprecio');
 
         $em = $this->getDoctrine()->getManager();
         $connection = $em->getConnection();
-        $statement = $connection->prepare("SELECT * FROM pirelli_llanta WHERE segmento = '$tipo_llanta' AND (modelo = '$modelo' OR medida = '$medida' OR rin = '$rin' OR linea = '$linea') ");
+        $statement = $connection->prepare("SELECT * FROM pirelli_llanta WHERE segmento = '$tipo_llanta' AND (modelo = '$modelo' OR medida = '$medida' OR rin = '$rin' OR precio = '$precio') ");
         $statement->execute();
         $llantas = $statement->fetchAll();
 

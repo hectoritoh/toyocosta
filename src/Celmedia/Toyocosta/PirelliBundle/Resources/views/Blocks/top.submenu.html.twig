@@ -37,7 +37,10 @@
               <li  {% if app.request.get('_route') == 'pirelli_industrial' %}  class="active"  {% endif %} >
                 <a href="{{ path('pirelli_industrial') }}">LLANTAS INDUSTRIAL</a>
               </li>
-              <li><a href="">SUBDISTRIBUIDORES</a></li>
+              <li  {% if app.request.get('_route') == 'pirelli_camion' %}  class="active"  {% endif %} >
+                <a href="{{ path('pirelli_camion') }}">LLANTAS CAMION</a>
+              </li>
+              <li><a href="">DISTRIBUIDORES</a></li>
             </ul>
           </div><!-- /.navbar-collapse -->
         </div><!-- /.container-fluid -->

@@ -35,16 +35,18 @@
                     </select>
                 </div>
             </div>
-            <div class="col-md-3 unido" >
+          
+              <div class="col-md-3 unido" >
                 <div class="styled-select" style="height: 50px;">
-                    <select name="selectlinea" id="selectlinea" class="form-control select-pirelli">
-                        <option class="style-option" value="0">Linea</option>
-                        {% for llantalinea in lineas %}
-                        <option class="style-option" value="{{ llantalinea.linea }}" {% if llanta_linea == llantalinea.linea %} selected {% endif %}  >{{ llantalinea.linea }}</option>
+                    <select name="selectprecio" id="selectprecio" class="form-control select-pirelli">
+                        <option class="style-option" value="0">Precio</option>
+                        {% for llantaprecio in precios %}
+                        <option class="style-option" value="{{ llantaprecio.precio }}" {% if llanta_precio == llantaprecio.precio %} selected {% endif %}  >{{ llantaprecio.precio }}</option>
                         {% endfor %}
                     </select>
                 </div>
             </div>
+
         </div>
 
         

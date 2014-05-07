@@ -33,17 +33,7 @@ class Llanta
     /**
      * @var string
      */
-    private $diseno;
-
-    /**
-     * @var string
-     */
     private $segmento;
-
-    /**
-     * @var string
-     */
-    private $linea;
 
     /**
      * @var float
@@ -54,6 +44,11 @@ class Llanta
      * @var string
      */
     private $imagen;
+
+    /**
+     * @var string
+     */
+    private $ficha;
 
     /**
      * @var integer
@@ -80,7 +75,7 @@ class Llanta
     public function setModelo($modelo)
     {
         $this->modelo = $modelo;
-    
+
         return $this;
     }
 
@@ -103,7 +98,7 @@ class Llanta
     public function setMedida($medida)
     {
         $this->medida = $medida;
-    
+
         return $this;
     }
 
@@ -126,7 +121,7 @@ class Llanta
     public function setRin($rin)
     {
         $this->rin = $rin;
-    
+
         return $this;
     }
 
@@ -141,29 +136,6 @@ class Llanta
     }
 
     /**
-     * Set diseno
-     *
-     * @param string $diseno
-     * @return Llanta
-     */
-    public function setDiseno($diseno)
-    {
-        $this->diseno = $diseno;
-    
-        return $this;
-    }
-
-    /**
-     * Get diseno
-     *
-     * @return string 
-     */
-    public function getDiseno()
-    {
-        return $this->diseno;
-    }
-
-    /**
      * Set segmento
      *
      * @param string $segmento
@@ -172,7 +144,7 @@ class Llanta
     public function setSegmento($segmento)
     {
         $this->segmento = $segmento;
-    
+
         return $this;
     }
 
@@ -187,29 +159,6 @@ class Llanta
     }
 
     /**
-     * Set linea
-     *
-     * @param string $linea
-     * @return Llanta
-     */
-    public function setLinea($linea)
-    {
-        $this->linea = $linea;
-    
-        return $this;
-    }
-
-    /**
-     * Get linea
-     *
-     * @return string 
-     */
-    public function getLinea()
-    {
-        return $this->linea;
-    }
-
-    /**
      * Set precio
      *
      * @param float $precio
@@ -218,7 +167,7 @@ class Llanta
     public function setPrecio($precio)
     {
         $this->precio = $precio;
-    
+
         return $this;
     }
 
@@ -241,7 +190,7 @@ class Llanta
     public function setImagen($imagen)
     {
         $this->imagen = $imagen;
-    
+
         return $this;
     }
 
@@ -256,6 +205,29 @@ class Llanta
     }
 
     /**
+     * Set ficha
+     *
+     * @param string $ficha
+     * @return Llanta
+     */
+    public function setFicha($ficha)
+    {
+        $this->ficha = $ficha;
+
+        return $this;
+    }
+
+    /**
+     * Get ficha
+     *
+     * @return string 
+     */
+    public function getFicha()
+    {
+        return $this->ficha;
+    }
+
+    /**
      * Set estado
      *
      * @param integer $estado
@@ -264,7 +236,7 @@ class Llanta
     public function setEstado($estado)
     {
         $this->estado = $estado;
-    
+
         return $this;
     }
 
@@ -277,8 +249,15 @@ class Llanta
     {
         return $this->estado;
     }
+    /**
+     * @ORM\PrePersist
+     */
+    public function lifecycleFileUpload()
+    {
+        // Add your code here
 
-
+        $this->uploadFileFicha();
+    }
 
 
 
@@ -324,7 +303,7 @@ public function upload()
 
     // move takes the target directory and target filename as params
     $this->getFile()->move(
-       __DIR__.'/../../../../../web/'. 'uploads/documents' ,
+       __DIR__.'/../../../../../web/'. 'uploads/pirelli' ,
         $this->getFile()->getClientOriginalName()
     );
 
@@ -335,15 +314,64 @@ public function upload()
     $this->setFile(null);
 }
 
+
+
+
+
+
 /**
- * Lifecycle callback to upload the file to the server
+ * Unmapped property to handle file uploads
  */
-public function lifecycleFileUpload() {
-   ///// $this->upload();
+private $fileFicha;
+
+/**
+ * Sets file.
+ *
+ * @param UploadedFile $file
+ */
+public function setFileFicha(UploadedFile $fileFicha = null)
+{
+    $this->fileFicha = $fileFicha;
+}
+
+/**
+ * Get file.
+ *
+ * @return UploadedFile
+ */
+public function getFileFicha()
+{
+    return $this->fileFicha;
+}
+
+/**
+ * Manages the copying of the file to the relevant place on the server
+ */
+public function uploadFileFicha()
+{
+    // the file property can be empty if the field is not required
+    if (null === $this->getFileFicha()) {
+        return;
+    }
+
+    // move takes the target directory and target filename as params
+    $this->getFileFicha()->move(
+       __DIR__.'/../../../../../web/'. 'uploads/pirelli/fichas' ,
+        $this->getFileFicha()->getClientOriginalName()
+    );
+
+    // set the path property to the filename where you've saved the file
+    $this->ficha = $this->getFileFicha()->getClientOriginalName();
+
+    // clean up the file property as you won't need it anymore
+    $this->setFileFicha(null);
 }
 
 
 
 
 const SERVER_PATH_TO_IMAGE_FOLDER = '/server/path/to/images';
+
+
+
 }
