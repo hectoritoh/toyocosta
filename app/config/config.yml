@@ -73,11 +73,12 @@ fos_user:
 
 # Swiftmailer Configuration
 swiftmailer:
-    transport: "%mailer_transport%"
-    host:      "%mailer_host%"
-    username:  "%mailer_user%"
-    password:  "%mailer_password%"
-    spool:     { type: memory }
+   transport:  smtp
+   port:       587
+   host:       mail.misp.cl
+   username:   ycosquillo@celmedia.com
+   password:   xinitaCM12
+   spool:     { type: memory }
 
 stof_doctrine_extensions:
     default_locale: en_US

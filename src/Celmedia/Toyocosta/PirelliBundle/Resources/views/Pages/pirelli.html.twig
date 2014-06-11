@@ -1,3 +1,11 @@
+
+{% extends 'CelmediaToyocostaPirelliBundle::layout.html.twig' %}
+
+
+{% block content %}
+    
+
+
     {% include 'CelmediaToyocostaPirelliBundle:Blocks:top.submenu.html.twig' %}
 
     <div class="row banner-pirelli">
@@ -37,7 +45,7 @@
                                 {{ render(controller("CelmediaToyocostaPirelliBundle:Default:getFiltros" , { 'segmento': tipo_llanta , 'llanta_modelo': llanta_modelo, 'llanta_medida': llanta_medida, 'llanta_rin': llanta_rin, 'llanta_precio': llanta_precio }))   }}
 
                             </div>
-                            <div class="col-md-2" style="text-align: center; padding-top: 4px;padding-bottom: 5px;border-bottom: 1px solid #ccc;border-left: 1px solid #ccc;">
+                            <div class="col-md-2" style="text-align: right; padding-top: 4px;padding-bottom: 5px;border-bottom: 1px solid #ccc;border-left: 1px solid #ccc;">
                                 <input type="hidden"  name="categoria" value="{{ tipo_llanta }}" />
 
                                 <input type="submit" class="btn btn-buscar-filtro" value="Buscar" />
@@ -127,7 +135,7 @@
                                 <div class="divisor"></div>
                                 <div class="row margin-detalle">
                                     <div class="col-md-6">
-                                        <p class="text-detalle">Rin</p>
+                                        <p class="text-detalle">Tama&#241;o de Aro</p>
                                         <p class="text-detalle">Medida</p>
                                     </div>
                                     <div class="col-md-6">
@@ -182,7 +190,7 @@
                                                         <div class="modal-divisor"></div>
                                                         <div class="row">
                                                             <div class="col-md-6">
-                                                                <p class="modal-text">Rin:</p>
+                                                                <p class="modal-text">Tama&#241;o de Aro:</p>
                                                             </div>
                                                             <div class="col-md-6 text-right">
                                                                 <p class="modal-text-desc">{{  llanta.rin }}</p>
@@ -212,12 +220,23 @@
                                                         
                                                     </div>
 
-                                                    <div class="col-md-12 modal-botones">
-                                                        <div class="col-md-10 col-md-offset-1 btn btn-descarga">Descargar Cat&aacute;logo</div>
 
+                                                    <div class="col-md-12 modal-botones">
+                                                        {% if llanta.ficha == null %}
+                                                            <div class="col-md-10 col-md-offset-1" style="height:34px;"></div>
+                                                          
+                                                        {% else %}
+                                                            <a href="{{ asset('uploads/pirelli/fichas/'   ~   llanta.ficha ) }}" target="_blank">
+                                                            <div class="col-md-10 col-md-offset-1 btn btn-descarga">Descargar Cat&aacute;logo</div>
+                                                            </a>
+                                                        {% endif %}
                                                     </div>
+
+
                                                     <div class="col-md-12">
-                                                         <div class="col-md-10 col-md-offset-1 btn btn-info">M&aacute;s informaci&oacute;n</div>
+                                                        <a href="{{  path('pirelli_informacion' , {  'id_llanta': llanta.id }) }}">
+                                                            <div class="col-md-10 col-md-offset-1 btn btn-info">M&aacute;s informaci&oacute;n</div>
+                                                        </a>
                                                     </div>
 
                                                 </div>
@@ -266,4 +285,6 @@
     {% endif %} 
 
 
+
+{% endblock %}
 

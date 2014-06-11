@@ -1,0 +1,219 @@
+
+{#{% include 'CelmediaToyocostaPirelliBundle::layout.html.twig' %}#}
+{% extends 'CelmediaToyocostaPirelliBundle::layout.html.twig' %}
+
+{% block content %}
+
+{% include 'CelmediaToyocostaPirelliBundle:Blocks:top.submenu.html.twig' %}
+
+<div class="row banner-pirelli">
+	<div class="container">
+
+	</div>
+</div>
+<div class="container">
+
+	<div class="row" style="padding-top: 20px;padding-bottom: 30px;">
+
+
+		<div class="col-md-12 text-center">
+
+			<h3 class="txt-title">Informaci&oacute;n de Distribuidores</h3>
+
+		</div>
+
+		<div class="col-md-12">
+
+			<div class="row">
+
+				<div class="col-md-3">
+					<hr>
+				</div>
+
+				<div class="col-md-6">
+					<form class="form-inline" style="padding-left:10px;padding-right:10px;" role="form">
+						<div class="form-group">
+							<label class="txt-form-pirelli txt-gris" style="margin-top:10px;">Seleccione el distribuidor m&aacute;s cercano a usted.
+							</label>
+
+							<select id="distribuidorMostrar" class="form-control txt-select-pirelli" onchange="distribuidorSelected(this)" >
+								<option  class=""  value="-1" ></option>
+								{%    for distribuidor in distribuidores   %}
+								<option  class=""  value="{{ loop.index0  }}" >{{  distribuidor.nombre }}</option>
+								{%    endfor %}   
+							</select>
+
+						</div>
+					</form>
+				</div>
+
+				<div class="col-md-3">
+					<hr>
+				</div>
+
+
+
+
+			</div>
+
+		</div>
+
+		<div class="col-md-12">
+
+			<div class="row" style="padding-top: 30px;padding-bottom: 30px;">
+
+				<div class="col-md-7">
+
+					<div class="row-fluid">
+						<div id="map-canvas" style="margin:0 auto;border-radius: 50%; width: 65%;height: 400px"></div>
+					</div>
+				</div>
+				<div class="col-md-5" style="height:400px;">
+
+					<div class="informacion centrado-vertical">
+						<div class="row" style="margin-bottom:15px;">
+							{% image '@CelmediaToyocostaPirelliBundle/Resources/public/images/casa.png' %}
+							<img src="{{ asset_url }}" class="pull-left" alt="distribuidor" style="padding-left:10px;" />
+							{% endimage %}
+							<div class="" style="padding:3px;">
+								<span class="txt-title txt-oscuro" style="font-size:18px; padding-left:15px;">Distribuidor:<br /></span>
+								<span id="distribuidor" class="txt-rojo" style="padding-left:15px;">Calderon Cevallos Edwin</span>
+							</div>
+						</div>
+						<div class="row info-dist">
+
+							<div class="col-md-3 pull-left">
+
+								<p class="txt-oscuro txt-title">Dirección:</p>
+								<p class="txt-oscuro txt-title">Ciudad:</p>
+								<p class="txt-oscuro txt-title">Teléfono:</p>
+								<p class="txt-oscuro txt-title">Contacto:</p>
+							</div>
+
+							<div class="col-md-9 pull-left">
+								<p id="direccion" class="txt-gris">Sangolqui quiroja lote 3A y Chile</p>
+								<p id="ciudad" class="txt-gris">Quito</p>
+								<p id="telefono" class="txt-gris">22337499</p>
+								<p id="contacto" class="txt-gris">Edwin Calderon</p>
+							</div>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+
+	</div>
+
+</div>
+
+
+{% endblock %}
+
+
+{% block js %}
+
+       
+<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+<script type="text/javascript" src="{{ asset('js/google-maps.js') }}" ></script>
+
+
+<script type="text/javascript">
+
+
+	var distribuidores = new Array(); 
+
+	{%    for distribuidor in distribuidores   %}
+
+	distribuidores[ {{  loop.index0 }} ] ={nombre:"{{distribuidor.nombre }}" , direccion:"{{distribuidor.direccion }}" , telefono:"{{distribuidor.telefono }}", contacto:"{{distribuidor.contacto }}", latitud:"{{distribuidor.latitud }}" , longuitud:"{{distribuidor.longuitud  }}" , ciudad:"{{distribuidor.ciudad }}" } ; 
+
+	{%    endfor %}   
+
+        ///// variable del mapa
+        var map;
+        ///// creacion de un punto con latitud y longitud para centrar el mapa 
+        var brooklyn = new google.maps.LatLng(-0.223026, -78.506051);
+
+
+        ///// estilo usado para que el mapa salga en escala de grises
+        var stylez = [{
+        	featureType: "all",
+        	elementType: "all",
+        	stylers: [{
+        		saturation: -100
+        	}
+        	]
+        }];
+
+
+
+        //// configuracion del mapa que se va  a crear con las variables que se crearon anteriormente
+        var mapOptions = {
+        	zoom: 11,
+        	center: brooklyn,
+        	mapTypeControlOptions: {
+        		mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'tehgrayz']
+        	}
+        };
+
+        /// inicializacion del mapa 
+        map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+
+
+
+        ///// aplicacion de los estilos al mapa 
+        var mapType = new google.maps.StyledMapType(stylez, {
+        	name: "Grayscale"
+        });
+        map.mapTypes.set('tehgrayz', mapType);
+        map.setMapTypeId('tehgrayz');
+
+
+
+        //// funcion que agrega un mark y centra el mapa en la posicion dada
+
+
+        function agregarYCentrar(latitud, longuitud) {
+
+
+
+        	var myLatlng = new google.maps.LatLng(latitud, longuitud);
+        	var marker = new google.maps.Marker({
+        		position: myLatlng,
+        		map: map
+        	});
+
+        	map.panTo(myLatlng);
+
+
+        }
+
+        function distribuidorSelected(){
+
+        	var indice = $("#distribuidorMostrar").val(); 
+
+        	var nombre = distribuidores[indice].nombre;
+        	var direccion= distribuidores[indice].direccion;
+        	var ciudad = distribuidores[indice].ciudad;
+        	var telefono = distribuidores[indice].telefono;
+        	var contacto = distribuidores[indice].contacto;
+
+        	var latitud = distribuidores[indice].latitud;
+        	var longuitud = distribuidores[indice].longuitud;
+
+        	agregarYCentrar(latitud, longuitud);
+
+        	$("#distribuidor").text(nombre);
+        	$("#direccion").text(direccion);
+        	$("#ciudad").text(ciudad);
+        	$("#telefono").text(telefono);
+        	$("#contacto").text(contacto);
+
+
+        }
+
+</script>
+
+{% endblock %}

@@ -246,7 +246,7 @@ button.close-ficha{
 	color: #818181;
 }
 .modal-text-tipo{
-	font-size: 24px;
+	font-size: 18px;
 	color: #353535;
 	margin-top: 10px;
 }
@@ -270,7 +270,7 @@ button.close-ficha{
 	color: #fff;
 	border-color: transparent;
 }
-.btn-descarga:hover, .btn-info:hover{
+.btn-descarga:hover, .btn-info:hover, .btn-info:active{
 	background-color: #970000;
 	color: #fff;
 	border-color:transparent;
@@ -450,4 +450,40 @@ button.close-ficha{
 .espacio{
 	padding-top: 46px;
 	padding-bottom: 55px;
+}
+/*****CSS PARA FORM INFORMACION*/
+.space-input{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.form-info-pirelli label{
+	color: #A0A0A0;
+}
+.txt-form-pirelli{
+	margin-top: 10px;
+	font-size: 12px;
+	font-weight: normal;
+}
+.txt-select-pirelli{
+	font-style: oblique;
+	color: #A0A0A0;
+}
+.txt-title{
+	text-transform: uppercase;
+	font-weight: bold;
+}
+.txt-oscuro{
+	color: #333333;
+}
+.txt-rojo{
+	color: #D62C2F;
+}
+.txt-gris{
+	color: #A0A0A0;
+}
+.info-dist p{
+	padding: 10px;
+}
+.link-none:hover{
+	text-decoration: none;
 }

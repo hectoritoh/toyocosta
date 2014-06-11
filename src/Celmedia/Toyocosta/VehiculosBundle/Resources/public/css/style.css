@@ -198,9 +198,9 @@
 }
 .link-caption {
 	list-style-type: none;
-	border-bottom: 1px solid #63676A;
+	/*border-bottom: 1px solid #63676A;*/
 	margin-left: 18px;
-	margin-right: 28px;
+	/*margin-right: 28px;*/
 	padding: 13px;
 }
 .link-caption:hover{

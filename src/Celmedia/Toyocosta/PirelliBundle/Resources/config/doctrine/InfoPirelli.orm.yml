@@ -1,0 +1,61 @@
+Celmedia\Toyocosta\PirelliBundle\Entity\InfoPirelli:
+    type: entity
+    table: pirelli_pedido_informacion
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        nombre:
+            type: string
+            length: 200
+            nullable: false
+        apellido:
+            type: string
+            length: 200
+            nullable: false
+        telefono:
+            type: integer
+            nullable: false
+        celular:
+            type: integer
+            nullable: false
+        cedula:
+            type: integer
+            length: 10
+            nullable: false
+        email:
+            type: string
+            length: 200
+            nullable: false
+        comentario:
+            type: text
+            nullable: false
+        estado:
+            type: integer
+            unsigned: false
+        created:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: create
+        updated:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: update
+
+    manyToOne:
+        llanta:
+          targetEntity: Llanta
+          inversedBy: solicitud
+          joinColumn:
+            name: llanta_id
+            referencedColumnName: id
+
+    lifecycleCallbacks:
+        prePersist:   [ lifecycleFileUpload ]
+        preUpdate:    [ lifecycleFileUpload ]

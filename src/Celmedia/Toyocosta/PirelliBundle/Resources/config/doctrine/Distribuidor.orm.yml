@@ -1,6 +1,6 @@
-Celmedia\Toyocosta\PirelliBundle\Entity\Llanta:
+Celmedia\Toyocosta\PirelliBundle\Entity\Distribuidor:
     type: entity
-    table: pirelli_llanta
+    table: pirelli_distribuidor
     fields:
         id:
             id: true
@@ -9,40 +9,47 @@ Celmedia\Toyocosta\PirelliBundle\Entity\Llanta:
             nullable: false
             generator:
                 strategy: IDENTITY
-        modelo:
+        nombre:
+            type: string
+            length: 200
+            nullable: false
+        direccion:
+            type: string
+            length: 200
+            nullable: false
+        ciudad:
             type: string
             length: 140
             nullable: false
-        medida:
+        telefono:
+            type: integer
+            nullable: false
+        contacto:
             type: string
             length: 140
             nullable: false
-        rin:
-            type: float
-            nullable: false
-        segmento:
+        latitud:
             type: string
-            length: 140
+            length: 50
             nullable: false
-        precio:
-            type: float
-            nullable: false
-        imagen:
-            type: text
-            nullable: false
-        ficha:
-            type: text
+        longuitud:
+            type: string
+            length: 50
             nullable: false
         estado:
             type: integer
             unsigned: false
             nullable: false
-
-    oneToMany:
-      solicitud:
-        targetEntity: InfoPirelli
-        mappedBy: llanta
-        cascade: ["persist"]
+        created:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: create
+        updated:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: update
 
     lifecycleCallbacks:
         prePersist:   [ lifecycleFileUpload ]

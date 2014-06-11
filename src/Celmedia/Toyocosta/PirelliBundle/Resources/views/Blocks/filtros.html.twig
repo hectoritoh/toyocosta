@@ -5,7 +5,8 @@
 
         <input type="hidden" name="categoriallanta" value="{{ tipo_llanta }}" />
         <div class="row">        
-            <div class="col-md-3 unido" >
+            <div class="col-md-4 unido" >
+            <!-- <div class="col-md-3 unido" > -->
                 <div class="styled-select" style="height: 50px;">
                     <select name="selectmodelo" id="selectmodelo" class="form-control select-pirelli">
                         <option class="style-option" value="0">Modelo</option>
@@ -15,7 +16,8 @@
                     </select>
                 </div>
             </div>
-            <div class="col-md-3 unido" >
+            <div class="col-md-4 unido" >
+            <!-- <div class="col-md-3 unido" > -->
                 <div class="styled-select" style="height: 50px;">
                     <select name="selectmedida" id="selectmedida" class="form-control select-pirelli">
                         <option class="style-option" value="0">Medida</option>
@@ -25,18 +27,19 @@
                     </select>
                 </div>
             </div>
-            <div class="col-md-3 unido" >
+            <div class="col-md-4 unido" >
+            <!-- <div class="col-md-3 unido" > -->
                 <div class="styled-select" style="height: 50px;">
                     <select name="selectrin" id="selectrin" class="form-control select-pirelli">
-                        <option class="style-option" value="0">Rin</option>
+                        <option class="style-option" value="0">Tama&#241;o de Aro</option>
                         {% for llantarin in rines %}
                         <option class="style-option" value="{{ llantarin.rin }}" {% if llanta_rin == llantarin.rin %} selected {% endif %} >{{ llantarin.rin }}</option>
                         {% endfor %}
                     </select>
                 </div>
             </div>
-          
-              <div class="col-md-3 unido" >
+            {#
+            <div class="col-md-3 unido" >
                 <div class="styled-select" style="height: 50px;">
                     <select name="selectprecio" id="selectprecio" class="form-control select-pirelli">
                         <option class="style-option" value="0">Precio</option>
@@ -46,7 +49,7 @@
                     </select>
                 </div>
             </div>
-
+            #}
         </div>
 
         

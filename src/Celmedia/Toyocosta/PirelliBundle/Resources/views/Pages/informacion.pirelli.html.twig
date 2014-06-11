@@ -1,0 +1,125 @@
+
+{% extends 'CelmediaToyocostaPirelliBundle::layout.html.twig' %}
+
+
+{% block content %}
+
+{% include 'CelmediaToyocostaPirelliBundle:Blocks:top.submenu.html.twig' %}
+
+<div class="row banner-pirelli">
+	<div class="container">
+
+	</div>
+</div>
+<div class="container">
+
+	<div class="row" style="padding-top: 20px;padding-bottom: 30px;">
+
+
+		<div class="col-md-12 text-center">
+
+			<h1>Solicitar Informaci&oacute;n</h1>
+
+			<p class="txt-form-pirelli">Por favor llene el siguiente formulario para que un representante de Toyocosta pueda comunicarse inmediatamente con usted.</p>
+
+		</div>
+
+		<div class="col-md-12">
+
+			<form id="form-pirelli" class="form-info-pirelli">
+				
+				<input type="hidden" name="llanta_id" id="llanta_id" value="{{ llanta.id }}" />
+				<div class="row space-input">
+					<div class="col-md-10 col-md-offset-1">
+
+						<div class="row">
+							<div class="col-xs-4 col-xs-offset-1">
+								<label>Nombre:</label>
+								<input id="inputNombre" name="inputNombre" type="text" class="form-control" placeholder="" />
+							</div>
+							<div class="col-xs-4 col-xs-offset-1">
+								<label>Apellido:</label>
+								<input id="inputApellido" name="inputApellido" type="text" class="form-control" placeholder="" />
+							</div>
+
+						</div>	
+					</div>
+
+				</div>
+
+				<div class="row space-input">
+					<div class="col-md-10 col-md-offset-1">
+
+						<div class="row">
+							<div class="col-xs-4 col-xs-offset-1">
+								<label>Tel&eacute;fono:</label>
+								<input id="inputTelefono" name="inputTelefono" type="text" class="form-control" placeholder="" />
+							</div>
+							<div class="col-xs-4 col-xs-offset-1">
+								<label>Celular:</label>
+								<input id="inputCelular" name="inputCelular" type="text" class="form-control" placeholder="" />
+							</div>
+
+						</div>	
+					</div>
+
+				</div>
+
+
+				<div class="row space-input">
+					<div class="col-md-10 col-md-offset-1">
+
+						<div class="row">
+							<div class="col-xs-4 col-xs-offset-1">
+								<label>Email:</label>
+								<input id="inputEmail" name="inputEmail" type="text" class="form-control" placeholder="" />
+							</div>
+							<div class="col-xs-4 col-xs-offset-1">
+								<label>C&eacute;dula:</label>
+								<input id="inputCedula" name="inputCedula" type="text" class="form-control" placeholder="" />
+							</div>
+
+						</div>	
+					</div>
+
+				</div>
+
+
+				<div class="row space-input">
+					<div class="col-md-10 col-md-offset-1">
+
+						<div class="row">
+							<div class="col-xs-9 col-xs-offset-1">
+								<label>Comentarios:</label>
+								<textarea id="inputComentario" name="inputComentario" class="form-control" rows="3"></textarea>
+
+							</div>
+						</div>	
+					</div>
+
+				</div>
+
+				<div class="row space-input">
+					<div class="col-md-10 col-md-offset-1">
+
+						<div class="row">
+							<div class="col-md-3 col-md-offset-4">
+
+                                <input type="submit" value="Enviar" class="btn btn-lg btn-info" style="width:100%;">
+							</div>
+						</div>	
+					</div>
+
+				</div>
+
+			</form>
+
+		</div>
+
+
+	</div>
+
+</div>
+
+
+{% endblock %}

@@ -33,6 +33,7 @@ class AppKernel extends Kernel
             new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             new Sonata\FormatterBundle\SonataFormatterBundle(),
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
 
             new Celmedia\Toyocosta\PirelliBundle\CelmediaToyocostaPirelliBundle(),
             new Celmedia\Toyocosta\VehiculosBundle\CelmediaToyocostaVehiculosBundle(),
