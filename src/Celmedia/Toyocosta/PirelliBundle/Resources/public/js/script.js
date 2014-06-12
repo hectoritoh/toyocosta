@@ -27,13 +27,16 @@ function centrarVert(elemento){
 function mostrarBanners(){
 
   if( !menu_botton_mostrado ){
-    $(".banners-foot").css("margin-bottom", "0px");
+    //$(".banners-foot").css("margin-bottom", "0px");
+    $(".banners-foot").stop(true, true).animate({ marginBottom: '0px'}, 600);
+    
     $("#cerrar").show();
     $("#mas").hide();
     menu_botton_mostrado = true ;
   }
   else{    
-    $(".banners-foot").css("margin-bottom", "-170px");
+    //$(".banners-foot").stop(true, true).css("margin-bottom", "-170px");
+    $(".banners-foot").stop(true, true).animate({ marginBottom: '-170px'}, 600);
     $("#cerrar").hide();
     $("#mas").show();
     menu_botton_mostrado = false ;

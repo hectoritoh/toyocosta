@@ -1,36 +1,22 @@
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
-  <!-- Indicators -->
-  <ol class="carousel-indicators">
-    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-  </ol>
+<div id="seccion-principal" class="seccion-ty">
 
-  <!-- Wrapper for slides -->
-  <div class="carousel-inner">
-    <div class="item active">
+  <div id="carousel-principal-ty" class="carousel slide carousel-ty" data-ride="carousel">
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+      <li data-target="#carousel-principal-ty" data-slide-to="0" class="active"></li>
+      <li data-target="#carousel-principal-ty" data-slide-to="1"></li>
+      <li data-target="#carousel-principal-ty" data-slide-to="2"></li>
+    </ol>
 
-      {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/BG-principal.jpg' %}
-      <img src="{{ asset_url }}" alt="Seminuevos" class="img-responsive" />
-      {% endimage %}
-  
-      <div class="carousel-caption btn-caption">
-        <a href="#">
-          <div class="row">
-            <div class="col-md-4 col-md-offset-4 btn-lg btn-ver-mas">
-                Ver m&aacute;s
-            </div>
-          </div>
-        </a>
-      </div>
-    </div>
-    <div class="item">
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+      <div class="item active">
 
-      {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/BG-principal.jpg' %}
-      <img src="{{ asset_url }}" alt="Seminuevos" class="img-responsive" />
-      {% endimage %}
-  
-      <div class="carousel-caption btn-caption">
+        {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/BG-principal.jpg' %}
+        <img src="{{ asset_url }}" alt="Seminuevos" class="img-responsive" />
+        {% endimage %}
+    
+        <div class="carousel-caption btn-caption">
           <a href="#">
             <div class="row">
               <div class="col-md-4 col-md-offset-4 btn-lg btn-ver-mas">
@@ -38,9 +24,9 @@
               </div>
             </div>
           </a>
+        </div>
       </div>
-    </div>
-    <div class="item">
+      <div class="item">
 
         {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/BG-principal.jpg' %}
         <img src="{{ asset_url }}" alt="Seminuevos" class="img-responsive" />
@@ -55,14 +41,32 @@
               </div>
             </a>
         </div>
+      </div>
+      <div class="item">
+
+          {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/BG-principal.jpg' %}
+          <img src="{{ asset_url }}" alt="Seminuevos" class="img-responsive" />
+          {% endimage %}
+      
+          <div class="carousel-caption btn-caption">
+              <a href="#">
+                <div class="row">
+                  <div class="col-md-4 col-md-offset-4 btn-lg btn-ver-mas">
+                      Ver m&aacute;s
+                  </div>
+                </div>
+              </a>
+          </div>
+      </div>
     </div>
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#carousel-principal-ty" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#carousel-principal-ty" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
   </div>
 
-  <!-- Controls -->
-  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
-    <span class="glyphicon glyphicon-chevron-left"></span>
-  </a>
-  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
-    <span class="glyphicon glyphicon-chevron-right"></span>
-  </a>
 </div>
