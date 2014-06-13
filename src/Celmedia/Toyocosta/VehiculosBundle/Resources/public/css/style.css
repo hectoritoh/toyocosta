@@ -1,3 +1,9 @@
+html,body{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
 .v-center-contenedor {
 	display: table;
 	height: 100%;
@@ -9,10 +15,9 @@
 	vertical-align: middle;
 }
 
-html,body{
-	position: relative;
-	width: 100%;
+.alto-completo{
 	height: 100%;
+	position: relative;
 }
 
 .seccion-ty{
@@ -27,13 +32,16 @@ html,body{
 	height: 100%;
 }
 
-.carousel-inner-ty{
-	position: relative;
-	width: 100%;
-	height: 100%;
+.espacio-a{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.espaciado-slide-home{
+	margin-top: 120px;
+	margin-bottom: 120px;
 }
 
-.carousel-inner-ty .item{
+.item-carousel-home-ty{
 	position: relative;
 	width: 100%;
 	height: 100%;
@@ -48,6 +56,39 @@ html,body{
 	-o-background-size: cover;
 	background-size: cover;
 }
+
+.carousel-indicators .miniaturas{
+	width: 69px;
+	height: 69px;
+	border-radius: 34px;
+	position: relative;
+	border: 3px solid #FFFFFF;
+
+	background-color: rgba(255,255,255,0.8);
+	background-repeat: no-repeat;
+	background-position: center center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+
+
+	background-image: none;
+}
+.carousel-indicators .miniaturas.active{
+	width: 69px;
+	height: 69px;
+	border-radius: 34px;
+	position: relative;
+	border: 3px solid #FF0000;
+}
+.carousel-indicators .miniaturas:hover,
+.carousel-indicators .miniaturas.active:hover{
+	width: 80px;
+	height: 80px;
+	border-radius: 40px;
+}
+
 
 /*Media Querys*/
 /* Large desktop */

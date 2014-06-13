@@ -1,0 +1,70 @@
+<div id="{{prefijo}}-seccion" class="seccion-ty">
+  
+  <div id="{{prefijo}}-carousel" class="carousel slide alto-completo" data-ride="carousel" data-interval="false">
+
+    <ol class="carousel-indicators">
+      {% set i = 0 %}
+      {% for bullet in slideVehiculos %}
+          <li data-target="#{{prefijo}}-carousel" data-slide-to="{{ i }}"  class="miniaturas {% if loop.first %}active{% endif %}" style="background-image: url( {{ asset('uploads/vehiculo/SlideVehiculos/'   ~   bullet.imagenThumb ) }} );">
+            <div class="v-center-contenedor">
+              <div class="v-center-contenido">
+                <p class="txt-indicador"><br />{{ bullet.vehiculoSlide.nombre}} <br/></p>
+              </div>
+            </div>
+          </li>
+          {% set i = i + 1 %}
+      {% endfor %}
+    </ol>
+
+
+    <div class="carousel-inner alto-completo">
+      {% set i = 0 %}
+      {% for item in slideVehiculos %}
+        <div class="item {% if loop.first %} active {% endif %} alto-completo item-carousel-home-ty" style="background-image: url({{ asset('uploads/vehiculo/SlideVehiculos/'   ~   item.imagenSlide ) }});">
+          <div class="v-center-contenedor">
+            <div class="v-center-contenido">
+              <div class="container-fluid">
+                <div class="row">
+                  <div class="col-md-5 col-sm-8 col-md-offset-2 col-sm-offset-2">
+                    <div class="cuadro-precio">
+                      <h4 class="txt-caption">Precio <span class="precio-caption">${{ item.vehiculoSlide.precio }}</span></h4>
+                      <p class="parrafo-caption">{{ item.vehiculoSlide.informacion}}</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="row espacio-a">
+                  <div class="col-md-5 col-sm-5 col-md-offset-2 col-sm-offset-2">
+                    <div class="cuadro-caption">
+                      <ul class="list-caption">
+                        <li class="link-caption"><a class="link" href="#">Solicita Cotizaci&oacute;n</a></li>
+                        <li class="link-caption"><a class="link" href="#">Test Driver</a></li>
+                        <li class="link-caption"><a class="link" href="#">Ver m&aacute;s</a></li>
+                      </ul>
+                    </div><!-- cuadro-caption -->
+                  </div>
+                </div>
+                <div class="row espaciado-slide-home visible-md visible-lg hidden-sm hidden-xs">
+                  
+                </div>
+              </div>
+            </div><!-- .v-center-contenido -->
+          </div><!-- .v-center-contenedor -->
+
+
+        </div>
+      {% endfor %}
+    </div>
+
+
+    <!-- Controls -->
+    <a class="left carousel-control" href="#{{prefijo}}-carousel" data-slide="prev">
+      <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#{{prefijo}}-carousel" data-slide="next">
+      <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+
+  </div>
+
+
+</div>

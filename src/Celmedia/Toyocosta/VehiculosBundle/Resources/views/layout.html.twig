@@ -26,7 +26,22 @@
 
     {% include 'CelmediaToyocostaPirelliBundle:Blocks:top.menu.html.twig' %}
     
+    {#
     {% include 'CelmediaToyocostaVehiculosBundle:Blocks:slide.principal.html.twig' %}
+    #}
+
+
+    {#
+    {% include 'CelmediaToyocostaVehiculosBundle:Blocks:slide.vehiculos.html.twig' %}
+    #}
+
+    {{ render(controller("CelmediaToyocostaVehiculosBundle:Default:obtenerVehiculos" , { 'tipoVehiculo': 'Autos', 'prefijo': 'autos'  }))   }}
+    {{ render(controller("CelmediaToyocostaVehiculosBundle:Default:obtenerVehiculos" , { 'tipoVehiculo': 'Camionetas', 'prefijo': 'camionetas'  }))   }}
+
+
+
+
+    {#
 
     {% include 'CelmediaToyocostaVehiculosBundle:Blocks:slide.autos.html.twig' %}
 
@@ -41,6 +56,7 @@
     {% include 'CelmediaToyocostaVehiculosBundle:Blocks:slide.pirelli.html.twig' %}
 
     {% include 'CelmediaToyocostaVehiculosBundle:Blocks:slide.seminuevo.html.twig' %}
+    #}
 
 
     {% include 'CelmediaToyocostaPirelliBundle:Blocks:footer.html.twig' %}

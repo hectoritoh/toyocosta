@@ -5,3 +5,4 @@
 toyocosta_homepage:
     pattern:  /
     defaults: { _controller: CelmediaToyocostaVehiculosBundle:Default:index }
+
