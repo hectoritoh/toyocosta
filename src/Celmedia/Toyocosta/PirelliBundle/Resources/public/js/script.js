@@ -79,7 +79,7 @@ $(window).load(function(){
        $('.centrado-vertical').each(function () {
          centrarVert($(this));
        });
-       margenlink = (-1) * ( $("#footer-banners").height() - $("#footer-boton").height() ) ;
+       margenlink = (-1) * ( $("#footer-banners").height() - $("#footer-boton").height() - $("#footer-logos").height() ) ;
 });
 
 $(window).resize(function(){
@@ -90,6 +90,6 @@ $(window).resize(function(){
          centrarVert($(this));
        });
 
-       margenlink = (-1) * ( $("#footer-banners").height() - $("#footer-boton").height() ) ;
+       margenlink = (-1) * ( $("#footer-banners").height() - $("#footer-boton").height() - $("#footer-logos").height() ) ;
   $("#footer-banners").css("margin-bottom", margenlink );
 });
