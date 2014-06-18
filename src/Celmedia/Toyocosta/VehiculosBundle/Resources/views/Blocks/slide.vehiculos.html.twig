@@ -5,12 +5,18 @@
     <ol class="carousel-indicators">
       {% set i = 0 %}
       {% for bullet in slideVehiculos %}
-          <li data-target="#{{prefijo}}-carousel" data-slide-to="{{ i }}"  class="miniaturas {% if loop.first %}active{% endif %}" style="background-image: url( {{ asset('uploads/vehiculo/SlideVehiculos/'   ~   bullet.imagenThumb ) }} );">
-            <div class="v-center-contenedor">
+          <li data-target="#{{prefijo}}-carousel" data-slide-to="{{ i }}"  class="c-miniaturas {% if loop.first %}active{% endif %}">
+            <div class="miniaturas" style="background-image: url( {{ asset('uploads/vehiculo/SlideVehiculos/'   ~   bullet.imagenThumb ) }} );">
+              &nbsp;
+            </div>
+
+            <div class="v-center-contenedor textos-miniaturas">
               <div class="v-center-contenido">
                 <p class="txt-indicador"><br />{{ bullet.vehiculoSlide.nombre}} <br/></p>
               </div>
             </div>
+            
+
           </li>
           {% set i = i + 1 %}
       {% endfor %}
