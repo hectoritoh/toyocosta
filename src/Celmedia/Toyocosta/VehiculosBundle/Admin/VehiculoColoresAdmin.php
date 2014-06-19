@@ -8,8 +8,25 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
+use Sonata\AdminBundle\Validator\ErrorElement;
+
 class VehiculoColoresAdmin extends Admin
 {
+    
+
+    public function preUpdate( $obj ){
+
+
+        if ( $obj->getImagenColor() != null  ) {
+            
+            $obj->uploadImagenVehiculo();
+            
+        }
+
+
+    }
+
+
     /**
      * @param DatagridMapper $datagridMapper
      */
@@ -56,7 +73,7 @@ class VehiculoColoresAdmin extends Admin
 
         // use $fileFieldOptions so we can add other options to the field
         $fileFieldOptions = array('required' => false);
-        if ($obj && ($webPath = '/../../../../toyocosta/web/'. 'uploads/vehiculo/color/' .    $obj->getImagenColor())) {
+        if ($obj && ($webPath = '/../../../../toyocostaweb/web/'. 'uploads/vehiculo/color/' .    $obj->getImagenColor())) {
             // get the container so the full path to the image can be set
             $container = $this->getConfigurationPool()->getContainer();
             $fullPath = $container->get('request')->getBasePath().'/'.$webPath;
@@ -91,5 +108,26 @@ class VehiculoColoresAdmin extends Admin
             ->add('estado')
         ;
     }
+
+
+    public function validate(ErrorElement $errorElement, $object)
+    {
+        // conditional validation, see the related section for more information
+
+        if ($object->getImagenColor() === null ) {
+            // nombre cannot be empty when the post is enabled
+            $errorElement
+                ->with('ImagenVehiculo')
+                    ->assertNotNull()
+                ->end()
+            ;
+                        
+        }
+
+  
+
+    }
+
+
 
 }

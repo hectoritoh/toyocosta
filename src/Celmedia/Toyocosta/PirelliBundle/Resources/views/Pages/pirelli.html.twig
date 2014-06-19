@@ -8,8 +8,8 @@
 
     {% include 'CelmediaToyocostaPirelliBundle:Blocks:top.submenu.html.twig' %}
 
-    <div class="row banner-pirelli">
-        <div class="container">
+    <div class="row {% if tipo_llanta == 'suv' %} banner-pirelli-suv {% elseif tipo_llanta == 'camioneta' %} banner-pirelli-camionetas {% elseif tipo_llanta == 'industrial' %} banner-pirelli-industriales {% elseif tipo_llanta == 'camion' %} banner-pirelli-camiones {% else %} banner-pirelli-autos {% endif %}">
+        <div class="container centrado-vertical">
             <h1 class="title-banner">LLANTAS {{ tipo_llanta|upper }}</h1>
         </div>
     </div>
@@ -125,12 +125,12 @@
                                     </div>
                                 </div>
                                 <div class="row relleno">
-                                    <div class="col-md-6">
-                                        <p class="text-tipo">{{  llanta.segmento }}</p>
+                                    <div class="col-md-12">
+                                        <p class="text-precio">{{  llanta.segmento }}</p>
                                     </div>
-                                    <div class="col-md-6">
-                                        <p class="text-precio">${{  llanta.precio}}</p>
-                                    </div>
+                                    <!-- <div class="col-md-6">
+                                        <p class="text-tipo">${{  llanta.precio}}</p>
+                                    </div> -->
                                 </div>
                                 <div class="divisor"></div>
                                 <div class="row margin-detalle">
@@ -169,12 +169,12 @@
                                                 <div class="row fondo-ficha relleno espacio">
 
                                                     <div class="col-md-10 col-md-offset-1">
-                                                        <div class="col-md-6">
+                                                        <div class="col-md-12">
                                                             <p class="modal-text-tipo">{{  llanta.modelo }}</p>
                                                         </div>
-                                                        <div class="col-md-6 text-right">
+                                                        <!-- <div class="col-md-6 text-right">
                                                             <p class="modal-text-precio">${{  llanta.precio}}</p>
-                                                        </div>
+                                                        </div> -->
                                                     </div>
 
                                                     <div class="col-md-10 col-md-offset-1 modal-descripcion">

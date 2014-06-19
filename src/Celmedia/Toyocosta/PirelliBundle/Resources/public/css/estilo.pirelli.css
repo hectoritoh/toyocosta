@@ -59,6 +59,36 @@
 	background-size: cover;
 	height: 208px;
 }
+.banner-pirelli-suv{
+	background-image: url("../../bundles/celmediatoyocostapirelli/images/banners-pirelli/suv.jpg");
+	background-size: cover;
+	height: 300px;
+}
+.banner-pirelli-autos{
+	background-image: url("../../bundles/celmediatoyocostapirelli/images/banners-pirelli/autos.jpg");
+	background-size: cover;
+	height: 300px;
+}
+.banner-pirelli-industriales{
+	background-image: url("../../bundles/celmediatoyocostapirelli/images/banners-pirelli/industriales.jpg");
+	background-size: cover;
+	height: 300px;
+}
+.banner-pirelli-camionetas{
+	background-image: url("../../bundles/celmediatoyocostapirelli/images/banners-pirelli/camionetas.jpg");
+	background-size: cover;
+	height: 300px;
+}
+.banner-pirelli-camiones{
+	background-image: url("../../bundles/celmediatoyocostapirelli/images/banners-pirelli/camion.jpg");
+	background-size: cover;
+	height: 300px;
+}
+.banner-pirelli-distribuidor{
+	background-image: url("../../bundles/celmediatoyocostapirelli/images/banners-pirelli/distribuidores.jpg");
+	background-size: cover;
+	height: 300px;
+}
 .nav-buscador a{
 	font-size: 16px;
 	color: #8C8C8C;
@@ -143,7 +173,8 @@
 }
 .text-precio{
 	color: #D61D23;
-	font-size: 18px;
+	/*font-size: 18px;*/
+	font-size: 14px;
 }
 .text-detalle{
 	color: #AEAEAE;
@@ -246,7 +277,7 @@ button.close-ficha{
 	color: #818181;
 }
 .modal-text-tipo{
-	font-size: 18px;
+	font-size: 24px;
 	color: #353535;
 	margin-top: 10px;
 }
@@ -270,7 +301,7 @@ button.close-ficha{
 	color: #fff;
 	border-color: transparent;
 }
-.btn-descarga:hover, .btn-info:hover, .btn-info:active{
+.btn-descarga:hover, .btn-info:hover, .btn-info:active, .btn-info:focus{
 	background-color: #970000;
 	color: #fff;
 	border-color:transparent;
@@ -281,6 +312,10 @@ button.close-ficha{
 	width: 90%;
 	background-image: none;
 	background-color: #999999;
+}
+.btn-buscar-filtro:hover{
+	color: #FFFFFF;
+	background-color: #555555;
 }
 .modal-descripcion{
 	margin-top: 22px;
@@ -464,6 +499,13 @@ button.close-ficha{
 	font-size: 12px;
 	font-weight: normal;
 }
+.txt-sms-pirelli{
+	color: #A7A7AB;
+    font-size: 15px;
+    font-weight: normal;
+    margin-top: 10px;
+    text-align: center;
+}
 .txt-select-pirelli{
 	font-style: oblique;
 	color: #A0A0A0;
@@ -477,6 +519,9 @@ button.close-ficha{
 }
 .txt-rojo{
 	color: #D62C2F;
+}
+.txt-rojo-claro{
+	color: #FF001D;
 }
 .txt-gris{
 	color: #A0A0A0;

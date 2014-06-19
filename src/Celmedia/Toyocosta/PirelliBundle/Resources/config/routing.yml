@@ -45,3 +45,9 @@ pirelli_envio_info:
     defaults: { _controller: CelmediaToyocostaPirelliBundle:Default:envioInfoPirelli}
     options:
         expose: true
+
+pirelli_mensaje:
+    pattern: /mensaje-enviado
+    defaults: { _controller: CelmediaToyocostaPirelliBundle:Default:mensajePirelli}
+    options:
+        expose: true

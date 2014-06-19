@@ -1,0 +1,95 @@
+Celmedia\Toyocosta\SeminuevoBundle\Entity\Seminuevo:
+
+    type: entity
+    table: seminuevo
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        modelo:
+            type: string
+            length: 140
+            nullable: false
+        marca:
+            type: string
+            length: 140
+            nullable: false
+        tipo:
+            type: string
+            length: 140
+            nullable: false
+        kilometraje:
+            type: string
+            length: 140
+            nullable: false
+        precio:
+            type: float
+            nullable: false
+        anio:
+            type: integer
+            nullable: false
+        ubicacion:
+            type: string
+            length: 140
+            nullable: false
+        placa:
+            type: string
+            length: 50
+            nullable: true
+        informacion:
+            type: text
+            nullable: false
+        descripcion_corta:
+            type: text
+            nullable: false
+        estado:
+            type: integer
+            unsigned: false
+            nullable: false
+        estado_publicacion:
+            type: integer
+            unsigned: false
+            nullable: false
+        created:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: create
+        updated:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: update
+
+    oneToMany:
+      certificados:
+        targetEntity: SeminuevoCertificado
+        mappedBy: seminuevo_certificado
+        cascade: ["persist"]
+      galeria:
+        targetEntity: SeminuevoGaleria
+        mappedBy: seminuevo_galeria
+        cascade: ["persist"]
+
+    manyToOne:
+      colores:
+        targetEntity: SeminuevoColores
+        inversedBy: seminuevo_color
+        joinColumn:
+          name: color_id
+          referencedColumnName: id
+      usuario_toyocosta:
+        targetEntity: Celmedia\Toyocosta\PirelliBundle\Entity\User
+        inversedBy: seminuevos
+        joinColumn:
+          name: user_id
+          referencedColumnName: id
+
+
+    lifecycleCallbacks:
+        prePersist:   [ lifecycleFileUpload ]
+        preUpdate:    [ lifecycleFileUpload ]

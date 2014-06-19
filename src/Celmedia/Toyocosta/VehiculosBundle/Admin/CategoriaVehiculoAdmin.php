@@ -28,9 +28,12 @@ class CategoriaVehiculoAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('id')
             ->add('nombre')
-            ->add('estado')
+            ->add('estado', 'choice', array(
+               'choices' => array(
+                   '1' => 'Publicado',
+                   '0' => 'No publicado'
+                   )))
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),

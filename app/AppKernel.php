@@ -37,6 +37,7 @@ class AppKernel extends Kernel
 
             new Celmedia\Toyocosta\PirelliBundle\CelmediaToyocostaPirelliBundle(),
             new Celmedia\Toyocosta\VehiculosBundle\CelmediaToyocostaVehiculosBundle(),
+            new Celmedia\Toyocosta\SeminuevoBundle\CelmediaToyocostaSeminuevoBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

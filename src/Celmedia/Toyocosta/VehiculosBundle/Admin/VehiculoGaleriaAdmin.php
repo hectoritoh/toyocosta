@@ -35,7 +35,6 @@ class VehiculoGaleriaAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('id')
             ->add('tipo')
             ->add('url')
             ->add('orden')

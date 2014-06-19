@@ -1,0 +1,44 @@
+Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoCertificado:
+    type: entity
+    table: seminuevo_certificados
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        nombre:
+            type: string
+            length: 140
+            nullable: false
+        imagen:
+            type: text
+            nullable: false
+        estado:
+            type: integer
+            unsigned: false
+            nullable: false
+        created:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: create
+        updated:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: update
+
+    manyToOne:
+      seminuevo_certificado:
+        targetEntity: Seminuevo
+        inversedBy: certificados
+        joinColumn:
+          name: seminuevo_id
+          referencedColumnName: id
+
+    lifecycleCallbacks:
+        prePersist:   [ lifecycleFileUpload ]
+        preUpdate:    [ lifecycleFileUpload ]

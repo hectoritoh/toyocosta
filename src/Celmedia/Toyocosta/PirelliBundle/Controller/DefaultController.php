@@ -335,6 +335,12 @@
         }
 
 
+        public function mensajePirelliAction(){
+
+            return $this->render('CelmediaToyocostaPirelliBundle:Pages:sms.enviado.pirelli.html.twig');
+
+        }
+
 
     }
 ?>

@@ -3,7 +3,7 @@ services:
     sonata.admin.post:
         class: Celmedia\Toyocosta\PirelliBundle\Admin\LlantaAdmin
         tags:
-            - { name: sonata.admin, manager_type: orm, group: "Front-end", label: "Llantas Pirelli" }
+            - { name: sonata.admin, manager_type: orm, group: "Pirelli", label: "Llantas" }
         arguments:
             - ~
             - Celmedia\Toyocosta\PirelliBundle\Entity\Llanta
@@ -15,4 +15,4 @@ services:
         class: Celmedia\Toyocosta\PirelliBundle\Admin\DistribuidorAdmin
         arguments: [~, Celmedia\Toyocosta\PirelliBundle\Entity\Distribuidor, SonataAdminBundle:CRUD]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: admin, label: Distribuidor}
+            - {name: sonata.admin, manager_type: orm, group: "Pirelli", label: Distribuidores}

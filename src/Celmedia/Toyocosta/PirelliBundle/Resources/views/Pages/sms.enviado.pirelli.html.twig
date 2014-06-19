@@ -1,0 +1,48 @@
+
+{% extends 'CelmediaToyocostaPirelliBundle::layout.html.twig' %}
+
+
+{% block content %}
+
+{% include 'CelmediaToyocostaPirelliBundle:Blocks:top.submenu.html.twig' %}
+
+<div class="row banner-pirelli">
+	<div class="container">
+
+	</div>
+</div>
+<div class="container">
+	
+	<div style="height:50px;"></div>
+
+	<div class="row" style="padding-top: 20px;padding-bottom: 30px;">
+
+
+		<div class="col-md-12 text-center">
+
+			<h1 class="txt-rojo-claro" >Gracias!</h1>
+
+
+		</div>
+
+		<div class="col-md-12">
+
+			<p class="txt-sms-pirelli">Su pedido de información se ha enviado correctamente. Un representante de Toyocosta se contactará con Ud. a la brevedad.</p>			
+
+		</div>
+
+
+	</div>
+
+	<div class="row">
+		<a href="{{ path('pirelli_home') }}">
+        	<div class="col-md-4 col-md-offset-4 btn btn-info">Regresar al inicio</div>
+        </a>
+	</div>
+
+	<div style="height:110px;"></div>
+
+</div>
+
+
+{% endblock %}

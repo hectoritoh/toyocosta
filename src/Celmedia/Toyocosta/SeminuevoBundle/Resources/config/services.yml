@@ -1,0 +1,12 @@
+parameters:
+#    celmedia_toyocosta_seminuevo.example.class: Celmedia\Toyocosta\SeminuevoBundle\Example
+
+services:
+#    celmedia_toyocosta_seminuevo.example:
+#        class: %celmedia_toyocosta_seminuevo.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+    celmedia_toyocosta_seminuevo.admin.seminuevo:
+        class: Celmedia\Toyocosta\SeminuevoBundle\Admin\SeminuevoAdmin
+        arguments: [~, Celmedia\Toyocosta\SeminuevoBundle\Entity\Seminuevo, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: 'Seminuevo', label: Seminuevo}

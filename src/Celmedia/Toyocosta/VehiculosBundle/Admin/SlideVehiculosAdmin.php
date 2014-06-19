@@ -7,9 +7,33 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
+use Sonata\AdminBundle\Validator\ErrorElement;
+
 
 class SlideVehiculosAdmin extends Admin
 {
+    
+    public function preUpdate( $obj ){
+
+
+        if ( $obj->getImagenSlide() != null  ) {
+            
+            $obj->uploadFileSlide();
+            
+        }
+
+        if ( $obj->getImagenThumb() != null  ) {
+            
+            $obj->uploadFileThumb();
+
+        }
+
+        
+
+    }
+
+
+
     /**
      * @param DatagridMapper $datagridMapper
      */
@@ -60,7 +84,7 @@ class SlideVehiculosAdmin extends Admin
 
         // use $fileFieldOptions so we can add other options to the field
         $fileFieldOptions = array('required' => false);
-        if ($obj && ($webPath = '/../../../../toyocosta/web/'. 'uploads/vehiculo/SlideVehiculos/' .    $obj->getImagenSlide())) {
+        if ($obj && ($webPath = '/../../../../toyocostaweb/web/'. 'uploads/slide-vehiculos/portada/' .    $obj->getImagenSlide())) {
             // get the container so the full path to the image can be set
             $container = $this->getConfigurationPool()->getContainer();
             $fullPath = $container->get('request')->getBasePath().'/'.$webPath;
@@ -70,7 +94,7 @@ class SlideVehiculosAdmin extends Admin
         }
         // use $fileFieldOptions so we can add other options to the field
         $fileFieldOptions2 = array('required' => false);
-        if ($obj && ($webPath = '/../../../../toyocosta/web/'. 'uploads/vehiculo/SlideVehiculos/' .    $obj->getImagenThumb())) {
+        if ($obj && ($webPath = '/../../../../toyocostaweb/web/'. 'uploads/slide-vehiculos/bullets/' .    $obj->getImagenThumb())) {
             // get the container so the full path to the image can be set
             $container = $this->getConfigurationPool()->getContainer();
             $fullPath = $container->get('request')->getBasePath().'/'.$webPath;
@@ -110,4 +134,45 @@ class SlideVehiculosAdmin extends Admin
             ->add('updated')
         ;
     }
+
+
+
+    public function validate(ErrorElement $errorElement, $object)
+    {
+        // conditional validation, see the related section for more information
+
+        $errorElement
+            ->with('vehiculo_slide')
+                ->assertNotNull()
+            ->end()
+            ->with('categoria_vehiculo')
+                ->assertNotNull()
+            ->end()
+        ;
+
+        if ($object->getImagenSlide() === null ) {
+            // nombre cannot be empty when the post is enabled
+            $errorElement
+                ->with('FileSlide')
+                    ->assertNotNull()
+                ->end()
+            ;
+                        
+        }
+        if ($object->getImagenThumb() === null ) {
+            // nombre cannot be empty when the post is enabled
+            $errorElement
+                ->with('FileThumb')
+                    ->assertNotNull()
+                ->end()
+            ;
+                        
+        }
+
+  
+
+    }
+
+
+
 }

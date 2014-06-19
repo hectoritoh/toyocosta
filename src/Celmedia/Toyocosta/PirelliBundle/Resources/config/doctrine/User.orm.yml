@@ -9,3 +9,40 @@ Celmedia\Toyocosta\PirelliBundle\Entity\User:
             nullable: false
             generator:
                 strategy: IDENTITY
+        nombre:
+            type: string
+            length: 200
+            nullable: true
+        apellido:
+            type: string
+            length: 200
+            nullable: true
+        telefono:
+            type: integer
+            nullable: true
+        celular:
+            type: integer
+            nullable: true
+        fecha_nacimiento:
+            type: datetime
+            nullable: true
+        ciudad:
+            type: string
+            length: 100
+            nullable: true
+        direccion:
+            type: string
+            length: 500
+            nullable: true
+        cedula:
+            type: integer
+            nullable: true
+        rol:
+            type: integer
+            nullable: true
+
+    oneToMany:
+      seminuevos:
+        targetEntity: Celmedia\Toyocosta\SeminuevoBundle\Entity\Seminuevo
+        mappedBy: usuario_toyocosta
+        cascade: ["persist"]

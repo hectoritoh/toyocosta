@@ -8,8 +8,29 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
+use Sonata\AdminBundle\Validator\ErrorElement;
+
 class SlidePrincipalAdmin extends Admin
 {
+    
+
+
+    public function preUpdate( $obj ){
+
+
+        if ( $obj->getImagenBanner() != null  ) {
+            
+            $obj->uploadImagenSlide();
+            
+        }
+
+        
+
+    }
+
+
+
+
     /**
      * @param DatagridMapper $datagridMapper
      */
@@ -57,7 +78,7 @@ class SlidePrincipalAdmin extends Admin
         $obj = $this->getSubject();
 
         $fileFieldOptions = array('required' => false);
-        if ($obj && ($webPath = '/../../../../toyocosta/web/'. 'uploads/vehiculo/SlidePrincipal/' .    $obj->getImagenBanner())) {
+        if ($obj && ($webPath = '/../../../../toyocostaweb/web/'. 'uploads/slide-principal/' .    $obj->getImagenBanner())) {
             // get the container so the full path to the image can be set
             $container = $this->getConfigurationPool()->getContainer();
             $fullPath = $container->get('request')->getBasePath().'/'.$webPath;
@@ -91,4 +112,29 @@ class SlidePrincipalAdmin extends Admin
             ->add('estado')
         ;
     }
+
+
+
+
+    public function validate(ErrorElement $errorElement, $object)
+    {
+        // conditional validation, see the related section for more information
+
+
+        if ($object->getImagenBanner() === null ) {
+            // nombre cannot be empty when the post is enabled
+            $errorElement
+                ->with('ImagenSlide')
+                    ->assertNotNull()
+                ->end()
+            ;
+                        
+        }
+
+  
+
+    }
+
+
+
 }

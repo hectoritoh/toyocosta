@@ -7,15 +7,38 @@ use Sonata\AdminBundle\Datagrid\DatagridMapper;
 use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Sonata\AdminBundle\Validator\ErrorElement;
+
+
 
 class VehiculoAdmin extends Admin
 {
 
+    // protected $datagridValues = array(
+    //     '_page' => 1,            // display the first page (default = 1)
+    //     '_sort_order' => 'DESC', // reverse order (default = 'ASC')
+    //     '_sort_by' => 'updated'  // name of the ordered field
+    //                              // (default = the model's id field, if any)
+
+    //     // the '_sort_by' key can be of the form 'mySubModel.mySubSubModel.myField'.
+    // );
+
+    public function preUpdate( $obj ){
 
 
-    public  function preUpdate( $obj ){
+        if ( $obj->getImagenBanner() != null  ) {
+            
+            $obj->uploadFileBanner();
+            
+        }
 
+        if ( $obj->getImagenThumb() != null  ) {
+            
+            $obj->uploadFileThumb();
+
+        }
 
         foreach ($obj->getGaleria() as $galeria ){
 
@@ -27,8 +50,29 @@ class VehiculoAdmin extends Admin
 
                 $color->setVehiculo( $obj );
         }
-  
+
+        foreach ($obj->getModelos() as $modelo ) {
+
+                $modelo->setVehiculomodel( $obj );
+        }
+        
+
     }
+
+    
+    //    public function prePersist($obj)
+    // {
+
+    //     if ( ($obj->getImagenBanner()) != null  ) {
+    //         $banner= 'banner';
+    //         $obj->upload($banner);
+    //     }
+
+    //     if ( ($obj->getImagenThumb()) != null  ) {
+    //         $thumb ='thumb';
+    //         $obj->upload($thumb);
+    //     }
+    // }
 
 
     /**
@@ -57,13 +101,11 @@ class VehiculoAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('nombre')
+            ->add('nombre', null, array('editable' => true))
             ->add('precio')
             ->add('precio_neto')
             ->add('informacion')
-            ->add('descripcion')
-            ->add('imagen_banner')
-            ->add('imagen_thumb')
+            ->add('descripcion', null, array('editable' => true))
             ->add('estado', 'choice', array(
            'choices' => array(
                '1' => 'Publicado',
@@ -86,11 +128,31 @@ class VehiculoAdmin extends Admin
     {
         
 
-        $obj = $this->getSubject();
+        // $obj = $this->getSubject();
+
+         if($this->hasParentFieldDescription()) { // this Admin is embedded
+            // $getter will be something like 'getlogoImage'
+            $getter = 'get' . $this->getParentFieldDescription()->getFieldName();
+
+            // get hold of the parent object
+            $parent = $this->getParentFieldDescription()->getAdmin()->getSubject();
+            if ($parent) {
+                $obj = $parent->$getter();
+            } else {
+                $obj = null;
+            }
+        } else {
+            $obj = $this->getSubject();
+        }
+
+
+
+
+
 
         // use $fileFieldOptions so we can add other options to the field
         $fileFieldOptions = array('required' => false);
-        if ($obj && ($webPath = '/../../../../toyocosta/web/'. 'uploads/vehiculo/banner/' .    $obj->getImagenBanner())) {
+        if ($obj && ($webPath = '/../../../../toyocostaweb/web/'. 'uploads/vehiculo/banner/' .    $obj->getImagenBanner())) {
             // get the container so the full path to the image can be set
             $container = $this->getConfigurationPool()->getContainer();
             $fullPath = $container->get('request')->getBasePath().'/'.$webPath;
@@ -100,7 +162,7 @@ class VehiculoAdmin extends Admin
         }
         // use $fileFieldOptions so we can add other options to the field
         $fileFieldOptions2 = array('required' => false);
-        if ($obj && ($webPath = '/../../../../toyocosta/web/'. 'uploads/vehiculo/thumb/' .    $obj->getImagenThumb())) {
+        if ($obj && ($webPath = '/../../../../toyocostaweb/web/'. 'uploads/vehiculo/thumb/' .    $obj->getImagenThumb())) {
             // get the container so the full path to the image can be set
             $container = $this->getConfigurationPool()->getContainer();
             $fullPath = $container->get('request')->getBasePath().'/'.$webPath;
@@ -124,37 +186,41 @@ class VehiculoAdmin extends Admin
                 ->add('colores', 'sonata_type_collection', array(
                      'by_reference' => false,
                            // Prevents the "Delete" option from being displayed
-                     'type_options' => array('delete' => true)) , array(
+                     'type_options' => array('delete' => false)) , array(
                      'edit' => 'inline',
-                     'inline' => 'table',
-                     'sortable' => 'position',
+                     'inline' => 'standard',
                  ))
             ->end()
+            // ->add('colores')
             ->with('Galeria')
                 ->add('galeria', 'sonata_type_collection', array(
                      'by_reference' => false,
                            // Prevents the "Delete" option from being displayed
-                     'type_options' => array('delete' => true)) , array(
+                     'type_options' => array('delete' => false)) , array(
                      'edit' => 'inline',
-                     'inline' => 'table',
-                     'sortable' => 'position',
+                     'inline' => 'standard',
                  ))
-            ->end()
-            // ->with('Modelos del Vehiculo')
-            //     ->add('modelos', 'sonata_type_collection', array(
-            //          'by_reference' => false,
-            //          'type_options' => array('delete' => true)) , array(
-            //          'edit' => 'inline',
-            //          'inline' => 'standard',
-            //          'sortable' => 'position',
-            //      ))
-            // ->end()
+            ->end() 
+            ->with('Modelos del Vehiculo')
+                ->add('modelos', 'sonata_type_collection', array(
+                     'by_reference' => false,
+                     'type_options' => array('delete' => false)) , array(
+                     'edit' => 'inline',
+                     'inline' => 'standard',
+                 ))
+            ->end()            
+            ->setHelps(array(
+                    'precio' => 'Precio sin IVA',
+                    'precio_neto' => 'Precio con Iva',
+                    'colores' => 'Galeria de Vehiculos con Diferentes Colores',
+                    'galeria' => 'Galeria de Vehiculos: Videos / Imagenes',
+                    'modelos' => 'Modelos de Vehiculos',
+                ))
             ->add('estado', 'choice', array(
                'choices' => array(
                    '1' => 'Publicado',
                    '0' => 'No publicado'
                    )));
-            
             ;
     }
 
@@ -186,16 +252,33 @@ class VehiculoAdmin extends Admin
     public function validate(ErrorElement $errorElement, $object)
     {
         // conditional validation, see the related section for more information
-        if ($object->getColores()) {
+
+        $errorElement
+            ->with('categoria')
+                ->assertNotNull()
+            ->end()
+        ;
+
+        if ($object->getImagenBanner() === null ) {
             // nombre cannot be empty when the post is enabled
             $errorElement
-                ->with('nombre')
-                    ->assertNotBlank()
+                ->with('fileBanner')
                     ->assertNotNull()
                 ->end()
             ;
-            
+                        
         }
+        if ($object->getImagenThumb() === null ) {
+            // nombre cannot be empty when the post is enabled
+            $errorElement
+                ->with('fileThumb')
+                    ->assertNotNull()
+                ->end()
+            ;
+                        
+        }
+
+  
 
     }
 

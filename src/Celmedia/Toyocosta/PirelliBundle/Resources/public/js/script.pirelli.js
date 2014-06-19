@@ -3,10 +3,6 @@ $(document).ready(function(){
 
       validarDatos();
 
-    	$('.contenedor-centrar').each(function () {
-                   centrarHorizontal($(this));
-                 });
-
       // MODAL PARA LAS LLANTAS PIRELLI 
       $('a[id^="llanta"]').click(function(){
 
@@ -44,12 +40,14 @@ $(document).ready(function(){
                   success: function (respuesta) {
                       // alert(respuesta);
                       if (respuesta == "ok") {
-                          alert("Su pedido de informacion fue enviado exitosamente");
-                          document.getElementById("form-pirelli").reset();
+                          // alert("Su pedido de informacion fue enviado exitosamente");
+                          // document.getElementById("form-pirelli").reset();
+                          window.location = Routing.generate('pirelli_mensaje');
                       } else {
                           // error
                       }
-                  },
+
+                  }, 
                   error: function (error) {
                     console.log("ERROR: " + error);
                   }

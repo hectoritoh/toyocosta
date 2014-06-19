@@ -8,20 +8,45 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
+
+use Sonata\AdminBundle\Validator\ErrorElement;
+
+
 class VehiculoModelosAdmin extends Admin
 {
     
 
-    public  function preUpdate( $obj ){
+    // public  function preUpdate( $obj ){
 
 
-        foreach ($obj->getEspecificaciones() as $especificacion ){
+    //     foreach ($obj->getEspecificaciones() as $especificacion ){
 
-            $especificacion->setModelo( $obj );
-        }
+    //         $especificacion->setModelo( $obj );
+    //     }
 
   
+    // }
+
+
+
+    public function preUpdate( $obj ){
+
+
+        if ( $obj->getImagenModelo() != null  ) {
+            
+            $obj->uploadFileModelo();
+            
+        }
+
+        if ( $obj->getFilePdf() != null  ) {
+            
+            $obj->uploadFilePdf();
+
+        }
+        
+
     }
+
 
     /**
      * @param DatagridMapper $datagridMapper
@@ -78,17 +103,17 @@ class VehiculoModelosAdmin extends Admin
 
         // use $fileFieldOptions so we can add other options to the field
         $fileFieldOptions = array('required' => false);
-        if ($obj && ($webPath =  '/../../../../toyocosta/web/'. 'uploads/vehiculo/modelo/' . $obj->getImagenModelo())) {
+        if ($obj && ($webPath =  '/../../../../toyocostaweb/web/'. 'uploads/vehiculo/modelo/' . $obj->getImagenModelo())) {
             // get the container so the full path to the image can be set
             $container = $this->getConfigurationPool()->getContainer();
             $fullPath = $container->get('request')->getBasePath().'/'.$webPath;
 
             // add a 'help' option containing the preview's img tag
-            $fileFieldOptions['help'] = '<img src="'.$fullPath.'" class="admin-preview" />';
+            $fileFieldOptions['help'] = '<img src="'.$fullPath.'" class="admin-preview" style=" height: auto;width: 100%;" />';
         }
 
         $fileFieldOptions2 = array('required' => false);
-        if ($obj && ($webPath =  '/../../../../toyocosta/web/'. 'uploads/vehiculo/modelo/pdf' . $obj->getArchivoPdf())) {
+        if ($obj && ($webPath =  '/../../../../toyocostaweb/web/'. 'uploads/vehiculo/modelo/pdf' . $obj->getArchivoPdf())) {
             // get the container so the full path to the image can be set
             $container = $this->getConfigurationPool()->getContainer();
             $fullPath = $container->get('request')->getBasePath().'/'.$webPath;
@@ -106,16 +131,16 @@ class VehiculoModelosAdmin extends Admin
             ->add('precio_neto')
             ->add('filePdf', 'file', $fileFieldOptions2)
             ->add('fileModelo', 'file', $fileFieldOptions)
-            ->with('Especificaciones')
-                ->add('especificaciones', 'sonata_type_collection', array(
-                 'by_reference' => false,
-                       // Prevents the "Delete" option from being displayed
-                 'type_options' => array('delete' => true)) , array(
-                 'edit' => 'inline',
-                 'inline' => 'standard',
-                 'sortable' => 'position',
-                ))
-            ->end()
+            // ->with('Especificaciones')
+            //     ->add('especificaciones', 'sonata_type_collection', array(
+            //      'by_reference' => false,
+            //            // Prevents the "Delete" option from being displayed
+            //      'type_options' => array('delete' => true)) , array(
+            //      'edit' => 'inline',
+            //      'inline' => 'standard',
+            //      'sortable' => 'position',
+            //     ))
+            // ->end()
             ->add('estado', 'choice', array(
            'choices' => array(
                '1' => 'Publicado',
@@ -142,4 +167,26 @@ class VehiculoModelosAdmin extends Admin
             ->add('updated')
         ;
     }
+
+
+      public function validate(ErrorElement $errorElement, $object)
+    {
+        // conditional validation, see the related section for more information
+
+
+        if ($object->getImagenModelo() === null ) {
+            // nombre cannot be empty when the post is enabled
+            $errorElement
+                ->with('fileModelo')
+                    ->assertNotNull()
+                ->end()
+            ;
+                        
+        }
+
+  
+
+    }
+
+
 }
