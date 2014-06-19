@@ -194,12 +194,23 @@ html,body{
 	margin-bottom: 12px;
 }
 .cuadro-precio{
-	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/varios/recuadro-precio.png");
-	background-repeat: no-repeat; 
-	height: 70px;
+	background-repeat: no-repeat;
 	padding-left: 14px;
 	padding-right: 14px;
 	padding-top: 2px;
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+.cuadro-precio.text-right{
+	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/varios/recuadro-precio-der.png");
+	background-position: top right;
+}
+.cuadro-precio.text-left{
+	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/varios/recuadro-precio.png");
+	background-position: top left;
 }
 .cuadro-caption{
 	/*border-left: 2px solid red;
@@ -210,17 +221,20 @@ html,body{
 	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/varios/recuadro-accesos.png"); 
 	background-repeat: no-repeat;
 	height: 149px;
+	
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 }
 .txt-caption{
     font-size: 18px;
-    text-align: left;
     color: #000000;
     margin-top: 5px;
 	margin-bottom: 1px;
 }
 .parrafo-caption{
 	font-size: 12px;
-    text-align: left;
     color: #000000;
 }
 .precio-caption{
@@ -325,6 +339,14 @@ html,body{
 	margin: 0 auto;
 	text-align: center;
 }
+.obj-izq{
+	margin-left: 0;
+	margin-right: auto;
+}
+.obj-der{
+	margin-left: auto;
+	margin-right: 0;
+}
 
 .link-accesos{
 	display: inline-block;
@@ -333,6 +355,16 @@ html,body{
 .banners-foot {
 	margin-bottom: 0px;
 	bottom: 0px;
+}
+
+.flip-h{
+	-webkit-transform:scaleX(-1);
+    -moz-transform:scaleX(-1);
+    -ms-transform:scaleX(-1);
+    -o-transform:scaleX(-1);
+    transform:scaleX(-1);
+    filter: FlipV;
+    -ms-filter: "FlipV";
 }
 
 /*Media Querys*/
@@ -447,7 +479,7 @@ html,body{
 	#linkstop{
 		display: none;
 	}
-	/*.carousel-indicators .c-miniaturas,
+	.carousel-indicators .c-miniaturas,
 	.carousel-indicators .c-miniaturas.active{
 		width: 50px;
 		height: 50px;
@@ -459,7 +491,7 @@ html,body{
 		width: 70px;
 		height: 70px;
 		border-radius: 35px;
-	}*/
+	}
  }
  
 /* Landscape phones and down */
@@ -472,7 +504,7 @@ html,body{
 		display: none;
 	}
 
-	/*.carousel-indicators .c-miniaturas,
+	.carousel-indicators .c-miniaturas,
 	.carousel-indicators .c-miniaturas.active{
 		width: 50px;
 		height: 50px;
@@ -484,7 +516,7 @@ html,body{
 		width: 70px;
 		height: 70px;
 		border-radius: 35px;
-	}*/
+	}
  }
  
 

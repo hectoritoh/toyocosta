@@ -80,6 +80,7 @@ $(window).load(function(){
          centrarVert($(this));
        });
        margenlink = (-1) * ( $("#footer-banners").height() - $("#footer-boton").height() - $("#footer-logos").height() ) ;
+       $("#footer-banners").css("margin-bottom", margenlink );
 });
 
 $(window).resize(function(){
@@ -90,6 +91,6 @@ $(window).resize(function(){
          centrarVert($(this));
        });
 
-       margenlink = (-1) * ( $("#footer-banners").height() - $("#footer-boton").height() - $("#footer-logos").height() ) ;
-  $("#footer-banners").css("margin-bottom", margenlink );
+      margenlink = (-1) * ( $("#footer-banners").height() - $("#footer-boton").height() - $("#footer-logos").height() ) ;
+      $("#footer-banners").css("margin-bottom", margenlink );
 });
