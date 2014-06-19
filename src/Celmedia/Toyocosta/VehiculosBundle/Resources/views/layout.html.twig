@@ -25,11 +25,23 @@
 
 
     {% include 'CelmediaToyocostaPirelliBundle:Blocks:top.menu.html.twig' %}
-    <div class="row alto-toyocosta">
-
-    </div>
     
+    {#
     {% include 'CelmediaToyocostaVehiculosBundle:Blocks:slide.principal.html.twig' %}
+    #}
+
+
+    {#
+    {% include 'CelmediaToyocostaVehiculosBundle:Blocks:slide.vehiculos.html.twig' %}
+    #}
+
+    {{ render(controller("CelmediaToyocostaVehiculosBundle:Default:obtenerVehiculos" , { 'tipoVehiculo': 'Autos', 'prefijo': 'autos'  }))   }}
+    {{ render(controller("CelmediaToyocostaVehiculosBundle:Default:obtenerVehiculos" , { 'tipoVehiculo': 'Camionetas', 'prefijo': 'camionetas'  }))   }}
+
+
+
+
+    {#
 
     {% include 'CelmediaToyocostaVehiculosBundle:Blocks:slide.autos.html.twig' %}
 
@@ -44,16 +56,19 @@
     {% include 'CelmediaToyocostaVehiculosBundle:Blocks:slide.pirelli.html.twig' %}
 
     {% include 'CelmediaToyocostaVehiculosBundle:Blocks:slide.seminuevo.html.twig' %}
+    #}
 
 
     {% include 'CelmediaToyocostaPirelliBundle:Blocks:footer.html.twig' %}
-     {% javascripts
-        '@CelmediaToyocostaPirelliBundle/Resources/public/js/jquery.js'       
-        '@CelmediaToyocostaPirelliBundle/Resources/public/js/script.js' 
-        '@CelmediaToyocostaVehiculosBundle/Resources/public/js/script.toyocosta.js'
-        '@CelmediaToyocostaPirelliBundle/Resources/public/js/bootstrap.min.js' 
+         {% javascripts
+            '@CelmediaToyocostaPirelliBundle/Resources/public/js/jquery.js'       
+            '@CelmediaToyocostaPirelliBundle/Resources/public/js/bootstrap.min.js' 
+            '@CelmediaToyocostaVehiculosBundle/Resources/public/js/jquery.scrollTo-1.4.2-min.js' 
+            '@CelmediaToyocostaVehiculosBundle/Resources/public/js/jquery-ui-1.9.2.custom.js' 
+            '@CelmediaToyocostaPirelliBundle/Resources/public/js/script.js' 
+            '@CelmediaToyocostaVehiculosBundle/Resources/public/js/script.toyocosta.js'
         %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
-     {% endjavascripts %}                          
+    {% endjavascripts %}                          
     </body>
 </html>

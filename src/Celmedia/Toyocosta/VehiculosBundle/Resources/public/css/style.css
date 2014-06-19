@@ -1,123 +1,159 @@
-/*Media Querys*/
-/* Large desktop */
-@media (min-width: 1921px) { 
+html,body{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
 
-	.input-buscar{
-		padding:12px 165px;
-	}
-	/*.alto-toyocosta{
-		height: 85px;
-	}
-	.carousel-indicators li{
-		width: 23px;
-		height: 23px;
-	}
-	.carousel-indicators .active{
-		width: 23px;
-		height: 23px;
-	}
-	.btn-caption{
-		margin-bottom: 125px;
-	}*/
+.v-center-contenedor {
+	display: table;
+	height: 100%;
+	width: 100%;
+	position: relative;
+}
+.v-center-contenido{
+	display: table-cell;
+	vertical-align: middle;
+}
 
- }
-@media (min-width: 1200px) {
+.alto-completo{
+	height: 100%;
+	position: relative;
+}
+
+.seccion-ty{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.carousel-ty{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+
+.espacio-a{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.espaciado-slide-home{
+	margin-top: 120px;
+	margin-bottom: 120px;
+}
+
+.item-carousel-home-ty{
+	position: relative;
+	width: 100%;
+	height: 100%;
+
+	display: table;
+	/*position: relative;*/
+	background-repeat: no-repeat;
+	background-position: top center;
+	/*background-attachment: fixed;*/
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.carousel-indicators .c-miniaturas,
+.carousel-indicators .c-miniaturas.active{
+	width: 70px;
+	height: 70px;
+	border-radius: 35px;
+	position: relative;
+	overflow: hidden;
+	border: none;
+
+
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+
+.carousel-indicators .c-miniaturas:hover,
+.carousel-indicators .c-miniaturas.active:hover{
+	width: 90px;
+	height: 90px;
+	position: relative;
+	overflow: hidden;
+	border-radius: 45px;
+
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+
+.carousel-indicators .c-miniaturas .textos-miniaturas{
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	position: absolute;
+	background-color: #FFFFFF;
 	
-	#nav-principal li a {
-		padding-right: 10px;
-		padding-left: 10px;
-	}
-	.alto-toyocosta{
-		height: 85px;
-	}
-	/*INDICADORES REDONDOS CAROUSEL*/
-	.carousel-indicators li{
-		width: 23px;
-		height: 23px;
-		border: 3px solid #fff;
-		border-radius: 23px;
-	}
-	.carousel-indicators .active{
-		width: 23px;
-		height: 23px;
-		margin: 1px;
-	}
-	/*FLECHAS CAROUSEL*/
-	.btn-caption{
-		margin-bottom: 80px;
-	}
-	.glyphicon-chevron-left{
-		top: 38%;
-	}
-	.glyphicon-chevron-right{
-		top: 38%;
-	}
-	.carousel-indicators {
-		bottom: 62px;
-	}
-	/*CAROUSEL VEHICULOS*/
-	.carousel-vehiculos .active {
-		width: 70px;
-		height: 0px;
-		margin: 1px;
-	}
-	.carousel-vehiculos li:first-child
-	{
-		background-color: transparent;
-	}
-	.carousel-vehiculos li{
-		width: 70px;
-		height: 69px;
-		border: 0px solid #fff;
-	}
-	/*CAROUSEL CAMIONETAS*/
-	.carousel-camionetas .active {
-		width: 70px;
-		height: 0px;
-		margin: 1px;
-	}
-	.carousel-camionetas li:first-child
-	{
-		background-color: transparent;
-	}
-	.carousel-camionetas li{
-		width: 70px;
-		height: 69px;
-		border: 0px solid #fff;
-	}
 
-	/*POSICION PRECIO Y ACCESOS DE SLIDERS VEHICULOS*/
-	.position-caption{
-		left: 12%;
-		bottom: 32%;
-	}
- }
- 
-/* Portrait tablet to landscape and desktop */
-@media (min-width: 768px) and (max-width: 979px) { 
+	-webkit-transition: all 0.4s ease-in-out;
+	-moz-transition: all 0.4s ease-in-out;
+	-o-transition: all 0.4s ease-in-out;
+	-ms-transition: all 0.4s ease-in-out;
+	transition: all 0.4s ease-in-out;
+}
+.carousel-indicators .c-miniaturas .textos-miniaturas:hover,
+.carousel-indicators .c-miniaturas.active .textos-miniaturas{
+	background-image: none;
+	background: transparent;
+	background: transparent;
+}
 
-	.btn-caption{
-		margin-bottom: 72px;
-	}
- }
- 
-/* Landscape phone to portrait tablet */
-@media (max-width: 767px) { 
-	.alto-toyocosta{
-		height: 190px;
-	}
+.carousel-indicators .c-miniaturas.active .textos-miniaturas .txt-indicador,
+.carousel-indicators .c-miniaturas .textos-miniaturas:hover .txt-indicador{
+	color: transparent;
+}
+
+.c-miniaturas .miniaturas{
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
+	position: absolute;	
+	border: 3px solid #FFFFFF;
+
+	background-repeat: no-repeat;
+	background-position: top center;
+	/*background-attachment: fixed;*/
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 
 
- }
- 
-/* Landscape phones and down */
-@media (max-width: 480px) { 
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
 
-	.alto-toyocosta{
-		height: 226px;
-	}
+.carousel-indicators .c-miniaturas.active .miniaturas{
+	border: 3px solid #FF0000;
+	width: 100%;
+	height: 100%;
+	border-radius: 50%;
 
- }
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+
+
+}
+
+
 /*Botones*/
 .btn-ver-mas{
 	background-color: #FFFFFF;
@@ -283,3 +319,173 @@
 .texto-venta{
 	color: #FFFFFF;
 }
+
+.obj-centrar{
+	position: relative;
+	margin: 0 auto;
+	text-align: center;
+}
+
+.link-accesos{
+	display: inline-block;
+}
+
+.banners-foot {
+	margin-bottom: 0px;
+	bottom: 0px;
+}
+
+/*Media Querys*/
+/* Large desktop */
+@media (min-width: 1921px) { 
+
+	.input-buscar{
+		padding:12px 165px;
+	}
+	/*.alto-toyocosta{
+		height: 85px;
+	}
+	.carousel-indicators li{
+		width: 23px;
+		height: 23px;
+	}
+	.carousel-indicators .active{
+		width: 23px;
+		height: 23px;
+	}
+	.btn-caption{
+		margin-bottom: 125px;
+	}*/
+
+ }
+@media (min-width: 1200px) {
+	
+	#nav-principal li a {
+		padding-right: 10px;
+		padding-left: 10px;
+	}
+	.alto-toyocosta{
+		height: 85px;
+	}
+	/*INDICADORES REDONDOS CAROUSEL*/
+	.carousel-indicators li{
+		width: 23px;
+		height: 23px;
+		border: 3px solid #fff;
+		border-radius: 23px;
+	}
+	.carousel-indicators .active{
+		width: 23px;
+		height: 23px;
+		margin: 1px;
+	}
+	/*FLECHAS CAROUSEL*/
+	.btn-caption{
+		margin-bottom: 80px;
+	}
+	.glyphicon-chevron-left{
+		top: 38%;
+	}
+	.glyphicon-chevron-right{
+		top: 38%;
+	}
+	.carousel-indicators {
+		bottom: 62px;
+	}
+	/*CAROUSEL VEHICULOS*/
+	.carousel-vehiculos .active {
+		width: 70px;
+		height: 0px;
+		margin: 1px;
+	}
+	.carousel-vehiculos li:first-child
+	{
+		background-color: transparent;
+	}
+	.carousel-vehiculos li{
+		width: 70px;
+		height: 69px;
+		border: 0px solid #fff;
+	}
+	/*CAROUSEL CAMIONETAS*/
+	.carousel-camionetas .active {
+		width: 70px;
+		height: 0px;
+		margin: 1px;
+	}
+	.carousel-camionetas li:first-child
+	{
+		background-color: transparent;
+	}
+	.carousel-camionetas li{
+		width: 70px;
+		height: 69px;
+		border: 0px solid #fff;
+	}
+
+	/*POSICION PRECIO Y ACCESOS DE SLIDERS VEHICULOS*/
+	.position-caption{
+		left: 12%;
+		bottom: 32%;
+	}
+ }
+ 
+/* Portrait tablet to landscape and desktop */
+@media (min-width: 768px) and (max-width: 979px) { 
+
+	.btn-caption{
+		margin-bottom: 72px;
+	}
+ }
+ 
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) { 
+	.alto-toyocosta{
+		height: 190px;
+	}
+
+	#linkstop{
+		display: none;
+	}
+	/*.carousel-indicators .c-miniaturas,
+	.carousel-indicators .c-miniaturas.active{
+		width: 50px;
+		height: 50px;
+		border-radius: 25px;
+	}
+
+	.carousel-indicators .c-miniaturas:hover,
+	.carousel-indicators .c-miniaturas.active:hover{
+		width: 70px;
+		height: 70px;
+		border-radius: 35px;
+	}*/
+ }
+ 
+/* Landscape phones and down */
+@media (max-width: 480px) { 
+
+	.alto-toyocosta{
+		height: 226px;
+	}
+	#linkstop{
+		display: none;
+	}
+
+	/*.carousel-indicators .c-miniaturas,
+	.carousel-indicators .c-miniaturas.active{
+		width: 50px;
+		height: 50px;
+		border-radius: 25px;
+	}
+
+	.carousel-indicators .c-miniaturas:hover,
+	.carousel-indicators .c-miniaturas.active:hover{
+		width: 70px;
+		height: 70px;
+		border-radius: 35px;
+	}*/
+ }
+ 
+
+

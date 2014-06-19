@@ -5,7 +5,7 @@
     <ol class="carousel-indicators carousel-vehiculos">
 
       {% set i = 0 %}
-      {% for bullet in slideAutos %}
+        {% for bullet in slideAutos %}
 
         <li data-target="#carousel-vehiculos" data-slide-to="{{ i }}" class="miniaturas {% if loop.first %} active {% endif %}">
             <br />
@@ -40,7 +40,6 @@
                 <h4 class="txt-caption">Precio <span class="precio-caption">${{ item.vehiculoSlide.precio }}</span></h4>
                 <p class="parrafo-caption">{{ item.vehiculoSlide.informacion}}</p>
               </div>
-
             </div>
             <div class="row">
               <div class="cuadro-caption">
@@ -56,9 +55,8 @@
                 </div>
               </div>
             </div>
-
-
         </div>
+        
       </div>
 
 

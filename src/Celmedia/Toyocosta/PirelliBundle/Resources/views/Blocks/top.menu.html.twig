@@ -51,18 +51,18 @@
       <div class="col-md-8" style="padding-right: 0px;">
         <div class="collapse navbar-collapse pull-right">
 
-          <ul id="nav-principal" class="nav navbar-nav" style="margin-right:0px;">
+          <ul id="nav-principal" class="nav navbar-nav page-scroll" style="margin-right:0px;">
             <li>
-              <a href="#">AUTOS</a>
+              <a href="#seccion-vehiculos">AUTOS</a>
             </li>
-            <li><a href="#camio">CAMIONETAS</a></li>
-            <li><a href="#suv">SUV</a></li>
-            <li><a href="#hibridos">H&Iacute;BRIDOS</a></li>
-            <li><a href="#monta">MONTACARGAS</a></li>
+            <li><a href="#seccion-camionetas">CAMIONETAS</a></li>
+            <li><a href="#seccion-suv">SUV</a></li>
+            <li><a href="#seccion-hibridos">H&Iacute;BRIDOS</a></li>
+            <li><a href="#seccion-montacargas">MONTACARGAS</a></li>
             <li {% if app.request.get('_route') == 'pirelli_home' %}  class="active"  {% endif %} >
               <a href="{{ path('pirelli_home') }}">PIRELLI</a>
             </li>
-            <li><a href="#seminuevos">SEMINUEVOS</a></li>
+            <li><a href="#seccion-seminuevos">SEMINUEVOS</a></li>
             <li>
               <form class="form-inline pull-right" role="form">
             <div class="form-group" style="float:left;">
