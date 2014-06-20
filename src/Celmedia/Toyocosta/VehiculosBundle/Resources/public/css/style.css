@@ -153,17 +153,43 @@ html,body{
 
 }
 
+.fondo-seccion{
+	/*position: relative;*/
+	background-repeat: no-repeat;
+	background-position: top center;
+	/*background-attachment: fixed;*/
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+#pirelli-seccion{
+	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/slide/pirelli.jpg"); 
+}
+#montacargas-seccion{
+	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/slide/montacargas.jpg"); 
+}
+#seminuevos-seccion{
+	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/slide/seminuevos.jpg"); 
+}
 
 /*Botones*/
 .btn-ver-mas{
 	background-color: #FFFFFF;
 	color: #767676;
 	text-shadow: 0px 0px 0px transparent;
+	width: 100%;
+	text-transform: uppercase;
+	border-radius: 3px;
 }
 .btn-rojo{
 	background-color: #D62C2F;
 	color: #FFFFFF;
 	text-shadow: 0px 0px 0px transparent;
+	width: 100%;
+	position: relative;
+	border-radius: 3px;
 }
 .btn-rojo:hover{
 	background-color: #970000;
@@ -194,7 +220,6 @@ html,body{
 	margin-bottom: 12px;
 }
 .cuadro-precio{
-	background-repeat: no-repeat;
 	padding-left: 14px;
 	padding-right: 14px;
 	padding-top: 2px;
@@ -351,7 +376,10 @@ html,body{
 .link-accesos{
 	display: inline-block;
 }
-
+.espaciado-50{
+	margin-top: 200px;
+	margin-bottom: 200px;
+}
 .banners-foot {
 	margin-bottom: 0px;
 	bottom: 0px;
@@ -365,6 +393,40 @@ html,body{
     transform:scaleX(-1);
     filter: FlipV;
     -ms-filter: "FlipV";
+}
+
+.vehiculo-banner{
+	width: 100%;
+	position: relative;
+	height: 40%;
+
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+.txt-precio{
+	color: #df1928;
+}
+.vehiculo-descripcion{
+	width: 100%;
+	position: relative;
+	height: 60%;
+}
+.btn-vehiculo{
+	background-color: #FFFFFF;
+	color: #df1928;
+	border: 2px solid #df1928;
+	border-radius: 3px;
+	width: 100%;
+}
+.btn-vehiculo-rojo{
+	background-color: #df1928;
+	color: #FFFFFF;
+	border: 2px solid #df1928;
+	border-radius: 3px;
+	width: 100%;	
 }
 
 /*Media Querys*/
@@ -385,7 +447,7 @@ html,body{
 		width: 23px;
 		height: 23px;
 	}
-	.btn-caption{
+	.ty-principal-caption{
 		margin-bottom: 125px;
 	}*/
 
@@ -412,7 +474,7 @@ html,body{
 		margin: 1px;
 	}
 	/*FLECHAS CAROUSEL*/
-	.btn-caption{
+	.ty-principal-caption{
 		margin-bottom: 80px;
 	}
 	.glyphicon-chevron-left{
@@ -465,7 +527,7 @@ html,body{
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) and (max-width: 979px) { 
 
-	.btn-caption{
+	.ty-principal-caption{
 		margin-bottom: 72px;
 	}
  }

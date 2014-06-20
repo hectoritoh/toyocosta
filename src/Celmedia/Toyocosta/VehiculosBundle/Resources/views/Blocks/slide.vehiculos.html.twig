@@ -6,7 +6,7 @@
       {% set i = 0 %}
       {% for bullet in slideVehiculos %}
           <li data-target="#{{prefijo}}-carousel" data-slide-to="{{ i }}"  class="c-miniaturas {% if loop.first %}active{% endif %}">
-            <div class="miniaturas" style="background-image: url( {{ asset('uploads/vehiculo/SlideVehiculos/'   ~   bullet.imagenThumb ) }} );">
+            <div class="miniaturas" style="background-image: url( {{ asset('uploads/slide-vehiculos/bullets/'   ~   bullet.imagenThumb ) }} );">
               &nbsp;
             </div>
 
@@ -26,13 +26,13 @@
     <div class="carousel-inner alto-completo">
       {% set i = 0 %}
       {% for item in slideVehiculos %}
-        <div class="item {% if loop.first %} active {% endif %} alto-completo item-carousel-home-ty" style="background-image: url({{ asset('uploads/vehiculo/SlideVehiculos/'   ~   item.imagenSlide ) }});">
+        <div class="item {% if loop.first %} active {% endif %} alto-completo item-carousel-home-ty" style="background-image: url({{ asset('uploads/slide-vehiculos/portada/'   ~   item.imagenSlide ) }});">
           <div class="v-center-contenedor">
             <div class="v-center-contenido">
               <div class="container-fluid">
                 <div class="row espacio-a">
                   <div class="col-md-3 col-sm-8 {% if alineacion == 'izq' %}col-md-offset-2 col-sm-offset-2 {% elseif alineacion == 'der' %}col-md-offset-7 col-sm-offset-2 {% endif %}">
-                    <img src="{{ asset('uploads/vehiculo/SlideVehiculos/logo-corolla.png' ) }}" class="img-responsive {% if alineacion == 'izq' %}obj-izq{% elseif alineacion == 'der' %}obj-der{% endif %}">
+                    <img src="{{ asset('uploads/slide-vehiculos/logos/'   ~   'corolla.png' ) }}" class="img-responsive {% if alineacion == 'izq' %}obj-izq{% elseif alineacion == 'der' %}obj-der{% endif %}">
                   </div>
                 </div>
                 <div class="row espacio-a">

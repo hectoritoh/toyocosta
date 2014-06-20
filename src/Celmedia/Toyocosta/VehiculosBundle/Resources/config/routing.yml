@@ -6,3 +6,6 @@ toyocosta_homepage:
     pattern:  /
     defaults: { _controller: CelmediaToyocostaVehiculosBundle:Default:index }
 
+ver_vehiculo:
+    path:      /vehiculos/{vehiculo}
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:verVehiculo }

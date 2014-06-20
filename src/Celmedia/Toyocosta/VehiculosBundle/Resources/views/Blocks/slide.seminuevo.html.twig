@@ -1,36 +1,42 @@
-<div class="row fondo-seminuevos img-responsive">
+<div id="seminuevos-seccion" class="seccion-ty fondo-seccion">
+	<div class="v-center-contenedor">
+		<div class="v-center-contenido">
 
-		<div class="container contenedor-centrar">
-			<div class="row" style="margin-top:50px;">
-				<div class="col-md-12">
-					<h1 class="titulo-venta">VENTA DE SEMINUEVOS</h1>
-				</div>
-			</div>
-
-			<div class="row text-center" style="">
-				<div class="col-md-8 col-md-offset-2">
-					<h4 class="texto-venta" >Todas las unidades que comercializamos han pasado por un proceso de alistamiento, lo que nos permite ofrecer 6 meses de servicios de aver&iacute;a mec&aacute;nica (en partes nombradas), en caso de alguna eventualidad.</h4>
-				</div>
-			</div>
-
-			<div class="row" style="padding-top:32px;padding-bottom:50px;">
-				<div class="col-md-10 col-md-offset-1">
-					{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/slide/autos-seminuevos.png' %}
-					<img src="{{ asset_url }}" alt="" class="img-responsive"/>
-			        {% endimage %}
-
-				</div>
-
-			</div>
-			<div class="row text-center">
-				<a href="" target="_blank">
-					<div class="col-md-4 col-md-offset-4 btn-lg btn-rojo">
-						Conoce m&aacute;s
+			<div class="container-fluid">
+				
+				<div class="row" style="margin-top:50px;">
+					<div class="col-md-12">
+						<h1 class="titulo-venta">VENTA DE SEMINUEVOS</h1>
 					</div>
-				</a>
+				</div>
+
+				<div class="row text-center" style="">
+					<div class="col-md-8 col-md-offset-2">
+						<h4 class="texto-venta" >
+							Todas las unidades que comercializamos han pasado por un proceso de alistamiento, lo que nos permite ofrecer 6 meses de servicios de aver&iacute;a mec&aacute;nica (en partes nombradas), en caso de alguna eventualidad.
+						</h4>
+					</div>
+				</div>
+
+				<div class="row" style="padding-top:32px;padding-bottom:50px;">
+					<div class="col-md-10 col-md-offset-1">
+						{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/slide/autos-seminuevos.png' %}
+						<img src="{{ asset_url }}" alt="" class="img-responsive obj-centrar"/>
+				        {% endimage %}
+					</div>
+
+				</div>
+
+				<div class="row text-center">
+					<div class="col-md-4 col-md-offset-4">
+						<a href="#" class="btn-lg btn-rojo link-accesos">
+							Conoce m&aacute;s
+						</a>
+					</div>
+				</div>
+
 			</div>
 
-
-		</div>
-
+		</div><!-- .v-center-contenido -->
+	</div><!-- .v-center-contenedor -->
 </div>
