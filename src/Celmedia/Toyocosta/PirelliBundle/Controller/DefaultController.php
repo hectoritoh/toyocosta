@@ -320,7 +320,7 @@
             $info->setLlanta( $llanta );
             
             
-            $em = $this->getDoctrine()->getEntityManager(); 
+            $em = $this->getDoctrine()->getManager(); 
             $em->persist(  $info );
             $em->flush();
 
