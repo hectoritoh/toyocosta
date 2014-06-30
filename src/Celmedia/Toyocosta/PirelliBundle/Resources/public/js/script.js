@@ -69,6 +69,16 @@ $(document).ready(function(){
        });
 
       //$("#footer-banners").css("margin-bottom", 0 ); //fzzio
+
+      $(".select-custom").each(function(){
+          $(this).wrap("<span class='select-wrapper'></span>");
+          $(this).after("<span class='holder'></span>");
+      });
+      $(".select-custom").change(function(){
+          var selectedOption = $(this).find(":selected").text();
+          $(this).next(".holder").text(selectedOption);
+      }).trigger('change');
+
 });
 
 $(window).load(function(){

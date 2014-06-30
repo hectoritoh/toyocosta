@@ -59,4 +59,21 @@ class DefaultController extends Controller
         return $this->render('CelmediaToyocostaVehiculosBundle:Blocks:slide.vehiculos.html.twig' , array( "slideVehiculos" => $slideVehiculos, "prefijo" => $prefijo, "alineacion" => $alineacion));
     }
 
+    public function obtenerSlidePrincipalAction(){
+        $em = $this->getDoctrine()->getManager();        
+        
+        $slidePrincipal = $this->getDoctrine()->getRepository("CelmediaToyocostaVehiculosBundle:SlidePrincipal")->findBy(array(
+            "estado" => 1
+                )
+        );
+
+        return $this->render('CelmediaToyocostaVehiculosBundle:Blocks:slide.principal.html.twig' , array( "slidePrincipal" => $slidePrincipal));
+    }
+
+
+    public function verVehiculoAction($vehiculo){
+
+        return $this->render('CelmediaToyocostaVehiculosBundle:Pages:vehiculo.html.twig' , array("vehiculo" => $vehiculo ));
+    }
+
 }
