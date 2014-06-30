@@ -237,6 +237,24 @@ html,body{
 	text-transform: uppercase;
 	border-radius: 3px;
 }
+.btn-blanco{
+	background-color: #FFFFFF;
+	color: #D62C2F;
+	text-shadow: 0px 0px 0px transparent;
+	width: 100%;
+	text-transform: uppercase;
+	border-radius: 3px;
+	border: 2px solid #D62C2F;
+}
+.btn-blanco:hover{
+	background-color: #D62C2F;
+	color: #FFFFFF;
+	text-shadow: 0px 0px 0px transparent;
+	width: 100%;
+	text-transform: uppercase;
+	border-radius: 3px;	
+	border: 2px solid #D62C2F;
+}
 .btn-rojo{
 	background-color: #D62C2F;
 	color: #FFFFFF;
@@ -244,10 +262,13 @@ html,body{
 	width: 100%;
 	position: relative;
 	border-radius: 3px;
+	border: 2px solid #D62C2F;
 }
 .btn-rojo:hover{
 	background-color: #970000;
 	color: #FFFFFF;
+	border-radius: 3px;
+	border: 2px solid #D62C2F;
 }
 
 
@@ -685,7 +706,9 @@ html,body{
 }
 
 
-
+.lineaVertical{
+	border-left: 1px solid #cccccc;
+}
 
 
 
@@ -729,7 +752,10 @@ html,body{
 	-moz-opacity: 0;
 }
 
-
+.contenedor-tab{
+	height: 70%;
+	position: relative;
+}
 
 
 /*Media Querys*/
