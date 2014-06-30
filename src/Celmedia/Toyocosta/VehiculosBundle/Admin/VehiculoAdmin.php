@@ -28,17 +28,6 @@ class VehiculoAdmin extends Admin
     public function preUpdate( $obj ){
 
 
-        if ( $obj->getImagenBanner() != null  ) {
-            
-            $obj->uploadFileBanner();
-            
-        }
-
-        if ( $obj->getImagenThumb() != null  ) {
-            
-            $obj->uploadFileThumb();
-
-        }
 
         foreach ($obj->getGaleria() as $galeria ){
 
@@ -56,6 +45,17 @@ class VehiculoAdmin extends Admin
                 $modelo->setVehiculomodel( $obj );
         }
         
+        if ( $obj->getImagenBanner() != null  ) {
+            
+            $obj->uploadFileBanner();
+            
+        }
+
+        if ( $obj->getImagenThumb() != null  ) {
+            
+            $obj->uploadFileThumb();
+
+        }
 
     }
 
@@ -277,7 +277,6 @@ class VehiculoAdmin extends Admin
                         
         }
 
-  
 
     }
 
