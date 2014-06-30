@@ -1,0 +1,45 @@
+Celmedia\Toyocosta\MontacagasBundle\Entity\CategoriaMontacarga:
+    type: entity
+    table: categoria_montacarga
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        nombre:
+            type: string
+            length: 140
+            nullable: false
+        foto_thumb:
+            type: text
+            nullable: false
+        logo:
+            type: text
+            nullable: false
+        estado:
+            type: integer
+            unsigned: false
+            nullable: false
+        created_at:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: create
+        updated_at:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: update
+
+    oneToMany:        
+      subcategorias:
+        targetEntity: Subcategoria
+        mappedBy: montacarga_categoria
+        cascade: ["persist"]
+
+    lifecycleCallbacks:
+        prePersist:   [ lifecycleFileUpload ]
+        preUpdate:    [ lifecycleFileUpload ]

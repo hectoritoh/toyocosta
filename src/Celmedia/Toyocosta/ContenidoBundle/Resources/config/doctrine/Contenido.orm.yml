@@ -1,0 +1,40 @@
+Celmedia\Toyocosta\ContenidoBundle\Entity\Contenido:
+    type: entity
+    table: contenido
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        titulo:
+            type: string
+            length: 140
+            nullable: false
+        texto:
+            type: text
+            nullable: false
+        abreviatura:
+            type: string
+            length: 100
+            nullable: true
+        estado:
+            type: integer
+            unsigned: false
+            nullable: false
+        created:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: create
+        updated:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: update
+
+    lifecycleCallbacks:
+        prePersist:   [ lifecycleFileUpload ]
+        preUpdate:    [ lifecycleFileUpload ]

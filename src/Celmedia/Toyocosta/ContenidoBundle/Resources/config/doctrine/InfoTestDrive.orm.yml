@@ -1,0 +1,70 @@
+Celmedia\Toyocosta\ContenidoBundle\Entity\InfoTestDrive:
+    type: entity
+    table: info_testdrive
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        nombre:
+            type: string
+            length: 140
+            nullable: false
+        apellido:
+            type: string
+            length: 140
+            nullable: false
+        cedula:
+            type: integer
+            unsigned: false
+            nullable: false
+        telefono:
+            type: integer
+            unsigned: false
+            nullable: false
+        email:
+            type: string
+            length: 200
+            nullable: false
+        ciudad:
+            type: string
+            length: 250
+            nullable: false
+        agencia:
+            type: string
+            length: 250
+            nullable: false
+        vehiculo:
+            type: string
+            length: 250
+            nullable: false
+        fecha_nacimiento:
+            type: datetime
+            nullable: false
+        fecha_test:
+            type: datetime
+            nullable: false
+        hora_test:
+            type: string
+            length: 10
+            nullable: false
+        observaciones:
+            type: text
+            nullable: false
+        created:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: create
+        updated:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: update
+
+    lifecycleCallbacks:
+        prePersist:   [ lifecycleFileUpload ]
+        preUpdate:    [ lifecycleFileUpload ]

@@ -62,8 +62,6 @@ class VehiculoModelosAdmin extends Admin
             ->add('archivo_pdf')
             ->add('imagen_modelo')
             ->add('estado')
-            ->add('created')
-            ->add('updated')
         ;
     }
 
@@ -73,16 +71,18 @@ class VehiculoModelosAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('id')
+            ->add('vehiculomodel')
             ->add('nombre')
             ->add('descripcion')
             ->add('precio')
             ->add('precio_neto')
-            ->add('archivo_pdf')
+            // ->add('archivo_pdf')
             ->add('imagen_modelo')
-            ->add('estado')
-            ->add('created')
-            ->add('updated')
+            ->add('estado', 'choice', array(
+               'choices' => array(
+                   '1' => 'Publicado',
+                   '0' => 'No publicado'
+                   )))
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -109,7 +109,7 @@ class VehiculoModelosAdmin extends Admin
             $fullPath = $container->get('request')->getBasePath().'/'.$webPath;
 
             // add a 'help' option containing the preview's img tag
-            $fileFieldOptions['help'] = '<img src="'.$fullPath.'" class="admin-preview" style=" height: auto;width: 100%;" />';
+            $fileFieldOptions['help'] = '<img src="'.$fullPath.'" class="admin-preview"/>';
         }
 
         $fileFieldOptions2 = array('required' => false);

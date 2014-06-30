@@ -1,0 +1,70 @@
+Celmedia\Toyocosta\ContenidoBundle\Entity\InfoMantenimiento:
+    type: entity
+    table: info_citamantenimiento
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        nombre:
+            type: string
+            length: 140
+            nullable: false
+        apellido:
+            type: string
+            length: 140
+            nullable: false
+        email:
+            type: string
+            length: 200
+            nullable: false
+        telefono:
+            type: integer
+            unsigned: false
+            nullable: false        
+        celular:
+            type: integer
+            unsigned: false
+            nullable: true
+        fecha_tentativa:
+            type: datetime
+            nullable: false
+        observaciones:
+            type: text
+            nullable: true
+        tipo_reserva:
+            type: string
+            length: 250
+            nullable: false
+        taller:
+            type: string
+            length: 250
+            nullable: false
+        modelo:
+            type: string
+            length: 250
+            nullable: false
+        kilometros:
+            type: string
+            length: 10
+            nullable: false
+        comentarios:
+            type: text
+            nullable: false
+        created:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: create
+        updated:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: update
+
+    lifecycleCallbacks:
+        prePersist:   [ lifecycleFileUpload ]
+        preUpdate:    [ lifecycleFileUpload ]

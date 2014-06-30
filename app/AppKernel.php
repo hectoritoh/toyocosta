@@ -33,11 +33,17 @@ class AppKernel extends Kernel
             new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             new Sonata\FormatterBundle\SonataFormatterBundle(),
+            
+
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
 
             new Celmedia\Toyocosta\PirelliBundle\CelmediaToyocostaPirelliBundle(),
             new Celmedia\Toyocosta\VehiculosBundle\CelmediaToyocostaVehiculosBundle(),
             new Celmedia\Toyocosta\SeminuevoBundle\CelmediaToyocostaSeminuevoBundle(),
+            new Celmedia\Toyocosta\MontacagasBundle\CelmediaToyocostaMontacagasBundle(),
+            new Celmedia\Toyocosta\ContenidoBundle\CelmediaToyocostaContenidoBundle(),
+            
+
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

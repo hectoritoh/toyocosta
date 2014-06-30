@@ -1,0 +1,36 @@
+parameters:
+#    celmedia_toyocosta_contenido.example.class: Celmedia\Toyocosta\ContenidoBundle\Example
+
+services:
+#    celmedia_toyocosta_contenido.example:
+#        class: %celmedia_toyocosta_contenido.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+    celmedia_toyocosta_contenido.admin.contenido:
+        class: Celmedia\Toyocosta\ContenidoBundle\Admin\ContenidoAdmin
+        arguments: [~, Celmedia\Toyocosta\ContenidoBundle\Entity\Contenido, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: 'Contenido', label: Contenido}
+
+    celmedia_toyocosta_contenido.admin.establecimiento:
+        class: Celmedia\Toyocosta\ContenidoBundle\Admin\EstablecimientoAdmin
+        arguments: [~, Celmedia\Toyocosta\ContenidoBundle\Entity\Establecimiento, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: 'Contenido', label: Establecimiento}
+
+    celmedia_toyocosta_contenido.admin.variables:
+        class: Celmedia\Toyocosta\ContenidoBundle\Admin\VariablesAdmin
+        arguments: [~, Celmedia\Toyocosta\ContenidoBundle\Entity\Variables, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: 'Contenido', label: Variables}
+
+    celmedia_toyocosta_contenido.admin.tipo_reserva:
+        class: Celmedia\Toyocosta\ContenidoBundle\Admin\TipoReservaAdmin
+        arguments: [~, Celmedia\Toyocosta\ContenidoBundle\Entity\TipoReserva, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: 'Contenido', label: Tipo de Reserva}
+
+    celmedia_toyocosta_contenido.admin.taller:
+        class: Celmedia\Toyocosta\ContenidoBundle\Admin\TallerAdmin
+        arguments: [~, Celmedia\Toyocosta\ContenidoBundle\Entity\Taller, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: 'Contenido', label: Talleres}

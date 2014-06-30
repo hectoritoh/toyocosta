@@ -1,0 +1,3 @@
+celmedia_toyocosta_contenido_homepage:
+    pattern:  /hello/{name}
+    defaults: { _controller: CelmediaToyocostaContenidoBundle:Default:index }

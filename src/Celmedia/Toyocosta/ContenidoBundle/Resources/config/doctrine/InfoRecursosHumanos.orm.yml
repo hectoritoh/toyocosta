@@ -1,0 +1,47 @@
+Celmedia\Toyocosta\ContenidoBundle\Entity\InfoRecursosHumanos:
+    type: entity
+    table: info_rrhh
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        nombre:
+            type: string
+            length: 140
+            nullable: false
+        apellido:
+            type: string
+            length: 140
+            nullable: false
+        telefono:
+            type: integer
+            unsigned: false
+            nullable: false
+        email:
+            type: string
+            length: 200
+            nullable: false
+        curriculum:
+            type: text
+            nullable: false
+        cargo:
+            type: text
+            nullable: false
+        created:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: create
+        updated:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: update
+
+    lifecycleCallbacks:
+        prePersist:   [ lifecycleFileUpload ]
+        preUpdate:    [ lifecycleFileUpload ]

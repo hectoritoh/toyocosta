@@ -15,6 +15,9 @@ Celmedia\Toyocosta\VehiculosBundle\Entity\SlideVehiculos:
         imagen_thumb:
             type: text
             nullable: false
+        logo:
+            type: text
+            nullable: false
         menu_posicion:
             type: integer
             nullable: false

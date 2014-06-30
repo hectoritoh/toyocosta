@@ -1,0 +1,42 @@
+parameters:
+#    celmedia_toyocosta_montacagas.example.class: Celmedia\Toyocosta\MontacagasBundle\Example
+
+services:
+#    celmedia_toyocosta_montacagas.example:
+#        class: %celmedia_toyocosta_montacagas.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+    celmedia_toyocosta_montacagas.admin.montacarga:
+        class: Celmedia\Toyocosta\MontacagasBundle\Admin\MontacargaAdmin
+        arguments: [~, Celmedia\Toyocosta\MontacagasBundle\Entity\Montacarga, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: 'Montacargas' , label: Montacarga}
+
+    celmedia_toyocosta_montacagas.admin.montacarga_galeria:
+        class: Celmedia\Toyocosta\MontacagasBundle\Admin\MontacargaGaleriaAdmin
+        arguments: [~, Celmedia\Toyocosta\MontacagasBundle\Entity\MontacargaGaleria, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: 'Montacargas' , label: Galeria}
+
+    celmedia_toyocosta_montacagas.admin.montacarga_usado:
+        class: Celmedia\Toyocosta\MontacagasBundle\Admin\MontacargaUsadoAdmin
+        arguments: [~, Celmedia\Toyocosta\MontacagasBundle\Entity\MontacargaUsado, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: 'Montacargas' , label: Montacargas Usados}
+
+    celmedia_toyocosta_montacagas.admin.montacarga_usado_galeria:
+        class: Celmedia\Toyocosta\MontacagasBundle\Admin\MontacargaUsadoGaleriaAdmin
+        arguments: [~, Celmedia\Toyocosta\MontacagasBundle\Entity\MontacargaUsadoGaleria, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: 'Montacargas' , label: Galeria de Usados}
+
+    celmedia_toyocosta_montacagas.admin.categoria_montacarga:
+        class: Celmedia\Toyocosta\MontacagasBundle\Admin\CategoriaMontacargaAdmin
+        arguments: [~, Celmedia\Toyocosta\MontacagasBundle\Entity\CategoriaMontacarga, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: 'Montacargas' , label: Categorias}
+
+    celmedia_toyocosta_montacagas.admin.subcategoria:
+        class: Celmedia\Toyocosta\MontacagasBundle\Admin\SubcategoriaAdmin
+        arguments: [~, Celmedia\Toyocosta\MontacagasBundle\Entity\Subcategoria, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: 'Montacargas' , label: Subcategorias}

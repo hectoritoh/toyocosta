@@ -1,0 +1,41 @@
+Celmedia\Toyocosta\ContenidoBundle\Entity\TipoReserva:
+    type: entity
+    table: tipo_reserva
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        nombre:
+            type: string
+            length: 200
+            nullable: false
+        estado:
+            type: integer
+            unsigned: false
+            nullable: false
+        created:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: create
+        updated:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: update
+
+    manyToOne:
+        taller:
+          targetEntity: Taller
+          inversedBy: reservas
+          joinColumn:
+            name: taller_id
+            referencedColumnName: id
+
+    lifecycleCallbacks:
+        prePersist:   [ lifecycleFileUpload ]
+        preUpdate:    [ lifecycleFileUpload ]

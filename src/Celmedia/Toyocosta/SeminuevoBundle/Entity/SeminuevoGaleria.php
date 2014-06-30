@@ -3,7 +3,7 @@
 namespace Celmedia\Toyocosta\SeminuevoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 /**
  * SeminuevoGaleria
  */
@@ -141,7 +141,7 @@ class SeminuevoGaleria
      */
     public function lifecycleFileUpload()
     {
-        // Add your code here
+        $this->uploadFileImagen();
     }
     /**
      * @var \Celmedia\Toyocosta\SeminuevoBundle\Entity\Seminuevo
@@ -171,4 +171,73 @@ class SeminuevoGaleria
     {
         return $this->seminuevo_galeria;
     }
+
+
+
+
+
+
+
+
+
+
+    /**
+     * Unmapped property to handle file uploads
+     */
+    private $fileImagen;
+
+    /**
+     * Sets file.
+     *
+     * @param UploadedFile $file
+     */
+    public function setFileImagen(UploadedFile $fileImagen = null)
+    {
+        $this->fileImagen = $fileImagen;
+    }
+
+    /**
+     * Get file.
+     *
+     * @return UploadedFile
+     */
+    public function getFileImagen()
+    {
+        return $this->fileImagen;
+    }
+
+    /**
+     * Manages the copying of the file to the relevant place on the server
+     */
+    public function uploadFileImagen()
+    {
+        // the file property can be empty if the field is not required
+        if (null === $this->getFileImagen()) {
+            return;
+        }
+
+        // move takes the target directory and target filename as params
+        $this->getFileImagen()->move(
+           __DIR__.'/../../../../../web/'. 'uploads/seminuevos' ,
+            $this->getFileImagen()->getClientOriginalName()
+        );
+
+        // set the path property to the filename where you've saved the file
+        $this->imagen = $this->getFileImagen()->getClientOriginalName();
+
+        // clean up the file property as you won't need it anymore
+        $this->setFileImagen(null);
+    }
+
+    public function __toString()
+    {
+        return $this->getImagen();
+    }
+
+
+
+
+
+
+
 }
