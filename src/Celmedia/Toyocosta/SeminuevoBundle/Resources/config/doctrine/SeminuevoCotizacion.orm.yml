@@ -1,0 +1,51 @@
+Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoCotizacion:
+    type: entity
+    table: seminuevo_cotizacion
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        nombre:
+            type: string
+            length: 140
+            nullable: false
+        apellido:
+            type: string
+            length: 140
+            nullable: false
+        email:
+            type: string
+            length: 200
+            nullable: false
+        cedula:
+            type: integer
+            length: 10
+            nullable: false
+        telefono:
+            type: integer
+            nullable: true
+        ciudad:
+            type: string
+            length: 140
+            nullable: false
+        mensaje:
+            type: text
+            nullable: false
+        created:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: create
+        updated:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: update
+
+    lifecycleCallbacks:
+        prePersist:   [ lifecycleFileUpload ]
+        preUpdate:    [ lifecycleFileUpload ]

@@ -42,8 +42,6 @@ class SlidePrincipalAdmin extends Admin
             ->add('descripcion')
             ->add('imagen_banner')
             ->add('estado')
-            ->add('created')
-            ->add('updated')
         ;
     }
 
@@ -57,9 +55,11 @@ class SlidePrincipalAdmin extends Admin
             ->add('link')
             ->add('descripcion')
             ->add('imagen_banner')
-            ->add('estado')
-            ->add('created')
-            ->add('updated')
+                ->add('estado', 'choice', array(
+           'choices' => array(
+               '1' => 'Publicado',
+               '0' => 'No publicado'
+               )))
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),

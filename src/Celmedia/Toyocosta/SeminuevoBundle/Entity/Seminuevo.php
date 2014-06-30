@@ -85,6 +85,34 @@ class Seminuevo
      */
     private $updated;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $certificados;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $galeria;
+
+    /**
+     * @var \Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoColores
+     */
+    private $colores;
+
+    /**
+     * @var \Celmedia\Toyocosta\PirelliBundle\Entity\User
+     */
+    private $seminuevo_user;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->certificados = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->galeria = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -417,36 +445,6 @@ class Seminuevo
     {
         return $this->updated;
     }
-    /**
-     * @ORM\PrePersist
-     */
-    public function lifecycleFileUpload()
-    {
-        // Add your code here
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $certificados;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $galeria;
-
-    /**
-     * @var \Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoColores
-     */
-    private $colores;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->certificados = new \Doctrine\Common\Collections\ArrayCollection();
-        $this->galeria = new \Doctrine\Common\Collections\ArrayCollection();
-    }
 
     /**
      * Add certificados
@@ -536,32 +534,40 @@ class Seminuevo
     {
         return $this->colores;
     }
-    /**
-     * @var \Celmedia\Toyocosta\SeminuevoBundle\Entity\User
-     */
-    private $usuario_toyocosta;
-
 
     /**
-     * Set usuario_toyocosta
+     * Set seminuevo_user
      *
-     * @param \Celmedia\Toyocosta\SeminuevoBundle\Entity\User $usuarioToyocosta
+     * @param \Celmedia\Toyocosta\PirelliBundle\Entity\User $seminuevoUser
      * @return Seminuevo
      */
-    public function setUsuarioToyocosta(\Celmedia\Toyocosta\SeminuevoBundle\Entity\User $usuarioToyocosta = null)
+    public function setSeminuevoUser(\Celmedia\Toyocosta\PirelliBundle\Entity\User $seminuevoUser = null)
     {
-        $this->usuario_toyocosta = $usuarioToyocosta;
+        $this->seminuevo_user = $seminuevoUser;
 
         return $this;
     }
 
     /**
-     * Get usuario_toyocosta
+     * Get seminuevo_user
      *
-     * @return \Celmedia\Toyocosta\SeminuevoBundle\Entity\User 
+     * @return \Celmedia\Toyocosta\PirelliBundle\Entity\User 
      */
-    public function getUsuarioToyocosta()
+    public function getSeminuevoUser()
     {
-        return $this->usuario_toyocosta;
+        return $this->seminuevo_user;
     }
+    /**
+     * @ORM\PrePersist
+     */
+    public function lifecycleFileUpload()
+    {
+        // Add your code here
+    }
+
+    public function __toString()
+    {
+        return $this->getModelo();
+    }
+
 }

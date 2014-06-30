@@ -216,4 +216,11 @@ class SeminuevoColores
     {
         return $this->seminuevo_color;
     }
+
+        public function __toString()
+    {
+        return $this->getNombre();
+    }
+
+
 }

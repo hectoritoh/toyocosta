@@ -82,7 +82,7 @@ Celmedia\Toyocosta\SeminuevoBundle\Entity\Seminuevo:
         joinColumn:
           name: color_id
           referencedColumnName: id
-      usuario_toyocosta:
+      seminuevo_user:
         targetEntity: Celmedia\Toyocosta\PirelliBundle\Entity\User
         inversedBy: seminuevos
         joinColumn:

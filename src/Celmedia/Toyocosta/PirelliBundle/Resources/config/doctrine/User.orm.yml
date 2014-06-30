@@ -44,5 +44,5 @@ Celmedia\Toyocosta\PirelliBundle\Entity\User:
     oneToMany:
       seminuevos:
         targetEntity: Celmedia\Toyocosta\SeminuevoBundle\Entity\Seminuevo
-        mappedBy: usuario_toyocosta
+        mappedBy: seminuevo_user
         cascade: ["persist"]

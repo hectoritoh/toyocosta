@@ -240,7 +240,7 @@ public function uploadImagenSlide()
 
     // move takes the target directory and target filename as params
     $this->getImagenSlide()->move(
-       __DIR__.'/../../../../../web/'. 'uploads/vehiculo/SlidePrincipal' ,
+       __DIR__.'/../../../../../web/'. 'uploads/slide-principal' ,
         $this->getImagenSlide()->getClientOriginalName()
     );
 

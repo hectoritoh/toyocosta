@@ -1,0 +1,63 @@
+Celmedia\Toyocosta\ContenidoBundle\Entity\InfoLandings:
+    type: entity
+    table: info_landings
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        nombre:
+            type: string
+            length: 140
+            nullable: false
+        apellido:
+            type: string
+            length: 140
+            nullable: false
+        email:
+            type: string
+            length: 200
+            nullable: false
+        telefono:
+            type: integer
+            unsigned: false
+            nullable: false        
+        celular:
+            type: integer
+            unsigned: false
+            nullable: false
+        cedula:
+            type: integer
+            unsigned: false
+            nullable: false
+        comentarios:
+            type: text
+            nullable: false
+        ciudad:
+            type: string
+            length: 140
+            nullable: true
+        modelo:
+            type: string
+            length: 140
+            nullable: true
+        anio:
+            type: integer
+            nullable: true
+        created:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: create
+        updated:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: update
+
+    lifecycleCallbacks:
+        prePersist:   [ lifecycleFileUpload ]
+        preUpdate:    [ lifecycleFileUpload ]

@@ -35,6 +35,7 @@ class VehiculoGaleriaAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
+            ->add('vehiculogaleria')
             ->add('tipo')
             ->add('url')
             ->add('orden')
@@ -43,8 +44,6 @@ class VehiculoGaleriaAdmin extends Admin
                '1' => 'Publicado',
                '0' => 'No publicado'
                )))
-            ->add('created_at')
-            ->add('updated_at')
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),

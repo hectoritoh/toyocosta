@@ -1,0 +1,39 @@
+Celmedia\Toyocosta\ContenidoBundle\Entity\Taller:
+    type: entity
+    table: taller
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        nombre:
+            type: string
+            length: 200
+            nullable: false
+        estado:
+            type: integer
+            unsigned: false
+            nullable: false
+        created:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: create
+        updated:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: update
+
+    oneToMany:
+      reservas:
+        targetEntity: TipoReserva
+        mappedBy: taller
+        cascade: ["persist"]
+
+    lifecycleCallbacks:
+        prePersist:   [ lifecycleFileUpload ]
+        preUpdate:    [ lifecycleFileUpload ]

@@ -297,7 +297,7 @@ public function uploadFileSlide()
 
     // move takes the target directory and target filename as params
     $this->getFileSlide()->move(
-       __DIR__.'/../../../../../web/'. 'uploads/vehiculo/SlideVehiculos' ,
+       __DIR__.'/../../../../../web/'. 'uploads/slide-vehiculos/portada' ,
         $this->getFileSlide()->getClientOriginalName()
     );
 
@@ -350,7 +350,7 @@ public function uploadFileThumb()
 
     // move takes the target directory and target filename as params
     $this->getFileThumb()->move(
-       __DIR__.'/../../../../../web/'. 'uploads/vehiculo/SlideVehiculos' ,
+       __DIR__.'/../../../../../web/'. 'uploads/slide-vehiculos/bullets' ,
         $this->getFileThumb()->getClientOriginalName()
     );
 

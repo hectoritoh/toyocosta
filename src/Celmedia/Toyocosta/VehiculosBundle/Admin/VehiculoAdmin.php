@@ -28,17 +28,6 @@ class VehiculoAdmin extends Admin
     public function preUpdate( $obj ){
 
 
-        if ( $obj->getImagenBanner() != null  ) {
-            
-            $obj->uploadFileBanner();
-            
-        }
-
-        if ( $obj->getImagenThumb() != null  ) {
-            
-            $obj->uploadFileThumb();
-
-        }
 
         foreach ($obj->getGaleria() as $galeria ){
 
@@ -56,6 +45,17 @@ class VehiculoAdmin extends Admin
                 $modelo->setVehiculomodel( $obj );
         }
         
+        if ( $obj->getImagenBanner() != null  ) {
+            
+            $obj->uploadFileBanner();
+            
+        }
+
+        if ( $obj->getImagenThumb() != null  ) {
+            
+            $obj->uploadFileThumb();
+
+        }
 
     }
 
@@ -90,8 +90,6 @@ class VehiculoAdmin extends Admin
             ->add('imagen_banner')
             ->add('imagen_thumb')
             ->add('estado')
-            ->add('created')
-            ->add('updated')
         ;
     }
 
@@ -101,6 +99,7 @@ class VehiculoAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
+            ->add('categoria')
             ->add('nombre', null, array('editable' => true))
             ->add('precio')
             ->add('precio_neto')
@@ -128,22 +127,22 @@ class VehiculoAdmin extends Admin
     {
         
 
-        // $obj = $this->getSubject();
+        $obj = $this->getSubject();
 
-         if($this->hasParentFieldDescription()) { // this Admin is embedded
-            // $getter will be something like 'getlogoImage'
-            $getter = 'get' . $this->getParentFieldDescription()->getFieldName();
+        //  if($this->hasParentFieldDescription()) { // this Admin is embedded
+        //     // $getter will be something like 'getlogoImage'
+        //     $getter = 'get' . $this->getParentFieldDescription()->getFieldName();
 
-            // get hold of the parent object
-            $parent = $this->getParentFieldDescription()->getAdmin()->getSubject();
-            if ($parent) {
-                $obj = $parent->$getter();
-            } else {
-                $obj = null;
-            }
-        } else {
-            $obj = $this->getSubject();
-        }
+        //     // get hold of the parent object
+        //     $parent = $this->getParentFieldDescription()->getAdmin()->getSubject();
+        //     if ($parent) {
+        //         $obj = $parent->$getter();
+        //     } else {
+        //         $obj = null;
+        //     }
+        // } else {
+        //     $obj = $this->getSubject();
+        // }
 
 
 
@@ -278,7 +277,6 @@ class VehiculoAdmin extends Admin
                         
         }
 
-  
 
     }
 

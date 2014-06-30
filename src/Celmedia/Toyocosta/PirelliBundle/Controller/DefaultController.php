@@ -259,13 +259,17 @@
                     "id" => $id_llanta
                         )
                 );
-
+                
                 $modelo = $llanta->getModelo();
 
+
                 $message = \Swift_Message::newInstance()
-                    ->setSubject('Pedido de informacion desde Toyocosta')
-                    ->setFrom(array('yc@celmedia.com' => 'Web Toyocosta'))
-                    ->setTo( $correos_array )
+                    ->setSubject('Pedido de informacion desde Toyocosta /  Pirelli')
+
+                    ->setFrom(array('ycosquillo@celmedia.com' => 'Web Toyocosta'))
+
+                    ->setTo(array( $correos_array , 'ycosquillo@celmedia.com' => 'Toyocosta'))
+
                     ->setBody('Pedido de informacion                
                     Llanta:  '.$modelo.' 
                     Nombre:   '. $contacto->getNombre() .'

@@ -15,22 +15,6 @@ class User extends BaseUser
      */
     protected $id;
 
-
-    public function __construct()
-    {
-        parent::__construct();
-        // your own logic
-    }
-    
-    /**
-     * Get id
-     *
-     * @return integer 
-     */
-    public function getId()
-    {
-        return $this->id;
-    }
     /**
      * @var string
      */
@@ -76,6 +60,31 @@ class User extends BaseUser
      */
     private $rol;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $seminuevos;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        parent::__construct();
+        // your own logic
+        $this->seminuevos = new \Doctrine\Common\Collections\ArrayCollection();
+
+    }
+
+    /**
+     * Get id
+     *
+     * @return integer 
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 
     /**
      * Set nombre
@@ -283,19 +292,14 @@ class User extends BaseUser
     {
         return $this->rol;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $seminuevos;
-
 
     /**
      * Add seminuevos
      *
-     * @param \Celmedia\Toyocosta\PirelliBundle\Entity\Seminuevo $seminuevos
+     * @param \Celmedia\Toyocosta\SeminuevoBundle\Entity\Seminuevo $seminuevos
      * @return User
      */
-    public function addSeminuevo(\Celmedia\Toyocosta\PirelliBundle\Entity\Seminuevo $seminuevos)
+    public function addSeminuevo(\Celmedia\Toyocosta\SeminuevoBundle\Entity\Seminuevo $seminuevos)
     {
         $this->seminuevos[] = $seminuevos;
 
@@ -305,9 +309,9 @@ class User extends BaseUser
     /**
      * Remove seminuevos
      *
-     * @param \Celmedia\Toyocosta\PirelliBundle\Entity\Seminuevo $seminuevos
+     * @param \Celmedia\Toyocosta\SeminuevoBundle\Entity\Seminuevo $seminuevos
      */
-    public function removeSeminuevo(\Celmedia\Toyocosta\PirelliBundle\Entity\Seminuevo $seminuevos)
+    public function removeSeminuevo(\Celmedia\Toyocosta\SeminuevoBundle\Entity\Seminuevo $seminuevos)
     {
         $this->seminuevos->removeElement($seminuevos);
     }

@@ -10,3 +10,21 @@ services:
         arguments: [~, Celmedia\Toyocosta\SeminuevoBundle\Entity\Seminuevo, SonataAdminBundle:CRUD]
         tags:
             - {name: sonata.admin, manager_type: orm, group: 'Seminuevo', label: Seminuevo}
+
+    celmedia_toyocosta_seminuevo.admin.seminuevo_certificado:
+        class: Celmedia\Toyocosta\SeminuevoBundle\Admin\SeminuevoCertificadoAdmin
+        arguments: [~, Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoCertificado, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: 'Seminuevo', label: Certificados}
+
+    celmedia_toyocosta_seminuevo.admin.seminuevo_colores:
+        class: Celmedia\Toyocosta\SeminuevoBundle\Admin\SeminuevoColoresAdmin
+        arguments: [~, Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoColores, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: 'Seminuevo', label: Colores de Seminuevos}
+
+    celmedia_toyocosta_seminuevo.admin.seminuevo_galeria:
+        class: Celmedia\Toyocosta\SeminuevoBundle\Admin\SeminuevoGaleriaAdmin
+        arguments: [~, Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoGaleria, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: 'Seminuevo', label: Galeria}
