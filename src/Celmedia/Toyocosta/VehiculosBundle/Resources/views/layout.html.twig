@@ -27,22 +27,6 @@
             
         {% endblock %}
 
-        
-        {{ render(controller("CelmediaToyocostaVehiculosBundle:Default:obtenerSlidePrincipal") ) }}
-
-        {{ render(controller("CelmediaToyocostaVehiculosBundle:Default:obtenerVehiculos" , { 'tipoVehiculo': 'autos', 'prefijo': 'autos', 'alineacion': 'izq'  }))   }}
-        {{ render(controller("CelmediaToyocostaVehiculosBundle:Default:obtenerVehiculos" , { 'tipoVehiculo': 'camionetas', 'prefijo': 'camionetas', 'alineacion': 'der'  }))   }}
-        {{ render(controller("CelmediaToyocostaVehiculosBundle:Default:obtenerVehiculos" , { 'tipoVehiculo': 'suv', 'prefijo': 'suvs', 'alineacion': 'izq'  }))   }}
-        {{ render(controller("CelmediaToyocostaVehiculosBundle:Default:obtenerVehiculos" , { 'tipoVehiculo': 'hibridos', 'prefijo': 'hibridos', 'alineacion': 'der'  }))   }}
-
-
-        {% include 'CelmediaToyocostaVehiculosBundle:Blocks:slide.montacarga.html.twig' %}
-
-        {% include 'CelmediaToyocostaVehiculosBundle:Blocks:slide.pirelli.html.twig' %}
-
-        {% include 'CelmediaToyocostaVehiculosBundle:Blocks:slide.seminuevo.html.twig' %}
-
-
         {% include 'CelmediaToyocostaPirelliBundle:Blocks:footer.html.twig' %}
              {% javascripts
                 '@CelmediaToyocostaPirelliBundle/Resources/public/js/jquery.js'       
