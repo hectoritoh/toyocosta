@@ -87,8 +87,6 @@ class VehiculoAdmin extends Admin
             ->add('precio_neto')
             ->add('informacion')
             ->add('descripcion')
-            ->add('imagen_banner')
-            ->add('imagen_thumb')
             ->add('estado')
         ;
     }
