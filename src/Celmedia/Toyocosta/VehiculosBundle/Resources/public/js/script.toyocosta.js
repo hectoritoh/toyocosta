@@ -8,9 +8,22 @@ $(function() {
 	});
 });
 
+$(window).bind('scroll', function() {
+	if ($(window).scrollTop() > 50) {
+		$('.sombra-toyocosta').addClass('bajar');
+	}
+	else {
+		$('.sombra-toyocosta').removeClass('bajar');
+	}
+});
 
 $(document).ready(function(){
 
+	$('ul.nav > li').click(function (e) {
+        e.preventDefault();
+        $('ul.nav > li').removeClass('active');
+        $(this).addClass('active');
+    });
 
 
 	// $('.miniaturas.active').find(".img-indicator").show();

@@ -758,12 +758,75 @@ html,body{
 }
 
 
+
+
+.navbar-toyocosta{
+	background-color: #FFFFFF;
+}
+
+.navbar-nav-vehiculos{
+
+}
+
+.navbar-toggle-toyocosta{
+	background-color: #df182b;
+}
+
+.navbar-toggle-toyocosta .icon-bar{
+	background-color: #FFFFFF;
+}
+
+.navbar-toyocosta .navbar-nav-vehiculos > li > a{
+	color: #323232;
+}
+.navbar-toyocosta .navbar-nav-menu-0 > li > a{
+	color: #606060;
+	line-height: 5px;
+	font-size: 12px;
+}
+
+.navbar-toyocosta .navbar-nav-vehiculos>.active>a,
+.navbar-toyocosta .navbar-nav-vehiculos>.active>a:hover,
+.navbar-toyocosta .navbar-nav-vehiculos>.active>a:focus{
+	background-color: #df182b;
+	color: #FFFFFF;
+}
+
+.navbar-toyocosta .navbar-nav-vehiculos>.active{
+	background-color: #df182b;
+}
+
+.navbar-buscar{
+	margin-bottom: 0px;
+	margin-top: 0px;
+	padding: 0px;
+}
+
+.input-buscar {
+	height: 50px;
+	border-radius: 0px;
+	border-top: 0px;
+	border-right: 0px;
+	border-bottom: 0px;
+	background-color: #F0F0F0;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.toyocosta-brand{
+	padding-left: 60px;
+}
+
+.input-buscar:active, .input-buscar:focus{
+	border-color: #323232;
+}
+
 /*Media Querys*/
 /* Large desktop */
 @media (min-width: 1921px) { 
 
 	.input-buscar{
-		padding:12px 165px;
+		padding: 12px 165px;
 	}
 	/*.alto-toyocosta{
 		height: 85px;
@@ -859,10 +922,16 @@ html,body{
 	.ty-principal-caption{
 		margin-bottom: 72px;
 	}
+	.iconos-ty{
+		float: left;
+	}
  }
  
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) { 
+	.iconos-ty{
+		float: left;
+	}
 	.alto-toyocosta{
 		height: 190px;
 	}
@@ -902,6 +971,9 @@ html,body{
  
 /* Landscape phones and down */
 @media (max-width: 480px) { 
+	.iconos-ty{
+		float: left;
+	}
 
 	.alto-toyocosta{
 		height: 226px;

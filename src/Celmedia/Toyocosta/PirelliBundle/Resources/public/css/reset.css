@@ -21,14 +21,7 @@ background-color: #1B3439;
 .navbar-inverse .navbar-toggle:hover, .navbar-inverse .navbar-toggle:focus {
 background-color: #FFF;
 }
-.input-lg {
-	border-radius: 0px;
-	border-top: 0px;
-	border-right: 0px;
-	border-bottom: 0px;
-	background-color: #F0F0F0;
-	height: 50px;
-}
+
 .cursiva{
 	font-style: italic;
 }

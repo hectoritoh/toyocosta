@@ -11,7 +11,6 @@
         {% stylesheets
             "@CelmediaToyocostaPirelliBundle/Resources/public/css/bootstrap.min.css"
             "@CelmediaToyocostaPirelliBundle/Resources/public/css/menu.toyocosta.css"
-            "@CelmediaToyocostaPirelliBundle/Resources/public/css/reset.css"    
             "@CelmediaToyocostaVehiculosBundle/Resources/public/css/resetvehiculos.css"
             "@CelmediaToyocostaVehiculosBundle/Resources/public/css/footer.css"
             "@CelmediaToyocostaVehiculosBundle/Resources/public/css/style.css"
@@ -19,7 +18,7 @@
             <link type="text/css" rel="stylesheet" media="all" href="{{ asset_url }}" />
         {% endstylesheets %}
     </head>
-    <body>
+    <body data-spy="scroll" data-target="#vehiculos-scroll" id="top-ty">
     
         {% include 'CelmediaToyocostaVehiculosBundle:Blocks:top.menu.principal.html.twig' %}
 
