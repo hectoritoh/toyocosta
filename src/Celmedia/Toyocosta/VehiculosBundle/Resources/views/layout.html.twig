@@ -8,49 +8,35 @@
         <meta name="author" content="">
         <title>Toyocosta</title>
 
-    {% stylesheets
-        "@CelmediaToyocostaPirelliBundle/Resources/public/css/bootstrap.min.css"
-        "@CelmediaToyocostaPirelliBundle/Resources/public/css/menu.toyocosta.css"
-        "@CelmediaToyocostaPirelliBundle/Resources/public/css/reset.css"    
-        "@CelmediaToyocostaVehiculosBundle/Resources/public/css/resetvehiculos.css"
-        "@CelmediaToyocostaVehiculosBundle/Resources/public/css/footer.css"
-        "@CelmediaToyocostaVehiculosBundle/Resources/public/css/style.css"
-    %}
-        <link type="text/css" rel="stylesheet" media="all" href="{{ asset_url }}" />
-    {% endstylesheets %}
-    </head>
-
-    <body>
-
-
-
-    {% include 'CelmediaToyocostaPirelliBundle:Blocks:top.menu.html.twig' %}
-    
-    {{ render(controller("CelmediaToyocostaVehiculosBundle:Default:obtenerSlidePrincipal") ) }}
-
-    {{ render(controller("CelmediaToyocostaVehiculosBundle:Default:obtenerVehiculos" , { 'tipoVehiculo': 'autos', 'prefijo': 'autos', 'alineacion': 'izq'  }))   }}
-    {{ render(controller("CelmediaToyocostaVehiculosBundle:Default:obtenerVehiculos" , { 'tipoVehiculo': 'camionetas', 'prefijo': 'camionetas', 'alineacion': 'der'  }))   }}
-    {{ render(controller("CelmediaToyocostaVehiculosBundle:Default:obtenerVehiculos" , { 'tipoVehiculo': 'suv', 'prefijo': 'suvs', 'alineacion': 'izq'  }))   }}
-    {{ render(controller("CelmediaToyocostaVehiculosBundle:Default:obtenerVehiculos" , { 'tipoVehiculo': 'hibridos', 'prefijo': 'hibridos', 'alineacion': 'der'  }))   }}
-
-
-    {% include 'CelmediaToyocostaVehiculosBundle:Blocks:slide.montacarga.html.twig' %}
-
-    {% include 'CelmediaToyocostaVehiculosBundle:Blocks:slide.pirelli.html.twig' %}
-
-    {% include 'CelmediaToyocostaVehiculosBundle:Blocks:slide.seminuevo.html.twig' %}
-
-
-    {% include 'CelmediaToyocostaPirelliBundle:Blocks:footer.html.twig' %}
-         {% javascripts
-            '@CelmediaToyocostaPirelliBundle/Resources/public/js/jquery.js'       
-            '@CelmediaToyocostaPirelliBundle/Resources/public/js/bootstrap.min.js' 
-            '@CelmediaToyocostaVehiculosBundle/Resources/public/js/jquery.scrollTo-1.4.2-min.js' 
-            '@CelmediaToyocostaVehiculosBundle/Resources/public/js/jquery-ui-1.9.2.custom.js' 
-            '@CelmediaToyocostaPirelliBundle/Resources/public/js/script.js' 
-            '@CelmediaToyocostaVehiculosBundle/Resources/public/js/script.toyocosta.js'
+        {% stylesheets
+            "@CelmediaToyocostaPirelliBundle/Resources/public/css/bootstrap.min.css"
+            "@CelmediaToyocostaPirelliBundle/Resources/public/css/menu.toyocosta.css"
+            "@CelmediaToyocostaPirelliBundle/Resources/public/css/reset.css"    
+            "@CelmediaToyocostaVehiculosBundle/Resources/public/css/resetvehiculos.css"
+            "@CelmediaToyocostaVehiculosBundle/Resources/public/css/footer.css"
+            "@CelmediaToyocostaVehiculosBundle/Resources/public/css/style.css"
         %}
-        <script type="text/javascript" src="{{ asset_url }}"></script>
-    {% endjavascripts %}                          
+            <link type="text/css" rel="stylesheet" media="all" href="{{ asset_url }}" />
+        {% endstylesheets %}
+    </head>
+    <body>
+    
+        {% include 'CelmediaToyocostaVehiculosBundle:Blocks:top.menu.principal.html.twig' %}
+
+        {% block contenidotoyocosta %}
+            
+        {% endblock %}
+
+        {% include 'CelmediaToyocostaPirelliBundle:Blocks:footer.html.twig' %}
+             {% javascripts
+                '@CelmediaToyocostaPirelliBundle/Resources/public/js/jquery.js'       
+                '@CelmediaToyocostaPirelliBundle/Resources/public/js/bootstrap.min.js' 
+                '@CelmediaToyocostaVehiculosBundle/Resources/public/js/jquery.scrollTo-1.4.2-min.js' 
+                '@CelmediaToyocostaVehiculosBundle/Resources/public/js/jquery-ui-1.9.2.custom.js' 
+                '@CelmediaToyocostaPirelliBundle/Resources/public/js/script.js' 
+                '@CelmediaToyocostaVehiculosBundle/Resources/public/js/script.toyocosta.js'
+            %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+        {% endjavascripts %}                          
     </body>
 </html>

@@ -44,7 +44,7 @@ class DefaultController extends Controller
         return $this->render('CelmediaToyocostaVehiculosBundle::layout.html.twig' , array( "slideAutos" => $slideAutos , "slideCamionetas" => $slideCamionetas, "slideSuv" => $slideSuv, "slideHibridos" => $slideHibridos ));
         */
 
-        return $this->render('CelmediaToyocostaVehiculosBundle::layout.html.twig');
+        return $this->render('CelmediaToyocostaVehiculosBundle:Default:index.html.twig');
     }
 
     public function obtenerVehiculosAction($tipoVehiculo, $prefijo, $alineacion){
