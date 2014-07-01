@@ -1,6 +1,9 @@
 {% extends 'CelmediaToyocostaVehiculosBundle::layout.html.twig' %}
 
+
 	{% block contenidotoyocosta %}
+	
+		{% include 'CelmediaToyocostaVehiculosBundle:Blocks:top.menu.principal.html.twig' %}
 
 		{{ render(controller("CelmediaToyocostaVehiculosBundle:Default:obtenerSlidePrincipal") ) }}
 

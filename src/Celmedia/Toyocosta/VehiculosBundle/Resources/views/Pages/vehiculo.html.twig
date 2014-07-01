@@ -1,8 +1,11 @@
 {% extends 'CelmediaToyocostaVehiculosBundle::layout.html.twig' %}
 
 	{% block contenidotoyocosta %}
+
+		{% include 'CelmediaToyocostaVehiculosBundle:Blocks:top.menu.secciones.html.twig' %}
+
 		<div id="vehiculo-detalles" class="vehiculo-seccion">		
-			<div class="container-fluid vehiculo-banner" style="background-image: url({{ asset('uploads/vehiculo/banner/'   ~   '7-Banner-corolla.jpg' ) }});">
+			<div class="container-fluid vehiculo-banner" style="background-image: url({{ asset('uploads/vehiculo/banner/'   ~   'corolla.jpg' ) }});">
 				&nbsp;
 			</div>
 
@@ -71,7 +74,7 @@
 
 							    <div class="carousel-inner alto-completo">
 								    <div class="item active alto-completo">
-								    	<img src="{{ asset('uploads/vehiculo/color/'   ~   'Colores-Corolla-Super-White.png' ) }}" class="img-responsive obj-centrar" />
+								    	<img src="{{ asset('uploads/vehiculo/color/'   ~   'corolla-4Evergreen-Mica.png' ) }}" class="img-responsive obj-centrar" />
 							    		<div class="carousel-caption">
 							    			<div class="container-fluid">
 							    				<div class="row">
@@ -83,7 +86,7 @@
 							    		</div>
 							        </div><!-- item -->
 							        <div class="item alto-completo">
-							        	<img src="{{ asset('uploads/vehiculo/color/'   ~   'Colores-Corolla-verde.png' ) }}" class="img-responsive obj-centrar" />
+							        	<img src="{{ asset('uploads/vehiculo/color/'   ~   'corolla-Blizzard-Pearl-7.png' ) }}" class="img-responsive obj-centrar" />
 							    		<div class="carousel-caption">
 							    			<div class="container-fluid">
 							    				<div class="row">
@@ -96,7 +99,7 @@
 							        </div><!-- item -->
 
 							        <div class="item alto-completo">
-							        	<img src="{{ asset('uploads/vehiculo/color/'   ~   'Colores-Corolla-verde.png' ) }}" class="img-responsive obj-centrar" />
+							        	<img src="{{ asset('uploads/vehiculo/color/'   ~   'corolla-Classic-Silver-Metallic.png' ) }}" class="img-responsive obj-centrar" />
 							    		<div class="carousel-caption">
 							    			<div class="container-fluid">
 							    				<div class="row">
@@ -109,7 +112,7 @@
 							        </div><!-- item -->
 
 							        <div class="item alto-completo">
-							        	<img src="{{ asset('uploads/vehiculo/color/'   ~   'Colores-Corolla-verde.png' ) }}" class="img-responsive obj-centrar" />
+							        	<img src="{{ asset('uploads/vehiculo/color/'   ~   'corolla-Classic-Silver-Metallic.png' ) }}" class="img-responsive obj-centrar" />
 							    		<div class="carousel-caption">
 							    			<div class="container-fluid">
 							    				<div class="row">
@@ -122,7 +125,7 @@
 							        </div><!-- item -->
 
 							        <div class="item alto-completo">
-							        	<img src="{{ asset('uploads/vehiculo/color/'   ~   'Colores-Corolla-verde.png' ) }}" class="img-responsive obj-centrar" />
+							        	<img src="{{ asset('uploads/vehiculo/color/'   ~   'corolla-Classic-Silver-Metallic.png' ) }}" class="img-responsive obj-centrar" />
 							    		<div class="carousel-caption">
 							    			<div class="container-fluid">
 							    				<div class="row">
@@ -135,7 +138,7 @@
 							        </div><!-- item -->
 
 							        <div class="item alto-completo">
-							        	<img src="{{ asset('uploads/vehiculo/color/'   ~   'Colores-Corolla-verde.png' ) }}" class="img-responsive obj-centrar" />
+							        	<img src="{{ asset('uploads/vehiculo/color/'   ~   'corolla-Classic-Silver-Metallic.png' ) }}" class="img-responsive obj-centrar" />
 							    		<div class="carousel-caption">
 							    			<div class="container-fluid">
 							    				<div class="row">
@@ -148,7 +151,7 @@
 							        </div><!-- item -->
 
 							        <div class="item alto-completo">
-							        	<img src="{{ asset('uploads/vehiculo/color/'   ~   'Colores-Corolla-verde.png' ) }}" class="img-responsive obj-centrar" />
+							        	<img src="{{ asset('uploads/vehiculo/color/'   ~   'corolla-Classic-Silver-Metallic.png' ) }}" class="img-responsive obj-centrar" />
 							    		<div class="carousel-caption">
 							    			<div class="container-fluid">
 							    				<div class="row">
@@ -161,7 +164,7 @@
 							        </div><!-- item -->
 
 							        <div class="item alto-completo">
-							        	<img src="{{ asset('uploads/vehiculo/color/'   ~   'Colores-Corolla-verde.png' ) }}" class="img-responsive obj-centrar" />
+							        	<img src="{{ asset('uploads/vehiculo/color/'   ~   'corolla-Classic-Silver-Metallic.png' ) }}" class="img-responsive obj-centrar" />
 							    		<div class="carousel-caption">
 							    			<div class="container-fluid">
 							    				<div class="row">
@@ -191,7 +194,7 @@
 				</div>
 				<div class="row">
 					<div class="col-md-4 text-center c-modelo">
-						<img src="{{ asset('uploads/vehiculo/modelo/'   ~   'Version-Corolla-1.6.png' ) }}" class="img-responsive obj-centrar" />
+						<img src="{{ asset('uploads/vehiculo/modelo/'   ~   'corolla1.6.png' ) }}" class="img-responsive obj-centrar" />
 						<div class="vehic-modelo">
 							<div class="container-fluid">
 								<div class="row">
@@ -205,7 +208,7 @@
 					</div>
 
 					<div class="col-md-4 text-center c-modelo">
-						<img src="{{ asset('uploads/vehiculo/modelo/'   ~   'Versiones-PRIUS-C-SPORT-XRS.png' ) }}" class="img-responsive obj-centrar" />
+						<img src="{{ asset('uploads/vehiculo/modelo/'   ~   'corolla1.6.png' ) }}" class="img-responsive obj-centrar" />
 						<div class="vehic-modelo">
 							<div class="container-fluid">
 								<div class="row">
@@ -219,7 +222,7 @@
 					</div>
 
 					<div class="col-md-4 text-center c-modelo">
-						<img src="{{ asset('uploads/vehiculo/modelo/'   ~   'Version-Corolla-1.6.png' ) }}" class="img-responsive obj-centrar" />
+						<img src="{{ asset('uploads/vehiculo/modelo/'   ~   'corolla1.6.png' ) }}" class="img-responsive obj-centrar" />
 						<div class="vehic-modelo">
 							<div class="container-fluid">
 								<div class="row">
@@ -331,7 +334,7 @@
 													</div>
 												</div>
 												<div class="col-md-8 alto-completo">
-													<img src="{{ asset('uploads/vehiculo/color/'   ~   'Colores-Corolla-verde.png' ) }}" alt="" class="img-responsive obj-centrar">
+													<img src="{{ asset('uploads/vehiculo/color/'   ~   'corolla-verde.png' ) }}" alt="" class="img-responsive obj-centrar">
 												</div>
 											</div>
 											<div class="row espaciado-a">
