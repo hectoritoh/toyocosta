@@ -777,7 +777,7 @@ html,body{
 }
 
 .navbar-toyocosta .navbar-nav-vehiculos > li > a{
-	color: #323232;
+	color: #363636;
 }
 .navbar-toyocosta .navbar-nav-menu-0 > li > a{
 	color: #606060;
@@ -796,29 +796,41 @@ html,body{
 	background-color: #df182b;
 }
 
-.navbar-buscar{
-	margin-bottom: 0px;
-	margin-top: 0px;
-	padding: 0px;
-}
 
 .input-buscar {
 	height: 50px;
-	border-radius: 0px;
-	border-top: 0px;
-	border-right: 0px;
-	border-bottom: 0px;
+	border-radius: 0px;	
+	background-color: #F0F0F0;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	border-top: none;
+	border-bottom: none;
+	border-right: none;
+	border-left: 1px solid #c9ceca;
+}
+
+.input-buscar:active,
+.input-buscar:focus{
+	border-top: none;
+	border-bottom: none;
+
+	-webkit-box-shadow: none;
 	background-color: #F0F0F0;
 	-webkit-box-shadow: none;
 	box-shadow: none;
 }
 
 .toyocosta-brand{
-	padding-left: 60px;
+	padding-left: 70px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	line-height: 30px;
+	height: 50px;
 }
 
-.input-buscar:active, .input-buscar:focus{
-	border-color: #323232;
+
+.navbar{
+	border: none;
 }
 
 /*Media Querys*/
@@ -828,20 +840,17 @@ html,body{
 	.input-buscar{
 		padding: 12px 165px;
 	}
-	/*.alto-toyocosta{
-		height: 85px;
-	}
-	.carousel-indicators li{
-		width: 23px;
-		height: 23px;
-	}
-	.carousel-indicators .active{
-		width: 23px;
-		height: 23px;
-	}
-	.ty-principal-caption{
-		margin-bottom: 125px;
+
+	/*.navbar-toyocosta .navbar-nav-vehiculos > li > a{
+		padding-top: 20px;
+		padding-bottom: 20px;
 	}*/
+
+	.navbar-buscar{
+		margin-bottom: 0px;
+		margin-top: 0px;
+		padding: 0px;
+	}
 
  }
 @media (min-width: 1200px) {
@@ -914,6 +923,17 @@ html,body{
 		left: 12%;
 		bottom: 32%;
 	}
+
+	/*.navbar-toyocosta .navbar-nav-vehiculos > li > a{
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}*/
+
+	.navbar-buscar{
+		margin-bottom: 0px;
+		margin-top: 0px;
+		padding: 0px;
+	}
  }
  
 /* Portrait tablet to landscape and desktop */
@@ -925,6 +945,13 @@ html,body{
 	.iconos-ty{
 		float: left;
 	}
+
+	.navbar-buscar{
+		margin-bottom: 0px;
+		margin-top: 0px;
+		padding: 0px;
+	}
+	
  }
  
 /* Landscape phone to portrait tablet */
@@ -966,6 +993,15 @@ html,body{
 	}
 	.cotizar-banner{
 		height: auto;
+	}
+
+	.input-buscar,
+	.input-buscar:active,
+	.input-buscar:focus {
+		border-top: 1px solid #c9ceca;
+		border-bottom: 1px solid #c9ceca;
+		border-left: 1px solid #c9ceca;
+		border-right: 1px solid #c9ceca;
 	}
  }
  
@@ -1019,5 +1055,13 @@ html,body{
 	}
 	.cotizar-banner{
 		height: auto;
+	}
+	.input-buscar,
+	.input-buscar:active,
+	.input-buscar:focus {
+		border-top: 1px solid #c9ceca;
+		border-bottom: 1px solid #c9ceca;
+		border-left: 1px solid #c9ceca;
+		border-right: 1px solid #c9ceca;
 	}
  }
