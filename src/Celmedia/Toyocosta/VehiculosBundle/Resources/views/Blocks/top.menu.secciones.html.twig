@@ -1,5 +1,5 @@
 <div class="navbar navbar-fixed-top navbar-toyocosta" role="navigation">
-  <div class="container-fluid">
+  <div class="container-fluid visible-md visible-lg hidden-sm hidden-xs">
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right navbar-nav-menu-0">
         <li class="active">
@@ -9,7 +9,7 @@
           <a href="#">Iniciar sesión</a>
         </li>
         <li>
-          <a href="#">&nbsp;</a>
+          <a href="#" class="visible-md visible-lg hidden-sm hidden-xs">&nbsp;</a>
         </li>
         <li>
           <a href="#about">Inicio</a>
@@ -45,7 +45,7 @@
     </div><!--/.nav-collapse -->
   </div>
 
-  <div class="container-fluid sombra-toyocosta sombra-toyocosta-vehiculo">
+  <div class="container-fluid sombra-toyocosta">
     <div class="navbar-header page-scroll">
       <button type="button" class="navbar-toggle navbar-toggle-toyocosta" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
@@ -61,27 +61,27 @@
     </div>  
     <div class="navbar-collapse collapse" id="vehiculos-scroll">
       <form class="navbar-form navbar-right navbar-buscar" role="form">
-        <ul class="nav navbar-nav navbar-nav-vehiculos page-scroll">
+        <ul class="nav navbar-nav navbar-nav-vehiculos">
           <li>
-            <a href="#">Autos</a>
+            <a href="#" class="item-submenu">Autos</a>
           </li>
           <li>
-            <a href="#">Camionetas</a>
+            <a href="#" class="item-submenu">Camionetas</a>
           </li>
           <li>
-            <a href="#">SUV</a>
+            <a href="#" class="item-submenu">SUV</a>
           </li>
           <li>
-            <a href="#">Híbridos</a>
+            <a href="#" class="item-submenu">Híbridos</a>
           </li>
           <li>
-            <a href="#">Montacargas</a>
+            <a href="#" class="item-submenu">Montacargas</a>
           </li>
           <li>
-            <a href="#">Pirelli</a>
+            <a href="#" class="item-submenu">Pirelli</a>
           </li>
           <li>
-            <a href="#">Seminuevos</a>
+            <a href="#" class="item-submenu">Seminuevos</a>
           </li>
         </ul>
         <div class="form-group">
@@ -92,13 +92,48 @@
 
     </div><!--/.navbar-collapse -->
   </div>
-
-  <div class="container-fluid fondo-submenu-vehiculo">
-    <div class="row">
-      <div class="col-md-12 text-center">
-        lalala
+  <div id="fondo-submenu" class="fondo-submenu">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-sm-3 col-xs-4  contenedor-submenu-item">
+            <div class="row">
+              <div class="col-md-12 text-center">
+                <span>Corollla</span>                
+                <img src="{{ asset('uploads/vehiculo/thumb/'   ~   'corolla.png' ) }}" alt="" class="img-responsive obj-centrar" />
+              </div>
+              <button class="col-md-6 col-sm-6 col-xs-6 btn btn-submenu-vehiculo izq">Explorar</button>
+              <button class="col-md-6 col-sm-6 col-xs-6 btn btn-submenu-vehiculo der">Cotizar</button>
+            </div>
+        </div>
       </div>
     </div>
   </div>
+
+  <div class="container-fluid fondo-submenu-vehiculo">
+    <div class="row">
+      <div class="col-md-2 col-sm-3 col-xs-4 col-md-offset-1 text-center">
+        <span class="submenu-vehiculo-nombre">Prius C Sport</span>
+      </div>
+      <div class="col-md-9 col-sm-8 col-xs-8 text-left">
+        <div class="container-fluid">
+          <div class="row submenu-vehiculo">
+            <div class="col-md-2 col-sm-2 text-center">
+              <a href="#" class="submenu-vehiculo-item active">Principal</a>
+            </div>
+            <div class="col-md-2 col-sm-2 text-center">
+              <a href="#" class="submenu-vehiculo-item">Modelos</a>
+            </div>
+            <div class="col-md-2 col-sm-2 text-center">
+              <a href="#" class="submenu-vehiculo-item">Galerías</a>
+            </div>
+            <div class="col-md-2 col-sm-2 text-center">
+              <a href="#" class="submenu-vehiculo-item">Cotizar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 
 </div><!--/.navbar-toyocosta -->
