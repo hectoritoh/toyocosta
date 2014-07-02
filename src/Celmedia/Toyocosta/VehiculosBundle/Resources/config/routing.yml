@@ -9,3 +9,7 @@ toyocosta_homepage:
 ver_vehiculo:
     path:      /vehiculos/{vehiculo}
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:verVehiculo }
+
+empresa:
+    path:      /empresa
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:empresa }

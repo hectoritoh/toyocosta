@@ -76,4 +76,28 @@ class DefaultController extends Controller
         return $this->render('CelmediaToyocostaVehiculosBundle:Pages:vehiculo.html.twig' , array("vehiculo" => $vehiculo ));
     }
 
+
+    public function empresaAction(){
+
+        $em = $this->getDoctrine()->getManager();        
+        
+        $proposito = $this->getDoctrine()->getRepository("CelmediaToyocostaContenidoBundle:Contenido")->findBy(array(
+            "abreviatura" => "proposito" , "estado" => 1
+                )
+        );
+
+        $vision = $this->getDoctrine()->getRepository("CelmediaToyocostaContenidoBundle:Contenido")->findBy(array(
+            "abreviatura" => "vision" ,"estado" => 1
+                )
+        );
+
+        $agencias = $this->getDoctrine()->getRepository("CelmediaToyocostaContenidoBundle:Establecimiento")->findBy(array(
+            "estado" => 1
+                )
+        );
+
+
+        return $this->render('CelmediaToyocostaVehiculosBundle:Pages:empresa.html.twig' , array("proposito" => $proposito , "vision" => $vision, "agencias" => $agencias  ));
+    }
+
 }
