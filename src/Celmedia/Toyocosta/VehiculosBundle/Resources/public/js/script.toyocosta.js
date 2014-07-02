@@ -55,10 +55,22 @@ function centrarVert(elemento){
 	};
 }
 
+function centrarHorizontal(elemento){
+	ancho1=elemento.parent().width();
+	ancho2=elemento.width();
+
+	elemento.css("margin-left",(ancho1/2)-(ancho2/2)+"px");
+
+}
+
+
  $(document).ready(function(){
 
  	$('.contenedor-centrar').each(function () {
            centrarVert($(this));
          });
 
+	$('.centrado-horizontal').each(function () {
+       centrarHorizontal($(this));
+     });
 });

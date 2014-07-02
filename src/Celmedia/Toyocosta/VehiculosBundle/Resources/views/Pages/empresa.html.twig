@@ -1,9 +1,267 @@
 
 {% extends 'CelmediaToyocostaVehiculosBundle::layout.html.twig' %}
 
-{% block content %}
+{% block contenidotoyocosta %}
+
+	<div id="empresa-seccion" class="seccion-ty fondo-seccion">
+		<div class="v-center-contenedor">
+			<div class="v-center-contenido">
+
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-4 col-md-offset-2">
+
+	                    	{% for row in proposito %}
+
+								<div class="row">
+
+									{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/empresa/aves.png' %}
+									<img src="{{ asset_url }}" class="img-responsive" alt="" style="" />
+									{% endimage %}
+
+									<div class="col-md-7">
+
+				                   		<h1 class="txt-rojo"> {{ row.titulo }} </h1>
+				                   		
+				                   		<p>{{ row.texto }}</p>
+
+									</div>
+
+								</div>
+
+
+	                    	{% endfor %}
+
+							
+	                    	{% for row in vision %}
+
+								<div class="row">
+
+
+									<div class="col-md-3 col-md-offset-1">
+
+				                   		<h1 style=" text-transform: uppercase;"> {{ row.titulo }} </h1>
+									</div>
+									<div class="col-md-6" style="margin-top:20px;">
+
+				                   		<p>{{ row.texto }}</p>
+
+
+									</div>
+								</div>
+
+
+	                    	{% endfor %}
 
 
 
+						</div>
+						<div class="col-md-6">
+							{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/empresa/matriz.png' %}
+							<img src="{{ asset_url }}" class="img-responsive" alt="" style="" />
+							{% endimage %}
+
+						</div>
+					</div>
+					<div class="row">
+				      	
+						<div class="container">
+
+					      	<h1 class="text-center">COMPROMETIDOS</h1>
+
+				      		<div class="col-md-3 col-md-offset-4">
+					      		{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/empresa/comprometidos.png' %}
+								<img src="{{ asset_url }}" class="" alt="" style="padding-bottom: 25px;padding-left:65px;" />
+								{% endimage %}
+				      		</div>
+
+				      		<div class="col-md-12">
+
+								<p class="text-center">TOYOCOSTA ingresa al mercado en el año 2000 con tan s&oacute;lo una oficina de la mitad del tamaño de lo que hoy es la matriz (Ave. Carlos Julio Arosemena Km 3.5), y cerrando una primera venta de 20 camionetas TOYOTA HILUX a Cervecer&iacute;a Nacional.<br /><br />
+								Hoy estamos en Guayas, Manab&iacute;, Los R&iacute;os con divisiones que cubren no s&oacute;lo la venta y postventa, sino tambi&eacute;n negocios de accesorios especialmente para TOYOTA, venta de Montacargas y renta de flotas.<br /><br/>
+								</p>	
+				      		</div>
+
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+	<div id="region-seccion" class="seccion-ty fondo-seccion">
+		<div class="v-center-contenedor">
+			<div class="v-center-contenido">
+
+				<div class="container-fluid">
+					
+					<div class="row">
+						
+						<div class="col-md-12">
+					      	<h1 class="text-center">LA REGI&Oacute;N COSTA</h1>
+					      	<div class="col-md-4 col-md-offset-4">
+
+						      	<p class="text-center">En el año Toyocosta contaba con apenas 3 personas enroladas en la compañ&iacute;a, actualmente somos m&aacute;s de 200 colaboradores, distribuidos en las siguientes oficinas.<br />
+						      	</p>
+
+					      	</div>
+					    </div>
+
+				      	<div class="col-md-7 col-md-offset-2">
+
+						    
+				      		<div class="col-md-12" style="margin-top:40px;margin-bottom:40px;">
+					      		
+
+		                    	{% for row in agencias %}
+
+									<div class="col-md-4">
+
+						      		{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/empresa/agencia.png' %}
+									<img src="{{ asset_url }}" class="pull-left" alt="" style="" />
+									{% endimage %}
+									<p><strong>{{ row.nombre }}</strong><br />{{ row.ubicacion }}</p>
+
+									</div>
+
+		                    	{% endfor %}
+
+
+				      		</div>
+
+				      		
+				      	</div>
+
+				      	<div class="col-md-6 col-md-offset-3">
+
+								<p class="text-center">El servicio t&eacute;cnico est&aacute; certificado* por la TOYOTA MOTOR CORPORATION y en la red somos reconocidos por la inversi&oacute;n en alta  tecnolog&iacute;a en equipos y en capacitaci&oacute;n del personal t&eacute;cnico -titulado por Jap&oacute;n- tanto para manejo de motores convencionales a gasolina, como los de tecnolog&iacute;a h&iacute;brida.<br /><br />
+
+								Despu&eacute;s de una d&eacute;cada seguimos teniendo la TOYOTA HILUX, insignia de trabajo fuerte y durabilidad y la legendaria familia LAND CRUISER: FJ, 4RUNNER,  LC200, pero tambi&eacute;n tenemos novedades como el FORTUNER 4X4 y por supuesto, los h&iacute;bridos como el PRIUS y el HIGHLANDER, tecnolog&iacute;a en la que indiscutiblemente somos l&iacute;deres en el pa&iacute;s.<br /><br />
+
+								Anualmente hacemos actividades familiares de turismo y de naturaleza. Empezamos con PURA TRACCI&Oacute;N evento dirigido para todos los TOYOTA 4X4 ; pero con el crecimiento en el segmento de los h&iacute;bridos, contamos ahora con el TOYOTA ECOLOGICAL CLUB orientado a los amantes de la naturaleza, la tecnolog&iacute;a  e  innovaci&oacute;n.<br /><br />
+
+								Los clientes pasan de ser compradores a fanáticos de la marca. Manejan no s&oacute;lo un TOYOTA: nuestros clientes manejan emociones!<br /><br />
+								</p>	
+				      	</div>
+
+
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+	<div id="productos-seccion" class="seccion-ty fondo-seccion">
+		<div class="v-center-contenedor">
+			<div class="v-center-contenido">
+
+				<div class="container-fluid">
+					
+					<div class="row">
+						
+						<div class="col-md-10 col-md-offset-1">
+
+							<div class="col-md-3 borde-gris">
+								<div class="col-md-8 centrado-horizontal">
+									{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/empresa/seminuevo.png' %}
+									<img src="{{ asset_url }}" class="img-responsive" alt="" style="" />
+									{% endimage %}
+							      	<h4 class="text-left">SEMINUEVOS TOYOCOSTA</h4>
+							      	<div class="col-md-12">
+
+								      	<p class="text-left">Todas las unidades que comercializamos han pasado por un proceso
+								      		de alistamiento, lo que nos permite ofrecer 6 meses de servicio de aver&iacute;a mec&aacute;nica (en partes nombradas), en caso de alguna eventualidad.<br />
+								      	</p>
+
+							      	</div>
+							    </div>
+							</div>
+
+							<div class="col-md-3 borde-gris">
+						      	<div class="col-md-8 centrado-horizontal">
+
+								    {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/empresa/toyota.png' %}
+									<img src="{{ asset_url }}" class="img-responsive" alt="" style="" />
+									{% endimage %}
+							      	<h4 class="text-left">TOYOTA EN EL ECUADOR</h4>
+							      	<div class="col-md-12">
+
+								      	<p class="text-left">En nuestro pa&iacute;s TOYOTA est&aacute; representada por TOYOTA 
+								      	DEL ECUADOR S.A. y sus tres &uacute;nicos consesionarios autorizados:<br /><br />
+								      	TOYOCOSTA<br /><br />
+								      	IMPORTADORA<br />
+								      	TOMEBAMBA<br /><br />
+								      	CASABLANCA.<br /><br />
+								      	</p>
+
+							      	</div>
+
+						      		
+						      	</div>
+					      	</div>
+
+					      	<div class="col-md-3 borde-gris">
+						      	<div class="col-md-8 centrado-horizontal">
+						      		{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/empresa/industrial.png' %}
+									<img src="{{ asset_url }}" class="img-responsive" alt="" style="" />
+									{% endimage %}
+							      	<h4 class="text-left">LINEA INDUSTRIAL TOYOCOSTA</h4>
+							      	<div class="col-md-12">
+
+								      	<p class="text-left">Toyocosta S.A. en calidad de representante exclusivo para el 
+								      		Ecuador de Montacargas TOYOTA, se encuentra encaminada a satisfacer las diferentes necesidades de transporte y carga en el segmento industrial, ofertando productos   como la venta y alquiler de montacargas, así como la post venta para cada necesidad   desde el año 2010.<br />
+								      	</p>
+
+							      	</div>
+									
+						      	</div>
+						     </div>
+
+						    <div class="col-md-3 borde-gris">
+						      	<div class="col-md-8 centrado-horizontal">
+						      		{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/empresa/pirelli.png' %}
+									<img src="{{ asset_url }}" class="img-responsive" alt="" style="" />
+									{% endimage %}
+							      	<h4 class="text-left">DISTRIBUIDOR AUTORIZADO PIRELLI</h4>
+							      	<div class="col-md-12">
+
+								      	<p class="text-left">Toyocosta S.A. en calidad de representante exclusivo para el 
+								      		Ecuador de Montacargas TOYOTA, se encuentra encaminada a satisfacer las diferentes necesidades de transporte y carga en el segmento industrial, ofertando productos   como la venta y alquiler de montacargas, así como la post venta para cada necesidad   desde el año 2010.<br />
+								      	</p>
+
+							      	</div>
+									
+						      	</div>
+						    </div>
+						</div>
+
+						<div class="col-md-10 col-md-offset-1">
+							<div class="col-md-3">
+								<div class="col-md-8 centrado-horizontal btn btn-info">Conoce m&aacute;s</div>
+							</div>
+
+							<div class="col-md-3">
+								<div class="col-md-8 centrado-horizontal btn btn-info">Conoce m&aacute;s</div>
+							</div>
+							
+							<div class="col-md-3">
+								<div class="col-md-8 centrado-horizontal btn btn-info">Conoce m&aacute;s</div>
+							</div>
+							
+							<div class="col-md-3">
+								<div class="col-md-8 centrado-horizontal btn btn-info">Conoce m&aacute;s</div>
+							</div>
+
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+	</div>
     
 {% endblock %}
