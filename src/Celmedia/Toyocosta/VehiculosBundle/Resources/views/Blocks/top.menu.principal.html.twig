@@ -1,203 +1,95 @@
-{#
-<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-  <div class="row" id="linkstop">
-    <div class="col-md-12">
-      <div class="row pull-right">
-        <div class="col-md-12 links">
-          <p class="navbar-text">
-            <a href="#">Regístrese</a> / <a href="#" style="">Iniciar Sesión</a>
-          </p>
-          <p class="navbar-text">
-            <a href="#">Inicio</a>
-            <a href="#">Empresa</a>
-            <a href="#">Noticias</a>
-            <a href="#">Cita Talleres</a>
-            <a href="#">Test Drive</a>
-            <a href="#">Trabaje con Nosotros</a>
-            <a href="#">Contáctenos</a>
-          </p>
-          <p class="navbar-text">
-            <a href="http://www.facebook.com/toyocosta" class="icon-facebook" target="_blank"></a>
-          </p>
-          <p class="navbar-text">
-            <a href="http://twitter.com/toyocosta" class="icon-twitter" target="_blank"></a>
-          </p>
-          <p class="navbar-text">
-            <a href="http://www.toyocosta.com/blog" class="icon-blog" target="_blank"></a>
-          </p>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="row sombra-toyocosta">
-    <div class="col-md-12">
-      <div class="col-md-2 col-md-offset-2">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="#" style="padding-left: 60px;">
-            {% image '@CelmediaToyocostaPirelliBundle/Resources/public/images/Logos/toyocosta.png' %}
-            <img src="{{ asset_url }}" alt="llanta" class="img-responsive" />
-            {% endimage %}
-          </a>
-        </div>
-      </div>
-      <div class="col-md-8" style="padding-right: 0px;">
-        <div class="collapse navbar-collapse pull-right">
-          <ul id="nav-principal" class="nav navbar-nav page-scroll" style="margin-right:0px;">
-            <li>
-              <a href="#seccion-vehiculos">AUTOS</a>
-            </li>
-            <li>
-              <a href="#seccion-camionetas">CAMIONETAS</a>
-            </li>
-            <li>
-              <a href="#seccion-suv">SUV</a>
-            </li>
-            <li>
-              <a href="#seccion-hibridos">H&Iacute;BRIDOS</a>
-            </li>
-            <li>
-              <a href="#seccion-montacargas">MONTACARGAS</a>
-            </li>
-            <li {% if app.request.get('_route') == 'pirelli_home' %}  class="active"  {% endif %} >
-              <a href="{{ path('pirelli_home') }}">PIRELLI</a>
-            </li>
-            <li>
-              <a href="#seccion-seminuevos">SEMINUEVOS</a>
-            </li>
-            <li>
-              <form class="form-inline pull-right" role="form">
-                <div class="form-group" style="float:left;">
-                  <input class="form-control input-lg cursiva input-search" type="text" placeholder="Buscar">
-                </div>
-                <div class="form-group">
-                  <button type="button" class="btn btn-buscar"></button>
-                </div>
-              </form>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-
-</div>
-#}
-
-
-
-<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+<div class="navbar navbar-fixed-top navbar-toyocosta" role="navigation">
   <div class="container-fluid">
     <div class="navbar-collapse collapse">
-      <ul class="nav navbar-nav navbar-right">
+      <ul class="nav navbar-nav navbar-right navbar-nav-menu-0">
         <li class="active">
-          <a href="#">Home</a>
+          <a href="#">Regístrese</a>
         </li>
         <li>
-          <a href="#about">About</a>
+          <a href="#">Iniciar sesión</a>
         </li>
         <li>
-          <a href="#contact">Contact</a>
-        </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li>
-              <a href="#">Action</a>
-            </li>
-            <li>
-              <a href="#">Another action</a>
-            </li>
-            <li>
-              <a href="#">Something else here</a>
-            </li>
-            <li class="divider"></li>
-            <li class="dropdown-header">Nav header</li>
-            <li>
-              <a href="#">Separated link</a>
-            </li>
-            <li>
-              <a href="#">One more separated link</a>
-            </li>
-          </ul>
-        </li>
-      
-        <li>
-          <a href="../navbar/">Default</a>
+          <a href="#">&nbsp;</a>
         </li>
         <li>
-          <a href="../navbar-static-top/">Static top</a>
+          <a href="#about">Inicio</a>
         </li>
-        <li class="active">
-          <a href="./">Fixed top</a>
+        <li>
+          <a href="#contact">Empresa</a>
+        </li>
+        <li>
+          <a href="#contact">Noticias</a>
+        </li>
+        <li>
+          <a href="#contact">Servicios</a>
+        </li>
+        <li>
+          <a href="#contact">Test Drive</a>
+        </li>
+        <li>
+          <a href="#contact">Trabaje con nosotros</a>
+        </li>
+        <li>
+          <a href="#contact">Contáctenos</a>
+        </li>
+        <li class="iconos-ty">
+          <a href="#contact" class="icon-facebook">&nbsp;</a>
+        </li>
+        <li class="iconos-ty">
+          <a href="#contact" class="icon-twitter">&nbsp;</a>
+        </li>
+        <li class="iconos-ty">
+          <a href="#contact" class="icon-blog">&nbsp;</a>
         </li>
       </ul>
     </div><!--/.nav-collapse -->
   </div>
 
-  <div class="container">
-
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+  <div class="container-fluid sombra-toyocosta">
+    <div class="navbar-header page-scroll">
+      <button type="button" class="navbar-toggle navbar-toggle-toyocosta" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#" style="padding-left: 60px;">
+      <a class="navbar-brand toyocosta-brand" href="#top-ty">
         {% image '@CelmediaToyocostaPirelliBundle/Resources/public/images/Logos/toyocosta.png' %}
         <img src="{{ asset_url }}" alt="llanta" class="img-responsive" />
         {% endimage %}
       </a>
+    </div>  
+    <div class="navbar-collapse collapse" id="vehiculos-scroll">
+      <form class="navbar-form navbar-right navbar-buscar" role="form">
+        <ul class="nav navbar-nav navbar-nav-vehiculos page-scroll">
+          <li>
+            <a href="#autos-seccion">Autos</a>
+          </li>
+          <li>
+            <a href="#camionetas-seccion">Camionetas</a>
+          </li>
+          <li>
+            <a href="#suvs-seccion">SUV</a>
+          </li>
+          <li>
+            <a href="#hibridos-seccion">Híbridos</a>
+          </li>
+          <li>
+            <a href="#montacargas-seccion">Montacargas</a>
+          </li>
+          <li>
+            <a href="#pirelli-seccion">Pirelli</a>
+          </li>
+          <li>
+            <a href="#seminuevos-seccion">Seminuevos</a>
+          </li>
+        </ul>
+        <div class="form-group">
+          <input type="text" placeholder="Buscar" class="form-control input-lg input-buscar">
+        </div>
+        <input type="submit" class="btn btn-buscar" value="" />
+      </form>
 
-    </div>
-
-  
-    <div class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li class="active">
-          <a href="#">Home</a>
-        </li>
-        <li>
-          <a href="#about">About</a>
-        </li>
-        <li>
-          <a href="#contact">Contact</a>
-        </li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <span class="caret"></span></a>
-          <ul class="dropdown-menu" role="menu">
-            <li>
-              <a href="#">Action</a>
-            </li>
-            <li>
-              <a href="#">Another action</a>
-            </li>
-            <li>
-              <a href="#">Something else here</a>
-            </li>
-            <li class="divider"></li>
-            <li class="dropdown-header">Nav header</li>
-            <li>
-              <a href="#">Separated link</a>
-            </li>
-            <li>
-              <a href="#">One more separated link</a>
-            </li>
-          </ul>
-        </li>
-      </ul>
-    </div><!--/.nav-collapse -->
-  
-
-
-
-
+    </div><!--/.navbar-collapse -->
   </div>
 </div>

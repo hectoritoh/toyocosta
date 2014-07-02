@@ -758,27 +758,99 @@ html,body{
 }
 
 
+
+
+.navbar-toyocosta{
+	background-color: #FFFFFF;
+}
+
+.navbar-nav-vehiculos{
+
+}
+
+.navbar-toggle-toyocosta{
+	background-color: #df182b;
+}
+
+.navbar-toggle-toyocosta .icon-bar{
+	background-color: #FFFFFF;
+}
+
+.navbar-toyocosta .navbar-nav-vehiculos > li > a{
+	color: #363636;
+}
+.navbar-toyocosta .navbar-nav-menu-0 > li > a{
+	color: #606060;
+	line-height: 5px;
+	font-size: 12px;
+}
+
+.navbar-toyocosta .navbar-nav-vehiculos>.active>a,
+.navbar-toyocosta .navbar-nav-vehiculos>.active>a:hover,
+.navbar-toyocosta .navbar-nav-vehiculos>.active>a:focus{
+	background-color: #df182b;
+	color: #FFFFFF;
+}
+
+.navbar-toyocosta .navbar-nav-vehiculos>.active{
+	background-color: #df182b;
+}
+
+
+.input-buscar {
+	height: 50px;
+	border-radius: 0px;	
+	background-color: #F0F0F0;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	border-top: none;
+	border-bottom: none;
+	border-right: none;
+	border-left: 1px solid #c9ceca;
+}
+
+.input-buscar:active,
+.input-buscar:focus{
+	border-top: none;
+	border-bottom: none;
+
+	-webkit-box-shadow: none;
+	background-color: #F0F0F0;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.toyocosta-brand{
+	padding-left: 70px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	line-height: 30px;
+	height: 50px;
+}
+
+
+.navbar{
+	border: none;
+}
+
 /*Media Querys*/
 /* Large desktop */
 @media (min-width: 1921px) { 
 
 	.input-buscar{
-		padding:12px 165px;
+		padding: 12px 165px;
 	}
-	/*.alto-toyocosta{
-		height: 85px;
-	}
-	.carousel-indicators li{
-		width: 23px;
-		height: 23px;
-	}
-	.carousel-indicators .active{
-		width: 23px;
-		height: 23px;
-	}
-	.ty-principal-caption{
-		margin-bottom: 125px;
+
+	/*.navbar-toyocosta .navbar-nav-vehiculos > li > a{
+		padding-top: 20px;
+		padding-bottom: 20px;
 	}*/
+
+	.navbar-buscar{
+		margin-bottom: 0px;
+		margin-top: 0px;
+		padding: 0px;
+	}
 
  }
 @media (min-width: 1200px) {
@@ -851,6 +923,17 @@ html,body{
 		left: 12%;
 		bottom: 32%;
 	}
+
+	/*.navbar-toyocosta .navbar-nav-vehiculos > li > a{
+		padding-top: 20px;
+		padding-bottom: 20px;
+	}*/
+
+	.navbar-buscar{
+		margin-bottom: 0px;
+		margin-top: 0px;
+		padding: 0px;
+	}
  }
  
 /* Portrait tablet to landscape and desktop */
@@ -859,10 +942,23 @@ html,body{
 	.ty-principal-caption{
 		margin-bottom: 72px;
 	}
+	.iconos-ty{
+		float: left;
+	}
+
+	.navbar-buscar{
+		margin-bottom: 0px;
+		margin-top: 0px;
+		padding: 0px;
+	}
+	
  }
  
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) { 
+	.iconos-ty{
+		float: left;
+	}
 	.alto-toyocosta{
 		height: 190px;
 	}
@@ -898,10 +994,22 @@ html,body{
 	.cotizar-banner{
 		height: auto;
 	}
+
+	.input-buscar,
+	.input-buscar:active,
+	.input-buscar:focus {
+		border-top: 1px solid #c9ceca;
+		border-bottom: 1px solid #c9ceca;
+		border-left: 1px solid #c9ceca;
+		border-right: 1px solid #c9ceca;
+	}
  }
  
 /* Landscape phones and down */
 @media (max-width: 480px) { 
+	.iconos-ty{
+		float: left;
+	}
 
 	.alto-toyocosta{
 		height: 226px;
@@ -947,5 +1055,13 @@ html,body{
 	}
 	.cotizar-banner{
 		height: auto;
+	}
+	.input-buscar,
+	.input-buscar:active,
+	.input-buscar:focus {
+		border-top: 1px solid #c9ceca;
+		border-bottom: 1px solid #c9ceca;
+		border-left: 1px solid #c9ceca;
+		border-right: 1px solid #c9ceca;
 	}
  }

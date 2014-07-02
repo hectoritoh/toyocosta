@@ -95,7 +95,30 @@
 	box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.075),0 0 8px rgba(255, 255, 255, 0.6);
 }
 .sombra-toyocosta{
+	border-top: 1px solid #c9ceca;
+	border-bottom: 1px solid #c9ceca;
+}
+
+.sombra-toyocosta.bajar{
 	-webkit-box-shadow: 0px -2px 9px 0px rgba(134, 133, 133, 0.83);
 	-moz-box-shadow: 0px -2px 9px 0px rgba(0, 0, 0, 0.83);
 	box-shadow: 0px -2px 9px 0px rgba(179, 177, 177, 0.83);
+
+	background-color: rgba(255, 255, 255, 0.9);
+	-webkit-transition: all ease 0.5s;
+	-moz-transition: all ease 0.5s;
+	-o-transition: all ease 0.5s;
+	transition: all ease 0.5s;
+}
+
+.fondo-submenu{
+	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/varios/textura-submenu.jpg"); 
+}
+
+.fondo-submenu-vehiculo{
+	-webkit-box-shadow: inset 0px 4px 5px 0px rgba(0, 0, 0, 0.83);
+	-moz-box-shadow:    inset 0px 4px 5px 0px rgba(0, 0, 0, 0.83);
+	box-shadow:         inset 0px 4px 5px 0px rgba(0, 0, 0, 0.83);
+
+	background-color: #df182b;
 }
