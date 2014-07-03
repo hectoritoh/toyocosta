@@ -15,6 +15,10 @@ celmedia_toyocosta_pirelli:
     resource: "@CelmediaToyocostaPirelliBundle/Resources/config/routing.yml"
     prefix:   /
 
+celmedia_toyocosta_seminuevos:
+    resource: "@CelmediaToyocostaSeminuevoBundle/Resources/config/routing.yml"
+    prefix:   /
+
 admin:
     resource: '@SonataAdminBundle/Resources/config/routing/sonata_admin.xml'
     prefix: /admin
