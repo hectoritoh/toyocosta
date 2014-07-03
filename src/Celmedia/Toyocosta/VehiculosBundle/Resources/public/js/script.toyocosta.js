@@ -18,7 +18,7 @@ $(document).ready(function(){
 
 	$(".item-submenu").click(function (e) {
         e.preventDefault();
-       $('#fondo-submenu').stop(true, true).toggle("slow");
+       $('#fondo-submenu').stop(true, true).slideToggle( "slow" );
     });
 
 	$('ul.navbar-nav-vehiculos > li').click(function (e) {

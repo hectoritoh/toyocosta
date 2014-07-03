@@ -1,0 +1,15 @@
+{% extends 'CelmediaToyocostaSeminuevoBundle::layout.html.twig' %}
+
+	{% block contenidoseminuevos %}
+
+		{% include 'CelmediaToyocostaVehiculosBundle:Blocks:top.menu.secciones.html.twig' %}
+
+		<div class="seminuevos-seccion">
+			 {% image '@CelmediaToyocostaSeminuevoBundle/Resources/public/images/banner-seminuevo.jpg' %}
+				<div class="container-fluid vehiculo-banner" style="background-image: url({{ asset_url }});">
+					&nbsp;
+				</div>
+            {% endimage %}
+		</div>
+
+	{% endblock %}

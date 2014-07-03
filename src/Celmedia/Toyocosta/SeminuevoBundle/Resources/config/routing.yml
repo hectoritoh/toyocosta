@@ -1,3 +1,7 @@
 celmedia_toyocosta_seminuevo_homepage:
     pattern:  /hello/{name}
     defaults: { _controller: CelmediaToyocostaSeminuevoBundle:Default:index }
+
+seminuevos_home:
+    pattern:  /seminuevos
+    defaults: { _controller: CelmediaToyocostaSeminuevoBundle:Default:seminuevos }

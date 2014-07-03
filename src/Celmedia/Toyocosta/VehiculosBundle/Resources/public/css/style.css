@@ -14,6 +14,9 @@ html,body{
 	display: table-cell;
 	vertical-align: middle;
 }
+.v-center-contenido-h{
+	text-align: center;
+}
 
 .alto-completo{
 	height: 100%;
@@ -662,6 +665,11 @@ html,body{
 }
 
 .vehiculo-seccion{
+	position: relative;
+	width: 100%;
+	height: 100%;
+}
+.seminuevos-seccion{
 	position: relative;
 	width: 100%;
 	height: 100%;
