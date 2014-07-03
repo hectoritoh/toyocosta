@@ -142,5 +142,14 @@ class DefaultController extends Controller
     }
 
 
+    public function certificadosAction(){
 
+        return $this->render('CelmediaToyocostaVehiculosBundle:Pages:certificados.html.twig');
+    }
+
+
+    public function landingAction(){
+
+        return $this->render('CelmediaToyocostaVehiculosBundle:Forms:landing.html.twig');
+    }
 }

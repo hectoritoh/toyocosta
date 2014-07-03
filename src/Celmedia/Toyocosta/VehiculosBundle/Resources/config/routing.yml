@@ -29,3 +29,11 @@ recursos_humanos:
 contactenos:
     path:      /contactenos
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:contactenos }
+
+certificados:
+    path:      /certificados
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:certificados }
+
+landing:
+    path:      /landing
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:landing }

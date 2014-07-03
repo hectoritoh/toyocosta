@@ -28,16 +28,16 @@
 				<div class="row">
 
 					<div class="col-md-3">
-						<hr>
+						<hr style="border-top: 1px solid #CCCCCC;">
 					</div>
 
 					<div class="col-md-6">
 						<form class="form-inline" style="padding-left:10px;padding-right:10px;" role="form">
 							<div class="form-group">
-								<label class="txt-form-pirelli txt-gris" style="margin-top:10px;">Seleccione un establecimiento.
+								<label class="txt-gris" style="margin-top:10px;">Seleccione un establecimiento.
 								</label>
 
-								<select id="distribuidorMostrar" class="form-control txt-select-pirelli" onchange="distribuidorSelected(this)" >
+								<select id="agenciaMostrar" style="margin-left:25px;" class="form-control txt-select" onchange="agenciaSelected(this)" >
 									<option  class=""  value="-1" ></option>
 									{%    for agencia in agencias   %}
 									<option  class=""  value="{{ loop.index0  }}" >{{  agencia.nombre }}</option>
@@ -49,20 +49,282 @@
 					</div>
 
 					<div class="col-md-3">
-						<hr>
+						<hr style="border-top: 1px solid #CCCCCC;">
 					</div>
-
-
 
 
 				</div>
 
-			</div>
 
+				<div class="row" style="margin-top: 40px;">
+						
+					<div class="col-md-10 col-md-offset-1">
+						<div class="col-md-4">
+							<div class="">
+								<h4 class="text-center">ATENCI&Oacute;N</h4>
+								{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/icon/horario.png' %}
+								<img src="{{ asset_url }}" class="img-responsive" alt="" style="margin: 0 auto;" />
+								{% endimage %}
+								<p id="horario" class="text-center space-top">Lunes a Viernes: Ventas 8:00 a 19:00, 
+									Repuestos 8:30 a 19:30 y Talleres 7:30 a 17:30. Sábados: Ventas 10:00 a 15:00, Repuestos 09:00 a 13:00 y Talleres 08:30 a 13:00.
+								 </p>
+							</div>
+						</div>
+
+						<div class="col-md-4">
+							<div class="">
+								<h4 class="text-center">UBICACI&Oacute;N</h4>
+								{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/icon/ubicacion.png' %}
+								<img src="{{ asset_url }}" class="img-responsive" alt="" style="margin: 0 auto;" />
+								{% endimage %}
+								<p id="ubicacion" class="text-center space-top">Av. Carlos Julio Arosemena Km 3.5 </p>
+							</div>
+						</div>
+						
+						<div class="col-md-4">
+							<div class="">
+								<h4 class="text-center">TEL&Eacute;FONO</h4>
+								{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/icon/telefono.png' %}
+								<img src="{{ asset_url }}" class="img-responsive" alt="" style="margin: 0 auto;" />
+								{% endimage %}
+								<p id="telefono" class="text-center space-top">3704700</p>
+							</div>
+						
+						</div>
+					</div>
+
+
+
+				</div>
+			</div>
 
 		</div>
 
 	</div>
 
+	<div class="row" class="" style="background-color: #E5E5E5;">
+
+		<div class="col-md-6" style="padding:0px;">
+
+			<div class="row">
+				<div id="map-canvas-toyocosta" style="width:100%;height:550px"></div>
+			</div>
+
+		</div>
+
+		<div class="col-md-6">
+			
+			<div class="col-md-12">
+
+				<p class="text-left txt-contacto" >Por favor llene el siguiente formulario para que un representante de Toyocosta pueda comunicarse con usted inmediatamente.<hr style="border-top: 1px solid #CCCCCC;"></p>
+
+			</div>
+
+			<div class="col-md-12 centrado-horizontal">
+
+				<form id="form-contacto">
+
+					<div class="row space-input">
+						<div class="col-md-12">
+
+							<div class="row">
+								<div class="col-xs-5">
+									<label>Nombre:</label>
+									<input id="nombre" name="nombre" type="text" class="form-control" placeholder="" />
+								</div>
+								<div class="col-xs-5 col-xs-offset-1">
+									<label>Apellido:</label>
+									<input id="apellido" name="apellido" type="text" class="form-control" placeholder="" />
+								</div>
+
+							</div>	
+						</div>
+
+					</div>
+
+					<div class="row space-input">
+						<div class="col-md-12">
+
+							<div class="row">
+								<div class="col-xs-5">
+									<label>Telefono:</label>
+									<input id="inputTelefono" name="inputTelefono" type="text" class="form-control" placeholder="" />
+								</div>
+								<div class="col-xs-5 col-xs-offset-1">
+									<label>Email:</label>
+									<input id="email" name="email" type="text" class="form-control" placeholder="" />
+								</div>
+
+							</div>	
+						</div>
+
+					</div>
+
+					<div class="row space-input">
+						<div class="col-md-12">
+
+							<div class="row">
+								<div class="col-xs-5">
+									<label>Ciudad:</label>
+									<input id="ciudad" name="ciudad" type="text" class="form-control" placeholder="" />
+								</div>
+								<div class="col-xs-5 col-xs-offset-1">
+									<label>Area:</label><br />
+									<select name="area" id="area" class="form-control txt-select" >
+										
+										<option  class=""  value="-1" >Seleccione la agencia</option>
+										{%    for agencia in agencias   %}
+										<option  class=""  value="{{ loop.index0  }}" >{{  agencia.nombre }}</option>
+										{%    endfor %} 
+
+									</select>
+								</div>
+
+							</div>	
+						</div>
+
+					</div>
+
+					<div class="row space-input">
+						<div class="col-md-12">
+
+							<div class="row">
+								<div class="col-xs-11">
+									<label>Observaciones:</label>
+									
+									<textarea id="obs" name="obs" class="form-control" rows="3"></textarea>
+
+								</div>
+								
+							</div>	
+						</div>
+
+					</div>
+
+					<div class="row space-input">
+						<div class="col-md-12">
+
+							<div class="row">
+								<div class="col-md-5 col-md-offset-3">
+
+	                                <input type="submit" value="Enviar" class="btn btn-lg btn-info" style="width:100%;">
+								</div>
+							</div>	
+						</div>
+
+					</div>
+
+
+				</form>
+
+			</div>
+
+
+
+		</div>
+	</div>
+
+{% endblock %}
+
+{% block js %}
+
+       
+	<script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false"></script>
+	<script type="text/javascript" src="{{ asset('js/google-maps-toyocosta.js') }}" ></script>
+
+
+	<script type="text/javascript">
+
+
+		var agencias = new Array(); 
+
+		{%    for agencia in agencias   %}
+
+		agencias[ {{  loop.index0 }} ] ={nombre:"{{agencia.nombre }}" , ubicacion:"{{agencia.ubicacion }}" , telefono:"{{agencia.telefono }}", horario:"{{agencia.horario }}", latitud:"{{agencia.latitud }}" , longuitud:"{{agencia.longuitud  }}"} ; 
+
+		{%    endfor %}   
+
+	        ///// variable del mapa
+	        var map;
+	        ///// creacion de un punto con latitud y longitud para centrar el mapa 
+	        var brooklyn = new google.maps.LatLng(-2.165258, -79.922990);
+
+
+	        ///// estilo usado para que el mapa salga en escala de grises
+	        var stylez = [{
+	        	featureType: "all",
+	        	elementType: "all",
+	        	stylers: [{
+	        		saturation: -100
+	        	}
+	        	]
+	        }];
+
+
+
+	        //// configuracion del mapa que se va  a crear con las variables que se crearon anteriormente
+	        var mapOptions = {
+	        	zoom: 11,
+	        	center: brooklyn,
+	        	mapTypeControlOptions: {
+	        		mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'tehgrayz']
+	        	}
+	        };
+
+	        /// inicializacion del mapa 
+	        map = new google.maps.Map(document.getElementById("map-canvas-toyocosta"), mapOptions);
+
+
+
+	        ///// aplicacion de los estilos al mapa 
+	        var mapType = new google.maps.StyledMapType(stylez, {
+	        	name: "Grayscale"
+	        });
+	        map.mapTypes.set('tehgrayz', mapType);
+	        map.setMapTypeId('tehgrayz');
+
+
+
+	        //// funcion que agrega un mark y centra el mapa en la posicion dada
+
+
+	        function agregarYCentrar(latitud, longuitud) {
+
+
+
+	        	var myLatlng = new google.maps.LatLng(latitud, longuitud);
+	        	var marker = new google.maps.Marker({
+	        		position: myLatlng,
+	        		map: map
+	        	});
+
+	        	map.panTo(myLatlng);
+
+
+	        }
+
+	        function agenciaSelected(){
+
+	        	var indice = $("#agenciaMostrar").val(); 
+
+	        	var nombre = agencias[indice].nombre;
+	        	var ubicacion= agencias[indice].ubicacion;
+	        	var telefono = agencias[indice].telefono;
+	        	var horario = agencias[indice].horario;
+
+	        	var latitud = agencias[indice].latitud;
+	        	var longuitud = agencias[indice].longuitud;
+
+	        	agregarYCentrar(latitud, longuitud);
+
+	        	$("#agencia").text(nombre);
+	        	$("#ubicacion").text(ubicacion);
+	        	$("#telefono").text(telefono);
+	        	$("#horario").text(horario);
+
+
+	        }
+
+	</script>
 
 {% endblock %}
