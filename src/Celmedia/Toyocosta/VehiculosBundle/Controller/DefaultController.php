@@ -100,4 +100,47 @@ class DefaultController extends Controller
         return $this->render('CelmediaToyocostaVehiculosBundle:Pages:empresa.html.twig' , array("proposito" => $proposito , "vision" => $vision, "agencias" => $agencias  ));
     }
 
+    public function mantenimientoAction(){
+        
+        $em = $this->getDoctrine()->getManager();        
+        
+        $vehiculos = $this->getDoctrine()->getRepository("CelmediaToyocostaVehiculosBundle:Vehiculo")->findBy(array(
+            "estado" => 1
+                )
+        );
+        
+        return $this->render('CelmediaToyocostaVehiculosBundle:Forms:matenimiento.html.twig' , array( "vehiculos" => $vehiculos  ));
+    }
+
+    public function testAction(){
+
+        $em = $this->getDoctrine()->getManager();        
+        
+        $agencias = $this->getDoctrine()->getRepository("CelmediaToyocostaContenidoBundle:Establecimiento")->findBy(array(
+            "estado" => 1
+                )
+        );
+
+        return $this->render('CelmediaToyocostaVehiculosBundle:Forms:testdrive.html.twig' , array( "agencias" => $agencias  ));
+    }
+
+    public function rrhhAction(){
+
+        return $this->render('CelmediaToyocostaVehiculosBundle:Forms:rrhh.html.twig');
+    }
+
+    public function contactenosAction(){
+
+        $em = $this->getDoctrine()->getManager();        
+        
+        $agencias = $this->getDoctrine()->getRepository("CelmediaToyocostaContenidoBundle:Establecimiento")->findBy(array(
+            "estado" => 1
+                )
+        );
+        
+        return $this->render('CelmediaToyocostaVehiculosBundle:Forms:contacto.html.twig', array( "agencias" => $agencias  ));
+    }
+
+
+
 }

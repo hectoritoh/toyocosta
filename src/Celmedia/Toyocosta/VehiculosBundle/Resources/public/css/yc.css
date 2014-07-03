@@ -18,3 +18,48 @@
 .borde-gris{
 	border-right: 1px solid #CCCCCC;
 }
+
+/*BANNERS*/
+.banner-mantenimiento{
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/banner/mantenimiento.jpg");
+	background-size: cover;
+	height: 333px;
+}
+.banner-test{
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/banner/test.jpg");
+	background-size: cover;
+	height: 333px;	
+}
+.banner-rrhh{
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/banner/rrhh.jpg");
+	background-size: cover;
+	height: 333px;	
+}
+.banner-contacto{
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/banner/contacto.jpg");
+	background-size: cover;
+	height: 333px;	
+}
+
+
+.form-info label {
+	color: #A0A0A0;
+}
+.txt-info{
+	margin-top: 10px;
+	font-size: 14px;
+	font-weight: normal;
+	color: #A0A0A0;
+}
+.space-input {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.row {
+	margin-left: 0px;
+	margin-right: 0px;
+}
+.title-banner{
+	color: #FFFFFF;
+	font-size: 38pt;
+}
