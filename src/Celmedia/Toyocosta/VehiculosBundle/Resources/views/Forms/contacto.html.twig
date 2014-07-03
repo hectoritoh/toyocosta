@@ -1,0 +1,68 @@
+
+{% extends 'CelmediaToyocostaVehiculosBundle::layout.html.twig' %}
+
+{% block contenidotoyocosta %}
+
+	{% include 'CelmediaToyocostaVehiculosBundle:Blocks:top.menu.secciones.html.twig' %}
+
+	<div class="row banner-contacto">
+		<div class="container contenedor-centrar">
+			<div class="text-left">
+	            <h1 class="title-banner">CONT&Aacute;CTENOS</h1>
+	        </div>
+		</div>
+	</div>
+	<div class="container">
+
+		<div class="row" style="padding-top: 20px;padding-bottom: 30px;">
+
+
+			<div class="col-md-12 text-center">
+
+				<h2>COMENTARIOS O SUGERENCIAS</h2>
+				
+			</div>
+
+			<div class="col-md-12">
+
+				<div class="row">
+
+					<div class="col-md-3">
+						<hr>
+					</div>
+
+					<div class="col-md-6">
+						<form class="form-inline" style="padding-left:10px;padding-right:10px;" role="form">
+							<div class="form-group">
+								<label class="txt-form-pirelli txt-gris" style="margin-top:10px;">Seleccione un establecimiento.
+								</label>
+
+								<select id="distribuidorMostrar" class="form-control txt-select-pirelli" onchange="distribuidorSelected(this)" >
+									<option  class=""  value="-1" ></option>
+									{%    for agencia in agencias   %}
+									<option  class=""  value="{{ loop.index0  }}" >{{  agencia.nombre }}</option>
+									{%    endfor %}   
+								</select>
+
+							</div>
+						</form>
+					</div>
+
+					<div class="col-md-3">
+						<hr>
+					</div>
+
+
+
+
+				</div>
+
+			</div>
+
+
+		</div>
+
+	</div>
+
+
+{% endblock %}

@@ -1,0 +1,198 @@
+{% extends 'CelmediaToyocostaVehiculosBundle::layout.html.twig' %}
+
+{% block contenidotoyocosta %}
+
+		{% include 'CelmediaToyocostaVehiculosBundle:Blocks:top.menu.secciones.html.twig' %}
+
+<div class="row banner-test">
+	<div class="container contenedor-centrar">
+		<div class="text-left">
+            <h1 class="title-banner">TEST DRIVE</h1>
+        </div>
+	</div>
+</div>
+
+
+
+<div class="container">
+
+	<div class="row" style="padding-top: 20px;padding-bottom: 30px;">
+
+
+		<div class="col-md-12 text-center">
+
+			<h2>VIVE LA EXPERIENCIA TOYOTA</h2>
+			<p class="txt-info">Que no te lo cuenten, ven y descubre la calidad de un Toyota. Ingresa sus datos y un operador se comunicar&aacute; contigo.</p>
+
+		</div>
+
+		<div class="col-md-12">
+
+			<form id="form-test" class="form-info">
+				
+				<div class="row space-input">
+					<div class="col-md-10 col-md-offset-1">
+
+						<div class="row">
+							<div class="col-xs-4 col-xs-offset-1">
+								<label>Nombre:</label>
+								<input id="nombre" name="nombre" type="text" class="form-control" placeholder="" />
+							</div>
+							<div class="col-xs-4 col-xs-offset-1">
+								<label>Apellido:</label>
+								<input id="apellido" name="apellido" type="text" class="form-control" placeholder="" />
+							</div>
+
+						</div>	
+					</div>
+
+				</div>
+
+				<div class="row space-input">
+					<div class="col-md-10 col-md-offset-1">
+
+						<div class="row">
+							<div class="col-xs-4 col-xs-offset-1">
+								<label>Tel&eacute;fono:</label>
+								<input id="telefono" name="telefono" type="text" class="form-control" placeholder="" />
+							</div>
+							<div class="col-xs-4 col-xs-offset-1">
+								<label>Email:</label>
+								<input id="email" name="email" type="text" class="form-control" placeholder="" />
+							</div>
+
+						</div>	
+					</div>
+
+				</div>
+
+
+				<div class="row space-input">
+					<div class="col-md-10 col-md-offset-1">
+
+						<div class="row">
+							<div class="col-xs-4 col-xs-offset-1">
+								<label>No. de C&eacute;dula / Pasaporte:</label>
+								<input id="cedula" name="cedula" type="text" class="form-control" placeholder="" />
+							</div>
+							<div class="col-xs-4 col-xs-offset-1">
+								<label>Fecha de nacimiento</label>
+								<input id="nacimiento" name="nacimiento" type="date" class="form-control" placeholder="" />
+							</div>
+
+						</div>	
+					</div>
+
+				</div>
+
+				<div class="row space-input">
+					<div class="col-md-10 col-md-offset-1">
+
+						<div class="row">
+							<div class="col-xs-4 col-xs-offset-1">
+								<label>Agencia:</label>
+								<select name="agencia" id="agencia" class="form-control">
+									<option>Seleccione la agencia</option>
+
+									{% for row in agencias %}
+
+										<option value="{{ row.nombre }}" >{{ row.nombre }}</option>
+			                    	{% endfor %}
+
+								</select>
+							</div>
+							<div class="col-xs-4 col-xs-offset-1">
+								<label>Ciudad:</label>
+								<input id="ciudad" name="ciudad" type="text" class="form-control" placeholder="" />
+							</div>
+
+						</div>	
+					</div>
+
+				</div>
+
+
+				<div class="row space-input">
+					<div class="col-md-10 col-md-offset-1">
+
+						<div class="row">
+							
+							<div class="col-xs-4 col-xs-offset-1">
+								<label>Vehiculo:</label>
+								<select  name="vehiculo" id="vehiculo"  class="form-control">
+									<option value="0">Seleccione un modelo</option>
+									<option value="Corolla">Corolla</option>
+									<option value="Fortuner ">Fortuner </option>
+									<option value="Hilux CD 4x2, Gasolina">Hilux CD 4x2, Gasolina</option>
+									<option value="Hilux CD 4X4, Diesel">Hilux CD 4X4, Diesel</option>
+									<option value="Hilux CS 4x4, Gasolina">Hilux CS 4x4, Gasolina</option>
+									<option value="Prius ">Prius </option>
+
+								</select>
+							</div>
+
+						</div>	
+					</div>
+
+				</div>
+
+				<hr>
+
+
+
+				<div class="row space-input">
+					<div class="col-md-10 col-md-offset-1">
+
+						<div class="row">
+							<div class="col-xs-4 col-xs-offset-1">
+								<label>Fecha del test:</label>
+								<input id="fecha-test" name="fecha-test" type="date" class="form-control" placeholder="" />
+							</div>
+							<div class="col-xs-4 col-xs-offset-1">
+								<label>Hora del test:</label>
+								<input id="hora-test" name="hora-test" type="text" class="form-control" placeholder="" />
+							</div>
+
+						</div>	
+					</div>
+
+				</div>
+
+				<div class="row space-input">
+					<div class="col-md-10 col-md-offset-1">
+
+						<div class="row">
+							<div class="col-xs-9 col-xs-offset-1">
+								<label>Observaciones:</label>
+								<textarea id="obs" name="obs" class="form-control" rows="3"></textarea>
+
+							</div>
+						</div>	
+					</div>
+
+				</div>
+
+				<div class="row space-input">
+					<div class="col-md-10 col-md-offset-1">
+
+						<div class="row">
+							<div class="col-md-3 col-md-offset-4">
+
+                                <input type="submit" value="Enviar" class="btn btn-lg btn-info" style="width:100%;">
+							</div>
+						</div>	
+					</div>
+
+				</div>
+
+			</form>
+
+		</div>
+
+
+	</div>
+
+</div>
+
+
+{% endblock %}
