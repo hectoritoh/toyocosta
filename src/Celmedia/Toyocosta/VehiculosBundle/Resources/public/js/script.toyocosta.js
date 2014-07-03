@@ -1,13 +1,3 @@
-$(function() {
-	$('.page-scroll a').bind('click', function(event) {
-		var $anchor = $(this);
-		$('html, body').stop().animate({
-			scrollTop: $($anchor.attr('href')).offset().top
-		}, 1500, 'easeInOutExpo');
-		event.preventDefault();
-	});
-});
-
 $(window).bind('scroll', function() {
 	if ($(window).scrollTop() > 50) {
 		$('.sombra-toyocosta').addClass('bajar');
@@ -18,6 +8,18 @@ $(window).bind('scroll', function() {
 });
 
 $(document).ready(function(){
+	$('.page-scroll a').bind('click', function(event) {
+		var $anchor = $(this);
+		$('html, body').stop().animate({
+			scrollTop: $($anchor.attr('href')).offset().top
+		}, 1500, 'easeInOutExpo');
+		event.preventDefault();
+	});
+
+	$(".item-submenu").click(function (e) {
+        e.preventDefault();
+       $('#fondo-submenu').stop(true, true).toggle("slow");
+    });
 
 	$('ul.navbar-nav-vehiculos > li').click(function (e) {
         e.preventDefault();

@@ -112,13 +112,63 @@
 }
 
 .fondo-submenu{
-	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/varios/textura-submenu.jpg"); 
+	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/varios/textura-submenu.jpg");
+	position: absolute;
+	width: 100%;
+	z-index: 10;
+	display: none;
 }
 
 .fondo-submenu-vehiculo{
-	-webkit-box-shadow: inset 0px 4px 5px 0px rgba(0, 0, 0, 0.83);
-	-moz-box-shadow:    inset 0px 4px 5px 0px rgba(0, 0, 0, 0.83);
-	box-shadow:         inset 0px 4px 5px 0px rgba(0, 0, 0, 0.83);
+	-webkit-box-shadow: inset 0px 4px 6px 0px rgba(0, 0, 0 , 0.83);
+	-moz-box-shadow:    inset 0px 4px 6px 0px rgba(0, 0, 0, 0.83);
+	box-shadow:         inset 0px 4px 6px 0px rgba(0, 0, 0, 0.83);
 
 	background-color: #df182b;
+}
+
+.fondo-submenu-vehiculo a{
+	color: #fffeff;
+	text-transform: uppercase;
+}
+
+.fondo-submenu-vehiculo a.active{
+	color: #e9db06;
+	text-transform: uppercase;
+}
+.submenu-vehiculo-item{
+	padding-top: 10px;
+	padding-bottom: 10px;
+	display: inline-block;
+}
+
+.contenedor-submenu-item{
+	border-left: 1px solid #cdcdcd;
+	border-right: 1px solid #cdcdcd;
+	border-top: 1px solid #cdcdcd;
+	border-bottom: 1px solid #cdcdcd;
+	background-color: #FFFFFF;
+}
+
+.submenu-vehiculo-nombre{
+	padding-top: 5px;
+	padding-bottom: 5px;
+	color: #FFFFFF;
+	font-size: 21px;
+	font-weight: bold;
+	display: inline-block;
+}
+.btn-submenu-vehiculo{
+	background-color: #657982;
+	color: #FFFFFF;
+	position: relative;
+	border-radius: 0px;
+	border-top: 1px solid #cdcdcd;
+}
+
+.btn-submenu-vehiculo.izq{
+	border-right: 1px solid #40545d;
+}
+.btn-submenu-vehiculo.der{
+	border-left: 1px solid #40545d;
 }
