@@ -14,6 +14,10 @@ html,body{
 	display: table-cell;
 	vertical-align: middle;
 }
+.v-bottom-contenido{
+	display: table-cell;
+	vertical-align: bottom;
+}
 .v-center-contenido-h{
 	text-align: center;
 }
@@ -274,6 +278,42 @@ html,body{
 	border: 2px solid #D62C2F;
 }
 
+.btn-registrate{
+	background-color: transparent;
+	color: #FFFFFF;
+	text-shadow: 0px 0px 0px transparent;
+	width: 100%;
+	position: relative;
+	border-radius: 3px;
+	border: 2px solid #FFFFFF;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.btn-registrate:hover{
+	background-color: #970000;
+	color: #FFFFFF;
+	border-radius: 3px;
+	border: 2px solid #FFFFFF;
+}
+
+
+.btn-iniciar{
+	background-color: #1c3339;
+	color: #FFFFFF;
+	text-shadow: 0px 0px 0px transparent;
+	width: 100%;
+	position: relative;
+	border-radius: 3px;
+	border: 2px solid #FFFFFF;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.btn-iniciar:hover{
+	background-color: #0b2228;
+	color: #FFFFFF;
+	border-radius: 3px;
+	border: 2px solid #FFFFFF;
+}
 
 .glyphicon-chevron-left{
 	/*background-image: url("../../../web/img/Iconos/left.png");*/
@@ -293,6 +333,9 @@ html,body{
 .txt-indicador{
 	font-size: 12px;
 	color: #9C9C9C;
+}
+.txt-blanco{
+	color: #FFFFFF;
 }
 .img-indicator{
 	margin-bottom: 12px;
@@ -486,6 +529,19 @@ html,body{
 	background-position: center top;
 }
 
+.seminuevo-banner{
+	width: 100%;
+	position: relative;
+	height: 333px;
+
+	background-repeat: no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	background-position: center top;
+}
+
 .cotizar-banner{
 	width: 100%;
 	position: relative;
@@ -632,6 +688,9 @@ html,body{
 .fondoGris{
 	background-color: #d0d4d7;
 }
+.fondoGrisClaro{
+	background-color: #e5e6ea;
+}
 .fondoRojo{
 	background-color: #FF0000;
 }
@@ -673,6 +732,9 @@ html,body{
 	position: relative;
 	width: 100%;
 	height: 100%;
+}
+.espaciado-menu{
+	height: 85px;
 }
 .texto-detalle{
 	color: #313131;
@@ -765,7 +827,10 @@ html,body{
 	position: relative;
 }
 
-
+#form-iniciarsesion{
+	position: relative;
+	width: 100%;
+}
 
 
 .navbar-toyocosta{
@@ -828,6 +893,23 @@ html,body{
 	box-shadow: none;
 }
 
+.input-sesion{
+	border-radius: 30px;	
+	background-color: #FFFFFF;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	border: none;
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+.input-sesion:active,
+.input-sesion:focus{
+	-webkit-box-shadow: none;
+	background-color: #FFFFFF;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
 .toyocosta-brand{
 	padding-left: 70px;
 	padding-top: 10px;
@@ -839,6 +921,12 @@ html,body{
 
 .navbar{
 	border: none;
+}
+
+.txt-iniciar-sesion{
+	margin-top: 10px;
+	margin-bottom: 10px;
+	line-height: 35px;
 }
 
 /*Media Querys*/
@@ -1052,7 +1140,8 @@ html,body{
 		border-width: 2px;
 	}
 
-	.vehiculo-banner{
+	.vehiculo-banner,
+	.seminuevo-banner{
 		height: 150px;
 	}
 	.vehiculo-descripcion{

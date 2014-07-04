@@ -4,12 +4,105 @@
 
 		{% include 'CelmediaToyocostaVehiculosBundle:Blocks:top.menu.secciones.html.twig' %}
 
-		<div class="seminuevos-seccion">
-			 {% image '@CelmediaToyocostaSeminuevoBundle/Resources/public/images/banner-seminuevo.jpg' %}
-				<div class="container-fluid vehiculo-banner" style="background-image: url({{ asset_url }});">
-					&nbsp;
-				</div>
-            {% endimage %}
+		<div class="container-fluid espaciado-menu visible-md visible-lg hidden-sm hidden-xs">
+			&nbsp;as
 		</div>
+		{% image '@CelmediaToyocostaSeminuevoBundle/Resources/public/images/banner-seminuevo.jpg' %}
+		<div class="container-fluid seminuevo-banner" style="background-image: url({{ asset_url }});">
+			<div class="v-center-contenedor">
+				<div class="v-bottom-contenido">
+					<div class="container-fluid">
+						<div class="row text-center">
+							<div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
+								<h4 class="txt-blanco">¿Quieres comprar o vender tu auto?</h4>
+								<a href="#" class="btn btn-lg btn-registrate">Regístrate</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+        {% endimage %}
+
+        
+    	<form id="form-iniciarsesion" class="fondoGrisClaro" role="form">
+    		<div class="container">
+				<div class="row">
+					<div class="col-md-6">
+						<p class="txt-iniciar-sesion">
+							<span class="txt-negrita">¿Ya tienes una cuenta en seminuevos?</span> Inicia sesión ahora mismo.
+						</p>
+					</div>
+					<div class="col-md-2">
+						<input type="text" placeholder="Usuario" class="form-control input-sesion">
+					</div>
+					<div class="col-md-2">
+						<input type="password" placeholder="Password" class="form-control input-sesion">
+						
+					</div>
+					<div class="col-md-2">
+						<input type="submit" class="btn btn-iniciar" value="Iniciar sesión" />
+					</div>
+				</div>    			
+    		</div>
+    	</form>
+
+
+
+	<div class="row buscador-pirelli">
+        <div class="form-group">
+
+            <div class="col-md-12">
+                <div class="form">
+
+                    <div class="row">
+                        <div class="col-md-1 bloque-vacio">
+
+                        </div>
+                        
+                        <form name="buscador" action="{{ path('pirelli_buscador') }}" method="post" >
+                            <div class="col-md-8">                            	
+                                {% if seminuevo_modelo is not defined or seminuevo_modelo is null %}
+                                    {% set seminuevo_modelo = "" %}
+                                {% endif %}
+                                {% if seminuevo_anio is not defined or seminuevo_anio is null %}
+                                    {% set seminuevo_anio = "" %}
+                                {% endif %}
+                                {% if seminuevo_precio is not defined or seminuevo_precio is null %}
+                                    {% set seminuevo_precio = "" %}
+                                {% endif %}
+                                {% if seminuevo_provincia is not defined or seminuevo_provincia is null %}
+                                    {% set seminuevo_provincia = "" %}
+                                {% endif %}
+                                {% if seminuevo_estado is not defined or seminuevo_estado is null %}
+                                    {% set seminuevo_estado = "" %}
+                                {% endif %}
+                            	
+                                
+                                {{ render(controller("CelmediaToyocostaSeminuevoBundle:Default:getFiltros" , { 'seminuevo_modelo': seminuevo_modelo , 'seminuevo_anio': seminuevo_anio, 'seminuevo_precio': seminuevo_precio, 'seminuevo_provincia': seminuevo_provincia, 'seminuevo_estado': seminuevo_estado }))   }}
+
+                            </div>
+                            <div class="col-md-2" style="text-align: right; padding-top: 4px;padding-bottom: 5px;border-bottom: 1px solid #ccc;border-left: 1px solid #ccc;">
+                                <input type="hidden"  name="seminuevo_modelo" value="{{ seminuevo_modelo }}" />
+
+                                <input type="submit" class="btn btn-buscar-filtro" value="Buscar" />
+
+                                {#
+        						  <input name="buscar" class="form-control input-lg input-buscador input-search" type="text" placeholder="Buscar">
+                                #}
+
+                            </div>
+                        </form>
+                        <div class="col-md-1 bloque-vacio">
+
+                        </div>
+    				</div>
+
+    			</div>
+    		</div>
+    	</div>
+
+
+    </div>
 
 	{% endblock %}
