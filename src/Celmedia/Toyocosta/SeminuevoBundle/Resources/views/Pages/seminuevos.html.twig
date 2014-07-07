@@ -49,60 +49,75 @@
 
 
 
-	<div class="row buscador-pirelli">
-        <div class="form-group">
+		<div class="buscador-seminuevo container-fluid">
+	        <div class="row">
+	            <form class="col-md-10 col-md-offset-1" name="buscador" action="{{ path('seminuevos_buscador') }}" method="post" >
+	                {% if seminuevo_modelo is not defined or seminuevo_modelo is null %}
+	                    {% set seminuevo_modelo = "0" %}
+	                {% endif %}
+	                {% if seminuevo_anio is not defined or seminuevo_anio is null %}
+	                    {% set seminuevo_anio = "0" %}
+	                {% endif %}
+	                {% if seminuevo_precio is not defined or seminuevo_precio is null %}
+	                    {% set seminuevo_precio = "0" %}
+	                {% endif %}
+	                {% if seminuevo_provincia is not defined or seminuevo_provincia is null %}
+	                    {% set seminuevo_provincia = "0" %}
+	                {% endif %}
+	                {% if seminuevo_estado is not defined or seminuevo_estado is null %}
+	                    {% set seminuevo_estado = "0" %}
+	                {% endif %}
 
-            <div class="col-md-12">
-                <div class="form">
+	                {{ render(controller("CelmediaToyocostaSeminuevoBundle:Default:getFiltros" , { 'seminuevo_modelo': seminuevo_modelo, 'seminuevo_anio': seminuevo_anio, 'seminuevo_precio': seminuevo_precio, 'seminuevo_provincia': seminuevo_provincia, 'seminuevo_estado': seminuevo_estado } ) ) }}
+	            </form>
+			</div>
+		</div>
 
-                    <div class="row">
-                        <div class="col-md-1 bloque-vacio">
-
-                        </div>
-                        
-                        <form name="buscador" action="{{ path('pirelli_buscador') }}" method="post" >
-                            <div class="col-md-8">                            	
-                                {% if seminuevo_modelo is not defined or seminuevo_modelo is null %}
-                                    {% set seminuevo_modelo = "" %}
-                                {% endif %}
-                                {% if seminuevo_anio is not defined or seminuevo_anio is null %}
-                                    {% set seminuevo_anio = "" %}
-                                {% endif %}
-                                {% if seminuevo_precio is not defined or seminuevo_precio is null %}
-                                    {% set seminuevo_precio = "" %}
-                                {% endif %}
-                                {% if seminuevo_provincia is not defined or seminuevo_provincia is null %}
-                                    {% set seminuevo_provincia = "" %}
-                                {% endif %}
-                                {% if seminuevo_estado is not defined or seminuevo_estado is null %}
-                                    {% set seminuevo_estado = "" %}
-                                {% endif %}
-                            	
-                                
-                                {{ render(controller("CelmediaToyocostaSeminuevoBundle:Default:getFiltros" , { 'seminuevo_modelo': seminuevo_modelo , 'seminuevo_anio': seminuevo_anio, 'seminuevo_precio': seminuevo_precio, 'seminuevo_provincia': seminuevo_provincia, 'seminuevo_estado': seminuevo_estado }))   }}
-
-                            </div>
-                            <div class="col-md-2" style="text-align: right; padding-top: 4px;padding-bottom: 5px;border-bottom: 1px solid #ccc;border-left: 1px solid #ccc;">
-                                <input type="hidden"  name="seminuevo_modelo" value="{{ seminuevo_modelo }}" />
-
-                                <input type="submit" class="btn btn-buscar-filtro" value="Buscar" />
-
-                                {#
-        						  <input name="buscar" class="form-control input-lg input-buscador input-search" type="text" placeholder="Buscar">
-                                #}
-
-                            </div>
-                        </form>
-                        <div class="col-md-1 bloque-vacio">
-
-                        </div>
-    				</div>
-
-    			</div>
-    		</div>
-    	</div>
+		<div class="container-fluid">
+			<div class="row">
+				
 
 
-    </div>
+				<div id="vehiculo-carousel" class="carousel slide alto-completo" data-ride="carousel" data-interval="false">
+					<ol class="carousel-indicators">
+						<li data-target="#vehiculo-carousel" data-slide-to="0"  class="active"></li>
+						<li data-target="#vehiculo-carousel" data-slide-to="1"  class=""></li>
+					</ol>
+
+
+					<div class="carousel-inner alto-completo">
+						<div class="item active alto-completo">
+							lala
+						</div><!-- item -->
+						<div class="item alto-completo">
+							lalala
+							
+						</div><!-- item -->
+					</div>
+
+
+					<!-- Controls -->
+					<a class="left carousel-control galeria-v-control" href="#vehiculo-carousel" data-slide="prev">
+						<div class="slider-galeria left"></div>
+					</a>
+					<a class="right carousel-control galeria-v-control" href="#vehiculo-carousel" data-slide="next">
+						<div class="slider-galeria right"></div>
+					</a>
+
+				</div>
+
+
+
+			</div>
+		</div>
+
+
+
+
+
+
+
+
+
 
 	{% endblock %}

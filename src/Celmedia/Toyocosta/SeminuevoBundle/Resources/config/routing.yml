@@ -5,3 +5,11 @@ celmedia_toyocosta_seminuevo_homepage:
 seminuevos_home:
     pattern:  /seminuevos
     defaults: { _controller: CelmediaToyocostaSeminuevoBundle:Default:seminuevos }
+
+seminuevos_buscador:
+    pattern:  /buscando
+    defaults: { _controller: CelmediaToyocostaSeminuevoBundle:Default:buscadorSeminuevos }
+
+seminuevos_filtro:
+    pattern:  /filtro
+    defaults: { _controller: CelmediaToyocostaSeminuevoBundle:Default:filtroBuscadorSeminuevos }

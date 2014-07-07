@@ -1,7 +1,8 @@
 /* Large desktop */
 @media (min-width: 1921px) { 
 
-	.select-pirelli{
+	.select-pirelli,
+	.select-filtro{
 		padding: 6px 60px;
 	}
 	.input-buscar{
@@ -142,7 +143,8 @@
 	padding-right: 0px;
 	padding-left: 0px;
 }
-.select-pirelli{
+.select-pirelli,
+.select-filtro{
 	border-radius: 0px;
 	height: 50px;
 	border-top: 0px;

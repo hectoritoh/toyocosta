@@ -1,0 +1,72 @@
+	{#
+        <form name="filtro_buscador" action="{{ path('seminuevo_filtro') }}" method="post">
+    #}
+
+        <div class="row">        
+            <div class="col-md-2 unido" >
+                <div class="styled-select" style="height: 50px;">
+                    <select name="selectmodelo" id="selectmodelo" class="form-control select-filtro">
+                        <option class="style-option" value="0">Modelo</option>
+                        {% for sm_modelo in modelos %}
+                            <option class="style-option" value="{{ sm_modelo.modelo }}" {% if seminuevo_modelo == sm_modelo.modelo %} selected="selected" {% endif %} >{{ sm_modelo.modelo }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-2 unido" >
+                <div class="styled-select" style="height: 50px;">
+                    <select name="selectmedida" id="selectmedida" class="form-control select-filtro">
+                        <option class="style-option" value="0">Año</option>
+                        {% for sm_anio in anios %}
+                        <option class="style-option" value="{{ sm_anio.anio }}" {% if seminuevo_anio == sm_anio.anio %} selected {% endif %} >{{ sm_anio.anio }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-2 unido" >
+                <div class="styled-select" style="height: 50px;">
+                    <select name="selectmedida" id="selectmedida" class="form-control select-filtro">
+                        <option class="style-option" value="0">Precio</option>
+                        {% for sm_precio in precios %}
+                        <option class="style-option" value="{{ sm_precio.precio }}" {% if seminuevo_precio == sm_precio.precio %} selected {% endif %} >{{ sm_precio.precio }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-md-2 unido" >
+                <div class="styled-select" style="height: 50px;">
+                    <select name="selectmedida" id="selectmedida" class="form-control select-filtro">
+                        <option class="style-option" value="0">Provincia</option>
+                        {% for sm_provincia in provincias %}
+                        <option class="style-option" value="{{ sm_provincia.provincia }}" {% if seminuevo_provincia == sm_provincia.provincia %} selected {% endif %} >{{ sm_provincia.provincia }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-md-2 unido" >
+                <div class="styled-select" style="height: 50px;">
+                    <select name="selectmedida" id="selectmedida" class="form-control select-filtro">
+                        <option class="style-option" value="0">Estado</option>
+                        {% for sm_estado in estados %}
+                        <option class="style-option" value="{{ sm_estado.estado }}" {% if seminuevo_estado == sm_estado.estado %} selected {% endif %} >{{ sm_estado.estado }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+           
+            <div class="col-md-2">
+                <input type="submit" class="btn btn-buscar-filtro" value="Buscar" />
+                {#
+                  <input name="buscar" class="form-control input-lg input-buscador input-search" type="text" placeholder="Buscar">
+                #}
+            </div>
+
+        </div>
+
+        
+
+{#
+    </form>}
+#}
