@@ -99,7 +99,7 @@ class SeminuevoAdmin extends Admin
             ->add('ubicacion')
             ->add('placa')
             ->add('informacion')
-            // ->add('descripcion_corta')
+            ->add('descripcion_corta')
 
             // ->add('contentFormatter', 'sonata_formatter_type_selector', array(
             //     'source' => 'descripcion_corta',

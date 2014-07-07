@@ -3,9 +3,13 @@ imports:
     - { resource: security.yml }
     - { resource: @CelmediaToyocostaPirelliBundle/Resources/config/admin.yml }
 
+
 sonata_block:
     default_contexts: [cms]
     blocks:
+        #...
+        sonata.user.block.menu:    # used to display the menu in profile pages
+        sonata.user.block.account: # used to display menu option (login option)
         # Enable the SonataAdminBundle block
         sonata.admin.block.admin_list:
             contexts:   [admin]
