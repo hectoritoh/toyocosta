@@ -88,7 +88,7 @@
 							<div class="row">
 								<div class="col-xs-4 col-xs-offset-1">
 									<label>Reserva de:</label>
-									<select name="reserva" id="reserva" class="form-control">
+									<select name="reserva" id="reserva" class="form-control txt-select">
 										<option>Seleccion un tipo</option>
 										<option>Mantenimiento</option>
 										<option>Enderezada y Pintura</option>
@@ -112,7 +112,7 @@
 							<div class="row">
 								<div class="col-xs-4 col-xs-offset-1">
 									<label>Modelo:</label>
-									<select  name="modelo" id="modelo"  class="form-control">
+									<select  name="modelo" id="modelo"  class="form-control txt-select">
 										{% for row in vehiculos %}
 											<option value="{{ row.nombre }}" >{{ row.nombre }}</option>
 				                    	{% endfor %}
@@ -120,7 +120,7 @@
 								</div>
 								<div class="col-xs-4 col-xs-offset-1">
 									<label>Kilometros:</label>
-									<select  name="kilometraje" id="kilometraje"  class="form-control">
+									<select  name="kilometraje" id="kilometraje"  class="form-control txt-select">
 										<option value="0">Seleccione un Kilometraje</option>									
 										<option value="c1">1,000 kms</option>
 
@@ -174,7 +174,7 @@
 
 
 					<div class="row space-input">
-						<div class="col-md-10 col-md-offset-1">
+						<div class="col-md-10 col-md-offset-1" style="padding-top:20px;">
 
 							<div class="row">
 								<div class="col-md-3 col-md-offset-4">

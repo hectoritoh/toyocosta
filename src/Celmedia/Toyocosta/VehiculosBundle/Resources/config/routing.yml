@@ -19,7 +19,7 @@ mantenimiento:
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:mantenimiento }
 
 test_drive:
-    path:      /test
+    path:      /testdrive
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:test }
 
 recursos_humanos:
@@ -27,5 +27,17 @@ recursos_humanos:
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:rrhh }
 
 contactenos:
-    path:      /contactenos
+    path:      /contacto
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:contactenos }
+
+envio_contacto:
+    path:      /enviando
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:envioContacto }
+
+certificados:
+    path:      /certificados
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:certificados }
+
+landing:
+    path:      /landing
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:landing }
