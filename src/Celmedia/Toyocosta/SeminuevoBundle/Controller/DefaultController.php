@@ -16,7 +16,7 @@ class DefaultController extends Controller
     {
 
     	$em = $this->getDoctrine()->getManager();
-    	$seminuevos =$em->getRepository('CelmediaToyocostaSeminuevoBundle:Seminuevo')->findBy(array("estado"=> 1));
+    	$seminuevos =$em->getRepository('CelmediaToyocostaSeminuevoBundle:Seminuevo')->findAll();
 
         return $this->render('CelmediaToyocostaSeminuevoBundle:Pages:seminuevos.html.twig' , array( "seminuevos" => $seminuevos ));
     }

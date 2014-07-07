@@ -113,9 +113,192 @@
 
 
 
+		{#
+			id
+			color_id
+			modelo
+			marca
+			tipo
+			kilometraje
+			precio
+			anio
+			ubicacion
+			placa
+			informacion
+			descripcion_corta
+			estado
+			estado_publicacion
+			created
+			updated
+			user_id
+		#}
+
+	<div class="container-fluid">
+		{% set i = 0 %}
+	    {% for row  in seminuevos | batch(4) %}
+	        <div class="row" style="{% if loop.index > 2 %} display:none; {% endif %} ">
+	            <div class="col-md-10 col-md-offset-1">
+	                <div class="row">
+	                    {% for seminuevo in row %}
+	                    <div class="col-md-3">
+	                        <div class="row">
+	                            <div class="col-md-10 fondo-ficha contenedor-centrar">
+	                                <a id="seminuevo{{ i }}" data-toggle="modal" href="#modal_seminuevo{{ i }}">
+		                                <div class="row img-ficha">
+		                                    <img src="{{ asset('uploads/seminuevos/'   ~   seminuevo.galeria[ random( (seminuevo.galeria|length - 1) ) ].imagen ) }}" alt="{{ seminuevo.modelo }}" class="img-responsive"/>
+		                                </div>
+	                                </a>
+	                                
+	                                <div class="row relleno">
+	                                    <div class="col-md-12">
+	                                        <h2 class="text-modelo">
+	                                        	{{  seminuevo.modelo }}
+	                                        </h2>
+	                                    </div>
+	                                </div>
+	                                <div class="divisor"></div>
+	                                <div class="row relleno">
+	                                    <div class="col-md-8">
+	                                        <p class="text-tipo">
+												{% if seminuevo.estado == 1 %}
+													{# 1 => 'Disponible' #}
+													<i class="ico-disponible"></i>Disponible
+												{% elseif seminuevo.estado == 2 %}
+													{# 2 => 'Proximammente' #}
+													<i class="ico-proximamente"></i>Próximamente
+												{% elseif seminuevo.estado == 3 %}
+													{# 3 => 'Reservado' #}
+													<i class="ico-reservado"></i>Reservado
+												{% elseif seminuevo.estado == 4 %}
+													{# 4 => 'Vendido' #}
+													<i class="ico-vendido"></i>Vendido
+												{% endif %}
+	                                        </p>
+	                                    </div>
+	                                    <div class="col-md-4">
+	                                        <p class="text-precio">${{  seminuevo.precio}}</p>
+	                                    </div>
+	                                </div>
+									<div class="divisor"></div>
+									<a href="#" class="btn btn-iniciar">Cotizar</a>
+
+	                            </div>
+	                            {#
+	                            <!-- Modal -->
+	                            <div class="modal fade"  class="modal fade "  id="Modal_llanta{{ i }}" tabindex="-1" role="dialog">
+	                                <div class="modal-dialog modal-lg">
+	                                    <div class="modal-content">
+	                                        <div class="modal-header header-ficha">
+	                                            <button type="button" class="close close-ficha" data-dismiss="modal" aria-hidden="true"></button>
+	                                        </div>
+	                                        <div class="modal-body body-ficha" style="padding:0px;">
+
+	                                            <div class="col-md-6">
+	                                                
+	                                                <div class="row">
+
+	                                                    <img src="{{ asset('uploads/pirelli/'   ~   llanta.imagen ) }}" alt="{{ llanta.modelo }}" class="img-responsive contenedor-centrar"/>
+
+	                                                </div>
+
+	                                            </div>
+	                                            <div class="col-md-6" style="">
+
+	                                                <div class="row fondo-ficha relleno espacio">
+
+	                                                    <div class="col-md-10 col-md-offset-1">
+	                                                        <div class="col-md-12">
+	                                                            <p class="modal-text-tipo">{{  llanta.modelo }}</p>
+	                                                        </div>
+	                                                        <!-- <div class="col-md-6 text-right">
+	                                                            <p class="modal-text-precio">${{  llanta.precio}}</p>
+	                                                        </div> -->
+	                                                    </div>
+
+	                                                    <div class="col-md-10 col-md-offset-1 modal-descripcion">
+	                                                        <div class="row">
+	                                                            <div class="col-md-6">
+	                                                                <p class="modal-text">Medida:</p>
+	                                                            </div>
+	                                                            <div class="col-md-6 text-right">
+	                                                                <p class="modal-text-desc">{{  llanta.medida }}</p>
+	                                                            </div>
+
+	                                                        </div>
+	                                                        <div class="modal-divisor"></div>
+	                                                        <div class="row">
+	                                                            <div class="col-md-6">
+	                                                                <p class="modal-text">Tama&#241;o de Aro:</p>
+	                                                            </div>
+	                                                            <div class="col-md-6 text-right">
+	                                                                <p class="modal-text-desc">{{  llanta.rin }}</p>
+	                                                            </div>
+
+	                                                        </div>
+	                                                        <div class="modal-divisor"></div>
+	                                                        <div class="row">
+	                                                            <div class="col-md-6">
+	                                                                <p class="modal-text">Modelo:</p>
+	                                                            </div>
+	                                                            <div class="col-md-6 text-right">
+	                                                                <p class="modal-text-desc">{{  llanta.modelo }}</p>
+	                                                            </div>
+
+	                                                        </div>
+	                                                        <div class="modal-divisor"></div>
+	                                                        <div class="row">
+	                                                            <div class="col-md-6">
+	                                                                <p class="modal-text">Segmento:</p>
+	                                                            </div>
+	                                                            <div class="col-md-6 text-right">
+	                                                                <p class="modal-text-desc">{{  llanta.segmento }}</p>
+	                                                            </div>
+
+	                                                        </div>
+	                                                        
+	                                                    </div>
 
 
+	                                                    <div class="col-md-12 modal-botones">
+	                                                        {% if llanta.ficha == null %}
+	                                                            <div class="col-md-10 col-md-offset-1" style="height:34px;"></div>
+	                                                          
+	                                                        {% else %}
+	                                                            <a href="{{ asset('uploads/pirelli/fichas/'   ~   llanta.ficha ) }}" target="_blank">
+	                                                            <div class="col-md-10 col-md-offset-1 btn btn-descarga">Descargar Cat&aacute;logo</div>
+	                                                            </a>
+	                                                        {% endif %}
+	                                                    </div>
 
+
+	                                                    <div class="col-md-12">
+	                                                        <a href="{{  path('pirelli_informacion' , {  'id_llanta': llanta.id }) }}">
+	                                                            <div class="col-md-10 col-md-offset-1 btn btn-info">M&aacute;s informaci&oacute;n</div>
+	                                                        </a>
+	                                                    </div>
+
+	                                                </div>
+	                                            </div>
+
+	                                        </div>
+	                                    </div>
+	                                </div>
+	                            </div>
+	                            #}
+	                        </div>
+	                    </div>
+
+	                    {% set i = i + 1 %}
+	                    {% endfor %}
+
+	                </div>
+	            </div>
+
+
+	        </div>   
+
+	    {% endfor %}
+	</div>
 
 
 
