@@ -152,4 +152,47 @@ class DefaultController extends Controller
 
         return $this->render('CelmediaToyocostaVehiculosBundle:Forms:landing.html.twig');
     }
+
+
+
+
+    // public function envioContactoAction(Request $request){
+
+
+    //     $nombre = $request->request->get('nombre');
+    //     $apellido = $request->request->get('apellido');
+    //     $telefono = $request->request->get('telefono');
+    //     $email = $request->request->get('email');
+    //     $ciudad = $request->request->get('ciudad');
+    //     $area = $request->request->get('area');
+    //     $observaciones = $request->request->get('observaciones');
+
+
+    //     $info = new \Celmedia\Toyocosta\ContenidoBundle\Entity\InfoContacto();
+
+    //     $info->setNombre( $nombre  );
+    //     $info->setApellido( $apellido  );
+    //     $info->setTelefono( $telefono  );
+    //     $info->setEmail( $email  );
+    //     $info->setCiudad( $ciudad  );
+    //     $info->setArea( $area  );
+    //     $info->setObservaciones( $observaciones  );
+        
+        
+    //     $em = $this->getDoctrine()->getManager(); 
+    //     $em->persist(  $info );
+    //     $em->flush();
+
+
+    //     // $this->enviarCorreo($email, $info );
+
+    //     echo "ok";
+
+    //     return new Response();
+
+
+    // }
+
+
+
 }
