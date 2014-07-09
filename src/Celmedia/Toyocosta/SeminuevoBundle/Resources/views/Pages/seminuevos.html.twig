@@ -1,306 +1,300 @@
 {% extends 'CelmediaToyocostaSeminuevoBundle::layout.html.twig' %}
+	
+{% block contenidoseminuevos1 %}
 
-	{% block contenidoseminuevos %}
+	<div class="buscador-seminuevo container-fluid">
+        <div class="row">
+            <form class="col-md-10 col-md-offset-1" name="buscador" action="{{ path('seminuevos_buscador') }}" method="post" >
+                {% if seminuevo_modelo is not defined or seminuevo_modelo is null %}
+                    {% set seminuevo_modelo = "0" %}
+                {% endif %}
+                {% if seminuevo_anio is not defined or seminuevo_anio is null %}
+                    {% set seminuevo_anio = "0" %}
+                {% endif %}
+                {% if seminuevo_precio is not defined or seminuevo_precio is null %}
+                    {% set seminuevo_precio = "0" %}
+                {% endif %}
+                {% if seminuevo_provincia is not defined or seminuevo_provincia is null %}
+                    {% set seminuevo_provincia = "0" %}
+                {% endif %}
+                {% if seminuevo_estado is not defined or seminuevo_estado is null %}
+                    {% set seminuevo_estado = "0" %}
+                {% endif %}
 
-		{% include 'CelmediaToyocostaVehiculosBundle:Blocks:top.menu.secciones.html.twig' %}
+                {{ render(controller("CelmediaToyocostaSeminuevoBundle:Default:getFiltros" , { 'seminuevo_modelo': seminuevo_modelo, 'seminuevo_anio': seminuevo_anio, 'seminuevo_precio': seminuevo_precio, 'seminuevo_provincia': seminuevo_provincia, 'seminuevo_estado': seminuevo_estado } ) ) }}
+            </form>
+        </div>
+    </div>
+{% endblock %}
 
-		<div class="container-fluid espaciado-menu visible-md visible-lg hidden-sm hidden-xs">
-			&nbsp;as
-		</div>
-		{% image '@CelmediaToyocostaSeminuevoBundle/Resources/public/images/banner-seminuevo.jpg' %}
-		<div class="container-fluid seminuevo-banner" style="background-image: url({{ asset_url }});">
-			<div class="v-center-contenedor">
-				<div class="v-bottom-contenido">
-					<div class="container-fluid">
-						<div class="row text-center">
-							<div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
-								<h4 class="txt-blanco">¿Quieres comprar o vender tu auto?</h4>
-								<a href="#" class="btn btn-lg btn-registrate">Regístrate</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-        {% endimage %}
+{% block contenidoseminuevos2 %}
 
-        
-    	<form id="form-iniciarsesion" class="fondoGrisClaro" role="form">
-    		<div class="container">
-				<div class="row">
-					<div class="col-md-6">
-						<p class="txt-iniciar-sesion">
-							<span class="txt-negrita">¿Ya tienes una cuenta en seminuevos?</span> Inicia sesión ahora mismo.
-						</p>
-					</div>
-					<div class="col-md-2">
-						<input type="text" placeholder="Usuario" class="form-control input-sesion">
-					</div>
-					<div class="col-md-2">
-						<input type="password" placeholder="Password" class="form-control input-sesion">
-						
-					</div>
-					<div class="col-md-2">
-						<input type="submit" class="btn btn-iniciar" value="Iniciar sesión" />
-					</div>
-				</div>    			
-    		</div>
-    	</form>
+    <div class="container-fluid">
+        <div class="row">
+            <div id="seminuevo-carousel" class="carousel slide" data-ride="carousel" data-interval="false">
+                <div class="carousel-inner">
 
 
-
-		<div class="buscador-seminuevo container-fluid">
-	        <div class="row">
-	            <form class="col-md-10 col-md-offset-1" name="buscador" action="{{ path('seminuevos_buscador') }}" method="post" >
-	                {% if seminuevo_modelo is not defined or seminuevo_modelo is null %}
-	                    {% set seminuevo_modelo = "0" %}
-	                {% endif %}
-	                {% if seminuevo_anio is not defined or seminuevo_anio is null %}
-	                    {% set seminuevo_anio = "0" %}
-	                {% endif %}
-	                {% if seminuevo_precio is not defined or seminuevo_precio is null %}
-	                    {% set seminuevo_precio = "0" %}
-	                {% endif %}
-	                {% if seminuevo_provincia is not defined or seminuevo_provincia is null %}
-	                    {% set seminuevo_provincia = "0" %}
-	                {% endif %}
-	                {% if seminuevo_estado is not defined or seminuevo_estado is null %}
-	                    {% set seminuevo_estado = "0" %}
-	                {% endif %}
-
-	                {{ render(controller("CelmediaToyocostaSeminuevoBundle:Default:getFiltros" , { 'seminuevo_modelo': seminuevo_modelo, 'seminuevo_anio': seminuevo_anio, 'seminuevo_precio': seminuevo_precio, 'seminuevo_provincia': seminuevo_provincia, 'seminuevo_estado': seminuevo_estado } ) ) }}
-	            </form>
-			</div>
-		</div>
-
-		<div class="container-fluid">
-			<div class="row">
-				
-
-
-				<div id="vehiculo-carousel" class="carousel slide alto-completo" data-ride="carousel" data-interval="false">
-					<ol class="carousel-indicators">
-						<li data-target="#vehiculo-carousel" data-slide-to="0"  class="active"></li>
-						<li data-target="#vehiculo-carousel" data-slide-to="1"  class=""></li>
-					</ol>
-
-
-					<div class="carousel-inner alto-completo">
-						<div class="item active alto-completo">
-							lala
-						</div><!-- item -->
-						<div class="item alto-completo">
-							lalala
-							
-						</div><!-- item -->
-					</div>
-
-
-					<!-- Controls -->
-					<a class="left carousel-control galeria-v-control" href="#vehiculo-carousel" data-slide="prev">
-						<div class="slider-galeria left"></div>
-					</a>
-					<a class="right carousel-control galeria-v-control" href="#vehiculo-carousel" data-slide="next">
-						<div class="slider-galeria right"></div>
-					</a>
-
-				</div>
+                    <div class="item active">
+                        {% image '@CelmediaToyocostaSeminuevoBundle/Resources/public/images/img-slider-seminuevo.jpg' %}
+                            <img src="{{ asset_url }}" class="img-responsive obj-centrar">
+                        {% endimage %}
+                    </div><!-- item -->
+                    <div class="item">
+                        {% image '@CelmediaToyocostaSeminuevoBundle/Resources/public/images/img-slider-seminuevo-2.jpg' %}
+                            <img src="{{ asset_url }}" class="img-responsive obj-centrar">
+                        {% endimage %}
+                    </div><!-- item -->
 
 
 
-			</div>
-		</div>
+                </div>
+
+                <!-- Controls -->
+                <a class="left carousel-control galeria-v-control" href="#seminuevo-carousel" data-slide="prev">
+                    <div class="slider-galeria left"></div>
+                </a>
+                <a class="right carousel-control galeria-v-control" href="#seminuevo-carousel" data-slide="next">
+                    <div class="slider-galeria right"></div>
+                </a>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        {% set i = 0 %}
+        {% for row  in seminuevos | batch(4) %}
+            <div class="row" style="{% if loop.index > 2 %} display:none; {% endif %} ">
+                <div class="col-md-10 col-md-offset-1">
+                    <div class="row">
+                        {% for seminuevo in row %}
+                        <div class="col-md-3 col-sm-4 col-xs-6">
+                            <div class="row">
+                                <div class="col-md-10 fondo-ficha contenedor-centrar">
+                                    <a id="seminuevo{{ i }}" data-toggle="modal" href="#modal_seminuevo{{ i }}">
+                                        <div class="row img-ficha cimg-smpreview">
+                                            <img src="{{ asset('uploads/seminuevos/'   ~   seminuevo.galeria[ random( (seminuevo.galeria|length - 1) ) ].imagen ) }}" alt="{{ seminuevo.modelo }}" class="img-responsive obj-centrar"/>
+                                        </div>
+                                    </a>
+                                    <div class="row relleno">
+                                        <div class="col-md-12">
+                                            <h2 class="text-modelo">
+                                                {{ seminuevo.modelo }}
+                                            </h2>
+                                        </div>
+                                    </div>
+                                    <div class="divisor"></div>
+                                    <div class="row relleno">
+                                        <div class="col-md-8">
+                                            <div class="txt-disponibilidad">
+                                                {% if seminuevo.estado == 1 %}
+                                                    {# 1 => 'Disponible' #}
+                                                    <i class="ico-disponibilidad ico-disponible"></i>Disponible
+                                                {% elseif seminuevo.estado == 2 %}
+                                                    {# 2 => 'Proximammente' #}
+                                                    <i class="ico-disponibilidad ico-proximamente"></i>Próximamente
+                                                {% elseif seminuevo.estado == 3 %}
+                                                    {# 3 => 'Reservado' #}
+                                                    <i class="ico-disponibilidad ico-reservado"></i>Reservado
+                                                {% elseif seminuevo.estado == 4 %}
+                                                    {# 4 => 'Vendido' #}
+                                                    <i class="ico-disponibilidad ico-vendido"></i>Vendido
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <p class="txt-smprecio">${{ seminuevo.precio }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <a href="#" class="btn btn-iniciar">Cotizar</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <!-- Modal -->
+                                <div class="modal fade"id="modal_seminuevo{{ i }}" tabindex="-1" role="dialog">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content modal-content-seminuevo">
+                                            <div class="modal-header header-ficha">
+                                                <button type="button" class="close close-ficha" data-dismiss="modal" aria-hidden="true"></button>
+                                            </div>
+                                            <div class="modal-body fondo-ficha">
+                                                <div class="contenedor-foto">
+                                                    <div id="carousel-seminuevo{{ i }}" class="carousel slide" data-ride="carousel">
+                                                        <div class="carousel-inner">
+                                                            {% set y = 0 %}
+                                                            {% for seminuevoimagen in seminuevo.galeria %}
+                                                            <div class="item {% if loop.first %}active{% endif %}">
+                                                                <img src="{{ asset('uploads/seminuevos/'   ~   seminuevo.galeria[ y ].imagen ) }}" alt="{{ seminuevo.modelo }}" class="img-responsive obj-centrar"/>
+                                                            </div>
+                                                            {% set y = y + 1 %}
+                                                            {% endfor %}
+                                                        </div>
+
+                                                        <!-- Controls -->
+                                                        <a class="left carousel-control" href="#carousel-seminuevo{{ i }}" role="button" data-slide="prev">
+                                                            <span class="glyphicon glyphicon-chevron-left"></span>
+                                                        </a>
+                                                        <a class="right carousel-control" href="#carousel-seminuevo{{ i }}" role="button" data-slide="next">
+                                                            <span class="glyphicon glyphicon-chevron-right"></span>
+                                                        </a>
+                                                    </div>
+
+                                                    <div class="ty-caption">
+                                                        <span class="ty-marca-anio">{{ seminuevo.marca }} {{ seminuevo.anio }}</span>
+                                                        <span class="ty-nombre">{{ seminuevo.modelo }}</span>
+                                                        <span class="ty-precio">$ {{ seminuevo.precio }}</span>
+                                                    </div>
+                                                </div>
+                                                <div class="container-fluid">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            <fieldset class="ty-fieldset-border">
+                                                                <legend class="ty-legend-border">Característica:</legend>
+                                                                <div class="row">
+                                                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                                                        <span class="modal-sm-txt">Precio:</span>
+                                                                    </div>
+                                                                    <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                                                                        <span class="modal-sm-txt-valor">{{  seminuevo.precio }}</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-divisor"></div>
+                                                                <div class="row">
+                                                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                                                        <span class="modal-sm-txt">Año:</span>
+                                                                    </div>
+                                                                    <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                                                                        <span class="modal-sm-txt-valor">{{  seminuevo.anio }}</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-divisor"></div>
+                                                                <div class="row">
+                                                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                                                        <span class="modal-sm-txt">Kilómetros:</span>
+                                                                    </div>
+                                                                    <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                                                                        <span class="modal-sm-txt-valor">{{  seminuevo.kilometraje }} Kms</span>
+                                                                    </div>
+                                                                </div>
+                                                                <div class="modal-divisor"></div>
+                                                                <div class="row">
+                                                                    <div class="col-md-6 col-sm-6 col-xs-6">
+                                                                        <span class="modal-sm-txt">Color:</span>
+                                                                    </div>
+                                                                    <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                                                                        <span class="modal-sm-txt-valor">{{  seminuevo.colores.nombre }}</span>
+                                                                    </div>
+                                                                </div>
+                                                            </fieldset>
+
+                                                            <fieldset class="ty-fieldset-border">
+                                                                <legend class="ty-legend-border">Descripción:</legend>
+                                                                <div class="row">
+                                                                    <div class="col-md-12 text-left">
+                                                                        <span class="modal-sm-txt-valor">{{  seminuevo.informacion }}</span>
+                                                                    </div>
+                                                                </div>
+                                                            </fieldset>
+
+                                                            <fieldset class="ty-fieldset-border">
+                                                                <legend class="ty-legend-border">Certificados Toyocosta:</legend>
+                                                                <div class="row">
+                                                                    <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                                                                        {% image '@CelmediaToyocostaSeminuevoBundle/Resources/public/images/avaluotecnico.png' %}
+                                                                            <img src="{{ asset_url }}" class="img-responsive obj-centrar">
+                                                                        {% endimage %}
+                                                                    </div>
+                                                                    <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                                                                        {% image '@CelmediaToyocostaSeminuevoBundle/Resources/public/images/avaluotecnico.png' %}
+                                                                            <img src="{{ asset_url }}" class="img-responsive obj-centrar">
+                                                                        {% endimage %}
+                                                                    </div>
+                                                                    <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                                                                        {% image '@CelmediaToyocostaSeminuevoBundle/Resources/public/images/avaluotecnico.png' %}
+                                                                            <img src="{{ asset_url }}" class="img-responsive obj-centrar">
+                                                                        {% endimage %}
+                                                                    </div>
+                                                                    <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                                                                        {% image '@CelmediaToyocostaSeminuevoBundle/Resources/public/images/avaluotecnico.png' %}
+                                                                            <img src="{{ asset_url }}" class="img-responsive obj-centrar">
+                                                                        {% endimage %}
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row">
+                                                                    <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                                                                        {% image '@CelmediaToyocostaSeminuevoBundle/Resources/public/images/avaluotecnico.png' %}
+                                                                            <img src="{{ asset_url }}" class="img-responsive obj-centrar">
+                                                                        {% endimage %}
+                                                                    </div>
+                                                                    <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                                                                        {% image '@CelmediaToyocostaSeminuevoBundle/Resources/public/images/avaluotecnico.png' %}
+                                                                            <img src="{{ asset_url }}" class="img-responsive obj-centrar">
+                                                                        {% endimage %}
+                                                                    </div>
+                                                                    <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                                                                        {% image '@CelmediaToyocostaSeminuevoBundle/Resources/public/images/avaluotecnico.png' %}
+                                                                            <img src="{{ asset_url }}" class="img-responsive obj-centrar">
+                                                                        {% endimage %}
+                                                                    </div>
+                                                                    <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                                                                        {% image '@CelmediaToyocostaSeminuevoBundle/Resources/public/images/avaluotecnico.png' %}
+                                                                            <img src="{{ asset_url }}" class="img-responsive obj-centrar">
+                                                                        {% endimage %}
+                                                                    </div>
+                                                                </div>
+                                                            </fieldset>
+
+                                                        </div>
+                                                    </div>
+
+                                                    <div class="row">
+                                                        <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 espacio-a">
+                                                            <a href="" class="btn btn-lg btn-rojo">Solicitar cotización</a>
+                                                        </div>
+                                                    </div>
+                                                    
+                                                </div><!-- Container fluid -->
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div> <!-- modal_seminuevo -->
+                                
+                            </div>
+                        </div>
+
+                        {% set i = i + 1 %}
+                        {% endfor %}
+
+                    </div>
+                </div>
+
+
+            </div>   
+
+        {% endfor %}
+
+
+        {% if seminuevos|length > 8 %} 
+            <div class="row" style="margin-bottom:20px;">
+                <div class="col-md-4 col-md-offset-4 btn btn-ver" onclick="mostrarSeminuevos();">
+                    Ver m&aacute;s
+                </div>
+            </div>
+
+        {% else %}
+            <div class="row" style="margin-bottom:20px;">
+                &nbsp;
+            </div>
+        {% endif %}
+
+    </div>
 
 
 
-		{#
-			id
-			color_id
-			modelo
-			marca
-			tipo
-			kilometraje
-			precio
-			anio
-			ubicacion
-			placa
-			informacion
-			descripcion_corta
-			estado
-			estado_publicacion
-			created
-			updated
-			user_id
-		#}
-
-	<div class="container-fluid">
-		{% set i = 0 %}
-	    {% for row  in seminuevos | batch(4) %}
-	        <div class="row" style="{% if loop.index > 2 %} display:none; {% endif %} ">
-	            <div class="col-md-10 col-md-offset-1">
-	                <div class="row">
-	                    {% for seminuevo in row %}
-	                    <div class="col-md-3">
-	                        <div class="row">
-	                            <div class="col-md-10 fondo-ficha contenedor-centrar">
-	                                <a id="seminuevo{{ i }}" data-toggle="modal" href="#modal_seminuevo{{ i }}">
-		                                <div class="row img-ficha">
-		                                    <img src="{{ asset('uploads/seminuevos/'   ~   seminuevo.galeria[ random( (seminuevo.galeria|length - 1) ) ].imagen ) }}" alt="{{ seminuevo.modelo }}" class="img-responsive"/>
-		                                </div>
-	                                </a>
-	                                
-	                                <div class="row relleno">
-	                                    <div class="col-md-12">
-	                                        <h2 class="text-modelo">
-	                                        	{{  seminuevo.modelo }}
-	                                        </h2>
-	                                    </div>
-	                                </div>
-	                                <div class="divisor"></div>
-	                                <div class="row relleno">
-	                                    <div class="col-md-8">
-	                                        <p class="text-tipo">
-												{% if seminuevo.estado == 1 %}
-													{# 1 => 'Disponible' #}
-													<i class="ico-disponible"></i>Disponible
-												{% elseif seminuevo.estado == 2 %}
-													{# 2 => 'Proximammente' #}
-													<i class="ico-proximamente"></i>Próximamente
-												{% elseif seminuevo.estado == 3 %}
-													{# 3 => 'Reservado' #}
-													<i class="ico-reservado"></i>Reservado
-												{% elseif seminuevo.estado == 4 %}
-													{# 4 => 'Vendido' #}
-													<i class="ico-vendido"></i>Vendido
-												{% endif %}
-	                                        </p>
-	                                    </div>
-	                                    <div class="col-md-4">
-	                                        <p class="text-precio">${{  seminuevo.precio}}</p>
-	                                    </div>
-	                                </div>
-									<div class="divisor"></div>
-									<a href="#" class="btn btn-iniciar">Cotizar</a>
-
-	                            </div>
-	                            {#
-	                            <!-- Modal -->
-	                            <div class="modal fade"  class="modal fade "  id="Modal_llanta{{ i }}" tabindex="-1" role="dialog">
-	                                <div class="modal-dialog modal-lg">
-	                                    <div class="modal-content">
-	                                        <div class="modal-header header-ficha">
-	                                            <button type="button" class="close close-ficha" data-dismiss="modal" aria-hidden="true"></button>
-	                                        </div>
-	                                        <div class="modal-body body-ficha" style="padding:0px;">
-
-	                                            <div class="col-md-6">
-	                                                
-	                                                <div class="row">
-
-	                                                    <img src="{{ asset('uploads/pirelli/'   ~   llanta.imagen ) }}" alt="{{ llanta.modelo }}" class="img-responsive contenedor-centrar"/>
-
-	                                                </div>
-
-	                                            </div>
-	                                            <div class="col-md-6" style="">
-
-	                                                <div class="row fondo-ficha relleno espacio">
-
-	                                                    <div class="col-md-10 col-md-offset-1">
-	                                                        <div class="col-md-12">
-	                                                            <p class="modal-text-tipo">{{  llanta.modelo }}</p>
-	                                                        </div>
-	                                                        <!-- <div class="col-md-6 text-right">
-	                                                            <p class="modal-text-precio">${{  llanta.precio}}</p>
-	                                                        </div> -->
-	                                                    </div>
-
-	                                                    <div class="col-md-10 col-md-offset-1 modal-descripcion">
-	                                                        <div class="row">
-	                                                            <div class="col-md-6">
-	                                                                <p class="modal-text">Medida:</p>
-	                                                            </div>
-	                                                            <div class="col-md-6 text-right">
-	                                                                <p class="modal-text-desc">{{  llanta.medida }}</p>
-	                                                            </div>
-
-	                                                        </div>
-	                                                        <div class="modal-divisor"></div>
-	                                                        <div class="row">
-	                                                            <div class="col-md-6">
-	                                                                <p class="modal-text">Tama&#241;o de Aro:</p>
-	                                                            </div>
-	                                                            <div class="col-md-6 text-right">
-	                                                                <p class="modal-text-desc">{{  llanta.rin }}</p>
-	                                                            </div>
-
-	                                                        </div>
-	                                                        <div class="modal-divisor"></div>
-	                                                        <div class="row">
-	                                                            <div class="col-md-6">
-	                                                                <p class="modal-text">Modelo:</p>
-	                                                            </div>
-	                                                            <div class="col-md-6 text-right">
-	                                                                <p class="modal-text-desc">{{  llanta.modelo }}</p>
-	                                                            </div>
-
-	                                                        </div>
-	                                                        <div class="modal-divisor"></div>
-	                                                        <div class="row">
-	                                                            <div class="col-md-6">
-	                                                                <p class="modal-text">Segmento:</p>
-	                                                            </div>
-	                                                            <div class="col-md-6 text-right">
-	                                                                <p class="modal-text-desc">{{  llanta.segmento }}</p>
-	                                                            </div>
-
-	                                                        </div>
-	                                                        
-	                                                    </div>
-
-
-	                                                    <div class="col-md-12 modal-botones">
-	                                                        {% if llanta.ficha == null %}
-	                                                            <div class="col-md-10 col-md-offset-1" style="height:34px;"></div>
-	                                                          
-	                                                        {% else %}
-	                                                            <a href="{{ asset('uploads/pirelli/fichas/'   ~   llanta.ficha ) }}" target="_blank">
-	                                                            <div class="col-md-10 col-md-offset-1 btn btn-descarga">Descargar Cat&aacute;logo</div>
-	                                                            </a>
-	                                                        {% endif %}
-	                                                    </div>
-
-
-	                                                    <div class="col-md-12">
-	                                                        <a href="{{  path('pirelli_informacion' , {  'id_llanta': llanta.id }) }}">
-	                                                            <div class="col-md-10 col-md-offset-1 btn btn-info">M&aacute;s informaci&oacute;n</div>
-	                                                        </a>
-	                                                    </div>
-
-	                                                </div>
-	                                            </div>
-
-	                                        </div>
-	                                    </div>
-	                                </div>
-	                            </div>
-	                            #}
-	                        </div>
-	                    </div>
-
-	                    {% set i = i + 1 %}
-	                    {% endfor %}
-
-	                </div>
-	            </div>
-
-
-	        </div>   
-
-	    {% endfor %}
-	</div>
-
-
-
-
-	{% endblock %}
+{% endblock %}

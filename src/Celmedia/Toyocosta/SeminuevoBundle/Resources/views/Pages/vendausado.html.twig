@@ -1,0 +1,33 @@
+{% extends 'CelmediaToyocostaSeminuevoBundle::layout.html.twig' %}
+	
+{% block contenidoseminuevos1 %}
+
+{% endblock %}
+
+{% block contenidoseminuevos2 %}
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12 text-center">
+            	<h2>VENDA SU USADO</h2>
+            	<span>Los campos con * son obligatorios</span>
+            </div>
+        </div>
+    </div>
+   	<div class="container">
+        <form role="form" class="row">
+			<div class="col-md-5 col-sm-5 col-md-offset-1  col-sm-offset-1">
+				<div class="form-group">
+					<label for="sm-input-modelo">Modelo del vehículo</label>
+					<input type="text" class="form-control" id="sm-input-modelo" placeholder="">
+				</div>
+			</div>
+			<div class="col-md-5 col-sm-5">
+				<div class="form-group">
+					<label for="sm-input-kilometraje">Kilometraje</label>
+					<input type="number" class="form-control" id="sm-input-kilometraje" placeholder="">
+				</div>
+			</div>
+        </form>
+    </div>
+{% endblock %}

@@ -91,7 +91,9 @@ html,body{
 	width: 100%;
 	height: 100%;
 }
-
+.borde-arriba{
+	border-top: 2px solid #aaaaaa;
+}
 .carousel-indicators .vehic-miniaturas,
 .carousel-indicators .vehic-miniaturas.active{
 	width: 36px;
@@ -116,7 +118,34 @@ html,body{
 	transition: all 0.3s ease-in-out;
 }
 
+fieldset.ty-fieldset-border {
+    border-top: 1px solid #555555;
+    padding: 0px 0px 5px 0px;
+    margin: 10px 0px 10px 0px;
+    -webkit-box-shadow:  0px 0px 0px 0px #000;
+            box-shadow:  0px 0px 0px 0px #000;
+}
 
+    legend.ty-legend-border {
+		font-size: 16px;
+		font-weight: bold;
+		text-align: left;
+		width: auto;
+		padding: 0px 20px 0px 0px;
+		border-bottom: none;
+		text-transform: uppercase;
+		margin-bottom: 5px;
+    }
+
+.modal-sm-txt{
+	color: #353535;
+	font-weight: bold;
+	font-size: 13px;
+}
+.modal-sm-txt-valor{
+	color: #818181;
+	font-size: 13px;
+}
 
 .carousel-indicators .c-miniaturas,
 .carousel-indicators .c-miniaturas.active{
@@ -736,6 +765,9 @@ html,body{
 .espaciado-menu{
 	height: 85px;
 }
+.espaciado-menu-2{
+	height: 150px;
+}
 .texto-detalle{
 	color: #313131;
 }
@@ -922,12 +954,118 @@ html,body{
 .navbar{
 	border: none;
 }
+.ty-breadcrumb,
+.ty-breadcrumb .breadcrumb{
+	background-color: #FFFFFF;
+	margin-top: 10px;
+	text-transform: uppercase;
+}
+#seminuevo-carousel{
+	border-top: 5px solid #de192a;
+	margin-bottom: 20px;
+}
+
+.modal-content-seminuevo .modal-body,
+.modal-content-seminuevo .container-fluid{
+	/*padding: 0px;*/
+}
+
+.cimg-smpreview{
+	height: 164px;
+	overflow: hidden;
+	text-align: center;
+}
+
+.contenedor-foto .carousel-inner .item{
+	height: 350px;
+}
+.contenedor-foto .carousel-control span{
+	top: 30%;
+}
+
+.contenedor-foto{
+	position: relative;
+}
+.ty-caption{
+	position: absolute;
+	display: block;
+	width: 100%;
+	height: 56px;
+	bottom: 0px;
+	color: #ffffff;
+	background-image: url(".../../../../../web/bundles/celmediatoyocostaseminuevo/images/info-slider.png"); 
+	background-position: center top;
+	background-repeat: no-repeat;
+	font-family: 'Arial', 'Helvetica',sans-serif;
+	overflow: hidden;
+}
+.ty-caption .ty-marca-anio{
+	position: absolute;
+	top: 10px;
+	left: 20px;
+	float: left;
+	font-size: 12px;
+	font-weight: bold;
+}
+.ty-caption .ty-nombre{
+	position: absolute;
+	top: 29px;
+	left: 20px;
+	float: left;
+	font-weight: bold;
+	font-size: 20px;
+}
+.ty-caption .ty-precio{
+	position: absolute;
+	top: 24px;
+	right: 20px;
+	float: right;
+	font-weight: bold;
+	font-size: 20px;
+}
+
 
 .txt-iniciar-sesion{
 	margin-top: 10px;
 	margin-bottom: 10px;
 	line-height: 35px;
 }
+
+.text-modelo{
+	height: 46px;
+	line-height: normal;
+}
+.txt-disponibilidad{
+	color: #AEAEAE;
+	font-size: 13px;
+}
+.txt-smprecio{
+	color: #D61D23;
+	font-size: 17px;
+	font-weight: bold;
+}
+.ico-disponibilidad{
+	position: relative;
+	width: 10px;
+	height: 10px;
+	display: inline-block;
+	margin-right: 5px;
+	border: 1px solid red;
+}
+
+.ico-disponible{
+	background-color: #34c007;
+}
+.ico-proximamente{
+	background-color: #476ff2;
+}
+.ico-reservado{
+	background-color: #feff41;
+}
+.ico-vendido{
+	background-color: #c9002d;
+}
+
 
 /*Media Querys*/
 /* Large desktop */
@@ -1047,7 +1185,9 @@ html,body{
 		margin-top: 0px;
 		padding: 0px;
 	}
-	
+	.contenedor-foto .carousel-inner .item{
+		height: 300px;
+	}
  }
  
 /* Landscape phone to portrait tablet */
@@ -1098,6 +1238,9 @@ html,body{
 		border-bottom: 1px solid #c9ceca;
 		border-left: 1px solid #c9ceca;
 		border-right: 1px solid #c9ceca;
+	}
+	.contenedor-foto .carousel-inner .item{
+		height: 300px;
 	}
  }
  
@@ -1160,5 +1303,8 @@ html,body{
 		border-bottom: 1px solid #c9ceca;
 		border-left: 1px solid #c9ceca;
 		border-right: 1px solid #c9ceca;
+	}
+	.contenedor-foto .carousel-inner .item{
+		height: 300px;
 	}
  }

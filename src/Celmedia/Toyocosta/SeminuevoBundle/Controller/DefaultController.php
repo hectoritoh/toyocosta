@@ -64,12 +64,21 @@ class DefaultController extends Controller
 
 		$query5 = $repository->createQueryBuilder('es')
 			->where("es.estado = :estado ")
-			->setParameter('estado', '%' . $seminuevo_estado . '%')
+			->setParameter('estado', $seminuevo_estado)
 			->getQuery();
 		$estados = $query5->getResult();
 
         // return $this->render('CelmediaToyocostaPirelliBundle:Blocks:filtros.html.twig' ,  array( "tipo_llanta" => $segmento , "modelos" => $modelos, "medidas" => $medidas, "rines" => $rines, "lineas" => $lineas, "llanta_modelo" => $llanta_modelo, "llanta_medida" => $llanta_medida, "llanta_rin" => $llanta_rin, "llanta_linea" => $llanta_linea));
         return $this->render('CelmediaToyocostaSeminuevoBundle:Blocks:filtros.html.twig' ,  array( "modelos" => $modelos , "anios" => $anios, "precios" => $precios, "provincias" => $provincias, "estados" => $estados, "seminuevo_modelo" => $seminuevo_modelo, "seminuevo_anio" => $seminuevo_anio, "seminuevo_precio" => $seminuevo_precio, "seminuevo_provincia" => $seminuevo_provincia, "seminuevo_estado" => $seminuevo_estado ));
+    }
+
+    public function vendaUsadoAction()
+    {
+
+    	$em = $this->getDoctrine()->getManager();
+    	$seminuevos =$em->getRepository('CelmediaToyocostaSeminuevoBundle:Seminuevo')->findAll();
+
+        return $this->render('CelmediaToyocostaSeminuevoBundle:Pages:vendausado.html.twig' , array( "seminuevos" => $seminuevos ));
     }
 
 }

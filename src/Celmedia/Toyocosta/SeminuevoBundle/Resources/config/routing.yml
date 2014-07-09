@@ -6,6 +6,14 @@ seminuevos_home:
     pattern:  /seminuevos
     defaults: { _controller: CelmediaToyocostaSeminuevoBundle:Default:seminuevos }
 
+seminuevos_venda_usado:
+    pattern:  /vendausado
+    defaults: { _controller: CelmediaToyocostaSeminuevoBundle:Default:vendausado }
+
+seminuevos_estado_usado:
+    pattern:  /estadousado
+    defaults: { _controller: CelmediaToyocostaSeminuevoBundle:Default:estadousado }
+
 seminuevos_buscador:
     pattern:  /buscando
     defaults: { _controller: CelmediaToyocostaSeminuevoBundle:Default:buscadorSeminuevos }

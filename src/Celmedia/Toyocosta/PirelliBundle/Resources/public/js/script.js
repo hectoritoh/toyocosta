@@ -60,10 +60,10 @@ function mostrarLlantas(){
 
 $(document).ready(function(){
 
-    	$('.contenedor-centrar').each(function () {
+    	/*$('.contenedor-centrar').each(function () {
                    centrarHorizontal($(this));
                  });
-
+  */
       $('.centrado-vertical').each(function () {
          centrarVert($(this));
        });
@@ -78,6 +78,8 @@ $(document).ready(function(){
           var selectedOption = $(this).find(":selected").text();
           $(this).next(".holder").text(selectedOption);
       }).trigger('change');
+
+
 
 });
 
