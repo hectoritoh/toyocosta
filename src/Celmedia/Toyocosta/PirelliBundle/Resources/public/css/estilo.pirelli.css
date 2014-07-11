@@ -394,11 +394,11 @@ button.close-ficha{
     font-family: Arial,sans-serif;
     font-weight: normal;
     position: relative;
-
     background-color: #FFFFFF;
+    
     border-bottom: 1px solid #CCCCCC;
-	border-top: 0px;
-	border-right: 0px;
+	border-top: 1px solid #CCCCCC;
+	border-right: 1px solid #CCCCCC;
 	border-left: 1px solid #CCCCCC;
     color: #555555;
     display: block;
