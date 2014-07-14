@@ -6,67 +6,285 @@
 
 {% block contenidoseminuevos2 %}
 
-    <div class="container-fluid">
+    <div class="container-fluid" {#style="display: none;"#}>
         <div class="row">
             <div class="col-md-12 text-center">
             	<h2>VENDA SU USADO</h2>
-            	<span>Los campos con * son obligatorios</span>
+            	<span class="lbl-form-sm">Los campos con * son obligatorios</span>
             </div>
         </div>
     </div>
-   	<div class="container">
-        <form role="form" class="row">
+   	<form role="form" class="container form-vsm" {#style="display: none;"#}>
+        <div class="row">
 			<div class="col-md-5 col-sm-5 col-md-offset-1  col-sm-offset-1">
-				<div class="form-group">
-					<label for="sm-input-modelo">Modelo del vehículo</label>
-					<input type="text" class="form-control" id="sm-input-modelo" placeholder="">
+				<div class="form-group form-group-sm">
+					<label class="lbl-form-sm" for="sm-input-modelo">Modelo del vehículo</label>
+					<input type="text" class="form-control form-control-sm" id="sm-input-modelo" placeholder="">
 				</div>
 			</div>
 			<div class="col-md-5 col-sm-5">
-				<div class="form-group">
-					<label for="sm-input-kilometraje">Kilometraje</label>
-					<input type="number" class="form-control" id="sm-input-kilometraje" placeholder="">
+				<div class="form-group form-group-sm">
+					<label class="lbl-form-sm" for="sm-input-kilometraje">Kilometraje</label>
+					<input type="number" class="form-control form-control-sm" id="sm-input-kilometraje" placeholder="">
 				</div>
 			</div>
+		</div>
+		<div class="row">
 			<div class="col-md-5 col-sm-5 col-md-offset-1  col-sm-offset-1">
-				<div class="form-group">
-					<label for="sm-input-marca">Marca</label>
+				<div class="form-group form-group-sm">
+					<label class="lbl-form-sm" for="sm-input-marca">Marca</label>
 					<div class="col-md-12 unido" >
 		                <div class="styled-select">
 		                    <select name="selectmarca" id="selectmarca" class=" selectcmb form-control select-filtro">
-	                            <option class="style-option" value="aa" selected="selected" >aa</option>
-	                            <option class="style-option" value="bb" >bb</option>
-	                            <option class="style-option" value="cc" >cc</option>
+	                            <option class="style-option" value="-1" selected="selected" >Seleccione</option>
+								<option class="style-option" value="Chevrolet">Chevrolet</option>
+								<option class="style-option" value="Mazda">Mazda</option>
+								<option class="style-option" value="Ford">Ford</option>
+								<option class="style-option" value="Renault">Renault</option>
+								<option class="style-option" value="Peugeot">Peugeot</option>
+								<option class="style-option" value="Toyota">Toyota</option>
+								<option class="style-option" value="Volkswagen">Volkswagen</option>
+								<option class="style-option" value="Volvo">Volvo</option>
+								<option class="style-option" value="Bmw">Bmw</option>
+								<option class="style-option" value="Honda">Honda</option>
+								<option class="style-option" value="Hyundai">Hyundai</option>
+								<option class="style-option" value="Kia">Kia</option>
+								<option class="style-option" value="Mitsubishi">Mitsubishi</option>
+								<option class="style-option" value="Nissan">Nissan</option>
+								<option class="style-option" value="Skoda">Skoda</option>
+								<option class="style-option" value="Suzuki">Suzuki</option>
+								<option class="style-option" value="Audi">Audi</option>
+								<option class="style-option" value="Citroen">Citroen</option>
+								<option class="style-option" value="Daihatsu">Daihatsu</option>
+								<option class="style-option" value="Dodge">Dodge</option>
+								<option class="style-option" value="Fiat">Fiat</option>
+								<option class="style-option" value="Great wall">Great wall</option>
+								<option class="style-option" value="Jeep">Jeep</option>
+								<option class="style-option" value="Land Rover">Land Rover</option>
+								<option class="style-option" value="Lexus">Lexus</option>
+								<option class="style-option" value="Mercedes Benz">Mercedes Benz</option>
 		                    </select>
 		                </div>
 		            </div>
 				</div>
 			</div>
 			<div class="col-md-5 col-sm-5">
-				<div class="form-group">
-					<label for="sm-input-kilometraje">Tipo</label>
+				<div class="form-group form-group-sm">
+					<label class="lbl-form-sm" for="sm-input-kilometraje">Tipo</label>
 					<div class="col-md-12 unido" >
 		                <div class="styled-select">
 		                    <select name="selecttipo" id="selecttipo" class=" selectcmb form-control select-filtro">
-	                            <option class="style-option" value="aa" selected="selected" >aa</option>
-	                            <option class="style-option" value="bb" >bb</option>
-	                            <option class="style-option" value="cc" >cc</option>
+	                            <option class="style-option" value="-1" selected="selected" >Seleccione</option>
+								<option class="style-option" value="Sedan">Sedan</option>
+								<option class="style-option" value="Camioneta 4x4">Camioneta 4x4</option>
+								<option class="style-option" value="Camioneta 4x2">Camioneta 4x2</option>
+								<option class="style-option" value="Furgoneta">Furgoneta</option>
+								<option class="style-option" value="Hatchback">Hatchback</option>
+								<option class="style-option" value="Suv 4x4">Suv 4x4</option>
+								<option class="style-option" value="Suv 4x2">Suv 4x2</option>
+								<option class="style-option" value="Stationwagon">Stationwagon</option>
+								<option class="style-option" value="Van">Van</option>
+								<option class="style-option" value="Deportivo">Deportivo</option>
 		                    </select>
 		                </div>
 		            </div>
 				</div>
 			</div>
-
+		</div>
+		<div class="row seccion">
 			<div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
-				<div class="form-group">
-					<label>Modelo del vehículo</label>
+				<div class="form-group form-group-sm">
+					<label class="lbl-form-sm">Añada 8 fotos de diferentes ángulos</label>
+				</div>
+			</div>
+        </div>
+
+        <div class="row">
+        	<div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
+        		<div class="container-fluid">
+        			<div class="row">
+						<div class="col-md-3 col-sm-3 col-xs-6 text-center">
+							<div class="form-group form-group-sm">
+								<label class="lbl-form-sm" for="sm-input-file-1">Foto #1 Destacada</label>
+								<div class="custom-input-file">
+									<input type="file" id="sm-input-file-1" class="input-file" name="foto" onchange="readURL(this);"/>									
+									<img id="sm-img-foto-1" class="sm-img-foto" src="#" alt="" />
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-6 text-center">
+							<div class="form-group form-group-sm">
+								<label class="lbl-form-sm" for="sm-input-file-2">Foto #2</label>
+								<div class="custom-input-file">
+									<input type="file" id="sm-input-file-2" class="input-file" name="foto" onchange="readURL(this);"/>									
+									<img id="sm-img-foto-2" class="sm-img-foto" src="#" alt="" />
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-6 text-center">
+							<div class="form-group form-group-sm">
+								<label class="lbl-form-sm" for="sm-input-file-3">Foto #3</label>
+								<div class="custom-input-file">
+									<input type="file" id="sm-input-file-3" class="input-file" name="foto" onchange="readURL(this);"/>									
+									<img id="sm-img-foto-3" class="sm-img-foto" src="#" alt="" />
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-6 text-center">
+							<div class="form-group form-group-sm">
+								<label class="lbl-form-sm" for="sm-input-file-4">Foto #4</label>
+								<div class="custom-input-file">
+									<input type="file" id="sm-input-file-4" class="input-file" name="foto" onchange="readURL(this);"/>									
+									<img id="sm-img-foto-4" class="sm-img-foto" src="#" alt="" />
+								</div>
+							</div>
+						</div>
+					</div> <!-- row -->
+
+					<div class="row">
+						<div class="col-md-3 col-sm-3 col-xs-6 text-center">
+							<div class="form-group form-group-sm">
+								<label class="lbl-form-sm" for="sm-input-file-5">Foto #5 Destacada</label>
+								<div class="custom-input-file">
+									<input type="file" id="sm-input-file-5" class="input-file" name="foto" onchange="readURL(this);"/>									
+									<img id="sm-img-foto-5" class="sm-img-foto" src="#" alt="" />
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-6 text-center">
+							<div class="form-group form-group-sm">
+								<label class="lbl-form-sm" for="sm-input-file-6">Foto #6</label>
+								<div class="custom-input-file">
+									<input type="file" id="sm-input-file-6" class="input-file" name="foto" onchange="readURL(this);"/>									
+									<img id="sm-img-foto-6" class="sm-img-foto" src="#" alt="" />
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-6 text-center">
+							<div class="form-group form-group-sm">
+								<label class="lbl-form-sm" for="sm-input-file-7">Foto #7</label>
+								<div class="custom-input-file">
+									<input type="file" id="sm-input-file-7" class="input-file" name="foto" onchange="readURL(this);"/>									
+									<img id="sm-img-foto-7" class="sm-img-foto" src="#" alt="" />
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-6 text-center">
+							<div class="form-group form-group-sm">
+								<label class="lbl-form-sm" for="sm-input-file-8">Foto #8</label>
+								<div class="custom-input-file">
+									<input type="file" id="sm-input-file-8" class="input-file" name="foto" onchange="readURL(this);"/>									
+									<img id="sm-img-foto-8" class="sm-img-foto" src="#" alt="" />
+								</div>
+							</div>
+						</div>
+					</div> <!-- row -->
+
+        		</div><!-- container-fluid -->
+
+        	</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-5 col-sm-5 col-md-offset-1  col-sm-offset-1">
+				<div class="form-group form-group-sm">
+					<label class="lbl-form-sm" for="sm-input-precio">Precio</label>
+					<input type="number" class="form-control form-control-sm" id="sm-input-precio" placeholder="">
+				</div>
+			</div>
+			<div class="col-md-5 col-sm-5">
+				<div class="form-group form-group-sm">
+					<label class="lbl-form-sm" for="sm-input-anio">Año</label>
+					<input type="number" class="form-control form-control-sm" id="sm-input-anio" placeholder="">
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-5 col-sm-5 col-md-offset-1  col-sm-offset-1">
+				<div class="form-group form-group-sm">
+					<label class="lbl-form-sm" for="sm-input-precio">Color</label>
+					<div class="col-md-12 unido" >
+		                <div class="styled-select">
+		                    <select name="selectcolor" id="selectcolor" class=" selectcmb form-control select-filtro">
+	                            <option class="style-option" value="-1" selected="selected" >Seleccione</option>
+								<option class="style-option" value="Color1">Color1</option>
+								<option class="style-option" value="Color2">Color2</option>
+		                    </select>
+		                </div>
+		            </div>
+				</div>
+			</div>
+			<div class="col-md-5 col-sm-5">
+				<div class="form-group form-group-sm">
+					<label class="lbl-form-sm" for="sm-input-ciudad">Ciudad</label>
+					<input type="text" class="form-control form-control-sm" id="sm-input-ciudad" placeholder="">
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-5 col-sm-5 col-md-offset-1  col-sm-offset-1">
+				<div class="form-group form-group-sm">
+					<label class="lbl-form-sm" for="sm-input-placa">Placa</label>
+					<input type="text" class="form-control form-control-sm" id="sm-input-placa" maxlength="8" placeholder="">
 				</div>
 			</div>
 
+		</div>
 
+		<div class="row">
+			<div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
+        		<div class="container-fluid">
+        			<div class="row recuadroGris">
+						<div class="col-md-3 col-sm-3 col-md-offset-1  col-sm-offset-1" style="height: 100px;">
+							<div class="v-center-contenedor">
+								<div class="v-center-contenido ">
+									<input type="submit" class="btn btn-rojo" value="Enviar" />
+								</div>
+							</div>
+						</div>
+						<div class="col-md-7 col-sm-7" style="height: 100px;">
+							<div class="v-center-contenedor">
+								<div class="v-center-contenido ">
+									<p class="txt-gris">
+										<input type="checkbox" id="autorizo" />
+										Autorizo a Toyocosta S.A. para que verifique y utilice toda la información proporcionada, así como tambien me pueda contactar a traves de los medios descritos.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div><!-- recuadroGris -->
+        		</div>
+        	</div>
+        </div>
 
+        <div class="row espacio-a">
+			<div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
+				<span class="txt-rojo">*</span><span class="txt-gris">Aplican restricciones. Toyocosta se reserva el derecho de recibir un vehiculo, según marca, modelo, año, kilometraje y estado mecánico.</span>
+			</div>
+		</div>
 
+    </form>
 
-        </form>
+    <div class="seccion-ty">
+    	<div class="v-center-contenedor">
+			<div class="v-center-contenido ">
+    			<div class="container-fluid">
+    				<div class="row">
+    					<div class="col-md-12 text-center">
+    						<h3 class="txt-rojo">Gracias por su publicación</h3>
+    						<h4 class="txt-gris">Un asesor de toyocosta se comunicará contigo para informarte si tu vehículo está siendo aprobado.</h4>
+    					</div>
+    					<div class="col-md-12 text-center">
+    						&nbsp;
+    					</div>
+    					<div class="col-md-4 col-sm-4 col-md-offset-4 col-sm-offset-4 text-center">
+    						<a href="#" class="btn btn-rojo">Regresar a la Pantalla principal</a>
+    					</div>
+    				</div>
+    			</div>
+			</div>
+		</div>
     </div>
 {% endblock %}

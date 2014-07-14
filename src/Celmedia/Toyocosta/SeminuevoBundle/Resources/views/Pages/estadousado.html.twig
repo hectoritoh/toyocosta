@@ -1,0 +1,35 @@
+{% extends 'CelmediaToyocostaSeminuevoBundle::layout.html.twig' %}
+	
+{% block contenidoseminuevos1 %}
+
+{% endblock %}
+
+{% block contenidoseminuevos2 %}
+
+    <div class="container-fluid" {#style="display: none;"#}>
+        <div class="row">
+            <div class="col-md-12 text-center">
+            	<h2>ESTADO DE MI CARRO</h2>
+            </div>
+        </div>
+    </div>
+   	<form role="form" class="container form-vsm" {#style="display: none;"#}>
+        <div class="row">
+			<div class="col-md-3 col-sm-3 col-md-offset-1  col-sm-offset-1">
+				<div class="form-group form-group-sm">
+					<label class="lbl-form-sm" for="sm-input-modelo">Aprobado</label>
+					<input type="text" class="form-control form-control-sm" id="sm-input-modelo" placeholder="">
+				</div>
+			</div>
+			<div class="col-md-7 col-sm-7">
+				<div class="form-group form-group-sm">
+					<label class="lbl-form-sm" for="sm-input-kilometraje">Kilometraje</label>
+					<input type="number" class="form-control form-control-sm" id="sm-input-kilometraje" placeholder="">
+				</div>
+			</div>
+		</div>
+
+
+    </form>
+
+{% endblock %}

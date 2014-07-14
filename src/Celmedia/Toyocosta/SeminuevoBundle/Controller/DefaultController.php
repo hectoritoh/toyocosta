@@ -81,4 +81,13 @@ class DefaultController extends Controller
         return $this->render('CelmediaToyocostaSeminuevoBundle:Pages:vendausado.html.twig' , array( "seminuevos" => $seminuevos ));
     }
 
+    public function estadoUsadoAction()
+    {
+
+    	$em = $this->getDoctrine()->getManager();
+    	$seminuevos =$em->getRepository('CelmediaToyocostaSeminuevoBundle:Seminuevo')->findAll();
+
+        return $this->render('CelmediaToyocostaSeminuevoBundle:Pages:estadousado.html.twig' , array( "seminuevos" => $seminuevos ));
+    }
+
 }

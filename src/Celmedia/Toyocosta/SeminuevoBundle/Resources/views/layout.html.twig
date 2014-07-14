@@ -70,7 +70,7 @@
                 </div>
             </form>
         {% else %}
-            <div class="container-fluid espaciado-menu-2 visible-md visible-lg hidden-sm hidden-xs">
+            <div class="container-fluid espaciado-menu-2">
                 &nbsp;as
             </div>
         {% endif %}
@@ -82,7 +82,7 @@
         {% endblock %}
         
         {% if estaLogueado == true %}
-            <div class="container ty-breadcrumb">
+            <div class="container ty-breadcrumb" {#style="display: none;"#}>
                 <div class="row">
                     <ol class="breadcrumb">
                         <li><a href="#">HOME</a></li>
