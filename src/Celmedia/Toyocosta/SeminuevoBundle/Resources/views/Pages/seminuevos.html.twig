@@ -75,7 +75,13 @@
                                 <div class="col-md-10 fondo-ficha contenedor-centrar">
                                     <a id="seminuevo{{ i }}" data-toggle="modal" href="#modal_seminuevo{{ i }}">
                                         <div class="row img-ficha cimg-smpreview">
+                                            {# seminuevo.galeria[0] = Va item 0 porque es la foto destacada #}
+                                            <img src="{{ asset('uploads/seminuevos/'   ~   seminuevo.galeria[0].imagen ) }}" alt="{{ seminuevo.modelo }}" class="img-responsive obj-centrar"/>
+
+                                            {#
+                                                Si no va en random 
                                             <img src="{{ asset('uploads/seminuevos/'   ~   seminuevo.galeria[ random( (seminuevo.galeria|length - 1) ) ].imagen ) }}" alt="{{ seminuevo.modelo }}" class="img-responsive obj-centrar"/>
+                                            #}
                                         </div>
                                     </a>
                                     <div class="row relleno">

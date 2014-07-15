@@ -39,6 +39,10 @@ html,body{
 	height: 100%;
 }
 
+.sin-padding{
+	padding: 0px;
+}
+
 .espacio-a{
 	margin-top: 10px;
 	margin-bottom: 10px;
@@ -80,6 +84,25 @@ html,body{
 }
 .txt-negrita{
 	font-weight: bold;
+}
+
+.txt-estado{
+	font-size: 18px;
+}
+
+.txt-eu-estado{
+	color: #5c7a84;
+	font-weight: bold;
+	font-size: 35px;
+}
+.txt-mayusculas{
+	text-transform: uppercase;
+}
+
+.txt-eu-estado-desc{
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 13px;
 }
 
 .form-vsm{
@@ -992,6 +1015,34 @@ fieldset.ty-fieldset-border {
 	background-image: url(".../../../../../web/bundles/celmediatoyocostaseminuevo/images/sprite-img.png"); 
 	background-repeat: no-repeat;
 	background-position: center bottom;
+}
+
+.eu-estado{
+	background-image: url(".../../../../../web/bundles/celmediatoyocostaseminuevo/images/sprite-circulo.png"); 
+	background-repeat: no-repeat;
+	background-position: center center;	
+	width: 104px;
+	height: 106px;
+	margin: 0 auto;
+}
+.eu-estado-disponible{
+	background-image: url(".../../../../../web/bundles/celmediatoyocostaseminuevo/images/sprite-de-estados.png"); 
+	background-position: 0px -215px;
+}
+.eu-estado-proximamente{
+	background-image: url(".../../../../../web/bundles/celmediatoyocostaseminuevo/images/sprite-de-estados.png"); 
+	background-position: 0px -323px;
+}
+.eu-estado-reservado{
+	background-image: url(".../../../../../web/bundles/celmediatoyocostaseminuevo/images/sprite-de-estados.png"); 
+	background-position: 0px -107px;
+}
+.eu-estado-vendido{
+	background-image: url(".../../../../../web/bundles/celmediatoyocostaseminuevo/images/sprite-de-estados.png"); 
+	background-position: 0px 0px;
+}
+.txt-estado-texto{
+	color: #646464;
 }
 
 .sm-img-foto{

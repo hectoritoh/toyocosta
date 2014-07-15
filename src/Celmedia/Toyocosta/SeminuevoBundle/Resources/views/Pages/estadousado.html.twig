@@ -13,23 +13,214 @@
             </div>
         </div>
     </div>
-   	<form role="form" class="container form-vsm" {#style="display: none;"#}>
+   	<div class="container">
         <div class="row">
-			<div class="col-md-3 col-sm-3 col-md-offset-1  col-sm-offset-1">
-				<div class="form-group form-group-sm">
-					<label class="lbl-form-sm" for="sm-input-modelo">Aprobado</label>
-					<input type="text" class="form-control form-control-sm" id="sm-input-modelo" placeholder="">
+			<div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+				<span class="txt-estado txt-negrita txt-mayusculas">
+					{% if seminuevo.estadoPublicacion == 1 %}
+						APROBADO
+					{% elseif seminuevo.estadoPublicacion == 2 %}
+						PENDIENTE
+					{% elseif seminuevo.estadoPublicacion == 3 %}
+						RECHAZADO
+					{% endif %}
+				</span>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-3 col-sm-3 text-center sin-padding">
+							{# seminuevo.galeria[0] = Va item 0 porque es la foto destacada #}
+                            <img src="{{ asset('uploads/seminuevos/'   ~   seminuevo.galeria[0].imagen ) }}" alt="{{ seminuevo.modelo }}" class="img-responsive obj-centrar"/>
+                        </div>
+                        <div class="col-md-9 col-sm-9 text-center">
+                        	<div class="container-fluid">
+									<div class="row espacio-a">
+										<div class="col-md-12 col-sm-12 col-xs-12 text-left">
+											<span class="txt-rojo txt-negrita txt-mayusculas">{{ seminuevo.modelo }}</span>
+										</div>
+									</div>
+								{% if seminuevo.estadoPublicacion == 1 %}
+									<div class="row">
+										<div class="col-md-4 col-sm-4 col-xs-4 text-center">
+											{% if seminuevo.estado == 1 %}
+												<div class="eu-estado eu-estado-disponible"></div>
+												<span class="txt-eu-estado-desc">Disponible</span>
+											{% elseif seminuevo.estado == 2 %}
+												<div class="eu-estado eu-estado-proximamente"></div>
+												<span class="txt-eu-estado-desc">Proximamente</span>
+											{% elseif seminuevo.estado == 3 %}
+												<div class="eu-estado eu-estado-reservado"></div>
+												<span class="txt-eu-estado-desc">Reservado</span>
+											{% elseif seminuevo.estado == 4 %}
+												<div class="eu-estado eu-estado-vendido"></div>
+												<span class="txt-eu-estado-desc">Vendido</span>
+											{% endif %}
+										</div>
+										<div class="col-md-4 col-sm-4 col-xs-4 text-center">
+											<div class="eu-estado">
+												<div class="v-center-contenedor">
+													<div class="v-center-contenido">
+														<span class="txt-eu-estado">112</span>
+													</div>
+												</div>
+											</div>
+										    <span class="txt-eu-estado-desc">Vistas</span>
+										</div>
+										<div class="col-md-4 col-sm-4 col-xs-4 text-center">
+											<div class="eu-estado">
+												<div class="v-center-contenedor">
+													<div class="v-center-contenido">
+														<span class="txt-eu-estado">113</span>
+													</div>
+												</div>
+											</div>
+										    <span class="txt-eu-estado-desc">Consultas</span>
+										</div>
+									</div>								
+								{% elseif seminuevo.estadoPublicacion == 2 %}
+									<div class="row">
+										<div class="col-md-12 col-sm-12 col-xs-12 text-left">
+											<span class="txt-estado-texto">Pendiente de revisión de Toyocosta</span>
+										</div>
+									</div>
+								{% elseif seminuevo.estadoPublicacion == 3 %}
+									<div class="row">
+										<div class="col-md-12 col-sm-12 col-xs-12 text-left">
+											<span class="txt-estado-texto">Lo sentimos tu vehículo no completo los requisitos necesarios, para más información contáctate con nosotros.</span>
+										</div>
+									</div>
+									<div class="row espacio-a">
+										<div class="col-md-4 col-sm-4 col-xs-4 text-center">
+											<a href="#" class="btn btn-rojo">Contactar</a>
+										</div>
+									</div>
+								{% endif %}
+
+
+                        	</div>
+                        
+                        </div>
+					</div>
 				</div>
 			</div>
-			<div class="col-md-7 col-sm-7">
-				<div class="form-group form-group-sm">
-					<label class="lbl-form-sm" for="sm-input-kilometraje">Kilometraje</label>
-					<input type="number" class="form-control form-control-sm" id="sm-input-kilometraje" placeholder="">
-				</div>
+        </div>
+
+    </div>
+
+  <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+                <fieldset class="ty-fieldset-border">
+                    <legend class="ty-legend-border">Característica:</legend>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-6">
+                            <span class="modal-sm-txt">Precio:</span>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                            <span class="modal-sm-txt-valor txt-rojo txt-negrita">$ {{  seminuevo.precio }}</span>
+                        </div>
+                    </div>
+                    <div class="modal-divisor"></div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-6">
+                            <span class="modal-sm-txt">Año:</span>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                            <span class="modal-sm-txt-valor">{{  seminuevo.anio }}</span>
+                        </div>
+                    </div>
+                    <div class="modal-divisor"></div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-6">
+                            <span class="modal-sm-txt">Kilómetros:</span>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                            <span class="modal-sm-txt-valor">{{  seminuevo.kilometraje }} Kms</span>
+                        </div>
+                    </div>
+                    <div class="modal-divisor"></div>
+                    <div class="row">
+                        <div class="col-md-6 col-sm-6 col-xs-6">
+                            <span class="modal-sm-txt">Color:</span>
+                        </div>
+                        <div class="col-md-6 col-sm-6 col-xs-6 text-right">
+                            <span class="modal-sm-txt-valor">{{  seminuevo.colores.nombre }}</span>
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+		<div class="row">
+		    <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+		        <fieldset class="ty-fieldset-border">
+		            <legend class="ty-legend-border">Descripción:</legend>
+		            <div class="row">
+		                <div class="col-md-12 text-left">
+		                    <span class="modal-sm-txt-valor">{{  seminuevo.informacion }}</span>
+		                </div>
+		            </div>
+		        </fieldset>
 			</div>
 		</div>
 
+		{% if seminuevo.estado == 1 %}
+        <div class="row">
+            <div class="col-md-8 col-sm-8 col-md-offset-2 col-sm-offset-2">
+                <fieldset class="ty-fieldset-border">
+                    <legend class="ty-legend-border">Certificados Toyocosta:</legend>
+                    <div class="row">
+                        <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                            {% image '@CelmediaToyocostaSeminuevoBundle/Resources/public/images/avaluotecnico.png' %}
+                                <img src="{{ asset_url }}" class="img-responsive obj-centrar">
+                            {% endimage %}
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                            {% image '@CelmediaToyocostaSeminuevoBundle/Resources/public/images/avaluotecnico.png' %}
+                                <img src="{{ asset_url }}" class="img-responsive obj-centrar">
+                            {% endimage %}
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                            {% image '@CelmediaToyocostaSeminuevoBundle/Resources/public/images/avaluotecnico.png' %}
+                                <img src="{{ asset_url }}" class="img-responsive obj-centrar">
+                            {% endimage %}
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                            {% image '@CelmediaToyocostaSeminuevoBundle/Resources/public/images/avaluotecnico.png' %}
+                                <img src="{{ asset_url }}" class="img-responsive obj-centrar">
+                            {% endimage %}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                            {% image '@CelmediaToyocostaSeminuevoBundle/Resources/public/images/avaluotecnico.png' %}
+                                <img src="{{ asset_url }}" class="img-responsive obj-centrar">
+                            {% endimage %}
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                            {% image '@CelmediaToyocostaSeminuevoBundle/Resources/public/images/avaluotecnico.png' %}
+                                <img src="{{ asset_url }}" class="img-responsive obj-centrar">
+                            {% endimage %}
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                            {% image '@CelmediaToyocostaSeminuevoBundle/Resources/public/images/avaluotecnico.png' %}
+                                <img src="{{ asset_url }}" class="img-responsive obj-centrar">
+                            {% endimage %}
+                        </div>
+                        <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                            {% image '@CelmediaToyocostaSeminuevoBundle/Resources/public/images/avaluotecnico.png' %}
+                                <img src="{{ asset_url }}" class="img-responsive obj-centrar">
+                            {% endimage %}
+                        </div>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+		{% endif %}
 
-    </form>
+    </div><!-- Container fluid -->
+    
 
 {% endblock %}
