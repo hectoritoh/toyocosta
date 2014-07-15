@@ -4,9 +4,19 @@ imports:
     - { resource: @CelmediaToyocostaPirelliBundle/Resources/config/admin.yml }
 
 
+sonata_user:
+    security_acl: true
+    manager_type: orm # c
+
+
+
 sonata_block:
     default_contexts: [cms]
     blocks:
+
+        sonata.user.block.menu:    # used to display the menu in profile pages
+        sonata.user.block.account: # used to display menu option (login option)
+
         #...
         sonata.user.block.menu:    # used to display the menu in profile pages
         sonata.user.block.account: # used to display menu option (login option)
@@ -100,6 +110,11 @@ twig:
     debug:            "%kernel.debug%"
     strict_variables: "%kernel.debug%"
 
+    form:
+        resources:
+            - 'SonataAdminBundle:Form:silex_form_div_layout.html.twig'
+            - 'SonataFormatterBundle:Form:formatter.html.twig'
+
 # Assetic Configuration
 assetic:
     debug:          "%kernel.debug%"
@@ -126,15 +141,33 @@ doctrine:
         # if using pdo_sqlite as your database driver, add the path in parameters.yml
         # e.g. database_path: "%kernel.root_dir%/data/data.db3"
         # path:     "%database_path%"
-
+        types:
+            json: Sonata\Doctrine\Types\JsonType
     orm:
         auto_generate_proxy_classes: "%kernel.debug%"
         auto_mapping: true
 
+# fos_user:
+#     db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
+#     firewall_name: main
+#     user_class: Celmedia\Toyocosta\PirelliBundle\Entity\User
+
+
 fos_user:
-    db_driver: orm # other valid values are 'mongodb', 'couchdb' and 'propel'
-    firewall_name: main
-    user_class: Celmedia\Toyocosta\PirelliBundle\Entity\User
+    db_driver:      orm # can be orm or odm
+    firewall_name:  main
+    user_class:     Application\Sonata\UserBundle\Entity\User
+
+
+    group:
+        group_class:   Application\Sonata\UserBundle\Entity\Group
+        group_manager: sonata.user.orm.group_manager                    # If you're using doctrine orm (use sonata.user.mongodb.user_manager for mongodb)
+
+    service:
+        user_manager: sonata.user.orm.user_manager                      # If you're using doctrine orm (use sonata.user.mongodb.group_manager for mongodb)
+
+
+
 
 # Swiftmailer Configuration
 swiftmailer:
@@ -160,32 +193,28 @@ sonata_formatter:
             extensions:
                 - sonata.formatter.twig.control_flow
                 - sonata.formatter.twig.gist
-        #        - sonata.media.formatter.twig #keep this commented unless you are using media bundle.
-
+                # - sonata.media.formatter.twig
 
         text:
             service: sonata.formatter.text.text
             extensions:
                 - sonata.formatter.twig.control_flow
                 - sonata.formatter.twig.gist
-        #        - sonata.media.formatter.twig
-
+                # - sonata.media.formatter.twig
 
         rawhtml:
             service: sonata.formatter.text.raw
             extensions:
                 - sonata.formatter.twig.control_flow
                 - sonata.formatter.twig.gist
-        #        - sonata.media.formatter.twig
-
+                # - sonata.media.formatter.twig
 
         richhtml:
             service: sonata.formatter.text.raw
             extensions:
                 - sonata.formatter.twig.control_flow
                 - sonata.formatter.twig.gist
-        #        - sonata.media.formatter.twig
-
+                # - sonata.media.formatter.twig
 
         twig:
             service: sonata.formatter.text.twigengine

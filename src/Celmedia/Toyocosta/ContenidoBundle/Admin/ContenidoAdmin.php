@@ -59,11 +59,7 @@ class ContenidoAdmin extends Admin
     {
         $formMapper
             ->add('titulo')
-            ->add('texto') // source content
-            // ->add('contentFormatter', 'sonata_formatter_type', array(
-            //     'source_field' => 'texto',
-            //     'target_field' => 'content'
-            // ))
+            ->add('texto')
             ->add('abreviatura')
             ->add('estado', 'choice', array(
            'choices' => array(

@@ -24,7 +24,7 @@ class AppKernel extends Kernel
             new Knp\Bundle\MenuBundle\KnpMenuBundle(),
             new Sonata\DoctrineORMAdminBundle\SonataDoctrineORMAdminBundle(),
             new Sonata\AdminBundle\SonataAdminBundle(),
-            new FOS\UserBundle\FOSUserBundle(),
+
             new Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
             new Liip\ImagineBundle\LiipImagineBundle(),
 
@@ -33,7 +33,8 @@ class AppKernel extends Kernel
             new Knp\Bundle\MarkdownBundle\KnpMarkdownBundle(),
             new Ivory\CKEditorBundle\IvoryCKEditorBundle(),
             new Sonata\FormatterBundle\SonataFormatterBundle(),
-            
+            // Easy extends
+            new Sonata\EasyExtendsBundle\SonataEasyExtendsBundle(),
 
             new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
 
@@ -42,6 +43,10 @@ class AppKernel extends Kernel
             new Celmedia\Toyocosta\SeminuevoBundle\CelmediaToyocostaSeminuevoBundle(),
             new Celmedia\Toyocosta\MontacagasBundle\CelmediaToyocostaMontacagasBundle(),
             new Celmedia\Toyocosta\ContenidoBundle\CelmediaToyocostaContenidoBundle(),
+
+            new FOS\UserBundle\FOSUserBundle(),
+            new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
+            new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
             
 
         );
