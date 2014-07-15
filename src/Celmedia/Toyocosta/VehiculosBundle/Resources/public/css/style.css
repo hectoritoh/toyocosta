@@ -114,6 +114,10 @@ html,body{
 	margin-bottom: 15px;
 }
 
+.borde-rojo-derecho{
+	border-right: 2px solid #D62C2F;
+}
+
 .sbSelector{
 	font-size: 16px;
 }
@@ -177,6 +181,7 @@ html,body{
 	-ms-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
 }
+
 
 fieldset.ty-fieldset-border {
     border-top: 1px solid #555555;
@@ -308,6 +313,16 @@ fieldset.ty-fieldset-border {
 	background-repeat: no-repeat;
 	background-position: top center;
 	/*background-attachment: fixed;*/
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+}
+
+.fondo-seccion-2{
+	position: relative;
+	background-repeat: no-repeat;
+	background-position: center center;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
 	-o-background-size: cover;
@@ -1224,6 +1239,10 @@ fieldset.ty-fieldset-border {
 		padding: 0px;
 	}
 
+	.img-absoluta{
+		position: absolute;
+	}
+
  }
 @media (min-width: 1200px) {
 	
@@ -1306,6 +1325,10 @@ fieldset.ty-fieldset-border {
 		padding: 0px;
 	}
 
+	.img-absoluta{
+		position: absolute;
+	}
+
  }
  
 /* Portrait tablet to landscape and desktop */
@@ -1329,6 +1352,9 @@ fieldset.ty-fieldset-border {
 
 	.espaciado-menu-2{
 		height: 175px;
+	}
+	.img-absoluta{
+		position: relative;
 	}
  }
  
@@ -1387,6 +1413,9 @@ fieldset.ty-fieldset-border {
 
 	.espaciado-menu-2{
 		height: 175px;
+	}
+	.img-absoluta{
+		position: relative;
 	}
  }
  
@@ -1456,5 +1485,8 @@ fieldset.ty-fieldset-border {
 
 	.espaciado-menu-2{
 		height: 175px;
+	}
+	.img-absoluta{
+		position: relative;
 	}
  }
