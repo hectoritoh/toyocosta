@@ -2,6 +2,7 @@ html,body{
 	position: relative;
 	width: 100%;
 	height: 100%;
+	overflow-x: hidden;
 }
 
 .v-center-contenedor {
@@ -812,6 +813,26 @@ fieldset.ty-fieldset-border {
 	background-color: #f1f6f9;
 }
 
+.alto-agencia{
+	height: auto;
+}
+
+.ico-empresa-agencia{
+	width: 52px;
+	height: 52px;
+	position: relative;
+	float: left;
+	display: inline-block;
+	margin-right: 10px;	
+	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/empresa/agencia.png");
+	background-position: 0px 0px;
+	background-repeat: no-repeat;
+}
+
+.ico-empresa-agencia:hover{
+	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/empresa/agenciahover.png");	
+	background-position: -1px 0px;
+}
 
 .vehic-miniaturas.fondoVAzul{
 	background-color: #030085;
@@ -1220,18 +1241,28 @@ fieldset.ty-fieldset-border {
 }
 
 
+.img-palmera{
+	position: absolute;
+	bottom: -10px;
+	right: -16%;
+	width: 40%;
+}
+
 /*Media Querys*/
 /* Large desktop */
 @media (min-width: 1921px) { 
 
 	.input-buscar{
-		padding: 12px 165px;
+		padding: 10px 50px;
+		font-size: 18px;
+		line-height: normal;
+		height: 50px;
 	}
 
-	/*.navbar-toyocosta .navbar-nav-vehiculos > li > a{
+	.navbar-toyocosta .navbar-nav-vehiculos > li > a{
 		padding-top: 20px;
 		padding-bottom: 20px;
-	}*/
+	}
 
 	.navbar-buscar{
 		margin-bottom: 0px;
@@ -1243,6 +1274,18 @@ fieldset.ty-fieldset-border {
 		position: absolute;
 	}
 
+	.borde-gris{
+		border-right: 1px solid #CCCCCC;
+	}
+	.ttexto-emp-acc{
+		height: 40px;
+	}
+	.texto-emp-acc{
+		height: 200px;
+	}
+	.espaciado-menu-3{
+		height: 85px;
+	}
  }
 @media (min-width: 1200px) {
 	
@@ -1314,10 +1357,10 @@ fieldset.ty-fieldset-border {
 		bottom: 32%;
 	}
 
-	/*.navbar-toyocosta .navbar-nav-vehiculos > li > a{
-		padding-top: 20px;
-		padding-bottom: 20px;
-	}*/
+	.navbar-toyocosta .navbar-nav-vehiculos > li > a{
+		padding-top: 15px;
+		padding-bottom: 15px;
+	}
 
 	.navbar-buscar{
 		margin-bottom: 0px;
@@ -1329,6 +1372,27 @@ fieldset.ty-fieldset-border {
 		position: absolute;
 	}
 
+	.espaciado-menu-3{
+		height: 85px;
+	}
+
+	.borde-gris{
+		border-right: 1px solid #CCCCCC;
+	}
+
+	.ttexto-emp-acc{
+		height: 40px;
+	}
+	.texto-emp-acc{
+		height: 200px;
+	}
+
+	.input-buscar{
+		padding: 10px 30px;
+		font-size: 18px;
+		line-height: normal;
+		height: 50px;
+	}
  }
  
 /* Portrait tablet to landscape and desktop */
@@ -1349,12 +1413,40 @@ fieldset.ty-fieldset-border {
 	.contenedor-foto .carousel-inner .item{
 		height: 300px;
 	}
-
 	.espaciado-menu-2{
 		height: 175px;
 	}
+	.espaciado-menu-3{
+		height: 50px;
+	}
 	.img-absoluta{
 		position: relative;
+	}
+	.toyocosta-brand{
+		padding-left: 10px;
+	}
+
+	.input-buscar{
+		padding-top: 10px;
+		padding-bottom: 10px;
+		padding-left: 5px;
+		padding-right: 5px;
+		font-size: 14px;
+		line-height: normal;
+		height: 50px;
+		width: 115px !important;
+	}
+
+	.navbar-toyocosta .navbar-nav-vehiculos > li > a{
+		padding-top: 15px;
+		padding-bottom: 15px;
+		padding-left: 5px;
+		padding-right: 5px;
+		text-align: center;
+		font-size: 12px;
+	}
+	.alto-agencia{
+		height: 60px;
 	}
  }
  
@@ -1414,8 +1506,17 @@ fieldset.ty-fieldset-border {
 	.espaciado-menu-2{
 		height: 175px;
 	}
+	.espaciado-menu-3{
+		height: 50px;
+	}
 	.img-absoluta{
 		position: relative;
+	}
+	.toyocosta-brand{
+		padding-left: 10px;
+	}
+	.alto-agencia{
+		height: 60px;
 	}
  }
  
@@ -1488,5 +1589,15 @@ fieldset.ty-fieldset-border {
 	}
 	.img-absoluta{
 		position: relative;
+	}
+	.espaciado-menu-3{
+		height: 50px;
+	}
+	.toyocosta-brand{
+		padding-left: 10px;
+	}
+
+	.alto-agencia{
+		height: 60px;
 	}
  }

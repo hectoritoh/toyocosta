@@ -2,22 +2,21 @@
 	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/empresa/cielo.jpg"); 
 }
 #region-seccion{
-	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/empresa/costa.png"); 
+	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/empresa/costa.jpg"); 
 }
 
 .btn-info{
 	background-color: #DF192B;
 	color: #fff;
 	border-color: transparent;
+	width: 100%;
 }
 .btn-info:hover, .btn-info:active, .btn-info:focus{
 	background-color: #970000;
 	color: #fff;
 	border-color:transparent;
 }
-.borde-gris{
-	border-right: 1px solid #CCCCCC;
-}
+
 
 /*BANNERS*/
 .banner-mantenimiento{
