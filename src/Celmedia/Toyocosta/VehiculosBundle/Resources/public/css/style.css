@@ -1244,8 +1244,9 @@ fieldset.ty-fieldset-border {
 .img-palmera{
 	position: absolute;
 	bottom: -10px;
-	right: -16%;
-	width: 40%;
+	right: -10%;
+	width: 33%;
+	max-width: 33%
 }
 
 /*Media Querys*/
