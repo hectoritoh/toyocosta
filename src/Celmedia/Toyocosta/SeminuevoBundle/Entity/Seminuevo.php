@@ -3,6 +3,7 @@
 namespace Celmedia\Toyocosta\SeminuevoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Sonata\MediaBundle\Model\MediaInterface;
 use Celmedia\Toyocosta\PirelliBundle\Entity\User as User;
 
 /**
@@ -106,12 +107,18 @@ class Seminuevo
     private $seminuevo_user;
 
     /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    protected $imagenes;
+
+    /**
      * Constructor
      */
     public function __construct()
     {
         $this->certificados = new \Doctrine\Common\Collections\ArrayCollection();
         $this->galeria = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->imagenes = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -557,6 +564,39 @@ class Seminuevo
     {
         return $this->seminuevo_user;
     }
+
+    /**
+     * Add imagenes
+     *
+     * @param \Application\Sonata\MediaBundle\Entity\Media $imagenes
+     * @return Seminuevo
+     */
+    public function addImagene(MediaInterface $imagenes)
+    {
+        $this->imagenes[] = $imagenes;
+
+        return $this;
+    }
+
+    /**
+     * Remove imagenes
+     *
+     * @param \Application\Sonata\MediaBundle\Entity\Media $imagenes
+     */
+    public function removeImagene(MediaInterface $imagenes)
+    {
+        $this->imagenes->removeElement($imagenes);
+    }
+
+    /**
+     * Get imagenes
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getImagenes()
+    {
+        return $this->imagenes;
+    }
     /**
      * @ORM\PrePersist
      */
@@ -569,5 +609,6 @@ class Seminuevo
     {
         return $this->getModelo();
     }
+
 
 }

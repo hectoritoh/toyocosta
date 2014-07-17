@@ -65,6 +65,21 @@ Celmedia\Toyocosta\SeminuevoBundle\Entity\Seminuevo:
               timestampable:
                 on: update
 
+    manyToMany:
+      imagenes:
+        targetEntity: Application\Sonata\MediaBundle\Entity\Media
+        joinTable:
+          name: seminuevo_imagenes
+          joinColumns:
+            seminuevo_id:
+              referencedColumnName: id
+          inverseJoinColumns:
+            imagen_id:
+              referencedColumnName: id
+              unique: true
+        cascade: ["persist"]
+
+
     oneToMany:
       certificados:
         targetEntity: SeminuevoCertificado
