@@ -2,26 +2,43 @@
   <div class="container-fluid visible-md visible-lg hidden-sm hidden-xs">
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right navbar-nav-menu-0">
-        <li class="active">
+        <!-- <li class="active">
           <a href="#">Regístrese</a>
         </li>
         <li>
           <a href="#">Iniciar sesión</a>
-        </li>
-        <li>
+        </li> -->
+        <!-- <li>
           <a href="#" class="visible-md visible-lg hidden-sm hidden-xs">&nbsp;</a>
-        </li>
-        <li>
+        </li> -->
+        <li class="active">
           <a href="{{ path('toyocosta_homepage') }}">Inicio</a>
         </li>
-        <li>
-          <a href="{{ path('empresa')}}">Empresa</a>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            Empresa
+          </a>
+          <ul class="dropdown-menu" role="menu">
+            <li>
+              <a href="{{ path('empresa')}}">Qui&eacute;nes Somos</a>
+            </li>
+            <li>
+              <a href="{{ path('certificados')}}">Certificado Seminuevos</a>
+            </li>
+          </ul>
         </li>
         <li>
           <a href="http://www.toyocosta.com/blog">Noticias</a>
         </li>
-        <li>
-          <a href="#contact">Servicios</a>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+            Servicios
+          </a>
+          <ul class="dropdown-menu" role="menu">
+            <li>
+              <a href="{{ path('mantenimiento')}}">Citas de Mantenimiento</a>
+            </li>
+          </ul>
         </li>
         <li>
           <a href="{{ path('test_drive') }}">Test Drive</a>

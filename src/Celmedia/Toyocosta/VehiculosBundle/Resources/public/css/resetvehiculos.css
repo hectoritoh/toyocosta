@@ -4,3 +4,6 @@
 a:hover, a:focus{
 	text-decoration: none;
 }
+.dropdown-menu > li > a{
+	padding: 12px 15px;
+}
