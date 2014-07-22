@@ -70,7 +70,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand toyocosta-brand" href="#top-ty">
+      <a class="navbar-brand toyocosta-brand" href="{{ path('toyocosta_homepage') }}">
         {% image '@CelmediaToyocostaPirelliBundle/Resources/public/images/Logos/toyocosta.png' %}
         <img src="{{ asset_url }}" alt="llanta" class="img-responsive" />
         {% endimage %}
@@ -98,7 +98,7 @@
             <a href="#" class="item-submenu">Pirelli</a>
           </li>
           <li>
-            <a href="#" class="item-submenu">Seminuevos</a>
+            <a href="{{ path('seminuevos_home') }}" class="">Seminuevos</a>
           </li>
         </ul>
         <div class="form-group">
