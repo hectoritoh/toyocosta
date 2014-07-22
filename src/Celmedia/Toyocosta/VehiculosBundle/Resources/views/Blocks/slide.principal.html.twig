@@ -17,12 +17,11 @@
       {% for item in slidePrincipal %}
         
         <div class="item {% if loop.first %} active {% endif %} alto-completo item-carousel-home-ty" style="background-image: url({{ asset('uploads/slide-principal/'   ~   item.imagenBanner ) }});">
-          
           <div class="carousel-caption ty-principal-caption">
             <div class="container-fluid">
               <div class="row">
                 <div class="col-md-4 col-md-offset-4">
-                  <a href="#" class="btn btn-ver-mas">
+                  <a href="{{item.link}}" class="btn btn-ver-mas">
                     Ver más
                   </a>
                 </div>

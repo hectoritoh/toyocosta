@@ -4,8 +4,8 @@
 
 		{% include 'CelmediaToyocostaVehiculosBundle:Blocks:top.menu.secciones.html.twig' %}
 
-		<div id="vehiculo-detalles" class="vehiculo-seccion">		
-			<div class="container-fluid vehiculo-banner" style="background-image: url({{ asset('uploads/vehiculo/banner/'   ~   'corolla.jpg' ) }});">
+		<div id="vehiculo-detalles" class="vehiculo-seccion-2">		
+			<div class="container-fluid vehiculo-banner" style="background-image: url({{ asset('uploads/vehiculo/banner/'   ~   vehiculo.imagenBanner ) }});">
 				&nbsp;
 			</div>
 
@@ -18,17 +18,17 @@
 									<div class="col-md-12">
 										<ol class="breadcrumb">
 											<li>
-												<a href="#">Home</a>
+												<a href="{{ path('toyocosta_homepage') }}">Home</a>
 											</li>
-											<li class="active">Prius</li>
+											<li class="active">{{vehiculo.nombre}}</li>
 										</ol>
 									</div>
 								</div>
 								<div class="row">
 									<div class="col-md-12 texto-detalle">
 										<h4 class="">Precio</h4>
-										<h2 class="txt-precio">$12,345.67</h2>
-										<span class="">El precio incluye IVA</span>
+										<h2 class="txt-precio">${{vehiculo.precioNeto}}</h2>
+										<span class="">{{vehiculo.descripcion}}</span>
 										<h4 class="">Que no te lo cuenten, ven y descubre la experiencia Toyota</h4>
 										<h3 class="">
 											Mira el Test Drive de Andr&eacute;s con el Prius C
@@ -42,7 +42,7 @@
 								</div>
 								<div class="row">
 									<div class="col-md-3">
-										<a href="" class="btn btn-vehiculo">Test Drive</a>
+										<a href="{{ path('test_drive') }}" class="btn btn-vehiculo">Test Drive</a>
 									</div>
 									<div class="col-md-4 col-md-offset-1">
 										<a href="" class="btn btn-vehiculo">
@@ -62,119 +62,31 @@
 							<div id="vehiculo-colores-carousel" class="carousel slide alto-completo" data-ride="carousel" data-interval="false">
 
 							    <ol class="carousel-indicators">
-							        <li data-target="#vehiculo-colores-carousel" data-slide-to="0"  class="vehic-miniaturas fondoVAzul active"></li>
-							        <li data-target="#vehiculo-colores-carousel" data-slide-to="1"  class="vehic-miniaturas fondoVMoonglow"></li>
-							        <li data-target="#vehiculo-colores-carousel" data-slide-to="2"  class="vehic-miniaturas fondoVBlanco"></li>
-							        <li data-target="#vehiculo-colores-carousel" data-slide-to="3"  class="vehic-miniaturas fondoVGris"></li>
-							        <li data-target="#vehiculo-colores-carousel" data-slide-to="4"  class="vehic-miniaturas fondoVAmarillo"></li>
-							        <li data-target="#vehiculo-colores-carousel" data-slide-to="5"  class="vehic-miniaturas fondoVVerde"></li>
-							        <li data-target="#vehiculo-colores-carousel" data-slide-to="6"  class="vehic-miniaturas fondoVGris2"></li>
-							        <li data-target="#vehiculo-colores-carousel" data-slide-to="7"  class="vehic-miniaturas fondoVConchevino"></li>
+							    	{% for vehiculoColor in vehiculoColores %}
+							    		<li data-target="#vehiculo-colores-carousel" data-slide-to="{{loop.index -1 }}"  class="vehic-miniaturas {% if loop.first %}active{% endif %}" style="background-color: {{vehiculoColor.valorColor}} ;"></li>
+							    	{% endfor %}
 							    </ol>
 
 							    <div class="carousel-inner alto-completo">
-								    <div class="item active alto-completo">
-								    	<img src="{{ asset('uploads/vehiculo/color/'   ~   'corolla-4Evergreen-Mica.png' ) }}" class="img-responsive obj-centrar" />
-							    		<div class="carousel-caption">
-							    			<div class="container-fluid">
-							    				<div class="row">
-							    					<div class="col-md-4 col-md-offset-4">
-							    						Color: Blanco
-							    					</div>
-							    				</div>
-							    			</div>
-							    		</div>
-							        </div><!-- item -->
-							        <div class="item alto-completo">
-							        	<img src="{{ asset('uploads/vehiculo/color/'   ~   'corolla-Blizzard-Pearl-7.png' ) }}" class="img-responsive obj-centrar" />
-							    		<div class="carousel-caption">
-							    			<div class="container-fluid">
-							    				<div class="row">
-							    					<div class="col-md-4 col-md-offset-4">
-							    						Color. Verde
-							    					</div>
-							    				</div>
-							    			</div>
-							    		</div>
-							        </div><!-- item -->
 
-							        <div class="item alto-completo">
-							        	<img src="{{ asset('uploads/vehiculo/color/'   ~   'corolla-Classic-Silver-Metallic.png' ) }}" class="img-responsive obj-centrar" />
-							    		<div class="carousel-caption">
+							    {% for vehiculoColor in vehiculoColores %}
+							        <div class="item {% if loop.first %}active{% endif %} alto-completo">
+							    		
 							    			<div class="container-fluid">
 							    				<div class="row">
-							    					<div class="col-md-4 col-md-offset-4">
-							    						Color. Verde
+							    					
+								    				<img src="{{ asset('uploads/vehiculo/color/'   ~   vehiculoColor.imagenColor ) }}" class="img-responsive obj-centrar" />
+							    				</div>
+							    				<div class="row">
+							    					<div class="col-md-12 text-center">
+							    						<span class="txt-negro">COLOR: {{ vehiculoColor.Nombre }}</span>
 							    					</div>
 							    				</div>
 							    			</div>
-							    		</div>
+							    		
 							        </div><!-- item -->
+							    {% endfor %}
 
-							        <div class="item alto-completo">
-							        	<img src="{{ asset('uploads/vehiculo/color/'   ~   'corolla-Classic-Silver-Metallic.png' ) }}" class="img-responsive obj-centrar" />
-							    		<div class="carousel-caption">
-							    			<div class="container-fluid">
-							    				<div class="row">
-							    					<div class="col-md-4 col-md-offset-4">
-							    						Color. Verde
-							    					</div>
-							    				</div>
-							    			</div>
-							    		</div>
-							        </div><!-- item -->
-
-							        <div class="item alto-completo">
-							        	<img src="{{ asset('uploads/vehiculo/color/'   ~   'corolla-Classic-Silver-Metallic.png' ) }}" class="img-responsive obj-centrar" />
-							    		<div class="carousel-caption">
-							    			<div class="container-fluid">
-							    				<div class="row">
-							    					<div class="col-md-4 col-md-offset-4">
-							    						Color. Verde
-							    					</div>
-							    				</div>
-							    			</div>
-							    		</div>
-							        </div><!-- item -->
-
-							        <div class="item alto-completo">
-							        	<img src="{{ asset('uploads/vehiculo/color/'   ~   'corolla-Classic-Silver-Metallic.png' ) }}" class="img-responsive obj-centrar" />
-							    		<div class="carousel-caption">
-							    			<div class="container-fluid">
-							    				<div class="row">
-							    					<div class="col-md-4 col-md-offset-4">
-							    						Color. Verde
-							    					</div>
-							    				</div>
-							    			</div>
-							    		</div>
-							        </div><!-- item -->
-
-							        <div class="item alto-completo">
-							        	<img src="{{ asset('uploads/vehiculo/color/'   ~   'corolla-Classic-Silver-Metallic.png' ) }}" class="img-responsive obj-centrar" />
-							    		<div class="carousel-caption">
-							    			<div class="container-fluid">
-							    				<div class="row">
-							    					<div class="col-md-4 col-md-offset-4">
-							    						Color. Verde
-							    					</div>
-							    				</div>
-							    			</div>
-							    		</div>
-							        </div><!-- item -->
-
-							        <div class="item alto-completo">
-							        	<img src="{{ asset('uploads/vehiculo/color/'   ~   'corolla-Classic-Silver-Metallic.png' ) }}" class="img-responsive obj-centrar" />
-							    		<div class="carousel-caption">
-							    			<div class="container-fluid">
-							    				<div class="row">
-							    					<div class="col-md-4 col-md-offset-4">
-							    						Color. Verde
-							    					</div>
-							    				</div>
-							    			</div>
-							    		</div>
-							        </div><!-- item -->
 							    </div>
 								
 							</div>							
@@ -282,7 +194,7 @@
 
 			<div class="container cotizar-banner">
 				<div class="row espacio-a">
-					<div class="col-md-8 col-sm-10 col-xs-12 col-md-offset-2 col-sm-offset-1">
+					<div class="col-md-10 col-sm-10 col-xs-12 col-md-offset-1 col-sm-offset-1">
 						<ul class="nav nav-tabs nav-cotizar">
 							<li class="active">
 								<a href="#paso-1" class="pasos paso-1" data-toggle="tab">&nbsp;</a>
