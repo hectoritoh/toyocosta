@@ -21,3 +21,7 @@ seminuevos_buscador:
 seminuevos_filtro:
     pattern:  /filtro
     defaults: { _controller: CelmediaToyocostaSeminuevoBundle:Default:filtroBuscadorSeminuevos }
+
+seminuevos_register:
+    pattern:  /user/register
+    defaults: { _controller: CelmediaToyocostaSeminuevoBundle:Default:registerSeminuevos }
