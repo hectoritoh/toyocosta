@@ -18,12 +18,22 @@ function centrarVert(elemento){
 	};
 }
 
+
+
 function centrarHorizontal(elemento){
 	ancho1=elemento.parent().width();
 	ancho2=elemento.width();
 
 	elemento.css("margin-left",(ancho1/2)-(ancho2/2)+"px");
 
+}
+
+function siguienteTab(elemento){
+
+	//var tabID = $(elemento).closest(".tab-content").attr("id");
+	//$( '#' + tabID + ' a').tab('show') // Select tab by name
+	//alert(tabID);
+	//$(elemento).tab('show');
 }
 
 
@@ -58,5 +68,12 @@ $(document).ready(function(){
         $(this).addClass('active');
     });
 
+	$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+		//console.log (e.target); // activated tab
+		//console.log (e.relatedTarget); // previous tab
+		//console.log (this);
+		$(this).parent('li').removeClass("active");
+		$(e.target).parent('li').addClass("active");
+	})
 
 });

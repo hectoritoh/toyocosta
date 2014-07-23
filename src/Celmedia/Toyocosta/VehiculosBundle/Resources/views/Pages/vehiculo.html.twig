@@ -29,28 +29,28 @@
 										<h4 class="">Precio</h4>
 										<h2 class="txt-precio">${{vehiculo.precioNeto}}</h2>
 										<span class="">{{vehiculo.descripcion}}</span>
-										<h4 class="">Que no te lo cuenten, ven y descubre la experiencia Toyota</h4>
-										<h3 class="">
+										<br />
+										<span class="">{{vehiculo.informacion}}</span>
+										<h4 class="">
 											Mira el Test Drive de Andr&eacute;s con el Prius C
 											<a href="#">
 												{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/iconos/icono-flecha.png' %}
 												<img src="{{ asset_url }}" class="" />
 							            		{% endimage %}
 											</a>
-										</h3>
+										</h4>
 									</div>
 								</div>
 								<div class="row">
-									<div class="col-md-3">
+									<div class="col-md-7">
 										<a href="{{ path('test_drive') }}" class="btn btn-vehiculo">Test Drive</a>
-									</div>
-									<div class="col-md-4 col-md-offset-1">
+									
 										<a href="" class="btn btn-vehiculo">
 											Ficha Técnica
-											<span class="glyphicon icono-btn"> <i class="icono-descarga"></i> </span>
+											<i class="icono-descarga"></i> 
 										</a>
 									</div>
-									<div class="col-md-2 col-md-offset-1">
+									<div class="col-md-5">
 										<a href="" class="btn btn-vehiculo-rojo">Cotizar</a>
 									</div>
 								</div>
@@ -88,65 +88,62 @@
 							    {% endfor %}
 
 							    </div>
-								
-							</div>							
+							</div>
 
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>  <!-- vehiculo-detalles -->
-
-		<div id="vehiculo-modelos" class="vehiculo-seccion fondoGris">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-12 text-center">
-						<h1 class="vehiculo-seccion-titular">Modelos</h1>
-					</div>
+		
+		<div id="vehiculo-modelos" class="container-fluid fondoGris">
+			<div class="row">
+				<div class="col-md-12 text-center">
+					<h1 class="vehiculo-seccion-titular">Modelos</h1>
 				</div>
-				<div class="row">
-					<div class="col-md-4 text-center c-modelo">
-						<img src="{{ asset('uploads/vehiculo/modelo/'   ~   'corolla1.6.png' ) }}" class="img-responsive obj-centrar" />
-						<div class="vehic-modelo">
+			</div>			
+			<div class="row">
+				<div id="vehiculo-modelo-carousel" class="carousel slide alto-completo" data-ride="carousel" data-interval="false">
+
+					<div class="carousel-inner alto-completo">
+						{% for row  in vehiculoModelos | batch(3) %}
+						<div class="item {% if loop.first %}active{% endif %}">
 							<div class="container-fluid">
 								<div class="row">
-									<h2 class="modelo-titular txt-negrita">PRIUS C</h2>
-									<p class="modelo-titular">ACC + AROOS + MAQUETAS</p>
-									<h4 class="txt-negro">SIN IVA: <span class="txt-rojo">$123456</span></h4>
-									<h4 class="txt-negro">CON IVA: <span class="txt-rojo">$123456</span></h4>
+									{% for vehiculoModelo in row %}
+									<div class="col-md-4 text-center c-modelo">
+										<img src="{{ asset('uploads/vehiculo/modelo/' ~ vehiculoModelo.imagenModelo ) }}" class="img-responsive obj-centrar" />
+										<div class="vehic-modelo">
+											<div class="container-fluid">
+												<div class="row">
+													<div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 text-center">
+														<h2 class="modelo-titular txt-negrita">{{ vehiculoModelo.nombre }}</h2>
+														<p class="modelo-titular">{{ vehiculoModelo.descripcion }}</p>
+														<h4 class="txt-negro">SIN IVA: <span class="txt-rojo">${{ vehiculoModelo.precio }}</span></h4>
+														<h4 class="txt-negro">CON IVA: <span class="txt-rojo">${{ vehiculoModelo.precioNeto }}</span></h4>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+									{% endfor %}
 								</div>
 							</div>
 						</div>
+
+						{% endfor %}
+
 					</div>
 
-					<div class="col-md-4 text-center c-modelo">
-						<img src="{{ asset('uploads/vehiculo/modelo/'   ~   'corolla1.6.png' ) }}" class="img-responsive obj-centrar" />
-						<div class="vehic-modelo">
-							<div class="container-fluid">
-								<div class="row">
-									<h2 class="modelo-titular txt-negrita">PRIUS C</h2>
-									<p class="modelo-titular">ACC + AROOS + MAQUETAS</p>
-									<h4 class="txt-negro">SIN IVA: <span class="txt-rojo">$123456</span></h4>
-									<h4 class="txt-negro">CON IVA: <span class="txt-rojo">$123456</span></h4>
-								</div>
-							</div>
-						</div>
-					</div>
-
-					<div class="col-md-4 text-center c-modelo">
-						<img src="{{ asset('uploads/vehiculo/modelo/'   ~   'corolla1.6.png' ) }}" class="img-responsive obj-centrar" />
-						<div class="vehic-modelo">
-							<div class="container-fluid">
-								<div class="row">
-									<h2 class="modelo-titular txt-negrita">PRIUS C</h2>
-									<p class="modelo-titular">ACC + AROOS + MAQUETAS</p>
-									<h4 class="txt-negro">SIN IVA: <span class="txt-rojo">$123456</span></h4>
-									<h4 class="txt-negro">CON IVA: <span class="txt-rojo">$123456</span></h4>
-								</div>
-							</div>
-						</div>
-					</div>
-
+					{% if vehiculoModelos|length > 3 %}
+						<!-- Controls -->
+						<a class="left carousel-control galeria-v-control" href="#vehiculo-modelo-carousel" data-slide="prev">
+							<div class="slider-galeria left"></div>
+						</a>
+						<a class="right carousel-control galeria-v-control" href="#vehiculo-modelo-carousel" data-slide="next">
+							<div class="slider-galeria right"></div>
+						</a>
+					{% endif %}
 				</div>
 			</div>
 		</div> <!-- vehiculo-modelos -->
@@ -154,29 +151,33 @@
 		<div id="vehiculo-galeria" class="vehiculo-seccion fondoGris">
 			<div id="vehiculo-carousel" class="carousel slide alto-completo" data-ride="carousel" data-interval="false">
 				<ol class="carousel-indicators">
-					<li data-target="#vehiculo-carousel" data-slide-to="0"  class="active"></li>
-					<li data-target="#vehiculo-carousel" data-slide-to="1"  class=""></li>
+					{% for vGaleria in vehiculoGaleria %}
+						<li data-target="#vehiculo-carousel" data-slide-to="{{loop.index -1 }}"  class="{% if loop.first %}active{% endif %}"></li>
+					{% endfor %}
 				</ol>
 
-
 				<div class="carousel-inner alto-completo">
-					<div class="item active alto-completo">
-						<iframe src="//player.vimeo.com/video/32966864" width="500" height="313" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen class="video-completo"></iframe>
-					</div><!-- item -->
-
-					<div class="item alto-completo">
-						<iframe width="560" height="315" src="//www.youtube.com/embed/LfIAdYGxi6Y" frameborder="0" allowfullscreen class="video-completo"></iframe>
-					</div><!-- item -->
+					{% for vGaleria  in vehiculoGaleria %}
+						<div class="item alto-completo {% if loop.first %}active{% endif %}">
+							{% if vGaleria.tipo == "youtube" %}					
+								<iframe width="560" height="315" src="//www.youtube.com/embed/{{ vGaleria.url }}" frameborder="0" allowfullscreen class="video-completo"></iframe>
+							{% elseif vGaleria.tipo == "vimeo" %}
+								<iframe src="//player.vimeo.com/video/{{ vGaleria.url }}" width="500" height="313" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen class="video-completo"></iframe>
+							{% elseif vGaleria.tipo == "imagen" %}
+							    <img src="{{ vGaleria.url }}" alt="" class="img-responsive">
+							{% endif %}
+						</div><!-- item -->
+					{% endfor %}
 				</div>
 
-
-				<!-- Controls -->
+				{% if vehiculoGaleria|length > 1 %}
 				<a class="left carousel-control galeria-v-control" href="#vehiculo-carousel" data-slide="prev">
 					<div class="slider-galeria left"></div>
 				</a>
 				<a class="right carousel-control galeria-v-control" href="#vehiculo-carousel" data-slide="next">
 					<div class="slider-galeria right"></div>
 				</a>
+				{% endif %}
 
 			</div>
 
@@ -218,175 +219,172 @@
 			#}
 
 			<div class="contenedor-tab">
-						<!-- Tab panes -->
-						<div class="tab-content alto-completo">
-							<div class="tab-pane fade in active alto-completo" id="paso-1">
-								<div class="container alto-completo">
-									<div class="v-center-contenedor">
-										<div class="v-center-contenido">
-											<div class="row espaciado-a">
-												<div class="col-md-4">
-													<div class="container-fluid">
-														<div class="row espaciado-a">
-															<h1 class="tab-titular">PRIUS C SPORT</h1>
-														</div>
-														<div class="row espaciado-a">
-															<h4 class="tab-subtitular">Modelo</h4>
-														</div>
-														<div class="row espaciado-a">
-															<select id="selectmodelo" name="selectmodelo" class="selectmodelo select-custom">
-																<option value="-1">Selecciona una opción</option>
-																<option value="1">Option 1</option>
-																<option value="2">Option 2</option>
-																<option value="3">Option 3</option>
-																<option value="4">Option 4</option>
-																<option value="5">Option 5</option>
-															</select>
-														</div>
-													</div>
+				<!-- Tab panes -->
+				<div class="tab-content alto-completo">
+					<div class="tab-pane fade in active alto-completo" id="paso-1">
+						<div class="container alto-completo">
+							<div class="v-center-contenedor">
+								<div class="v-center-contenido">
+									<div class="row espaciado-a">
+										<div class="col-md-4">
+											<div class="container-fluid">
+												<div class="row espaciado-a">
+													<h1 class="tab-titular">PRIUS C SPORT</h1>
 												</div>
-												<div class="col-md-8 alto-completo">
-													<img src="{{ asset('uploads/vehiculo/color/'   ~   'corolla-verde.png' ) }}" alt="" class="img-responsive obj-centrar">
+												<div class="row espaciado-a">
+													<h4 class="tab-subtitular">Modelo</h4>
 												</div>
-											</div>
-											<div class="row espaciado-a">
-												<div class="col-md-4 col-md-offset-4">
-													<a href="#" class="btn-lg btn-rojo link-accesos text-center">
-														Ver m&aacute;s
-													</a>
-												</div>
-											</div>
-										</div><!-- v-center-contenido -->
-									</div><!-- v-center-contenedor -->
-
-								</div>
-							</div>
-
-							<div class="tab-pane fade alto-completo" id="paso-2">
-								<div class="container alto-completo">
-									<div class="v-center-contenedor">
-										<div class="v-center-contenido">
-											<div class="row">
-												<div class="col-md-3 text-left alto-completo">
-													<h3 class="modelo-titular txt-negrita">Precio Total</h3>
-													<p class="txt-negro">Precio sin IVA: <span class="txt-rojo">$123456</span></p>
-													<p class="txt-negro">Precio con IVA: <span class="txt-rojo">$123456</span></p>
-													<p class="txt-negro">Entrada mínima: <span class="txt-rojo">$123456</span></p>
-													<p class="cotizar-descripcion">
-														<span class="txt-rojo">*</span>Los precios no incluyen seguro ni dispositivos.
-														Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae metus ut neque commodo elementum in ac felis. Proin pharetra lorem nec scelerisque vehicula. Nunc feugiat quis velit dignissim dapibus. 
-													</p>
-												</div>
-												
-												<div class="col-md-1 alto-completo visible-md visible-lg hidden-sm hidden-xs">
-													&nbsp;
-												</div>
-
-												<div class="col-md-3 text-left alto-completo">
-													<h3 class="modelo-titular txt-negrita">Cotizar</h3>
-													<p class="txt-negro">Entrada</p>
-													<input type="number" class="form-control" id="inputEntrada" placeholder="">
-													<p class="txt-negro">Plazo</p>
-													<select id="selectplazo" name="selectplazo" class="selectplazo select-custom">
-														<option value="-1">Selecciona un plazo</option>
-														<option value="1">Option 1</option>
-														<option value="2">Option 2</option>
-														<option value="3">Option 3</option>
-														<option value="4">Option 4</option>
-														<option value="5">Option 5</option>
+												<div class="row espaciado-a">
+													<select id="selectmodelo" name="selectmodelo" class="selectmodelo select-custom">
+														<option value="-1">Selecciona una opción</option>
+														{% for vehiculoModelo  in vehiculoModelos %}
+															<option value="{{ vehiculoModelo.id }}">{{ vehiculoModelo.nombre }}</option>
+														{% endfor %}
 													</select>
 												</div>
-
-												<div class="col-md-1 alto-completo visible-md visible-lg hidden-sm hidden-xs">
-													&nbsp;
-												</div>
-
-												<div class="col-md-3 text-left alto-completo">
-													<h3 class="modelo-titular txt-negrita">Resultados</h3>
-													<p class="txt-negro">Total a financiar: <span class="txt-rojo">$123456</span></p>
-													<p class="txt-negro">Cuotas Mensuales: <span class="txt-rojo">$123456</span></p>
-													<p class="txt-negro">Precio final con financiamiento: <span class="txt-rojo">$123456</span></p>
-													<p class="cotizar-descripcion">
-														<span class="txt-rojo">*</span>Los precios no incluyen seguro ni dispositivos.
-														Suspendisse eu erat sed felis convallis dictum ac eu ipsum. Suspendisse dictum, tellus at tincidunt luctus, dui neque elementum mi, eget scelerisque arcu leo id sem.
-													</p>
-												</div>
 											</div>
-
-											<div class="row">
-												<div class="col-md-4 col-md-offset-1 alto-completo">
-													<a href="#" class="btn btn-blanco">Anterior</a>
-												</div>
-												<div class="col-md-4 col-md-offset-2 alto-completo">
-													<a href="#" class="btn btn-rojo">Siguiente</a>
-												</div>
-											</div>
-										</div><!-- v-center-contenido -->
-									</div><!-- v-center-contenedor -->
-								</div>
-							</div>
-
-							<div class="tab-pane fade alto-completo" id="paso-3">
-								<form role="form" class="container alto-completo">								
-									<div class="v-center-contenedor">
-										<div class="v-center-contenido">
-											<div class="row">
-												<div class="col-md-4 col-md-offset-1 alto-completo">
-													<div class="form-group">
-														<label for="nombreInput">Nombre:</label>
-														<input type="text" class="form-control" id="nombreInput" maxlength="50" placeholder="">
-													</div>
-													<div class="form-group">
-														<label for="apellidoInput">Apellido:</label>
-														<input type="text" class="form-control" id="apellidoInput" maxlength="50" placeholder="">
-													</div>
-													<div class="form-group">
-														<label for="cedulaInput">Cédula:</label>
-														<input type="number" class="form-control" id="cedulaInput" maxlength="10" placeholder="">
-													</div>
-													<div class="form-group">
-														<label for="telefonoInput">Teléfono:</label>
-														<input type="number" class="form-control" id="telefonoInput" maxlength="15" placeholder="">
-													</div>
-												</div>
-												<div class="col-md-4 col-md-offset-2 alto-completo">
-													<div class="form-group">
-														<label for="emailInput">Email:</label>
-														<input type="email" class="form-control" id="emailInput" maxlength="50" placeholder="">
-													</div>
-													<div class="form-group">
-														<label for="ciudadInput">Ciudad:</label>
-														<input type="text" class="form-control" id="ciudadInput" maxlength="50" placeholder="">
-													</div>
-													<div class="form-group">
-														<label for="mensajeInput">Mensaje:</label>
-														<textarea class="form-control" id="mensajeInput" rows="5" maxlength="200"></textarea>
-													</div>
-												</div>
-											</div>
-											<div class="row">
-												<div class="col-md-8 col-md-offset-1 alto-completo">
-													<div class="form-group">
-														<label for="mensajeInput">Complete los campos:</label>
-														************ captcha
-													</div>
-												</div>
-											</div>
-											<div class="row">
-												<div class="col-md-4 col-md-offset-1 alto-completo">
-													<a href="#" class="btn btn-blanco">Anterior</a>
-												</div>
-												<div class="col-md-4 col-md-offset-2 alto-completo">
-													<input type="submit" class="btn btn-rojo" value="Enviar" />
-												</div>
-											</div>
-										</div><!-- v-center-contenido -->
-									</div><!-- v-center-contenedor -->
-								</form>
-							</div>
+										</div>
+										<div class="col-md-8 alto-completo">
+											<img src="{{ asset('uploads/vehiculo/color/'   ~   'corolla-verde.png' ) }}" alt="" class="img-responsive obj-centrar">
+										</div>
+									</div>
+									<div class="row espaciado-a">
+										<div class="col-md-4 col-md-offset-4">
+											<a href="#paso-2" role="tab" data-toggle="tab" class="btn-lg btn-rojo link-accesos text-center">
+												Ver m&aacute;s
+											</a>
+										</div>
+									</div>
+								</div><!-- v-center-contenido -->
+							</div><!-- v-center-contenedor -->
 
 						</div>
-						
+					</div>
+
+					<div class="tab-pane fade alto-completo" id="paso-2">
+						<div class="container alto-completo">
+							<div class="v-center-contenedor">
+								<div class="v-center-contenido">
+									<div class="row">
+										<div class="col-md-3 text-left alto-completo">
+											<h3 class="modelo-titular txt-negrita">Precio Total</h3>
+											<p class="txt-negro">Precio sin IVA: <span class="txt-rojo">$123456</span></p>
+											<p class="txt-negro">Precio con IVA: <span class="txt-rojo">$123456</span></p>
+											<p class="txt-negro">Entrada mínima: <span class="txt-rojo">$123456</span></p>
+											<p class="cotizar-descripcion">
+												<span class="txt-rojo">*</span>Los precios no incluyen seguro ni dispositivos.
+												Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque vitae metus ut neque commodo elementum in ac felis. Proin pharetra lorem nec scelerisque vehicula. Nunc feugiat quis velit dignissim dapibus. 
+											</p>
+										</div>
+										
+										<div class="col-md-1 alto-completo visible-md visible-lg hidden-sm hidden-xs">
+											&nbsp;
+										</div>
+
+										<div class="col-md-3 text-left alto-completo">
+											<h3 class="modelo-titular txt-negrita">Cotizar</h3>
+											<p class="txt-negro">Entrada</p>
+											<input type="number" class="form-control" id="inputEntrada" placeholder="">
+											<p class="txt-negro">Plazo</p>
+											<select id="selectplazo" name="selectplazo" class="selectplazo select-custom">
+												<option value="-1">Selecciona un plazo</option>
+												<option value="1">Option 1</option>
+												<option value="2">Option 2</option>
+												<option value="3">Option 3</option>
+												<option value="4">Option 4</option>
+												<option value="5">Option 5</option>
+											</select>
+										</div>
+
+										<div class="col-md-1 alto-completo visible-md visible-lg hidden-sm hidden-xs">
+											&nbsp;
+										</div>
+
+										<div class="col-md-3 text-left alto-completo">
+											<h3 class="modelo-titular txt-negrita">Resultados</h3>
+											<p class="txt-negro">Total a financiar: <span class="txt-rojo">$123456</span></p>
+											<p class="txt-negro">Cuotas Mensuales: <span class="txt-rojo">$123456</span></p>
+											<p class="txt-negro">Precio final con financiamiento: <span class="txt-rojo">$123456</span></p>
+											<p class="cotizar-descripcion">
+												<span class="txt-rojo">*</span>Los precios no incluyen seguro ni dispositivos.
+												Suspendisse eu erat sed felis convallis dictum ac eu ipsum. Suspendisse dictum, tellus at tincidunt luctus, dui neque elementum mi, eget scelerisque arcu leo id sem.
+											</p>
+										</div>
+									</div>
+
+									<div class="row">
+										<div class="col-md-4 col-md-offset-1 alto-completo">
+											<a href="#paso-1" role="tab" data-toggle="tab" class="btn btn-blanco">Anterior</a>
+										</div>
+										<div class="col-md-4 col-md-offset-2 alto-completo">
+											<a href="#paso-3" role="tab" data-toggle="tab" class="btn btn-rojo">Siguiente</a>
+										</div>
+									</div>
+								</div><!-- v-center-contenido -->
+							</div><!-- v-center-contenedor -->
+						</div>
+					</div>
+
+					<div class="tab-pane fade alto-completo" id="paso-3">
+						<form role="form" class="container alto-completo">								
+							<div class="v-center-contenedor">
+								<div class="v-center-contenido">
+									<div class="row">
+										<div class="col-md-4 col-md-offset-1 alto-completo">
+											<div class="form-group">
+												<label for="nombreInput">Nombre:</label>
+												<input type="text" class="form-control" id="nombreInput" maxlength="50" placeholder="">
+											</div>
+											<div class="form-group">
+												<label for="apellidoInput">Apellido:</label>
+												<input type="text" class="form-control" id="apellidoInput" maxlength="50" placeholder="">
+											</div>
+											<div class="form-group">
+												<label for="cedulaInput">Cédula:</label>
+												<input type="number" class="form-control" id="cedulaInput" maxlength="10" placeholder="">
+											</div>
+											<div class="form-group">
+												<label for="telefonoInput">Teléfono:</label>
+												<input type="number" class="form-control" id="telefonoInput" maxlength="15" placeholder="">
+											</div>
+										</div>
+										<div class="col-md-4 col-md-offset-2 alto-completo">
+											<div class="form-group">
+												<label for="emailInput">Email:</label>
+												<input type="email" class="form-control" id="emailInput" maxlength="50" placeholder="">
+											</div>
+											<div class="form-group">
+												<label for="ciudadInput">Ciudad:</label>
+												<input type="text" class="form-control" id="ciudadInput" maxlength="50" placeholder="">
+											</div>
+											<div class="form-group">
+												<label for="mensajeInput">Mensaje:</label>
+												<textarea class="form-control" id="mensajeInput" rows="5" maxlength="200"></textarea>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-8 col-md-offset-1 alto-completo">
+											<div class="form-group">
+												<label for="mensajeInput">Complete los campos:</label>
+											</div>
+										</div>
+									</div>
+									<div class="row">
+										<div class="col-md-4 col-md-offset-1 alto-completo">
+											<a href="#paso-2" role="tab" data-toggle="tab" class="btn btn-blanco">Anterior</a>
+										</div>
+										<div class="col-md-4 col-md-offset-2 alto-completo">
+											<input type="submit" class="btn btn-rojo" value="Enviar" />
+										</div>
+									</div>
+								</div><!-- v-center-contenido -->
+							</div><!-- v-center-contenedor -->
+						</form>
+					</div>
+
+				</div>
+				
 					
 				
 			</div>
