@@ -183,7 +183,7 @@
 
   
   {# {% if app.request.get('_route') == "seminuevos_home" %} #}
-  {% if estaLogueado == true %}
+  {% if app.user %}
     <div class="container-fluid fondo-submenu-vehiculo">
       <div class="row">
         <div class="col-md-2 col-sm-3 col-xs-4 col-md-offset-1 text-center centrado-vertical">

@@ -1,0 +1,51 @@
+
+
+
+  <form class="form-horizontal fondoGrisClaro"  action="{{ path('login_check') }}"  method="post"  >     
+    {#<input type="hidden" name="_target_path" value="/" />#}
+    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" >
+
+
+    <div class="container">
+      
+
+      <div class="row">
+        <div class="col-md-6"></div>
+        <div class="col-md-6">
+
+          {% if error %}
+            <div class="error"  style="color:red;padding:5px;" > {{  error.message }} </div>
+            <!-- <div class="error"  style="color:red;" > Usuario o password incorrectos </div> -->
+          {% endif %}
+
+        </div>
+      </div>
+
+      <div class="row">
+          <div class="col-md-6">
+              <p class="txt-iniciar-sesion">
+                  <span class="txt-negrita">¿Ya tienes una cuenta en seminuevos?</span> Inicia sesión ahora mismo.
+              </p>
+          </div>
+          <div class="col-md-2">
+              
+              <!-- Username -->
+              <input type="text" placeholder="Usuario" class="form-control input-sesion" id="username" name="_username" value="{{ last_username }}" required="required"    />
+          </div>
+          <div class="col-md-2">
+
+            <!-- Password -->
+            <input type="password" placeholder="Contraseña" class="form-control input-sesion"  id="password" name="_password" required="required" />
+
+          </div>
+          <!-- Para redireccionar a seminuevos -->
+          <input type="hidden" name="_target_path" value="seminuevos_home" />
+
+          <div class="col-md-2">
+
+             <button   type="submit" id="_submit" name="_submit"  class="btn btn-iniciar">Login</button>
+          </div>
+      </div>
+
+    </div>
+  </form>

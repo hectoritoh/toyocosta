@@ -49,8 +49,13 @@
 	background-size: cover;
 	height: 333px;		
 }
+.banner-seminuevos{
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/banner/seminuevo.jpg");
+	background-size: cover;
+	height: 270px;		
+}
 
-#form-mantenimiento, #form-rrhh, #form-test label {
+#form-mantenimiento, #form-rrhh, #form-test, #form-register label {
 	color: #A0A0A0;
 }
 

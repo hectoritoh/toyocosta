@@ -21,10 +21,6 @@ class DefaultController extends Controller
         return $this->render('CelmediaToyocostaSeminuevoBundle:Pages:seminuevos.html.twig' , array( "seminuevos" => $seminuevos ));
     }
 
-    public function registerSeminuevosAction()
-    {
-    	return $this->render('CelmediaToyocostaSeminuevoBundle:Pages:register.html.twig');
-    }
 
     public function getFiltrosAction( $seminuevo_modelo , $seminuevo_anio, $seminuevo_precio, $seminuevo_provincia, $seminuevo_estado )
     {
@@ -92,5 +88,16 @@ class DefaultController extends Controller
 
         return $this->render('CelmediaToyocostaSeminuevoBundle:Pages:estadousado.html.twig' , array( "seminuevo" => $seminuevo ));
     }
+
+    // public function getFormLoginAction()
+    // {
+
+    //     return $this->render('SonataUserBundle:Security:base_login.html.twig');
+    // }
+
+    // public function registerSeminuevosAction()
+    // {
+    //     return $this->render('CelmediaToyocostaSeminuevoBundle:Pages:register.html.twig');
+    // }
 
 }

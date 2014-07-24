@@ -15,6 +15,7 @@
         "@CelmediaToyocostaPirelliBundle/Resources/public/css/menu.toyocosta.css"
         "@CelmediaToyocostaVehiculosBundle/Resources/public/css/footer.css"
         "@CelmediaToyocostaVehiculosBundle/Resources/public/css/style.css"
+        "@CelmediaToyocostaVehiculosBundle/Resources/public/css/yc.css"
         "@CelmediaToyocostaPirelliBundle/Resources/public/css/estilo.pirelli.css"
          %}
             <link type="text/css" rel="stylesheet" media="all" href="{{ asset_url }}" />
@@ -23,65 +24,57 @@
         <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
     </head>
     <body data-spy="scroll" data-target="#seminuevos-scroll" id="top-ty">
-        {% set estaLogueado = false %}
 
 
         {% include 'CelmediaToyocostaVehiculosBundle:Blocks:top.menu.secciones.html.twig' %}
 
-        {% if estaLogueado == false %}
-            <div class="container-fluid espaciado-menu visible-md visible-lg hidden-sm hidden-xs">
-                &nbsp;as
-            </div>
-            {% image '@CelmediaToyocostaSeminuevoBundle/Resources/public/images/banner-seminuevo.jpg' %}
-            <div class="container-fluid seminuevo-banner" style="background-image: url({{ asset_url }});">
-                <div class="v-center-contenedor">
-                    <div class="v-bottom-contenido">
-                        <div class="container-fluid">
-                            <div class="row text-center">
-                                <div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
-                                    <h4 class="txt-blanco">¿Quieres comprar o vender tu auto?</h4>
-                                    <a href="#" class="btn btn-lg btn-registrate">Regístrate</a>
+
+        {% block login %}
+
+            {% if app.user %}
+                
+                <div class="container-fluid espaciado-menu-2">
+                    &nbsp;as
+                </div>
+
+            {% else %}
+
+                <div class="container-fluid espaciado-menu visible-md visible-lg hidden-sm hidden-xs">
+                    &nbsp;as
+                </div>
+                {% image '@CelmediaToyocostaSeminuevoBundle/Resources/public/images/banner-seminuevo.jpg' %}
+                <div class="container-fluid seminuevo-banner" style="background-image: url({{ asset_url }});height:277px;">
+                    <div class="v-center-contenedor">
+                        <div class="v-bottom-contenido">
+                            <div class="container-fluid">
+                                <div class="row text-center">
+                                    <div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
+                                        <h4 class="txt-blanco">¿Quieres comprar o vender tu auto?</h4>
+                                        <a href="{{ path('seminuevos_register') }}" class="btn btn-lg btn-registrate">Regístrate</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            {% endimage %}
-            <form id="form-iniciarsesion" class="fondoGrisClaro" role="form">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <p class="txt-iniciar-sesion">
-                                <span class="txt-negrita">¿Ya tienes una cuenta en seminuevos?</span> Inicia sesión ahora mismo.
-                            </p>
-                        </div>
-                        <div class="col-md-2">
-                            <input type="text" placeholder="Usuario" class="form-control input-sesion">
-                        </div>
-                        <div class="col-md-2">
-                            <input type="password" placeholder="Password" class="form-control input-sesion">
-                            
-                        </div>
-                        <div class="col-md-2">
-                            <input type="submit" class="btn btn-iniciar" value="Iniciar sesión" />
-                        </div>
-                    </div>              
-                </div>
-            </form>
-        {% else %}
-            <div class="container-fluid espaciado-menu-2">
-                &nbsp;as
-            </div>
-        {% endif %}
+                {% endimage %}
+
+                    
+                    {#{% include "SonataUserBundle:Security:base_login.html.twig" %}#}
+
+                    {{ render(controller('CelmediaToyocostaSeminuevoBundle:Security:login')) }}
+                    
+                    
+            {% endif %}
 
 
+        {% endblock %}
 
         {% block contenidoseminuevos1 %}
 
         {% endblock %}
         
-        {% if estaLogueado == true %}
+        {% if app.user %}
             <div class="container ty-breadcrumb" {#style="display: none;"#}>
                 <div class="row">
                     <ol class="breadcrumb">

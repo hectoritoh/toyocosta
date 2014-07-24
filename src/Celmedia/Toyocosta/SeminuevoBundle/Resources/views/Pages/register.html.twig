@@ -1,16 +1,128 @@
 {% extends 'CelmediaToyocostaSeminuevoBundle::layout.html.twig' %}
+
+{% block login %}
+    
+    <div class="row banner-seminuevos">
+        <div class="container">
+
+        </div>
+    </div>
+
+{% endblock %}
 	
 {% block contenidoseminuevos1 %}
 
-	<div class="buscador-seminuevo container-fluid">
-        <div class="row">
-            <div class="col-sm-6">
-            {% block sonata_user_registration %}
-                {% render controller("SonataUserBundle:RegistrationFOSUser1:register") %}
-            {% endblock %}
+
+    <div class="row text-center">
+        <div class="col-md-12">
+
+            <h2 class="">REGISTRO DE USUARIO</h2>
+        </div>
+
+        
+    </div>
+    <div class="row">
+        <div class="col-md-7 col-md-offset-3">
+
+            <div class="row space-input">
+                <div class="col-md-10 col-md-offset-1">
+
+                    <p class="txt-info" style="padding-left:15px;">Llene el siguiente formulario para para poder publicar tu auto usado.</p> 
+
+                </div>
+
             </div>
+
+
+            <form action="" {{ form_enctype(form) }} method="POST" role="form" id="form-register" class="form-horizontal">
+
+                {#{{ form_widget(form) }}#}
+                
+                {#<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" >#}
+                {{ form_widget(form._token) }}
+                <div class="row space-input">
+                    <div class="col-md-10 col-md-offset-1">
+
+                        <div class="row">
+                                {{ form_label(form.username, 'Usuario:', {'label_attr': {'class': 'col-sm-4'}}) }}
+
+                                <div class="col-sm-5">
+                                    {{ form_widget(form.username, {'attr': {'class': 'form-control'}}) }}
+                                </div>
+
+
+                        </div>  
+                    </div>
+
+                </div>
+
+                <div class="row space-input">
+                    <div class="col-md-10 col-md-offset-1">
+
+                        <div class="row">
+                                {{ form_label(form.email, 'Email:', {'label_attr': {'class': 'col-sm-4'}}) }}
+
+                                <div class="col-sm-5">
+                                {{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+                                </div>
+
+
+                        </div>  
+                    </div>
+
+                </div>
+
+
+                <div class="row space-input">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="row">
+
+                            {{ form_label(form.password.first, 'Contraseña:', {'label_attr': {'class': 'col-sm-4'}}) }}
+
+                            <div class="col-sm-5">
+
+                            {{ form_widget(form.password.first, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+                
+
+                <div class="row space-input">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="row">
+
+                            {{ form_label(form.password.second, 'Conf. Contraseña:', {'label_attr': {'class': 'col-sm-4'}}) }}
+
+                            <div class="col-sm-5">
+
+                            {{ form_widget(form.password.second, {'attr': {'class': 'form-control'}}) }}
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row space-input">
+                    <div style="padding-top:20px;" class="col-md-10 col-md-offset-1">
+
+                        <div class="row">
+                            <div class="col-md-3 col-md-offset-4">
+
+                                <input type="submit" style="width:100%;" class="btn btn-info" value="Enviar">
+                            </div>
+                        </div>  
+                    </div>
+
+                </div>
+
+            </form>
+
         </div>
     </div>
+
+
 {% endblock %}
 
 {% block contenidoseminuevos2 %}

@@ -23,5 +23,20 @@ seminuevos_filtro:
     defaults: { _controller: CelmediaToyocostaSeminuevoBundle:Default:filtroBuscadorSeminuevos }
 
 seminuevos_register:
-    pattern:  /user/register
-    defaults: { _controller: CelmediaToyocostaSeminuevoBundle:Default:registerSeminuevos }
+    pattern:  /seminuevos/register
+    defaults: { _controller: CelmediaToyocostaSeminuevoBundle:Security:register }
+
+registro_exitoso:
+    pattern:  /mensaje/user
+    defaults: { _controller: CelmediaToyocostaSeminuevoBundle:Security:mensajeUser }
+
+login:
+    path:     /login
+    defaults: { _controller: CelmediaToyocostaSeminuevoBundle:Security:login }
+
+
+login_check:
+    path: /login_check
+
+logout:
+    path: /logout

@@ -60,10 +60,11 @@ class VehiculoGaleriaAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('tipo', 'choice', array('choices' => array('video' => 'video',
-                'imagen' => "imagen")))
+            ->add('tipo', 'choice', array('choices' => array('youtube' => 'youtube',
+                'vimeo' => 'vimeo', 'imagen' => 'imagen')))
             ->add('url')
             ->add('orden')
+            ->setHelps(array( 'url' => 'Codigo/Archivo' ))
             ->add('estado', 'choice', array(
            'choices' => array(
                '1' => 'Publicado',
