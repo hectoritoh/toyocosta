@@ -29,7 +29,7 @@
         {% include 'CelmediaToyocostaVehiculosBundle:Blocks:top.menu.secciones.html.twig' %}
 
 
-        {% block login %}
+        {% block registro %}
 
             {% if app.user %}
                 
@@ -39,7 +39,7 @@
 
             {% else %}
 
-                <div class="container-fluid espaciado-menu visible-md visible-lg hidden-sm hidden-xs">
+                {#<div class="container-fluid espaciado-menu visible-md visible-lg hidden-sm hidden-xs">
                     &nbsp;as
                 </div>
                 {% image '@CelmediaToyocostaSeminuevoBundle/Resources/public/images/banner-seminuevo.jpg' %}
@@ -57,13 +57,28 @@
                         </div>
                     </div>
                 </div>
-                {% endimage %}
+                {% endimage %}#}
+
+                <div class="row banner-seminuevos">
+                    <div class="v-center-contenedor">
+                        <div class="v-bottom-contenido">
+                            <div class="container-fluid">
+                                <div class="row text-center">
+                                    <div class="col-md-4 col-sm-6 col-md-offset-4 col-sm-offset-3">
+                                        <h4 class="txt-blanco" style=" margin-bottom: 0;text-transform: uppercase;">¿Quieres comprar o vender tu auto?</h4>
+                                        <a href="{{ path('seminuevos_register') }}" class="btn btn-lg btn-registrate">Regístrate</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                     
-                    {#{% include "SonataUserBundle:Security:base_login.html.twig" %}#}
+                {#{% include "SonataUserBundle:Security:base_login.html.twig" %}#}
 
-                    {{ render(controller('CelmediaToyocostaSeminuevoBundle:Security:login')) }}
-                    
+                {{ render(controller('CelmediaToyocostaSeminuevoBundle:Security:login')) }}
+                
                     
             {% endif %}
 
@@ -73,26 +88,14 @@
         {% block contenidoseminuevos1 %}
 
         {% endblock %}
+
         
-        {% if app.user %}
-            <div class="container ty-breadcrumb" {#style="display: none;"#}>
-                <div class="row">
-                    <ol class="breadcrumb">
-                        <li><a href="#">HOME</a></li>
-                        <li><a href="{{ path('seminuevos_home') }}">Seminuevos</a></li>
-                        <li class="active">
-                            {% if app.request.get('_route') == "seminuevos_home" %}
-                                Principal
-                            {% elseif app.request.get('_route') == "seminuevos_venda_usado" %}
-                                Venda su usado
-                            {% elseif app.request.get('_route') == "seminuevos_estado_usado" %}
-                                Estado de mi Carro
-                            {% endif %}
-                        </li>
-                    </ol>
-                </div>
-            </div>
-        {% endif %}
+        {% block breadcrumb %}
+
+            
+            
+        {% endblock %}
+
 
         {% block contenidoseminuevos2 %}
 

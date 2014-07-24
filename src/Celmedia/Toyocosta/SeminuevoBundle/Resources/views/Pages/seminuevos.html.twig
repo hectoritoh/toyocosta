@@ -1,5 +1,6 @@
 {% extends 'CelmediaToyocostaSeminuevoBundle::layout.html.twig' %}
-	
+
+
 {% block contenidoseminuevos1 %}
 
 	<div class="buscador-seminuevo container-fluid">
@@ -26,6 +27,32 @@
         </div>
     </div>
 {% endblock %}
+
+{% block breadcrumb %}
+    
+    {% if app.user %}
+        <div class="container ty-breadcrumb" {#style="display: none;"#}>
+            <div class="row">
+                <ol class="breadcrumb">
+                    <li><a href="#">HOME</a></li>
+                    <li><a href="{{ path('seminuevos_home') }}">Seminuevos</a></li>
+                    <li class="active">
+                        {% if app.request.get('_route') == "seminuevos_home" %}
+                            Principal
+                        {% elseif app.request.get('_route') == "seminuevos_venda_usado" %}
+                            Venda su usado
+                        {% elseif app.request.get('_route') == "seminuevos_estado_usado" %}
+                            Estado de mi Carro
+                        {% endif %}
+                    </li>
+                </ol>
+            </div>
+        </div>
+    {% endif %}  
+
+
+{% endblock %}  
+
 
 {% block contenidoseminuevos2 %}
 
