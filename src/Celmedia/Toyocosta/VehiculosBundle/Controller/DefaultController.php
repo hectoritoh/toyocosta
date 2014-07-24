@@ -60,7 +60,7 @@ class DefaultController extends Controller
     }
 
     public function obtenerSlidePrincipalAction(){
-        $em = $this->getDoctrine()->getManager();        
+        $em = $this->getDoctrine()->getManager();
         
         $slidePrincipal = $this->getDoctrine()->getRepository("CelmediaToyocostaVehiculosBundle:SlidePrincipal")->findBy(array(
             "estado" => 1
@@ -71,9 +71,37 @@ class DefaultController extends Controller
     }
 
 
-    public function verVehiculoAction($vehiculo){
+    public function verVehiculoAction($vehiculoid){
+        $em = $this->getDoctrine()->getManager();
 
-        return $this->render('CelmediaToyocostaVehiculosBundle:Pages:vehiculo.html.twig' , array("vehiculo" => $vehiculo ));
+        $vehiculo = $this->getDoctrine()->getRepository("CelmediaToyocostaVehiculosBundle:Vehiculo")->findOneBy(array(
+            "id" => $vehiculoid,
+            "estado" => 1
+                )
+        );
+
+        $vehiculoColores = $this->getDoctrine()->getRepository("CelmediaToyocostaVehiculosBundle:VehiculoColores")->findBy(array(
+            "vehiculo" => $vehiculo,
+            "estado" => 1
+                )
+        );
+        $vehiculoModelos = $this->getDoctrine()->getRepository("CelmediaToyocostaVehiculosBundle:VehiculoModelos")->findBy(array(
+            "vehiculomodel" => $vehiculo,
+            "estado" => 1
+                )
+        );
+       $vehiculoGaleria = $this->getDoctrine()->getRepository("CelmediaToyocostaVehiculosBundle:VehiculoGaleria")->findBy(array(
+            "vehiculogaleria" => $vehiculo,
+            "estado" => 1
+                )
+        );
+
+        return $this->render('CelmediaToyocostaVehiculosBundle:Pages:vehiculo.html.twig' , array(
+            "vehiculo" => $vehiculo,
+            "vehiculoColores" => $vehiculoColores,
+            "vehiculoModelos" => $vehiculoModelos,
+            "vehiculoGaleria" => $vehiculoGaleria
+        ));
     }
 
 

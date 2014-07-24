@@ -624,7 +624,7 @@ fieldset.ty-fieldset-border {
 .vehiculo-banner{
 	width: 100%;
 	position: relative;
-	height: 40%;
+	height: 300px;
 
 	background-repeat: no-repeat;
 	-webkit-background-size: cover;
@@ -724,7 +724,7 @@ fieldset.ty-fieldset-border {
 .vehiculo-descripcion{
 	width: 100%;
 	position: relative;
-	height: 60%;
+	height: auto;
 }
 .txt-precio{
 	color: #df1928;
@@ -734,7 +734,7 @@ fieldset.ty-fieldset-border {
 	color: #df1928;
 	border: 2px solid #df1928;
 	border-radius: 5px;
-	width: 100%;
+	/*width: 100%;*/
 	margin-top: 5px;
 	margin-bottom: 5px;
 }
@@ -781,7 +781,8 @@ fieldset.ty-fieldset-border {
 	width: 20px;
 	position: relative;
 	height: 20px;
-	margin: 5px;
+	/*margin: 5px;*/
+	margin: 0px 4px -5px 5px;	
 	right: 0px;
 	display: inline-block;
 }
@@ -863,6 +864,11 @@ fieldset.ty-fieldset-border {
 	position: relative;
 	width: 100%;
 	height: 100%;
+}
+.vehiculo-seccion-2{
+	position: relative;
+	width: 100%;
+	height: auto;
 }
 .seminuevos-seccion{
 	position: relative;
@@ -1321,7 +1327,7 @@ fieldset.ty-fieldset-border {
 		top: 38%;
 	}
 	.carousel-indicators {
-		bottom: 62px;
+		/*bottom: 62px;*/
 	}
 	/*CAROUSEL VEHICULOS*/
 	.carousel-vehiculos .active {
