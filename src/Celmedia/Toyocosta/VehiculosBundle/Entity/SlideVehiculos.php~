@@ -256,6 +256,7 @@ class SlideVehiculos
     {
         $this->uploadFileSlide();
         $this->uploadFileThumb();
+        $this->uploadFileLogo();
     }
 
 
@@ -362,6 +363,88 @@ public function uploadFileThumb()
 }
 
 
+
+
+    /**
+     * @var string
+     */
+    private $logo;
+
+
+    /**
+     * Set logo
+     *
+     * @param string $logo
+     * @return SlideVehiculos
+     */
+    public function setLogo($logo)
+    {
+        $this->logo = $logo;
+
+        return $this;
+    }
+
+    /**
+     * Get logo
+     *
+     * @return string 
+     */
+    public function getLogo()
+    {
+        return $this->logo;
+    }
+
+
+
+
+
+    /**
+     * Unmapped property to handle file uploads
+     */
+    private $FileLogo;
+
+    /**
+     * Sets file.
+     *
+     * @param UploadedFile $file
+     */
+    public function setFileLogo(UploadedFile $FileLogo = null)
+    {
+        $this->FileLogo = $FileLogo;
+    }
+
+    /**
+     * Get file.
+     *
+     * @return UploadedFile
+     */
+    public function getFileLogo()
+    {
+        return $this->FileLogo;
+    }
+
+    /**
+     * Manages the copying of the file to the relevant place on the server
+     */
+    public function uploadFileLogo()
+    {
+        // the file property can be empty if the field is not required
+        if (null === $this->getFileLogo()) {
+            return;
+        }
+
+        // move takes the target directory and target filename as params
+        $this->getFileLogo()->move(
+           __DIR__.'/../../../../../web/'. 'uploads/slide-vehiculos/logos' ,
+            $this->getFileLogo()->getClientOriginalName()
+        );
+
+        // set the path property to the filename where you've saved the file
+        $this->logo = $this->getFileLogo()->getClientOriginalName();
+
+        // clean up the file property as you won't need it anymore
+        $this->setFileLogo(null);
+    }
 
 
 }

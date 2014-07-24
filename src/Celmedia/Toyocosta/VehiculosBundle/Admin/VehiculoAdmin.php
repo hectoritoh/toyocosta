@@ -57,6 +57,12 @@ class VehiculoAdmin extends Admin
 
         }
 
+        if ( $obj->getFileFicha() != null  ) {
+            
+            $obj->uploadFileFicha();
+
+        }
+
     }
 
     
@@ -168,6 +174,15 @@ class VehiculoAdmin extends Admin
             $fileFieldOptions2['help'] = '<img src="'.$fullPath.'" class="img-responsive" />';
         }
 
+        $fileFieldOptions3 = array('required' => false);
+        if ($obj && ($webPath = '/../../../../toyocostaweb/web/'. 'uploads/vehiculo/ficha/' .    $obj->getFicha())) {
+            // get the container so the full path to the image can be set
+            $container = $this->getConfigurationPool()->getContainer();
+            $fullPath = $container->get('request')->getBasePath().'/'.$webPath;
+
+            // add a 'help' option containing the preview's img tag
+            $fileFieldOptions3['help'] = '<img src="'.$fullPath.'" class="img-responsive" />';
+        }
 
 
         $formMapper
@@ -179,6 +194,7 @@ class VehiculoAdmin extends Admin
             ->add('descripcion')
             ->add('fileThumb' , 'file' , $fileFieldOptions2)
             ->add('fileBanner', 'file', $fileFieldOptions )
+            ->add('fileFicha', 'file', $fileFieldOptions3 )
             ->with('Colores del Vehiculo')
                 ->add('colores', 'sonata_type_collection', array(
                      'by_reference' => false,

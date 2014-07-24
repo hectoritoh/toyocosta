@@ -31,6 +31,9 @@ Celmedia\Toyocosta\VehiculosBundle\Entity\Vehiculo:
         imagen_thumb:
             type: text
             nullable: false
+        ficha:
+            type: text
+            nullable: false
         estado:
             type: integer
             unsigned: false
