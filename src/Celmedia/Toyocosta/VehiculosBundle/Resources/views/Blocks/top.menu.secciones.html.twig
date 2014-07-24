@@ -182,32 +182,38 @@
   {% endif %}
 
   
-  {# {% if app.request.get('_route') == "seminuevos_home" %} #}
-  {% if app.user %}
-    <div class="container-fluid fondo-submenu-vehiculo">
-      <div class="row">
-        <div class="col-md-2 col-sm-3 col-xs-4 col-md-offset-1 text-center centrado-vertical">
-          {% image '@CelmediaToyocostaSeminuevoBundle/Resources/public/images/Logo-seminuevo-SubM.png' %}
-            <img src="{{ asset_url }}" class="img-responsive obj-centrar">
-          {% endimage %}
-        </div>
-        <div class="col-md-9 col-sm-8 col-xs-8 text-left centrado-vertical">
-          <div class="container-fluid">
-            <div class="row submenu-vehiculo page-scroll">
-              <div class="col-md-2 col-sm-2 text-center">
-                <a href="{{ path('seminuevos_home') }}" class="submenu-vehiculo-item {% if app.request.get('_route') == "seminuevos_home" %}active{% endif %}">Principal</a>
-              </div>
-              <div class="col-md-3 col-sm-3 text-center">
-                <a href="{{ path('seminuevos_venda_usado') }}" class="submenu-vehiculo-item {% if app.request.get('_route') == "seminuevos_venda_usado" %}active{% endif %}">Venda su usado</a>
-              </div>
-              <div class="col-md-3 col-sm-3 text-center">
-                <a href="{{ path('seminuevos_estado_usado') }}" class="submenu-vehiculo-item {% if app.request.get('_route') == "seminuevos_estado_usado" %}active{% endif %}">Estado de mi carro</a>
+  {% if app.request.get('_route') == "seminuevos_home" or app.request.get('_route') == "seminuevos_venda_usado" or app.request.get('_route') == "seminuevos_estado_usado" %} 
+
+      {% if app.user %}
+        
+        <div class="container-fluid fondo-submenu-vehiculo">
+          <div class="row">
+            <div class="col-md-2 col-sm-3 col-xs-4 col-md-offset-1 text-center centrado-vertical">
+              {% image '@CelmediaToyocostaSeminuevoBundle/Resources/public/images/Logo-seminuevo-SubM.png' %}
+                <img src="{{ asset_url }}" class="img-responsive obj-centrar">
+              {% endimage %}
+            </div>
+            <div class="col-md-9 col-sm-8 col-xs-8 text-left centrado-vertical">
+              <div class="container-fluid">
+                <div class="row submenu-vehiculo page-scroll">
+                  <div class="col-md-2 col-sm-2 text-center">
+                    <a href="{{ path('seminuevos_home') }}" class="submenu-vehiculo-item {% if app.request.get('_route') == "seminuevos_home" %}active{% endif %}">Principal</a>
+                  </div>
+                  <div class="col-md-3 col-sm-3 text-center">
+                    <a href="{{ path('seminuevos_venda_usado') }}" class="submenu-vehiculo-item {% if app.request.get('_route') == "seminuevos_venda_usado" %}active{% endif %}">Venda su usado</a>
+                  </div>
+                  <div class="col-md-3 col-sm-3 text-center">
+                    <a href="{{ path('seminuevos_estado_usado') }}" class="submenu-vehiculo-item {% if app.request.get('_route') == "seminuevos_estado_usado" %}active{% endif %}">Estado de mi carro</a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-    </div>
+
+      {% endif %} 
+
+
   {% else %}
       
   {% endif %}

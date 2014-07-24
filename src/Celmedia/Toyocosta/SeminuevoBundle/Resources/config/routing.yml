@@ -7,11 +7,11 @@ seminuevos_home:
     defaults: { _controller: CelmediaToyocostaSeminuevoBundle:Default:seminuevos }
 
 seminuevos_venda_usado:
-    pattern:  /vendausado
+    pattern:  /seminuevos/venda
     defaults: { _controller: CelmediaToyocostaSeminuevoBundle:Default:vendausado }
 
 seminuevos_estado_usado:
-    pattern:  /estadousado
+    pattern:  /seminuevos/estado
     defaults: { _controller: CelmediaToyocostaSeminuevoBundle:Default:estadousado }
 
 seminuevos_buscador:
@@ -27,7 +27,7 @@ seminuevos_register:
     defaults: { _controller: CelmediaToyocostaSeminuevoBundle:Security:register }
 
 registro_exitoso:
-    pattern:  /mensaje/user
+    pattern:  /seminuevos/mensaje
     defaults: { _controller: CelmediaToyocostaSeminuevoBundle:Security:mensajeUser }
 
 login:
