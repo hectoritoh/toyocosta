@@ -1015,9 +1015,15 @@ fieldset.ty-fieldset-border {
 	background-color: #df182b;
 }
 
+.img-ficha-sm img{
+	border:1px solid #EEEEEE;
+}
+.img-ficha-sm:hover img{
+	border:1px solid #EC7984;
+}
 
 .input-buscar {
-	height: 50px;
+	height: 40px;
 	border-radius: 0px;	
 	background-color: #F0F0F0;
 	-webkit-box-shadow: none;
@@ -1128,7 +1134,7 @@ fieldset.ty-fieldset-border {
 	padding-top: 10px;
 	padding-bottom: 10px;
 	line-height: 30px;
-	height: 50px;
+	height: 40px;
 }
 
 
@@ -1261,10 +1267,10 @@ fieldset.ty-fieldset-border {
 @media (min-width: 1921px) { 
 
 	.input-buscar{
-		padding: 10px 50px;
-		font-size: 18px;
+		padding: 10px 10px;
+		font-size: 14px;
 		line-height: normal;
-		height: 50px;
+		height: 40px;
 	}
 
 	.navbar-toyocosta .navbar-nav-vehiculos > li > a{
@@ -1366,8 +1372,8 @@ fieldset.ty-fieldset-border {
 	}
 
 	.navbar-toyocosta .navbar-nav-vehiculos > li > a{
-		padding-top: 15px;
-		padding-bottom: 15px;
+		padding-top: 10px;
+		padding-bottom: 10px;
 	}
 
 	.navbar-buscar{
@@ -1396,10 +1402,10 @@ fieldset.ty-fieldset-border {
 	}
 
 	.input-buscar{
-		padding: 10px 30px;
-		font-size: 18px;
+		padding: 10px 10px;
+		font-size: 14px;
 		line-height: normal;
-		height: 50px;
+		height: 40px;
 	}
  }
  
@@ -1441,17 +1447,17 @@ fieldset.ty-fieldset-border {
 		padding-right: 5px;
 		font-size: 14px;
 		line-height: normal;
-		height: 50px;
+		height: 40px;
 		width: 115px !important;
 	}
 
 	.navbar-toyocosta .navbar-nav-vehiculos > li > a{
-		padding-top: 15px;
-		padding-bottom: 15px;
+		padding-top: 10px;
+		padding-bottom: 10px;
 		padding-left: 5px;
 		padding-right: 5px;
 		text-align: center;
-		font-size: 12px;
+		font-size: 10px;
 	}
 	.alto-agencia{
 		height: 60px;
