@@ -472,8 +472,10 @@ button.close-ficha{
 	font-size: 38pt;
 }
 .logo-toyota{
-	padding-top: 6px;
-	padding-bottom: 8px;
+	/*padding-top: 6px;
+	padding-bottom: 8px;*/
+	padding-top: 5px; /*28/07/14*/
+	padding-bottom: 5px; /*28/07/14*/
 	border-bottom: 1px solid #537982; /*29/04/14*/
 }
 .accesos{
