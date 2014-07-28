@@ -879,7 +879,8 @@ fieldset.ty-fieldset-border {
 	height: 85px;
 }
 .espaciado-menu-2{
-	height: 150px;
+	/*height: 150px;*/
+	height: 117px;
 }
 .texto-detalle{
 	color: #313131;
