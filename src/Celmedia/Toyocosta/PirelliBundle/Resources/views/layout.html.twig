@@ -7,60 +7,63 @@
         <meta name="description" content="">
         <meta name="author" content="">
         <!-- <link rel="shortcut icon" href="../../assets/ico/favicon.ico"> -->
-        <title>Toyocosta</title>
+        <title>Toyocosta :: Pirelli</title>
 
-    {% stylesheets
-    "@CelmediaToyocostaPirelliBundle/Resources/public/css/bootstrap.min.css"
-    "@CelmediaToyocostaPirelliBundle/Resources/public/css/reset.css"
-    "@CelmediaToyocostaPirelliBundle/Resources/public/css/jquery.selectbox/jquery.selectbox.css"
-    "@CelmediaToyocostaPirelliBundle/Resources/public/css/menu.toyocosta.css"
-    "@CelmediaToyocostaPirelliBundle/Resources/public/css/estilo.pirelli.css"
-     %}
-        <link type="text/css" rel="stylesheet" media="all" href="{{ asset_url }}" />
+        {% stylesheets
+            "@CelmediaToyocostaPirelliBundle/Resources/public/css/bootstrap.min.css"
+            "@CelmediaToyocostaPirelliBundle/Resources/public/css/jquery.selectbox/jquery.selectbox.css"
+            "@CelmediaToyocostaPirelliBundle/Resources/public/css/menu.toyocosta.css"
+            "@CelmediaToyocostaVehiculosBundle/Resources/public/css/footer.css"
+            "@CelmediaToyocostaPirelliBundle/Resources/public/css/estilo.pirelli.css"
+            "@CelmediaToyocostaVehiculosBundle/Resources/public/css/style.css"
+            "@CelmediaToyocostaVehiculosBundle/Resources/public/css/yc.css"
+         %}
+            <link type="text/css" rel="stylesheet" media="all" href="{{ asset_url }}" />
+         {% endstylesheets %}
 
-    {% endstylesheets %}
         <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
         <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
     </head>
-
     <body>
 
 
+        {#
+            {% include 'CelmediaToyocostaPirelliBundle:Blocks:top.menu.html.twig' %}
+        #}
+            {% include 'CelmediaToyocostaVehiculosBundle:Blocks:top.menu.secciones.html.twig' %}
 
-    {% include 'CelmediaToyocostaPirelliBundle:Blocks:top.menu.html.twig' %}
+        {% block content %}
+            
 
-    {% block content %}
+
+
+        {% endblock %}
         
 
 
+        {% include 'CelmediaToyocostaPirelliBundle:Blocks:footer.html.twig' %}
 
-    {% endblock %}
-    
-
-
-    {% include 'CelmediaToyocostaPirelliBundle:Blocks:footer.html.twig' %}
-
-
-
-
-    {% javascripts
-    '@CelmediaToyocostaPirelliBundle/Resources/public/js/jquery.js'
-    '@CelmediaToyocostaPirelliBundle/Resources/public/js/bootstrap.min.js'
-    '@CelmediaToyocostaPirelliBundle/Resources/public/js/jquery.selectbox/jquery.selectbox-0.2.js'        
-    '@CelmediaToyocostaPirelliBundle/Resources/public/js/jquery.validate.min.js'
-    '@CelmediaToyocostaPirelliBundle/Resources/public/js/additional-methods.min.js'
-    '@CelmediaToyocostaPirelliBundle/Resources/public/js/messages_es.js' 
-    '@CelmediaToyocostaPirelliBundle/Resources/public/js/script.js' 
-    '@CelmediaToyocostaPirelliBundle/Resources/public/js/script.pirelli.js'
-    %}
-        <script type="text/javascript" src="{{ asset_url }}"></script>
-     {% endjavascripts %}
+        {% javascripts
+            '@CelmediaToyocostaPirelliBundle/Resources/public/js/jquery.js'
+            '@CelmediaToyocostaPirelliBundle/Resources/public/js/bootstrap.min.js'
+            '@CelmediaToyocostaPirelliBundle/Resources/public/js/jquery.selectbox/jquery.selectbox-0.2.js'        
+            '@CelmediaToyocostaPirelliBundle/Resources/public/js/jquery.validate.min.js'
+            '@CelmediaToyocostaPirelliBundle/Resources/public/js/additional-methods.min.js'
+            '@CelmediaToyocostaPirelliBundle/Resources/public/js/messages_es.js' 
+            '@CelmediaToyocostaVehiculosBundle/Resources/public/js/jquery.scrollTo-1.4.2-min.js' 
+            '@CelmediaToyocostaVehiculosBundle/Resources/public/js/jquery-ui-1.9.2.custom.js'            
+            '@CelmediaToyocostaPirelliBundle/Resources/public/js/script.pirelli.js'
+            '@CelmediaToyocostaVehiculosBundle/Resources/public/js/script.toyocosta.js'
+            '@CelmediaToyocostaPirelliBundle/Resources/public/js/script.js' 
+        %}
+            <script type="text/javascript" src="{{ asset_url }}"></script>
+         {% endjavascripts %}
 
 
 
-    {% block js %}        
-        
-    {% endblock %}
+        {% block js %}        
+            
+        {% endblock %}
 
 
     </body>

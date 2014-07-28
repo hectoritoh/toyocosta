@@ -43,13 +43,16 @@ $(document).ready(function(){
 		var $spy = $(this).scrollspy('refresh')
 	})*/
 
-	$('.page-scroll a').bind('click', function(event) {
+	$('.page-scroll a.navegacion').bind('click', function(event) {
+		event.preventDefault();
+
 		var $anchor = $(this);
 		$('html, body').stop().animate({
 			scrollTop: $($anchor.attr('href')).offset().top
 		}, 1500, 'easeInOutExpo');
-		event.preventDefault();
 	});
+
+});
 
 	/*$(".item-submenu").click(function (e) {
         e.preventDefault();
@@ -70,4 +73,3 @@ $(document).ready(function(){
 		$(e.target).parent('li').addClass("active");
 	})*/
 
-});
