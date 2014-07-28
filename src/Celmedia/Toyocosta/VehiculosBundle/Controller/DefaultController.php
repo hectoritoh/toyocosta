@@ -47,7 +47,19 @@ class DefaultController extends Controller
         return $this->render('CelmediaToyocostaVehiculosBundle:Default:index.html.twig');
     }
 
-    public function obtenerVehiculosAction($tipoVehiculo, $prefijo, $alineacion){
+    public function obtenerVehiculosAction($tipoVehiculo, $prefijo){
+        $em = $this->getDoctrine()->getManager();
+
+        $vehiculo =$this->getDoctrine()->getRepository('CelmediaToyocostaVehiculosBundle:CategoriaVehiculo')->findBy(array("nombre" => $tipoVehiculo, "estado"=> 1));
+        $slideVehiculos = $this->getDoctrine()->getRepository("CelmediaToyocostaVehiculosBundle:SlideVehiculos")->findBy(array(
+            "categoria_vehiculo" => $vehiculo , "estado" => 1
+                )
+        );
+
+        return $this->render('CelmediaToyocostaVehiculosBundle:Blocks:slide.vehiculos.html.twig' , array( "slideVehiculos" => $slideVehiculos, "prefijo" => $prefijo));
+    }
+
+    public function obtenerVehiculos2Action($tipoVehiculo, $prefijo, $alineacion){
         $em = $this->getDoctrine()->getManager();
 
         $vehiculo =$this->getDoctrine()->getRepository('CelmediaToyocostaVehiculosBundle:CategoriaVehiculo')->findBy(array("nombre" => $tipoVehiculo, "estado"=> 1));

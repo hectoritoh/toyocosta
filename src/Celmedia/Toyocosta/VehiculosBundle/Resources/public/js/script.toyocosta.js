@@ -51,10 +51,10 @@ $(document).ready(function(){
 		event.preventDefault();
 	});
 
-	$(".item-submenu").click(function (e) {
+	/*$(".item-submenu").click(function (e) {
         e.preventDefault();
        $('#fondo-submenu').stop(true, true).slideToggle( "slow" );
-    });
+    });*/
 
 	/*$('ul.navbar-nav-vehiculos > li').click(function (e) {
         e.preventDefault();
@@ -62,12 +62,12 @@ $(document).ready(function(){
         $(this).addClass('active');
     });*/
 
-	$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+	/*$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
 		//console.log (e.target); // activated tab
 		//console.log (e.relatedTarget); // previous tab
 		//console.log (this);
 		$(this).parent('li').removeClass("active");
 		$(e.target).parent('li').addClass("active");
-	})
+	})*/
 
 });

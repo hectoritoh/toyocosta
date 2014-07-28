@@ -31,20 +31,20 @@
             <div class="v-center-contenido">
               <div class="container-fluid">
                 <div class="row espacio-a">
-                  <div class="col-md-3 col-sm-8 {% if alineacion == 'izq' %}col-md-offset-2 col-sm-offset-2 {% elseif alineacion == 'der' %}col-md-offset-7 col-sm-offset-2 {% endif %}">
-                    <img src="{{ asset('uploads/slide-vehiculos/logos/' ~ item.logo ) }}" class="img-responsive {% if alineacion == 'izq' %}obj-izq{% elseif alineacion == 'der' %}obj-der{% endif %}">
+                  <div class="col-md-3 col-sm-8 {% if item.menuPosicion == 1 %}col-md-offset-2 col-sm-offset-2 {% elseif item.menuPosicion == 0 %}col-md-offset-7 col-sm-offset-2 {% endif %}">
+                    <img src="{{ asset('uploads/slide-vehiculos/logos/' ~ item.logo ) }}" class="img-responsive {% if item.menuPosicion == 1 %}obj-izq{% elseif item.menuPosicion == 0 %}obj-der{% endif %}">
                   </div>
                 </div>
                 <div class="row espacio-a">
-                  <div class="col-md-4 col-sm-8 {% if alineacion == 'izq' %}col-md-offset-2 col-sm-offset-2 {% elseif alineacion == 'der' %}col-md-offset-6 col-sm-offset-2 {% endif %}">
-                    <div class="cuadro-precio {% if alineacion == 'izq' %}text-left{% elseif alineacion == 'der' %}text-right{% endif %}">
+                  <div class="col-md-4 col-sm-8 {% if item.menuPosicion == 1 %}col-md-offset-2 col-sm-offset-2 {% elseif item.menuPosicion == 0 %}col-md-offset-6 col-sm-offset-2 {% endif %}">
+                    <div class="cuadro-precio {% if item.menuPosicion == 1 %}text-left{% elseif item.menuPosicion == 0 %}text-right{% endif %}">
                       <h4 class="txt-caption">Precio <span class="precio-caption">${{ item.vehiculoSlide.precio }}</span></h4>
                       <p class="parrafo-caption">{{ item.vehiculoSlide.informacion}}</p>
                     </div>
                   </div>
                 </div>
                 <div class="row espacio-a">
-                  <div class="col-md-2 col-sm-5 {% if alineacion == 'izq' %}col-md-offset-2 col-sm-offset-2{% elseif alineacion == 'der' %}col-md-offset-8 col-sm-offset-5{% endif %}">
+                  <div class="col-md-2 col-sm-5 {% if item.menuPosicion == 1 %}col-md-offset-2 col-sm-offset-2{% elseif item.menuPosicion == 0 %}col-md-offset-8 col-sm-offset-5{% endif %}">
                     <div class="cuadro-caption">
                       <ul class="list-caption">
                         <li class="link-caption"><a class="link" href="#">Solicita Cotizaci&oacute;n</a></li>
@@ -76,6 +76,4 @@
     </a>
 
   </div>
-
-
 </div>
