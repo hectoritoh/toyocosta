@@ -2,9 +2,13 @@
 
 	{% block contenidotoyocosta %}
 
-		{% include 'CelmediaToyocostaVehiculosBundle:Blocks:top.menu.secciones.html.twig' %}
+		{% include 'CelmediaToyocostaVehiculosBundle:Blocks:top.menu.secciones.html.twig' with { 'vehiculoId': vehiculo.id, 'vehiculoNombre': vehiculo.nombre, 'categoriaNombre': vehiculo.categoria.nombre} %}
 
-		<div id="vehiculo-detalles" class="vehiculo-seccion-2">		
+		<div id="vehiculo-detalles" class="vehiculo-seccion-2">	
+			<div class="espaciado-vehiculo visible-md visible-lg hidden-sm hidden-xs">
+				&nbsp;
+            </div>
+
 			<div class="container-fluid vehiculo-banner" style="background-image: url({{ asset('uploads/vehiculo/banner/'   ~   vehiculo.imagenBanner ) }});">
 				&nbsp;
 			</div>
@@ -235,7 +239,7 @@
 													<h4 class="tab-subtitular">Modelo</h4>
 												</div>
 												<div class="row espaciado-a">
-													<select id="selectmodelo" name="selectmodelo" class="selectmodelo select-custom">
+													<select name="selectmodelo" class="selectmodelo select-custom">
 														<option value="-1">Selecciona una opción</option>
 														{% for vehiculoModelo  in vehiculoModelos %}
 															<option value="{{ vehiculoModelo.id }}">{{ vehiculoModelo.nombre }}</option>

@@ -1,17 +1,15 @@
 {% extends 'CelmediaToyocostaVehiculosBundle::layout.html.twig' %}
 
+{% block contenidotoyocosta %}
 
-	{% block contenidotoyocosta %}
-	
-		{% include 'CelmediaToyocostaVehiculosBundle:Blocks:top.menu.principal.html.twig' %}
+        {{ render(controller("CelmediaToyocostaVehiculosBundle:Default:obtenerMenuPrincipal" ))   }}
 
-		{{ render(controller("CelmediaToyocostaVehiculosBundle:Default:obtenerSlidePrincipal") ) }}
 
-        {{ render(controller("CelmediaToyocostaVehiculosBundle:Default:obtenerVehiculos" , { 'tipoVehiculo': 'autos', 'prefijo': 'autos', 'alineacion': 'izq'  }))   }}
-        {{ render(controller("CelmediaToyocostaVehiculosBundle:Default:obtenerVehiculos" , { 'tipoVehiculo': 'camionetas', 'prefijo': 'camionetas', 'alineacion': 'der'  }))   }}
-        {{ render(controller("CelmediaToyocostaVehiculosBundle:Default:obtenerVehiculos" , { 'tipoVehiculo': 'suv', 'prefijo': 'suvs', 'alineacion': 'izq'  }))   }}
-        {{ render(controller("CelmediaToyocostaVehiculosBundle:Default:obtenerVehiculos" , { 'tipoVehiculo': 'hibridos', 'prefijo': 'hibridos', 'alineacion': 'der'  }))   }}
+	{{ render(controller("CelmediaToyocostaVehiculosBundle:Default:obtenerSlidePrincipal") ) }}
 
+        {% for categoria in categoriasVehiculo %}
+                {{ render(controller("CelmediaToyocostaVehiculosBundle:Default:obtenerVehiculos" , { 'tipoVehiculo': categoria.id , 'prefijo': categoria.nombre|lower }))   }}
+        {% endfor %}
 
         {% include 'CelmediaToyocostaVehiculosBundle:Blocks:slide.montacarga.html.twig' %}
 
@@ -19,11 +17,8 @@
 
         {% include 'CelmediaToyocostaVehiculosBundle:Blocks:slide.seminuevo.html.twig' %}
 
-	    
-	{% endblock %}
+{% endblock %}
 
-        {% block js %}
-                <script type="text/javascript">
-                        $('body').scrollspy({ target: '.navbar-nav-principal' })
-                </script>
-        {% endblock %}
+{% block js %}
+
+{% endblock %}
