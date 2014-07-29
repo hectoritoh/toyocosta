@@ -4,8 +4,6 @@ namespace Celmedia\Toyocosta\SeminuevoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Sonata\MediaBundle\Model\MediaInterface;
-use Celmedia\Toyocosta\PirelliBundle\Entity\User as User;
-
 /**
  * Seminuevo
  */
@@ -77,6 +75,11 @@ class Seminuevo
     private $estado_publicacion;
 
     /**
+     * @var string
+     */
+    private $username;
+
+    /**
      * @var \DateTime
      */
     private $created;
@@ -102,14 +105,9 @@ class Seminuevo
     private $colores;
 
     /**
-     * @var \Celmedia\Toyocosta\PirelliBundle\Entity\User
-     */
-    private $seminuevo_user;
-
-    /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    protected $imagenes;
+    private $imagenes;
 
     /**
      * Constructor
@@ -408,6 +406,29 @@ class Seminuevo
     }
 
     /**
+     * Set username
+     *
+     * @param string $username
+     * @return Seminuevo
+     */
+    public function setUsername($username)
+    {
+        $this->username = $username;
+
+        return $this;
+    }
+
+    /**
+     * Get username
+     *
+     * @return string 
+     */
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    /**
      * Set created
      *
      * @param \DateTime $created
@@ -543,35 +564,12 @@ class Seminuevo
     }
 
     /**
-     * Set seminuevo_user
-     *
-     * @param \Celmedia\Toyocosta\PirelliBundle\Entity\User $seminuevoUser
-     * @return Seminuevo
-     */
-    public function setSeminuevoUser(\Celmedia\Toyocosta\PirelliBundle\Entity\User $seminuevoUser = null)
-    {
-        $this->seminuevo_user = $seminuevoUser;
-
-        return $this;
-    }
-
-    /**
-     * Get seminuevo_user
-     *
-     * @return \Celmedia\Toyocosta\PirelliBundle\Entity\User 
-     */
-    public function getSeminuevoUser()
-    {
-        return $this->seminuevo_user;
-    }
-
-    /**
      * Add imagenes
      *
      * @param \Application\Sonata\MediaBundle\Entity\Media $imagenes
      * @return Seminuevo
      */
-    public function addImagene(MediaInterface $imagenes)
+    public function addImagene(\Application\Sonata\MediaBundle\Entity\Media $imagenes)
     {
         $this->imagenes[] = $imagenes;
 
@@ -583,7 +581,7 @@ class Seminuevo
      *
      * @param \Application\Sonata\MediaBundle\Entity\Media $imagenes
      */
-    public function removeImagene(MediaInterface $imagenes)
+    public function removeImagene(\Application\Sonata\MediaBundle\Entity\Media $imagenes)
     {
         $this->imagenes->removeElement($imagenes);
     }
@@ -605,10 +603,9 @@ class Seminuevo
         // Add your code here
     }
 
-    public function __toString()
+        public function __toString()
     {
         return $this->getModelo();
     }
-
 
 }

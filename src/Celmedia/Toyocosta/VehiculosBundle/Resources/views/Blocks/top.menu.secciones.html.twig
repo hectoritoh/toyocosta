@@ -8,9 +8,16 @@
         <li>
           <a href="#">Iniciar sesión</a>
         </li> -->
-        <!-- <li>
+        {% if app.user %}
+
+          <li>
+              <a>Hola, {{ app.user.username }}</a>
+          </li>
+
+        {% endif %}
+        <li>
           <a href="#" class="visible-md visible-lg hidden-sm hidden-xs">&nbsp;</a>
-        </li> -->
+        </li>
         <li class="active">
           <a href="{{ path('toyocosta_homepage') }}">Inicio</a>
         </li>
@@ -206,9 +213,9 @@
                     <a href="{{ path('seminuevos_estado_usado') }}" class="submenu-vehiculo-item {% if app.request.get('_route') == "seminuevos_estado_usado" %}active{% endif %}">Estado de mi carro</a>
                   </div>
 
-                  <div class="col-md-2 col-sm-2 text-center">
+                  {#<div class="col-md-2 col-sm-2 text-center">
                     <a href="{{ path('logout') }}" class="submenu-vehiculo-item " >logout </a>
-                  </div>
+                  </div>#}
                   
                 </div>
               </div>

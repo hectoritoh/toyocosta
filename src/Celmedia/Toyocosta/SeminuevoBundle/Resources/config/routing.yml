@@ -30,6 +30,12 @@ registro_exitoso:
     pattern:  /seminuevos/mensaje
     defaults: { _controller: CelmediaToyocostaSeminuevoBundle:Security:mensajeUser }
 
+envio_usado:
+    pattern:  /seminuevo/envio
+    defaults: { _controller: CelmediaToyocostaSeminuevoBundle:Default:envioUsado }
+    options:
+        expose: true
+
 login:
     path:     /login
     defaults: { _controller: CelmediaToyocostaSeminuevoBundle:Security:login }

@@ -54,6 +54,10 @@ Celmedia\Toyocosta\SeminuevoBundle\Entity\Seminuevo:
             type: integer
             unsigned: false
             nullable: false
+        username:
+            type: string
+            length: 140
+            nullable: false
         created:
             type: datetime
             gedmo:
@@ -81,10 +85,10 @@ Celmedia\Toyocosta\SeminuevoBundle\Entity\Seminuevo:
 
 
     oneToMany:
-      certificados:
-        targetEntity: SeminuevoCertificado
-        mappedBy: seminuevo_certificado
-        cascade: ["persist"]
+      # certificados:
+      #   targetEntity: SeminuevoCertificado
+      #   mappedBy: seminuevo_certificado
+      #   cascade: ["persist"]
       galeria:
         targetEntity: SeminuevoGaleria
         mappedBy: seminuevo_galeria
@@ -97,13 +101,24 @@ Celmedia\Toyocosta\SeminuevoBundle\Entity\Seminuevo:
         joinColumn:
           name: color_id
           referencedColumnName: id
-      seminuevo_user:
-        targetEntity: Celmedia\Toyocosta\PirelliBundle\Entity\User
-        inversedBy: seminuevos
-        joinColumn:
-          name: user_id
-          referencedColumnName: id
+      # seminuevo_user:
+      #   targetEntity: Celmedia\Toyocosta\PirelliBundle\Entity\User
+      #   inversedBy: seminuevos
+      #   joinColumn:
+      #     name: user_id
+      #     referencedColumnName: id
 
+    manyToMany:
+      groups:
+        targetEntity: Group
+        joinTable:
+            name: users_groups
+            joinColumns:
+              user_id:
+                referencedColumnName: id
+            inverseJoinColumns:
+              group_id:
+                referencedColumnName: id
 
     lifecycleCallbacks:
         prePersist:   [ lifecycleFileUpload ]

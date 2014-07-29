@@ -31,13 +31,13 @@ Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoCertificado:
               timestampable:
                 on: update
 
-    manyToOne:
-      seminuevo_certificado:
-        targetEntity: Seminuevo
-        inversedBy: certificados
-        joinColumn:
-          name: seminuevo_id
-          referencedColumnName: id
+    # manyToOne:
+    #   seminuevo_certificado:
+    #     targetEntity: Seminuevo
+    #     inversedBy: certificados
+    #     joinColumn:
+    #       name: seminuevo_id
+    #       referencedColumnName: id
 
     lifecycleCallbacks:
         prePersist:   [ lifecycleFileUpload ]

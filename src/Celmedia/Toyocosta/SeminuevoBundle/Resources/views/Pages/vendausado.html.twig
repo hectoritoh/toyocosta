@@ -41,28 +41,31 @@
             </div>
         </div>
     </div>
-   	<form role="form" class="container form-vsm" {#style="display: none;"#}>
+   	<form id="form-vehiculo" role="form" class="container form-vsm" enctype="multipart/form-data"{#style="display: none;"#}>
+   		<input type="hidden" name="usuario" id="usuario" value="{{app.user.username}}"/>
+   		<input type="hidden" name="email" id="email" value="{{app.user.email}}"/>
+
         <div class="row">
 			<div class="col-md-5 col-sm-5 col-md-offset-1  col-sm-offset-1">
 				<div class="form-group form-group-sm">
-					<label class="lbl-form-sm" for="sm-input-modelo">Modelo del vehículo</label>
-					<input type="text" class="form-control form-control-sm" id="sm-input-modelo" placeholder="">
+					<label class="lbl-form-sm" for="sm_input_modelo">Modelo del vehículo*</label>
+					<input type="text" class="form-control form-control-sm" id="sm_input_modelo" name="sm_input_modelo" placeholder="">
 				</div>
 			</div>
 			<div class="col-md-5 col-sm-5">
 				<div class="form-group form-group-sm">
-					<label class="lbl-form-sm" for="sm-input-kilometraje">Kilometraje</label>
-					<input type="number" class="form-control form-control-sm" id="sm-input-kilometraje" placeholder="">
+					<label class="lbl-form-sm" for="sm_input_kilometraje">Kilometraje*</label>
+					<input type="number" class="form-control form-control-sm" id="sm_input_kilometraje" name="sm_input_kilometraje" placeholder="">
 				</div>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-5 col-sm-5 col-md-offset-1  col-sm-offset-1">
 				<div class="form-group form-group-sm">
-					<label class="lbl-form-sm" for="sm-input-marca">Marca</label>
+					<label class="lbl-form-sm" for="sm-input-marca">Marca*</label>
 					<div class="col-md-12 unido" >
 		                <div class="styled-select">
-		                    <select name="selectmarca" id="selectmarca" class=" selectcmb form-control select-filtro">
+		                    <select name="selectmarca" id="selectmarca" class="form-control">
 	                            <option class="style-option" value="-1" selected="selected" >Seleccione</option>
 								<option class="style-option" value="Chevrolet">Chevrolet</option>
 								<option class="style-option" value="Mazda">Mazda</option>
@@ -97,10 +100,10 @@
 			</div>
 			<div class="col-md-5 col-sm-5">
 				<div class="form-group form-group-sm">
-					<label class="lbl-form-sm" for="sm-input-kilometraje">Tipo</label>
+					<label class="lbl-form-sm" for="sm-input-tipo">Tipo*</label>
 					<div class="col-md-12 unido" >
 		                <div class="styled-select">
-		                    <select name="selecttipo" id="selecttipo" class=" selectcmb form-control select-filtro">
+		                    <select name="selecttipo" id="selecttipo" class="form-control">
 	                            <option class="style-option" value="-1" selected="selected" >Seleccione</option>
 								<option class="style-option" value="Sedan">Sedan</option>
 								<option class="style-option" value="Camioneta 4x4">Camioneta 4x4</option>
@@ -132,36 +135,36 @@
         			<div class="row">
 						<div class="col-md-3 col-sm-3 col-xs-6 text-center">
 							<div class="form-group form-group-sm">
-								<label class="lbl-form-sm" for="sm-input-file-1">Foto #1 Destacada</label>
+								<label class="lbl-form-sm" for="sm_input_file_1">Foto #1 Destacada*</label>
 								<div class="custom-input-file">
-									<input type="file" id="sm-input-file-1" class="input-file" name="foto" onchange="readURL(this);"/>									
+									<input type="file" id="sm_input_file_1" class="input-file" name="sm_input_file_1" onchange="readURL(this);"/>									
 									<img id="sm-img-foto-1" class="sm-img-foto" src="#" alt="" />
 								</div>
 							</div>
 						</div>
 						<div class="col-md-3 col-sm-3 col-xs-6 text-center">
 							<div class="form-group form-group-sm">
-								<label class="lbl-form-sm" for="sm-input-file-2">Foto #2</label>
+								<label class="lbl-form-sm" for="sm_input_file_2">Foto #2 *</label>
 								<div class="custom-input-file">
-									<input type="file" id="sm-input-file-2" class="input-file" name="foto" onchange="readURL(this);"/>									
+									<input type="file" id="sm_input_file_2" class="input-file" name="sm_input_file_2" onchange="readURL(this);"/>									
 									<img id="sm-img-foto-2" class="sm-img-foto" src="#" alt="" />
 								</div>
 							</div>
 						</div>
 						<div class="col-md-3 col-sm-3 col-xs-6 text-center">
 							<div class="form-group form-group-sm">
-								<label class="lbl-form-sm" for="sm-input-file-3">Foto #3</label>
+								<label class="lbl-form-sm" for="sm_input_file_3">Foto #3 *</label>
 								<div class="custom-input-file">
-									<input type="file" id="sm-input-file-3" class="input-file" name="foto" onchange="readURL(this);"/>									
+									<input type="file" id="sm_input_file_3" class="input-file" name="sm_input_file_3" onchange="readURL(this);"/>									
 									<img id="sm-img-foto-3" class="sm-img-foto" src="#" alt="" />
 								</div>
 							</div>
 						</div>
 						<div class="col-md-3 col-sm-3 col-xs-6 text-center">
 							<div class="form-group form-group-sm">
-								<label class="lbl-form-sm" for="sm-input-file-4">Foto #4</label>
+								<label class="lbl-form-sm" for="sm_input_file_4">Foto #4 *</label>
 								<div class="custom-input-file">
-									<input type="file" id="sm-input-file-4" class="input-file" name="foto" onchange="readURL(this);"/>									
+									<input type="file" id="sm_input_file_4" class="input-file" name="sm_input_file_4" onchange="readURL(this);"/>									
 									<img id="sm-img-foto-4" class="sm-img-foto" src="#" alt="" />
 								</div>
 							</div>
@@ -171,36 +174,36 @@
 					<div class="row">
 						<div class="col-md-3 col-sm-3 col-xs-6 text-center">
 							<div class="form-group form-group-sm">
-								<label class="lbl-form-sm" for="sm-input-file-5">Foto #5 Destacada</label>
+								<label class="lbl-form-sm" for="sm_input_file_5">Foto #5</label>
 								<div class="custom-input-file">
-									<input type="file" id="sm-input-file-5" class="input-file" name="foto" onchange="readURL(this);"/>									
+									<input type="file" id="sm_input_file_5" class="input-file" name="sm_input_file_5" onchange="readURL(this);"/>									
 									<img id="sm-img-foto-5" class="sm-img-foto" src="#" alt="" />
 								</div>
 							</div>
 						</div>
 						<div class="col-md-3 col-sm-3 col-xs-6 text-center">
 							<div class="form-group form-group-sm">
-								<label class="lbl-form-sm" for="sm-input-file-6">Foto #6</label>
+								<label class="lbl-form-sm" for="sm_input_file_6">Foto #6</label>
 								<div class="custom-input-file">
-									<input type="file" id="sm-input-file-6" class="input-file" name="foto" onchange="readURL(this);"/>									
+									<input type="file" id="sm_input_file_6" class="input-file" name="sm_input_file_6" onchange="readURL(this);"/>									
 									<img id="sm-img-foto-6" class="sm-img-foto" src="#" alt="" />
 								</div>
 							</div>
 						</div>
 						<div class="col-md-3 col-sm-3 col-xs-6 text-center">
 							<div class="form-group form-group-sm">
-								<label class="lbl-form-sm" for="sm-input-file-7">Foto #7</label>
+								<label class="lbl-form-sm" for="sm_input_file_7">Foto #7</label>
 								<div class="custom-input-file">
-									<input type="file" id="sm-input-file-7" class="input-file" name="foto" onchange="readURL(this);"/>									
+									<input type="file" id="sm_input_file_7" class="input-file" name="sm_input_file_7" onchange="readURL(this);"/>									
 									<img id="sm-img-foto-7" class="sm-img-foto" src="#" alt="" />
 								</div>
 							</div>
 						</div>
 						<div class="col-md-3 col-sm-3 col-xs-6 text-center">
 							<div class="form-group form-group-sm">
-								<label class="lbl-form-sm" for="sm-input-file-8">Foto #8</label>
+								<label class="lbl-form-sm" for="sm_input_file_8">Foto #8</label>
 								<div class="custom-input-file">
-									<input type="file" id="sm-input-file-8" class="input-file" name="foto" onchange="readURL(this);"/>									
+									<input type="file" id="sm_input_file_8" class="input-file" name="sm_input_file_8" onchange="readURL(this);"/>									
 									<img id="sm-img-foto-8" class="sm-img-foto" src="#" alt="" />
 								</div>
 							</div>
@@ -215,14 +218,14 @@
 		<div class="row">
 			<div class="col-md-5 col-sm-5 col-md-offset-1  col-sm-offset-1">
 				<div class="form-group form-group-sm">
-					<label class="lbl-form-sm" for="sm-input-precio">Precio</label>
-					<input type="number" class="form-control form-control-sm" id="sm-input-precio" placeholder="">
+					<label class="lbl-form-sm" for="sm_input_precio">Precio*</label>
+					<input type="number" class="form-control form-control-sm" name="sm_input_precio" id="sm_input_precio" placeholder="">
 				</div>
 			</div>
 			<div class="col-md-5 col-sm-5">
 				<div class="form-group form-group-sm">
-					<label class="lbl-form-sm" for="sm-input-anio">Año</label>
-					<input type="number" class="form-control form-control-sm" id="sm-input-anio" placeholder="">
+					<label class="lbl-form-sm" for="sm_input_anio">Año*</label>
+					<input type="number" class="form-control form-control-sm" name="sm_input_anio" id="sm_input_anio" placeholder="">
 				</div>
 			</div>
 		</div>
@@ -230,13 +233,16 @@
 		<div class="row">
 			<div class="col-md-5 col-sm-5 col-md-offset-1  col-sm-offset-1">
 				<div class="form-group form-group-sm">
-					<label class="lbl-form-sm" for="sm-input-precio">Color</label>
+					<label class="lbl-form-sm" for="sm-input-color">Color*</label>
 					<div class="col-md-12 unido" >
 		                <div class="styled-select">
-		                    <select name="selectcolor" id="selectcolor" class=" selectcmb form-control select-filtro">
+		                    <select name="selectcolor" id="selectcolor" class="form-control">
 	                            <option class="style-option" value="-1" selected="selected" >Seleccione</option>
-								<option class="style-option" value="Color1">Color1</option>
-								<option class="style-option" value="Color2">Color2</option>
+	                            {% for color in colores %}
+
+								<option class="style-option" value="{{color.id}}">{{color.nombre}}</option>
+								
+								{% endfor %}
 		                    </select>
 		                </div>
 		            </div>
@@ -244,8 +250,8 @@
 			</div>
 			<div class="col-md-5 col-sm-5">
 				<div class="form-group form-group-sm">
-					<label class="lbl-form-sm" for="sm-input-ciudad">Ciudad</label>
-					<input type="text" class="form-control form-control-sm" id="sm-input-ciudad" placeholder="">
+					<label class="lbl-form-sm" for="sm_input_ciudad">Ciudad*</label>
+					<input type="text" class="form-control form-control-sm" name="sm_input_ciudad" id="sm_input_ciudad" placeholder="">
 				</div>
 			</div>
 		</div>
@@ -253,8 +259,8 @@
 		<div class="row">
 			<div class="col-md-5 col-sm-5 col-md-offset-1  col-sm-offset-1">
 				<div class="form-group form-group-sm">
-					<label class="lbl-form-sm" for="sm-input-placa">Placa</label>
-					<input type="text" class="form-control form-control-sm" id="sm-input-placa" maxlength="8" placeholder="">
+					<label class="lbl-form-sm" for="sm_input_placa">Placa*</label>
+					<input type="text" class="form-control form-control-sm" name="sm_input_placa" id="sm_input_placa" maxlength="8" placeholder="">
 				</div>
 			</div>
 
@@ -275,7 +281,7 @@
 							<div class="v-center-contenedor">
 								<div class="v-center-contenido ">
 									<p class="txt-gris">
-										<input type="checkbox" id="autorizo" />
+										<input type="checkbox" name="autorizo" id="autorizo" />
 										Autorizo a Toyocosta S.A. para que verifique y utilice toda la información proporcionada, así como tambien me pueda contactar a traves de los medios descritos.
 									</p>
 								</div>

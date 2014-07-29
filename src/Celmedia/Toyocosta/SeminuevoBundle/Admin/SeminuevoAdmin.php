@@ -102,7 +102,8 @@ class SeminuevoAdmin extends Admin
             ->add('placa')
             ->add('informacion')
             ->add('descripcion_corta')
-
+            ->add('username', 'hidden', array(
+                'data' => 'admin' ))
             // ->add('contentFormatter', 'sonata_formatter_type_selector', array(
             //     'source' => 'descripcion_corta',
             //     'target' => 'content'

@@ -62,7 +62,11 @@ class SlideVehiculosAdmin extends Admin
             ->add('vehiculo_slide')
             ->add('imagen_slide')
             ->add('imagen_thumb')
-            ->add('menu_posicion')
+            ->add('menu_posicion', 'choice', array(
+           'choices' => array(
+               '1' => 'Derecha',
+               '0' => 'Izquierda'
+               )))
             ->add('estado', 'choice', array(
            'choices' => array(
                '1' => 'Publicado',
@@ -126,7 +130,12 @@ class SlideVehiculosAdmin extends Admin
             ->add('FileSlide', 'file', $fileFieldOptions)
             ->add('FileThumb', 'file' , $fileFieldOptions2)
             ->add('FileLogo', 'file' , $fileFieldOptions3)
-            ->add('menu_posicion')
+            ->add('menu_posicion', 'choice', array(
+           'choices' => array(
+               '1' => 'Derecha',
+               '0' => 'Izquierda'
+               )))
+            // ->add('menu_posicion')
             ->add('estado', 'choice', array(
            'choices' => array(
                '1' => 'Publicado',

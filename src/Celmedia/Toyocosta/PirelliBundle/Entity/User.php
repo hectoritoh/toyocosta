@@ -60,21 +60,6 @@ class User extends BaseUser
      */
     private $rol;
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $seminuevos;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        parent::__construct();
-        // your own logic
-        $this->seminuevos = new \Doctrine\Common\Collections\ArrayCollection();
-
-    }
 
     /**
      * Get id
@@ -291,38 +276,5 @@ class User extends BaseUser
     public function getRol()
     {
         return $this->rol;
-    }
-
-    /**
-     * Add seminuevos
-     *
-     * @param \Celmedia\Toyocosta\SeminuevoBundle\Entity\Seminuevo $seminuevos
-     * @return User
-     */
-    public function addSeminuevo(\Celmedia\Toyocosta\SeminuevoBundle\Entity\Seminuevo $seminuevos)
-    {
-        $this->seminuevos[] = $seminuevos;
-
-        return $this;
-    }
-
-    /**
-     * Remove seminuevos
-     *
-     * @param \Celmedia\Toyocosta\SeminuevoBundle\Entity\Seminuevo $seminuevos
-     */
-    public function removeSeminuevo(\Celmedia\Toyocosta\SeminuevoBundle\Entity\Seminuevo $seminuevos)
-    {
-        $this->seminuevos->removeElement($seminuevos);
-    }
-
-    /**
-     * Get seminuevos
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getSeminuevos()
-    {
-        return $this->seminuevos;
     }
 }

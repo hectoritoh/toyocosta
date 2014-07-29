@@ -16,7 +16,7 @@ class DefaultController extends Controller
     {
 
     	$em = $this->getDoctrine()->getManager();
-    	$seminuevos =$em->getRepository('CelmediaToyocostaSeminuevoBundle:Seminuevo')->findAll();
+    	$seminuevos =$em->getRepository('CelmediaToyocostaSeminuevoBundle:Seminuevo')->findBy(array('estado_publicacion' => '1'));
 
         return $this->render('CelmediaToyocostaSeminuevoBundle:Pages:seminuevos.html.twig' , array( "seminuevos" => $seminuevos ));
     }
@@ -75,9 +75,11 @@ class DefaultController extends Controller
     {
 
     	$em = $this->getDoctrine()->getManager();
-    	$seminuevos =$em->getRepository('CelmediaToyocostaSeminuevoBundle:Seminuevo')->findAll();
+    	$colores =$em->getRepository('CelmediaToyocostaSeminuevoBundle:SeminuevoColores')->findAll();
 
-        return $this->render('CelmediaToyocostaSeminuevoBundle:Pages:vendausado.html.twig' , array( "seminuevos" => $seminuevos ));
+        $seminuevos =$em->getRepository('CelmediaToyocostaSeminuevoBundle:Seminuevo')->findBy(array('estado_publicacion' => '1'));
+
+        return $this->render('CelmediaToyocostaSeminuevoBundle:Pages:vendausado.html.twig' , array( "seminuevos" => $seminuevos , "colores" => $colores ));
     }
 
     public function estadoUsadoAction()
@@ -100,4 +102,118 @@ class DefaultController extends Controller
     //     return $this->render('CelmediaToyocostaSeminuevoBundle:Pages:register.html.twig');
     // }
 
+    public function enviarCorreo($correos_array, $seminuevo ) {
+
+
+            // $pathArchivoPill = __DIR__ . '/../../../../web/uploads/seminuevos/' . $pill->getImagen();
+            $colores = $seminuevo->getColores();
+
+
+
+
+            $message = \Swift_Message::newInstance()
+                ->setSubject('Venta de Seminuevo desde Toyocosta ')
+
+                ->setFrom(array('ycosquillo@celmedia.com' => 'Web Toyocosta'))
+
+                ->setTo(array( $correos_array , 'ycosquillo@celmedia.com' => 'Toyocosta'))
+
+                ->setBody('Informacion de Seminuevo:                
+                Usuario:  '.$seminuevo->getUsername().' 
+
+                Modelo:   '. $seminuevo->getModelo() .'
+                Marca:  '. $seminuevo->getMarca() .'
+                Tipo:  '. $seminuevo->getTipo() .'
+                kilometraje:  '. $seminuevo->getKilometraje() .'
+                Precio:   '. $seminuevo->getPrecio() .'
+                Anio:  '. $seminuevo->getAnio() .'
+                Ubicacion:  '. $seminuevo->getUbicacion() .'
+                Placa:  '. $seminuevo->getPlaca() .'
+                Color:   '. $colores.' '
+
+                );
+            // ->attach(\Swift_Attachment::fromPath($pathArchivoPill)->setFilename('PillBrief.png'))
+            // ->setContentType("text/html");
+
+
+            if ($this->get('mailer')->send($message)) {
+                return true;
+            } else {
+                return false;
+            }
+
+
+    }
+
+
+    public function envioUsadoAction(Request $request){
+
+
+
+        if ($request->isMethod('POST')) {
+
+            $usuario = $request->request->get('usuario');
+            $email = $request->request->get('email');
+            $modelo = $request->request->get('modelo');
+            $kilometraje = $request->request->get('kilometraje');
+            $marca = $request->request->get('marca');
+            $tipo = $request->request->get('tipo');
+            $precio = $request->request->get('precio');
+            $anio = $request->request->get('anio');
+            $color = $request->request->get('color');
+            $ciudad = $request->request->get('ciudad');
+            $placa = $request->request->get('placa');
+
+            $foto1 = $request->request->get('foto1');
+            $foto2 = $request->request->get('foto2');
+            $foto3 = $request->request->get('foto3');
+            $foto4 = $request->request->get('foto4');
+            $foto5 = $request->request->get('foto5');
+            $foto6 = $request->request->get('foto6');
+            $foto7 = $request->request->get('foto7');
+            $foto8 = $request->request->get('foto8');
+
+
+            $em = $this->getDoctrine()->getManager();
+            $vehiculo_colores =$em->getRepository('CelmediaToyocostaSeminuevoBundle:SeminuevoColores')->findOneBy(array("id"=> $color));
+
+
+            $vehiculo = new \Celmedia\Toyocosta\SeminuevoBundle\Entity\Seminuevo();
+            
+
+
+            $vehiculo->setModelo( $modelo  );
+            $vehiculo->setKilometraje( $kilometraje  );
+            $vehiculo->setMarca( $marca  );
+            $vehiculo->setTipo( $tipo  );
+            $vehiculo->setPrecio( $precio  );
+            $vehiculo->setAnio( $anio  );
+            $vehiculo->setColores( $vehiculo_colores  );
+            $vehiculo->setUbicacion( $ciudad );
+            $vehiculo->setPlaca( $placa );
+
+            $vehiculo->setInformacion("Informacion");
+            $vehiculo->setDescripcionCorta("Descripcion");
+
+            $vehiculo->setEstado( 1 ); // Disponible = 1
+            $vehiculo->setEstadoPublicacion( 2 ); //Pendiente = 2
+            $vehiculo->setUsername( $usuario );
+            
+            $em = $this->getDoctrine()->getManager(); 
+            $em->persist(  $vehiculo );
+            $em->flush();
+
+
+
+            $this->enviarCorreo($email, $vehiculo );
+
+
+            $response = array("code" => 1, "success" => true);
+            
+            return new Response(json_encode($response));
+
+            
+        }
+
+    }
 }

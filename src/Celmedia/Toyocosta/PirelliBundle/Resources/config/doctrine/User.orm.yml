@@ -41,8 +41,8 @@ Celmedia\Toyocosta\PirelliBundle\Entity\User:
             type: integer
             nullable: true
 
-    oneToMany:
-      seminuevos:
-        targetEntity: Celmedia\Toyocosta\SeminuevoBundle\Entity\Seminuevo
-        mappedBy: seminuevo_user
-        cascade: ["persist"]
+    # oneToMany:
+    #   seminuevos:
+    #     targetEntity: Celmedia\Toyocosta\SeminuevoBundle\Entity\Seminuevo
+    #     mappedBy: seminuevo_user
+    #     cascade: ["persist"]
