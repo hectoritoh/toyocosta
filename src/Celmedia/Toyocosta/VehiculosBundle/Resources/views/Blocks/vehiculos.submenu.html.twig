@@ -1,0 +1,21 @@
+<div class="contenedor-submenu-items" id="categoria-{{categoria.id}}" data-categoria="{{categoria.nombre}}">
+  {% for vehiculo  in vehiculos %}
+    <div class="contenedor-submenu-item">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <div class="item-vehiculo-nombre">{{ vehiculo.nombre }}</div>
+            <img src="{{ asset('uploads/vehiculo/thumb/' ~ vehiculo.imagenThumb ) }}" alt="" class="img-responsive obj-centrar" />
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-6 sin-padding">
+            <a href="{{ path('ver_vehiculo', {'vehiculoid': vehiculo.id } )  }}" class="col-md-6 col-sm-6 col-xs-6 btn btn-submenu-vehiculo izq">Explorar</a>
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-6 sin-padding">
+            <a href="{{ path('ver_vehiculo', {'vehiculoid': vehiculo.id } )  }}#vehiculo-cotizar"  class="col-md-6 col-sm-6 col-xs-6 btn btn-submenu-vehiculo der">Cotizar</a>
+          </div>
+        </div>
+      </div>
+    </div><!-- contenedor-submenu-item -->
+  {% endfor %}
+
+</div><!-- contenedor-submenu-items -->

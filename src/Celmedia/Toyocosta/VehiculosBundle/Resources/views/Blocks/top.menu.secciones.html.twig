@@ -75,27 +75,27 @@
         <img src="{{ asset_url }}" alt="llanta" class="img-responsive" />
         {% endimage %}
       </a>
-    </div>  
+    </div>
     <div class="navbar-collapse collapse" id="vehiculos-scroll">
       <form class="navbar-form navbar-right navbar-buscar" role="form">
         <ul class="nav navbar-nav navbar-nav-vehiculos">
           <li>
-            <a href="#" class="item-submenu">Autos</a>
+            <a href="#" data-target="categoria-1" class="item-submenu item-submenu-v">Autos</a>
           </li>
           <li>
-            <a href="#" class="item-submenu">Camionetas</a>
+            <a href="#" data-target="categoria-2" class="item-submenu item-submenu-v">Camionetas</a>
           </li>
           <li>
-            <a href="#" class="item-submenu">SUV</a>
+            <a href="#" data-target="categoria-3" class="item-submenu item-submenu-v">SUV</a>
           </li>
           <li>
-            <a href="#" class="item-submenu">Híbridos</a>
+            <a href="#" data-target="categoria-4" class="item-submenu item-submenu-v">Híbridos</a>
           </li>
           <li>
-            <a href="#" class="item-submenu">Montacargas</a>
+            <a href="#" data-target="categoria-5" class="item-submenu">Montacargas</a>
           </li>
           <li>
-            <a href="#" class="item-submenu">Pirelli</a>
+            <a href="{{ path('pirelli_home') }}" class="item-submenu">Pirelli</a>
           </li>
           <li>
             <a href="{{ path('seminuevos_home') }}" class="">Seminuevos</a>
@@ -110,46 +110,12 @@
     </div><!--/.navbar-collapse -->
   </div>
   <div id="fondo-submenu" class="fondo-submenu">
-    <div class="contenedor-submenu-items">
-          <div class="contenedor-submenu-item">
-            <div class="container-fluid">
-              <div class="row">
-                <div class="col-md-12 text-center">
-                  <div class="item-vehiculo-nombre">Corolla</div>                
-                  <img src="{{ asset('uploads/vehiculo/thumb/'   ~   'corolla.png' ) }}" alt="" class="img-responsive obj-centrar" />
-                </div>
-                <button class="col-md-6 col-sm-6 col-xs-6 btn btn-submenu-vehiculo izq">Explorar</button>
-                <button class="col-md-6 col-sm-6 col-xs-6 btn btn-submenu-vehiculo der">Cotizar</button>
-              </div>
-            </div>
-          </div><!-- contenedor-submenu-item -->
 
-          <div class="contenedor-submenu-item">
-            <div class="container-fluid">
-              <div class="row">
-                <div class="col-md-12 text-center">
-                  <div class="item-vehiculo-nombre">Corolla</div>                
-                  <img src="{{ asset('uploads/vehiculo/thumb/'   ~   'corolla.png' ) }}" alt="" class="img-responsive obj-centrar" />
-                </div>
-                <button class="col-md-6 col-sm-6 col-xs-6 btn btn-submenu-vehiculo izq">Explorar</button>
-                <button class="col-md-6 col-sm-6 col-xs-6 btn btn-submenu-vehiculo der">Cotizar</button>
-              </div>
-            </div>
-          </div><!-- contenedor-submenu-item -->
-
-          <div class="contenedor-submenu-item">
-            <div class="container-fluid">
-              <div class="row">
-                <div class="col-md-12 text-center">
-                  <div class="item-vehiculo-nombre">Corolla</div>                
-                  <img src="{{ asset('uploads/vehiculo/thumb/'   ~   'corolla.png' ) }}" alt="" class="img-responsive obj-centrar" />
-                </div>
-                <button class="col-md-6 col-sm-6 col-xs-6 btn btn-submenu-vehiculo izq">Explorar</button>
-                <button class="col-md-6 col-sm-6 col-xs-6 btn btn-submenu-vehiculo der">Cotizar</button>
-              </div>
-            </div>
-          </div><!-- contenedor-submenu-item -->
-    </div><!-- contenedor-submenu-items -->
+    {{ render(controller("CelmediaToyocostaVehiculosBundle:Default:obtenerVehiculosXCategoria" , { 'categoriaId': 1 } ) ) }}
+    {{ render(controller("CelmediaToyocostaVehiculosBundle:Default:obtenerVehiculosXCategoria" , { 'categoriaId': 2 } ) ) }}
+    {{ render(controller("CelmediaToyocostaVehiculosBundle:Default:obtenerVehiculosXCategoria" , { 'categoriaId': 3 } ) ) }}
+    {{ render(controller("CelmediaToyocostaVehiculosBundle:Default:obtenerVehiculosXCategoria" , { 'categoriaId': 4 } ) ) }}
+    
   </div>
 
 
@@ -157,7 +123,7 @@
     <div class="container-fluid fondo-submenu-vehiculo">
       <div class="row">
         <div class="col-md-2 col-sm-3 col-xs-4 col-md-offset-1 text-center centrado-vertical">
-          <span class="submenu-vehiculo-nombre">Prius C Sport</span>
+          <span class="submenu-vehiculo-nombre">{{ vehiculoNombre }}</span>
         </div>
         <div class="col-md-9 col-sm-8 col-xs-8 text-left centrado-vertical">
           <div class="container-fluid">
@@ -181,7 +147,6 @@
     </div>
   {% endif %}
 
-  
   {% if app.request.get('_route') == "seminuevos_home" or app.request.get('_route') == "seminuevos_venda_usado" or app.request.get('_route') == "seminuevos_estado_usado" %} 
 
       {% if app.user %}
