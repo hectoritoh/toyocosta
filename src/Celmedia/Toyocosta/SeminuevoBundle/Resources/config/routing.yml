@@ -15,7 +15,7 @@ seminuevos_estado_usado:
     defaults: { _controller: CelmediaToyocostaSeminuevoBundle:Default:estadousado }
 
 seminuevos_buscador:
-    pattern:  /buscando
+    pattern:  /seminuevosbs
     defaults: { _controller: CelmediaToyocostaSeminuevoBundle:Default:buscadorSeminuevos }
 
 seminuevos_filtro:

@@ -1274,6 +1274,7 @@ fieldset.ty-fieldset-border {
 	max-width: 33%
 }
 
+
 /*Media Querys*/
 /* Large desktop */
 @media (min-width: 1921px) { 
@@ -1310,7 +1311,7 @@ fieldset.ty-fieldset-border {
 		height: 200px;
 	}
 	.espaciado-menu-3{
-		height: 85px;
+		height: 70px;
 	}
  }
 @media (min-width: 1200px) {
@@ -1399,7 +1400,7 @@ fieldset.ty-fieldset-border {
 	}
 
 	.espaciado-menu-3{
-		height: 85px;
+		height: 70px;
 	}
 
 	.borde-gris{

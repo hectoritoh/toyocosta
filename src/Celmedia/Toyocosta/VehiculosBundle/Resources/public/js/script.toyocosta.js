@@ -38,6 +38,8 @@ $(document).ready(function(){
        centrarHorizontal($(this));
      });
 
+	$('.selectcmb').selectbox();
+
 	/*$('[data-spy="scroll"]').each(function () {
 		var $spy = $(this).scrollspy('refresh')
 	})*/

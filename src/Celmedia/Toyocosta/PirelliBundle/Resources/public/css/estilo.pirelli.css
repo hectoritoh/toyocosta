@@ -146,7 +146,7 @@
 .select-pirelli,
 .select-filtro{
 	border-radius: 0px;
-	height: 50px;
+	height: 40px;
 	border-top: 0px;
 	border-right: 0px;
 }
@@ -309,11 +309,12 @@ button.close-ficha{
 	border-color:transparent;
 }
 .btn-buscar-filtro{
-	height: 40px;
+	height: 30px;
 	color: #FFFFFF;
 	width: 90%;
 	background-image: none;
 	background-color: #999999;
+	margin-top: 5px;
 }
 .btn-buscar-filtro:hover{
 	color: #FFFFFF;
@@ -403,7 +404,7 @@ button.close-ficha{
     color: #555555;
     display: block;
     font-size: 14px;
-    height: 50px;
+    height: 40px;
     line-height: 1.42857;
     padding: 6px 12px;
     transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
@@ -420,7 +421,7 @@ button.close-ficha{
     background-position: center;
     background-repeat: no-repeat no-repeat;
     display: block;
-    height: 50px;
+    height: 40px;
     outline: medium none;
     position: absolute;
     right: 0;
@@ -432,6 +433,10 @@ button.close-ficha{
     background-image: url('../../bundles/celmediatoyocostapirelli/images/Iconos/flecha-negra.png') ;
     background-position: center;
     background-repeat: no-repeat no-repeat;
+}
+.sbSelector{
+	height: 40px;
+	line-height: 40px;
 }
 .sbOptions a:link, .sbOptions a:visited {
     color: #555555;
