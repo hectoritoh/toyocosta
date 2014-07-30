@@ -80,6 +80,8 @@ class DefaultController extends Controller
 
         $em = $this->getDoctrine()->getManager();
         //$seminuevo = $em->getRepository('CelmediaToyocostaSeminuevoBundle:Seminuevo')->findOneBy(array('id' => $seminuevoid));
+
+
         //$seminuevosCertificados = $em->getRepository('CelmediaToyocostaSeminuevoBundle:SeminuevoCertificado')->findBy(array('seminuevo' => $seminuevo));
 
         //return $this->render('CelmediaToyocostaSeminuevoBundle:Blocks:certificados.html.twig' , array( "seminuevosCertificados" => $seminuevosCertificados ));

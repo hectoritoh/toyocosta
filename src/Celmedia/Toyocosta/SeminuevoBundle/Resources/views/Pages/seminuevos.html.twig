@@ -233,34 +233,17 @@
                                                             <fieldset class="ty-fieldset-border">
                                                                 <legend class="ty-legend-border">Certificados Toyocosta:</legend>
 
-                                                                {{ render(controller("CelmediaToyocostaSeminuevoBundle:Default:obtenerCertificados" , { 'seminuevoid': seminuevo.id } ) ) }}
-
-                                                                lala
-                                                                <div class="row">
-                                                                    <div class="col-md-3 col-sm-3 col-xs-3 text-left">
-                                                                        {% image '@CelmediaToyocostaSeminuevoBundle/Resources/public/images/avaluotecnico.png' %}
-                                                                            <img src="{{ asset_url }}" class="img-responsive obj-centrar">
-                                                                        {% endimage %}
-                                                                    </div>
-                                                                    <div class="col-md-3 col-sm-3 col-xs-3 text-left">
-                                                                        {% image '@CelmediaToyocostaSeminuevoBundle/Resources/public/images/avaluotecnico.png' %}
-                                                                            <img src="{{ asset_url }}" class="img-responsive obj-centrar">
-                                                                        {% endimage %}
-                                                                    </div>
-                                                                    <div class="col-md-3 col-sm-3 col-xs-3 text-left">
-                                                                        {% image '@CelmediaToyocostaSeminuevoBundle/Resources/public/images/avaluotecnico.png' %}
-                                                                            <img src="{{ asset_url }}" class="img-responsive obj-centrar">
-                                                                        {% endimage %}
-                                                                    </div>
-                                                                    <div class="col-md-3 col-sm-3 col-xs-3 text-left">
-                                                                        {% image '@CelmediaToyocostaSeminuevoBundle/Resources/public/images/avaluotecnico.png' %}
-                                                                            <img src="{{ asset_url }}" class="img-responsive obj-centrar">
-                                                                        {% endimage %}
-                                                                    </div>
-                                                                </div>
+                                                                {% for row in seminuevo.certificados | batch(4) %}
+                                                                    <div class="row">
+                                                                        {% for certificado in row %}
+                                                                            <div class="col-md-3 col-sm-3 col-xs-3 text-left">
+                                                                                <img src="{{ asset('uploads/seminuevos/certificados/'   ~   certificado.imagen ) }}" alt="{{ certificado.nombre }}" class="img-responsive obj-centrar"/>
+                                                                            </div>                                                                        
+                                                                        {% endfor %}
+                                                                    </div>                                                                    
+                                                                {% endfor %}
 
                                                             </fieldset>
-
                                                         </div>
                                                     </div>
 
