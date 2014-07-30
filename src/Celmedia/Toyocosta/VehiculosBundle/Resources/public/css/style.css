@@ -1009,10 +1009,18 @@ fieldset.ty-fieldset-border {
 	padding-bottom: 7px;
 	text-transform: uppercase;
 }
-.navbar-toyocosta .navbar-nav-menu-0 > li > a, .dropdown-menu > li > a {
+.navbar-toyocosta .navbar-nav-menu-0 > li > a{
 	color: #606060;
 	line-height: 5px;
-	font-size: 11px;
+	font-size: 10px;
+	text-transform: uppercase;
+}
+
+.navbar-toyocosta .navbar-nav-menu-0 .dropdown-menu > li > a {
+	color: #606060;
+	line-height: normal;
+	font-size: 10px;
+	text-transform: uppercase;
 }
 
 

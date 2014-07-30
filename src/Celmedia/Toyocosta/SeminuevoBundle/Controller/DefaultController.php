@@ -4,6 +4,7 @@ namespace Celmedia\Toyocosta\SeminuevoBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Security\Acl\Exception\Exception;
 
 class DefaultController extends Controller
 {
@@ -153,11 +154,44 @@ class DefaultController extends Controller
 
     public function estadoUsadoAction()
     {
-    	$em = $this->getDoctrine()->getManager();
-    	$seminuevo =$em->getRepository('CelmediaToyocostaSeminuevoBundle:Seminuevo')->findOneBy(array("id"=> 1));
+
+
+
+
+
+         // **********USUARIO AUTENTIFICADO********
+
+        if( $securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED') ){
+
+            
+            $em = $this->getDoctrine()->getManager();
+            $usuario = $this->get('security.context')->getToken()->getUser();
+
+            $usuarioid = $usuario->getId();
+
+            print_r($usuarioid);
+
+            die();
+
+        	$seminuevo = $em->getRepository('CelmediaToyocostaSeminuevoBundle:Seminuevo')->findOneBy(array("id"=> 1));
+
+            return $this->render('CelmediaToyocostaSeminuevoBundle:Pages:estadousado.html.twig' , array( "seminuevo" => $seminuevo ));
+
+        }
+           
+    }
+
+    /*
+    
+    public function estadoUsadoAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        $seminuevo =$em->getRepository('CelmediaToyocostaSeminuevoBundle:Seminuevo')->findOneBy(array("id"=> 1));
 
         return $this->render('CelmediaToyocostaSeminuevoBundle:Pages:estadousado.html.twig' , array( "seminuevo" => $seminuevo ));
     }
+    
+    */
 
     // public function getFormLoginAction()
     // {
