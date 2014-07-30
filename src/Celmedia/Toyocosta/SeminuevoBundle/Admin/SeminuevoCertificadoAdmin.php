@@ -49,7 +49,6 @@ class SeminuevoCertificadoAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('seminuevo_certificado')
             ->add('nombre')
             ->add('imagen')
             ->add('estado' , 'choice', array('choices' => array(1 => 'Publicado' , 0 => 'No publicado') ) )

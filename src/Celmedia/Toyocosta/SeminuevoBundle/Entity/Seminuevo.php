@@ -3,7 +3,7 @@
 namespace Celmedia\Toyocosta\SeminuevoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-use Sonata\MediaBundle\Model\MediaInterface;
+
 /**
  * Seminuevo
  */
@@ -92,11 +92,6 @@ class Seminuevo
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $certificados;
-
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
     private $galeria;
 
     /**
@@ -110,13 +105,18 @@ class Seminuevo
     private $imagenes;
 
     /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $certificados;
+
+    /**
      * Constructor
      */
     public function __construct()
     {
-        $this->certificados = new \Doctrine\Common\Collections\ArrayCollection();
         $this->galeria = new \Doctrine\Common\Collections\ArrayCollection();
         $this->imagenes = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->certificados = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -475,39 +475,6 @@ class Seminuevo
     }
 
     /**
-     * Add certificados
-     *
-     * @param \Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoCertificado $certificados
-     * @return Seminuevo
-     */
-    public function addCertificado(\Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoCertificado $certificados)
-    {
-        $this->certificados[] = $certificados;
-
-        return $this;
-    }
-
-    /**
-     * Remove certificados
-     *
-     * @param \Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoCertificado $certificados
-     */
-    public function removeCertificado(\Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoCertificado $certificados)
-    {
-        $this->certificados->removeElement($certificados);
-    }
-
-    /**
-     * Get certificados
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getCertificados()
-    {
-        return $this->certificados;
-    }
-
-    /**
      * Add galeria
      *
      * @param \Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoGaleria $galeria
@@ -566,10 +533,10 @@ class Seminuevo
     /**
      * Add imagenes
      *
-     * @param \Application\Sonata\MediaBundle\Entity\Media $imagenes
+     * @param \Application\Sonata\MediaBundle\Entity\GalleryHasMedia $imagenes
      * @return Seminuevo
      */
-    public function addImagene(\Application\Sonata\MediaBundle\Entity\Media $imagenes)
+    public function addImagene(\Application\Sonata\MediaBundle\Entity\GalleryHasMedia $imagenes)
     {
         $this->imagenes[] = $imagenes;
 
@@ -579,9 +546,9 @@ class Seminuevo
     /**
      * Remove imagenes
      *
-     * @param \Application\Sonata\MediaBundle\Entity\Media $imagenes
+     * @param \Application\Sonata\MediaBundle\Entity\GalleryHasMedia $imagenes
      */
-    public function removeImagene(\Application\Sonata\MediaBundle\Entity\Media $imagenes)
+    public function removeImagene(\Application\Sonata\MediaBundle\Entity\GalleryHasMedia $imagenes)
     {
         $this->imagenes->removeElement($imagenes);
     }
@@ -595,6 +562,39 @@ class Seminuevo
     {
         return $this->imagenes;
     }
+
+    /**
+     * Add certificados
+     *
+     * @param \Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoCertificado $certificados
+     * @return Seminuevo
+     */
+    public function addCertificado(\Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoCertificado $certificados)
+    {
+        $this->certificados[] = $certificados;
+
+        return $this;
+    }
+
+    /**
+     * Remove certificados
+     *
+     * @param \Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoCertificado $certificados
+     */
+    public function removeCertificado(\Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoCertificado $certificados)
+    {
+        $this->certificados->removeElement($certificados);
+    }
+
+    /**
+     * Get certificados
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCertificados()
+    {
+        return $this->certificados;
+    }
     /**
      * @ORM\PrePersist
      */
@@ -602,10 +602,8 @@ class Seminuevo
     {
         // Add your code here
     }
-
-        public function __toString()
+       public function __toString()
     {
         return $this->getModelo();
     }
-
 }

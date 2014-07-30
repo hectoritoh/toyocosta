@@ -20,16 +20,16 @@ class SeminuevoAdmin extends Admin
     public function preUpdate( $obj ){
 
 
-        foreach ($obj->getGaleria() as $galeria ){
+        // foreach ($obj->getGaleria() as $galeria ){
 
-            $galeria->setSeminuevoGaleria( $obj );
-        }
+        //     $galeria->setSeminuevoGaleria( $obj );
+        // }
 
 
-        foreach ($obj->getCertificados() as $certificado ) {
+        // foreach ($obj->getCertificados() as $certificado ) {
 
-                $certificado->setSeminuevoCertificado( $obj );
-        }
+        //         $certificado->setSeminuevoCertificado( $obj );
+        // }
 
         
 
@@ -140,16 +140,16 @@ class SeminuevoAdmin extends Admin
                 )
             )          
             ->add('colores')
-            // ->add('certificados')
-            ->with('Certificados del Seminuevo')
-                ->add('certificados', 'sonata_type_collection', array(
-                     'by_reference' => false,
-                           // Prevents the "Delete" option from being displayed
-                     'type_options' => array('delete' => false)) , array(
-                     'edit' => 'inline',
-                     'inline' => 'standard',
-                 ))
-            ->end()
+            ->add('certificados')
+            // ->with('Certificados del Seminuevo')
+            //     ->add('certificados', 'sonata_type_collection', array(
+            //          'by_reference' => false,
+            //                // Prevents the "Delete" option from being displayed
+            //          'type_options' => array('delete' => false)) , array(
+            //          'edit' => 'inline',
+            //          'inline' => 'standard',
+            //      ))
+            // ->end()
         ;
 
 

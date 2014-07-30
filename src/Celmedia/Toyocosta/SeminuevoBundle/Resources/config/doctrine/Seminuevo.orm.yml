@@ -71,7 +71,7 @@ Celmedia\Toyocosta\SeminuevoBundle\Entity\Seminuevo:
 
     manyToMany:
       imagenes:
-        targetEntity: Application\Sonata\MediaBundle\Entity\Media
+        targetEntity: Application\Sonata\MediaBundle\Entity\GalleryHasMedia
         joinTable:
           name: seminuevo_imagenes
           joinColumns:
@@ -81,6 +81,17 @@ Celmedia\Toyocosta\SeminuevoBundle\Entity\Seminuevo:
             imagen_id:
               referencedColumnName: id
               unique: true
+        cascade: ["persist"]
+      certificados:
+        targetEntity: SeminuevoCertificado
+        joinTable:
+            name: seminuevo_certificado
+            joinColumns:
+              id_seminuevo:
+                referencedColumnName: id
+            inverseJoinColumns:
+              certificado_id:
+                referencedColumnName: id
         cascade: ["persist"]
 
 
@@ -107,18 +118,6 @@ Celmedia\Toyocosta\SeminuevoBundle\Entity\Seminuevo:
       #   joinColumn:
       #     name: user_id
       #     referencedColumnName: id
-
-    manyToMany:
-      groups:
-        targetEntity: Group
-        joinTable:
-            name: users_groups
-            joinColumns:
-              user_id:
-                referencedColumnName: id
-            inverseJoinColumns:
-              group_id:
-                referencedColumnName: id
 
     lifecycleCallbacks:
         prePersist:   [ lifecycleFileUpload ]

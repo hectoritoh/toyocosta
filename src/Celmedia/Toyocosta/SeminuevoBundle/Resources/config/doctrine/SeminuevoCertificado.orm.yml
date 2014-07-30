@@ -1,6 +1,6 @@
 Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoCertificado:
     type: entity
-    table: seminuevo_certificados
+    table: certificado
     fields:
         id:
             id: true

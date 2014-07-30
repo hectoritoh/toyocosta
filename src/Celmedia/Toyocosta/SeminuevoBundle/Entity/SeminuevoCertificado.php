@@ -4,7 +4,6 @@ namespace Celmedia\Toyocosta\SeminuevoBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
-
 /**
  * SeminuevoCertificado
  */
@@ -170,42 +169,9 @@ class SeminuevoCertificado
      */
     public function lifecycleFileUpload()
     {
+        // Add your code here
         $this->uploadFileImagen();
     }
-    /**
-     * @var \Celmedia\Toyocosta\SeminuevoBundle\Entity\Seminuevo
-     */
-    private $seminuevo_certificado;
-
-
-    /**
-     * Set seminuevo_certificado
-     *
-     * @param \Celmedia\Toyocosta\SeminuevoBundle\Entity\Seminuevo $seminuevoCertificado
-     * @return SeminuevoCertificado
-     */
-    public function setSeminuevoCertificado(\Celmedia\Toyocosta\SeminuevoBundle\Entity\Seminuevo $seminuevoCertificado = null)
-    {
-        $this->seminuevo_certificado = $seminuevoCertificado;
-
-        return $this;
-    }
-
-    /**
-     * Get seminuevo_certificado
-     *
-     * @return \Celmedia\Toyocosta\SeminuevoBundle\Entity\Seminuevo 
-     */
-    public function getSeminuevoCertificado()
-    {
-        return $this->seminuevo_certificado;
-    }
-
-
-
-
-
-
 
 
 
