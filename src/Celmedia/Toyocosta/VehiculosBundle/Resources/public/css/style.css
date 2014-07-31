@@ -668,8 +668,15 @@ fieldset.ty-fieldset-border {
 	border-radius: 0px;
 }
 
+.nav-cotizar{
+	text-align: center;
+	position: relative;
+	left: 11%;
+	right: 11%;
+	width: 78%;
+}
 
-.pasos{
+.nav-cotizar > li > .pasos{
 	border: none;
 	border-radius: 0px;
 	display: inline-block;
@@ -678,6 +685,16 @@ fieldset.ty-fieldset-border {
 	position: relative;
 	height: 59px;
 	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/varios/sprite-cotizar.png");
+	background-color: transparent;
+	border-radius: 0px;
+}
+
+.nav-cotizar > li.active > .pasos,
+.nav-cotizar > li.active > .pasos:hover,
+.nav-cotizar > li > .pasos:hover,
+.nav-cotizar > li.active > .pasos:focus,
+.nav-cotizar > li > .pasos:focus{
+	background-color: transparent;
 }
 
 .nav-cotizar > li > .paso-1{

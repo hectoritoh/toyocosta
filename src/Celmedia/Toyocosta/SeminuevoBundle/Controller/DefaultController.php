@@ -4,7 +4,8 @@ namespace Celmedia\Toyocosta\SeminuevoBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Symfony\Component\Security\Acl\Exception\Exception;
+use Symfony\Component\Security\Core\SecurityContextInterface;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 class DefaultController extends Controller
 {
@@ -77,19 +78,6 @@ class DefaultController extends Controller
         ));
     }
 
-    public function obtenerCertificadosAction($seminuevoid){
-
-        $em = $this->getDoctrine()->getManager();
-        //$seminuevo = $em->getRepository('CelmediaToyocostaSeminuevoBundle:Seminuevo')->findOneBy(array('id' => $seminuevoid));
-
-
-        //$seminuevosCertificados = $em->getRepository('CelmediaToyocostaSeminuevoBundle:SeminuevoCertificado')->findBy(array('seminuevo' => $seminuevo));
-
-        //return $this->render('CelmediaToyocostaSeminuevoBundle:Blocks:certificados.html.twig' , array( "seminuevosCertificados" => $seminuevosCertificados ));
-        return new Response();
-    }
-
-
 
     public function buscadorSeminuevosAction(Request $request){
 
@@ -155,30 +143,22 @@ class DefaultController extends Controller
     public function estadoUsadoAction()
     {
 
-
-
+        $securityContext = $this->container->get('security.context');
+        $em = $this->getDoctrine()->getManager();
 
 
          // **********USUARIO AUTENTIFICADO********
 
         if( $securityContext->isGranted('IS_AUTHENTICATED_REMEMBERED') ){
-
+            $usuario = $securityContext->getToken()->getUser();
             
-            $em = $this->getDoctrine()->getManager();
-            $usuario = $this->get('security.context')->getToken()->getUser();
+            $seminuevos = $em->getRepository('CelmediaToyocostaSeminuevoBundle:Seminuevo')->findBy(array("username"=> $usuario->getUsername(), "estado_publicacion" => "1"));
 
-            $usuarioid = $usuario->getId();
+            return $this->render('CelmediaToyocostaSeminuevoBundle:Pages:estadousado.html.twig' , array( "seminuevos" => $seminuevos ));
 
-            print_r($usuarioid);
-
-            die();
-
-        	$seminuevo = $em->getRepository('CelmediaToyocostaSeminuevoBundle:Seminuevo')->findOneBy(array("id"=> 1));
-
-            return $this->render('CelmediaToyocostaSeminuevoBundle:Pages:estadousado.html.twig' , array( "seminuevo" => $seminuevo ));
-
-        }
-           
+        }else{
+            return $this->render('CelmediaToyocostaSeminuevoBundle:Pages:estadousado.html.twig' , array() );
+        }           
     }
 
     /*

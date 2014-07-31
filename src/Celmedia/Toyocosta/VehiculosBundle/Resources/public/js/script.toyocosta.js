@@ -201,5 +201,141 @@ $(document).ready(function(){
           }
     });
 
+  $('#rootwizard .finish').click(function() {
+    //alert('Finished!, Starting over!');
+    //$('#rootwizard').find("a[href*='tab1']").trigger('click');
+  });
+
+  /*
+  $('#rootwizard').bootstrapWizard({
+    onNext: function(tab, navigation, index) {
+      if(index==2) {
+        // Make sure we entered the name
+        if(!$('#name').val()) {
+          alert('You must enter your name');
+          $('#name').focus();
+          return false;
+        }
+      }
+
+      // Set the name for the next tab
+      $('#tab3').html('Hello, ' + $('#name').val());
+
+    }, onTabShow: function(tab, navigation, index) {
+      var $total = navigation.find('li').length;
+      var $current = index + 1;
+
+      // If it's the last tab then hide the last button and show the finish instead
+      if($current >= $total) {
+        $('#rootwizard').find('.pager .next').hide();
+        $('#rootwizard').find('.pager .finish').show();
+        $('#rootwizard').find('.pager .finish').removeClass('disabled');
+      } else {
+        $('#rootwizard').find('.pager .next').show();
+        $('#rootwizard').find('.pager .finish').hide();
+      }
+    }, onTabClick: function(tab, navigation, index) {
+        //alert('on tab click disabled');
+        return false;
+    }, onTabChange: function(tab, navigation, index) {
+      if(index >= 1) {
+        //alert('on tab show disabled');
+        return false;
+      }
+    }
+  });
+  */
+
+
+
+
+    /*
+    
+      nombreInput
+      apellidoInput
+      cedulaInput
+      telefonoInput
+      emailInput
+      ciudadInput
+      mensajeInput
+
+    */
+
+    var $validator = $("#commentForm").validate({
+      debug: true,
+      submitHandler: function (form) {
+        //alert("ok");
+      },
+      rules: {
+        selectmodelo: {
+          required: true
+        },
+        inputEntrada: {
+          required: true,
+          number: true,
+          minlength: 3
+        },
+        selectplazo: {
+          required: true
+        },
+        nombreInput:{
+          required: true
+        },
+        apellidoInput:{
+          required: true
+        },
+        cedulaInput:{
+          required: true
+        },
+        telefonoInput:{
+          required: true
+        },
+        emailInput:{
+          required: true
+        },
+        ciudadInput:{
+          required: true
+        },
+        mensajeInput:{
+          required: true
+        }
+      }
+    });
+ 
+    $('#rootwizard').bootstrapWizard({
+      'tabClass': 'nav nav-pills',
+      'onNext': function(tab, navigation, index) {
+        var $valid = $("#commentForm").valid();
+        if(!$valid) {
+          $validator.focusInvalid();
+          return false;
+        }
+      }, onTabShow: function(tab, navigation, index) {
+        var $total = navigation.find('li').length;
+        var $current = index + 1;
+
+        // If it's the last tab then hide the last button and show the finish instead
+        /*if($current >= $total) {
+          $('#rootwizard').find('.pager .next').hide();
+          $('#rootwizard').find('.pager .finish').show();
+          $('#rootwizard').find('.pager .finish').removeClass('disabled');
+        } else {
+          $('#rootwizard').find('.pager .next').show();
+          $('#rootwizard').find('.pager .finish').hide();
+        }*/
+      }, onTabClick: function(tab, navigation, index) {
+          //alert('on tab click disabled');
+          //return false;
+      }, onTabChange: function(tab, navigation, index) {
+        
+        if(index >= 1) {
+          //alert('on tab show disabled');
+          //return false;
+        }
+      }
+    }); 
+
+
+
 
 });
