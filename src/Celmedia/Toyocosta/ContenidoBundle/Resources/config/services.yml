@@ -34,3 +34,9 @@ services:
         arguments: [~, Celmedia\Toyocosta\ContenidoBundle\Entity\Taller, SonataAdminBundle:CRUD]
         tags:
             - {name: sonata.admin, manager_type: orm, group: 'Contenido', label: Talleres}
+
+    celmedia_toyocosta_contenido.admin.vehiculo_test:
+        class: Celmedia\Toyocosta\ContenidoBundle\Admin\VehiculoTestAdmin
+        arguments: [~, Celmedia\Toyocosta\ContenidoBundle\Entity\VehiculoTest, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: 'Contenido', label: Vehiculo Test Drive}

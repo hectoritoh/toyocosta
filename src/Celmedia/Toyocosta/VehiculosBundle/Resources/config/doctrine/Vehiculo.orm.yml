@@ -77,7 +77,18 @@ Celmedia\Toyocosta\VehiculosBundle\Entity\Vehiculo:
         joinColumn:
           name: categoria_id
           referencedColumnName: id
-
+    manyToMany:
+      plazos:
+        targetEntity: Plazo
+        joinTable:
+            name: vehiculo_plazo
+            joinColumns:
+              plazo_id:
+                referencedColumnName: id
+            inverseJoinColumns:
+              vehiculo_id:
+                referencedColumnName: id
+        cascade: ["persist"]
 
     lifecycleCallbacks:
         prePersist:   [ lifecycleFileUpload ]

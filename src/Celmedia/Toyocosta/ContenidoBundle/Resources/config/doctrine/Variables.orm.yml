@@ -14,11 +14,11 @@ Celmedia\Toyocosta\ContenidoBundle\Entity\Variables:
             length: 140
             nullable: false
         entrada_minima:
-            type: integer
+            type: float
             unsigned: false
             nullable: false
         interes:
-            type: integer
+            type: float
             unsigned: false
             nullable: false
         estado:

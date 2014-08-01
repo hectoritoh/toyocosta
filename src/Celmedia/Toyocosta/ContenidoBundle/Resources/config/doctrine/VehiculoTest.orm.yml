@@ -1,6 +1,6 @@
-Celmedia\Toyocosta\ContenidoBundle\Entity\Taller:
+Celmedia\Toyocosta\ContenidoBundle\Entity\VehiculoTest:
     type: entity
-    table: taller
+    table: vehiculo_test
     fields:
         id:
             id: true
@@ -11,8 +11,16 @@ Celmedia\Toyocosta\ContenidoBundle\Entity\Taller:
                 strategy: IDENTITY
         nombre:
             type: string
-            length: 200
+            length: 140
             nullable: false
+        serie:
+            type: string
+            length: 100
+            nullable: true
+        ubicacion:
+            type: string
+            length: 100
+            nullable: true
         estado:
             type: integer
             unsigned: false
@@ -27,24 +35,6 @@ Celmedia\Toyocosta\ContenidoBundle\Entity\Taller:
             gedmo:
               timestampable:
                 on: update
-
-    # oneToMany:
-    #   reservas:
-    #     targetEntity: TipoReserva
-    #     mappedBy: taller
-    #     cascade: ["persist"]
-    manyToMany:
-      servicios:
-        targetEntity: TipoReserva
-        joinTable:
-            name: taller_tipo_reserva
-            joinColumns:
-              taller_id:
-                referencedColumnName: id
-            inverseJoinColumns:
-              tipo_reserva_id:
-                referencedColumnName: id
-        cascade: ["persist"]
 
     lifecycleCallbacks:
         prePersist:   [ lifecycleFileUpload ]

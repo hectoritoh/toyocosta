@@ -5,9 +5,9 @@ namespace Celmedia\Toyocosta\ContenidoBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * TipoReserva
+ * VehiculoTest
  */
-class TipoReserva
+class VehiculoTest
 {
     /**
      * @var integer
@@ -18,6 +18,16 @@ class TipoReserva
      * @var string
      */
     private $nombre;
+
+    /**
+     * @var string
+     */
+    private $serie;
+
+    /**
+     * @var string
+     */
+    private $ubicacion;
 
     /**
      * @var integer
@@ -49,7 +59,7 @@ class TipoReserva
      * Set nombre
      *
      * @param string $nombre
-     * @return TipoReserva
+     * @return VehiculoTest
      */
     public function setNombre($nombre)
     {
@@ -69,10 +79,56 @@ class TipoReserva
     }
 
     /**
+     * Set serie
+     *
+     * @param string $serie
+     * @return VehiculoTest
+     */
+    public function setSerie($serie)
+    {
+        $this->serie = $serie;
+
+        return $this;
+    }
+
+    /**
+     * Get serie
+     *
+     * @return string 
+     */
+    public function getSerie()
+    {
+        return $this->serie;
+    }
+
+    /**
+     * Set ubicacion
+     *
+     * @param string $ubicacion
+     * @return VehiculoTest
+     */
+    public function setUbicacion($ubicacion)
+    {
+        $this->ubicacion = $ubicacion;
+
+        return $this;
+    }
+
+    /**
+     * Get ubicacion
+     *
+     * @return string 
+     */
+    public function getUbicacion()
+    {
+        return $this->ubicacion;
+    }
+
+    /**
      * Set estado
      *
      * @param integer $estado
-     * @return TipoReserva
+     * @return VehiculoTest
      */
     public function setEstado($estado)
     {
@@ -95,7 +151,7 @@ class TipoReserva
      * Set created
      *
      * @param \DateTime $created
-     * @return TipoReserva
+     * @return VehiculoTest
      */
     public function setCreated($created)
     {
@@ -118,7 +174,7 @@ class TipoReserva
      * Set updated
      *
      * @param \DateTime $updated
-     * @return TipoReserva
+     * @return VehiculoTest
      */
     public function setUpdated($updated)
     {
@@ -143,8 +199,10 @@ class TipoReserva
     {
         // Add your code here
     }
-        public function __toString()
+
+      public function __toString()
     {
         return $this->getNombre();
     }
+
 }

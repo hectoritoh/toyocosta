@@ -3,6 +3,8 @@
 namespace Celmedia\Toyocosta\VehiculosBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class DefaultController extends Controller
 {
@@ -149,7 +151,12 @@ class DefaultController extends Controller
                 )
         );
 
-        return $this->render('CelmediaToyocostaVehiculosBundle:Forms:testdrive.html.twig' , array( "agencias" => $agencias  ));
+        $vehiculos_test = $this->getDoctrine()->getRepository("CelmediaToyocostaContenidoBundle:VehiculoTest")->findBy(array(
+            "estado" => 1
+                )
+        );
+
+        return $this->render('CelmediaToyocostaVehiculosBundle:Forms:testdrive.html.twig' , array( "agencias" => $agencias , "vehiculos_test"=> $vehiculos_test ));
     }
 
     public function rrhhAction(){
@@ -182,45 +189,164 @@ class DefaultController extends Controller
     }
 
 
+    public function enviarCorreo($correos_array, $info , $formulario) {
 
 
-    // public function envioContactoAction(Request $request){
+            
+
+            
+            if ($formulario == "testdrive") {
+                
+
+                $subject = "Pedido de Informacion de Test Drive desde Toyocosta"; 
 
 
-    //     $nombre = $request->request->get('nombre');
-    //     $apellido = $request->request->get('apellido');
-    //     $telefono = $request->request->get('telefono');
-    //     $email = $request->request->get('email');
-    //     $ciudad = $request->request->get('ciudad');
-    //     $area = $request->request->get('area');
-    //     $observaciones = $request->request->get('observaciones');
+                $body = '<strong>Informacion del test:</strong> <br /><br />               
+                Nombre:  '.$info->getNombre().' <br />
+                Apellido:   '. $info->getApellido() .' <br />
+                Telefono:  '. $info->getTelefono() .'  <br />
+                Email:  '. $info->getEmail() .' <br />
+                Cedula:  '.$info->getCedula().' <br />
+                Fecha de Nacimiento:   '. $info->getFechaNacimiento()->format('Y-m-d') .' <br />
+                Agencia:   '. $info->getAgencia() .' <br />
+                Ciudad:  '. $info->getCiudad() .' <br />
+                Vehiculo:  '. $info->getVehiculo() .'  <br />
+                Fecha del test:  '. $info->getFechaTest()->format('Y-m-d') .' <br />
+                Hora del test:  '. $info->getHoraTest() .' <br />
+                Observacion:  '. $info->getObservaciones() .' ';
+            
+            }elseif ($formulario == "contacto") {
+                
+                $subject = "Pedido de Informacion Contacto desde Toyocosta"; 
+
+                $body = '<strong>Informacion de Contacto:</strong> <br /><br />               
+                Nombre:  '.$info->getNombre().' <br />
+                Apellido:   '. $info->getApellido() .' <br />
+                Telefono:  '. $info->getTelefono() .'  <br />
+                Email:  '. $info->getEmail() .' <br />
+                Ciudad:  '. $info->getCiudad() .' <br />
+                Area:   '. $info->getArea() .' <br />
+                Observacion:  '. $info->getObservaciones() .' ';
+
+            }
+
+            $message = \Swift_Message::newInstance()
+
+            ->setSubject($subject)
+
+            ->setFrom(array('ycosquillo@celmedia.com' => 'Web Toyocosta'))
+
+            ->setTo(array( $correos_array , 'ycosquillo@celmedia.com' => 'Toyocosta'))
+            
+            ->setContentType("text/html")
+
+            ->setBody($body);
 
 
-    //     $info = new \Celmedia\Toyocosta\ContenidoBundle\Entity\InfoContacto();
 
-    //     $info->setNombre( $nombre  );
-    //     $info->setApellido( $apellido  );
-    //     $info->setTelefono( $telefono  );
-    //     $info->setEmail( $email  );
-    //     $info->setCiudad( $ciudad  );
-    //     $info->setArea( $area  );
-    //     $info->setObservaciones( $observaciones  );
-        
-        
-    //     $em = $this->getDoctrine()->getManager(); 
-    //     $em->persist(  $info );
-    //     $em->flush();
+            if ($this->get('mailer')->send($message)) {
+                return true;
+            } else {
+                return false;
+            }
 
 
-    //     // $this->enviarCorreo($email, $info );
-
-    //     echo "ok";
-
-    //     return new Response();
+    }
 
 
-    // }
+    public function envioContactoAction(Request $request){
 
 
+
+        if ($request->isMethod('POST')) {
+
+            $nombre = $request->request->get('nombre');
+            $apellido = $request->request->get('apellido');
+            $telefono = $request->request->get('telefono');
+            $email = $request->request->get('email');
+            $ciudad = $request->request->get('ciudad');
+            $area = $request->request->get('area');
+            $observacion = $request->request->get('observacion');
+
+
+            $info = new \Celmedia\Toyocosta\ContenidoBundle\Entity\InfoContacto();
+
+            $info->setNombre( $nombre  );
+            $info->setApellido( $apellido  );
+            $info->setTelefono( $telefono  );
+            $info->setEmail( $email  );
+            $info->setCiudad( $ciudad  );
+            $info->setArea( $area  );
+            $info->setObservaciones( $observacion  );
+            
+            
+            $em = $this->getDoctrine()->getManager(); 
+            $em->persist(  $info );
+            $em->flush();
+
+            $formulario = "contacto";
+
+            $this->enviarCorreo($email, $info, $formulario );
+
+            $result = 1; 
+
+            echo $result;
+
+            return new Response();
+        }
+
+    }
+
+    public function envioTestDriveAction(Request $request){
+
+
+        if ($request->isMethod('POST')) {
+
+            $nombre = $request->request->get('nombre');
+            $apellido = $request->request->get('apellido');
+            $telefono = $request->request->get('telefono');
+            $email = $request->request->get('email');
+            $cedula = $request->request->get('cedula');
+            $nacimiento = $request->request->get('nacimiento');
+            $agencia = $request->request->get('agencia');
+            $ciudad = $request->request->get('ciudad');
+            $vehiculo = $request->request->get('vehiculo');
+            $fecha_test = $request->request->get('fecha_test');
+            $hora_test = $request->request->get('hora_test');
+            $observacion = $request->request->get('observacion');
+
+            $info = new \Celmedia\Toyocosta\ContenidoBundle\Entity\InfoTestDrive();
+
+            $info->setNombre( $nombre  );
+            $info->setApellido( $apellido  );
+            $info->setTelefono( $telefono  );
+            $info->setEmail( $email  );
+            $info->setCedula( $cedula);
+            $info->setFechaNacimiento( new \DateTime($nacimiento) );
+            $info->setAgencia( $agencia  );
+            $info->setCiudad( $ciudad  );
+            $info->setVehiculo($vehiculo);
+            $info->setFechaTest( new \DateTime($fecha_test ) );
+            $info->setHoraTest( $hora_test  );
+            $info->setObservaciones( $observacion  );
+            
+            
+            $em = $this->getDoctrine()->getManager(); 
+            $em->persist(  $info );
+            $em->flush();
+
+            $formulario = "testdrive";
+
+            $this->enviarCorreo($email, $info, $formulario );
+
+            $result = 1; 
+
+            echo $result;
+
+            return new Response();
+        }
+
+
+    }
 
 }

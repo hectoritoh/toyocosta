@@ -29,10 +29,8 @@ recursos_humanos:
 contactenos:
     path:      /contacto
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:contactenos }
-
-envio_contacto:
-    path:      /enviando
-    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:envioContacto }
+    options:
+        expose: true
 
 certificados:
     path:      /certificados
@@ -41,3 +39,15 @@ certificados:
 landing:
     path:      /landing
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:landing }
+
+envio_contacto:
+    path:      /contacto/form
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:envioContacto }
+    options:
+        expose: true
+
+envio_test:
+    path:      /testdrive/form
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:envioTestDrive }
+    options:
+        expose: true

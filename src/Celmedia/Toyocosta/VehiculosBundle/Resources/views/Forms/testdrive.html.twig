@@ -28,7 +28,7 @@
 
 		<div class="col-md-12">
 
-			<form id="form-test" class="form-info">
+			<form id="form-test" method="POST" class="form-info">
 				
 				<div class="row space-input">
 					<div class="col-md-10 col-md-offset-1">
@@ -36,11 +36,11 @@
 						<div class="row">
 							<div class="col-xs-4 col-xs-offset-1">
 								<label>Nombre:</label>
-								<input id="nombre" name="nombre" type="text" class="form-control" placeholder="" />
+								<input id="nombre_test" name="nombre_test" type="text" class="form-control" placeholder="" />
 							</div>
 							<div class="col-xs-4 col-xs-offset-1">
 								<label>Apellido:</label>
-								<input id="apellido" name="apellido" type="text" class="form-control" placeholder="" />
+								<input id="apellido_test" name="apellido_test" type="text" class="form-control" placeholder="" />
 							</div>
 
 						</div>	
@@ -54,11 +54,11 @@
 						<div class="row">
 							<div class="col-xs-4 col-xs-offset-1">
 								<label>Tel&eacute;fono:</label>
-								<input id="telefono" name="telefono" type="text" class="form-control" placeholder="" />
+								<input id="telefono_test" name="telefono_test" type="text" class="form-control" placeholder="" />
 							</div>
 							<div class="col-xs-4 col-xs-offset-1">
 								<label>Email:</label>
-								<input id="email" name="email" type="text" class="form-control" placeholder="" />
+								<input id="email_test" name="email_test" type="text" class="form-control" placeholder="" />
 							</div>
 
 						</div>	
@@ -73,11 +73,11 @@
 						<div class="row">
 							<div class="col-xs-4 col-xs-offset-1">
 								<label>No. de C&eacute;dula / Pasaporte:</label>
-								<input id="cedula" name="cedula" type="text" class="form-control" placeholder="" />
+								<input id="cedula_test" name="cedula_test" type="text" class="form-control" placeholder="" />
 							</div>
 							<div class="col-xs-4 col-xs-offset-1">
 								<label>Fecha de nacimiento</label>
-								<input id="nacimiento" name="nacimiento" type="date" class="form-control" placeholder="" />
+								<input id="nacimiento_test" name="nacimiento_test" type="date" class="form-control" placeholder="" />
 							</div>
 
 						</div>	
@@ -91,7 +91,7 @@
 						<div class="row">
 							<div class="col-xs-4 col-xs-offset-1">
 								<label>Agencia:</label>
-								<select name="agencia" id="agencia" class="form-control txt-select">
+								<select name="agencia_test" id="agencia_test" class="form-control txt-select">
 									<option>Seleccione la agencia</option>
 
 									{% for row in agencias %}
@@ -103,7 +103,7 @@
 							</div>
 							<div class="col-xs-4 col-xs-offset-1">
 								<label>Ciudad:</label>
-								<input id="ciudad" name="ciudad" type="text" class="form-control" placeholder="" />
+								<input id="ciudad_test" name="ciudad_test" type="text" class="form-control" placeholder="" />
 							</div>
 
 						</div>	
@@ -119,14 +119,13 @@
 							
 							<div class="col-xs-4 col-xs-offset-1">
 								<label>Vehiculo:</label>
-								<select  name="vehiculo" id="vehiculo"  class="form-control txt-select">
+								<select  name="vehiculo_test" id="vehiculo_test"  class="form-control txt-select">
 									<option value="0">Seleccione un modelo</option>
-									<option value="Corolla">Corolla</option>
-									<option value="Fortuner ">Fortuner </option>
-									<option value="Hilux CD 4x2, Gasolina">Hilux CD 4x2, Gasolina</option>
-									<option value="Hilux CD 4X4, Diesel">Hilux CD 4X4, Diesel</option>
-									<option value="Hilux CS 4x4, Gasolina">Hilux CS 4x4, Gasolina</option>
-									<option value="Prius ">Prius </option>
+
+									{% for vehiculo in vehiculos_test %}
+
+										<option value="{{ vehiculo.nombre }}" >{{ vehiculo.nombre }}</option>
+			                    	{% endfor %}
 
 								</select>
 							</div>
@@ -146,11 +145,11 @@
 						<div class="row">
 							<div class="col-xs-4 col-xs-offset-1">
 								<label>Fecha del test:</label>
-								<input id="fecha-test" name="fecha-test" type="date" class="form-control" placeholder="" />
+								<input id="fecha_test" name="fecha_test" type="date" class="form-control" placeholder="" />
 							</div>
 							<div class="col-xs-4 col-xs-offset-1">
 								<label>Hora del test:</label>
-								<input id="hora-test" name="hora-test" type="text" class="form-control" placeholder="" />
+								<input id="hora_test" name="hora_test" type="text" class="form-control" placeholder="" />
 							</div>
 
 						</div>	
@@ -164,7 +163,7 @@
 						<div class="row">
 							<div class="col-xs-9 col-xs-offset-1">
 								<label>Observaciones:</label>
-								<textarea id="obs" name="obs" class="form-control" rows="3"></textarea>
+								<textarea id="obs_test" name="obs_test" class="form-control" rows="3"></textarea>
 
 							</div>
 						</div>	

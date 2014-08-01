@@ -22,22 +22,26 @@
 .banner-mantenimiento{
 	background-image: url("../../bundles/celmediatoyocostavehiculos/images/banner/mantenimiento.jpg");
 	background-size: cover;
-	height: 333px;
+	/*height: 333px;*/
+	height: 275px;
 }
 .banner-test{
 	background-image: url("../../bundles/celmediatoyocostavehiculos/images/banner/test.jpg");
 	background-size: cover;
-	height: 333px;	
+	/*height: 333px;*/
+	height: 285px;
 }
 .banner-rrhh{
 	background-image: url("../../bundles/celmediatoyocostavehiculos/images/banner/rrhh.jpg");
 	background-size: cover;
-	height: 333px;	
+	/*height: 333px;	*/
+	height: 275px;
 }
 .banner-contacto{
 	background-image: url("../../bundles/celmediatoyocostavehiculos/images/banner/contacto.jpg");
 	background-size: cover;
-	height: 333px;	
+	/*height: 333px;*/
+	height: 250px;	
 }
 .banner-certificados{
 	background-image: url("../../bundles/celmediatoyocostavehiculos/images/banner/certificados.jpg");

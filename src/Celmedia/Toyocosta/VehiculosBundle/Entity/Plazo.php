@@ -1,13 +1,13 @@
 <?php
 
-namespace Celmedia\Toyocosta\ContenidoBundle\Entity;
+namespace Celmedia\Toyocosta\VehiculosBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * TipoReserva
+ * Plazo
  */
-class TipoReserva
+class Plazo
 {
     /**
      * @var integer
@@ -18,6 +18,11 @@ class TipoReserva
      * @var string
      */
     private $nombre;
+
+    /**
+     * @var integer
+     */
+    private $valor;
 
     /**
      * @var integer
@@ -49,7 +54,7 @@ class TipoReserva
      * Set nombre
      *
      * @param string $nombre
-     * @return TipoReserva
+     * @return Plazo
      */
     public function setNombre($nombre)
     {
@@ -69,10 +74,33 @@ class TipoReserva
     }
 
     /**
+     * Set valor
+     *
+     * @param integer $valor
+     * @return Plazo
+     */
+    public function setValor($valor)
+    {
+        $this->valor = $valor;
+
+        return $this;
+    }
+
+    /**
+     * Get valor
+     *
+     * @return integer 
+     */
+    public function getValor()
+    {
+        return $this->valor;
+    }
+
+    /**
      * Set estado
      *
      * @param integer $estado
-     * @return TipoReserva
+     * @return Plazo
      */
     public function setEstado($estado)
     {
@@ -95,7 +123,7 @@ class TipoReserva
      * Set created
      *
      * @param \DateTime $created
-     * @return TipoReserva
+     * @return Plazo
      */
     public function setCreated($created)
     {
@@ -118,7 +146,7 @@ class TipoReserva
      * Set updated
      *
      * @param \DateTime $updated
-     * @return TipoReserva
+     * @return Plazo
      */
     public function setUpdated($updated)
     {
@@ -142,9 +170,5 @@ class TipoReserva
     public function lifecycleFileUpload()
     {
         // Add your code here
-    }
-        public function __toString()
-    {
-        return $this->getNombre();
     }
 }

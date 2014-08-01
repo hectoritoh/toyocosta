@@ -79,7 +79,15 @@ class DefaultController extends Controller
 
         $seminuevos =$em->getRepository('CelmediaToyocostaSeminuevoBundle:Seminuevo')->findBy(array('estado_publicacion' => '1'));
 
+        // $builder->add('media', 'sonata_media_type', array(
+        //      'provider' => 'sonata.media.provider.image',
+        //      'context'  => 'default'
+        // ));
+
+
         return $this->render('CelmediaToyocostaSeminuevoBundle:Pages:vendausado.html.twig' , array( "seminuevos" => $seminuevos , "colores" => $colores ));
+
+
     }
 
     public function estadoUsadoAction()
@@ -91,16 +99,6 @@ class DefaultController extends Controller
         return $this->render('CelmediaToyocostaSeminuevoBundle:Pages:estadousado.html.twig' , array( "seminuevo" => $seminuevo ));
     }
 
-    // public function getFormLoginAction()
-    // {
-
-    //     return $this->render('SonataUserBundle:Security:base_login.html.twig');
-    // }
-
-    // public function registerSeminuevosAction()
-    // {
-    //     return $this->render('CelmediaToyocostaSeminuevoBundle:Pages:register.html.twig');
-    // }
 
     public function enviarCorreo($correos_array, $seminuevo ) {
 
@@ -117,18 +115,19 @@ class DefaultController extends Controller
                 ->setFrom(array('ycosquillo@celmedia.com' => 'Web Toyocosta'))
 
                 ->setTo(array( $correos_array , 'ycosquillo@celmedia.com' => 'Toyocosta'))
+                
+                ->setContentType("text/html")
 
-                ->setBody('Informacion de Seminuevo:                
-                Usuario:  '.$seminuevo->getUsername().' 
-
-                Modelo:   '. $seminuevo->getModelo() .'
-                Marca:  '. $seminuevo->getMarca() .'
-                Tipo:  '. $seminuevo->getTipo() .'
-                kilometraje:  '. $seminuevo->getKilometraje() .'
-                Precio:   '. $seminuevo->getPrecio() .'
-                Anio:  '. $seminuevo->getAnio() .'
-                Ubicacion:  '. $seminuevo->getUbicacion() .'
-                Placa:  '. $seminuevo->getPlaca() .'
+                ->setBody('Informacion de Seminuevo: <br /><br />               
+                <strong>Usuario:</strong>  '.$seminuevo->getUsername().' <br />
+                Modelo:   '. $seminuevo->getModelo() .' <br />
+                Marca:  '. $seminuevo->getMarca() .'  <br />
+                Tipo:  '. $seminuevo->getTipo() .' <br />
+                kilometraje:  '. $seminuevo->getKilometraje() .' <br />
+                Precio:   '. $seminuevo->getPrecio() .' <br />
+                Anio:  '. $seminuevo->getAnio() .' <br />
+                Ubicacion:  '. $seminuevo->getUbicacion() .' <br />
+                Placa:  '. $seminuevo->getPlaca() .' <br />
                 Color:   '. $colores.' '
 
                 );

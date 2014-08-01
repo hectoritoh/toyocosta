@@ -37,14 +37,14 @@ class Taller
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $reservas;
+    private $servicios;
 
     /**
      * Constructor
      */
     public function __construct()
     {
-        $this->reservas = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->servicios = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -150,36 +150,36 @@ class Taller
     }
 
     /**
-     * Add reservas
+     * Add servicios
      *
-     * @param \Celmedia\Toyocosta\ContenidoBundle\Entity\TipoReserva $reservas
+     * @param \Celmedia\Toyocosta\ContenidoBundle\Entity\TipoReserva $servicios
      * @return Taller
      */
-    public function addReserva(\Celmedia\Toyocosta\ContenidoBundle\Entity\TipoReserva $reservas)
+    public function addServicio(\Celmedia\Toyocosta\ContenidoBundle\Entity\TipoReserva $servicios)
     {
-        $this->reservas[] = $reservas;
+        $this->servicios[] = $servicios;
 
         return $this;
     }
 
     /**
-     * Remove reservas
+     * Remove servicios
      *
-     * @param \Celmedia\Toyocosta\ContenidoBundle\Entity\TipoReserva $reservas
+     * @param \Celmedia\Toyocosta\ContenidoBundle\Entity\TipoReserva $servicios
      */
-    public function removeReserva(\Celmedia\Toyocosta\ContenidoBundle\Entity\TipoReserva $reservas)
+    public function removeServicio(\Celmedia\Toyocosta\ContenidoBundle\Entity\TipoReserva $servicios)
     {
-        $this->reservas->removeElement($reservas);
+        $this->servicios->removeElement($servicios);
     }
 
     /**
-     * Get reservas
+     * Get servicios
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getReservas()
+    public function getServicios()
     {
-        return $this->reservas;
+        return $this->servicios;
     }
     /**
      * @ORM\PrePersist
@@ -188,12 +188,8 @@ class Taller
     {
         // Add your code here
     }
-
-    
-    public function __toString()
+        public function __toString()
     {
         return $this->getNombre();
     }
-
-
 }

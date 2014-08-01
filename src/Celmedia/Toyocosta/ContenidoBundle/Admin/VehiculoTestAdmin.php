@@ -8,10 +8,8 @@ use Sonata\AdminBundle\Datagrid\ListMapper;
 use Sonata\AdminBundle\Form\FormMapper;
 use Sonata\AdminBundle\Show\ShowMapper;
 
-class TipoReservaAdmin extends Admin
+class VehiculoTestAdmin extends Admin
 {
-    
-
     /**
      * @param DatagridMapper $datagridMapper
      */
@@ -20,6 +18,8 @@ class TipoReservaAdmin extends Admin
         $datagridMapper
             ->add('id')
             ->add('nombre')
+            ->add('serie')
+            ->add('ubicacion')
             ->add('estado')
             ->add('created')
             ->add('updated')
@@ -33,6 +33,8 @@ class TipoReservaAdmin extends Admin
     {
         $listMapper
             ->add('nombre')
+            ->add('serie')
+            ->add('ubicacion')
             ->add('estado', 'choice', array(
            'choices' => array(
                '1' => 'Publicado',
@@ -55,11 +57,13 @@ class TipoReservaAdmin extends Admin
     {
         $formMapper
             ->add('nombre')
+            ->add('serie')
+            ->add('ubicacion')
             ->add('estado', 'choice', array(
-               'choices' => array(
-                   '1' => 'Publicado',
-                   '0' => 'No publicado'
-                   )))            
+           'choices' => array(
+               '1' => 'Publicado',
+               '0' => 'No publicado'
+               )))
         ;
     }
 
@@ -71,6 +75,8 @@ class TipoReservaAdmin extends Admin
         $showMapper
             ->add('id')
             ->add('nombre')
+            ->add('serie')
+            ->add('ubicacion')
             ->add('estado')
             ->add('created')
             ->add('updated')

@@ -69,6 +69,7 @@ class TallerAdmin extends Admin
     {
         $formMapper
             ->add('nombre')
+            ->add('servicios')
             ->add('estado', 'choice', array(
                'choices' => array(
                    '1' => 'Publicado',

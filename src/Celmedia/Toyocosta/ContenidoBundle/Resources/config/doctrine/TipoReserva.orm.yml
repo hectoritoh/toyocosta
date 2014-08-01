@@ -28,13 +28,13 @@ Celmedia\Toyocosta\ContenidoBundle\Entity\TipoReserva:
               timestampable:
                 on: update
 
-    manyToOne:
-        taller:
-          targetEntity: Taller
-          inversedBy: reservas
-          joinColumn:
-            name: taller_id
-            referencedColumnName: id
+    # manyToOne:
+    #     taller:
+    #       targetEntity: Taller
+    #       inversedBy: reservas
+    #       joinColumn:
+    #         name: taller_id
+    #         referencedColumnName: id
 
     lifecycleCallbacks:
         prePersist:   [ lifecycleFileUpload ]
