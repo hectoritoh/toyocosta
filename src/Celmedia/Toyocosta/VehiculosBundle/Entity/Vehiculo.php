@@ -3,7 +3,7 @@
 namespace Celmedia\Toyocosta\VehiculosBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 /**
  * Vehiculo
  */
@@ -566,6 +566,177 @@ class Vehiculo
      */
     public function lifecycleFileUpload()
     {
-        // Add your code here
+        
+        $this->uploadFileThumb();
+        $this->uploadFileBanner();
+        $this->uploadFileFicha();
     }
+
+
+    public function __toString()
+    {
+        return $this->getNombre();
+    }
+
+
+
+
+
+
+    /**
+     * Unmapped property to handle file uploads
+     */
+    private $fileThumb;
+
+    /**
+     * Sets file.
+     *
+     * @param UploadedFile $file
+     */
+    public function setFileThumb(UploadedFile $fileThumb = null)
+    {
+        $this->fileThumb = $fileThumb;
+    }
+
+    /**
+     * Get file.
+     *
+     * @return UploadedFile
+     */
+    public function getFileThumb()
+    {
+        return $this->fileThumb;
+    }
+
+    /**
+     * Manages the copying of the file to the relevant place on the server
+     */
+    public function uploadFileThumb()
+    {
+        // the file property can be empty if the field is not required
+        if (null === $this->getFileThumb()) {
+            return;
+        }
+
+        // move takes the target directory and target filename as params
+        $this->getFileThumb()->move(
+           __DIR__.'/../../../../../web/'. 'uploads/vehiculo/thumb' ,
+            $this->getFileThumb()->getClientOriginalName()
+        );
+
+        // set the path property to the filename where you've saved the file
+        $this->imagen_thumb = $this->getFileThumb()->getClientOriginalName();
+
+        // clean up the file property as you won't need it anymore
+        $this->setFileThumb(null);
+    }
+
+
+
+
+
+
+
+
+    /**
+     * Unmapped property to handle file uploads
+     */
+    private $fileBanner;
+
+    /**
+     * Sets file.
+     *
+     * @param UploadedFile $file
+     */
+    public function setFileBanner(UploadedFile $fileBanner = null)
+    {
+        $this->fileBanner = $fileBanner;
+    }
+
+    /**
+     * Get file.
+     *
+     * @return UploadedFile
+     */
+    public function getFileBanner()
+    {
+        return $this->fileBanner;
+    }
+
+    /**
+     * Manages the copying of the file to the relevant place on the server
+     */
+    public function uploadFileBanner()
+    {
+        // the file property can be empty if the field is not required
+        if (null === $this->getFileBanner()) {
+            return;
+        }
+
+        // move takes the target directory and target filename as params
+        $this->getFileBanner()->move(
+           __DIR__.'/../../../../../web/'. 'uploads/vehiculo/banner' ,
+            $this->getFileBanner()->getClientOriginalName()
+        );
+
+        // set the path property to the filename where you've saved the file
+        $this->imagen_banner = $this->getFileBanner()->getClientOriginalName();
+
+        // clean up the file property as you won't need it anymore
+        $this->setFilebanner(null);
+    }
+
+
+
+    /**
+     * Unmapped property to handle file uploads
+     */
+    private $fileFicha;
+
+    /**
+     * Sets file.
+     *
+     * @param UploadedFile $file
+     */
+    public function setFileFicha(UploadedFile $fileFicha = null)
+    {
+        $this->fileFicha = $fileFicha;
+    }
+
+    /**
+     * Get file.
+     *
+     * @return UploadedFile
+     */
+    public function getFileFicha()
+    {
+        return $this->fileFicha;
+    }
+
+    /**
+     * Manages the copying of the file to the relevant place on the server
+     */
+    public function uploadFileFicha()
+    {
+        // the file property can be empty if the field is not required
+        if (null === $this->getFileFicha()) {
+            return;
+        }
+
+        // move takes the target directory and target filename as params
+        $this->getFileFicha()->move(
+           __DIR__.'/../../../../../web/'. 'uploads/vehiculo/ficha' ,
+            $this->getFileFicha()->getClientOriginalName()
+        );
+
+        // set the path property to the filename where you've saved the file
+        $this->ficha = $this->getFileFicha()->getClientOriginalName();
+
+        // clean up the file property as you won't need it anymore
+        $this->setFileFicha(null);
+    }
+
+
+
+
 }

@@ -195,6 +195,7 @@ class VehiculoAdmin extends Admin
             ->add('fileThumb' , 'file' , $fileFieldOptions2)
             ->add('fileBanner', 'file', $fileFieldOptions )
             ->add('fileFicha', 'file', $fileFieldOptions3 )
+            ->add('plazos')
             ->with('Colores del Vehiculo')
                 ->add('colores', 'sonata_type_collection', array(
                      'by_reference' => false,
