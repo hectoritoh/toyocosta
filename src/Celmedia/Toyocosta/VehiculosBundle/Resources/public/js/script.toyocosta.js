@@ -91,6 +91,7 @@ function reservaSelected(elemento){
             };
 
             $("#vselectplazo").html(option);
+            //$("#imgModelo").attr("src", respuesta.imagenModelo); //FZZIO cambiar por las imagenes de modelo
           }
           //console.log(respuesta.precio);
         }, 
@@ -425,8 +426,8 @@ $(document).ready(function(){
                          alert('Su pedido de informaci\u00F3n fu\u00E9 enviado con \u00E9xito');
                          document.getElementById("form-test").reset();
                          //window.location = Routing.generate('contactenos');
-                    } else {
-                          // error
+                    } else if (respuesta.codigo == 0 ) {
+                          alert(respuesta.mensaje);
                     }
 
                   }, 
@@ -511,7 +512,7 @@ $(document).ready(function(){
     });
 
 
-    var $validator = $("#commentForm").validate({
+    var $validator = $("#cotizarForm").validate({
       debug: true,
       submitHandler: function (form) {
         //alert("ok");
@@ -523,7 +524,7 @@ $(document).ready(function(){
         vinputEntrada: {
           required: true,
           number: true,
-          minlength: 3
+          minlength: 3,
         },
         vselectplazo: {
           required: true
@@ -574,13 +575,53 @@ $(document).ready(function(){
     });
 
     $('#rootwizard .finish').click(function() {
-        var $valid = $("#commentForm").valid();
+        var $valid = $("#cotizarForm").valid();
         if(!$valid) {
           $validator.focusInvalid();
           return false;
         }else{
-          alert('Finalizado!, Enviar!');
-          $('#rootwizard').find("a[href*='tab1']").trigger('click');
+
+          var parametros = {
+              plazoid: $("#vselectplazo").val(),
+              valorentrada: $("#vinputEntrada").val(),
+              modeloid: $("#vselectmodelo").val(),
+              nombre: $("#vnombreInput").val(),
+              apellido: $("#vapellidoInput").val(),
+              cedula: $("#vcedulaInput").val(),
+              telefono: $("#vtelefonoInput").val(),
+              email: $("#vemailInput").val(),
+              ciudad: $("#vciudadInput").val(),
+              mensaje: $("#vmensajeInput").val()
+          }
+
+          $.ajax({
+              url: Routing.generate('envio_cotizacion'),
+              type: 'POST',
+              async: true,
+              data: parametros,
+              dataType: "json",
+              success: function (respuesta) {
+
+                if (respuesta.codigo == 1 ) {
+                    $('#contenedorEspereCotizar').hide();
+                    $('#cotizarForm').show();
+                    alert('Su cotizaci\u00F3n fu\u00E9 enviada con \u00E9xito');
+                     //document.getElementById("cotizarForm").reset();
+                     //window.location = Routing.generate('contactenos');
+                    $('#rootwizard').find("a[href*='tab1']").trigger('click');
+                } else if (respuesta.codigo == 0 ){
+                      // error
+                }
+              }, 
+              error: function (error) {
+                console.log("ERROR: " + error);
+              },
+              beforeSend: function () {
+                  $('#cotizarForm').hide();
+                  $('#contenedorEspereCotizar').show();
+              }
+          });
+          
         }
     });
 
@@ -591,7 +632,7 @@ $(document).ready(function(){
         var $total = navigation.find('li').length;
         var $current = index + 1;
 
-        var $valid = $("#commentForm").valid();
+        var $valid = $("#cotizarForm").valid();
         if(!$valid) {
           $validator.focusInvalid();
           return false;

@@ -52,6 +52,12 @@ envio_test:
     options:
         expose: true
 
+envio_cotizacion:
+    path:      /vehiculo/cotizacion
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:envioCotizacion }
+    options:
+        expose: true
+
 get_taller:
     path:      /getTaller
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:getTaller }
