@@ -106,8 +106,8 @@ Celmedia\Toyocosta\SeminuevoBundle\Entity\Seminuevo:
         cascade: ["persist"]
 
     manyToOne:
-      colores:
-        targetEntity: SeminuevoColores
+      coloresseminuevo:
+        targetEntity: Celmedia\Toyocosta\ContenidoBundle\Entity\Color
         inversedBy: seminuevo_color
         joinColumn:
           name: color_id

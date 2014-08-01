@@ -9,14 +9,6 @@ Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoColores:
             nullable: false
             generator:
                 strategy: IDENTITY
-        nombre:
-            type: string
-            length: 140
-            nullable: false
-        valor_color:
-            type: string
-            length: 7
-            nullable: false
         imagen_color:
             type: text
             nullable: false
@@ -40,6 +32,12 @@ Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoColores:
           inversedBy: colores
           joinColumn:
             name: vehiculo_id
+            referencedColumnName: id
+        coloresvehiculo:
+          targetEntity: Celmedia\Toyocosta\ContenidoBundle\Entity\Color
+          inversedBy: vehiculo_color
+          joinColumn:
+            name: color_id
             referencedColumnName: id
 
     lifecycleCallbacks:

@@ -139,8 +139,11 @@ class SeminuevoAdmin extends Admin
                 'admin_code' => 'sonata.media.admin.gallery_has_media'
                 )
             )          
-            ->add('colores')
+            ->add('coloresseminuevo')
             ->add('certificados')
+            ->setHelps(array(
+                    'coloresseminuevo' => 'Color'
+                ))
             // ->with('Certificados del Seminuevo')
             //     ->add('certificados', 'sonata_type_collection', array(
             //          'by_reference' => false,

@@ -4,7 +4,6 @@ namespace Celmedia\Toyocosta\VehiculosBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
-
 /**
  * VehiculoColores
  */
@@ -14,16 +13,6 @@ class VehiculoColores
      * @var integer
      */
     private $id;
-
-    /**
-     * @var string
-     */
-    private $nombre;
-
-    /**
-     * @var string
-     */
-    private $valor_color;
 
     /**
      * @var string
@@ -50,6 +39,11 @@ class VehiculoColores
      */
     private $vehiculo;
 
+    /**
+     * @var \Celmedia\Toyocosta\ContenidoBundle\Entity\Color
+     */
+    private $coloresvehiculo;
+
 
     /**
      * Get id
@@ -59,52 +53,6 @@ class VehiculoColores
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set nombre
-     *
-     * @param string $nombre
-     * @return VehiculoColores
-     */
-    public function setNombre($nombre)
-    {
-        $this->nombre = $nombre;
-
-        return $this;
-    }
-
-    /**
-     * Get nombre
-     *
-     * @return string 
-     */
-    public function getNombre()
-    {
-        return $this->nombre;
-    }
-
-    /**
-     * Set valor_color
-     *
-     * @param string $valorColor
-     * @return VehiculoColores
-     */
-    public function setValorColor($valorColor)
-    {
-        $this->valor_color = $valorColor;
-
-        return $this;
-    }
-
-    /**
-     * Get valor_color
-     *
-     * @return string 
-     */
-    public function getValorColor()
-    {
-        return $this->valor_color;
     }
 
     /**
@@ -221,6 +169,29 @@ class VehiculoColores
     {
         return $this->vehiculo;
     }
+
+    /**
+     * Set coloresvehiculo
+     *
+     * @param \Celmedia\Toyocosta\ContenidoBundle\Entity\Color $coloresvehiculo
+     * @return VehiculoColores
+     */
+    public function setColoresvehiculo(\Celmedia\Toyocosta\ContenidoBundle\Entity\Color $coloresvehiculo = null)
+    {
+        $this->coloresvehiculo = $coloresvehiculo;
+
+        return $this;
+    }
+
+    /**
+     * Get coloresvehiculo
+     *
+     * @return \Celmedia\Toyocosta\ContenidoBundle\Entity\Color 
+     */
+    public function getColoresvehiculo()
+    {
+        return $this->coloresvehiculo;
+    }
     /**
      * @ORM\PrePersist
      */
@@ -232,63 +203,56 @@ class VehiculoColores
 
     public function __toString()
     {
-        return $this->getNombre();
+        return $this->getImagenColor();
     }
 
+    /**
+     * Unmapped property to handle file uploads
+     */
+    private $ImagenVehiculo;
 
-
-/**
- * Unmapped property to handle file uploads
- */
-private $ImagenVehiculo;
-
-/**
- * Sets file.
- *
- * @param UploadedFile $file
- */
-public function setImagenVehiculo(UploadedFile $ImagenVehiculo = null)
-{
-    $this->ImagenVehiculo = $ImagenVehiculo;
-}
-
-/**
- * Get file.
- *
- * @return UploadedFile
- */
-public function getImagenVehiculo()
-{
-    return $this->ImagenVehiculo;
-}
-
-/**
- * Manages the copying of the file to the relevant place on the server
- */
-public function uploadImagenVehiculo()
-{
-    // the file property can be empty if the field is not required
-    if (null === $this->getImagenVehiculo()) {
-        return;
+    /**
+     * Sets file.
+     *
+     * @param UploadedFile $file
+     */
+    public function setImagenVehiculo(UploadedFile $ImagenVehiculo = null)
+    {
+        $this->ImagenVehiculo = $ImagenVehiculo;
     }
 
-    // move takes the target directory and target filename as params
-    $this->getImagenVehiculo()->move(
-       __DIR__.'/../../../../../web/'. 'uploads/vehiculo/color' ,
-        $this->getImagenVehiculo()->getClientOriginalName()
-    );
+    /**
+     * Get file.
+     *
+     * @return UploadedFile
+     */
+    public function getImagenVehiculo()
+    {
+        return $this->ImagenVehiculo;
+    }
 
-    // set the path property to the filename where you've saved the file
-    $this->imagen_color = $this->getImagenVehiculo()->getClientOriginalName();
+    /**
+     * Manages the copying of the file to the relevant place on the server
+     */
+    public function uploadImagenVehiculo()
+    {
+        // the file property can be empty if the field is not required
+        if (null === $this->getImagenVehiculo()) {
+            return;
+        }
 
-    // clean up the file property as you won't need it anymore
-    $this->setImagenVehiculo(null);
-}
+        // move takes the target directory and target filename as params
+        $this->getImagenVehiculo()->move(
+           __DIR__.'/../../../../../web/'. 'uploads/vehiculo/color' ,
+            $this->getImagenVehiculo()->getClientOriginalName()
+        );
 
+        // set the path property to the filename where you've saved the file
+        $this->imagen_color = $this->getImagenVehiculo()->getClientOriginalName();
 
-
-
-
+        // clean up the file property as you won't need it anymore
+        $this->setImagenVehiculo(null);
+    }
 
 
 
