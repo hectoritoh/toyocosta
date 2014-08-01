@@ -38,7 +38,7 @@
                 <div class="row espacio-a">
                   <div class="col-md-4 col-sm-8 {% if item.menuPosicion == 0 %}col-md-offset-2 col-sm-offset-2 {% elseif item.menuPosicion == 1 %}col-md-offset-6 col-sm-offset-2 {% endif %}">
                     <div class="cuadro-precio {% if item.menuPosicion == 0 %}text-left{% elseif item.menuPosicion == 1 %}text-right{% endif %}">
-                      <h4 class="txt-caption">Precio <span class="precio-caption">${{ item.vehiculoSlide.precio }}</span></h4>
+                      <h4 class="txt-caption">Precio <span class="precio-caption">${{ item.vehiculoSlide.precioNeto }}</span></h4>
                       <p class="parrafo-caption">{{ item.vehiculoSlide.informacion}}</p>
                     </div>
                   </div>
