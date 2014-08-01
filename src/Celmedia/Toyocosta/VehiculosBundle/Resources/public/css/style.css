@@ -49,6 +49,12 @@ html,body{
 	margin-top: 10px;
 	margin-bottom: 10px;
 }
+
+.espaciado-a{
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
 .espaciado-slide-home{
 	margin-top: 120px;
 	margin-bottom: 120px;
@@ -657,7 +663,8 @@ fieldset.ty-fieldset-border {
 .cotizar-banner{
 	width: 100%;
 	position: relative;
-	height: 118px;
+	/*height: 118px;*/
+	height: 90px;
 	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/banner/banner-cotizar.jpg");
 	background-repeat: no-repeat;
 	-webkit-background-size: cover;
@@ -1306,9 +1313,14 @@ li.disabled > .btn.btn-anterior{
 }
 */
 
+.espaciado-tabs{
+	margin-top: 30px;
+	margin-bottom: 30px;
+}
+
 .espacio-banner-cotizar {
-    margin-bottom: 30px;
-    margin-top: 30px;
+    margin-bottom: 15px;
+    margin-top: 15px;
 }
 
 .btn.btn-anterior{

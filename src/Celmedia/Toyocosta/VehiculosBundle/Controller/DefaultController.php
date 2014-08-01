@@ -310,14 +310,18 @@ class DefaultController extends Controller
             $em->flush();
 
             $formulario = "contacto";
-
-            $this->enviarCorreo($email, $info, $formulario );
-
-            $result = 1; 
-
-            echo $result;
-
-            return new Response();
+            
+            if( $this->enviarCorreo($email, $info, $formulario ) ){
+                return new JsonResponse(array(
+                    'codigo' => 1,
+                    'Mensaje' => "El mensaje ha sido enviado"
+                ), 200); //codigo de error diferente
+            }else{
+                return new JsonResponse(array(
+                    'codigo' => 0,
+                    'Mensaje' => "No se ha recibido vehiculo"
+                ), 200); //codigo de error diferente
+            }
         }
 
     }
@@ -362,15 +366,19 @@ class DefaultController extends Controller
 
             $formulario = "testdrive";
 
-            $this->enviarCorreo($email, $info, $formulario );
+            if( $this->enviarCorreo($email, $info, $formulario ) ){
+                return new JsonResponse(array(
+                    'codigo' => 1,
+                    'Mensaje' => "El mensaje ha sido enviado"
+                ), 200); //codigo de error diferente
+            }else{
+                return new JsonResponse(array(
+                    'codigo' => 0,
+                    'Mensaje' => "No se ha recibido vehiculo"
+                ), 200); //codigo de error diferente
+            }
 
-            $result = 1; 
-
-            echo $result;
-
-            return new Response();
         }
-
 
     }
 
