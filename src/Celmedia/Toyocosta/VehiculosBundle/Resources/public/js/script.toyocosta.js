@@ -57,6 +57,69 @@ function reservaSelected(elemento){
 
 }
 
+
+  function modeloSelected(modelo){
+
+    var parametros = {
+        modeloid: $(modelo).val()
+    }
+
+    $.ajax({
+        url: Routing.generate('consultar_precio'),
+        type: 'POST',
+        async: true,
+        data: parametros,
+        dataType: "json",
+        success: function (respuesta) {
+          //alert("ok");
+          if(respuesta.codigo == 1){
+            $("#vpreciosi").text("$ " + respuesta.precio);
+            $("#vprecioci").text("$ " + respuesta.precioNeto);
+            $("#ventradam").text("$ " + respuesta.entradaMinima);
+
+            var option = '<option value="" selected>Selecciona un plazo</option>';            
+            for (var i = 0; i < respuesta.plazos.length; i++) {
+              option += '<option value="'+ respuesta.plazos[i]["id"] + '">' + respuesta.plazos[i]["valor"] + '</option>';
+            };
+
+            $("#vselectplazo").html(option);
+          }
+          //console.log(respuesta.precio);
+        }, 
+        error: function (error) {
+          console.log("ERROR: " + error);
+        }
+    });
+  }
+
+  function plazoSelected(plazo){
+    var parametros = {
+        plazoid: $(plazo).val(),
+        valorentrada: $("#vinputEntrada").val(),
+        modeloid: $("#vselectmodelo").val()
+    }
+
+    $.ajax({
+        url: Routing.generate('consultar_plazo'),
+        type: 'POST',
+        async: true,
+        data: parametros,
+        dataType: "json",
+        success: function (respuesta) {
+          //alert("ok");
+          if(respuesta.codigo == 1){
+            $("#vpreciofinanciar").text("$ " + respuesta.precioFinanciar);
+            $("#vcuotas").text("$ " + respuesta.valorCuotas);
+            $("#vpreciofinal").text("$ " + respuesta.precioFinal);
+          }
+          //console.log(respuesta.precio);
+        }, 
+        error: function (error) {
+          console.log("ERROR: " + error);
+        }
+    });
+  }
+
 $(document).ready(function(){
 
  	$('.contenedor-centrar').each(function () {
@@ -318,12 +381,6 @@ $(document).ready(function(){
           }
     });
 
-  $('#rootwizard .finish').click(function() {
-    //alert('Finished!, Starting over!');
-    //$('#rootwizard').find("a[href*='tab1']").trigger('click');
-  });
-
-
     $("#form-test").validate({
           debug: true,
           submitHandler: function (form) {
@@ -443,44 +500,80 @@ $(document).ready(function(){
         //alert("ok");
       },
       rules: {
-        selectmodelo: {
+        vselectmodelo: {
           required: true
         },
-        inputEntrada: {
+        vinputEntrada: {
           required: true,
           number: true,
           minlength: 3
         },
-        selectplazo: {
+        vselectplazo: {
           required: true
         },
-        nombreInput:{
+        vnombreInput:{
           required: true
         },
-        apellidoInput:{
+        vapellidoInput:{
           required: true
         },
-        cedulaInput:{
+        vcedulaInput:{
           required: true
         },
-        telefonoInput:{
+        vtelefonoInput:{
           required: true
         },
-        emailInput:{
+        vemailInput:{
           required: true
         },
-        ciudadInput:{
+        vciudadInput:{
           required: true
         },
-        mensajeInput:{
+        vmensajeInput:{
           required: true
         }
-      }
+      },
+        showErrors: function (errorMap, errorList) {
+             // Clean up any tooltips for valid elements
+            $.each(this.validElements(), function (index, element) {
+                var $element = $(element);
+
+                $element.data("title", "") // Clear the title - there is no error associated anymore
+                    .removeClass("error")
+                    .tooltip("destroy");
+            });
+
+            // Create new tooltips for invalid elements
+            $.each(errorList, function (index, error) {
+                var $element = $(error.element);
+
+                $element.tooltip("destroy") // Destroy any pre-existing tooltip so we can repopulate with new tooltip content
+                    .data("title", error.message)
+                    .addClass("error")
+                    .tooltip(); // Create a new tooltip based on the error messsage we just set in the title
+                });
+
+        }
     });
+
+    $('#rootwizard .finish').click(function() {
+        var $valid = $("#commentForm").valid();
+        if(!$valid) {
+          $validator.focusInvalid();
+          return false;
+        }else{
+          alert('Finalizado!, Enviar!');
+          $('#rootwizard').find("a[href*='tab1']").trigger('click');
+        }
+    });
+
  
     $('#rootwizard').bootstrapWizard({
       'tabClass': 'nav nav-pills',
       'onNext': function(tab, navigation, index) {
+        var $total = navigation.find('li').length;
+        var $current = index + 1;
+
         var $valid = $("#commentForm").valid();
         if(!$valid) {
           $validator.focusInvalid();
@@ -491,14 +584,14 @@ $(document).ready(function(){
         var $current = index + 1;
 
         // If it's the last tab then hide the last button and show the finish instead
-        /*if($current >= $total) {
+        if($current >= $total) {
           $('#rootwizard').find('.pager .next').hide();
           $('#rootwizard').find('.pager .finish').show();
           $('#rootwizard').find('.pager .finish').removeClass('disabled');
         } else {
           $('#rootwizard').find('.pager .next').show();
           $('#rootwizard').find('.pager .finish').hide();
-        }*/
+        }
       }, onTabClick: function(tab, navigation, index) {
           //alert('on tab click disabled');
           //return false;
@@ -510,32 +603,6 @@ $(document).ready(function(){
         }
       }
     }); 
-
-  
-
-  function modeloSelected(){
-    /*
-    var modelos = new Array(); 
-
-    var modeloId = $("#selectmodelo").val(); 
-
-    var nombre = agencias[modeloId].nombre;
-    var ubicacion= agencias[modeloId].ubicacion;
-    var telefono = agencias[modeloId].telefono;
-    var horario = agencias[modeloId].horario;
-
-    var latitud = agencias[modeloId].latitud;
-    var longuitud = agencias[modeloId].longuitud;
-
-    agregarYCentrar(latitud, longuitud);
-
-    $("#agencia").text(nombre);
-    $("#ubicacion").text(ubicacion);
-    $("#telefono").text(telefono);
-    $("#horario").text(horario);
-*/
-
-  }
 
 
 });
