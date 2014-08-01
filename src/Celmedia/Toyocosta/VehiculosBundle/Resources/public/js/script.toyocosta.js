@@ -190,7 +190,9 @@ $(document).ready(function(){
               success: function (respuesta) {
                 console.log(respuesta);
                 if (respuesta.codigo == 1 ) {
-                    alert('Su pedido de informaci\u00F3n fu\u00E9 enviado con \u00E9xito');
+                    //alert('Su pedido de informaci\u00F3n fu\u00E9 enviado con \u00E9xito');
+                    $('#contenedorEspereContacto').hide();
+                    $('#contenedorFormContacto').show();
                     document.getElementById("form-contacto").reset();
                     //window.location = Routing.generate('contactenos');
                 } else if (respuesta.codigo == 0 ) {
@@ -200,6 +202,10 @@ $(document).ready(function(){
               },
               error: function (error) {
                 console.log("ERROR: " + error);
+              },beforeSend: function () {
+                  $('#contenedorFormContacto').hide();
+                  $('#contenedorEspereContacto').show();
+                  
               }
           });
       },
