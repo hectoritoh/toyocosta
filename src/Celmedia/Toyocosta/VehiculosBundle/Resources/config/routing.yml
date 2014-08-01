@@ -51,3 +51,9 @@ envio_test:
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:envioTestDrive }
     options:
         expose: true
+
+get_taller:
+    path:      /getTaller
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:getTaller }
+    options:
+        expose: true

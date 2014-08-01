@@ -28,6 +28,35 @@ function centrarHorizontal(elemento){
 
 }
 
+function reservaSelected(elemento){
+
+
+  var reserva = $( "#" + $(elemento).attr("id") ).val();
+
+
+              
+  $.post( Routing.generate('get_taller') ,  
+    {  
+      reserva:  reserva
+
+    }, 
+    function(response){
+
+      if(response.success){
+                //do something
+        alert('ok');
+
+      }else{
+
+        
+      }
+
+
+    }, "json");
+
+
+}
+
 $(document).ready(function(){
 
  	$('.contenedor-centrar').each(function () {
@@ -507,5 +536,6 @@ $(document).ready(function(){
 */
 
   }
+
 
 });

@@ -88,11 +88,13 @@
 							<div class="row">
 								<div class="col-xs-4 col-xs-offset-1">
 									<label>Reserva de:</label>
-									<select name="reserva" id="reserva" class="form-control txt-select">
+									<select name="reserva" id="reserva" class="form-control txt-select" onchange="reservaSelected(this)">
 										<option>Seleccion un tipo</option>
-										<option>Mantenimiento</option>
-										<option>Enderezada y Pintura</option>
-										<option>Reparaciones</option>
+										
+										{% for reserva in reservas %}
+											<option value="{{ reserva.id }}" >{{ reserva.nombre }}</option>
+				                    	{% endfor %}
+
 									</select>
 								</div>
 								<div class="col-xs-4 col-xs-offset-1">
@@ -105,6 +107,29 @@
 
 					</div>
 
+					<div class="row space-input">
+						<div class="col-md-10 col-md-offset-1">
+
+							<div class="row">
+								<div class="col-xs-4 col-xs-offset-1">
+									<label>Taller:</label>
+									<select name="taller" id="taller" class="form-control txt-select">
+										<option>Seleccion un taller</option>
+										
+										{% for reserva in reservas %}
+											<option value="{{ reserva.nombre }}" >{{ reserva.nombre }}</option>
+				                    	{% endfor %}
+
+									</select>
+								</div>
+								<div class="col-xs-4 col-xs-offset-1">
+									
+								</div>
+
+							</div>	
+						</div>
+
+					</div>
 
 					<div class="row space-input">
 						<div class="col-md-10 col-md-offset-1">

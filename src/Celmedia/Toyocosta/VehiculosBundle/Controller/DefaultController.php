@@ -138,8 +138,13 @@ class DefaultController extends Controller
             "estado" => 1
                 )
         );
+
+        $reservas = $this->getDoctrine()->getRepository("CelmediaToyocostaContenidoBundle:TipoReserva")->findBy(array(
+            "estado" => 1
+                )
+        );
         
-        return $this->render('CelmediaToyocostaVehiculosBundle:Forms:matenimiento.html.twig' , array( "vehiculos" => $vehiculos  ));
+        return $this->render('CelmediaToyocostaVehiculosBundle:Forms:matenimiento.html.twig' , array( "vehiculos" => $vehiculos , "reservas" => $reservas ));
     }
 
     public function testAction(){
@@ -188,6 +193,25 @@ class DefaultController extends Controller
         return $this->render('CelmediaToyocostaVehiculosBundle:Forms:landing.html.twig');
     }
 
+    public function getTallerAction(Request $request){
+
+
+        $reserva_id = $request->request->get('reserva');
+
+
+        $em = $this->getDoctrine()->getManager(); 
+
+        $reserva_taller = $this->getDoctrine()->getRepository("CelmediaToyocostaContenidoBundle:TipoReserva")->findBy(array(
+            "estado" => 1 , "id" => $reserva_id
+                )
+        );
+
+        $response = array("code" => $reserva_taller, "success" => true);
+   
+        return new Response(json_encode($response));
+
+
+    }
 
     public function enviarCorreo($correos_array, $info , $formulario) {
 
