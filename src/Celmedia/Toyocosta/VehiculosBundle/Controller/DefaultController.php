@@ -483,14 +483,18 @@ class DefaultController extends Controller
             $precioFinanciar = $vehiculoModelo->getPrecioNeto() - $valorEntrada;
 
             /*
+                z = <?php echo $cotizar_variables['interes']; ?> / 12
+                a = 1 + z
+                b = $('#plazo').val()
+                c = Math.pow( a , -b )
+                d = 1 - c
+                e = ( d ) / z
+                f = ( aFinanciar / ( e ) )
+                cuotasMensuales = roundNumber(f, 2);
 
-                cuotasMensuales = roundNumber(( aFinanciar / (( 1 - ( Math.pow((1 + <?php echo $cotizar_variables['interes']; ?> / 12), -$('#plazo').val()) ) ) / (<?php echo $cotizar_variables['interes']; ?> / 12) ) ), 2);
             */
-            $valorCuotas = round( ( $precioFinanciar / ( 1 - ( pow( (1 + $variableVehiculo->getInteres() / 12) , -$vehiculoPlazo->getValor()   ) ) / ( $variableVehiculo->getInteres() / 12 ) )  ) , 2) ; //TODO
-
-
-
-            $precioFinal = $valorCuotas * $vehiculoPlazo->getValor();
+            $valorCuotas = round( ( $precioFinanciar / ( ( 1 - ( pow( (1 + ($variableVehiculo->getInteres() / 12)), -$vehiculoPlazo->getValor()) ) ) / ($variableVehiculo->getInteres() / 12) ) ) , 2);
+            $precioFinal = round($valorCuotas * $vehiculoPlazo->getValor() , 2);
 
             return new JsonResponse(array(
                 'codigo' => 1,
