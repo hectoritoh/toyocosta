@@ -15,7 +15,7 @@ services:
         class: Celmedia\Toyocosta\VehiculosBundle\Admin\VehiculoColoresAdmin
         arguments: [~, Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoColores, SonataAdminBundle:CRUD]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: "Vehiculos", label: Colores}
+            - {name: sonata.admin, manager_type: orm, group: "Vehiculos", label: Vehiculo Colores}
 
     celmedia_toyocosta_vehiculos.admin.categoria_vehiculo:
         class: Celmedia\Toyocosta\VehiculosBundle\Admin\CategoriaVehiculoAdmin

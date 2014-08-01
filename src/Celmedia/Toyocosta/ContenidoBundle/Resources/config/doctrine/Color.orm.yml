@@ -1,6 +1,6 @@
-Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoColores:
+Celmedia\Toyocosta\ContenidoBundle\Entity\Color:
     type: entity
-    table: seminuevo_colores
+    table: color
     fields:
         id:
             id: true
@@ -31,12 +31,16 @@ Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoColores:
             gedmo:
               timestampable:
                 on: update
+    oneToMany:
+      seminuevo_color:
+        targetEntity: Celmedia\Toyocosta\SeminuevoBundle\Entity\Seminuevo
+        mappedBy: coloresseminuevo
+        cascade: ["persist"]
+      vehiculo_color:
+        targetEntity: Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoColores
+        mappedBy: coloresvehiculo
+        cascade: ["persist"]
 
-    # oneToMany:
-    #   seminuevo_color:
-    #     targetEntity: Seminuevo
-    #     mappedBy: colores
-    #     cascade: ["persist"]
 
     lifecycleCallbacks:
         prePersist:   [ lifecycleFileUpload ]

@@ -17,11 +17,11 @@ services:
         tags:
             - {name: sonata.admin, manager_type: orm, group: 'Seminuevo', label: Certificados}
 
-    celmedia_toyocosta_seminuevo.admin.seminuevo_colores:
-        class: Celmedia\Toyocosta\SeminuevoBundle\Admin\SeminuevoColoresAdmin
-        arguments: [~, Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoColores, SonataAdminBundle:CRUD]
-        tags:
-            - {name: sonata.admin, manager_type: orm, group: 'Seminuevo', label: Colores de Seminuevos}
+    # celmedia_toyocosta_seminuevo.admin.seminuevo_colores:
+    #     class: Celmedia\Toyocosta\SeminuevoBundle\Admin\SeminuevoColoresAdmin
+    #     arguments: [~, Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoColores, SonataAdminBundle:CRUD]
+    #     tags:
+    #         - {name: sonata.admin, manager_type: orm, group: 'Seminuevo', label: Colores de Seminuevos}
 
     celmedia_toyocosta_seminuevo.admin.seminuevo_galeria:
         class: Celmedia\Toyocosta\SeminuevoBundle\Admin\SeminuevoGaleriaAdmin

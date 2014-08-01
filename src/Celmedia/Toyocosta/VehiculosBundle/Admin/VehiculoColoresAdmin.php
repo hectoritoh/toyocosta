@@ -34,8 +34,6 @@ class VehiculoColoresAdmin extends Admin
     {
         $datagridMapper
             ->add('id')
-            ->add('nombre')
-            ->add('valor_color')
             ->add('imagen_color')
             ->add('estado')
         ;
@@ -47,11 +45,12 @@ class VehiculoColoresAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('id')
-            ->add('nombre')
-            ->add('valor_color')
             ->add('imagen_color')
-            ->add('estado')
+            ->add('estado', 'choice', array(
+           'choices' => array(
+               '1' => 'Publicado',
+               '0' => 'No publicado'
+               )))
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -83,8 +82,7 @@ class VehiculoColoresAdmin extends Admin
         }
 
         $formMapper
-            ->add('nombre')
-            ->add('valor_color')
+            ->add('coloresvehiculo')
             ->add('ImagenVehiculo', 'file' , $fileFieldOptions)
             ->add('estado', 'choice', array(
            'choices' => array(
@@ -102,8 +100,6 @@ class VehiculoColoresAdmin extends Admin
     {
         $showMapper
             ->add('id')
-            ->add('nombre')
-            ->add('valor_color')
             ->add('imagen_color')
             ->add('estado')
         ;

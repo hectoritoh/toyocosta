@@ -40,3 +40,9 @@ services:
         arguments: [~, Celmedia\Toyocosta\ContenidoBundle\Entity\VehiculoTest, SonataAdminBundle:CRUD]
         tags:
             - {name: sonata.admin, manager_type: orm, group: 'Contenido', label: Vehiculo Test Drive}
+
+    celmedia_toyocosta_contenido.admin.color:
+        class: Celmedia\Toyocosta\ContenidoBundle\Admin\ColorAdmin
+        arguments: [~, Celmedia\Toyocosta\ContenidoBundle\Entity\Color, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: 'Contenido', label: Color}

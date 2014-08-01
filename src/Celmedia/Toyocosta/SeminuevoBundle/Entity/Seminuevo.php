@@ -95,9 +95,9 @@ class Seminuevo
     private $galeria;
 
     /**
-     * @var \Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoColores
+     * @var \Celmedia\Toyocosta\ContenidoBundle\Entity\Color
      */
-    private $colores;
+    private $coloresseminuevo;
 
     /**
      * @var \Doctrine\Common\Collections\Collection
@@ -508,26 +508,26 @@ class Seminuevo
     }
 
     /**
-     * Set colores
+     * Set coloresseminuevo
      *
-     * @param \Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoColores $colores
+     * @param \Celmedia\Toyocosta\ContenidoBundle\Entity\Color $coloresseminuevo
      * @return Seminuevo
      */
-    public function setColores(\Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoColores $colores = null)
+    public function setColoresseminuevo(\Celmedia\Toyocosta\ContenidoBundle\Entity\Color $coloresseminuevo = null)
     {
-        $this->colores = $colores;
+        $this->coloresseminuevo = $coloresseminuevo;
 
         return $this;
     }
 
     /**
-     * Get colores
+     * Get coloresseminuevo
      *
-     * @return \Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoColores 
+     * @return \Celmedia\Toyocosta\ContenidoBundle\Entity\Color 
      */
-    public function getColores()
+    public function getColoresseminuevo()
     {
-        return $this->colores;
+        return $this->coloresseminuevo;
     }
 
     /**
@@ -601,9 +601,5 @@ class Seminuevo
     public function lifecycleFileUpload()
     {
         // Add your code here
-    }
-       public function __toString()
-    {
-        return $this->getModelo();
     }
 }
