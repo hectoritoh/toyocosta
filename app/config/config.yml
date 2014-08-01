@@ -119,7 +119,7 @@ twig:
 assetic:
     debug:          "%kernel.debug%"
     use_controller: false
-    bundles:        [ CelmediaToyocostaPirelliBundle, CelmediaToyocostaVehiculosBundle, CelmediaToyocostaSeminuevoBundle ]
+    bundles:        [ CelmediaToyocostaPirelliBundle, CelmediaToyocostaVehiculosBundle, CelmediaToyocostaSeminuevoBundle, CelmediaToyocostaContenidoBundle ]
     #java: /usr/bin/java
     filters:
         cssrewrite: ~

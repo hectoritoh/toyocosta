@@ -58,6 +58,7 @@
 
 				<div class="row" style="margin-top: 40px;">
 						
+
 					<div class="col-md-10 col-md-offset-1">
 						<div class="col-md-4">
 							<div class="">
@@ -112,7 +113,8 @@
 
 		</div>
 
-		<div class="col-md-6">
+		
+		<div class="col-md-6" id="contenedorFormContacto">
 			
 			<div class="col-md-12">
 
@@ -122,21 +124,18 @@
 
 			<div class="col-md-12 centrado-horizontal">
 
-				<form id="form-contacto" method="POST" >
-
+				<form id="form-contacto">
 					<div class="row space-input">
 						<div class="col-md-12">
-
 							<div class="row">
 								<div class="col-xs-5">
 									<label>Nombre:</label>
-									<input id="nombre" name="nombre" type="text" class="form-control" placeholder="" />
+									<input id="cnombre" name="cnombre" type="text" class="form-control" placeholder="" />
 								</div>
 								<div class="col-xs-5 col-xs-offset-1">
 									<label>Apellido:</label>
-									<input id="apellido" name="apellido" type="text" class="form-control" placeholder="" />
+									<input id="capellido" name="capellido" type="text" class="form-control" placeholder="" />
 								</div>
-
 							</div>	
 						</div>
 
@@ -144,20 +143,17 @@
 
 					<div class="row space-input">
 						<div class="col-md-12">
-
 							<div class="row">
 								<div class="col-xs-5">
 									<label>Telefono:</label>
-									<input id="inputTelefono" name="inputTelefono" type="text" class="form-control" placeholder="" />
+									<input id="cinputTelefono" name="cinputTelefono" type="text" class="form-control" placeholder="" />
 								</div>
 								<div class="col-xs-5 col-xs-offset-1">
 									<label>Email:</label>
-									<input id="email" name="email" type="text" class="form-control" placeholder="" />
+									<input id="cemail" name="cemail" type="text" class="form-control" placeholder="" />
 								</div>
-
 							</div>	
 						</div>
-
 					</div>
 
 					<div class="row space-input">
@@ -166,17 +162,15 @@
 							<div class="row">
 								<div class="col-xs-5">
 									<label>Ciudad:</label>
-									<input id="ciudad" name="ciudad" type="text" class="form-control" placeholder="" />
+									<input id="cciudad" name="cciudad" type="text" class="form-control" placeholder="" />
 								</div>
 								<div class="col-xs-5 col-xs-offset-1">
 									<label>Area:</label><br />
-									<select name="area" id="area" class="form-control txt-select" >
-										
-										<option  class=""  value="-1" >Seleccione la agencia</option>
-										{%    for agencia in agencias   %}
+									<select name="carea" id="carea" class="form-control txt-select" >										
+										<option  class=""  value="" >Seleccione la agencia</option>
+										{% for agencia in agencias   %}
 										<option  class=""  value="{{ agencia.nombre  }}" >{{  agencia.nombre }}</option>
-										{%    endfor %} 
-
+										{% endfor %}
 									</select>
 								</div>
 
@@ -192,7 +186,7 @@
 								<div class="col-xs-11">
 									<label>Observaciones:</label>
 									
-									<textarea id="obs" name="obs" class="form-control" rows="3"></textarea>
+									<textarea id="cobs" name="cobs" class="form-control" rows="3"></textarea>
 
 								</div>
 								
@@ -219,9 +213,20 @@
 
 			</div>
 
-
-
 		</div>
+		
+
+		<div class="col-md-6 alto-completo" style="display:none;" id="contenedorEspereContacto">
+			<div class="container-fluid">
+				<div class="row" style="margin-top: 40px; margin-bottom:40px;">
+					<div class="col-md-12 text-center">
+						<h4 class="txt-negro">Enviando información...</h4>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
 	</div>
 
 {% endblock %}
@@ -240,14 +245,14 @@
 
 		{%    for agencia in agencias   %}
 
-		agencias[ {{  loop.index0 }} ] ={nombre:"{{agencia.nombre }}" , ubicacion:"{{agencia.ubicacion }}" , telefono:"{{agencia.telefono }}", horario:"{{agencia.horario }}", latitud:"{{agencia.latitud }}" , longuitud:"{{agencia.longuitud  }}"} ; 
+		agencias[ {{  loop.index0 }} ] = {nombre:"{{agencia.nombre }}" , ubicacion:"{{agencia.ubicacion }}" , telefono:"{{agencia.telefono }}", horario:"{{agencia.horario }}", latitud:"{{agencia.latitud }}" , longuitud:"{{agencia.longuitud  }}"} ; 
 
 		{%    endfor %}   
 
 	        ///// variable del mapa
 	        var map;
 	        ///// creacion de un punto con latitud y longitud para centrar el mapa 
-	        var brooklyn = new google.maps.LatLng(-2.165258, -79.922990);
+	        var lugarubicacion = new google.maps.LatLng(-2.165258, -79.922990);
 
 
 	        ///// estilo usado para que el mapa salga en escala de grises
@@ -256,16 +261,16 @@
 	        	elementType: "all",
 	        	stylers: [{
 	        		saturation: -100
-	        	}
-	        	]
+        		}]
 	        }];
-
-
 
 	        //// configuracion del mapa que se va  a crear con las variables que se crearon anteriormente
 	        var mapOptions = {
 	        	zoom: 11,
-	        	center: brooklyn,
+	        	center: lugarubicacion,
+		        zoomControl: true,
+		        scaleControl: false,
+		        scrollwheel: false,
 	        	mapTypeControlOptions: {
 	        		mapTypeIds: [google.maps.MapTypeId.ROADMAP, 'tehgrayz']
 	        	}

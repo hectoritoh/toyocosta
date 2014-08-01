@@ -133,7 +133,7 @@ class DefaultController extends Controller
     public function vendaUsadoAction()
     {
     	$em = $this->getDoctrine()->getManager();
-    	$colores =$em->getRepository('CelmediaToyocostaSeminuevoBundle:SeminuevoColores')->findAll();
+    	$colores =$em->getRepository('CelmediaToyocostaContenidoBundle:Color')->findAll();
 
         $seminuevos =$em->getRepository('CelmediaToyocostaSeminuevoBundle:Seminuevo')->findBy(array('estado_publicacion' => '1'));
 

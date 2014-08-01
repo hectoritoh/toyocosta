@@ -240,12 +240,7 @@ class DefaultController extends Controller
 
     public function enviarCorreo($correos_array, $info , $formulario) {
 
-
-            
-
-            
             if ($formulario == "testdrive") {
-                
 
                 $subject = "Pedido de Informacion de Test Drive desde Toyocosta"; 
 
@@ -299,7 +294,6 @@ class DefaultController extends Controller
                 return false;
             }
 
-
     }
 
 
@@ -335,13 +329,17 @@ class DefaultController extends Controller
 
             $formulario = "contacto";
 
-            $this->enviarCorreo($email, $info, $formulario );
-
-            $result = 1; 
-
-            echo $result;
-
-            return new Response();
+            if( $this->enviarCorreo($email, $info, $formulario ) ){
+                return new JsonResponse(array(
+                    'codigo' => 1,
+                    'Mensaje' => "El mensaje ha sido enviado"
+                ), 200); //codigo de error diferente
+            }else{
+                return new JsonResponse(array(
+                    'codigo' => 0,
+                    'Mensaje' => "No se ha recibido vehiculo"
+                ), 200); //codigo de error diferente
+            }
         }
 
     }
@@ -386,15 +384,19 @@ class DefaultController extends Controller
 
             $formulario = "testdrive";
 
-            $this->enviarCorreo($email, $info, $formulario );
+            if( $this->enviarCorreo($email, $info, $formulario ) ){
+                return new JsonResponse(array(
+                    'codigo' => 1,
+                    'Mensaje' => "El mensaje ha sido enviado"
+                ), 200); //codigo de error diferente
+            }else{
+                return new JsonResponse(array(
+                    'codigo' => 0,
+                    'Mensaje' => "No se ha recibido vehiculo"
+                ), 200); //codigo de error diferente
+            }
 
-            $result = 1; 
-
-            echo $result;
-
-            return new Response();
         }
-
 
     }
 
@@ -507,14 +509,18 @@ class DefaultController extends Controller
             $precioFinanciar = $vehiculoModelo->getPrecioNeto() - $valorEntrada;
 
             /*
+                z = <?php echo $cotizar_variables['interes']; ?> / 12
+                a = 1 + z
+                b = $('#plazo').val()
+                c = Math.pow( a , -b )
+                d = 1 - c
+                e = ( d ) / z
+                f = ( aFinanciar / ( e ) )
+                cuotasMensuales = roundNumber(f, 2);
 
-                cuotasMensuales = roundNumber(( aFinanciar / (( 1 - ( Math.pow((1 + <?php echo $cotizar_variables['interes']; ?> / 12), -$('#plazo').val()) ) ) / (<?php echo $cotizar_variables['interes']; ?> / 12) ) ), 2);
             */
-            $valorCuotas = round( ( $precioFinanciar / ( 1 - ( pow( (1 + $variableVehiculo->getInteres() / 12) , -$vehiculoPlazo->getValor()   ) ) / ( $variableVehiculo->getInteres() / 12 ) )  ) , 2) ; //TODO
-
-
-
-            $precioFinal = $valorCuotas * $vehiculoPlazo->getValor();
+            $valorCuotas = round( ( $precioFinanciar / ( ( 1 - ( pow( (1 + ($variableVehiculo->getInteres() / 12)), -$vehiculoPlazo->getValor()) ) ) / ($variableVehiculo->getInteres() / 12) ) ) , 2);
+            $precioFinal = round($valorCuotas * $vehiculoPlazo->getValor() , 2);
 
             return new JsonResponse(array(
                 'codigo' => 1,
