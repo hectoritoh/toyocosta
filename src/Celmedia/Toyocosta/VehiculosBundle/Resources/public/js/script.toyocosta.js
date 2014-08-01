@@ -193,15 +193,15 @@ $(document).ready(function(){
                     alert('Su pedido de informaci\u00F3n fu\u00E9 enviado con \u00E9xito');
                     document.getElementById("form-contacto").reset();
                     //window.location = Routing.generate('contactenos');
-                } else if (respuesta.codigo == 0 ) { {
+                } else if (respuesta.codigo == 0 ) {
                     // error
+                    alert('error');
                 }
-              }, 
+              },
               error: function (error) {
                 console.log("ERROR: " + error);
               }
           });
-
       },
       rules: {
           cnombre: {
@@ -402,9 +402,10 @@ $(document).ready(function(){
                   type: 'POST',
                   async: true,
                   data: parametros,
+                  dataType: "json",
                   success: function (respuesta) {
 
-                    if (respuesta == 1 ) {
+                    if (respuesta.codigo == 1 ) {
 
                          alert('Su pedido de informaci\u00F3n fu\u00E9 enviado con \u00E9xito');
                          document.getElementById("form-test").reset();

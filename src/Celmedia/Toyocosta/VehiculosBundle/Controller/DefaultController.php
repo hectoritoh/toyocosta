@@ -216,12 +216,7 @@ class DefaultController extends Controller
 
     public function enviarCorreo($correos_array, $info , $formulario) {
 
-
-            
-
-            
             if ($formulario == "testdrive") {
-                
 
                 $subject = "Pedido de Informacion de Test Drive desde Toyocosta"; 
 
@@ -275,7 +270,6 @@ class DefaultController extends Controller
                 return false;
             }
 
-
     }
 
 
@@ -310,7 +304,7 @@ class DefaultController extends Controller
             $em->flush();
 
             $formulario = "contacto";
-            
+
             if( $this->enviarCorreo($email, $info, $formulario ) ){
                 return new JsonResponse(array(
                     'codigo' => 1,
