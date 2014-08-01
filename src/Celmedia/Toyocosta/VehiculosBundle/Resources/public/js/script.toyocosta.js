@@ -412,7 +412,8 @@ $(document).ready(function(){
                   success: function (respuesta) {
 
                     if (respuesta.codigo == 1 ) {
-
+                        $('#contenedorEspereTest').hide();
+                        $('#contenedorFormTest').show();
                          alert('Su pedido de informaci\u00F3n fu\u00E9 enviado con \u00E9xito');
                          document.getElementById("form-test").reset();
                          //window.location = Routing.generate('contactenos');
@@ -423,6 +424,10 @@ $(document).ready(function(){
                   }, 
                   error: function (error) {
                     console.log("ERROR: " + error);
+                  },
+                  beforeSend: function () {
+                      $('#contenedorFormTest').hide();
+                      $('#contenedorEspereTest').show();
                   }
               });
 
