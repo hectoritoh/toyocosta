@@ -51,3 +51,15 @@ envio_test:
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:envioTestDrive }
     options:
         expose: true
+
+consultar_precio:
+    path:      /vehiculo/precio
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:consultarPreciosXModelo }
+    options:
+        expose: true
+
+consultar_plazo:
+    path:      /vehiculo/preciofinal
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:consultarPreciosFinales }
+    options:
+        expose: true

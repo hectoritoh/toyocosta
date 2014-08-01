@@ -687,6 +687,7 @@ fieldset.ty-fieldset-border {
 	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/varios/sprite-cotizar.png");
 	background-color: transparent;
 	border-radius: 0px;
+	outline: none;
 }
 
 .nav-cotizar > li.active > .pasos,
@@ -1297,6 +1298,55 @@ fieldset.ty-fieldset-border {
 	right: -10%;
 	width: 33%;
 	max-width: 33%
+}
+
+/*
+li.disabled > .btn.btn-anterior{
+	display: none;
+}
+*/
+
+.espacio-banner-cotizar {
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+
+.btn.btn-anterior{
+	background-color: #FFFFFF;
+	color: #D62C2F;
+	text-shadow: 0px 0px 0px transparent;
+	width: 100%;
+	text-transform: uppercase;
+	border-radius: 3px;
+	border: 2px solid #D62C2F;
+	outline: none;
+}
+.btn.btn-anterior:hover,
+.btn.btn-anterior:focus{
+	background-color: #D62C2F;
+	color: #FFFFFF;
+	text-shadow: 0px 0px 0px transparent;
+	width: 100%;
+	text-transform: uppercase;
+	border-radius: 3px;	
+	border: 2px solid #D62C2F;
+}
+.btn.btn-siguiente{
+	background-color: #D62C2F;
+	color: #FFFFFF;
+	text-shadow: 0px 0px 0px transparent;
+	width: 100%;
+	position: relative;
+	border-radius: 3px;
+	border: 2px solid #D62C2F;
+	outline: none;
+}
+.btn.btn-siguiente:hover,
+.btn.btn-siguiente:focus{
+	background-color: #970000;
+	color: #FFFFFF;
+	border-radius: 3px;
+	border: 2px solid #D62C2F;
 }
 
 

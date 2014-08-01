@@ -68,12 +68,12 @@
 
 							    <ol class="carousel-indicators">
 							    	{% for vehiculoColor in vehiculoColores %}
-							    		<li data-target="#vehiculo-colores-carousel" data-slide-to="{{loop.index -1 }}"  class="vehic-miniaturas {% if loop.first %}active{% endif %}" style="background-color: {{vehiculoColor.valorColor}} ;"></li>
+							    		<li data-target="#vehiculo-colores-carousel" data-slide-to="{{loop.index -1 }}"  class="vehic-miniaturas {% if loop.first %}active{% endif %}" style="background-color: {{vehiculoColor.coloresvehiculo.valor}} ;"></li>
 							    	{% endfor %}
 							    </ol>
 
 							    <div class="carousel-inner alto-completo">
-
+							    	
 							    {% for vehiculoColor in vehiculoColores %}
 							        <div class="item {% if loop.first %}active{% endif %} alto-completo">
 							    		
@@ -84,14 +84,14 @@
 							    				</div>
 							    				<div class="row">
 							    					<div class="col-md-12 text-center">
-							    						<span class="txt-negro">COLOR: {{ vehiculoColor.Nombre }}</span>
+							    						<span class="txt-negro">COLOR: {{ vehiculoColor.coloresvehiculo.nombre }}</span>
 							    					</div>
 							    				</div>
 							    			</div>
 							    		
 							        </div><!-- item -->
 							    {% endfor %}
-
+									
 							    </div>
 							</div>
 
@@ -206,7 +206,7 @@
 				<div id="rootwizard">
 					<div class="cotizar-banner">
 						<div class="container">
-							<div class="row espacio-a">
+							<div class="row espacio-banner-cotizar">
 								<ul class="nav-cotizar">
 									<li>
 										<a href="#tab1" data-toggle="tab" class="pasos paso-1">&nbsp;</a>
@@ -237,8 +237,8 @@
 													</div>
 													<div class="row espaciado-a">
 														<div class="form-group">
-															<label class="txt-negro" for="selectmodelo">Modelo:</label>
-															<select id="selectmodelo" name="selectmodelo" class="selectmodelo select-custom required" onchange="modeloSelected(this);">
+															<label class="txt-negro" for="vselectmodelo">Modelo:</label>
+															<select id="vselectmodelo" name="vselectmodelo" class="vselectmodelo select-custom required" onchange="modeloSelected(this);">
 																<option value="">Selecciona una opción</option>
 																{% for vehiculoModelo  in vehiculoModelos %}
 																	<option value="{{ vehiculoModelo.id }}">{{ vehiculoModelo.nombre }}</option>
@@ -267,9 +267,9 @@
 										<div class="row">
 											<div class="col-md-3 text-left alto-completo">
 												<h3 class="modelo-titular txt-negrita">Precio Total</h3>
-												<p class="txt-negro">Precio sin IVA: <span class="txt-rojo">$ 123456</span></p>
-												<p class="txt-negro">Precio con IVA: <span class="txt-rojo">$ 123456</span></p>
-												<p class="txt-negro">Entrada mínima: <span class="txt-rojo">$ 123456</span></p>
+												<p class="txt-negro">Precio sin IVA: <span class="txt-rojo" id="vpreciosi">$ 0</span></p>
+												<p class="txt-negro">Precio con IVA: <span class="txt-rojo" id="vprecioci">$ 0</span></p>
+												<p class="txt-negro">Entrada mínima: <span class="txt-rojo" id="ventradam">$ 0</span></p>
 												<p class="cotizar-descripcion">
 													<span class="txt-rojo">*</span>Los precios no incluyen seguro ni dispositivos. <br />
 													La entrada mínima es de 30% del valor del vehículo. La calculadora de cuotas no incluye el seguro, ni dispositivos antirobos. Para obtener cuotas más exactas con estos datos, favor consultar directamente con el concesionario.   <br />
@@ -284,16 +284,13 @@
 											<div class="col-md-3 text-left alto-completo">
 												<h3 class="modelo-titular txt-negrita">Cotizar</h3>
 												<div class="form-group">
-													<label class="txt-negro" for="inputEntrada">Entrada:</label>
-													<input type="number" class="form-control" name="inputEntrada" id="inputEntrada" placeholder="">
+													<label class="txt-negro" for="vinputEntrada">Entrada:</label>
+													<input type="number" class="form-control" name="vinputEntrada" id="vinputEntrada" placeholder="">
 												</div>
 												<div class="form-group">
-													<label class="txt-negro" for="selectplazo">Plazo:</label>
-													<select id="selectplazo" name="selectplazo" class="selectplazo select-custom">
+													<label class="txt-negro" for="vselectplazo">Plazo:</label>
+													<select name="vselectplazo" id="vselectplazo" class="selectplazo select-custom" onchange="plazoSelected(this);">
 														<option value="">Selecciona un plazo</option>
-														<option value="12">12 Meses</option>
-														<option value="24">24 Meses</option>
-														<option value="36">36 Meses</option>
 													</select>
 												</div>
 											</div>
@@ -304,9 +301,9 @@
 
 											<div class="col-md-3 text-left alto-completo">
 												<h3 class="modelo-titular txt-negrita">Resultados</h3>
-												<p class="txt-negro">Total a financiar: <span class="txt-rojo">$123456</span></p>
-												<p class="txt-negro">Cuotas Mensuales: <span class="txt-rojo">$123456</span></p>
-												<p class="txt-negro">Precio final con financiamiento: <span class="txt-rojo">$123456</span></p>
+												<p class="txt-negro">Total a financiar: <span class="txt-rojo" id="vpreciofinanciar" >$ 0</span></p>
+												<p class="txt-negro">Cuotas Mensuales: <span class="txt-rojo" id="vcuotas" >$ 0</span></p>
+												<p class="txt-negro">Precio final con financiamiento: <span class="txt-rojo txt-negrita" id="vpreciofinal" >$ 0</span></p>
 												<p class="cotizar-descripcion">
 													<span class="txt-rojo">*</span>Esta información es únicamente referencial y no representa ningún compromiso con Toyocosta. Para recibir información exacta contactarse con cualquiera de los concesionario del país. 
 													Esta información está sujeta a cambios sin previo aviso.
@@ -326,34 +323,34 @@
 										<div class="row">
 											<div class="col-md-4 col-md-offset-1 alto-completo">
 												<div class="form-group">
-													<label for="nombreInput">Nombre:</label>
-													<input type="text" class="form-control" name="nombreInput" id="nombreInput" maxlength="50" placeholder="">
+													<label for="vnombreInput">Nombre:</label>
+													<input type="text" class="form-control" name="vnombreInput" id="vnombreInput" maxlength="50" placeholder="">
 												</div>
 												<div class="form-group">
-													<label for="apellidoInput">Apellido:</label>
-													<input type="text" class="form-control" name="apellidoInput" id="apellidoInput" maxlength="50" placeholder="">
+													<label for="vapellidoInput">Apellido:</label>
+													<input type="text" class="form-control" name="vapellidoInput" id="vapellidoInput" maxlength="50" placeholder="">
 												</div>
 												<div class="form-group">
-													<label for="cedulaInput">Cédula:</label>
-													<input type="number" class="form-control" name="cedulaInput" id="cedulaInput" maxlength="10" placeholder="">
+													<label for="vcedulaInput">Cédula:</label>
+													<input type="number" class="form-control" name="vcedulaInput" id="vcedulaInput" maxlength="10" placeholder="">
 												</div>
 												<div class="form-group">
-													<label for="telefonoInput">Teléfono:</label>
-													<input type="number" class="form-control" name="telefonoInput" id="telefonoInput" maxlength="15" placeholder="">
+													<label for="vtelefonoInput">Teléfono:</label>
+													<input type="number" class="form-control" name="vtelefonoInput" id="vtelefonoInput" maxlength="15" placeholder="">
 												</div>
 											</div>
 											<div class="col-md-4 col-md-offset-2 alto-completo">
 												<div class="form-group">
-													<label for="emailInput">Email:</label>
-													<input type="email" class="form-control" name="emailInput" id="emailInput" maxlength="50" placeholder="">
+													<label for="vemailInput">Email:</label>
+													<input type="email" class="form-control" name="vemailInput" id="vemailInput" maxlength="50" placeholder="">
 												</div>
 												<div class="form-group">
-													<label for="ciudadInput">Ciudad:</label>
-													<input type="text" class="form-control" name="ciudadInput" id="ciudadInput" maxlength="50" placeholder="">
+													<label for="vciudadInput">Ciudad:</label>
+													<input type="text" class="form-control" name="vciudadInput" id="vciudadInput" maxlength="50" placeholder="">
 												</div>
 												<div class="form-group">
-													<label for="mensajeInput">Mensaje:</label>
-													<textarea class="form-control" name="mensajeInput" id="mensajeInput" rows="5" maxlength="200"></textarea>
+													<label for="vmensajeInput">Mensaje:</label>
+													<textarea class="form-control" name="vmensajeInput" id="vmensajeInput" rows="5" maxlength="200"></textarea>
 												</div>
 											</div>
 										</div>									
@@ -361,15 +358,34 @@
 								</div><!-- v-center-contenedor -->
 							</div>
 						</div>
-
 					</div>	
 					<div class="container">
-						<ul class="pager wizard">
-							<li class="previous first" style="display:none;"><a href="#">First</a></li>
-							<li class="previous"><a href="#">Anterior</a></li>
-						  	<li class="next"><a href="#">Siguiente</a></li>
-						  	<li class="finish" style="display:none;"><a href="javascript:;">Finish</a></li>
-						</ul>
+						<div class="row">
+							<div class="col-md-6 col-md-offset-3">
+								<ul class="pager wizard">
+									<div class="container-fluid">
+										<div class="row">
+											<div class="col-md-6">
+												<li class="previous first" style="display:none;">
+													<a href="#" class="btn btn-anterior">First</a>
+												</li>
+												<li class="previous">
+													<a href="#" class="btn btn-anterior">Anterior</a>
+												</li>
+											</div>
+											<div class="col-md-6">
+												<li class="next">
+													<a href="#" class="btn btn-siguiente">Siguiente</a>
+												</li>
+												<li class="finish" style="display:none;">
+													<a href="javascript:;" class="btn btn-siguiente">Enviar</a>
+												</li>
+											</div>
+										</div>
+									</div>
+								</ul>								
+							</div>
+						</div>
 					</div>
 				</div>
 			</form>

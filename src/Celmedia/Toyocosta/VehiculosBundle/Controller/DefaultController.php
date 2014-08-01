@@ -5,6 +5,7 @@ namespace Celmedia\Toyocosta\VehiculosBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 class DefaultController extends Controller
 {
@@ -347,6 +348,141 @@ class DefaultController extends Controller
         }
 
 
+    }
+
+    public function consultarPreciosXModeloAction(Request $request){
+        $em = $this->getDoctrine()->getManager();        
+
+        if ($request->isMethod('POST')) {
+            $idModelo = $request->request->get('modeloid');
+            if(!$idModelo){
+                return new JsonResponse(array(
+                    'codigo' => 0,
+                    'Mensaje' => "No se ha recibido vehiculo"
+                ), 200); //codigo de error diferente
+            }
+
+            $vehiculoModelo = $em->getRepository('CelmediaToyocostaVehiculosBundle:VehiculoModelos')->findOneBy(
+                array(
+                    'id' => $idModelo,
+                    "estado" => 1
+                )
+            );
+
+            //Obtenemos el vehiculo correspondiente al modelo seleccionado
+            $vehiculo = $vehiculoModelo->getVehiculomodel();
+
+            //Obtenemos los plazos correspondientes al vehiculo
+            $vehiculoPlazos = $vehiculo->getPlazos();
+
+            $arrayPlazos = array();
+
+            foreach ($vehiculoPlazos as $plazo) {
+                if ($plazo->getEstado() == 1) {
+
+                    array_push($arrayPlazos, array(
+                        'id' => $plazo->getId(),
+                        'nombre' => $plazo->getNombre(),
+                        'valor' => $plazo->getValor()
+                    ) );
+                }
+            }
+
+
+            $variableVehiculo = $em->getRepository('CelmediaToyocostaContenidoBundle:Variables')->findOneBy(
+                array(
+                    "id" => 1, // id 1 para vehiculos
+                    "estado" => 1
+                )
+            );
+
+
+
+            return new JsonResponse(array(
+                'codigo' => 1,
+                'modelo' => $vehiculoModelo->getNombre(),
+                'precio' => $vehiculoModelo->getPrecio(),
+                'precioNeto' => $vehiculoModelo->getPrecioNeto(),
+                'entradaMinima' => $vehiculoModelo->getPrecioNeto() * $variableVehiculo->getEntradaMinima(),
+                'plazos' => $arrayPlazos
+            ), 200);
+        }
+
+        return new JsonResponse(array(
+            'Mensaje' => "No se recibio por post"
+        ), 200); //codigo de error diferente
+    }
+
+
+    public function consultarPreciosFinalesAction(Request $request){
+        $em = $this->getDoctrine()->getManager();        
+
+        if ($request->isMethod('POST')) {
+            
+            $idPlazo = $request->request->get('plazoid');
+            $valorEntrada = floatval( $request->request->get('valorentrada') );
+            $idModelo = $request->request->get('modeloid');
+
+            if(!$idPlazo || !$idModelo){
+                return new JsonResponse(array(
+                    'codigo' => 0,
+                    'Mensaje' => "No se ha recibido plazo o modelo"
+                ), 200); //codigo de error diferente
+            }
+
+            $vehiculoPlazo = $em->getRepository('CelmediaToyocostaVehiculosBundle:Plazo')->findOneBy(
+                array(
+                    'id' => $idPlazo,
+                    "estado" => 1
+                )
+            );
+            $vehiculoModelo = $em->getRepository('CelmediaToyocostaVehiculosBundle:VehiculoModelos')->findOneBy(
+                array(
+                    'id' => $idModelo,
+                    "estado" => 1
+                )
+            );
+            $variableVehiculo = $em->getRepository('CelmediaToyocostaContenidoBundle:Variables')->findOneBy(
+                array(
+                    "id" => 1, // id 1 para vehiculos
+                    "estado" => 1
+                )
+            );
+
+
+            //Obtenemos el vehiculo correspondiente al modelo seleccionado
+            $vehiculo = $vehiculoModelo->getVehiculomodel();
+
+            $precioNeto = $vehiculoModelo->getPrecioNeto();
+            $entradaMinima = $vehiculoModelo->getPrecioNeto() * $variableVehiculo->getEntradaMinima();
+
+            $precioFinanciar = $vehiculoModelo->getPrecioNeto() - $valorEntrada;
+
+            /*
+
+                cuotasMensuales = roundNumber(( aFinanciar / (( 1 - ( Math.pow((1 + <?php echo $cotizar_variables['interes']; ?> / 12), -$('#plazo').val()) ) ) / (<?php echo $cotizar_variables['interes']; ?> / 12) ) ), 2);
+            */
+            $valorCuotas = round( ( $precioFinanciar / ( 1 - ( pow( (1 + $variableVehiculo->getInteres() / 12) , -$vehiculoPlazo->getValor()   ) ) / ( $variableVehiculo->getInteres() / 12 ) )  ) , 2) ; //TODO
+
+
+
+            $precioFinal = $valorCuotas * $vehiculoPlazo->getValor();
+
+            return new JsonResponse(array(
+                'codigo' => 1,
+                'modelo' => $vehiculoModelo->getNombre(),
+                'precio' => $vehiculoModelo->getPrecio(),
+                'precioNeto' => $precioNeto,
+                'entradaMinima' => $entradaMinima,
+                'precioFinanciar' => $precioFinanciar,
+                'valorCuotas' => $valorCuotas,
+                'precioFinal' => $precioFinal
+            ), 200);
+        }
+
+        return new JsonResponse(array(
+            'Mensaje' => "No se recibio por post"
+        ), 200); //codigo de error diferente
     }
 
 }
