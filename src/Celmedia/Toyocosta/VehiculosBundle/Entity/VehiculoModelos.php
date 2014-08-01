@@ -468,4 +468,42 @@ class VehiculoModelos
     }
 
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $cotizaciones;
+
+
+    /**
+     * Add cotizaciones
+     *
+     * @param \Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoCotizacion $cotizaciones
+     * @return VehiculoModelos
+     */
+    public function addCotizacione(\Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoCotizacion $cotizaciones)
+    {
+        $this->cotizaciones[] = $cotizaciones;
+
+        return $this;
+    }
+
+    /**
+     * Remove cotizaciones
+     *
+     * @param \Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoCotizacion $cotizaciones
+     */
+    public function removeCotizacione(\Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoCotizacion $cotizaciones)
+    {
+        $this->cotizaciones->removeElement($cotizaciones);
+    }
+
+    /**
+     * Get cotizaciones
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCotizaciones()
+    {
+        return $this->cotizaciones;
+    }
 }

@@ -197,19 +197,43 @@ class DefaultController extends Controller
     public function getTallerAction(Request $request){
 
 
-        $reserva_id = $request->request->get('reserva');
+        if ($request->isMethod('POST')) {
 
 
-        $em = $this->getDoctrine()->getManager(); 
+            $reserva_id = $request->request->get('reserva');
 
-        $reserva_taller = $this->getDoctrine()->getRepository("CelmediaToyocostaContenidoBundle:TipoReserva")->findBy(array(
-            "estado" => 1 , "id" => $reserva_id
-                )
-        );
 
-        $response = array("code" => $reserva_taller, "success" => true);
+            $em = $this->getDoctrine()->getManager(); 
+
+            $reserva_taller = $this->getDoctrine()->getRepository("CelmediaToyocostaContenidoBundle:TipoReserva")->findBy(array(
+                "estado" => 1 , "id" => $reserva_id
+                    )
+            );
+
+
+
+
+            return new JsonResponse(array(
+                'codigo' => 1,
+                'reserva_taller' => $reserva_taller
+            ), 200);
+
+
+            // $response = array("code" => $reserva_taller, "success" => true);
+            // return new Response(json_encode($response));
+
+            
+            
+        }
+
    
-        return new Response(json_encode($response));
+
+
+
+        return new JsonResponse(array(
+            'Mensaje' => "No se recibio por post"
+        ), 200); //codigo de error diferente
+
 
 
     }

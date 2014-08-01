@@ -55,6 +55,8 @@ envio_test:
 get_taller:
     path:      /getTaller
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:getTaller }
+    options:
+        expose: true
 
 consultar_precio:
     path:      /vehiculo/precio

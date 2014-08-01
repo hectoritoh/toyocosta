@@ -1,6 +1,6 @@
-Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoModelos:
+Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoCotizacion:
     type: entity
-    table: vehiculo_modelos
+    table: vehiculo_cotizacion
     fields:
         id:
             id: true
@@ -13,24 +13,36 @@ Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoModelos:
             type: string
             length: 140
             nullable: false
-        descripcion:
-            type: text
+        apellido:
+            type: string
+            length: 140
             nullable: false
-        precio:
-            type: float
+        email:
+            type: string
+            length: 200
             nullable: false
-        precio_neto:
-            type: float
-            nullable: false
-        archivo_pdf:
-            type: text
-            nullable: true
-        imagen_modelo:
-            type: text
-            nullable: false
-        estado:
+        cedula:
             type: integer
-            unsigned: false
+            length: 10
+            nullable: false
+        telefono:
+            type: integer
+            nullable: true
+        ciudad:
+            type: string
+            length: 140
+            nullable: false
+        mensaje:
+            type: text
+            nullable: false
+        valor_entrada:
+            type: float
+            nullable: false
+        interes_vehiculo:
+            type: float
+            nullable: false
+        interes_entrada:
+            type: float
             nullable: false
         created:
             type: datetime
@@ -43,22 +55,18 @@ Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoModelos:
               timestampable:
                 on: update
 
-    oneToMany:
-      especificaciones:
-        targetEntity: ModeloEspecificaciones
-        mappedBy: modelo
-        cascade: ["persist"]
-      cotizaciones:
-        targetEntity: VehiculoCotizacion
-        mappedBy: vehiculo_modelo
-        cascade: ["persist"]
-
     manyToOne:
-      vehiculomodel:
-        targetEntity: Vehiculo
-        inversedBy: modelos
+      vehiculo_modelo:
+        targetEntity: VehiculoModelos
+        inversedBy: cotizaciones
         joinColumn:
           name: vehiculo_id
+          referencedColumnName: id
+      plazo:
+        targetEntity: Plazo
+        inversedBy: formcotizaciones
+        joinColumn:
+          name: plazo_id
           referencedColumnName: id
 
     lifecycleCallbacks:

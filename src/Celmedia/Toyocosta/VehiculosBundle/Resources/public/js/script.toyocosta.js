@@ -31,28 +31,36 @@ function centrarHorizontal(elemento){
 function reservaSelected(elemento){
 
 
-  var reserva = $( "#" + $(elemento).attr("id") ).val();
+    var parametros = {
 
+        reserva: $( "#" + $(elemento).attr("id") ).val()
+    }
 
-              
-  $.post( Routing.generate('get_taller') ,  
-    {  
-      reserva:  reserva
+    $.ajax({
+        url: Routing.generate('get_taller'),
+        type: 'POST',
+        async: true,
+        data: parametros,
+        dataType: "json",
+        success: function (respuesta) {
+          
+          if(respuesta.codigo == 1){
 
-    }, 
-    function(response){
+            
+            var option = '<option value="" selected>Selecciona un plazo</option>';            
+            for (var i = 0; i < respuesta.reserva_taller.length; i++) {
+              option += '<option value="'+ respuesta.reserva_taller.talleres + '">' + respuesta.reserva_taller.talleres + '</option>';
+            };
 
-      if(response.success){
-                //do something
-        alert('ok');
+            $("#taller").html(option);
+          }
+          //console.log(respuesta.precio);
+        }, 
+        error: function (error) {
+          console.log("ERROR: " + error);
+        }
+    });
 
-      }else{
-
-        
-      }
-
-
-    }, "json");
 
 
 }

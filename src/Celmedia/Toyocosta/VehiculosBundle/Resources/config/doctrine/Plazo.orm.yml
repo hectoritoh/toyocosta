@@ -31,6 +31,12 @@ Celmedia\Toyocosta\VehiculosBundle\Entity\Plazo:
               timestampable:
                 on: update
 
+    oneToMany:
+      formcotizaciones:
+        targetEntity: VehiculoCotizacion
+        mappedBy: plazo
+        cascade: ["persist"]
+
     lifecycleCallbacks:
         prePersist:   [ lifecycleFileUpload ]
         preUpdate:    [ lifecycleFileUpload ]

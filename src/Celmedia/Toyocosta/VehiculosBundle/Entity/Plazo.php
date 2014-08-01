@@ -177,4 +177,49 @@ class Plazo
     {
         return $this->getNombre();
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $formcotizaciones;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->formcotizaciones = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add formcotizaciones
+     *
+     * @param \Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoCotizacion $formcotizaciones
+     * @return Plazo
+     */
+    public function addFormcotizacione(\Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoCotizacion $formcotizaciones)
+    {
+        $this->formcotizaciones[] = $formcotizaciones;
+
+        return $this;
+    }
+
+    /**
+     * Remove formcotizaciones
+     *
+     * @param \Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoCotizacion $formcotizaciones
+     */
+    public function removeFormcotizacione(\Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoCotizacion $formcotizaciones)
+    {
+        $this->formcotizaciones->removeElement($formcotizaciones);
+    }
+
+    /**
+     * Get formcotizaciones
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getFormcotizaciones()
+    {
+        return $this->formcotizaciones;
+    }
 }
