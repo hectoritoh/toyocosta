@@ -238,7 +238,7 @@
 													<div class="row espaciado-a">
 														<div class="form-group">
 															<label class="txt-negro" for="selectmodelo">Modelo:</label>
-															<select name="selectmodelo" class="selectmodelo select-custom required">
+															<select id="selectmodelo" name="selectmodelo" class="selectmodelo select-custom required" onchange="modeloSelected(this);">
 																<option value="">Selecciona una opción</option>
 																{% for vehiculoModelo  in vehiculoModelos %}
 																	<option value="{{ vehiculoModelo.id }}">{{ vehiculoModelo.nombre }}</option>
@@ -258,6 +258,7 @@
 							</div>
 
 						</div>
+
 						<div class="tab-pane" id="tab2">
 							
 							<div class="container alto-completo">
@@ -266,9 +267,9 @@
 										<div class="row">
 											<div class="col-md-3 text-left alto-completo">
 												<h3 class="modelo-titular txt-negrita">Precio Total</h3>
-												<p class="txt-negro">Precio sin IVA: <span class="txt-rojo">$123456</span></p>
-												<p class="txt-negro">Precio con IVA: <span class="txt-rojo">$123456</span></p>
-												<p class="txt-negro">Entrada mínima: <span class="txt-rojo">$123456</span></p>
+												<p class="txt-negro">Precio sin IVA: <span class="txt-rojo">$ 123456</span></p>
+												<p class="txt-negro">Precio con IVA: <span class="txt-rojo">$ 123456</span></p>
+												<p class="txt-negro">Entrada mínima: <span class="txt-rojo">$ 123456</span></p>
 												<p class="cotizar-descripcion">
 													<span class="txt-rojo">*</span>Los precios no incluyen seguro ni dispositivos. <br />
 													La entrada mínima es de 30% del valor del vehículo. La calculadora de cuotas no incluye el seguro, ni dispositivos antirobos. Para obtener cuotas más exactas con estos datos, favor consultar directamente con el concesionario.   <br />

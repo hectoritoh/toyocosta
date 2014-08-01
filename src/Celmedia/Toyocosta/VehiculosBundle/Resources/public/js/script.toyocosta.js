@@ -294,7 +294,7 @@ $(document).ready(function(){
     //$('#rootwizard').find("a[href*='tab1']").trigger('click');
   });
 
-<<<<<<< HEAD
+
     $("#form-test").validate({
           debug: true,
           submitHandler: function (form) {
@@ -407,62 +407,6 @@ $(document).ready(function(){
 
     });
 
-});
-=======
-  /*
-  $('#rootwizard').bootstrapWizard({
-    onNext: function(tab, navigation, index) {
-      if(index==2) {
-        // Make sure we entered the name
-        if(!$('#name').val()) {
-          alert('You must enter your name');
-          $('#name').focus();
-          return false;
-        }
-      }
-
-      // Set the name for the next tab
-      $('#tab3').html('Hello, ' + $('#name').val());
-
-    }, onTabShow: function(tab, navigation, index) {
-      var $total = navigation.find('li').length;
-      var $current = index + 1;
-
-      // If it's the last tab then hide the last button and show the finish instead
-      if($current >= $total) {
-        $('#rootwizard').find('.pager .next').hide();
-        $('#rootwizard').find('.pager .finish').show();
-        $('#rootwizard').find('.pager .finish').removeClass('disabled');
-      } else {
-        $('#rootwizard').find('.pager .next').show();
-        $('#rootwizard').find('.pager .finish').hide();
-      }
-    }, onTabClick: function(tab, navigation, index) {
-        //alert('on tab click disabled');
-        return false;
-    }, onTabChange: function(tab, navigation, index) {
-      if(index >= 1) {
-        //alert('on tab show disabled');
-        return false;
-      }
-    }
-  });
-  */
-
-
-
-
-    /*
-    
-      nombreInput
-      apellidoInput
-      cedulaInput
-      telefonoInput
-      emailInput
-      ciudadInput
-      mensajeInput
-
-    */
 
     var $validator = $("#commentForm").validate({
       debug: true,
@@ -538,8 +482,30 @@ $(document).ready(function(){
       }
     }); 
 
+  
 
+  function modeloSelected(){
+    /*
+    var modelos = new Array(); 
 
+    var modeloId = $("#selectmodelo").val(); 
+
+    var nombre = agencias[modeloId].nombre;
+    var ubicacion= agencias[modeloId].ubicacion;
+    var telefono = agencias[modeloId].telefono;
+    var horario = agencias[modeloId].horario;
+
+    var latitud = agencias[modeloId].latitud;
+    var longuitud = agencias[modeloId].longuitud;
+
+    agregarYCentrar(latitud, longuitud);
+
+    $("#agencia").text(nombre);
+    $("#ubicacion").text(ubicacion);
+    $("#telefono").text(telefono);
+    $("#horario").text(horario);
+*/
+
+  }
 
 });
->>>>>>> c9517e3f146bae2fb74e97f22067fc57a0e81485
