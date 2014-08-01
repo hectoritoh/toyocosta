@@ -272,6 +272,23 @@ class DefaultController extends Controller
                 Area:   '. $info->getArea() .' <br />
                 Observacion:  '. $info->getObservaciones() .' ';
 
+            }elseif($formulario == "formcotizacion"){
+
+                $subject = "Pedido de Informacion Cotización desde Toyocosta"; 
+
+                $body = '<strong>Informacion del Cotizacion:</strong> <br /><br />               
+                Nombre:  '.$info->getNombre().' <br />
+                Apellido:   '. $info->getApellido() .' <br />
+                Cedula:  '.$info->getCedula().' <br />
+                Telefono:  '. $info->getTelefono() .'  <br />
+                Email:  '. $info->getEmail() .' <br />
+                Ciudad:  '. $info->getCiudad() .' <br />
+                Mensaje:  '. $info->getMensaje() .' <br />
+                Plazo:  '. $info->getPlazo()->getValor() .' meses  <br />
+                Modelo:  '. $info->getVehiculoModelo()->getNombre() .' <br />
+                Valor de entrada:  '. $info->getValorEntrada() .' <br />
+                Interes del vehiculo:  '. $info->getInteresVehiculo() .' <br />
+                Entrada minima:  '. $info->getInteresEntrada() .' ';
             }
 
             $message = \Swift_Message::newInstance()
@@ -447,11 +464,12 @@ class DefaultController extends Controller
             );
 
 
-
+            $baseurl = $this->getRequest()->getScheme() . '://' . $this->getRequest()->getHttpHost() . $this->getRequest()->getBasePath();
             return new JsonResponse(array(
                 'codigo' => 1,
                 'modelo' => $vehiculoModelo->getNombre(),
                 'precio' => $vehiculoModelo->getPrecio(),
+                'imagenModelo' => $baseurl . "/uploads/vehiculo/modelo/" . $vehiculoModelo->getImagenModelo(),
                 'precioNeto' => $vehiculoModelo->getPrecioNeto(),
                 'entradaMinima' => $vehiculoModelo->getPrecioNeto() * $variableVehiculo->getEntradaMinima(),
                 'plazos' => $arrayPlazos
@@ -459,6 +477,7 @@ class DefaultController extends Controller
         }
 
         return new JsonResponse(array(
+            'codigo' => 0,
             'Mensaje' => "No se recibio por post"
         ), 200); //codigo de error diferente
     }
@@ -535,6 +554,110 @@ class DefaultController extends Controller
         }
 
         return new JsonResponse(array(
+            'codigo' => 0,
+            'Mensaje' => "No se recibio por post"
+        ), 200); //codigo de error diferente
+    }
+
+
+    public function envioCotizacionAction(Request $request){
+        $em = $this->getDoctrine()->getManager();        
+
+        if ($request->isMethod('POST')) {
+
+            $plazoid = $request->request->get('plazoid');
+            $valorentrada = floatval( $request->request->get('valorentrada') );
+            $modeloid = $request->request->get('modeloid');
+
+
+
+            $nombre = $request->request->get('nombre');
+            $apellido = $request->request->get('apellido');
+            $cedula = $request->request->get('cedula');
+            $telefono = $request->request->get('telefono');
+            $email = $request->request->get('email');
+            $ciudad = $request->request->get('ciudad');
+            $mensaje = $request->request->get('mensaje');
+
+
+            if(!$plazoid || !$modeloid || !$valorentrada || !$nombre || !$apellido || !$cedula || !$telefono || !$email || !$ciudad || !$mensaje ){
+                return new JsonResponse(array(
+                    'codigo' => 0,
+                    'Mensaje' => "faltan parametros"
+                ), 200); //codigo de error diferente
+            }
+
+            $vehiculoPlazo = $em->getRepository('CelmediaToyocostaVehiculosBundle:Plazo')->findOneBy(
+                array(
+                    'id' => $plazoid,
+                    "estado" => 1
+                )
+            );
+            $vehiculoModelo = $em->getRepository('CelmediaToyocostaVehiculosBundle:VehiculoModelos')->findOneBy(
+                array(
+                    'id' => $modeloid,
+                    "estado" => 1
+                )
+            );
+            $variableVehiculo = $em->getRepository('CelmediaToyocostaContenidoBundle:Variables')->findOneBy(
+                array(
+                    "id" => 1, // id 1 para vehiculos
+                    "estado" => 1
+                )
+            );
+
+            // Calculos de cotizacion a la base
+            $precioNeto = $vehiculoModelo->getPrecioNeto();
+            $entradaMinima = $vehiculoModelo->getPrecioNeto() * $variableVehiculo->getEntradaMinima();
+            $precioFinanciar = $vehiculoModelo->getPrecioNeto() - $valorentrada;
+            $valorCuotas = round( ( $precioFinanciar / ( ( 1 - ( pow( (1 + ($variableVehiculo->getInteres() / 12)), -$vehiculoPlazo->getValor()) ) ) / ($variableVehiculo->getInteres() / 12) ) ) , 2);
+            $precioFinal = round($valorCuotas * $vehiculoPlazo->getValor() , 2);
+            
+
+            // Creamos el objeto cotizacion
+
+            $cotizacion = new \Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoCotizacion();
+
+            $cotizacion->setNombre( $nombre  );
+            $cotizacion->setApellido( $apellido  );
+            $cotizacion->setCedula( $cedula);
+            $cotizacion->setTelefono( $telefono  );
+            $cotizacion->setEmail( $email  );            
+            $cotizacion->setCiudad( $ciudad  );
+            $cotizacion->setMensaje( $mensaje  );
+
+            $cotizacion->setPlazo( $vehiculoPlazo );
+            $cotizacion->setVehiculoModelo( $vehiculoModelo );
+
+            $cotizacion->setValorEntrada( $valorentrada );
+            $cotizacion->setInteresVehiculo( $variableVehiculo->getInteres() );
+            $cotizacion->setInteresEntrada( $variableVehiculo->getEntradaMinima() );
+            
+            //almacenamos en la base
+
+            $em = $this->getDoctrine()->getManager(); 
+            $em->persist(  $cotizacion );
+            $em->flush();
+
+            $formulario = "formcotizacion";
+
+
+
+            if( $this->enviarCorreo($email, $cotizacion, $formulario ) ){
+                return new JsonResponse(array(
+                    'codigo' => 1,
+                    'Mensaje' => "El mensaje ha sido enviado"
+                ), 200); //codigo de error diferente
+            }else{
+                return new JsonResponse(array(
+                    'codigo' => 0,
+                    'Mensaje' => "No se ha enviado mensaje"
+                ), 200); //codigo de error diferente
+            }
+        }
+
+        return new JsonResponse(array(
+            'codigo' => 0,
             'Mensaje' => "No se recibio por post"
         ), 200); //codigo de error diferente
     }
