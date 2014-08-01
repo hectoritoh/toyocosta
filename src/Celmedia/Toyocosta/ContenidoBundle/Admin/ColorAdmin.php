@@ -31,12 +31,13 @@ class ColorAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('id')
             ->add('nombre')
             ->add('valor')
-            ->add('estado')
-            ->add('created')
-            ->add('updated')
+            ->add('estado', 'choice', array(
+               'choices' => array(
+                   '1' => 'Publicado',
+                   '0' => 'No publicado'
+                   )))
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -53,12 +54,13 @@ class ColorAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('id')
             ->add('nombre')
             ->add('valor')
-            ->add('estado')
-            ->add('created')
-            ->add('updated')
+            ->add('estado', 'choice', array(
+               'choices' => array(
+                   '1' => 'Publicado',
+                   '0' => 'No publicado'
+                   )))
         ;
     }
 

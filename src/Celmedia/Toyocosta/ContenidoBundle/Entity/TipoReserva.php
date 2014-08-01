@@ -34,6 +34,18 @@ class TipoReserva
      */
     private $updated;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $talleres;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->talleres = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -136,6 +148,39 @@ class TipoReserva
     {
         return $this->updated;
     }
+
+    /**
+     * Add talleres
+     *
+     * @param \Celmedia\Toyocosta\ContenidoBundle\Entity\Establecimiento $talleres
+     * @return TipoReserva
+     */
+    public function addTallere(\Celmedia\Toyocosta\ContenidoBundle\Entity\Establecimiento $talleres)
+    {
+        $this->talleres[] = $talleres;
+
+        return $this;
+    }
+
+    /**
+     * Remove talleres
+     *
+     * @param \Celmedia\Toyocosta\ContenidoBundle\Entity\Establecimiento $talleres
+     */
+    public function removeTallere(\Celmedia\Toyocosta\ContenidoBundle\Entity\Establecimiento $talleres)
+    {
+        $this->talleres->removeElement($talleres);
+    }
+
+    /**
+     * Get talleres
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getTalleres()
+    {
+        return $this->talleres;
+    }
     /**
      * @ORM\PrePersist
      */
@@ -143,8 +188,11 @@ class TipoReserva
     {
         // Add your code here
     }
-        public function __toString()
+
+    public function __toString()
     {
         return $this->getNombre();
     }
+
+
 }

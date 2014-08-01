@@ -602,4 +602,9 @@ class Seminuevo
     {
         // Add your code here
     }
+
+    public function __toString()
+    {
+        return $this->getModelo();
+    }
 }

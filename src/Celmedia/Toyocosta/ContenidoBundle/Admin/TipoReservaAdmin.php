@@ -55,6 +55,7 @@ class TipoReservaAdmin extends Admin
     {
         $formMapper
             ->add('nombre')
+            ->add('talleres')
             ->add('estado', 'choice', array(
                'choices' => array(
                    '1' => 'Publicado',

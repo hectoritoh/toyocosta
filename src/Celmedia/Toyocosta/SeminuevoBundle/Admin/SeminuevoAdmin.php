@@ -20,10 +20,10 @@ class SeminuevoAdmin extends Admin
     public function preUpdate( $obj ){
 
 
-        // foreach ($obj->getGaleria() as $galeria ){
+        foreach ($obj->getGaleria() as $galeria ){
 
-        //     $galeria->setSeminuevoGaleria( $obj );
-        // }
+            $galeria->setSeminuevoGaleria( $obj );
+        }
 
 
         // foreach ($obj->getCertificados() as $certificado ) {
@@ -110,49 +110,33 @@ class SeminuevoAdmin extends Admin
             // ))
             // ->add('descripcion_corta')
 
-
-
             ->add('estado' , 'choice', array('choices' => array(1 => 'Disponible' , 2 => 'Proximammente' , 3 => 'Reservado', 4 => 'Vendido') ) )
             ->add('estado_publicacion' , 'choice', array('choices' => array(1 => 'Aprobado' , 2 => 'Pendiente' , 3 => 'Rechazado') ) )
-            // ->with('Galeria')
-            //     ->add('galeria', 'sonata_type_collection', array(
-            //          'by_reference' => false,
-            //                // Prevents the "Delete" option from being displayed
-            //          'type_options' => array('delete' => false)) , array(
-            //          'edit' => 'inline',
-            //          'inline' => 'standard',
-            //      ))
-            // ->end()
-            // ->add('imagenes', 'sonata_type_model_list', array(
-            //         'help'              => 'Each individual gallery will be displayed as a carousel.',
-            //         'required'          => false,
+            ->with('Galeria')
+                ->add('galeria', 'sonata_type_collection', array(
+                     'by_reference' => false,
+                           // Prevents the "Delete" option from being displayed
+                     'type_options' => array('delete' => false)) , array(
+                     'edit' => 'inline',
+                     'inline' => 'standard',
+                 ))
+            ->end()
+            // GALERIA CON MEDIA BUNDLE ENTITY GALLERY
+            // ->add('imagenes', 'sonata_type_collection', array(
+            //     'cascade_validation' => true,
             //     ), array(
-            //         'admin_code' => 'sonata.media.admin.gallery',
-            // ))
-            ->add('imagenes', 'sonata_type_collection', array(
-                'cascade_validation' => true,
-                ), array(
-                'edit' => 'inline',
-                'inline' => 'table',
-                'sortable' => 'position',
-                'link_parameters' => array('context' => 'default'),
-                'admin_code' => 'sonata.media.admin.gallery_has_media'
-                )
-            )          
+            //     'edit' => 'inline',
+            //     'inline' => 'table',
+            //     'sortable' => 'position',
+            //     'link_parameters' => array('context' => 'default'),
+            //     'admin_code' => 'sonata.media.admin.gallery_has_media'
+            //     )
+            // )          
             ->add('coloresseminuevo')
             ->add('certificados')
             ->setHelps(array(
                     'coloresseminuevo' => 'Color'
                 ))
-            // ->with('Certificados del Seminuevo')
-            //     ->add('certificados', 'sonata_type_collection', array(
-            //          'by_reference' => false,
-            //                // Prevents the "Delete" option from being displayed
-            //          'type_options' => array('delete' => false)) , array(
-            //          'edit' => 'inline',
-            //          'inline' => 'standard',
-            //      ))
-            // ->end()
         ;
 
 
