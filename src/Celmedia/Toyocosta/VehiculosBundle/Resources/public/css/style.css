@@ -668,8 +668,15 @@ fieldset.ty-fieldset-border {
 	border-radius: 0px;
 }
 
+.nav-cotizar{
+	text-align: center;
+	position: relative;
+	left: 11%;
+	right: 11%;
+	width: 78%;
+}
 
-.pasos{
+.nav-cotizar > li > .pasos{
 	border: none;
 	border-radius: 0px;
 	display: inline-block;
@@ -678,6 +685,16 @@ fieldset.ty-fieldset-border {
 	position: relative;
 	height: 59px;
 	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/varios/sprite-cotizar.png");
+	background-color: transparent;
+	border-radius: 0px;
+}
+
+.nav-cotizar > li.active > .pasos,
+.nav-cotizar > li.active > .pasos:hover,
+.nav-cotizar > li > .pasos:hover,
+.nav-cotizar > li.active > .pasos:focus,
+.nav-cotizar > li > .pasos:focus{
+	background-color: transparent;
 }
 
 .nav-cotizar > li > .paso-1{
@@ -1009,10 +1026,18 @@ fieldset.ty-fieldset-border {
 	padding-bottom: 7px;
 	text-transform: uppercase;
 }
-.navbar-toyocosta .navbar-nav-menu-0 > li > a, .dropdown-menu > li > a {
+.navbar-toyocosta .navbar-nav-menu-0 > li > a{
 	color: #606060;
 	line-height: 5px;
-	font-size: 11px;
+	font-size: 10px;
+	text-transform: uppercase;
+}
+
+.navbar-toyocosta .navbar-nav-menu-0 .dropdown-menu > li > a {
+	color: #606060;
+	line-height: normal;
+	font-size: 10px;
+	text-transform: uppercase;
 }
 
 
@@ -1274,6 +1299,7 @@ fieldset.ty-fieldset-border {
 	max-width: 33%
 }
 
+
 /*Media Querys*/
 /* Large desktop */
 @media (min-width: 1921px) { 
@@ -1310,7 +1336,7 @@ fieldset.ty-fieldset-border {
 		height: 200px;
 	}
 	.espaciado-menu-3{
-		height: 85px;
+		height: 70px;
 	}
  }
 @media (min-width: 1200px) {
@@ -1399,7 +1425,7 @@ fieldset.ty-fieldset-border {
 	}
 
 	.espaciado-menu-3{
-		height: 85px;
+		height: 70px;
 	}
 
 	.borde-gris{
