@@ -24,11 +24,11 @@
     <body>
         {% set estaLogueado = false %}
         {% set idLogueado = 1 %}
-
+        {#
         {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
             Hi {{ app.user.username }}
         {% endif %}
-
+        #}
         {% block contenidotoyocosta %}
             
         {% endblock %}
