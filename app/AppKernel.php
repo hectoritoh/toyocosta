@@ -46,6 +46,7 @@ class AppKernel extends Kernel
             new Celmedia\Toyocosta\ContenidoBundle\CelmediaToyocostaContenidoBundle(),
 
             new Sonata\IntlBundle\SonataIntlBundle(),
+            new Gregwar\CaptchaBundle\GregwarCaptchaBundle(),
 
             new FOS\UserBundle\FOSUserBundle(),
             new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),

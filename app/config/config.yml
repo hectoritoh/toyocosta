@@ -8,7 +8,7 @@ sonata_user:
     security_acl: true
     manager_type: orm # c
 
-
+gregwar_captcha: ~
 
 sonata_block:
     default_contexts: [cms]

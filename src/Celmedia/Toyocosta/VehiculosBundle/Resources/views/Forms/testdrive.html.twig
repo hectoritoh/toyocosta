@@ -36,11 +36,16 @@
 						<div class="row">
 							<div class="col-xs-4 col-xs-offset-1">
 								<label>Nombre:</label>
-								<input id="nombre_test" name="nombre_test" type="text" class="form-control" placeholder="" />
+
+								{{ form_widget(form.nombre, {'attr': {'class': 'form-control'}}) }}
+
+								{#<input id="nombre_test" name="nombre_test" type="text" class="form-control" placeholder="" />#}
 							</div>
 							<div class="col-xs-4 col-xs-offset-1">
 								<label>Apellido:</label>
-								<input id="apellido_test" name="apellido_test" type="text" class="form-control" placeholder="" />
+
+								{{ form_widget(form.apellido, {'attr': {'class': 'form-control'}}) }}
+								{#<input id="apellido_test" name="apellido_test" type="text" class="form-control" placeholder="" />#}
 							</div>
 
 						</div>	
@@ -54,11 +59,17 @@
 						<div class="row">
 							<div class="col-xs-4 col-xs-offset-1">
 								<label>Tel&eacute;fono:</label>
-								<input id="telefono_test" name="telefono_test" type="text" class="form-control" placeholder="" />
+
+								{{ form_widget(form.telefono, {'attr': {'class': 'form-control'}}) }}
+
+								{#<input id="telefono_test" name="telefono_test" type="text" class="form-control" placeholder="" />#}
 							</div>
 							<div class="col-xs-4 col-xs-offset-1">
 								<label>Email:</label>
-								<input id="email_test" name="email_test" type="text" class="form-control" placeholder="" />
+
+								{{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}
+
+								{#<input id="email_test" name="email_test" type="text" class="form-control" placeholder="" />#}
 							</div>
 
 						</div>	
@@ -73,11 +84,16 @@
 						<div class="row">
 							<div class="col-xs-4 col-xs-offset-1">
 								<label>No. de C&eacute;dula / Pasaporte:</label>
-								<input id="cedula_test" name="cedula_test" type="text" class="form-control" placeholder="" />
+
+								{{ form_widget(form.cedula, {'attr': {'class': 'form-control'}}) }}
+
+								{#<input id="cedula_test" name="cedula_test" type="text" class="form-control" placeholder="" />#}
 							</div>
 							<div class="col-xs-4 col-xs-offset-1">
 								<label>Fecha de nacimiento</label>
-								<input id="nacimiento_test" name="nacimiento_test" type="date" class="form-control" placeholder="" />
+
+								{{ form_widget(form.nacimiento, {'attr': {'class': 'form-control'}}) }}
+								{#<input id="nacimiento_test" name="nacimiento_test" type="date" class="form-control" placeholder="" />#}
 							</div>
 
 						</div>	
@@ -91,7 +107,11 @@
 						<div class="row">
 							<div class="col-xs-4 col-xs-offset-1">
 								<label>Agencia:</label>
-								<select name="agencia_test" id="agencia_test" class="form-control txt-select">
+
+								{{ form_widget(form.agencia, {'attr': {'class': 'form-control txt-select'}}) }}
+
+
+								{#<select name="agencia_test" id="agencia_test" class="form-control txt-select">
 									<option value="">Seleccione la agencia</option>
 
 									{% for row in agencias %}
@@ -99,11 +119,14 @@
 										<option value="{{ row.nombre }}" >{{ row.nombre }}</option>
 			                    	{% endfor %}
 
-								</select>
+								</select>#}
+
 							</div>
 							<div class="col-xs-4 col-xs-offset-1">
 								<label>Ciudad:</label>
-								<input id="ciudad_test" name="ciudad_test" type="text" class="form-control" placeholder="" />
+
+								{{ form_widget(form.ciudad, {'attr': {'class': 'form-control'}}) }}
+								{#<input id="ciudad_test" name="ciudad_test" type="text" class="form-control" placeholder="" />#}
 							</div>
 
 						</div>	
@@ -119,7 +142,9 @@
 							
 							<div class="col-xs-4 col-xs-offset-1">
 								<label>Vehiculo:</label>
-								<select  name="vehiculo_test" id="vehiculo_test"  class="form-control txt-select">
+
+								{{ form_widget(form.vehiculo, {'attr': {'class': 'form-control txt-select'}}) }}
+								{#<select  name="vehiculo_test" id="vehiculo_test"  class="form-control txt-select">
 									<option value="">Seleccione un modelo</option>
 
 									{% for vehiculo in vehiculos_test %}
@@ -127,7 +152,8 @@
 										<option value="{{ vehiculo.nombre }}" >{{ vehiculo.nombre }}</option>
 			                    	{% endfor %}
 
-								</select>
+								</select>#}
+
 							</div>
 
 						</div>	
@@ -145,11 +171,14 @@
 						<div class="row">
 							<div class="col-xs-4 col-xs-offset-1">
 								<label>Fecha del test:</label>
-								<input id="fecha_test" name="fecha_test" type="date" class="form-control" placeholder="" />
+								{{ form_widget(form.fecha_test, {'attr': {'class': 'form-control'}}) }}
+
+								{#<input id="fecha_test" name="fecha_test" type="date" class="form-control" placeholder="" />#}
 							</div>
 							<div class="col-xs-4 col-xs-offset-1">
 								<label>Hora del test:</label>
-								<input id="hora_test" name="hora_test" type="text" class="form-control" placeholder="" />
+								{{ form_widget(form.hora_test, {'attr': {'class': 'form-control'}}) }}
+								{#<input id="hora_test" name="hora_test" type="text" class="form-control" placeholder="" />#}
 							</div>
 
 						</div>	
@@ -163,13 +192,36 @@
 						<div class="row">
 							<div class="col-xs-9 col-xs-offset-1">
 								<label>Observaciones:</label>
-								<textarea id="obs_test" name="obs_test" class="form-control" rows="3"></textarea>
+								{{ form_widget(form.observacion, {'attr': {'class': 'form-control'}}) }}
+								{#<textarea id="obs_test" name="obs_test" class="form-control" rows="3"></textarea>#}
 
 							</div>
 						</div>	
 					</div>
 
 				</div>
+
+
+				<div class="row space-input">
+					<div class="col-md-10 col-md-offset-1">
+
+						<div class="row">
+							<div class="col-xs-9 col-xs-offset-1">
+								
+								<label>Complete el campo:</label>
+								{% if form_errors(form.captcha) %}
+									 <br/><br/>{{ form_errors(form.captcha) }}
+								{% endif %}
+								<br/><br/>
+								{{ form_widget(form.captcha, {'attr': {'class': 'form-control'}}) }}	
+
+							</div>
+						</div>	
+					</div>
+
+				</div>
+
+
 
 				<div class="row space-input">
 					<div class="col-md-10 col-md-offset-1" style="padding-top:20px;">

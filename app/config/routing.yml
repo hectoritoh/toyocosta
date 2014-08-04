@@ -31,7 +31,9 @@ _sonata_admin:
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
 
-
+gregwar_captcha_routing:
+    resource: "@GregwarCaptchaBundle/Resources/config/routing/routing.yml"
+    prefix: /_gcb
 
 
 

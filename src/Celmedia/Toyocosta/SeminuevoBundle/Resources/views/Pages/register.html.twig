@@ -28,7 +28,7 @@
             <div class="row space-input">
                 <div class="col-md-10 col-md-offset-1">
 
-                    <p class="txt-info" style="padding-left:15px;">Llene el siguiente formulario para para poder publicar tu auto usado.</p> 
+                    <p class="txt-info" style="padding-left:15px;">Llene el siguiente formulario para poder publicar tu auto usado.</p> 
 
                 </div>
 
@@ -104,6 +104,22 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="row space-input">
+                    <div class="col-md-10 col-md-offset-1">
+                        <div class="row">
+                                {{ form_label(form.captcha, 'Complete el campo*:', {'label_attr': {'class': 'col-sm-4'}}) }}
+
+                                <div class="col-sm-5">
+                                {{ form_widget(form.captcha, {'attr': {'class': 'form-control'}}) }}
+                                </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+                
 
                 <div class="row space-input">
                     <div style="padding-top:20px;" class="col-md-10 col-md-offset-1">

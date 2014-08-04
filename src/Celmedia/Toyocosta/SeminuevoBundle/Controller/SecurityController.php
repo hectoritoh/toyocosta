@@ -85,6 +85,7 @@ class SecurityController extends Controller
             'first_options'  => array('label' => 'Password'),
             'second_options' => array('label' => 'Repita Password'),
             ))
+        ->add('captcha', 'captcha')
         ->getForm(); 
 
         if ($request->isMethod('POST')) {

@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "1ef82f69174cf5dc9c86ec9a2779cd6d",
+    "hash": "24a21745c8e966fdfa5b4f438557411f",
     "packages": [
         {
             "name": "dflydev/markdown",
@@ -200,7 +200,7 @@
                 {
                     "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -267,7 +267,7 @@
                 {
                     "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -343,7 +343,7 @@
                 {
                     "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -662,7 +662,7 @@
                 {
                     "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -716,7 +716,7 @@
                 {
                     "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -1196,6 +1196,108 @@
             "time": "2014-01-12 16:34:06"
         },
         {
+            "name": "gregwar/captcha",
+            "version": "v1.0.11",
+            "target-dir": "Gregwar/Captcha",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Gregwar/Captcha.git",
+                "reference": "68c27a070922cf306984dc04a92a27525e534e83"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Gregwar/Captcha/zipball/68c27a070922cf306984dc04a92a27525e534e83",
+                "reference": "68c27a070922cf306984dc04a92a27525e534e83",
+                "shasum": ""
+            },
+            "require": {
+                "ext-gd": "*",
+                "php": ">=5.3.0"
+            },
+            "type": "captcha",
+            "autoload": {
+                "psr-0": {
+                    "Gregwar\\Captcha": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Grégoire Passault",
+                    "email": "g.passault@gmail.com",
+                    "homepage": "http://www.gregwar.com/"
+                },
+                {
+                    "name": "Jeremy Livingston",
+                    "email": "jeremy.j.livingston@gmail.com"
+                }
+            ],
+            "description": "Captcha generator",
+            "homepage": "https://github.com/Gregwar/Captcha",
+            "keywords": [
+                "bot",
+                "captcha",
+                "spam"
+            ],
+            "time": "2014-03-19 15:13:34"
+        },
+        {
+            "name": "gregwar/captcha-bundle",
+            "version": "dev-master",
+            "target-dir": "Gregwar/CaptchaBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Gregwar/CaptchaBundle.git",
+                "reference": "162a2a87cd658753585ce73c8519f3275ce17857"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Gregwar/CaptchaBundle/zipball/162a2a87cd658753585ce73c8519f3275ce17857",
+                "reference": "162a2a87cd658753585ce73c8519f3275ce17857",
+                "shasum": ""
+            },
+            "require": {
+                "gregwar/captcha": "v1.0.11",
+                "php": ">=5.3.0"
+            },
+            "type": "captcha-bundle",
+            "autoload": {
+                "psr-0": {
+                    "Gregwar\\CaptchaBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Grégoire Passault",
+                    "email": "g.passault@gmail.com",
+                    "homepage": "http://www.gregwar.com/"
+                },
+                {
+                    "name": "Jeremy Livingston",
+                    "email": "jeremy.j.livingston@gmail.com"
+                }
+            ],
+            "description": "Captcha bundle",
+            "homepage": "https://github.com/Gregwar/CaptchaBundle",
+            "keywords": [
+                "Symfony2",
+                "bot",
+                "captcha",
+                "code",
+                "security",
+                "spam",
+                "visual"
+            ],
+            "time": "2014-07-31 14:41:27"
+        },
+        {
             "name": "imagine/imagine",
             "version": "v0.6.1",
             "source": {
@@ -1391,9 +1493,9 @@
             ],
             "authors": [
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -1494,9 +1596,9 @@
             ],
             "authors": [
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -1564,9 +1666,9 @@
             ],
             "authors": [
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -1821,7 +1923,7 @@
                     "email": "stof@notk.org"
                 },
                 {
-                    "name": "KnpLabs",
+                    "name": "Knplabs",
                     "homepage": "http://knplabs.com"
                 },
                 {
@@ -2256,9 +2358,9 @@
             ],
             "authors": [
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -2306,9 +2408,9 @@
             ],
             "authors": [
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -2512,12 +2614,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "ce64615821dcbc159d8775d834e31557ebbf79bc"
+                "reference": "634188df6befbfbef90606252e332b803ae6219e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/ce64615821dcbc159d8775d834e31557ebbf79bc",
-                "reference": "ce64615821dcbc159d8775d834e31557ebbf79bc",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/634188df6befbfbef90606252e332b803ae6219e",
+                "reference": "634188df6befbfbef90606252e332b803ae6219e",
                 "shasum": ""
             },
             "require": {
@@ -2538,7 +2640,7 @@
                 "symfony/twig-bridge": "~2.3",
                 "symfony/validator": "~2.3",
                 "twig/extensions": "~1.0",
-                "twig/twig": "~1.15"
+                "twig/twig": "~1.12"
             },
             "require-dev": {
                 "jms/translation-bundle": "~1.1",
@@ -2583,7 +2685,7 @@
                 "bootstrap",
                 "sonata"
             ],
-            "time": "2014-07-30 14:17:55"
+            "time": "2014-04-14 15:02:11"
         },
         {
             "name": "sonata-project/block-bundle",
@@ -2591,12 +2693,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataBlockBundle.git",
-                "reference": "772b830c2cf9d34cd3471f41c08270aec8db6032"
+                "reference": "932c1a1a040d622e586cd5abd42429df4f6ffaf4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataBlockBundle/zipball/772b830c2cf9d34cd3471f41c08270aec8db6032",
-                "reference": "772b830c2cf9d34cd3471f41c08270aec8db6032",
+                "url": "https://api.github.com/repos/sonata-project/SonataBlockBundle/zipball/932c1a1a040d622e586cd5abd42429df4f6ffaf4",
+                "reference": "932c1a1a040d622e586cd5abd42429df4f6ffaf4",
                 "shasum": ""
             },
             "require": {
@@ -2647,7 +2749,7 @@
                 "block",
                 "sonata"
             ],
-            "time": "2014-07-25 09:07:35"
+            "time": "2014-04-08 14:21:40"
         },
         {
             "name": "sonata-project/cache",
@@ -2715,12 +2817,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataCoreBundle.git",
-                "reference": "5423bc35c997166f8c7dbcdc80d0f723470efd21"
+                "reference": "fdeb39d81d31f377b49e8bbfa2b72eb2d4ae1dcb"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataCoreBundle/zipball/5423bc35c997166f8c7dbcdc80d0f723470efd21",
-                "reference": "5423bc35c997166f8c7dbcdc80d0f723470efd21",
+                "url": "https://api.github.com/repos/sonata-project/SonataCoreBundle/zipball/fdeb39d81d31f377b49e8bbfa2b72eb2d4ae1dcb",
+                "reference": "fdeb39d81d31f377b49e8bbfa2b72eb2d4ae1dcb",
                 "shasum": ""
             },
             "require": {
@@ -2756,12 +2858,13 @@
             ],
             "authors": [
                 {
-                    "name": "Sonata Community",
-                    "homepage": "https://github.com/sonata-project/SonataCoreBundle/contributors"
+                    "name": "Thomas Rabaix",
+                    "email": "thomas.rabaix@sonata-project.org",
+                    "homepage": "http://sonata-project.org"
                 },
                 {
-                    "name": "Thomas Rabaix",
-                    "email": "thomas.rabaix@sonata-project.org"
+                    "name": "Sonata Community",
+                    "homepage": "https://github.com/sonata-project/SonataCoreBundle/contributors"
                 }
             ],
             "description": "Symfony SonataCoreBundle",
@@ -2769,7 +2872,7 @@
             "keywords": [
                 "sonata"
             ],
-            "time": "2014-07-31 16:16:14"
+            "time": "2014-06-14 13:33:31"
         },
         {
             "name": "sonata-project/datagrid-bundle",
@@ -2877,16 +2980,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataDoctrineORMAdminBundle.git",
-                "reference": "2705f193d6a441b9140fef0996ca392887130ec0"
+                "reference": "a4e376a6d3df55d1f260013c3cecd65efbfaec63"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataDoctrineORMAdminBundle/zipball/2705f193d6a441b9140fef0996ca392887130ec0",
-                "reference": "2705f193d6a441b9140fef0996ca392887130ec0",
+                "url": "https://api.github.com/repos/sonata-project/SonataDoctrineORMAdminBundle/zipball/a4e376a6d3df55d1f260013c3cecd65efbfaec63",
+                "reference": "a4e376a6d3df55d1f260013c3cecd65efbfaec63",
                 "shasum": ""
             },
             "require": {
-                "doctrine/orm": "~2.3",
+                "doctrine/orm": "~2.4",
                 "sonata-project/admin-bundle": "~2.3@dev",
                 "sonata-project/exporter": "~1.3,>=1.3.1",
                 "symfony/console": "~2.3",
@@ -2895,11 +2998,9 @@
                 "symfony/framework-bundle": "~2.2",
                 "symfony/security": "~2.3"
             },
-            "provide": {
-                "sonata-project/admin-bundle-persistency-layer": "1.0.0"
-            },
             "require-dev": {
-                "simplethings/entity-audit-bundle": "~0.1"
+                "simplethings/entity-audit-bundle": "~0.1",
+                "sonata-project/admin-bundle": "~2.3@dev"
             },
             "suggest": {
                 "simplethings/entity-audit-bundle": "If you want to support for versioning of entities and their associations."
@@ -2939,7 +3040,7 @@
                 "generator",
                 "sonata"
             ],
-            "time": "2014-06-10 21:07:08"
+            "time": "2014-04-09 12:07:30"
         },
         {
             "name": "sonata-project/easy-extends-bundle",
@@ -3060,12 +3161,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataFormatterBundle.git",
-                "reference": "c59a570bdfd6937be38ac930fa86b51abb898d9d"
+                "reference": "4b741d76c8e1941c624dcc7f56455b59b32028cc"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataFormatterBundle/zipball/c59a570bdfd6937be38ac930fa86b51abb898d9d",
-                "reference": "c59a570bdfd6937be38ac930fa86b51abb898d9d",
+                "url": "https://api.github.com/repos/sonata-project/SonataFormatterBundle/zipball/4b741d76c8e1941c624dcc7f56455b59b32028cc",
+                "reference": "4b741d76c8e1941c624dcc7f56455b59b32028cc",
                 "shasum": ""
             },
             "require": {
@@ -3112,7 +3213,7 @@
                 "markitup",
                 "sonata"
             ],
-            "time": "2014-07-31 08:59:29"
+            "time": "2014-06-18 12:35:21"
         },
         {
             "name": "sonata-project/google-authenticator",
@@ -3348,12 +3449,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataMediaBundle.git",
-                "reference": "5b2897a94f84c8790a4b2798b507b90035fb36ba"
+                "reference": "163f821277d4656b107e74f8469e516de83ea297"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataMediaBundle/zipball/5b2897a94f84c8790a4b2798b507b90035fb36ba",
-                "reference": "5b2897a94f84c8790a4b2798b507b90035fb36ba",
+                "url": "https://api.github.com/repos/sonata-project/SonataMediaBundle/zipball/163f821277d4656b107e74f8469e516de83ea297",
+                "reference": "163f821277d4656b107e74f8469e516de83ea297",
                 "shasum": ""
             },
             "require": {
@@ -3373,7 +3474,6 @@
             "require-dev": {
                 "amazonwebservices/aws-sdk-for-php": "~1.5",
                 "doctrine/mongodb-odm": "~1.0@dev",
-                "jackalope/jackalope-doctrine-dbal": "~1.1",
                 "sonata-project/admin-bundle": "~2.3@dev",
                 "sonata-project/core-bundle": "~2.2@dev",
                 "sonata-project/doctrine-orm-admin-bundle": "~2.3@dev",
@@ -3426,7 +3526,7 @@
                 "vimeo",
                 "youtube"
             ],
-            "time": "2014-07-31 08:53:42"
+            "time": "2014-07-05 16:04:11"
         },
         {
             "name": "sonata-project/notification-bundle",
@@ -3506,12 +3606,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataUserBundle.git",
-                "reference": "242957ecb44c32e0aadd270d78145271437cda5f"
+                "reference": "13ede3fed65709c90a652e64912251f56cd46b84"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/242957ecb44c32e0aadd270d78145271437cda5f",
-                "reference": "242957ecb44c32e0aadd270d78145271437cda5f",
+                "url": "https://api.github.com/repos/sonata-project/SonataUserBundle/zipball/13ede3fed65709c90a652e64912251f56cd46b84",
+                "reference": "13ede3fed65709c90a652e64912251f56cd46b84",
                 "shasum": ""
             },
             "require": {
@@ -3570,7 +3670,7 @@
                 "sonata",
                 "user"
             ],
-            "time": "2014-07-31 16:05:29"
+            "time": "2014-07-07 12:43:03"
         },
         {
             "name": "stof/doctrine-extensions-bundle",
@@ -3579,12 +3679,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/stof/StofDoctrineExtensionsBundle.git",
-                "reference": "085cda7ce5dc12b807a5a7856f178c93725a9166"
+                "reference": "f1c7993863f83f22f187f11d2a8eb462b836701e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stof/StofDoctrineExtensionsBundle/zipball/085cda7ce5dc12b807a5a7856f178c93725a9166",
-                "reference": "085cda7ce5dc12b807a5a7856f178c93725a9166",
+                "url": "https://api.github.com/repos/stof/StofDoctrineExtensionsBundle/zipball/f1c7993863f83f22f187f11d2a8eb462b836701e",
+                "reference": "f1c7993863f83f22f187f11d2a8eb462b836701e",
                 "shasum": ""
             },
             "require": {
@@ -3632,7 +3732,7 @@
                 "translatable",
                 "tree"
             ],
-            "time": "2014-07-08 17:06:10"
+            "time": "2014-04-09 14:29:58"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4224,8 +4324,12 @@
             "time": "2014-05-16 12:34:51"
         }
     ],
-    "packages-dev": [],
-    "aliases": [],
+    "packages-dev": [
+
+    ],
+    "aliases": [
+
+    ],
     "minimum-stability": "stable",
     "stability-flags": {
         "sonata-project/admin-bundle": 20,
@@ -4241,11 +4345,14 @@
         "sonata-project/easy-extends-bundle": 20,
         "sonata-project/user-bundle": 20,
         "sonata-project/datagrid-bundle": 20,
-        "sonata-project/media-bundle": 20
+        "sonata-project/media-bundle": 20,
+        "gregwar/captcha-bundle": 20
     },
     "prefer-stable": false,
     "platform": {
         "php": ">=5.3.3"
     },
-    "platform-dev": []
+    "platform-dev": [
+
+    ]
 }
