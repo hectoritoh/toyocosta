@@ -90,8 +90,8 @@ function reservaSelected(elemento){
               option += '<option value="'+ respuesta.plazos[i]["id"] + '">' + respuesta.plazos[i]["valor"] + '</option>';
             };
 
-            $("#vselectplazo").html(option);
-            //$("#imgModelo").attr("src", respuesta.imagenModelo); //FZZIO cambiar por las imagenes de modelo
+            //$("#vselectplazo").html(option);
+            $("#imgModelo").attr("src", respuesta.imagenModelo); //FZZIO cambiar por las imagenes de modelo
           }
           //console.log(respuesta.precio);
         }, 

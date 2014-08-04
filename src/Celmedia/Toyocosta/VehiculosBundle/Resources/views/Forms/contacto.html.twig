@@ -40,7 +40,7 @@
 								<select id="agenciaMostrar" style="margin-left:25px;" class="form-control txt-select" onchange="agenciaSelected(this)" >
 									<option  class=""  value="-1" ></option>
 									{%    for agencia in agencias   %}
-									<option  class=""  value="{{ loop.index0  }}" >{{  agencia.nombre }}</option>
+									<option  class=""  value="{{ loop.index0  }}" {% if agencia.id == agenciaRecibida.id %}selected{% endif %} >{{  agencia.nombre }}</option>
 									{%    endfor %}   
 								</select>
 

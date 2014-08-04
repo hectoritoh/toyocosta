@@ -74,20 +74,22 @@
 				</div>
 			</div>
 			<div class="row espacio-a">
-				<div class="col-md-10 col-md-offset-1">
+				<div class="col-md-8 col-md-offset-2">
 					<div class="container-fluid">
 						{% for fAgencias in agencias|batch(3) %}
 							<div class="row">
 								{% for agencia in fAgencias %}
-									<div class="col-lg-1 col-md-1 col-sm-2 col-xs-2 alto-agencia hidden-sm hidden-xs">
-										<div class="ico-empresa-agencia">&nbsp;</div>
-									</div>
-									<div class="col-lg-3 col-md-3 col-sm-10 col-xs-10 ">
-										<span class="txt-negrita">{{ agencia.nombre }}</span>
-										<p>
-											{{ agencia.ubicacion }}
-										</p>
-									</div>
+										<div class="col-lg-1 col-md-1 col-sm-2 col-xs-2 alto-agencia hidden-sm hidden-xs">
+											<a href="{{ path('contactenos_agencia', { 'agenciaid': agencia.id } ) }}" class="link-accesos" alt="{{ agencia.nombre }}">
+												<div class="ico-empresa-agencia">&nbsp;</div>
+											</a>
+										</div>
+										<div class="col-lg-3 col-md-3 col-sm-10 col-xs-10 ">
+											<span class="txt-negrita">{{ agencia.nombre }}</span>
+											<p>
+												{{ agencia.ubicacion }}
+											</p>
+										</div>
 								{% endfor %}
 							</div>
 						{% endfor %}
@@ -101,7 +103,7 @@
 			</div>
 
 			<div class="row espacio-a">
-				<div class="col-md-10 col-md-offset-1">
+				<div class="col-md-8 col-md-offset-2">
 					<p class="text-center">
 						El servicio t&eacute;cnico est&aacute; certificado* por la TOYOTA MOTOR CORPORATION y en la red somos reconocidos por la inversi&oacute;n en alta  tecnolog&iacute;a en equipos y en capacitaci&oacute;n del personal t&eacute;cnico -titulado por Jap&oacute;n- tanto para manejo de motores convencionales a gasolina, como los de tecnolog&iacute;a h&iacute;brida.
 					</p>
@@ -144,7 +146,7 @@
 				</p>
 				<div class="container-fluid">
 					<div class="row">
-						<div class="col-md-10 col-md-offset-1">
+						<div class="col-md-8 col-md-offset-2">
 							<a href="{{ path('seminuevos_home') }}" class="btn btn-info">Conoce m&aacute;s</a>
 						</div>
 					</div>
@@ -165,7 +167,7 @@
 		      	</p>
 				<div class="container-fluid">
 					<div class="row">
-						<div class="col-md-10 col-md-offset-1">
+						<div class="col-md-8 col-md-offset-2">
 							<a href="http://www.toyota.com.ec/" class="btn btn-info" target="_blank">Conoce m&aacute;s</a>
 						</div>
 					</div>
@@ -183,7 +185,7 @@
 				</p>
 				<div class="container-fluid">
 					<div class="row">
-						<div class="col-md-10 col-md-offset-1">
+						<div class="col-md-8 col-md-offset-2">
 							<a href="#" class="btn btn-info">Conoce m&aacute;s</a>
 						</div>
 					</div>
@@ -200,7 +202,7 @@
 				</p>
 				<div class="container-fluid">
 					<div class="row">
-						<div class="col-md-10 col-md-offset-1">
+						<div class="col-md-8 col-md-offset-2">
 							<a href="{{ path('pirelli_home') }}" class="btn btn-info">Conoce m&aacute;s</a>
 						</div>
 					</div>

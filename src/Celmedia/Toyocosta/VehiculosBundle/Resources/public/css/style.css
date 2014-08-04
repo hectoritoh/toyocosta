@@ -166,6 +166,19 @@ html,body{
 .borde-arriba{
 	border-top: 2px solid #aaaaaa;
 }
+
+.breadcrumb-ty{
+	background-color: #FFFFFF;
+	text-transform: uppercase;
+}
+
+.carousel-inner-vh {
+   margin-bottom:50px;
+}
+.carousel-indicators-vh{
+	position: relative;
+}
+
 .carousel-indicators .vehic-miniaturas,
 .carousel-indicators .vehic-miniaturas.active{
 	width: 24px;
@@ -189,6 +202,8 @@ html,body{
 	-ms-transition: all 0.3s ease-in-out;
 	transition: all 0.3s ease-in-out;
 }
+
+
 
 
 fieldset.ty-fieldset-border {
@@ -666,7 +681,7 @@ fieldset.ty-fieldset-border {
 	width: 100%;
 	position: relative;
 	/*height: 118px;*/
-	height: 90px;
+	height: 60px;
 	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/banner/banner-cotizar.jpg");
 	background-repeat: no-repeat;
 	-webkit-background-size: cover;
@@ -680,9 +695,9 @@ fieldset.ty-fieldset-border {
 .nav-cotizar{
 	text-align: center;
 	position: relative;
-	left: 11%;
-	right: 11%;
-	width: 78%;
+	left: 20%;
+	right: 20%;
+	width: 60%;
 }
 
 .nav-cotizar > li > .pasos{
@@ -690,10 +705,10 @@ fieldset.ty-fieldset-border {
 	border-radius: 0px;
 	display: inline-block;
 	background-repeat: no-repeat;
-	width: 290px;
+	width: 194px;
 	position: relative;
-	height: 59px;
-	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/varios/sprite-cotizar.png");
+	height: 40px;
+	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/varios/sprite-cotizar-1.png");
 	background-color: transparent;
 	border-radius: 0px;
 	outline: none;
@@ -708,31 +723,31 @@ fieldset.ty-fieldset-border {
 }
 
 .nav-cotizar > li > .paso-1{
-	background-position: 0px -2px;
+	background-position: 0px -1px;
 }
 	.nav-cotizar > li.active > .paso-1{
-		background-position: 0px -137px;
+		background-position: 0px -92px;
 	}
 	.nav-cotizar > li:hover > .paso-1{
-		background-position: 0px -69px;
+		background-position: 0px -46px;
 	}
 .nav-cotizar > li > .paso-2{
-	background-position: -309px -2px;
+	background-position: -206px -1px;
 }
 	.nav-cotizar > li.active > .paso-2{
-		background-position: -309px -137px;
+		background-position: -205px -92px;
 	}
 	.nav-cotizar > li:hover > .paso-2{
-		background-position: -309px -69px;
+		background-position: -206px -46px;
 	}
 .nav-cotizar > li > .paso-3{
-	background-position: -609px -2px;
+	background-position: -407px -1px;
 }
 	.nav-cotizar > li.active > .paso-3{
-		background-position: -609px -137px;
+		background-position: -406px -92px;
 	}
 	.nav-cotizar > li:hover > .paso-3{
-		background-position: -609px -69px;
+		background-position: -405px -46px;
 	}
 
 .nav.nav-tabs.nav-cotizar{
@@ -923,10 +938,17 @@ fieldset.ty-fieldset-border {
 	position: relative;
 }
 .vehic-modelo{
-	position: absolute;
+	position: relative;
 	width: 100%;
 	height: 100%;
 	top: 0px;
+	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/varios/recuadro-modelos.png");
+	background-repeat: no-repeat;
+	background-position: top center;
+	-webkit-background-size: contain;
+	-moz-background-size: contain;
+	-o-background-size: contain;
+	background-size: contain;
 }
 
 .galeria-v-control{
@@ -1284,7 +1306,7 @@ fieldset.ty-fieldset-border {
 	height: 10px;
 	display: inline-block;
 	margin-right: 5px;
-	border: 1px solid red;
+	border-radius: 5px;
 }
 
 .ico-disponible{
@@ -1321,8 +1343,8 @@ li.disabled > .btn.btn-anterior{
 }
 
 .espacio-banner-cotizar {
-    margin-bottom: 15px;
-    margin-top: 15px;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
 
 .btn.btn-anterior{
@@ -1367,6 +1389,70 @@ li.disabled > .btn.btn-anterior{
 /*Media Querys*/
 /* Large desktop */
 @media (min-width: 1921px) { 
+	.nav-cotizar > li > .pasos{
+		border: none;
+		border-radius: 0px;
+		display: inline-block;
+		background-repeat: no-repeat;
+		width: 290px;
+		position: relative;
+		height: 59px;
+		background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/varios/sprite-cotizar.png");
+		background-color: transparent;
+		border-radius: 0px;
+		outline: none;
+	}
+
+	.nav-cotizar > li.active > .pasos,
+	.nav-cotizar > li.active > .pasos:hover,
+	.nav-cotizar > li > .pasos:hover,
+	.nav-cotizar > li.active > .pasos:focus,
+	.nav-cotizar > li > .pasos:focus{
+		background-color: transparent;
+	}
+
+	.nav-cotizar > li > .paso-1{
+		background-position: 0px -2px;
+	}
+		.nav-cotizar > li.active > .paso-1{
+			background-position: 0px -137px;
+		}
+		.nav-cotizar > li:hover > .paso-1{
+			background-position: 0px -69px;
+		}
+	.nav-cotizar > li > .paso-2{
+		background-position: -309px -2px;
+	}
+		.nav-cotizar > li.active > .paso-2{
+			background-position: -309px -137px;
+		}
+		.nav-cotizar > li:hover > .paso-2{
+			background-position: -309px -69px;
+		}
+	.nav-cotizar > li > .paso-3{
+		background-position: -609px -2px;
+	}
+		.nav-cotizar > li.active > .paso-3{
+			background-position: -609px -137px;
+		}
+		.nav-cotizar > li:hover > .paso-3{
+			background-position: -609px -69px;
+		}
+
+	.nav.nav-tabs.nav-cotizar{
+		border: none;
+		border-radius: 0px;
+	}
+
+	.nav.nav-tabs.nav-cotizar>li>a:hover,
+	.nav.nav-tabs.nav-cotizar>li>a:focus,
+	.nav-tabs>li.active>a,
+	.nav-tabs>li.active>a:hover,
+	.nav-tabs>li.active>a:focus{
+		background-color: transparent;
+		border: none;
+		border-radius: 0px;
+	}
 
 	.input-buscar{
 		padding: 10px 10px;

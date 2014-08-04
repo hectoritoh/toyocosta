@@ -16,15 +16,15 @@
 			</div>
 
 			<div class="vehiculo-descripcion">
-				<div class="container alto-completo">
-					<div class="row alto-completo">
-						<div class="col-md-6 alto-completo">
+				<div class="container">
+					<div class="row espacio-a">
+						<div class="col-md-6">
 							<div class="container-fluid">
 								<div class="row">
 									<div class="col-md-12">
-										<ol class="breadcrumb">
+										<ol class="breadcrumb breadcrumb-ty">
 											<li>
-												<a href="{{ path('toyocosta_homepage') }}">Home</a>
+												<a href="{{ path('toyocosta_homepage') }}" class="txt-rojo">Inicio</a>
 											</li>
 											<li class="active">{{vehiculo.nombre}}</li>
 										</ol>
@@ -34,9 +34,10 @@
 									<div class="col-md-12 texto-detalle">
 										<h4 class="">Precio</h4>
 										<h2 class="txt-precio">${{vehiculo.precioNeto}}</h2>
-										<span class="">{{vehiculo.descripcion}}</span>
+										<span class="espacio-a">{{vehiculo.descripcion}}</span>
 										<br />
-										<span class="">{{vehiculo.informacion}}</span>
+										<span class="espacio-a">{{vehiculo.informacion}}</span>
+										{#
 										<h4 class="">
 											Mira el Test Drive de Andr&eacute;s con el Prius C
 											<a href="#">
@@ -45,54 +46,59 @@
 							            		{% endimage %}
 											</a>
 										</h4>
+										#}
 									</div>
 								</div>
 								<div class="row">
-									<div class="col-md-7">
+									<div class="col-md-7 espacio-a">
 										<a href="{{ path('test_drive') }}" class="btn btn-vehiculo">Test Drive</a>
-										<a href="" class="btn btn-vehiculo">
+										{% if vehiculo.ficha %}
+										<a href="{{ asset('uploads/vehiculo/ficha/'   ~   vehiculo.ficha ) }}" class="btn btn-vehiculo" target="_blank">
 											Ficha Técnica
 											<i class="icono-descarga"></i> 
 										</a>
+										{% endif %}
 									</div>
-									<div class="col-md-5">
+									<div class="col-md-5 espacio-a">
 										<a href="#vehiculo-cotizar" class="btn btn-vehiculo-rojo">Cotizar</a>
 									</div>
 								</div>
 							</div>
 						</div>
 						
-						<div class="col-md-6 alto-completo">
-
+						<div class="col-md-6">
 							<div id="vehiculo-colores-carousel" class="carousel slide alto-completo" data-ride="carousel" data-interval="false">
 
-							    <ol class="carousel-indicators">
-							    	{% for vehiculoColor in vehiculoColores %}
-							    		<li data-target="#vehiculo-colores-carousel" data-slide-to="{{loop.index -1 }}"  class="vehic-miniaturas {% if loop.first %}active{% endif %}" style="background-color: {{vehiculoColor.coloresvehiculo.valor}} ;"></li>
-							    	{% endfor %}
-							    </ol>
-
-							    <div class="carousel-inner alto-completo">
-							    	
-							    {% for vehiculoColor in vehiculoColores %}
-							        <div class="item {% if loop.first %}active{% endif %} alto-completo">
-							    		
-							    			<div class="container-fluid">
-							    				<div class="row">
-							    					
-								    				<img src="{{ asset('uploads/vehiculo/color/'   ~   vehiculoColor.imagenColor ) }}" class="img-responsive obj-centrar" />
-							    				</div>
-							    				<div class="row">
-							    					<div class="col-md-12 text-center">
-							    						<span class="txt-negro">COLOR: {{ vehiculoColor.coloresvehiculo.nombre }}</span>
-							    					</div>
-							    				</div>
-							    			</div>
-							    		
-							        </div><!-- item -->
-							    {% endfor %}
-									
+							    <div class="container-fluid">
+							    	<div class="row">
+										<div class="carousel-inner carousel-inner-vh alto-completo">
+											{% for vehiculoColor in vehiculoColores %}
+										    <div class="item {% if loop.first %}active{% endif %} alto-completo">
+												
+													<div class="container-fluid">
+														<div class="row  espacio-a">
+										    				<img src="{{ asset('uploads/vehiculo/color/'   ~   vehiculoColor.imagenColor ) }}" class="img-responsive obj-centrar" />
+														</div>
+														<div class="row">
+															<div class="col-md-12 text-center espacio-a">
+																<span class="txt-negro">COLOR: {{ vehiculoColor.coloresvehiculo.nombre }}</span>
+															</div>
+														</div>
+													</div>
+												
+										    </div><!-- item -->
+											{% endfor %}
+										</div>							    		
+							    	</div>
+							    	<div class="row">
+									    <ol class="carousel-indicators carousel-indicators-vh">
+									    	{% for vehiculoColor in vehiculoColores %}
+									    		<li data-target="#vehiculo-colores-carousel" data-slide-to="{{loop.index -1 }}"  class="vehic-miniaturas {% if loop.first %}active{% endif %}" style="background-color: {{vehiculoColor.coloresvehiculo.valor}} ;"></li>
+									    	{% endfor %}
+									    </ol>
+							    	</div>
 							    </div>
+
 							</div>
 
 						</div>
@@ -119,16 +125,21 @@
 								<div class="row">
 									{% for vehiculoModelo in row %}
 									<div class="col-md-4 text-center c-modelo">
-										<img src="{{ asset('uploads/vehiculo/modelo/' ~ vehiculoModelo.imagenModelo ) }}" class="img-responsive obj-centrar" />
 										<div class="vehic-modelo">
 											<div class="container-fluid">
 												<div class="row">
 													<div class="col-md-8 col-md-offset-2 col-sm-8 col-sm-offset-2 text-center">
-														<h2 class="modelo-titular txt-negrita">{{ vehiculoModelo.nombre }}</h2>
-														<p class="modelo-titular">{{ vehiculoModelo.descripcion }}</p>
-														<h4 class="txt-negro">SIN IVA: <span class="txt-rojo">${{ vehiculoModelo.precio }}</span></h4>
-														<h4 class="txt-negro">CON IVA: <span class="txt-rojo">${{ vehiculoModelo.precioNeto }}</span></h4>
+														<h3 class="modelo-titular txt-negrita espacio-a">{{ vehiculoModelo.nombre }}</h3>
+														<p class="modelo-titular espacio-a">{{ vehiculoModelo.descripcion }}</p>
+														<h4 class="txt-negro espacio-a">SIN IVA: <span class="txt-rojo">${{ vehiculoModelo.precio }}</span></h4>
+														<h4 class="txt-negro espacio-a">CON IVA: <span class="txt-rojo">${{ vehiculoModelo.precioNeto }}</span></h4>
 													</div>
+												</div>
+												<div class="row">
+													<br /><br /><br />
+												</div>
+												<div class="row">
+													<img src="{{ asset('uploads/vehiculo/modelo/' ~ vehiculoModelo.imagenModelo ) }}" class="img-responsive obj-centrar" />
 												</div>
 											</div>
 										</div>
@@ -228,10 +239,7 @@
 									<div class="col-md-4">
 										<div class="container-fluid">
 											<div class="row espaciado-a">
-												<h1 class="tab-titular">PRIUS C SPORT</h1>
-											</div>
-											<div class="row espaciado-a">
-												<h4 class="tab-subtitular">Modelo</h4>
+												<h1 class="tab-titular">{{vehiculo.nombre}}</h1>
 											</div>
 											<div class="row espaciado-a">
 												<div class="form-group">
