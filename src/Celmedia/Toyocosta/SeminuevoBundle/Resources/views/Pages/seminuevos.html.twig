@@ -139,7 +139,7 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <a href="#" class="btn btn-iniciar">Cotizar</a>
+                                            <a href="#modal_seminuevo{{ i }}" data-toggle="modal" class="btn btn-iniciar">Más información</a>
                                         </div>
                                     </div>
                                 </div>
@@ -237,7 +237,9 @@
                                                                     <div class="row">
                                                                         {% for certificado in row %}
                                                                             <div class="col-md-3 col-sm-3 col-xs-3 text-left">
-                                                                                <img src="{{ asset('uploads/seminuevos/certificados/'   ~   certificado.imagen ) }}" alt="{{ certificado.nombre }}" class="img-responsive obj-centrar"/>
+                                                                                <a href="{{ path('certificados') }}" class="link-accesos" alt="{{ certificado.nombre }}">
+                                                                                    <img src="{{ asset('uploads/seminuevos/certificados/'   ~   certificado.imagen ) }}" alt="{{ certificado.nombre }}" class="img-responsive obj-centrar"/>
+                                                                                </a>
                                                                             </div>                                                                        
                                                                         {% endfor %}
                                                                     </div>                                                                    

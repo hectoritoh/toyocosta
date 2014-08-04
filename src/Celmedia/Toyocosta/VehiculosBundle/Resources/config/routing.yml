@@ -32,6 +32,13 @@ contactenos:
     options:
         expose: true
 
+contactenos_agencia:
+    path:      /contacto/{agenciaid}
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:contactenosXAgencia }
+    options:
+        expose: true
+
+
 certificados:
     path:      /certificados
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:certificados }
