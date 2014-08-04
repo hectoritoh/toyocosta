@@ -1,0 +1,9 @@
+.banner-montacargas {
+	-webkit-background-size: cover; 
+	-moz-background-size: cover; 
+	-o-background-size: cover; 
+    background-image: url("../../bundles/celmediatoyocostamontacargas/images/banner-montacargas.jpg");
+   /* background-size: cover;*/
+  /* background: url("../../bundles/celmediatoyocostamontacargas/images/banner-montacargas.jpg") no-repeat scroll left center transparent;*/
+    height: 333px;
+}

@@ -1,0 +1,7 @@
+celmedia_toyocosta_montacargas_homepage:
+    path:     /hello/{name}
+    defaults: { _controller: CelmediaToyocostaMontacargasBundle:Default:index }
+
+montacargas_home:
+    path:      /montacargas
+    defaults:  { _controller: CelmediaToyocostaMontacargasBundle:Default:principal }

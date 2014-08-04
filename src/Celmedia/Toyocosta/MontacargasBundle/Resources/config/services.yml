@@ -1,0 +1,48 @@
+parameters:
+#    celmedia_toyocosta_montacargas.example.class: Celmedia\Toyocosta\MontacargasBundle\Example
+
+services:
+#    celmedia_toyocosta_montacargas.example:
+#        class: %celmedia_toyocosta_montacargas.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+    celmedia_toyocosta_montacargas.admin.categoria_montacarga:
+        class: Celmedia\Toyocosta\MontacargasBundle\Admin\CategoriaMontacargaAdmin
+        arguments: [~, Celmedia\Toyocosta\MontacargasBundle\Entity\CategoriaMontacarga, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: 'Montacargas', label: CategoriaMontacarga}
+
+    celmedia_toyocosta_montacargas.admin.montacarga:
+        class: Celmedia\Toyocosta\MontacargasBundle\Admin\MontacargaAdmin
+        arguments: [~, Celmedia\Toyocosta\MontacargasBundle\Entity\Montacarga, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: 'Montacargas', label: Montacarga}
+
+    celmedia_toyocosta_montacargas.admin.montacarga_cotizacion:
+        class: Celmedia\Toyocosta\MontacargasBundle\Admin\MontacargaCotizacionAdmin
+        arguments: [~, Celmedia\Toyocosta\MontacargasBundle\Entity\MontacargaCotizacion, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: 'Montacargas', label: MontacargaCotizacion}
+
+    celmedia_toyocosta_montacargas.admin.montacarga_galeria:
+        class: Celmedia\Toyocosta\MontacargasBundle\Admin\MontacargaGaleriaAdmin
+        arguments: [~, Celmedia\Toyocosta\MontacargasBundle\Entity\MontacargaGaleria, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: 'Montacargas', label: MontacargaGaleria}
+
+    celmedia_toyocosta_montacargas.admin.montacarga_usado:
+        class: Celmedia\Toyocosta\MontacargasBundle\Admin\MontacargaUsadoAdmin
+        arguments: [~, Celmedia\Toyocosta\MontacargasBundle\Entity\MontacargaUsado, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: 'Montacargas', label: MontacargaUsado}
+
+    celmedia_toyocosta_montacargas.admin.montacarga_usado_galeria:
+        class: Celmedia\Toyocosta\MontacargasBundle\Admin\MontacargaUsadoGaleriaAdmin
+        arguments: [~, Celmedia\Toyocosta\MontacargasBundle\Entity\MontacargaUsadoGaleria, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: 'Montacargas', label: MontacargaUsadoGaleria}
+
+    celmedia_toyocosta_montacargas.admin.subcategoria:
+        class: Celmedia\Toyocosta\MontacargasBundle\Admin\SubcategoriaAdmin
+        arguments: [~, Celmedia\Toyocosta\MontacargasBundle\Entity\Subcategoria, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: 'Montacargas', label: Subcategoria}

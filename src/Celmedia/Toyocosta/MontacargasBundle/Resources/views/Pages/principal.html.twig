@@ -1,0 +1,74 @@
+{% extends 'CelmediaToyocostaMontacargasBundle::layout.html.twig' %}
+
+
+{% block prueba %}
+
+	<!-- <div class="espaciado-vehiculo visible-md visible-lg hidden-sm hidden-xs">
+		&nbsp;
+    </div> -->
+
+	<div class="banner-montacargas">
+		
+	</div>
+
+	<div class="container">			
+		<div class="row">
+			<div class="col-md-12">
+				<ol class="breadcrumb">
+					<li>PRICIPAL</li>
+					<li>PRODUCTO</li>
+					<li>POST VENTA</li>
+					<li>RENTAS</li>
+					<li>USADOS</li>
+					<li>SAS</li>
+				</ol>
+			</div>
+
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+			<h5>HOME > MONTACARGAS</h5>
+			</div>			
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/accesos/acceso-m-toyota.jpg' %}
+					<img src="{{ asset_url }}" class="img-responsive" />
+        		{% endimage %}
+			</div>			
+		</div>
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1">
+			<h1>TOYOTA EQUIPOS INDUSTRIALES</h1>
+			<p>EL Liderazgo no es una coincidencia</p>
+			<p>Es un logro que solo es posible gracias al trabajo en equipo de las 3 marcas lideres en Log&iacute;stica Industrial. Toyota, BT, Raymond ponen a tu alcance 
+			la mas completa oferta de equipos para el movimiento de materiales, con convenientes planes de financiamiento y la mayor calidad en servicios.</p>	
+			</div>			
+		</div>
+		<div class="row">
+			<div class="col-md-3">
+				{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/accesos/acceso-m-toyota.jpg' %}
+					<img src="{{ asset_url }}" class="img-responsive" />
+        		{% endimage %}
+			</div>
+			<div class="col-md-3">
+				{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/accesos/acceso-raymond.jpg' %}
+					<img src="{{ asset_url }}" class="img-responsive" />
+        		{% endimage %}
+			</div>
+			<div class="col-md-3">
+				{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/accesos/acceso_bt.jpg' %}
+					<img src="{{ asset_url }}" class="img-responsive" />
+        		{% endimage %}
+			</div>
+			<div class="col-md-3">
+				{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/accesos/acceso-cascade.jpg' %}
+					<img src="{{ asset_url }}" class="img-responsive" />
+        		{% endimage %}
+			</div>
+		</div>	
+
+	</div>										
+	
+
+{% endblock %}

@@ -42,7 +42,6 @@ class AppKernel extends Kernel
             new Celmedia\Toyocosta\PirelliBundle\CelmediaToyocostaPirelliBundle(),
             new Celmedia\Toyocosta\VehiculosBundle\CelmediaToyocostaVehiculosBundle(),
             new Celmedia\Toyocosta\SeminuevoBundle\CelmediaToyocostaSeminuevoBundle(),
-            new Celmedia\Toyocosta\MontacagasBundle\CelmediaToyocostaMontacagasBundle(),
             new Celmedia\Toyocosta\ContenidoBundle\CelmediaToyocostaContenidoBundle(),
 
             new Sonata\IntlBundle\SonataIntlBundle(),
@@ -52,8 +51,7 @@ class AppKernel extends Kernel
             new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),
             new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
-            
-
+            new Celmedia\Toyocosta\MontacargasBundle\CelmediaToyocostaMontacargasBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
