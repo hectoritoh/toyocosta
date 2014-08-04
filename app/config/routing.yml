@@ -1,9 +1,9 @@
-celmedia_toyocosta_contenido:
-    resource: "@CelmediaToyocostaContenidoBundle/Resources/config/routing.yml"
+celmedia_toyocosta_montacargas:
+    resource: "@CelmediaToyocostaMontacargasBundle/Resources/config/routing.yml"
     prefix:   /
 
-celmedia_toyocosta_montacagas:
-    resource: "@CelmediaToyocostaMontacagasBundle/Resources/config/routing.yml"
+celmedia_toyocosta_contenido:
+    resource: "@CelmediaToyocostaContenidoBundle/Resources/config/routing.yml"
     prefix:   /
 
 celmedia_toyocosta_vehiculos:
