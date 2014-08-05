@@ -100,6 +100,11 @@ class Vehiculo
     private $plazos;
 
     /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $imagenes;
+
+    /**
      * Constructor
      */
     public function __construct()
@@ -109,6 +114,7 @@ class Vehiculo
         $this->modelos = new \Doctrine\Common\Collections\ArrayCollection();
         $this->slides_vehiculos = new \Doctrine\Common\Collections\ArrayCollection();
         $this->plazos = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->imagenes = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -561,10 +567,43 @@ class Vehiculo
     {
         return $this->plazos;
     }
+
+    /**
+     * Add imagenes
+     *
+     * @param \Application\Sonata\MediaBundle\Entity\GalleryHasMedia $imagenes
+     * @return Vehiculo
+     */
+    public function addImagene(\Application\Sonata\MediaBundle\Entity\GalleryHasMedia $imagenes)
+    {
+        $this->imagenes[] = $imagenes;
+
+        return $this;
+    }
+
+    /**
+     * Remove imagenes
+     *
+     * @param \Application\Sonata\MediaBundle\Entity\GalleryHasMedia $imagenes
+     */
+    public function removeImagene(\Application\Sonata\MediaBundle\Entity\GalleryHasMedia $imagenes)
+    {
+        $this->imagenes->removeElement($imagenes);
+    }
+
+    /**
+     * Get imagenes
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getImagenes()
+    {
+        return $this->imagenes;
+    }
     /**
      * @ORM\PrePersist
      */
-    public function lifecycleFileUpload()
+        public function lifecycleFileUpload()
     {
         
         $this->uploadFileThumb();
@@ -735,8 +774,6 @@ class Vehiculo
         // clean up the file property as you won't need it anymore
         $this->setFileFicha(null);
     }
-
-
 
 
 }
