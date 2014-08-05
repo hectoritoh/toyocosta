@@ -13,8 +13,8 @@ web/images/*
 
 
 # -- Composer -----------------------------------------
-composer.phar
 composer.lock
+composer.phar
 
 # -- PHPUnit ------------------------------------------
 app/phpunit.xml  
