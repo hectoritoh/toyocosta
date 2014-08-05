@@ -89,6 +89,18 @@ Celmedia\Toyocosta\VehiculosBundle\Entity\Vehiculo:
               vehiculo_id:
                 referencedColumnName: id
         cascade: ["persist"]
+      imagenes:
+        targetEntity: Application\Sonata\MediaBundle\Entity\GalleryHasMedia
+        joinTable:
+          name: vehiculo_imagen
+          joinColumns:
+            id_vehiculo:
+              referencedColumnName: id
+          inverseJoinColumns:
+            id_imagen:
+              referencedColumnName: id
+              unique: true
+        cascade: ["persist"]
 
     lifecycleCallbacks:
         prePersist:   [ lifecycleFileUpload ]
