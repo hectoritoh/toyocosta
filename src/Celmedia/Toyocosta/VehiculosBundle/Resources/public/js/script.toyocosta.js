@@ -45,11 +45,9 @@ function reservaSelected(elemento){
         success: function (respuesta) {
           
           if(respuesta.codigo == 1){
-
-            
-            var option = '<option value="" selected>Selecciona un plazo</option>';            
-            for (var i = 0; i < respuesta.reserva_taller.length; i++) {
-              option += '<option value="'+ respuesta.reserva_taller.talleres + '">' + respuesta.reserva_taller.talleres + '</option>';
+            var option = '<option value="" selected>Selecciona un taller</option>';            
+            for (var i = 0; i < respuesta.talleres.length; i++) {
+              option += '<option value="'+ respuesta.talleres[i].id + '">' + respuesta.talleres[i].nombre + '</option>';
             };
 
             $("#taller").html(option);
