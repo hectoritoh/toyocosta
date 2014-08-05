@@ -163,29 +163,29 @@ class DefaultController extends Controller
         );
 
 
-        $form = $this->createFormBuilder()
-            ->add('nombre', 'text')
-            ->add('apellido', 'text')
-            ->add('telefono', 'text')
-            ->add('email', 'text')
-            ->add('cedula', 'text')
-            ->add('nacimiento', 'date')
-            ->add('agencia', 'choice', array(
-            'choices'   => $agencias
-            ))
-            ->add('ciudad', 'text')
-            ->add('vehiculo', 'choice', array(
-            'choices'   => $vehiculos_test
-            ))
-            ->add('fecha_test', 'date')
-            ->add('hora_test', 'text')
-            ->add('observacion', 'textarea')            
-            ->add('captcha', 'captcha', array(
-                'label' => 'Enter Captcha',
-                'required' => true,
-                'invalid_message' => 'The captcha code is invalid.'
-                ))
-            ->getForm();
+        // $form = $this->createFormBuilder()
+        //     ->add('nombre', 'text')
+        //     ->add('apellido', 'text')
+        //     ->add('telefono', 'text')
+        //     ->add('email', 'text')
+        //     ->add('cedula', 'text')
+        //     ->add('nacimiento', 'date', array('widget' => 'single_text'))
+        //     ->add('agencia', 'choice', array(
+        //     'choices'   => $agencias
+        //     ))
+        //     ->add('ciudad', 'text')
+        //     ->add('vehiculo', 'choice', array(
+        //     'choices'   => $vehiculos_test
+        //     ))
+        //     ->add('fecha_test', 'date', array('widget' => 'single_text'))
+        //     ->add('hora_test', 'text')
+        //     ->add('observacion', 'textarea')            
+        //     ->add('captcha', 'captcha', array(
+        //         'label' => 'Enter Captcha',
+        //         'required' => true,
+        //         'invalid_message' => 'The captcha code is invalid.'
+        //         ))
+        //     ->getForm();
 
 
         if ($request->isMethod('POST')) {
@@ -202,6 +202,8 @@ class DefaultController extends Controller
             $fecha_test = $request->request->get('fecha_test');
             $hora_test = $request->request->get('hora_test');
             $observacion = $request->request->get('observacion');
+
+    
 
             $info = new \Celmedia\Toyocosta\ContenidoBundle\Entity\InfoTestDrive();
 
@@ -237,11 +239,18 @@ class DefaultController extends Controller
                 ), 200); //codigo de error diferente
             }
 
+
+
+
+           
+
+
+
         }
 
 
 
-        return $this->render('CelmediaToyocostaVehiculosBundle:Forms:testdrive.html.twig' , array( "agencias" => $agencias , "vehiculos_test"=> $vehiculos_test , "form"=> $form->createView() ));
+        return $this->render('CelmediaToyocostaVehiculosBundle:Forms:testdrive.html.twig' , array( "agencias" => $agencias , "vehiculos_test"=> $vehiculos_test  ));
 
 
     }
@@ -251,18 +260,18 @@ class DefaultController extends Controller
         return $this->render('CelmediaToyocostaVehiculosBundle:Forms:rrhh.html.twig');
     }
 
-    public function contactenosAction(){
+    // public function contactenosAction(){
 
-        $em = $this->getDoctrine()->getManager();        
+    //     $em = $this->getDoctrine()->getManager();        
         
-        $agencias = $this->getDoctrine()->getRepository("CelmediaToyocostaContenidoBundle:Establecimiento")->findBy(array(
-            "estado" => 1
-                )
-        );
+    //     $agencias = $this->getDoctrine()->getRepository("CelmediaToyocostaContenidoBundle:Establecimiento")->findBy(array(
+    //         "estado" => 1
+    //             )
+    //     );
 
 
-        return $this->render('CelmediaToyocostaVehiculosBundle:Forms:contacto.html.twig', array( "agencias" => $agencias ));
-    }
+    //     return $this->render('CelmediaToyocostaVehiculosBundle:Forms:contacto.html.twig', array( "agencias" => $agencias ));
+    // }
 
     public function contactenosXAgenciaAction($agenciaid){
 
@@ -278,8 +287,11 @@ class DefaultController extends Controller
             "estado" => 1
                 )
         );
+
         
         return $this->render('CelmediaToyocostaVehiculosBundle:Forms:contacto.html.twig', array( "agencias" => $agencias, "agenciaRecibida" => $agenciaRecibida ));
+
+
     }
 
     public function certificadosAction(){
@@ -460,61 +472,61 @@ class DefaultController extends Controller
 
     }
 
-    public function envioTestDriveAction(Request $request){
+    // public function envioTestDriveAction(Request $request){
 
 
-        if ($request->isMethod('POST')) {
+    //     if ($request->isMethod('POST')) {
 
-            $nombre = $request->request->get('nombre');
-            $apellido = $request->request->get('apellido');
-            $telefono = $request->request->get('telefono');
-            $email = $request->request->get('email');
-            $cedula = $request->request->get('cedula');
-            $nacimiento = $request->request->get('nacimiento');
-            $agencia = $request->request->get('agencia');
-            $ciudad = $request->request->get('ciudad');
-            $vehiculo = $request->request->get('vehiculo');
-            $fecha_test = $request->request->get('fecha_test');
-            $hora_test = $request->request->get('hora_test');
-            $observacion = $request->request->get('observacion');
+    //         $nombre = $request->request->get('nombre');
+    //         $apellido = $request->request->get('apellido');
+    //         $telefono = $request->request->get('telefono');
+    //         $email = $request->request->get('email');
+    //         $cedula = $request->request->get('cedula');
+    //         $nacimiento = $request->request->get('nacimiento');
+    //         $agencia = $request->request->get('agencia');
+    //         $ciudad = $request->request->get('ciudad');
+    //         $vehiculo = $request->request->get('vehiculo');
+    //         $fecha_test = $request->request->get('fecha_test');
+    //         $hora_test = $request->request->get('hora_test');
+    //         $observacion = $request->request->get('observacion');
 
-            $info = new \Celmedia\Toyocosta\ContenidoBundle\Entity\InfoTestDrive();
+    //         $info = new \Celmedia\Toyocosta\ContenidoBundle\Entity\InfoTestDrive();
 
-            $info->setNombre( $nombre  );
-            $info->setApellido( $apellido  );
-            $info->setTelefono( $telefono  );
-            $info->setEmail( $email  );
-            $info->setCedula( $cedula);
-            $info->setFechaNacimiento( new \DateTime($nacimiento) );
-            $info->setAgencia( $agencia  );
-            $info->setCiudad( $ciudad  );
-            $info->setVehiculo($vehiculo);
-            $info->setFechaTest( new \DateTime($fecha_test ) );
-            $info->setHoraTest( $hora_test  );
-            $info->setObservaciones( $observacion  );
+    //         $info->setNombre( $nombre  );
+    //         $info->setApellido( $apellido  );
+    //         $info->setTelefono( $telefono  );
+    //         $info->setEmail( $email  );
+    //         $info->setCedula( $cedula);
+    //         $info->setFechaNacimiento( new \DateTime($nacimiento) );
+    //         $info->setAgencia( $agencia  );
+    //         $info->setCiudad( $ciudad  );
+    //         $info->setVehiculo($vehiculo);
+    //         $info->setFechaTest( new \DateTime($fecha_test ) );
+    //         $info->setHoraTest( $hora_test  );
+    //         $info->setObservaciones( $observacion  );
             
             
-            $em = $this->getDoctrine()->getManager(); 
-            $em->persist(  $info );
-            $em->flush();
+    //         $em = $this->getDoctrine()->getManager(); 
+    //         $em->persist(  $info );
+    //         $em->flush();
 
-            $formulario = "testdrive";
+    //         $formulario = "testdrive";
 
-            if( $this->enviarCorreo($email, $info, $formulario ) ){
-                return new JsonResponse(array(
-                    'codigo' => 1,
-                    'Mensaje' => "El mensaje ha sido enviado"
-                ), 200); //codigo de error diferente
-            }else{
-                return new JsonResponse(array(
-                    'codigo' => 0,
-                    'Mensaje' => "No se ha recibido vehiculo"
-                ), 200); //codigo de error diferente
-            }
+    //         if( $this->enviarCorreo($email, $info, $formulario ) ){
+    //             return new JsonResponse(array(
+    //                 'codigo' => 1,
+    //                 'Mensaje' => "El mensaje ha sido enviado"
+    //             ), 200); //codigo de error diferente
+    //         }else{
+    //             return new JsonResponse(array(
+    //                 'codigo' => 0,
+    //                 'Mensaje' => "No se ha recibido vehiculo"
+    //             ), 200); //codigo de error diferente
+    //         }
 
-        }
+    //     }
 
-    }
+    // }
 
     public function consultarPreciosXModeloAction(Request $request){
         $em = $this->getDoctrine()->getManager();        

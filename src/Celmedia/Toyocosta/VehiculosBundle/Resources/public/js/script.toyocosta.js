@@ -413,7 +413,7 @@ $(document).ready(function(){
               }
 
               $.ajax({
-                  url: Routing.generate('envio_test'),
+                  url: Routing.generate('test_drive'),
                   type: 'POST',
                   async: true,
                   data: parametros,
@@ -428,7 +428,7 @@ $(document).ready(function(){
                          //window.location = Routing.generate('contactenos');
                     } else if (respuesta.codigo == 0 ) {
                           alert(respuesta.mensaje);
-                    }
+                    } 
 
                   }, 
                   error: function (error) {
@@ -442,7 +442,7 @@ $(document).ready(function(){
 
           },
           rules: {
-              nombre_test: {
+             nombre_test: {
                   required: true
               },
               apellido_test: {

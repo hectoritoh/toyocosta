@@ -21,6 +21,8 @@ mantenimiento:
 test_drive:
     path:      /testdrive
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:test }
+    options:
+        expose: true
 
 recursos_humanos:
     path:      /rrhh
@@ -53,11 +55,11 @@ envio_contacto:
     options:
         expose: true
 
-envio_test:
-    path:      /testdrive/form
-    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:envioTestDrive }
-    options:
-        expose: true
+# envio_test:
+#     path:      /testdrive/form
+#     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:envioTestDrive }
+#     options:
+#         expose: true
 
 envio_cotizacion:
     path:      /vehiculo/cotizacion
