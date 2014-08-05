@@ -172,6 +172,10 @@ html,body{
 	text-transform: uppercase;
 }
 
+.modelo-titular{
+	color: #444444;
+}
+
 .carousel-inner-vh {
    margin-bottom:50px;
 }

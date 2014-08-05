@@ -37,6 +37,10 @@
 								<label class="txt-gris" style="margin-top:10px;">Seleccione un establecimiento.
 								</label>
 
+								{% if agenciaRecibida is not defined or agenciaRecibida is null %}
+									{% set agenciaRecibida = {'id': "0"} %}
+								{% endif %}
+
 								<select id="agenciaMostrar" style="margin-left:25px;" class="form-control txt-select" onchange="agenciaSelected(this)" >
 									<option  class=""  value="-1" ></option>
 									{%    for agencia in agencias   %}

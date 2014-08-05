@@ -260,18 +260,17 @@ class DefaultController extends Controller
         return $this->render('CelmediaToyocostaVehiculosBundle:Forms:rrhh.html.twig');
     }
 
-    // public function contactenosAction(){
+    public function contactenosAction(){
 
-    //     $em = $this->getDoctrine()->getManager();        
+        $em = $this->getDoctrine()->getManager();        
         
-    //     $agencias = $this->getDoctrine()->getRepository("CelmediaToyocostaContenidoBundle:Establecimiento")->findBy(array(
-    //         "estado" => 1
-    //             )
-    //     );
+        $agencias = $this->getDoctrine()->getRepository("CelmediaToyocostaContenidoBundle:Establecimiento")->findBy(array(
+            "estado" => 1
+                )
+        );
 
-
-    //     return $this->render('CelmediaToyocostaVehiculosBundle:Forms:contacto.html.twig', array( "agencias" => $agencias ));
-    // }
+        return $this->render('CelmediaToyocostaVehiculosBundle:Forms:contacto.html.twig', array( "agencias" => $agencias ));
+    }
 
     public function contactenosXAgenciaAction($agenciaid){
 
