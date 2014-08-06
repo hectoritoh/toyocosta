@@ -40,6 +40,11 @@
                 {#{{ form_widget(form) }}#}
                 
                 {#<input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" >#}
+
+                {#{% if error %}
+                    <div>{{ error.message }}</div>
+                {% endif %}#}
+
                 {{ form_widget(form._token) }}
                 <div class="row space-input">
                     <div class="col-md-10 col-md-offset-1">

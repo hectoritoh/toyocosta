@@ -8,6 +8,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Security\Core\SecurityContext;
 
+use Symfony\Component\Security\Core\User\UserProviderInterface;
+
+
 use FOS\UserBundle\Model\UserInterface;
 use Application\Sonata\UserBundle\Entity\User;
 
@@ -88,10 +91,18 @@ class SecurityController extends Controller
         ->add('captcha', 'captcha')
         ->getForm(); 
 
-        if ($request->isMethod('POST')) {
-            $form->bind($request);
 
-            if ($form->isValid()) {
+
+        if ($request->isMethod('POST')) {
+        
+            //$user = $this->get('fos_user.user_manager')->findUserByEmail($email);
+
+
+            $form->bind($request);
+            
+
+
+            if ($form->isValid() ) {
 
                 $data = $form->getData(); 
 
@@ -113,6 +124,8 @@ class SecurityController extends Controller
             }else{
                 print_r($form->getErrors());
             }
+
+
         }
 
 
@@ -121,6 +134,50 @@ class SecurityController extends Controller
             array("form"=> $form->createView())
             );
     }
+
+    public function registerAsStudentAction(Request $request)
+    {
+        /** @var $formFactory \FOS\UserBundle\Form\Factory\FactoryInterface */
+        $formFactory = $this->get('acme.user_form_factory');
+        /** @var $userManager \FOS\UserBundle\Model\UserManagerInterface */
+        $userManager = $this->get('fos_user.user_manager');
+        /** @var $dispatcher \Symfony\Component\EventDispatcher\EventDispatcherInterface */
+        $dispatcher = $this->get('event_dispatcher');
+
+        $user = $userManager->createUser();
+        $user->setEnabled(true);
+
+        $dispatcher->dispatch(FOSUserEvents::REGISTRATION_INITIALIZE, new UserEvent($user, $request));
+
+        $form = $formFactory->getStudentRegistrationForm();
+        $form->setData($user);
+
+        if ('POST' === $request->getMethod()) {
+            $form->bind($request);
+
+            if ($form->isValid()) {
+                $event = new FormEvent($form, $request);
+                $dispatcher->dispatch(FOSUserEvents::REGISTRATION_SUCCESS, $event);
+
+                $user->addRole('ROLE_STUDENT');
+
+                $userManager->updateUser($user);
+
+
+                if (null === $response = $event->getResponse()) {
+                    $url = $this->get('router')->generate('fos_user_registration_confirmed');
+                    $response = new RedirectResponse($url);
+                }
+
+                $dispatcher->dispatch(FOSUserEvents::REGISTRATION_COMPLETED, new FilterUserResponseEvent($user, $request, $response));
+
+                return $response;
+            }
+        }
+
+        return $this->render('AcmeUserBundle:Registration:register_student.html.twig', array('form' => $form->createView()));
+    }
+
 
     public function mensajeUserAction(){
 

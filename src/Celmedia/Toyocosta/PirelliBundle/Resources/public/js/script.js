@@ -95,6 +95,12 @@ $(document).ready(function(){
                    centrarHorizontal($(this));
                  });
   */
+
+      margenlink = (-1) * ( $("#footer-banners").height() - $("#footer-boton").height() - $("#footer-logos").height() ) ;
+      $("#footer-banners").css("margin-bottom", margenlink );
+
+
+
       $('.centrado-vertical').each(function () {
          centrarVert($(this));
        });
