@@ -167,7 +167,7 @@
 		</div> <!-- vehiculo-modelos -->
 		
 
-		
+		{% if vehiculoGaleria|length > 0 %}
 		<div id="vehiculo-galeria" class="vehiculo-seccion fondoGris">
 			<div id="vehiculo-carousel" class="carousel slide alto-completo" data-ride="carousel" data-interval="false">
 				<ol class="carousel-indicators">
@@ -201,7 +201,7 @@
 
 			</div>
 		</div> <!-- vehiculo-galeria -->
-		
+		{% endif %}
 
 
 		<div id="vehiculo-cotizar" class="vehiculo-seccion-2">
@@ -245,7 +245,6 @@
 												<div class="form-group">
 													<label class="txt-negro" for="vselectmodelo">Modelo:</label>
 													<select id="vselectmodelo" name="vselectmodelo" class="vselectmodelo select-custom required" onchange="modeloSelected(this);">
-														<option value="">Selecciona una opción</option>
 														{% for vehiculoModelo  in vehiculoModelos %}
 															<option value="{{ vehiculoModelo.id }}">{{ vehiculoModelo.nombre }}</option>
 														{% endfor %}
@@ -255,7 +254,7 @@
 										</div>
 									</div>
 									<div class="col-md-8 alto-completo">
-										<img src="{{ asset('uploads/vehiculo/color/'   ~   'corolla-verde.png' ) }}" alt="" id="imgModelo" class="img-responsive obj-centrar">
+										<img src="" alt="" id="imgModelo" class="img-responsive obj-centrar">
 									</div>
 								</div>
 							</div>

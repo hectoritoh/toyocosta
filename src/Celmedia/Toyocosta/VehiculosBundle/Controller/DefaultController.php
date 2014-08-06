@@ -260,18 +260,17 @@ class DefaultController extends Controller
         return $this->render('CelmediaToyocostaVehiculosBundle:Forms:rrhh.html.twig');
     }
 
-    // public function contactenosAction(){
+    public function contactenosAction(){
 
-    //     $em = $this->getDoctrine()->getManager();        
+        $em = $this->getDoctrine()->getManager();        
         
-    //     $agencias = $this->getDoctrine()->getRepository("CelmediaToyocostaContenidoBundle:Establecimiento")->findBy(array(
-    //         "estado" => 1
-    //             )
-    //     );
+        $agencias = $this->getDoctrine()->getRepository("CelmediaToyocostaContenidoBundle:Establecimiento")->findBy(array(
+            "estado" => 1
+                )
+        );
 
-
-    //     return $this->render('CelmediaToyocostaVehiculosBundle:Forms:contacto.html.twig', array( "agencias" => $agencias ));
-    // }
+        return $this->render('CelmediaToyocostaVehiculosBundle:Forms:contacto.html.twig', array( "agencias" => $agencias ));
+    }
 
     public function contactenosXAgenciaAction($agenciaid){
 
@@ -316,37 +315,29 @@ class DefaultController extends Controller
 
             $em = $this->getDoctrine()->getManager(); 
 
-            $reserva_taller = $this->getDoctrine()->getRepository("CelmediaToyocostaContenidoBundle:TipoReserva")->findBy(array(
-                "estado" => 1 , "id" => $reserva_id
-                    )
+            $reservaTaller = $this->getDoctrine()->getRepository("CelmediaToyocostaContenidoBundle:TipoReserva")->findOneBy(array(
+                "estado" => 1 ,
+                "id" => $reserva_id
+                )
             );
+            
 
+            $arrayEstablecimientos = array();
 
+            foreach ($reservaTaller->getTalleres() as $taller) {
+                array_push($arrayEstablecimientos, array('id' => $taller->getId() , 'nombre' => $taller->getNombre() ) );
+            }
 
 
             return new JsonResponse(array(
                 'codigo' => 1,
-                'reserva_taller' => $reserva_taller
-            ), 200);
-
-
-            // $response = array("code" => $reserva_taller, "success" => true);
-            // return new Response(json_encode($response));
-
-            
-            
+                'talleres' => $arrayEstablecimientos
+            ), 200);            
         }
-
-   
-
-
-
         return new JsonResponse(array(
+            'codigo' => 0,
             'Mensaje' => "No se recibio por post"
         ), 200); //codigo de error diferente
-
-
-
     }
 
     public function enviarCorreo($correos_array, $info , $formulario) {
