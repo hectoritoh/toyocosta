@@ -1,0 +1,199 @@
+{% extends 'CelmediaToyocostaMontacargasBundle::layout.html.twig' %}
+
+
+{% block contenido %}
+
+    {% include 'CelmediaToyocostaMontacargasBundle:Blocks:top.submenu.html.twig' %}
+	<div class="banner-montacargas">
+		<h1 class="titulo-interno">
+		SAS</h1>
+	</div>
+
+
+	<div class="container">			
+		
+		<div class="row">
+			<div class="col-md-12">
+			<h5 class="titulo-ubicacion-montacargas">PRINCIPAL > <strong>SAS</strong></h5>
+			</div>			
+		</div>
+		
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1">
+				<h3 style="text-align:center"><strong>TOYOTA TECNOLOG&Iacute;A SAS</strong></h3>
+				<p class="descripcion-montacargas"><br/><br/><strong>Minimiz&aacute; el riesgo de accidentes.</strong><br/><br/>  
+				En Toyota, la seguridad ocupa un lugar prioritario para alcanzar la excelencia. Reducir el potencial de accidentes, mientras se incrementa la eficiencia por encima de todo, ser&aacute; siempre un tema clave en el dise&ntilde;o de los autoelevadores Toyota. La &uacute;ltima fase en la evoluci&oacute;n en este sentido es el sistema SAS.<br/><br/>
+				Con el sistema SAS, Toyota esta incorporando nueva tecnolog&iacute;a en el esfuerzo por prevenir accidentes antes de que ocurran, mientras tambi&eacute;n ayuda a mejorar la productividad.<br/><br/>
+				Este sistema monitorea el movimiento del autoelevador y estabiliza el eje trasero del mismo en los casos de giros en los que resulta necesarios. Adem&aacute;s, sincroniza la direcci&oacute;n del equipo y controla el funcionamiento del m&aacute;stil restringiendo los angulos y velocidad de inclinaci&oacute;n del mismo cuando es necesario.<br/><br/><br/><br/>
+				</p>	
+			</div>			
+		</div>
+		
+	</div>	
+	<div  style="background:#DCDCDC !important">
+		<div class="container">			
+			
+			<div class="row">
+				<div class="col-md-12">
+				<h1 style="text-align:center">Principales Caracter&iacute;sticas</h1>
+				</div>			
+			</div>
+			
+			<div class="row">
+				<h5 style="text-align:center"><span class="circulo">1</span><strong> Control activo de estabilizador trasero.</strong></h5>
+				<div class="col-md-5 col-md-offset-1 linea-right">
+					<h5 style="text-align:center"><span class="boton-gris">SIN SAS</span></h5>
+
+					{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/img-sas/m-1.png' %}
+						<img src="{{ asset_url }}" class="img-responsive" />
+		        	{% endimage %}
+
+		        	<p class="descripcion-montacargas">
+		        		<br/>Debido al dise&ntilde;o del pasador central, un autoelevador posee solamente tres puntos de apoyo, a&uacute;n cuando tuviere cuatro ruedas. Esto explica porque el autoelevador se inclinar&aacute; hacia un lado durante una maniobra de giro pronunciado. 
+		        	</p>
+				</div>
+				<div class="col-md-5">
+					<h5 style="text-align:center"><span class="boton-naranja">CON SAS</span></h5>
+
+					{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/img-sas/m-2.png' %}
+						<img src="{{ asset_url }}" class="img-responsive" />
+		        	{% endimage %}
+
+		        	<p class="descripcion-montacargas">
+		        		<br/>El SAS incorpora un cilindro bloqueador de rolido. Este cambia el tri&aacute;ngulo de estabilidad a un rect&aacute;ngulo inhibiendo a la viga trasera de su capacidad basculante. Ello proveer&aacute; mayor estabilidad durante maniobras de giro mejorando la productividad.  
+		        	</p>		
+				</div>			
+			</div><br/><br/><br/>
+			
+		</div>			
+	</div>
+	<div class="container">			
+		
+		<div class="row">
+			<br/><br/><h5 style="text-align:center"><span class="circulo">2</span><strong> Control activo de inclinaci&oacute;n hacia adelante del m&aacute;stil.</strong></h5>
+			<div class="col-md-5 col-md-offset-1 ">
+				<h5 style="text-align:center"><span class="boton-gris">SIN SAS</span></h5>
+
+				{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/img-sas/m-3.png' %}
+					<img src="{{ asset_url }}" class="img-responsive" />
+	        	{% endimage %}
+
+	        	<p class="descripcion-montacargas">
+	        		<br/>Si el operador inclina el mastil hacia adelante, cargado y a gran altura, &aacute;ngulo de inclinaci&oacute;n podr&iacute;a causar la caida de la carga o el equipo.<br/><br/>
+	        		Si el operador inclina el m&aacute;stil hacia atr&aacute;s, cargado y a gran altura, la velocidad del movimiento podr&iacute;a provocar la caida de la carga.  
+	        	</p>
+			</div>
+			<div class="col-md-5 linea-left">
+				<h5 style="text-align:center"><span class="boton-naranja">CON SAS</span></h5>
+
+				{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/img-sas/m-4.png' %}
+					<img src="{{ asset_url }}" class="img-responsive" />
+	        	{% endimage %}
+
+	        	<p class="descripcion-montacargas">
+	        		<br/>Este sistema detescta el peso y altura de la carga y autom&aacute;ticamente controla el &aacute;ngulo de inclinaci&oacute;n del m&aacute;stil. Este sistema hace mas dificil la caida de la carga, contribuyendo a mejorar la eficiencia del trabajo.<br/><br/>
+	        		La velocidad de inclinaci&oacute;n hacia atr&aacute;s es limitada cuando la carga pesadas son manejadas a gran altura, raz&oacute;n por la cual se afecta menos la estabilidad. Esto ayuda a prevenir la caida de la carga.
+	        	</p>
+					
+			</div>			
+		</div><br/><br/><br/>
+		
+	</div>
+
+	<div  style="background:#DCDCDC !important">
+		<div class="container">				
+			<div class="row">
+				<br/><br/><h5 style="text-align:center"><span class="circulo">3</span><strong> Bloqueo del descenso del m&aacute;stil.</strong></h5>
+				<div class="col-md-5 col-md-offset-1 linea-right">
+					<h5 style="text-align:center"><span class="boton-gris">SIN SAS</span></h5>
+
+					{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/img-sas/m-5.png' %}
+						<img src="{{ asset_url }}" class="img-responsive" />
+		        	{% endimage %}
+
+		        	
+				</div>
+				<div class="col-md-5">
+					<h5 style="text-align:center"><span class="boton-naranja">CON SAS</span></h5>
+
+					{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/img-sas/m-6.png' %}
+						<img src="{{ asset_url }}" class="img-responsive" />
+		        	{% endimage %}
+		
+				</div>				
+			</div>
+			<div class="row">
+				<div class="col-md-8 col-md-offset-2">
+					<p class="descripcion-montacargas">
+						<br/>Este sistema previene el descenso cuando el motor no esta en funcionamiento.<br/><br/>
+						Sistema de v&aacute;lvulas de control con reducidas p&eacute;rdidas. Algo de liquido hidr&aacute;ulico fugar&aacute; a trav&eacute;s de las v&aacute;lvulas y retornar&aacute; al tanque de aceite hidr&aacute;ulico. Este sistema reduce la cantidad de fuga y de ese modo la inclinaci&oacute;n y el descenso natutal del m&aacute;stil.
+					</p>
+				</div>
+			</div><br/><br/><br/>
+			
+		</div>	
+	</div>	
+	<div class="container">			
+		
+		<div class="row">
+			<br/><br/><h5 style="text-align:center"><span class="circulo">4</span> <strong>Control activo de la velocidad de inclinaci&oacute;n hacia atr&aacute;s del m&aacute;stil. </strong></h5>
+			<div class="col-md-5 col-md-offset-1 linea-right">
+				<h5 style="text-align:center"><span class="boton-gris">SIN SAS</span></h5>
+
+				{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/img-sas/m-7.png' %}
+					<img src="{{ asset_url }}" class="img-responsive" />
+	        	{% endimage %}
+
+	        	
+			</div>
+			<div class="col-md-5">
+				<h5 style="text-align:center"><span class="boton-naranja">CON SAS</span></h5>
+
+				{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/img-sas/m-8.png' %}
+					<img src="{{ asset_url }}" class="img-responsive" />
+	        	{% endimage %}
+	
+			</div>				
+		</div>
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">
+				<p class="descripcion-montacargas">
+					<br/>Controlador de funcionamiento de columna activa, reduce el &aacute;ngulo, la velocidad de inclinaci&oacute;n y las orquillas se regulan seg&uacute;n el peso de la carga y la altura a la que se maneja. 
+				</p>
+			</div>
+		</div><br/><br/><br/>
+		
+	</div>
+	<div  style="background:#DCDCDC !important">				
+		<div class="container">
+			<div class="row">
+				<br/><br/><h5 style="text-align:center"><span class="circulo">5</span> <strong>Sincronizador activo de direcci&oacute;n.</strong></h5>
+				<div class="col-md-5 col-md-offset-1">
+					<h5 style="text-align:center"><span class="boton-gris">SIN SAS</span></h5>
+
+					{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/img-sas/m-9.png' %}
+						<img src="{{ asset_url }}" class="img-responsive" />
+		        	{% endimage %}
+		        	<p class="descripcion-montacargas">
+		        		<br/>Hasta ahora, el demerito de la direcci&oacute;n totalmente hidr&aacute;ulica era la imposibilidad de mantener en concordancia el volante de direcci&oacute;n con respecto a la posici&oacute;n de las ruedas directrices.
+		        	</p>
+		        	
+				</div>
+				<div class="col-md-5 linea-left">
+					<h5 style="text-align:center"><span class="boton-naranja">CON SAS</span></h5>
+
+					{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/img-sas/m-10.png' %}
+						<img src="{{ asset_url }}" class="img-responsive" />
+		        	{% endimage %}
+					
+					<p class="descripcion-montacargas">
+						<br/>Cuando las u&ntilde;as se hayan inclinadas hacia atr&aacute;s, el operador simplemente presiona el pulsador situado en la palanca de inclinaci&oacute;n, y moviendola hacia adelante, el m&aacute;stil autom&aacute;ticamente se detendr&aacute; en la posici&oacute;n nivelada.<br/> Esto facilita la inserci&oacute;n y remoci&oacute;n de las u&ntilde;as. 
+		        	</p>
+				</div>	
+			</div>			
+		</div><br/><br/><br/>
+		
+		
+	</div>
+
+{% endblock %}

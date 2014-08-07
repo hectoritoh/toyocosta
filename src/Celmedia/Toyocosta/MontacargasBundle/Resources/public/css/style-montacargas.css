@@ -6,4 +6,125 @@
    /* background-size: cover;*/
   /* background: url("../../bundles/celmediatoyocostamontacargas/images/banner-montacargas.jpg") no-repeat scroll left center transparent;*/
     height: 333px;
+    color: #FFF;
+}
+
+.menu-montacargas-top{
+	position: relative;
+    top: 71px;
+}
+
+.menu-montacargas {
+    background-color: #DC143C;
+    /*border-radius: 4px;*/
+    list-style: none outside none;
+}
+
+.menu-montacargas > li{
+	display: inline-block;
+	color: white;
+}
+
+.categorias{
+    display: none;
+    opacity: 0.7;
+	background-color: #ff730d;
+    
+}
+.toyota {
+    background: url("../../bundles/celmediatoyocostamontacargas/images/accesos/logo-toyota.jpg") no-repeat scroll 50% center rgba(0, 0, 0, 0);
+    border: 1px solid #ccc8c8;
+    height: 50%;
+}
+.imagen-logo {
+    position: relative;
+    top: -54px;
+    overflow: hidden;
+}
+.raymond {
+    background: url("../../bundles/celmediatoyocostamontacargas/images/accesos/logo-raymon.jpg") no-repeat scroll 50% center rgba(0, 0, 0, 0);
+    border: 1px solid #ccc8c8;
+    height: 100%;
+}
+.bt {
+    background: url("../../bundles/celmediatoyocostamontacargas/images/accesos/logo-bt.jpg") no-repeat scroll 50% center rgba(0, 0, 0, 0);
+    border: 1px solid #ccc8c8;
+    height: 100%;
+}
+.cascade {
+    background: url("../../bundles/celmediatoyocostamontacargas/images/accesos/logo-cascade.jpg") no-repeat scroll 50% center rgba(0, 0, 0, 0);
+    border: 1px solid #ccc8c8;
+    height: 100%;
+}
+.cat{
+	
+	/*height: 172px;*/
+	margin-top: 15%;
+}
+.descripcion-montacargas{	
+    color: #9b9c9e;
+    font: 0.9875em Arial,sans-serif;
+    text-align: center; 
+}
+
+.lista-montacargas{
+	color: #9b9c9e;
+    font: 0.9875em Arial,sans-serif;
+    /*text-align: justify;*/ 
+}
+.titulo-ubicacion-montacargas{
+	color: #9b9c9e;
+    font: Arial,sans-serif;
+    text-align: justify; 
+}
+
+span.circulo{
+  background: #FE9A2E;
+  border-radius: 0.91em;
+  -moz-border-radius: 0.91em;
+  -webkit-border-radius: 0.91em;
+  color: #fff;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 1.9em;
+  margin-right: 15px;
+  text-align: center;
+  width: 1.9em; 
+}
+.linea-right{
+	border-right: 2px solid #BDBDBD;
+}
+.linea-left{
+	border-left: 2px solid #BDBDBD;
+}
+span.boton-gris{
+	border-radius: 25px; 
+	box-shadow: 5px 5px 5px #000; 
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-right: 20px;
+	padding-left: 20px;
+	background: #BDBDBD;
+	color: black;
+}
+
+span.boton-naranja{
+	border-radius: 25px; 
+	box-shadow: 5px 5px 5px #000; 
+	padding-top: 3px;
+	padding-bottom: 3px;
+	padding-left: 20px;
+	padding-right: 20px;
+	background: #FE9A2E;
+	color: #FFF;
+}
+.titulo-interno{
+	font: 7.2em Arial,sans-serif;
+    left: 13%;
+    position: relative;
+    top: 30%;
+}
+
+.titulo-interno span{
+	font: 3.2em Arial,sans-serif;
 }

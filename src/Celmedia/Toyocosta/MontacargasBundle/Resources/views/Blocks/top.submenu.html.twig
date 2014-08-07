@@ -1,0 +1,42 @@
+<div class="row menu-montacargas-top">
+<div class="submenu">
+    
+      <nav class="navbar navbar-default nav-pirelli" role="navigation">
+        <div class="container">
+          <!-- Brand and toggle get grouped for better mobile display -->
+          <div class="navbar-header">
+            <a class="navbar-brand" href="#" style="padding-top:7px;">
+              {% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/logos/toyotaindustrial.png' %}
+                <img src="{{ asset_url }}"  />
+              {% endimage %}
+            </a>
+          </div>
+
+          <!-- Collect the nav links, forms, and other content for toggling -->
+          <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav" id="nav-list-pirelli">
+              <li  {% if app.request.get('_route') == 'montacargas_home' %} class="active" {% endif %}   >           
+                <a href="{{ path('montacargas_home') }}">PRINCIPAL</a>
+              </li>
+              <li  {% if app.request.get('_route') == 'pirelli_camioneta' %}  class="active"  {% endif %}   >
+                <a href="{{ path('pirelli_camioneta') }}">PRODUCTO</a>
+              </li>
+              <li  {% if app.request.get('_route') == 'montacargas_postventa' %}  class="active"  {% endif %}  >
+                <a href="{{ path('montacargas_postventa') }}">POST VENTA</a>
+              </li>
+              <li  {% if app.request.get('_route') == 'montacargas_renta' %}  class="active"  {% endif %} >
+                <a href="{{ path('montacargas_renta') }}">RENTAS</a>
+              </li>
+              <li  {% if app.request.get('_route') == 'montacargas_usados' %}  class="active"  {% endif %} >
+                <a href="{{ path('montacargas_usados') }}">USADOS</a>
+              </li>
+              <li {% if app.request.get('_route') == 'montacargas_sas' %}  class="active"  {% endif %} >
+                <a href="{{path('montacargas_sas')}}">SAS</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+
+  </div>
+  </div>
