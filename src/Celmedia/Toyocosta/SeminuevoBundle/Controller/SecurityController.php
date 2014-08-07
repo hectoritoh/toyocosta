@@ -78,8 +78,8 @@ class SecurityController extends Controller
 
 
         $form = $this->createFormBuilder($usuario)
-        ->add("username", "text" , array("required"=> true ))
         ->add("email", "email" ,  array("required"=> true ))   
+        ->add("username", "text" , array("required"=> true ))
         ->add("password", "repeated" , array(
             'type' => 'password',
             'invalid_message' => 'las contrasenias deben coincidir.',
@@ -97,14 +97,28 @@ class SecurityController extends Controller
         
             //$user = $this->get('fos_user.user_manager')->findUserByEmail($email);
 
-
             $form->bind($request);
+
             
+            $data = $form->getData(); 
+
+            $username = $data->getUserName();
+
+            $email = $data->getEmail();
 
 
-            if ($form->isValid() ) {
+            $em = $this->getDoctrine()->getManager();
 
-                $data = $form->getData(); 
+            $existe_username = $em->getRepository('ApplicationSonataUserBundle:User')->findOneBy(array("username"=> $username ));
+
+            $existe_email = $em->getRepository('ApplicationSonataUserBundle:User')->findOneBy(array("email"=> $email ));
+           
+
+            if ( !($existe_email) && !($existe_username) ) {
+               
+                
+                if ($form->isValid() ) {
+
 
 
                 $factory = $this->get('security.encoder_factory');
@@ -121,9 +135,56 @@ class SecurityController extends Controller
 
                 return $this->redirect($this->generateUrl('registro_exitoso'));
 
-            }else{
-                print_r($form->getErrors());
+                }else{
+
+                    $error = "Codigo o Contraseñas no coinciden";
+                    return $this->render('CelmediaToyocostaSeminuevoBundle:Pages:register.html.twig' , 
+                        array("form"=> $form->createView(), "error" => $error)
+                        );
+                    //print_r($form->getErrors());
+
+
+                    // foreach($form->getErrors() as $e) {
+                    //   echo $e->__toString();          
+                    // }
+
+                }
+
+
+            } else {
+               
+               $error = "Usuario o email ya registrados";
+                return $this->render('CelmediaToyocostaSeminuevoBundle:Pages:register.html.twig' , 
+                    array("form"=> $form->createView(), "error" => $error)
+                    );
             }
+            
+
+            // if ($form->isValid() && !($existe_email) && !($existe_username) ) {
+
+
+
+            //     $factory = $this->get('security.encoder_factory');
+
+            //     $encoder = $factory->getEncoder($usuario);
+
+            //     $pass = $encoder->encodePassword($usuario->getPassword(), $usuario->getSalt());
+            //     $usuario->setPassword(  $pass );
+            //     $usuario->setEnabled( 0 );
+
+            //     $em = $this->getDoctrine()->getManager();
+            //     $em->persist( $usuario );
+            //     $em->flush();
+
+            //     return $this->redirect($this->generateUrl('registro_exitoso'));
+
+            // }else{
+            //     print_r($form->getErrors());
+            //     $error = "Usuario o email ya registrados";
+            //     return $this->render('CelmediaToyocostaSeminuevoBundle:Pages:register.html.twig' , 
+            //         array("form"=> $form->createView(), "error" => $error)
+            //         );
+            // }
 
 
         }
@@ -131,7 +192,7 @@ class SecurityController extends Controller
 
 
         return $this->render('CelmediaToyocostaSeminuevoBundle:Pages:register.html.twig' , 
-            array("form"=> $form->createView())
+            array("form"=> $form->createView() , "error" => false )
             );
     }
 

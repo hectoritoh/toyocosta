@@ -60,6 +60,35 @@ class ContenidoAdmin extends Admin
         $formMapper
             ->add('titulo')
             ->add('texto')
+            ->add(
+            'texto',
+            'ckeditor',
+            array(
+            'config' => array(
+                'toolbar' => array(
+                    array(
+                        'name' => 'links',
+                        'items' => array('Link','Unlink'),
+                    ),
+                    array(
+                        'name' => 'insert',
+                        'items' => array('Image'),
+                    ),
+                )
+            ) ) )
+            // ->add('shortDescription', 'sonata_formatter_type', array(
+            //     'source_field'         => 'texto',
+            //     'source_field_options' => array('attr' => array('class' => 'span10', 'rows' => 20)),
+            //     'format_field'         => 'descriptionFormatter',
+            //     'target_field'         => 'description',
+            //     'ckeditor_context'     => 'default',
+            //     'event_dispatcher'     => $formMapper->getFormBuilder()->getEventDispatcher()
+            // ))
+            // ->add('contentFormatter', 'sonata_formatter_type_selector', array(
+            //     'source' => 'descripcion_corta',
+            //     'target' => 'content'
+            // ))
+            // ->add('descripcion_corta')
             ->add('abreviatura')
             ->add('estado', 'choice', array(
            'choices' => array(

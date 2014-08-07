@@ -75,6 +75,8 @@ class SeminuevoGaleriaAdmin extends Admin
             $fullPath = $container->get('request')->getBasePath().'/'.$webPath;
 
             $fileFieldOptions['help'] = '<img src="'.$fullPath.'" class="img-responsive" />';
+
+            // '<img {% for name, value in options %}{{name}}="{{value}}" {% endfor %} />'
         }
 
 
