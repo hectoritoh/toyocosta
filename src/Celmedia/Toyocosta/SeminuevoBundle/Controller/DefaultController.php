@@ -6,6 +6,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\SecurityContextInterface;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 use Celmedia\Toyocosta\SeminuevoBundle\Entity\Seminuevo;
 use Application\Sonata\MediaBundle\Entity\GalleryHasMedia;
@@ -198,6 +199,245 @@ class DefaultController extends Controller
         }else{
             return $this->render('CelmediaToyocostaSeminuevoBundle:Pages:estadousado.html.twig' , array() );
         }           
+    }
+
+
+    public function cotizadorSNAction($seminuevoid){
+
+        $em = $this->getDoctrine()->getManager();
+
+        $seminuevo = $em->getRepository('CelmediaToyocostaSeminuevoBundle:Seminuevo')->findOneBy(array("id"=> $seminuevoid, "estado_publicacion" => "1"));
+
+        $seminuevoPlazo = $em->getRepository('CelmediaToyocostaVehiculosBundle:Plazo')->findBy(
+            array(
+                "estado" => 1
+            )
+        );
+
+        $variableSeminuevo = $em->getRepository('CelmediaToyocostaContenidoBundle:Variables')->findOneBy(
+            array(
+                "id" => 2, // id 2 para seminuevos
+                "estado" => 1
+            )
+        );
+
+        $entradaMinima = $seminuevo->getPrecio() * $variableSeminuevo->getEntradaMinima();
+
+
+        return $this->render('CelmediaToyocostaSeminuevoBundle:Pages:cotizador.html.twig' , array(
+            "seminuevo" => $seminuevo,
+            'entradaMinima' => $entradaMinima,
+            'seminuevoPlazo' => $seminuevoPlazo,
+        ));
+
+    }
+
+    public function consultarPreciosFinalesAction(Request $request){
+        $em = $this->getDoctrine()->getManager();        
+
+        if ($request->isMethod('POST')) {
+            
+            $idPlazo = $request->request->get('plazoid');
+            $valorEntrada = floatval( $request->request->get('valorentrada') );
+            $idSeminuevo = $request->request->get('seminuevoid');
+
+            if(!$idPlazo || !$idSeminuevo){
+                return new JsonResponse(array(
+                    'codigo' => 0,
+                    'Mensaje' => "No se ha recibido plazo o modelo"
+                ), 200); //codigo de error diferente
+            }
+
+            $seminuevoPlazo = $em->getRepository('CelmediaToyocostaVehiculosBundle:Plazo')->findOneBy(
+                array(
+                    'id' => $idPlazo,
+                    "estado" => 1
+                )
+            );
+
+            $seminuevo = $em->getRepository('CelmediaToyocostaSeminuevoBundle:Seminuevo')->findOneBy(
+                array(
+                    "id"=> $idSeminuevo,
+                    "estado_publicacion" => "1"
+                )
+            );
+
+            $variableSeminuevo = $em->getRepository('CelmediaToyocostaContenidoBundle:Variables')->findOneBy(
+                array(
+                    "id" => 2, // id 2 para seminuevos
+                    "estado" => 1
+                )
+            );
+
+
+            //Obtenemos el vehiculo correspondiente al modelo seleccionado
+            $precioNeto = $seminuevo->getPrecio();
+            $entradaMinima = $seminuevo->getPrecio() * $variableSeminuevo->getEntradaMinima();
+
+            $precioFinanciar = $seminuevo->getPrecio() - $valorEntrada;
+
+            /*
+                z = <?php echo $cotizar_variables['interes']; ?> / 12
+                a = 1 + z
+                b = $('#plazo').val()
+                c = Math.pow( a , -b )
+                d = 1 - c
+                e = ( d ) / z
+                f = ( aFinanciar / ( e ) )
+                cuotasMensuales = roundNumber(f, 2);
+
+            */
+            $valorCuotas = round( ( $precioFinanciar / ( ( 1 - ( pow( (1 + ($variableSeminuevo->getInteres() / 12)), -$seminuevoPlazo->getValor()) ) ) / ($variableSeminuevo->getInteres() / 12) ) ) , 2);
+            $precioFinal = round($valorCuotas * $seminuevoPlazo->getValor() , 2);
+
+            return new JsonResponse(array(
+                'codigo' => 1,
+                'precioNeto' => $precioNeto,
+                'entradaMinima' => $entradaMinima,
+                'precioFinanciar' => $precioFinanciar,
+                'valorCuotas' => $valorCuotas,
+                'precioFinal' => $precioFinal
+            ), 200);
+        }
+
+        return new JsonResponse(array(
+            'codigo' => 0,
+            'Mensaje' => "No se recibio por post"
+        ), 200); //codigo de error diferente
+    }
+
+
+
+    public function envioCotizacionAction(Request $request){
+        $em = $this->getDoctrine()->getManager();        
+
+        if ($request->isMethod('POST')) {
+
+
+            $plazoid = $request->request->get('plazoid');
+            $valorEntrada = floatval( $request->request->get('valorentrada') );
+            $seminuevoid = $request->request->get('seminuevoid');
+            $nombre = $request->request->get('nombre');
+            $apellido = $request->request->get('apellido');
+            $cedula = $request->request->get('cedula');
+            $telefono = $request->request->get('telefono');
+            $email = $request->request->get('email');
+            $ciudad = $request->request->get('ciudad');
+            $mensaje = $request->request->get('mensaje');
+
+            //$cadena = "plazoid: " . $plazoid . "valorEntrada: " . $valorEntrada . "seminuevoid: " . $seminuevoid . "nombre: " . $nombre . "apellido: " . $apellido . "cedula: " . $cedula . "telefono" . $telefono . "email" . $email . "ciudad" . $ciudad . "mensaje" . $mensaje;
+            
+
+            if(!$plazoid || !$seminuevoid || !$valorEntrada || !$nombre || !$apellido || !$cedula || !$telefono || !$email || !$ciudad || !$mensaje ){
+                return new JsonResponse(array(
+                    'codigo' => 0,
+                    'Mensaje' => "faltan parametros"
+                ), 200); //codigo de error diferente
+            }
+
+            $seminuevoPlazo = $em->getRepository('CelmediaToyocostaVehiculosBundle:Plazo')->findOneBy(
+                array(
+                    'id' => $plazoid,
+                    "estado" => 1
+                )
+            );
+
+            $seminuevo = $em->getRepository('CelmediaToyocostaSeminuevoBundle:Seminuevo')->findOneBy(
+                array(
+                    "id"=> $seminuevoid,
+                    "estado_publicacion" => "1"
+                )
+            );
+
+            $variableSeminuevo = $em->getRepository('CelmediaToyocostaContenidoBundle:Variables')->findOneBy(
+                array(
+                    "id" => 2, // id 2 para seminuevos
+                    "estado" => 1
+                )
+            );
+
+            // Calculos de cotizacion a la base
+            $precioNeto = $seminuevo->getPrecio();
+            $entradaMinima = $seminuevo->getPrecio() * $variableSeminuevo->getEntradaMinima();
+            $precioFinanciar = $seminuevo->getPrecio() - $valorEntrada;
+            $valorCuotas = round( ( $precioFinanciar / ( ( 1 - ( pow( (1 + ($variableSeminuevo->getInteres() / 12)), -$seminuevoPlazo->getValor()) ) ) / ($variableSeminuevo->getInteres() / 12) ) ) , 2);
+            $precioFinal = round($valorCuotas * $seminuevoPlazo->getValor() , 2);
+            
+
+            // Creamos el objeto cotizacion
+
+            $cotizacion = new \Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoCotizacion();
+
+            $cotizacion->setNombre( $nombre  );
+            $cotizacion->setApellido( $apellido  );
+            $cotizacion->setCedula( $cedula);
+            $cotizacion->setTelefono( $telefono  );
+            $cotizacion->setEmail( $email  );            
+            $cotizacion->setCiudad( $ciudad  );
+            $cotizacion->setMensaje( $mensaje  );
+
+            //$cotizacion->setPlazo( $vehiculoPlazo );
+            //$cotizacion->setVehiculoModelo( $seminuevo );
+
+            //$cotizacion->setValorEntrada( $valorentrada );
+            //$cotizacion->setInteresVehiculo( $variableSeminuevo->getInteres() );
+            //$cotizacion->setInteresEntrada( $variableSeminuevo->getEntradaMinima() );
+            
+            //almacenamos en la base
+
+            $em = $this->getDoctrine()->getManager(); 
+            $em->persist(  $cotizacion );
+            $em->flush();
+
+            $subject = "Pedido de Informacion Cotización de Seminuevos desde Toyocosta"; 
+
+            $body = '<strong>Informacion del Cotizacion de Seminuevos:</strong> <br /><br />               
+            Nombre:  '.$cotizacion->getNombre().' <br />
+            Apellido:   '. $cotizacion->getApellido() .' <br />
+            Cedula:  '.$cotizacion->getCedula().' <br />
+            Telefono:  '. $cotizacion->getTelefono() .'  <br />
+            Email:  '. $cotizacion->getEmail() .' <br />
+            Ciudad:  '. $cotizacion->getCiudad() .' <br />
+            Mensaje:  '. $cotizacion->getMensaje() .' <br />
+            Plazo:  '. $seminuevoPlazo->getValor() .' meses  <br />
+            Seminuevo:  '. $seminuevo->getModelo() .' <br />
+            Valor de entrada:  '. $valorEntrada .' <br />
+            Interes del vehiculo:  '. $variableSeminuevo->getInteres() .' <br />
+            Entrada minima:  '. $entradaMinima .' ';
+
+
+            $message = \Swift_Message::newInstance()
+
+            ->setSubject($subject)
+
+            ->setFrom(array('ycosquillo@celmedia.com' => 'Web Toyocosta'))
+
+            ->setTo(array( $cotizacion->getEmail() => 'Usuario' , 'ycosquillo@celmedia.com' => 'Toyocosta'))
+            
+            ->setContentType("text/html")
+
+            ->setBody($body);
+
+
+
+            if ($this->get('mailer')->send($message)) {
+                return new JsonResponse(array(
+                    'codigo' => 1,
+                    'Mensaje' => "El mensaje ha sido enviado"
+                ), 200); //codigo de error diferente
+            } else {
+                return new JsonResponse(array(
+                    'codigo' => 0,
+                    'Mensaje' => "No se ha enviado mensaje"
+                ), 200); //codigo de error diferente
+            }
+
+        }
+
+        return new JsonResponse(array(
+            'codigo' => 0,
+            'Mensaje' => "No se recibio por post"
+        ), 200); //codigo de error diferente
     }
 
     /*

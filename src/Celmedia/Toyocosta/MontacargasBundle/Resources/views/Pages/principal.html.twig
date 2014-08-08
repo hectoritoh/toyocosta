@@ -30,65 +30,57 @@
 			</div>			
 		</div>
 		<div class="row">
-			<div class="col-md-3" id="div2" >
-				
-					{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/accesos/acceso-m-toyota.jpg' %}
+			<div class="col-md-3" id="montacargas-1" >
+				{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/accesos/acceso-m-toyota.jpg' %}
 					<img src="{{ asset_url }}" class="img-responsive" />
-	        		{% endimage %}
-	        		<div class="row imagen-logo" id="contenido-interno">
-	        			{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/accesos/logo-toyota.jpg' %}
-							<img src="{{ asset_url }}" class="img-responsive" style="border: 1px solid #ccc8c8;"/>
-		        		{% endimage %}
-		        		<div class="col-md-12">							
-							<div >
-							<a style="text-decoration:none;"><span class="ver">Combusti&oacute;n Interna</span><br /><br /></a>
-							<a style="text-decoration:none;"><span class="ver">El&eacute;ctricos Contrabalanceado</span><br /><br /></a>
-							</div>
-						</div>	
-					</div>
-			</div>
-			<div class="col-md-3">
-				<div id="div3" style="position:relative;">
-					{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/accesos/acceso-raymond.jpg' %}
-						<img src="{{ asset_url }}" class="img-responsive" />
-	        		{% endimage %}
-	        		<div id="div4" class="categorias">
-						<span class="nombre raymond"></span><br />
-						<div class="cat">
-						<a style="text-decoration:none;"><span class="ver">Combusti&oacute;n Interna</span><br /><br /></a>
-						<a style="text-decoration:none;"><span class="ver">El&eacute;ctricos Contrabalanceado</span><br /><br /></a>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-3">
-				<div id="div5" style="position:relative;">
-					{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/accesos/acceso_bt.jpg' %}
-						<img src="{{ asset_url }}" class="img-responsive" />
-	        		{% endimage %}
-	        		<div id="div6" class="categorias">
-						<span class="nombre bt"></span><br />
-						<div class="cat">
-						<a style="text-decoration:none;"><span class="ver">Combusti&oacute;n Interna</span><br /><br /></a>
-						<a style="text-decoration:none;"><span class="ver">El&eacute;ctricos Contrabalanceado</span><br /><br /></a>
-						</div>
-					</div>
+        		{% endimage %}
+        		<div class="row categorias" id="contenido-interno-1">
+        			<span class="logo-producto toyota"></span><br/>
+	        		<div class="lista-categoria" >							
+						<a style="text-decoration:none;" href="#"><span class="ver">Combusti&oacute;n Interna</span><br /><br /></a>
+						<a style="text-decoration:none;"><span class="ver">El&eacute;ctricos Contrabalanceado</span><br /><br /></a>						
+					</div>	
 				</div>
 			</div>
 
-			<div class="col-md-3">
-				<div id="div7" style="position:relative;">
-					{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/accesos/acceso-cascade.jpg' %}
-						<img src="{{ asset_url }}" class="img-responsive" />
-	        		{% endimage %}
-	        		<div id="div8" class="categorias">
-						<span class="nombre cascade"></span><br />
-						<div class="cat">
+			
+			<div class="col-md-3" id="montacargas-2">				
+				{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/accesos/acceso-raymond.jpg' %}
+					<img src="{{ asset_url }}" class="img-responsive" />
+        		{% endimage %}
+        		<div class="row categorias" id="contenido-interno-2" >
+					<span class="logo-producto raymond"></span><br/>
+					<div class="lista-categoria">
+						<a style="text-decoration:none;" href="#"><span class="ver">Combusti&oacute;n Interna</span><br /><br /></a>
+						<a style="text-decoration:none;"><span class="ver">El&eacute;ctricos Contrabalanceado</span><br /><br /></a>
+					</div>
+				</div>				
+			</div>
+
+			<div class="col-md-3" id="montacargas-3">				
+				{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/accesos/acceso_bt.jpg' %}
+					<img src="{{ asset_url }}" class="img-responsive" />
+        		{% endimage %}
+        		<div id="contenido-interno-3" class="row categorias">
+					<span class="logo-producto bt"></span><br />
+					<div class="lista-categoria">
 						<a style="text-decoration:none;"><span class="ver">Combusti&oacute;n Interna</span><br /><br /></a>
 						<a style="text-decoration:none;"><span class="ver">El&eacute;ctricos Contrabalanceado</span><br /><br /></a>
-						</div>
 					</div>
 				</div>
+			</div>	
+
+			<div class="col-md-3" id="montacargas-4">				
+				{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/accesos/acceso-cascade.jpg' %}
+					<img src="{{ asset_url }}" class="img-responsive" />
+        		{% endimage %}
+        		<div id="contenido-interno-4" class="row categorias">
+					<span class="logo-producto cascade"></span><br />
+					<div class="lista-categoria">
+						<a style="text-decoration:none;"><span class="ver">Combusti&oacute;n Interna</span><br /><br /></a>
+						<a style="text-decoration:none;"><span class="ver">El&eacute;ctricos Contrabalanceado</span><br /><br /></a>
+					</div>
+				</div>				
 			</div>
 			
 		</div>	

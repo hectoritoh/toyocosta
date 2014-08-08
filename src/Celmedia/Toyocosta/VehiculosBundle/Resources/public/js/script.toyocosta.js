@@ -127,6 +127,36 @@ function reservaSelected(elemento){
     });
   }
 
+  function plazoSelectedSM(plazo, idseminuevo){
+    var parametros = {
+        plazoid: $(plazo).val(),
+        valorentrada: $("#vinputEntrada").val(),
+        seminuevoid: idseminuevo
+    }
+
+    $.ajax({
+        url: Routing.generate('consultar_plazo_sm'),
+        type: 'POST',
+        async: true,
+        data: parametros,
+        dataType: "json",
+        success: function (respuesta) {
+          //alert("ok");
+          if(respuesta.codigo == 1){
+            $("#vpreciofinanciar").text("$ " + respuesta.precioFinanciar);
+            $("#vcuotas").text("$ " + respuesta.valorCuotas);
+            $("#vpreciofinal").text("$ " + respuesta.precioFinal);
+          }
+          //console.log(respuesta.precio);
+        }, 
+        error: function (error) {
+          console.log("ERROR: " + error);
+        }
+    });
+  }
+
+  
+
 $(document).ready(function(){
 
  	$('.contenedor-centrar').each(function () {
@@ -659,6 +689,158 @@ $(document).ready(function(){
         }
       }
     }); 
+
+
+    //////////////////////////////////////////////////////////////////////
+
+    var $validator = $("#cotizarFormSN").validate({
+      debug: true,
+      submitHandler: function (form) {
+        //alert("ok");
+      },
+      rules: {
+        vinputEntrada: {
+          required: true,
+          number: true,
+          minlength: 3,
+        },
+        vselectplazo: {
+          required: true
+        },
+        vnombreInput:{
+          required: true
+        },
+        vapellidoInput:{
+          required: true
+        },
+        vcedulaInput:{
+          required: true
+        },
+        vtelefonoInput:{
+          required: true
+        },
+        vemailInput:{
+          required: true
+        },
+        vciudadInput:{
+          required: true
+        },
+        vmensajeInput:{
+          required: true
+        }
+      },
+        showErrors: function (errorMap, errorList) {
+             // Clean up any tooltips for valid elements
+            $.each(this.validElements(), function (index, element) {
+                var $element = $(element);
+
+                $element.data("title", "") // Clear the title - there is no error associated anymore
+                    .removeClass("error")
+                    .tooltip("destroy");
+            });
+
+            // Create new tooltips for invalid elements
+            $.each(errorList, function (index, error) {
+                var $element = $(error.element);
+
+                $element.tooltip("destroy") // Destroy any pre-existing tooltip so we can repopulate with new tooltip content
+                    .data("title", error.message)
+                    .addClass("error")
+                    .tooltip(); // Create a new tooltip based on the error messsage we just set in the title
+                });
+
+        }
+    });
+
+    $('#rootwizard2 .finish').click(function() {
+        var $valid = $("#cotizarFormSN").valid();
+        if(!$valid) {
+          $validator.focusInvalid();
+          return false;
+        }else{
+
+          var parametros = {
+              plazoid: $("#vselectplazo").val(),
+              valorentrada: $("#vinputEntrada").val(),
+              seminuevoid: $("#vseminuevo").val(),
+              nombre: $("#vnombreInput").val(),
+              apellido: $("#vapellidoInput").val(),
+              cedula: $("#vcedulaInput").val(),
+              telefono: $("#vtelefonoInput").val(),
+              email: $("#vemailInput").val(),
+              ciudad: $("#vciudadInput").val(),
+              mensaje: $("#vmensajeInput").val()
+          }
+
+          $.ajax({
+              url: Routing.generate('envio_cotizacion_sm'),
+              type: 'POST',
+              async: true,
+              data: parametros,
+              dataType: "json",
+              success: function (respuesta) {
+
+                if (respuesta.codigo == 1 ) {
+                    $('#contenedorEspereCotizar').hide();
+                    $('#cotizarFormSN').show();
+                    alert('Su cotizaci\u00F3n fu\u00E9 enviada con \u00E9xito');
+                    document.getElementById("cotizarFormSN").reset();
+                    //window.location = Routing.generate('contactenos');
+                    $('#rootwizard2').find("a[href*='tab1']").trigger('click');
+                } else if (respuesta.codigo == 0 ){
+                      // error
+                }
+              }, 
+              error: function (error) {
+                console.log("ERROR: " + error);
+              },
+              beforeSend: function () {
+                  $('#cotizarFormSN').hide();
+                  $('#contenedorEspereCotizar').show();
+              }
+          });
+          
+        }
+    });
+
+ 
+    $('#rootwizard2').bootstrapWizard({
+      'tabClass': 'nav nav-pills',
+      'onNext': function(tab, navigation, index) {
+        var $total = navigation.find('li').length;
+        var $current = index + 1;
+
+        var $valid = $("#cotizarFormSN").valid();
+        if(!$valid) {
+          $validator.focusInvalid();
+          return false;
+        }
+      }, onTabShow: function(tab, navigation, index) {
+        var $total = navigation.find('li').length;
+        var $current = index + 1;
+
+        // If it's the last tab then hide the last button and show the finish instead
+        if($current >= $total) {
+          $('#rootwizard2').find('.pager .next').hide();
+          $('#rootwizard2').find('.pager .finish').show();
+          $('#rootwizard2').find('.pager .finish').removeClass('disabled');
+        } else {
+          $('#rootwizard2').find('.pager .next').show();
+          $('#rootwizard2').find('.pager .finish').hide();
+        }
+      }, onTabClick: function(tab, navigation, index) {
+          //alert('on tab click disabled');
+          //return false;
+      }, onTabChange: function(tab, navigation, index) {
+        
+        if(index >= 1) {
+          //alert('on tab show disabled');
+          //return false;
+        }
+      }
+    }); 
+
+
 
 
 });
