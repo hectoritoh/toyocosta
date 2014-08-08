@@ -179,7 +179,7 @@
 					{% for vGaleria  in vehiculo.imagenes %}
 						<div class="item alto-completo {% if loop.first %}active{% endif %}">
 
-							{% media vGaleria, 'big' with {'class': 'img-responsive'} %}
+							{% media vGaleria, 'big' with {'class': 'img-responsive img-galeria-vh'} %}
 
 							{#
 								{% if vGaleria.tipo == "youtube" %}					
