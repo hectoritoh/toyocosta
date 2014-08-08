@@ -1,73 +1,98 @@
 {% extends 'CelmediaToyocostaMontacargasBundle::layout.html.twig' %}
 
 
-{% block prueba %}
+{% block contenido %}
 
-	<!-- <div class="espaciado-vehiculo visible-md visible-lg hidden-sm hidden-xs">
-		&nbsp;
-    </div> -->
+    {% include 'CelmediaToyocostaMontacargasBundle:Blocks:top.submenu.html.twig' %}
+	<div class="banner-montacargas img-responsive"><h1 class="titulo-interno">MONTACARGAS</h1></div>
 
-	<div class="banner-montacargas">
-		
-	</div>
 
 	<div class="container">			
+		
 		<div class="row">
 			<div class="col-md-12">
-				<ol class="breadcrumb">
-					<li>PRICIPAL</li>
-					<li>PRODUCTO</li>
-					<li>POST VENTA</li>
-					<li>RENTAS</li>
-					<li>USADOS</li>
-					<li>SAS</li>
-				</ol>
-			</div>
-
-		</div>
-		<div class="row">
-			<div class="col-md-12">
-			<h5>HOME > MONTACARGAS</h5>
+				<h5 class="titulo-ubicacion-montacargas">HOME > <strong>MONTACARGAS</strong></h5>
 			</div>			
 		</div>
 		<div class="row">
 			<div class="col-md-12">
-				{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/accesos/acceso-m-toyota.jpg' %}
+				{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/banner-montacargas.jpg' %}
 					<img src="{{ asset_url }}" class="img-responsive" />
         		{% endimage %}
 			</div>			
 		</div>
 		<div class="row">
 			<div class="col-md-10 col-md-offset-1">
-			<h1>TOYOTA EQUIPOS INDUSTRIALES</h1>
-			<p>EL Liderazgo no es una coincidencia</p>
-			<p>Es un logro que solo es posible gracias al trabajo en equipo de las 3 marcas lideres en Log&iacute;stica Industrial. Toyota, BT, Raymond ponen a tu alcance 
-			la mas completa oferta de equipos para el movimiento de materiales, con convenientes planes de financiamiento y la mayor calidad en servicios.</p>	
+			<h3 style="text-align:center"><strong>TOYOTA EQUIPOS INDUSTRIALES</strong></h3>
+			<p style="text-align:center; font-size:14px"><strong>EL Liderazgo no es una coincidencia</strong></p>
+			<p class="descripcion-montacargas"><br/>Es un logro que solo es posible gracias al trabajo en equipo de las 3 marcas lideres en Log&iacute;stica Industrial. Toyota, BT, Raymond ponen a tu alcance 
+			la mas completa oferta de equipos para el movimiento de materiales, con convenientes planes de financiamiento y la mayor calidad en servicios.</p><br/><br/>	
 			</div>			
 		</div>
 		<div class="row">
-			<div class="col-md-3">
-				{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/accesos/acceso-m-toyota.jpg' %}
+			<div class="col-md-3" id="div2" >
+				
+					{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/accesos/acceso-m-toyota.jpg' %}
 					<img src="{{ asset_url }}" class="img-responsive" />
-        		{% endimage %}
+	        		{% endimage %}
+	        		<div class="row imagen-logo" id="contenido-interno">
+	        			{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/accesos/logo-toyota.jpg' %}
+							<img src="{{ asset_url }}" class="img-responsive" style="border: 1px solid #ccc8c8;"/>
+		        		{% endimage %}
+		        		<div class="col-md-12">							
+							<div >
+							<a style="text-decoration:none;"><span class="ver">Combusti&oacute;n Interna</span><br /><br /></a>
+							<a style="text-decoration:none;"><span class="ver">El&eacute;ctricos Contrabalanceado</span><br /><br /></a>
+							</div>
+						</div>	
+					</div>
 			</div>
 			<div class="col-md-3">
-				{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/accesos/acceso-raymond.jpg' %}
-					<img src="{{ asset_url }}" class="img-responsive" />
-        		{% endimage %}
+				<div id="div3" style="position:relative;">
+					{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/accesos/acceso-raymond.jpg' %}
+						<img src="{{ asset_url }}" class="img-responsive" />
+	        		{% endimage %}
+	        		<div id="div4" class="categorias">
+						<span class="nombre raymond"></span><br />
+						<div class="cat">
+						<a style="text-decoration:none;"><span class="ver">Combusti&oacute;n Interna</span><br /><br /></a>
+						<a style="text-decoration:none;"><span class="ver">El&eacute;ctricos Contrabalanceado</span><br /><br /></a>
+						</div>
+					</div>
+				</div>
 			</div>
 			<div class="col-md-3">
-				{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/accesos/acceso_bt.jpg' %}
-					<img src="{{ asset_url }}" class="img-responsive" />
-        		{% endimage %}
+				<div id="div5" style="position:relative;">
+					{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/accesos/acceso_bt.jpg' %}
+						<img src="{{ asset_url }}" class="img-responsive" />
+	        		{% endimage %}
+	        		<div id="div6" class="categorias">
+						<span class="nombre bt"></span><br />
+						<div class="cat">
+						<a style="text-decoration:none;"><span class="ver">Combusti&oacute;n Interna</span><br /><br /></a>
+						<a style="text-decoration:none;"><span class="ver">El&eacute;ctricos Contrabalanceado</span><br /><br /></a>
+						</div>
+					</div>
+				</div>
 			</div>
-			<div class="col-md-3">
-				{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/accesos/acceso-cascade.jpg' %}
-					<img src="{{ asset_url }}" class="img-responsive" />
-        		{% endimage %}
-			</div>
-		</div>	
 
+			<div class="col-md-3">
+				<div id="div7" style="position:relative;">
+					{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/accesos/acceso-cascade.jpg' %}
+						<img src="{{ asset_url }}" class="img-responsive" />
+	        		{% endimage %}
+	        		<div id="div8" class="categorias">
+						<span class="nombre cascade"></span><br />
+						<div class="cat">
+						<a style="text-decoration:none;"><span class="ver">Combusti&oacute;n Interna</span><br /><br /></a>
+						<a style="text-decoration:none;"><span class="ver">El&eacute;ctricos Contrabalanceado</span><br /><br /></a>
+						</div>
+					</div>
+				</div>
+			</div>
+			
+		</div>	
+		<br/><br/><br/>
 	</div>										
 	
 

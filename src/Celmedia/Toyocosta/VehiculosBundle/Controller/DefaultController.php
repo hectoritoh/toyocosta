@@ -93,17 +93,18 @@ class DefaultController extends Controller
             "estado" => 1
                 )
         );
-       $vehiculoGaleria = $this->getDoctrine()->getRepository("CelmediaToyocostaVehiculosBundle:VehiculoGaleria")->findBy(array(
+        /*
+        $vehiculoGaleria = $this->getDoctrine()->getRepository("CelmediaToyocostaVehiculosBundle:VehiculoGaleria")->findBy(array(
             "vehiculogaleria" => $vehiculo,
             "estado" => 1
                 )
-        );
+        );*/
 
         return $this->render('CelmediaToyocostaVehiculosBundle:Pages:vehiculo.html.twig' , array(
             "vehiculo" => $vehiculo,
             "vehiculoColores" => $vehiculoColores,
             "vehiculoModelos" => $vehiculoModelos,
-            "vehiculoGaleria" => $vehiculoGaleria
+            //"vehiculoGaleria" => $vehiculoGaleria
         ));
     }
 

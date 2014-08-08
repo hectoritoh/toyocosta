@@ -1,0 +1,84 @@
+{% extends 'CelmediaToyocostaMontacargasBundle::layout.html.twig' %}
+
+
+{% block contenido %}
+
+    {% include 'CelmediaToyocostaMontacargasBundle:Blocks:top.submenu.html.twig' %}
+	<div class="banner-montacargas">
+		<h1 class="titulo-interno">SERVICIOS</h1>
+	</div>
+
+
+	<div class="container">			
+		
+		<div class="row">
+			<div class="col-md-12">
+			<h5 class="titulo-ubicacion-montacargas">PRINCIPAL > <strong>POST VENTA</strong></h5>
+			</div>			
+		</div>
+		
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1">
+				<h3 style="text-align:center"><strong>STOCK DE RESPUESTOS Y SERVICIO T&Eacute;CNICO</strong></h3>
+				<div class="row">
+					<div class="col-md-2 col-md-offset-3">
+						{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/sub-menu/subm-montacargas.jpg' %}
+							<img src="{{ asset_url }}" class="img-circle" />
+			    		{% endimage %}
+			    	</div>
+			    	<div class="col-md-2">	
+			    		{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/sub-menu/subm-bt.jpg' %}
+							<img src="{{ asset_url }}" class="img-circle" />
+			    		{% endimage %}
+			    	</div>	
+			    	<div class="col-md-2">	
+			    		{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/sub-menu/subm-raymond.jpg' %}
+							<img src="{{ asset_url }}" class="img-circle" />
+			    		{% endimage %}
+					</div>
+					
+				</div>
+				
+				<p class="descripcion-montacargas"><br/><br/>Contamos con un amplio stock de respuestos originales Japoneses en nuestras bodegas matriz ubicada en el Km. 9,5 de la v&iacute;a a Daule al norte de la ciudad de Guayaquil. Basado en el sistema TPS (Toyota Production System) y en la filosof&iacute;a de Justo a tiempo llevamos
+				una adecuada operacion de reposici&oacute;n manteniendo un inventario de 1.5 veces de rotaci&oacute;n.<br/><br/>
+				El contrato de servicio t&eacute;cnico que Toyocosta S.A ofrece a sus clientes, mantiene una tarifa fija mensual de acuerdo a nuestras plantillas de mantenimiento.<br/><br/>Se lo realiza a trav&eacute;s de nuestras unidades m&oacute;viles, equipadas con elementos y herramientas de la m&aacute;s alta tecnolog&iacute;a a partir de las primeras 250 horas en adelante. Las mismas que estan establecidas dentro de una pantilla per&iacute;odica preventiva.<br/><br/>
+				</p>	
+
+				<h3 style="text-align:center"><strong>BENEFICIOS DEL SERVICIO POST VENTA TOYOTA</strong></h3>
+
+				<p class="descripcion-montacargas"><br/>Al utilizar nuestro servicio de post venta que incluye respuestos originales y t&eacute;cnicos de campo certificado, se reducen las paralizaciones del equipo y se maximiza la vida &uacute;til del mismo, garantizando una alta eficiencia del montacargas, asi como el rendimiento productivo del negocio.<br/><br/>Brindamos el mejor servicio de mantenimiento y reparaci&oacute;n de montacargas.
+				</p>
+
+				<h3 style="text-align:center"><strong>OBJETIVOS</strong></h3>
+				<div class="row">
+					<div class="col-md-3 col-md-offset-2">
+						{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/sub-menu/subm-montacargas.jpg' %}
+							<img src="{{ asset_url }}" class="img-responsive" />
+			    		{% endimage %}
+			    		<br/>
+			    		{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/sub-menu/subm-bt.jpg' %}
+							<img src="{{ asset_url }}" class="img-responsive" />
+			    		{% endimage %}
+			    	</div>
+			    	<div class="col-md-6">	
+			    		<ul class="lista-montacargas">
+			    			<li>T&eacute;cnicos altamente capacitados en nuestro centro de entranamiento y en el exterior.</li><br/>
+			    			<li>Unidades m&oacute;viles para trabajar de forma aut&oacute;noma en su empresa (Matenimiento Preventivo y Correctivo).</li><br/>
+			    			<li>Instalaci&oacute;n de bases t&eacute;cnicas (talleres) en su empresa.</li><br/>
+			    			<li>Reparaciones integrales en nuestro taller.</li><br/>
+			    			<li>Repuestos genuinos para asegurar la calidad total del servicio y maximizar la vida &uacute;til de su equipo.</li><br/>
+			    			<li>Stock permanente de respuestos.</li><br/>
+			    			<li>Servicio con conbertura a nivel nacional.</li>
+			    		</ul>
+			    	</div>	
+			    	
+				</div>
+
+			</div>			
+		</div>
+			
+		<br/><br/><br/>
+	</div>										
+	
+
+{% endblock %}

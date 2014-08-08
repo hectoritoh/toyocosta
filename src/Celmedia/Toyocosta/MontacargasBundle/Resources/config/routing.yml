@@ -5,3 +5,19 @@ celmedia_toyocosta_montacargas_homepage:
 montacargas_home:
     path:      /montacargas
     defaults:  { _controller: CelmediaToyocostaMontacargasBundle:Default:principal }
+
+montacargas_postventa:
+    path:      /montacargas/postventa
+    defaults:  { _controller: CelmediaToyocostaMontacargasBundle:Default:postVenta }
+
+montacargas_renta:
+    path:      /montacargas/renta
+    defaults:  { _controller: CelmediaToyocostaMontacargasBundle:Default:renta }
+
+montacargas_sas:
+    path:      /montacargas/sas
+    defaults:  { _controller: CelmediaToyocostaMontacargasBundle:Default:tecnologiaSas }
+
+montacargas_usados:
+    path:      /montacargas/usados
+    defaults:  { _controller: CelmediaToyocostaMontacargasBundle:Default:usados }
