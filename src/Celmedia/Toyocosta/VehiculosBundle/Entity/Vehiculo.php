@@ -4,6 +4,7 @@ namespace Celmedia\Toyocosta\VehiculosBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+
 /**
  * Vehiculo
  */
@@ -603,7 +604,7 @@ class Vehiculo
     /**
      * @ORM\PrePersist
      */
-        public function lifecycleFileUpload()
+    public function lifecycleFileUpload()
     {
         
         $this->uploadFileThumb();

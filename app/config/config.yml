@@ -32,22 +32,22 @@ sonata_block:
 sonata_admin:
     title:      Admin Toyocosta
     title_logo: bundles/celmediatoyocostapirelli/images/toyocosta.png
-    templates:
-        dashboard: SonataAdminBundle:Core:dashboard.html.twig
-        # other configuration options
-        search:              SonataAdminBundle:Core:search.html.twig
-        search_result_block: SonataAdminBundle:Block:block_search_result.html.twig
+    # templates:
+    #     dashboard: SonataAdminBundle:Core:dashboard.html.twig
+    #     # other configuration options
+    #     search:              SonataAdminBundle:Core:search.html.twig
+    #     search_result_block: SonataAdminBundle:Block:block_search_result.html.twig
 
-        list:                       SonataAdminBundle:CRUD:list.html.twig
-        action:                     SonataAdminBundle:CRUD:action.html.twig
-        select:                     SonataAdminBundle:CRUD:list__select.html.twig
-        list_block:                 SonataAdminBundle:Block:block_admin_list.html.twig
-        short_object_description:   SonataAdminBundle:Helper:short-object-description.html.twig
-        batch:                      SonataAdminBundle:CRUD:list__batch.html.twig
-        inner_list_row:             SonataAdminBundle:CRUD:list_inner_row.html.twig
-        base_list_field:            SonataAdminBundle:CRUD:base_list_field.html.twig
-        pager_links:                SonataAdminBundle:Pager:links.html.twig
-        pager_results:              SonataAdminBundle:Pager:results.html.twig
+    #     list:                       SonataAdminBundle:CRUD:list.html.twig
+    #     action:                     SonataAdminBundle:CRUD:action.html.twig
+    #     select:                     SonataAdminBundle:CRUD:list__select.html.twig
+    #     list_block:                 SonataAdminBundle:Block:block_admin_list.html.twig
+    #     short_object_description:   SonataAdminBundle:Helper:short-object-description.html.twig
+    #     batch:                      SonataAdminBundle:CRUD:list__batch.html.twig
+    #     inner_list_row:             SonataAdminBundle:CRUD:list_inner_row.html.twig
+    #     base_list_field:            SonataAdminBundle:CRUD:base_list_field.html.twig
+    #     pager_links:                SonataAdminBundle:Pager:links.html.twig
+    #     pager_results:              SonataAdminBundle:Pager:results.html.twig
 
     dashboard:
         blocks:
@@ -112,9 +112,9 @@ twig:
 
     form:
         resources:
-            - 'SonataAdminBundle:Form:silex_form_div_layout.html.twig'
+            # - 'SonataAdminBundle:Form:silex_form_div_layout.html.twig'
             - 'SonataFormatterBundle:Form:formatter.html.twig'
-            - 'SonataMediaBundle:Form:media_widgets.html.twig'
+            # - 'SonataMediaBundle:Form:media_widgets.html.twig'
 
 # Assetic Configuration
 assetic:
@@ -179,6 +179,7 @@ sonata_media:
                 preview:   { width: 100, quality: 100}
                 small:     { width: 200, quality: 100}
                 big:       { width: 800 , quality: 70}
+                slider:    { width: 1905 , quality: 100}
         vista:
             providers:
                 - sonata.media.provider.image
