@@ -176,8 +176,9 @@ sonata_media:
                 - sonata.media.provider.file
 
             formats:
-                small: { width: 100 , quality: 70}
-                big:   { width: 800 , quality: 70}
+                preview:   { width: 100, quality: 100}
+                small:     { width: 200, quality: 100}
+                big:       { width: 800 , quality: 70}
         vista:
             providers:
                 - sonata.media.provider.image

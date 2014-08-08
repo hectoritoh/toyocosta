@@ -212,7 +212,7 @@ class VehiculoAdmin extends Admin
                 'edit' => 'inline',
                 'inline' => 'table',
                 'sortable' => 'position',
-                'link_parameters' => array('context' => 'vista'),
+                'link_parameters' => array('context' => 'default'),
                 'admin_code' => 'sonata.media.admin.gallery_has_media'
                 )
             )
