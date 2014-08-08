@@ -26,41 +26,66 @@
 }
 
 .categorias{
-    display: none;
-    opacity: 0.7;
-	background-color: #ff730d;
+    height: 55px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    top: 190px;
+    width: 255px;
     
 }
-.toyota {
-    background: url("../../bundles/celmediatoyocostamontacargas/images/accesos/logo-toyota.jpg") no-repeat scroll 50% center rgba(0, 0, 0, 0);
-    border: 1px solid #ccc8c8;
-    height: 50%;
+.logo-producto {
+    border-bottom: 1px solid #ffffff;
+    padding: 15px 0 15px 17px !important;
+    position: absolute;
+    top: 0;
+    width: 100%;
 }
+
+
+.lista-categoria{
+	opacity: 0.7;
+	background-color: #ff730d;
+	/*height: 172px;*/
+	margin-top: 38px;
+	
+}
+
+.ver {
+    border-bottom: 1px solid #ffffff;
+    color: #ffffff;
+    padding: 15px 10px 8px 12px;
+    position: absolute;
+    width: 100%;
+}
+
 .imagen-logo {
     position: relative;
     top: -54px;
     overflow: hidden;
 }
+
+.toyota {
+    background: url("../../bundles/celmediatoyocostamontacargas/images/accesos/logo-toyota.jpg") no-repeat scroll 50% center rgba(0, 0, 0, 0);
+    border: 1px solid #ccc8c8;
+    height: 54px;
+}
 .raymond {
     background: url("../../bundles/celmediatoyocostamontacargas/images/accesos/logo-raymon.jpg") no-repeat scroll 50% center rgba(0, 0, 0, 0);
     border: 1px solid #ccc8c8;
-    height: 100%;
+    height: 54px;
 }
 .bt {
     background: url("../../bundles/celmediatoyocostamontacargas/images/accesos/logo-bt.jpg") no-repeat scroll 50% center rgba(0, 0, 0, 0);
     border: 1px solid #ccc8c8;
-    height: 100%;
+    height: 54px;
 }
 .cascade {
     background: url("../../bundles/celmediatoyocostamontacargas/images/accesos/logo-cascade.jpg") no-repeat scroll 50% center rgba(0, 0, 0, 0);
     border: 1px solid #ccc8c8;
-    height: 100%;
+    height: 54px;
 }
-.cat{
-	
-	/*height: 172px;*/
-	margin-top: 15%;
-}
+
 .descripcion-montacargas{	
     color: #9b9c9e;
     font: 0.9875em Arial,sans-serif;
@@ -122,9 +147,74 @@ span.boton-naranja{
 	font: 7.2em Arial,sans-serif;
     left: 13%;
     position: relative;
-    top: 30%;
+    top: 40%;
 }
 
 .titulo-interno span{
 	font: 3.2em Arial,sans-serif;
+}
+
+.sub-menu-montacargas-productos{
+	display:none;
+    left: 25%;
+    float: left;
+    position: absolute;
+    top:121px;
+    z-index: 999;
+}
+
+.sf-menu li{
+	display:inline;
+}
+
+.sub-categorias-menu li{
+	display: block;
+}
+
+.sf-menu ul {
+    display: none;
+    /*left: 0;*/
+    position: absolute;
+    /*top: 100%;*/
+    z-index: 99;
+    background:#ff730d;
+    opacity: 0.7;
+    
+}
+
+.sf-menu ul > li {
+    border: 1px solid #ccc8c8;
+    margin-left: -40px;
+    padding: 9px;
+    width: 138px;
+    display: block;
+    color: white;
+}
+
+.imagen-submenu{
+	display: inline;
+	border: 2px solid #929694;
+	margin-left: -5px;
+}
+
+.submenu-pro li:hover{
+	color: white;
+	background: #df182b;
+}
+
+.glyphicon-chevron-left-mont {
+    background-color: #df182b;
+    background-image: url("../../bundles/celmediatoyocostamontacargas/images/iconos/left.png");
+    background-repeat: no-repeat;
+    height: 40px;
+    width: 21px;
+}
+
+.glyphicon-chevron-right-mont {
+    background-color: #df182b;
+    background-image: url("../../bundles/celmediatoyocostamontacargas/images/iconos/right.png");
+    background-position: right center;
+    background-repeat: no-repeat;
+    height: 40px;
+    width: 21px;
 }

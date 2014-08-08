@@ -1,5 +1,5 @@
 <div class="row menu-montacargas-top">
-<div class="submenu">
+  <div class="submenu">
     
       <nav class="navbar navbar-default nav-pirelli" role="navigation">
         <div class="container">
@@ -18,9 +18,11 @@
               <li  {% if app.request.get('_route') == 'montacargas_home' %} class="active" {% endif %}   >           
                 <a href="{{ path('montacargas_home') }}">PRINCIPAL</a>
               </li>
-              <li  {% if app.request.get('_route') == 'pirelli_camioneta' %}  class="active"  {% endif %}   >
-                <a href="{{ path('pirelli_camioneta') }}">PRODUCTO</a>
+              <li  {% if app.request.get('_route') == 'montacargas_productos' %}  class="active"  {% endif %}   >
+                <a href="#" onclick='mostrarSubmenu("sample1");' >PRODUCTO</a>
               </li>
+
+
               <li  {% if app.request.get('_route') == 'montacargas_postventa' %}  class="active"  {% endif %}  >
                 <a href="{{ path('montacargas_postventa') }}">POST VENTA</a>
               </li>
@@ -39,4 +41,62 @@
       </nav>
 
   </div>
-  </div>
+</div>
+
+ <div id="sample1"  class="sub-menu-montacargas-productos">
+                  
+  <ul id="sample-menu-1" class="sf-menu">
+    <li id="sub-menu-productos-1">
+      <a class="img_producto" >
+        {% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/sub-menu/subm-montacargas.jpg' %}
+          <img src="{{ asset_url }}" class="img-responsive imagen-submenu" />
+        {% endimage %}
+      </a>
+      <ul style="display:none" id="sub-categorias-menu-1" class="submenu-pro">
+        <li>Uno</li>
+        <li>Dos</li>
+        <li>tres</li>
+      </ul>
+    </li>
+
+    <li id="sub-menu-productos-2" >
+      <a class="img_producto" >
+        {% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/sub-menu/subm-raymond.jpg' %}
+          <img src="{{ asset_url }}" class="img-responsive imagen-submenu"  />
+        {% endimage %}
+      </a>
+      <ul style="display:none" id="sub-categorias-menu-2" class="submenu-pro">
+        <li>Uno</li>
+        <li>Dos</li>
+        <li>tres</li>
+      </ul>
+    </li>
+
+    <li id="sub-menu-productos-3" >
+      <a class="img_producto" >
+        {% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/sub-menu/subm-bt.jpg' %}
+          <img src="{{ asset_url }}" class="img-responsive imagen-submenu"  />
+        {% endimage %}
+      </a>
+      <ul style="display:none" id="sub-categorias-menu-3" class="submenu-pro">
+        <li>Uno</li>
+        <li>Dos</li>
+        <li>tres</li>
+      </ul>
+    </li>
+
+    <li id="sub-menu-productos-4">
+      <a class="img_producto" >
+        {% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/sub-menu/subm-cascade.jpg' %}
+          <img src="{{ asset_url }}" class="img-responsive imagen-submenu" />
+        {% endimage %}
+      </a>
+      <ul style="display:none" id="sub-categorias-menu-4" class="submenu-pro">
+        <li>Uno</li>
+        <li>Dos</li>
+        <li>tres</li>
+      </ul>
+    </li>
+
+  </ul>
+</div>
