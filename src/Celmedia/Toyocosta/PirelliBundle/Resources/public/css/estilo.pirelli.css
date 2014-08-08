@@ -241,7 +241,7 @@
 	border: 1px solid #CCCCCC;
 	border-radius: 5px;
 	background-color: #fff;
-	color: #CCCCCC;
+	color: #9c9c9c;
 	height: 38px;
 	line-height: 28px;
 }
@@ -493,7 +493,7 @@ button.close-ficha{
 }
 .espacio{
 	padding-top: 46px;
-	padding-bottom: 55px;
+	padding-bottom: 66px;
 }
 /*****CSS PARA FORM INFORMACION*/
 .space-input{

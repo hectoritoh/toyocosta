@@ -1,0 +1,176 @@
+{% extends 'CelmediaToyocostaSeminuevoBundle::layout.html.twig' %}
+
+
+
+{% block contenidoseminuevos1 %}
+
+{% endblock %}
+
+
+{% block contenidoseminuevos2 %}
+
+        <div id="seminuevo-cotizar" class="seminuevo-seccion-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-sm-10 col-xs-12 col-md-offset-2 col-sm-offset-1 text-center">
+                        <h1 class="txt-rojo txt-negrita">COTIZAR</h1>
+                    </div>
+                </div>
+            </div>  
+
+            <form id="cotizarFormSN" method="get" action="" class="form-horizontal">
+                <div id="rootwizard2">
+                    <div class="cotizar-banner">
+                        <div class="container">
+                            <div class="row espacio-banner-cotizar">
+                                <ul class="nav-cotizar">
+                                    <li>
+                                        <a href="#tab1" data-toggle="tab" class="pasos paso-1">&nbsp;</a>
+                                    </li>
+                                    <li>
+                                        <a href="#tab2" data-toggle="tab" class="pasos paso-2">&nbsp;</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-content">
+                        <div class="tab-pane" id="tab1">
+                            <div class="container espaciado-tabs">              
+                                <div class="row">
+                                    <div class="col-md-3 text-left alto-completo">
+                                        <h3 class="modelo-titular txt-negrita">Precio Total</h3>
+                                        <p class="txt-negro">Precio sin IVA: <span class="txt-rojo" id="vpreciosi">$ {{ seminuevo.precio }}</span></p>
+                                        <p class="txt-negro">Entrada mínima: <span class="txt-rojo" id="ventradam">$ {{ entradaMinima }}</span></p>
+                                        <p class="cotizar-descripcion">
+                                            <span class="txt-rojo">*</span>Los precios no incluyen seguro ni dispositivos. <br />
+                                            La entrada mínima es de 30% del valor del vehículo. La calculadora de cuotas no incluye el seguro, ni dispositivos antirobos. Para obtener cuotas más exactas con estos datos, favor consultar directamente con el concesionario.   <br />
+                                            El plazo, la tasa de interés, el seguro y los gastos administrativos varían según las instituciones financieras.
+                                        </p>
+                                    </div>
+                                    
+                                    <div class="col-md-1 alto-completo visible-md visible-lg hidden-sm hidden-xs">
+                                        &nbsp;
+                                    </div>
+
+                                    <div class="col-md-3 text-left alto-completo">
+                                        <h3 class="modelo-titular txt-negrita">Cotizar</h3>
+                                        <div class="form-group">
+                                            <label class="txt-negro" for="vinputEntrada">Entrada:</label>
+                                            <input type="number" class="form-control" name="vinputEntrada" id="vinputEntrada" placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label class="txt-negro" for="vselectplazo">Plazo:</label>
+                                            <select name="vselectplazo" id="vselectplazo" class="selectplazo select-custom" onchange="plazoSelectedSM(this, {{ seminuevo.id }});">
+                                                <option value="">Selecciona un plazo</option>
+                                                {% for plazo  in seminuevoPlazo %}
+                                                    <option value="{{ plazo.id }}">{{ plazo.valor }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                        <input type="hidden" id="vseminuevo" name="vseminuevo" value="{{ seminuevo.id }}">
+                                    </div>
+
+                                    <div class="col-md-1 alto-completo visible-md visible-lg hidden-sm hidden-xs">
+                                        &nbsp;
+                                    </div>
+
+                                    <div class="col-md-3 text-left alto-completo">
+                                        <h3 class="modelo-titular txt-negrita">Resultados</h3>
+                                        <p class="txt-negro">Total a financiar: <span class="txt-rojo" id="vpreciofinanciar" >$ 0</span></p>
+                                        <p class="txt-negro">Cuotas Mensuales: <span class="txt-rojo" id="vcuotas" >$ 0</span></p>
+                                        <p class="txt-negro">Precio final con financiamiento: <span class="txt-rojo txt-negrita" id="vpreciofinal" >$ 0</span></p>
+                                        <p class="cotizar-descripcion">
+                                            <span class="txt-rojo">*</span>Esta información es únicamente referencial y no representa ningún compromiso con Toyocosta. Para recibir información exacta contactarse con cualquiera de los concesionario del país. 
+                                            Esta información está sujeta a cambios sin previo aviso.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="tab-pane" id="tab2">
+                            <div class="container espaciado-tabs">
+                                <div class="row">
+                                    <div class="col-md-4 col-md-offset-1 alto-completo">
+                                        <div class="form-group">
+                                            <label for="vnombreInput">Nombre:</label>
+                                            <input type="text" class="form-control" name="vnombreInput" id="vnombreInput" maxlength="50" placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="vapellidoInput">Apellido:</label>
+                                            <input type="text" class="form-control" name="vapellidoInput" id="vapellidoInput" maxlength="50" placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="vcedulaInput">Cédula:</label>
+                                            <input type="number" class="form-control" name="vcedulaInput" id="vcedulaInput" maxlength="10" placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="vtelefonoInput">Teléfono:</label>
+                                            <input type="number" class="form-control" name="vtelefonoInput" id="vtelefonoInput" maxlength="15" placeholder="">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 col-md-offset-2 alto-completo">
+                                        <div class="form-group">
+                                            <label for="vemailInput">Email:</label>
+                                            <input type="email" class="form-control" name="vemailInput" id="vemailInput" maxlength="50" placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="vciudadInput">Ciudad:</label>
+                                            <input type="text" class="form-control" name="vciudadInput" id="vciudadInput" maxlength="50" placeholder="">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="vmensajeInput">Mensaje:</label>
+                                            <textarea class="form-control" name="vmensajeInput" id="vmensajeInput" rows="5" maxlength="200"></textarea>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>  
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-6 col-md-offset-3">
+                                <ul class="pager wizard">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <li class="previous first" style="display:none;">
+                                                    <a href="#" class="btn btn-anterior espaciado-a">First</a>
+                                                </li>
+                                                <li class="previous">
+                                                    <a href="#" class="btn btn-anterior espaciado-a">Anterior</a>
+                                                </li>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <li class="next">
+                                                    <a href="#" class="btn btn-siguiente espaciado-a">Siguiente</a>
+                                                </li>
+                                                <li class="finish" style="display:none;">
+                                                    <a href="javascript:;" class="btn btn-siguiente espaciado-a">Enviar</a>
+                                                </li>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </ul>                               
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
+
+
+            <div class="container" id="contenedorEspereCotizar" style="display: none;">
+                <div class="row">
+                    <div class="col-md-8 col-sm-10 col-xs-12 col-md-offset-2 col-sm-offset-1 text-center">
+                        <h4 class="txt-rojo txt-negrita">Enviando información...</h4>
+                    </div>
+                </div>
+            </div>  
+
+
+
+
+
+{% endblock %}

@@ -18,6 +18,23 @@ seminuevos_buscador:
     pattern:  /seminuevosbs
     defaults: { _controller: CelmediaToyocostaSeminuevoBundle:Default:buscadorSeminuevos }
 
+seminuevos_cotizador:
+    path:      /seminuevos/cotizador/{seminuevoid}
+    defaults:  { _controller: CelmediaToyocostaSeminuevoBundle:Default:cotizadorSN }
+
+
+envio_cotizacion_sm:
+    path:      /seminuevo/enviocotizacion
+    defaults:  { _controller: CelmediaToyocostaSeminuevoBundle:Default:envioCotizacion }
+    options:
+        expose: true
+
+consultar_plazo_sm:
+    path:      /seminuevos/cotizadorsm
+    defaults:  { _controller: CelmediaToyocostaSeminuevoBundle:Default:consultarPreciosFinales }
+    options:
+        expose: true
+
 seminuevos_filtro:
     pattern:  /filtro
     defaults: { _controller: CelmediaToyocostaSeminuevoBundle:Default:filtroBuscadorSeminuevos }

@@ -268,7 +268,7 @@
 
                     ->setFrom(array('ycosquillo@celmedia.com' => 'Web Toyocosta'))
 
-                    ->setTo(array( $correos_array , 'ycosquillo@celmedia.com' => 'Toyocosta'))
+                    ->setTo(array( $correos_array , 'pirellimatriz@toyocosta.com.ec' => 'Toyocosta'))
 
                     ->setBody('Pedido de informacion                
                     Llanta:  '.$modelo.' 

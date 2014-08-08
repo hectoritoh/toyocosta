@@ -158,7 +158,8 @@
 	border-bottom: 1px solid #cdcdcd;
 	background-color: #FFFFFF;
 	width: 200px;
-	height: 150px;
+	/*height: 150px;*/
+	height: 165px;
 	position: relative;
 	display: inline-block;
 	margin-left: -5px;
