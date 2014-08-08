@@ -1389,6 +1389,13 @@ li.disabled > .btn.btn-anterior{
 	border: 2px solid #D62C2F;
 }
 
+.img-galeria-vh{
+	position: relative;
+	margin: 0 auto;
+	width: 100%;
+	overflow: hidden;
+}
+
 
 /*Media Querys*/
 /* Large desktop */
