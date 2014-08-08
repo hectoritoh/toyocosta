@@ -41,7 +41,7 @@
             </div>
         </div>
     </div>
-   	<form id="form-vehiculo" role="form" class="container form-vsm" enctype="multipart/form-data"{#style="display: none;"#}>
+   	<form id="form-vehiculo" {{ form_enctype(form) }}  role="form" class="container form-vsm" enctype="multipart/form-data"{#style="display: none;"#}>
    		<input type="hidden" name="usuario" id="usuario" value="{{app.user.username}}"/>
    		<input type="hidden" name="email" id="email" value="{{app.user.email}}"/>
 
@@ -127,6 +127,11 @@
 					<label class="lbl-form-sm">Añada 8 fotos de diferentes ángulos</label>
 				</div>
 			</div>
+        </div>
+
+        <div class="row">
+
+        	{{ form_widget(form.imagenes ) }}
         </div>
 
         <div class="row">

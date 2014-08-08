@@ -7,6 +7,9 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\SecurityContextInterface;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
+use Celmedia\Toyocosta\SeminuevoBundle\Entity\Seminuevo;
+use Application\Sonata\MediaBundle\Entity\GalleryHasMedia;
+
 class DefaultController extends Controller
 {
     public function indexAction($name)
@@ -130,7 +133,7 @@ class DefaultController extends Controller
         );
     }
 
-    public function vendaUsadoAction()
+    public function vendaUsadoAction(Request $request)
     {
     	$em = $this->getDoctrine()->getManager();
     	$colores =$em->getRepository('CelmediaToyocostaContenidoBundle:Color')->findAll();
@@ -141,9 +144,37 @@ class DefaultController extends Controller
         //      'provider' => 'sonata.media.provider.image',
         //      'context'  => 'default'
         // ));
+        $seminuevo = new Seminuevo();
 
+        // create the form
+        $form = $this->createFormBuilder($seminuevo)
+            ->add('imagenes', 'sonata_type_collection', array(
+                'cascade_validation' => true,
+                ), array(
+                'edit' => 'inline',
+                'inline' => 'table',
+                'sortable' => 'position',
+                'link_parameters' => array('context' => 'default'),
+                'admin_code' => 'sonata.media.provider.image'
+                )
+            )
+            ->getForm();
+        // $builder->add('imagenes', 'sonata_media_type', array(
+        //      'provider' => 'sonata.media.provider.image',
+        //      'context'  => 'default'
+        // ));
 
-        return $this->render('CelmediaToyocostaSeminuevoBundle:Pages:vendausado.html.twig' , array( "seminuevos" => $seminuevos , "colores" => $colores ));
+        
+
+        
+
+        if ($request->isMethod('POST')) {
+            $form->bind($request);
+
+            // do stuff ...
+        }
+
+        return $this->render('CelmediaToyocostaSeminuevoBundle:Pages:vendausado.html.twig' , array( "seminuevos" => $seminuevos , "colores" => $colores, "form"=> $form->createView() ));
 
 
     }
