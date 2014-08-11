@@ -55,6 +55,18 @@ envio_contacto:
     options:
         expose: true
 
+envio_rrhh:
+    path:      /rrhh/form
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:envioRrhh }
+    options:
+        expose: true
+
+envio_rrhh_adjunto:
+    path:      /rrhh/adjunto
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:ajaxUploadFormData }
+    options:
+        expose: true
+
 # envio_test:
 #     path:      /testdrive/form
 #     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:envioTestDrive }
