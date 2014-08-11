@@ -92,11 +92,14 @@
     text-align: center; 
 }
 
-.lista-montacargas{
-	color: #9b9c9e;
-    font: 0.9875em Arial,sans-serif;
-    /*text-align: justify;*/ 
+
+
+ul.lista-montacargas{
+   color: #9b9c9e;
+   font: 0.9875em Arial,sans-serif;
+   list-style-image: url("../../bundles/celmediatoyocostamontacargas/images/iconos/icono-rojo.png");
 }
+
 .titulo-ubicacion-montacargas{
 	color: #9b9c9e;
     font: Arial,sans-serif;
