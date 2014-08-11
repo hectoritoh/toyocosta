@@ -169,28 +169,20 @@
 		{% if vehiculo.imagenes|length > 0 %}
 		<div id="vehiculo-galeria" class="vehiculo-seccion fondoGris">
 			<div id="vehiculo-carousel" class="carousel slide alto-completo" data-ride="carousel" data-interval="false">
-				<ol class="carousel-indicators">
+				{#<ol class="carousel-indicators">
 					{% for vGaleria in vehiculo.imagenes %}
 						<li data-target="#vehiculo-carousel" data-slide-to="{{loop.index -1 }}"  class="{% if loop.first %}active{% endif %}"></li>
 					{% endfor %}
-				</ol>
+				</ol>#}
 
 				<div class="carousel-inner alto-completo">
-					{% for vGaleria  in vehiculo.imagenes %}
+					{% for vGaleria  in vehiculo.imagenes  %}
 						<div class="item alto-completo {% if loop.first %}active{% endif %}">
 
-							{% media vGaleria, 'big' with {'class': 'img-responsive img-galeria-vh'} %}
 
-							{#
-								{% if vGaleria.tipo == "youtube" %}					
-									<iframe width="560" height="315" src="//www.youtube.com/embed/{{ vGaleria.url }}" frameborder="0" allowfullscreen class="video-completo"></iframe>
-								{% elseif vGaleria.tipo == "vimeo" %}
-									<iframe src="//player.vimeo.com/video/{{ vGaleria.url }}" width="500" height="313" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen class="video-completo"></iframe>
-								{% elseif vGaleria.tipo == "imagen" %}
-								    <img src="{{ vGaleria.url }}" alt="" class="img-responsive">
-								{% endif %}
-							#}
-
+					 	
+						 {% media vGaleria.media , 'slider'  %}
+						 
 						</div><!-- item -->
 					{% endfor %}
 				</div>

@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "01b91a9bce05a289853cd4916d8d6e05",
+    "hash": "de14ee837ba6e7b4460659c8df6e5830",
     "packages": [
         {
             "name": "dflydev/markdown",
@@ -200,7 +200,7 @@
                 {
                     "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -267,7 +267,7 @@
                 {
                     "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -343,7 +343,7 @@
                 {
                     "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -662,7 +662,7 @@
                 {
                     "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -716,7 +716,7 @@
                 {
                     "name": "Johannes Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -1493,9 +1493,9 @@
             ],
             "authors": [
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -1596,9 +1596,9 @@
             ],
             "authors": [
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -1824,23 +1824,23 @@
         },
         {
             "name": "knplabs/knp-menu",
-            "version": "v1.1.2",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/KnpMenu.git",
-                "reference": "f8e867268f63f561c1adadd6cbb5d8524f921873"
+                "reference": "4718be3b639d30d3ac1e4292bd7232faccceb962"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpMenu/zipball/f8e867268f63f561c1adadd6cbb5d8524f921873",
-                "reference": "f8e867268f63f561c1adadd6cbb5d8524f921873",
+                "url": "https://api.github.com/repos/KnpLabs/KnpMenu/zipball/4718be3b639d30d3ac1e4292bd7232faccceb962",
+                "reference": "4718be3b639d30d3ac1e4292bd7232faccceb962",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.0"
             },
             "require-dev": {
-                "pimple/pimple": "*",
+                "pimple/pimple": "1.0.*",
                 "silex/silex": "1.0.*",
                 "twig/twig": ">=1.2,<2.0-dev"
             },
@@ -1852,7 +1852,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "1.1.x-dev"
+                    "dev-master": "2.0.x-dev"
                 }
             },
             "autoload": {
@@ -1870,7 +1870,7 @@
                     "email": "stof@notk.org"
                 },
                 {
-                    "name": "Knplabs",
+                    "name": "KnpLabs",
                     "homepage": "http://knplabs.com"
                 },
                 {
@@ -1884,28 +1884,33 @@
                 "menu",
                 "tree"
             ],
-            "time": "2012-06-10 16:20:40"
+            "time": "2014-08-08 15:32:27"
         },
         {
             "name": "knplabs/knp-menu-bundle",
-            "version": "v1.1.2",
+            "version": "dev-master",
             "target-dir": "Knp/Bundle/MenuBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/KnpLabs/KnpMenuBundle.git",
-                "reference": "2fecac02614e5a006f674dd5dd754eeaeca060b9"
+                "reference": "bdfc95da5ff7e4e67f948aaa9ea5da835a3a9088"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/KnpLabs/KnpMenuBundle/zipball/2fecac02614e5a006f674dd5dd754eeaeca060b9",
-                "reference": "2fecac02614e5a006f674dd5dd754eeaeca060b9",
+                "url": "https://api.github.com/repos/KnpLabs/KnpMenuBundle/zipball/bdfc95da5ff7e4e67f948aaa9ea5da835a3a9088",
+                "reference": "bdfc95da5ff7e4e67f948aaa9ea5da835a3a9088",
                 "shasum": ""
             },
             "require": {
-                "knplabs/knp-menu": "~1.1",
+                "knplabs/knp-menu": "~2.0",
                 "symfony/framework-bundle": "~2.0"
             },
             "type": "symfony-bundle",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
             "autoload": {
                 "psr-0": {
                     "Knp\\Bundle\\MenuBundle": ""
@@ -1933,7 +1938,7 @@
             "keywords": [
                 "menu"
             ],
-            "time": "2013-05-25 10:20:03"
+            "time": "2014-08-01 09:57:23"
         },
         {
             "name": "kriswallsmith/assetic",
@@ -2356,9 +2361,9 @@
             ],
             "authors": [
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -2406,9 +2411,9 @@
             ],
             "authors": [
                 {
-                    "name": "Johannes Schmitt",
+                    "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
-                    "homepage": "https://github.com/schmittjoh",
+                    "homepage": "http://jmsyst.com",
                     "role": "Developer of wrapped JMSSerializerBundle"
                 }
             ],
@@ -2612,12 +2617,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "4524a73b71d26ddb4710155189fa000f3c466492"
+                "reference": "892ad14dc7b047ce170702dcc0897815e41152a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/4524a73b71d26ddb4710155189fa000f3c466492",
-                "reference": "4524a73b71d26ddb4710155189fa000f3c466492",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/892ad14dc7b047ce170702dcc0897815e41152a7",
+                "reference": "892ad14dc7b047ce170702dcc0897815e41152a7",
                 "shasum": ""
             },
             "require": {
@@ -2683,7 +2688,7 @@
                 "bootstrap",
                 "sonata"
             ],
-            "time": "2014-08-04 15:11:22"
+            "time": "2014-08-08 08:04:51"
         },
         {
             "name": "sonata-project/block-bundle",
@@ -3853,20 +3858,22 @@
         },
         {
             "name": "symfony/icu",
-            "version": "v1.0.1",
+            "version": "v1.2.2",
             "target-dir": "Symfony/Component/Icu",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/Icu.git",
-                "reference": "fdba214b1e087c149843bde976263c53ac10c975"
+                "reference": "d4d85d6055b87f394d941b45ddd3a9173e1e3d2a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/Icu/zipball/fdba214b1e087c149843bde976263c53ac10c975",
-                "reference": "fdba214b1e087c149843bde976263c53ac10c975",
+                "url": "https://api.github.com/repos/symfony/Icu/zipball/d4d85d6055b87f394d941b45ddd3a9173e1e3d2a",
+                "reference": "d4d85d6055b87f394d941b45ddd3a9173e1e3d2a",
                 "shasum": ""
             },
             "require": {
+                "ext-intl": "*",
+                "lib-icu": ">=4.4",
                 "php": ">=5.3.3",
                 "symfony/intl": "~2.3"
             },
@@ -3896,7 +3903,7 @@
                 "icu",
                 "intl"
             ],
-            "time": "2013-10-04 09:12:07"
+            "time": "2014-07-25 09:58:17"
         },
         {
             "name": "symfony/monolog-bundle",
@@ -4334,6 +4341,8 @@
         "sonata-project/doctrine-orm-admin-bundle": 20,
         "sonata-project/block-bundle": 20,
         "sonata-project/jquery-bundle": 20,
+        "knplabs/knp-menu": 20,
+        "knplabs/knp-menu-bundle": 20,
         "doctrine/doctrine-fixtures-bundle": 20,
         "stof/doctrine-extensions-bundle": 20,
         "liip/imagine-bundle": 20,
