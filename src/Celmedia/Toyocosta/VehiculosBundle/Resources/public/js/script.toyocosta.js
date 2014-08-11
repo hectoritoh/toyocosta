@@ -30,10 +30,16 @@ function centrarHorizontal(elemento){
 
 function reservaSelected(elemento){
 
+    if ( $(elemento).val() == 1 ) { 
+      //Reserva de mantenimiento
+      //alert("lalala");
+      $("#sm-modelo-km").show();
+    }else{
+      $("#sm-modelo-km").hide();
+    }
 
     var parametros = {
-
-        reserva: $( "#" + $(elemento).attr("id") ).val()
+        reserva: $(elemento).val()
     }
 
     $.ajax({
