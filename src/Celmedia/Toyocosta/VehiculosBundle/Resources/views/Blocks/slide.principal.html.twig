@@ -2,7 +2,7 @@
   
   <div id="principal-carousel" class="carousel slide alto-completo" data-ride="carousel" data-interval="false">
 
-    <ol class="carousel-indicators">
+    <ol class="carousel-indicators" style=" margin-bottom: 40px;">
       {% set i = 0 %}
       {% for bullet in slidePrincipal %}
           <li data-target="#principal-carousel" data-slide-to="{{ i }}"  class="{% if loop.first %}active{% endif %}">
@@ -20,11 +20,19 @@
           <div class="carousel-caption ty-principal-caption">
             <div class="container-fluid">
               <div class="row">
-                <div class="col-md-4 col-md-offset-4">
-                  <a href="{{item.link}}" class="btn btn-ver-mas">
-                    Ver más
-                  </a>
-                </div>
+                {% if item.descripcion %}
+
+                <h4 class="txt-blanco">{{ item.descripcion }}</h4>
+                {% endif %}
+                {% if item.link and item.boton %}
+                    <div class="col-md-4 col-md-offset-4">
+                      <a href="{{item.link}}" class="btn btn-ver-mas">
+                        {{ item.boton }}
+                      </a>
+                    </div>
+
+                {% endif %}
+
               </div>
             </div>
           </div>

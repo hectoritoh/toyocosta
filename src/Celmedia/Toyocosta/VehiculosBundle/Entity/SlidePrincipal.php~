@@ -4,7 +4,6 @@ namespace Celmedia\Toyocosta\VehiculosBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
-
 /**
  * SlidePrincipal
  */
@@ -29,6 +28,11 @@ class SlidePrincipal
      * @var string
      */
     private $imagen_banner;
+
+    /**
+     * @var string
+     */
+    private $seccion;
 
     /**
      * @var integer
@@ -123,6 +127,29 @@ class SlidePrincipal
     public function getImagenBanner()
     {
         return $this->imagen_banner;
+    }
+
+    /**
+     * Set seccion
+     *
+     * @param string $seccion
+     * @return SlidePrincipal
+     */
+    public function setSeccion($seccion)
+    {
+        $this->seccion = $seccion;
+
+        return $this;
+    }
+
+    /**
+     * Get seccion
+     *
+     * @return string 
+     */
+    public function getSeccion()
+    {
+        return $this->seccion;
     }
 
     /**
@@ -256,5 +283,7 @@ class SlidePrincipal
     {
         return $this->getLink();
     }
+
+
 
 }

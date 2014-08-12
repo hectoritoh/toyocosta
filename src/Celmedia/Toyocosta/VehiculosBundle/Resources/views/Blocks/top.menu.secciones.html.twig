@@ -10,8 +10,13 @@
         </li> -->
         {% if app.user %}
 
-          <li>
-              <a>Hola, {{ app.user.username }}</a>
+          <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown" href="#">Hola, {{ app.user.username }}</a>
+              <ul class="dropdown-menu" role="menu">
+                <li>
+                  <a href="{{ path('logout') }}">Cerrar Sesi&oacute;n</a>
+                </li>
+              </ul>
           </li>
 
         {% endif %}

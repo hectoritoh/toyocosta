@@ -9,23 +9,23 @@ pirelli_home:
 
 
 pirelli_camioneta:
-    pattern:  /camioneta
+    pattern:  /pirelli/camioneta
     defaults: { _controller: CelmediaToyocostaPirelliBundle:Default:camionetaPirelli }
 
 pirelli_suv:
-    pattern:  /suv
+    pattern:  /pirelli/suv
     defaults: { _controller: CelmediaToyocostaPirelliBundle:Default:suvPirelli }
 
 pirelli_industrial:
-    pattern:  /industrial
+    pattern:  /pirelli/industrial
     defaults: { _controller: CelmediaToyocostaPirelliBundle:Default:industrialPirelli }
 
 pirelli_camion:
-    pattern:  /camion
+    pattern:  /pirelli/camion
     defaults: { _controller: CelmediaToyocostaPirelliBundle:Default:camionPirelli }
 
 pirelli_buscador:
-    pattern:  /buscando
+    pattern:  /pirelli/buscando
     defaults: { _controller: CelmediaToyocostaPirelliBundle:Default:buscadorPirelli }
 
 pirelli_filtro:
@@ -33,11 +33,11 @@ pirelli_filtro:
     defaults: { _controller: CelmediaToyocostaPirelliBundle:Default:filtroBuscadorPirelli }
 
 pirelli_informacion:
-    pattern:  /informacion/{id_llanta}
+    pattern:  /pirelli/informacion/{id_llanta}
     defaults: { _controller: CelmediaToyocostaPirelliBundle:Default:informacionPirelli }
 
 pirelli_distribuidores:
-    pattern: /distribuidores
+    pattern: /pirelli/distribuidores
     defaults: { _controller: CelmediaToyocostaPirelliBundle:Default:distribuidoresPirelli}
 
 pirelli_envio_info:

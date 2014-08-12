@@ -30,7 +30,11 @@ sonata_block:
             contexts: [admin]
 
 sonata_admin:
-    title:      Admin Toyocosta
+    # Se agrego template para agregar css y js de formatter 
+    templates:
+            # default global templates
+            layout:  SonataAdminBundle::layout.html.twig
+    title:      Admin
     title_logo: bundles/celmediatoyocostapirelli/images/toyocosta.png
     # templates:
     #     dashboard: SonataAdminBundle:Core:dashboard.html.twig

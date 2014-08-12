@@ -51,9 +51,12 @@ class SlidePrincipalAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('id')
+            ->add('seccion', 'choice', array(
+               'choices' => array(
+                   'principal' => 'Banner Principal',
+                   'seminuevo' => 'Banner Seminuevo'
+                   )))
             ->add('link')
-            ->add('descripcion')
             ->add('imagen_banner')
                 ->add('estado', 'choice', array(
            'choices' => array(
@@ -89,9 +92,15 @@ class SlidePrincipalAdmin extends Admin
 
 
         $formMapper
-            ->add('link')
+            ->add('seccion', 'choice', array(
+               'choices' => array(
+                   'principal' => 'Banner Principal',
+                   'seminuevo' => 'Banner Seminuevo'
+                   )))
             ->add('ImagenSlide', 'file', $fileFieldOptions)
             ->add('descripcion')
+            ->add('link')
+            ->add('boton')
             ->add('estado', 'choice', array(
            'choices' => array(
                '1' => 'Publicado',

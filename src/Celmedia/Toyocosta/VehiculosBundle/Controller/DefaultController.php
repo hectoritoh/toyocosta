@@ -6,6 +6,8 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\File\Input;
 
 class DefaultController extends Controller
 {
@@ -54,7 +56,7 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
         
         $slidePrincipal = $this->getDoctrine()->getRepository("CelmediaToyocostaVehiculosBundle:SlidePrincipal")->findBy(array(
-            "estado" => 1
+            "estado" => 1 , "seccion" => "principal"
                 )
         );
 
@@ -148,6 +150,33 @@ class DefaultController extends Controller
         
         return $this->render('CelmediaToyocostaVehiculosBundle:Forms:matenimiento.html.twig' , array( "vehiculos" => $vehiculos , "reservas" => $reservas ));
     }
+
+    public function mantenimientoXServicioAction($servicioid){
+
+        $em = $this->getDoctrine()->getManager();        
+        
+        $vehiculos = $this->getDoctrine()->getRepository("CelmediaToyocostaVehiculosBundle:Vehiculo")->findBy(array(
+            "estado" => 1
+                )
+        );
+
+        $reservas = $this->getDoctrine()->getRepository("CelmediaToyocostaContenidoBundle:TipoReserva")->findBy(array(
+            "estado" => 1
+                )
+        );
+        
+        $reservaRecibida = $this->getDoctrine()->getRepository("CelmediaToyocostaContenidoBundle:TipoReserva")->findBy(array(
+            "estado" => 1 , "id" => $servicioid
+                )
+        );
+
+
+        return $this->render('CelmediaToyocostaVehiculosBundle:Forms:matenimiento.html.twig' , array( "vehiculos" => $vehiculos , "reservas" => $reservas , "reservaRecibida" => $reservaRecibida ));
+
+
+
+    }
+
 
     public function testAction(Request $request){
 
@@ -464,6 +493,8 @@ class DefaultController extends Controller
 
     }
 
+
+
     // public function envioTestDriveAction(Request $request){
 
 
@@ -765,8 +796,142 @@ class DefaultController extends Controller
         ), 200); //codigo de error diferente
     }
 
+<<<<<<< HEAD
     public function especificacionAction(){
 
        return $this->render('CelmediaToyocostaVehiculosBundle:Pages:especificacion.html.twig', array());
     }
+=======
+    public function imprimirVariableDebug($variable){
+        echo "<pre>";
+        print_r($variable);
+        echo "</pre>";
+    }
+
+    public function ajaxUploadFormDataAction()
+    {
+        $request = $this->get('request');
+        $uploaded_file = $request->files->get('rcv');
+        $path = 'uploads/rrhh/';
+        $filename = "";
+
+        if ($uploaded_file)
+        {
+
+            foreach($uploaded_file as $part) {
+                //$filename = $part->getClientOriginalName();
+                //$part->move($path, $filename);
+
+                $uploaded_file_info = pathinfo($part->getClientOriginalName());
+                //$filename = uniqid() . "." .$uploaded_file_info['extension'];
+                $filename = uniqid() . "-" . $part->getClientOriginalName();
+                $part->move($path, $filename);
+            }
+
+            $response = 'success';
+        }
+
+        else $response = 'error';
+
+        //$response = new Response(json_encode(array('response'=>$response)));
+        //$response->headers->set('Content-Type', 'application/json');
+        //return $response;
+
+        return new JsonResponse(array(
+            'response' => $response,
+            "rutaarchivo" => $path . $filename
+        )); //codigo de error diferente
+    }
+
+    public function envioRrhhAction(Request $request){
+        $em = $this->getDoctrine()->getManager();        
+
+        if ($request->isMethod('POST')) {
+
+            $nombre = $request->request->get('nombre');
+            $apellido = $request->request->get('apellido');
+            $telefono = $request->request->get('telefono');
+            $email = $request->request->get('email');
+            $cargo = $request->request->get('cargo');
+            $curriculum = $request->request->get('rutacv');
+
+            
+            if(!$nombre || !$apellido || !$telefono || !$email || !$cargo || !$curriculum  ){
+                return new JsonResponse(array(
+                    'codigo' => 0,
+                    'Mensaje' => "faltan parametros"
+                ), 200); //codigo de error diferente
+            }
+            
+
+            // Creamos el objeto rrhh
+            $rrhh = new \Celmedia\Toyocosta\ContenidoBundle\Entity\InfoRecursosHumanos();
+
+            $rrhh->setNombre( $nombre  );
+            $rrhh->setApellido( $apellido  );
+            $rrhh->setTelefono( $telefono  );
+            $rrhh->setEmail( $email  );
+            $rrhh->setCargo( $cargo  );
+            $rrhh->setCurriculum( $curriculum );
+            
+            //almacenamos en la base
+
+            $em = $this->getDoctrine()->getManager(); 
+            $em->persist(  $rrhh );
+            $em->flush();
+
+
+
+
+            $subject = "Recursos Humanos desde Toyocosta";
+            $body = '<strong>Informaci&oacute;n del Recursos Humanos:</strong> <br /><br />               
+            Nombre:  '.$rrhh->getNombre().' <br />
+            Apellido:   '. $rrhh->getApellido() .' <br />
+            Telefono:  '. $rrhh->getTelefono() .'  <br />
+            Email:  '. $rrhh->getEmail() .' <br />
+            Cargo aplicado:  '. $rrhh->getCargo() .' <br />';
+      
+
+            $message = \Swift_Message::newInstance()
+
+            ->setSubject($subject)
+
+            ->setFrom(array('ycosquillo@celmedia.com' => 'Web Toyocosta'))
+
+            ->setTo(array( $email => 'Recurso' , 'ycosquillo@celmedia.com' => 'Toyocosta'))
+            
+            ->setContentType("text/html")
+
+            ->setBody($body)
+
+            ->attach(\Swift_Attachment::fromPath( $rrhh->getCurriculum() ));
+
+
+            $envioMail = $this->get('mailer')->send($message);
+
+            $transport = $this->container->get('mailer')->getTransport();
+            $spool = $transport->getSpool();
+            $spool->flushQueue($this->container->get('swiftmailer.transport.real'));
+
+
+            if ( $envioMail ) {
+                 return new JsonResponse(array(
+                    'codigo' => 1,
+                    'Mensaje' => "El mensaje ha sido enviado"
+                ), 200); //codigo de error diferente
+            } else {
+                 return new JsonResponse(array(
+                    'codigo' => 0,
+                    'Mensaje' => "No se ha enviado mensaje"
+                ), 200); //codigo de error diferente
+            }
+        }
+
+        return new JsonResponse(array(
+            'codigo' => 0,
+            'Mensaje' => "No se recibio por post"
+        ), 200); //codigo de error diferente
+    }
+
+>>>>>>> 5ba56900c1e29e3a8778a4b856a136894cb6f931
 }

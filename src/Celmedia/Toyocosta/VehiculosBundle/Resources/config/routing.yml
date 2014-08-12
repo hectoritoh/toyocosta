@@ -18,6 +18,10 @@ mantenimiento:
     path:      /mantenimiento
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:mantenimiento }
 
+mantenimiento_servicio:
+    path:      /mantenimiento/{servicioid}
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:mantenimientoXServicio }
+
 test_drive:
     path:      /testdrive
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:test }
@@ -52,6 +56,18 @@ landing:
 envio_contacto:
     path:      /contacto/form
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:envioContacto }
+    options:
+        expose: true
+
+envio_rrhh:
+    path:      /rrhh/form
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:envioRrhh }
+    options:
+        expose: true
+
+envio_rrhh_adjunto:
+    path:      /rrhh/adjunto
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:ajaxUploadFormData }
     options:
         expose: true
 

@@ -10,7 +10,7 @@ use Sonata\AdminBundle\Show\ShowMapper;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Sonata\AdminBundle\Validator\ErrorElement;
-
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 
 class SeminuevoAdmin extends Admin
@@ -101,14 +101,19 @@ class SeminuevoAdmin extends Admin
             ->add('ubicacion')
             ->add('placa')
             ->add('informacion')
-            ->add('descripcion_corta')
             ->add('username', 'hidden', array(
                 'data' => 'admin' ))
-            // ->add('contentFormatter', 'sonata_formatter_type_selector', array(
-            //     'source' => 'descripcion_corta',
-            //     'target' => 'content'
+            ->add('descripcion_corta')
+            // ->add('Descripcion', 'sonata_formatter_type', array(
+            //     'event_dispatcher' => $formMapper->getFormBuilder()->getEventDispatcher(),
+            //     'format_field'   => 'descripcion_corta',
+            //     'source_field'   => 'descripcion_corta',
+            //     'source_field_options'      => array(
+            //         'attr' => array('class' => 'span10', 'rows' => 20)
+            //     ),
+            //     'listener'       => true,
+            //     'target_field'   => 'content'
             // ))
-            // ->add('descripcion_corta')
 
             ->add('estado' , 'choice', array('choices' => array(1 => 'Disponible' , 2 => 'Proximammente' , 3 => 'Reservado', 4 => 'Vendido') ) )
             ->add('estado_publicacion' , 'choice', array('choices' => array(1 => 'Aprobado' , 2 => 'Pendiente' , 3 => 'Rechazado') ) )

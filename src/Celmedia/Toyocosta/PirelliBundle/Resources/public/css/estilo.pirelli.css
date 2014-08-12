@@ -13,7 +13,7 @@
 @media (min-width: 1200px) {
 	
 	.alto-pirelli{
-		height: 85px;
+		height: 71px;
 	}
 	#nav-principal li a {
 		padding-right: 10px;
@@ -27,7 +27,8 @@
 @media (min-width: 768px) and (max-width: 979px) { 
 
 	.alto-pirelli{
-		height: 250px;
+		/*height: 236px;*/
+		height: 50px;
 	}
  }
  
@@ -35,7 +36,7 @@
 @media (max-width: 767px) { 
 
 	.alto-pirelli{
-		height:190px;
+		height:52px;
 	}
 
  }
@@ -44,7 +45,10 @@
 @media (max-width: 480px) { 
 
 	.alto-pirelli{
-		height:226px;
+		height:52px;
+	}
+	.title-banner {
+		font-size: 23pt;
 	}
 	/*.banners-foot{
 		margin-bottom: -600px !important;
@@ -54,6 +58,7 @@
 .nav-pirelli{
 	background-color: #DF182B;
 	border-radius: 0px;
+	min-height: 36px;
 }
 .banner-pirelli{
 	background-image: url("../../bundles/celmediatoyocostapirelli/images/Banners/Pirelli.jpg");
@@ -63,32 +68,32 @@
 .banner-pirelli-suv{
 	background-image: url("../../bundles/celmediatoyocostapirelli/images/banners-pirelli/suv.jpg");
 	background-size: cover;
-	height: 300px;
+	height: 186px;
 }
 .banner-pirelli-autos{
 	background-image: url("../../bundles/celmediatoyocostapirelli/images/banners-pirelli/autos.jpg");
 	background-size: cover;
-	height: 300px;
+	height: 186px;
 }
 .banner-pirelli-industriales{
 	background-image: url("../../bundles/celmediatoyocostapirelli/images/banners-pirelli/industriales.jpg");
 	background-size: cover;
-	height: 300px;
+	height: 186px;
 }
 .banner-pirelli-camionetas{
 	background-image: url("../../bundles/celmediatoyocostapirelli/images/banners-pirelli/camionetas.jpg");
 	background-size: cover;
-	height: 300px;
+	height: 186px;
 }
 .banner-pirelli-camiones{
 	background-image: url("../../bundles/celmediatoyocostapirelli/images/banners-pirelli/camion.jpg");
 	background-size: cover;
-	height: 300px;
+	height: 186px;
 }
 .banner-pirelli-distribuidor{
 	background-image: url("../../bundles/celmediatoyocostapirelli/images/banners-pirelli/distribuidores.jpg");
 	background-size: cover;
-	height: 300px;
+	height: 186px;
 }
 .nav-buscador a{
 	font-size: 16px;
@@ -375,7 +380,7 @@ button.close-ficha{
 	height: 20px;
 }
 .banner-promocional{
-	margin-top: 20px;
+	/*margin-top: 20px;*/
 }
 .breadcrumb li a{
 	color: #999;
@@ -493,7 +498,7 @@ button.close-ficha{
 }
 .espacio{
 	padding-top: 46px;
-	padding-bottom: 66px;
+	padding-bottom: 67px;
 }
 /*****CSS PARA FORM INFORMACION*/
 .space-input{
