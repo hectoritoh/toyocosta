@@ -30,10 +30,16 @@ function centrarHorizontal(elemento){
 
 function reservaSelected(elemento){
 
+    if ( $(elemento).val() == 1 ) { 
+      //Reserva de mantenimiento
+      //alert("lalala");
+      $("#sm-modelo-km").show();
+    }else{
+      $("#sm-modelo-km").hide();
+    }
 
     var parametros = {
-
-        reserva: $( "#" + $(elemento).attr("id") ).val()
+        reserva: $(elemento).val()
     }
 
     $.ajax({
@@ -203,6 +209,99 @@ $(document).ready(function(){
 		$(this).parent('li').removeClass("active");
 		$(e.target).parent('li').addClass("active");
 	})*/
+    $('#rcv').fileupload({
+        dataType: 'json',
+        url: Routing.generate('envio_rrhh_adjunto'),
+        done: function (e, data) {
+          //console.log(data.result.rutaarchivo);
+          
+          $("#rutacv").val(data.result.rutaarchivo);
+        }
+    });
+
+    $("#form-rrhh").validate({
+      debug: true,
+      submitHandler: function (form) {
+          var parametros = {
+              nombre: $("#rnombre").val(),
+              apellido: $("#rapellido").val(),
+              telefono: $("#rtelefono").val(),
+              email: $("#remail").val(),
+              cargo: $("#rcargo").val(),
+              rutacv: $("#rutacv").val()              
+          }
+
+          $.ajax({
+              url: Routing.generate('envio_rrhh'),
+              type: 'POST',
+              async: true,
+              data: parametros,
+              dataType: "json",
+              success: function (respuesta) {
+                console.log(respuesta);
+                if (respuesta.codigo == 1 ) {
+                    alert('Su pedido de informaci\u00F3n fu\u00E9 enviado con \u00E9xito');
+                    $('#contenedorEspereRRHH').hide();
+                    $('#contenedorFormRRHH').show();
+                    document.getElementById("form-rrhh").reset();
+                    //window.location = Routing.generate('contactenos');
+                } else if (respuesta.codigo == 0 ) {
+                    // error
+                    alert('error');
+                }
+              },
+              error: function (error) {
+                console.log("ERROR: " + error);
+              },beforeSend: function () {
+                  $('#contenedorFormRRHH').hide();
+                  $('#contenedorEspereRRHH').show();
+                  
+              }
+          });
+      },
+      rules: {
+          rnombre: {
+            required: true
+          },
+          rapellido: {
+            required: true
+          },
+          rtelefono: {
+              required: true,
+              minlength: 7,
+              maxlength: 15,
+              number: true
+          },
+          rcv: {
+            required:true,
+          },
+          remail: {
+            required:true,
+            email: true
+          },
+          rcargo: {
+            required:true
+          }
+      },
+      showErrors: function (errorMap, errorList) {
+           // Clean up any tooltips for valid elements
+          $.each(this.validElements(), function (index, element) {
+              var $element = $(element);
+              $element.data("title", "") // Clear the title - there is no error associated anymore
+                  .removeClass("error")
+                  .tooltip("destroy");
+          });
+
+          // Create new tooltips for invalid elements
+          $.each(errorList, function (index, error) {
+              var $element = $(error.element);
+              $element.tooltip("destroy") // Destroy any pre-existing tooltip so we can repopulate with new tooltip content
+                  .data("title", error.message)
+                  .addClass("error")
+                  .tooltip(); // Create a new tooltip based on the error messsage we just set in the title
+          });
+      }
+    });
 
     
     $("#form-contacto").validate({
