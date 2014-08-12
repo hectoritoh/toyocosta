@@ -41,7 +41,7 @@ services:
         class: Celmedia\Toyocosta\VehiculosBundle\Admin\SlidePrincipalAdmin
         arguments: [~, Celmedia\Toyocosta\VehiculosBundle\Entity\SlidePrincipal, CelmediaToyocostaVehiculosBundle:SlidePrincipalAdmin]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: "Vehiculos", label: Slide Principal}
+            - {name: sonata.admin, manager_type: orm, group: "Contenido", label: Banners Publicitarios}
 
     celmedia_toyocosta_vehiculos.admin.slide_vehiculos:
         class: Celmedia\Toyocosta\VehiculosBundle\Admin\SlideVehiculosAdmin

@@ -12,13 +12,21 @@ Celmedia\Toyocosta\VehiculosBundle\Entity\SlidePrincipal:
         link:
             type: string
             length: 500
-            nullable: false
+            nullable: true
         descripcion:
             type: text
             nullable: true
         imagen_banner:
             type: text
             nullable: false
+        seccion:
+            type: string
+            length: 500
+            nullable: false
+        boton:
+            type: string
+            length: 500
+            nullable: true
         estado:
             type: integer
             unsigned: false

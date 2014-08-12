@@ -18,6 +18,10 @@ mantenimiento:
     path:      /mantenimiento
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:mantenimiento }
 
+mantenimiento_servicio:
+    path:      /mantenimiento/{servicioid}
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:mantenimientoXServicio }
+
 test_drive:
     path:      /testdrive
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:test }

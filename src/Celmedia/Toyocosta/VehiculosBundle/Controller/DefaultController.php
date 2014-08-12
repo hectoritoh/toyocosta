@@ -54,7 +54,7 @@ class DefaultController extends Controller
         $em = $this->getDoctrine()->getManager();
         
         $slidePrincipal = $this->getDoctrine()->getRepository("CelmediaToyocostaVehiculosBundle:SlidePrincipal")->findBy(array(
-            "estado" => 1
+            "estado" => 1 , "seccion" => "principal"
                 )
         );
 
@@ -148,6 +148,33 @@ class DefaultController extends Controller
         
         return $this->render('CelmediaToyocostaVehiculosBundle:Forms:matenimiento.html.twig' , array( "vehiculos" => $vehiculos , "reservas" => $reservas ));
     }
+
+    public function mantenimientoXServicioAction($servicioid){
+
+        $em = $this->getDoctrine()->getManager();        
+        
+        $vehiculos = $this->getDoctrine()->getRepository("CelmediaToyocostaVehiculosBundle:Vehiculo")->findBy(array(
+            "estado" => 1
+                )
+        );
+
+        $reservas = $this->getDoctrine()->getRepository("CelmediaToyocostaContenidoBundle:TipoReserva")->findBy(array(
+            "estado" => 1
+                )
+        );
+        
+        $reservaRecibida = $this->getDoctrine()->getRepository("CelmediaToyocostaContenidoBundle:TipoReserva")->findBy(array(
+            "estado" => 1 , "id" => $servicioid
+                )
+        );
+
+
+        return $this->render('CelmediaToyocostaVehiculosBundle:Forms:matenimiento.html.twig' , array( "vehiculos" => $vehiculos , "reservas" => $reservas , "reservaRecibida" => $reservaRecibida ));
+
+
+
+    }
+
 
     public function testAction(Request $request){
 
