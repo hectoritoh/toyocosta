@@ -1819,3 +1819,8 @@ ul.tabs-especificaciones li > a:hover{
 	background: #5C8391;
 	color: white;
 }
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {    
+    color: #fff !important;
+    cursor: default;
+}
