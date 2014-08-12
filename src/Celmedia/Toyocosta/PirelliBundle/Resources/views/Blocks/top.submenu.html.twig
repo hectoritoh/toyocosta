@@ -1,7 +1,7 @@
 <div class="alto-pirelli">
   
 </div>
-<div class="row">
+<!-- <div class="row"> -->
 
   <div class="submenu">
     
@@ -15,7 +15,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#" style="padding-top:0px;">
+            <a class="navbar-brand" href="{{ path('pirelli_home') }}" style="padding-top:0px;">
               {% image '@CelmediaToyocostaPirelliBundle/Resources/public/images/Logos/pirelli.jpg' %}
                 <img src="{{ asset_url }}" alt="llanta" class="img-responsive" />
               {% endimage %}
@@ -48,4 +48,52 @@
 
 
   </div>
-</div>
+<!-- </div> -->
+
+{#<div class="container-fluid fondo-submenu-vehiculo">
+          <div class="row">
+            <div class="col-md-2 col-sm-3 col-xs-4 col-md-offset-1 text-center">
+
+            
+              {% image '@CelmediaToyocostaPirelliBundle/Resources/public/images/Logos/pirelli.jpg' %}
+                <img src="{{ asset_url }}" alt="pirelli" class="img-responsive obj-centrar" />
+              {% endimage %}
+            
+            </div>
+            <div class="col-md-9 col-sm-8 col-xs-8 text-left centrado-vertical">
+              <div class="container-fluid">
+                <div class="row submenu-vehiculo page-scroll">
+                  <div class="col-md-2 col-sm-2 text-center">
+          
+                    <a href="{{ path('pirelli_home') }}" class="submenu-vehiculo-item {% if app.request.get('_route') == "pirelli_home" %}active{% endif %}" >LLANTAS AUTO</a>
+
+                  </div>
+                  <div class="col-md-2 col-sm-2 text-center">
+
+                    <a href="{{ path('pirelli_camioneta') }}" class="submenu-vehiculo-item {% if app.request.get('_route') == "pirelli_camioneta" %}active{% endif %}" >LLANTAS CAMIONETA</a>
+
+                  </div>
+                  <div class="col-md-2 col-sm-2 text-center">
+
+                    <a href="{{ path('pirelli_suv') }}" class="submenu-vehiculo-item {% if app.request.get('_route') == "pirelli_suv" %}active{% endif %}" >LLANTAS SUV</a>
+
+                  </div>
+
+                  <div class="col-md-2 col-sm-2 text-center">
+                    <a href="{{ path('pirelli_industrial') }}" class="submenu-vehiculo-item {% if app.request.get('_route') == "pirelli_industrial" %}active{% endif %}" >LLANTAS INDUSTRIAL</a>
+                  </div>
+                  
+                  <div class="col-md-2 col-sm-2 text-center">
+                    <a href="{{ path('pirelli_camion') }}" class="submenu-vehiculo-item {% if app.request.get('_route') == "pirelli_camion" %}active{% endif %}" >LLANTAS CAMION</a>
+                  </div>
+
+                  <div class="col-md-2 col-sm-2 text-center">
+                    <a href="{{ path('pirelli_distribuidores') }}" class="submenu-vehiculo-item {% if app.request.get('_route') == "pirelli_distribuidores" %}active{% endif %}" >DISTRIBUIDORES</a>
+                  </div>
+
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>#}
