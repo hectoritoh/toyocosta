@@ -75,6 +75,42 @@ $('li[id^="sub-menu-productos"]').hover(
 );
 
 
+$('li[id^="sub-sub-menu"]').hover(
+
+	function( e ) {
+		e.preventDefault();
+     	e.stopPropagation();
+      	var id= $(this).attr('id');
+      	var a = id.split('-');
+      	var num = a[3];
+      	$(id).css({'opacity': '0.7'});
+      	if(num==1){
+      		$('#sub-'+num).css({'display':'block'});
+      	}else if(num==2){
+      		$('#sub-'+num).css({'display':'block','right': '280px'});
+      	}else if(num==3){
+			$('#sub-'+num).css({'display':'block','left':'138px','top':'74px'});
+      	}else if(num==4){
+			$('#sub-'+num).css({'display':'block','right': '0px'});
+      	}
+  
+	 
+	},
+	//on mouseout
+	function( e ) {
+		e.preventDefault();
+     	e.stopPropagation();
+      	var id= $(this).attr('id');
+      	var a = id.split('-');
+      	var num = a[3];
+		$('#sub-'+num).css({'display':'none'});	
+	 
+	 
+	}
+
+);
+
+
 });
 
 function mostrarSubmenu(a){
@@ -84,4 +120,5 @@ function mostrarSubmenu(a){
 		$("#"+a).css({'display':'none'});
 	}
 }
-	
+
+
