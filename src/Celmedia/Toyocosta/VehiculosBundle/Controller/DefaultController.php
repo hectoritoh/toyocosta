@@ -21,6 +21,53 @@ class DefaultController extends Controller
     	return $this->render('CelmediaToyocostaVehiculosBundle:Default:index.html.twig', array('categoriasVehiculo' => $categoriasVehiculo ) );
     }
 
+    public function autosAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $categoriaid =$this->getDoctrine()->getRepository('CelmediaToyocostaVehiculosBundle:CategoriaVehiculo')->findOneBy(array("nombre" => "autos", "estado"=> 1));
+        
+        $vehiculos = $this->getDoctrine()->getRepository('CelmediaToyocostaVehiculosBundle:Vehiculo')->findBy( array("estado"=> 1 , "categoria" => $categoriaid ) );
+
+        return $this->render('CelmediaToyocostaVehiculosBundle:Pages:productos.html.twig', array("categoria_vehiculo" => "autos" , 'vehiculos' => $vehiculos ) );
+    }
+
+    public function camionetasAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $categoriaid =$this->getDoctrine()->getRepository('CelmediaToyocostaVehiculosBundle:CategoriaVehiculo')->findOneBy(array("nombre" => "camionetas", "estado"=> 1));
+        
+        $vehiculos = $this->getDoctrine()->getRepository('CelmediaToyocostaVehiculosBundle:Vehiculo')->findBy( array("estado"=> 1 , "categoria" => $categoriaid ) );
+
+        return $this->render('CelmediaToyocostaVehiculosBundle:Pages:productos.html.twig', array("categoria_vehiculo" => "camionetas" , 'vehiculos' => $vehiculos ) );
+    }
+
+
+    public function suvAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $categoriaid =$this->getDoctrine()->getRepository('CelmediaToyocostaVehiculosBundle:CategoriaVehiculo')->findOneBy(array("nombre" => "suv", "estado"=> 1));
+        
+        $vehiculos = $this->getDoctrine()->getRepository('CelmediaToyocostaVehiculosBundle:Vehiculo')->findBy( array("estado"=> 1 , "categoria" => $categoriaid ) );
+
+        return $this->render('CelmediaToyocostaVehiculosBundle:Pages:productos.html.twig', array("categoria_vehiculo" => "suv" , 'vehiculos' => $vehiculos ) );
+    }
+
+
+    public function hibridosAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $categoriaid =$this->getDoctrine()->getRepository('CelmediaToyocostaVehiculosBundle:CategoriaVehiculo')->findOneBy(array("nombre" => "hibridos", "estado"=> 1));
+        
+        $vehiculos = $this->getDoctrine()->getRepository('CelmediaToyocostaVehiculosBundle:Vehiculo')->findBy( array("estado"=> 1 , "categoria" => $categoriaid ) );
+
+        return $this->render('CelmediaToyocostaVehiculosBundle:Pages:productos.html.twig', array("categoria_vehiculo" => "hibridos" , 'vehiculos' => $vehiculos ) );
+    }
+
+
     public function obtenerMenuPrincipalAction(){
         $em = $this->getDoctrine()->getManager();
         

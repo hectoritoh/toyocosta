@@ -59,6 +59,31 @@
 	height: 270px;
 	/*height: 333px;		*/
 }
+.banner-autos{
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/banner/certificados.jpg");
+	background-size: cover;
+	height: 278px;		
+}
+.banner-camionetas{
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/banner/certificados.jpg");
+	background-size: cover;
+	height: 278px;		
+}
+.banner-suv{
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/banner/certificados.jpg");
+	background-size: cover;
+	height: 278px;		
+}
+.banner-hibridos{
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/banner/certificados.jpg");
+	background-size: cover;
+	height: 278px;		
+}
+
+
+
+
+
 
 #form-mantenimiento, #form-rrhh, #form-test, #form-register label {
 	color: #A0A0A0;

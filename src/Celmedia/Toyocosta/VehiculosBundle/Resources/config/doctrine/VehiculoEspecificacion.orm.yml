@@ -1,0 +1,52 @@
+Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoEspecificacion:
+    type: entity
+    table: vehiculo_especificacion
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        seccion:
+            type: string
+            length: 140
+            nullable: false
+        contenido:
+            type: string
+            length: 140
+            nullable: false
+        formato:
+            type: text
+            nullable: true
+        rawText:
+            type: text
+            nullable: true
+        estado:
+            type: integer
+            unsigned: false
+            nullable: false
+        created:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: create
+        updated:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: update
+
+
+    manyToOne:
+      vehiculo_especificacion:
+        targetEntity: Vehiculo
+        inversedBy: especificaciones
+        joinColumn:
+          name: vehiculo_id
+          referencedColumnName: id
+
+    lifecycleCallbacks:
+        prePersist:   [ lifecycleFileUpload ]
+        preUpdate:    [ lifecycleFileUpload ]

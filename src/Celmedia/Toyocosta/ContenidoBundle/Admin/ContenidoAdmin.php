@@ -59,23 +59,35 @@ class ContenidoAdmin extends Admin
     {
         $formMapper
             ->add('titulo')
-            ->add('texto')
-            ->add(
-            'texto',
-            'ckeditor',
-            array(
-            'config' => array(
-                'toolbar' => array(
-                    array(
-                        'name' => 'links',
-                        'items' => array('Link','Unlink'),
-                    ),
-                    array(
-                        'name' => 'insert',
-                        'items' => array('Image'),
-                    ),
-                )
-            ) ) )
+            //->add('texto')
+            // ->add(
+            // 'texto',
+            // 'ckeditor',
+            // array(
+            // 'config' => array(
+            //     'toolbar' => array(
+            //         array(
+            //             'name' => 'links',
+            //             'items' => array('Link','Unlink'),
+            //         ),
+            //         array(
+            //             'name' => 'insert',
+            //             'items' => array('Image'),
+            //         ),
+            //     )
+            // ) ) )
+            ->add('texto', 'sonata_formatter_type', array(
+                'event_dispatcher' => $formMapper->getFormBuilder()->getEventDispatcher(),
+                'format_field'   => 'formato',
+                'source_field'   => 'rawText',
+                'source_field_options'      => array(
+                    'attr' => array('class' => 'span10', 'rows' => 20)
+                ),
+                'listener'       => true,
+                'target_field'   => 'texto'
+            ))
+
+
             // ->add('shortDescription', 'sonata_formatter_type', array(
             //     'source_field'         => 'texto',
             //     'source_field_options' => array('attr' => array('class' => 'span10', 'rows' => 20)),

@@ -207,4 +207,60 @@ class Contenido
 
 
 
+    /**
+     * @var string
+     */
+    private $formato;
+
+
+    /**
+     * Set formato
+     *
+     * @param string $formato
+     * @return Contenido
+     */
+    public function setFormato($formato)
+    {
+        $this->formato = $formato;
+
+        return $this;
+    }
+
+    /**
+     * Get formato
+     *
+     * @return string 
+     */
+    public function getFormato()
+    {
+        return $this->formato;
+    }
+    /**
+     * @var string
+     */
+    private $rawText;
+
+
+    /**
+     * Set rawText
+     *
+     * @param string $rawText
+     * @return Contenido
+     */
+    public function setRawText($rawText)
+    {
+        $this->rawText = $rawText;
+
+        return $this;
+    }
+
+    /**
+     * Get rawText
+     *
+     * @return string 
+     */
+    public function getRawText()
+    {
+        return $this->rawText;
+    }
 }

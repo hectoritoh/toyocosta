@@ -35,6 +35,11 @@ class SlidePrincipal
     private $seccion;
 
     /**
+     * @var string
+     */
+    private $boton;
+
+    /**
      * @var integer
      */
     private $estado;
@@ -153,6 +158,29 @@ class SlidePrincipal
     }
 
     /**
+     * Set boton
+     *
+     * @param string $boton
+     * @return SlidePrincipal
+     */
+    public function setBoton($boton)
+    {
+        $this->boton = $boton;
+
+        return $this;
+    }
+
+    /**
+     * Get boton
+     *
+     * @return string 
+     */
+    public function getBoton()
+    {
+        return $this->boton;
+    }
+
+    /**
      * Set estado
      *
      * @param integer $estado
@@ -223,7 +251,7 @@ class SlidePrincipal
     /**
      * @ORM\PrePersist
      */
-    public function lifecycleFileUpload()
+     public function lifecycleFileUpload()
     {
         $this->uploadImagenSlide();
     }
@@ -283,7 +311,6 @@ class SlidePrincipal
     {
         return $this->getLink();
     }
-
 
 
 }

@@ -6,6 +6,19 @@ toyocosta_homepage:
     pattern:  /
     defaults: { _controller: CelmediaToyocostaVehiculosBundle:Default:index }
 
+autos:
+    path:      /autos
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:autos }
+camionetas:
+    path:      /camionetas
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:camionetas }
+suv:
+    path:      /suv
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:suv }
+hibridos:
+    path:      /hibridos
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:hibridos }
+
 ver_vehiculo:
     path:      /vehiculos/{vehiculoid}
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:verVehiculo }

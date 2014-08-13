@@ -44,10 +44,10 @@ Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoModelos:
                 on: update
 
     oneToMany:
-      especificaciones:
-        targetEntity: ModeloEspecificaciones
-        mappedBy: modelo
-        cascade: ["persist"]
+      # especificaciones:
+      #   targetEntity: ModeloEspecificaciones
+      #   mappedBy: modelo
+      #   cascade: ["persist"]
       cotizaciones:
         targetEntity: VehiculoCotizacion
         mappedBy: vehiculo_modelo

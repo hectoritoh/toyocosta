@@ -72,6 +72,8 @@ class VehiculoColoresAdmin extends Admin
 
         // use $fileFieldOptions so we can add other options to the field
         $fileFieldOptions = array('required' => false);
+
+
         if ($obj && ($webPath = '/../../../../toyocostaweb/web/'. 'uploads/vehiculo/color/' .    $obj->getImagenColor())) {
             // get the container so the full path to the image can be set
             $container = $this->getConfigurationPool()->getContainer();

@@ -4,7 +4,6 @@ namespace Celmedia\Toyocosta\VehiculosBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
-
 /**
  * VehiculoModelos
  */
@@ -63,7 +62,7 @@ class VehiculoModelos
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
-    private $especificaciones;
+    private $cotizaciones;
 
     /**
      * @var \Celmedia\Toyocosta\VehiculosBundle\Entity\Vehiculo
@@ -75,8 +74,7 @@ class VehiculoModelos
      */
     public function __construct()
     {
-        $this->especificaciones = new \Doctrine\Common\Collections\ArrayCollection();
-
+        $this->cotizaciones = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -297,36 +295,36 @@ class VehiculoModelos
     }
 
     /**
-     * Add especificaciones
+     * Add cotizaciones
      *
-     * @param \Celmedia\Toyocosta\VehiculosBundle\Entity\ModeloEspecificaciones $especificaciones
+     * @param \Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoCotizacion $cotizaciones
      * @return VehiculoModelos
      */
-    public function addEspecificacione(\Celmedia\Toyocosta\VehiculosBundle\Entity\ModeloEspecificaciones $especificaciones)
+    public function addCotizacione(\Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoCotizacion $cotizaciones)
     {
-        $this->especificaciones[] = $especificaciones;
+        $this->cotizaciones[] = $cotizaciones;
 
         return $this;
     }
 
     /**
-     * Remove especificaciones
+     * Remove cotizaciones
      *
-     * @param \Celmedia\Toyocosta\VehiculosBundle\Entity\ModeloEspecificaciones $especificaciones
+     * @param \Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoCotizacion $cotizaciones
      */
-    public function removeEspecificacione(\Celmedia\Toyocosta\VehiculosBundle\Entity\ModeloEspecificaciones $especificaciones)
+    public function removeCotizacione(\Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoCotizacion $cotizaciones)
     {
-        $this->especificaciones->removeElement($especificaciones);
+        $this->cotizaciones->removeElement($cotizaciones);
     }
 
     /**
-     * Get especificaciones
+     * Get cotizaciones
      *
      * @return \Doctrine\Common\Collections\Collection 
      */
-    public function getEspecificaciones()
+    public function getCotizaciones()
     {
-        return $this->especificaciones;
+        return $this->cotizaciones;
     }
 
     /**
@@ -354,7 +352,7 @@ class VehiculoModelos
     /**
      * @ORM\PrePersist
      */
-    public function lifecycleFileUpload()
+        public function lifecycleFileUpload()
     {
         // Add your code here
         $this->uploadFileModelo();
@@ -468,42 +466,4 @@ class VehiculoModelos
     }
 
 
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $cotizaciones;
-
-
-    /**
-     * Add cotizaciones
-     *
-     * @param \Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoCotizacion $cotizaciones
-     * @return VehiculoModelos
-     */
-    public function addCotizacione(\Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoCotizacion $cotizaciones)
-    {
-        $this->cotizaciones[] = $cotizaciones;
-
-        return $this;
-    }
-
-    /**
-     * Remove cotizaciones
-     *
-     * @param \Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoCotizacion $cotizaciones
-     */
-    public function removeCotizacione(\Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoCotizacion $cotizaciones)
-    {
-        $this->cotizaciones->removeElement($cotizaciones);
-    }
-
-    /**
-     * Get cotizaciones
-     *
-     * @return \Doctrine\Common\Collections\Collection 
-     */
-    public function getCotizaciones()
-    {
-        return $this->cotizaciones;
-    }
 }

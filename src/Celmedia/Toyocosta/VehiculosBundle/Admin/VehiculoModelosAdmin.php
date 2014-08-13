@@ -112,15 +112,15 @@ class VehiculoModelosAdmin extends Admin
             $fileFieldOptions['help'] = '<img src="'.$fullPath.'" class="admin-preview"/>';
         }
 
-        $fileFieldOptions2 = array('required' => false);
-        if ($obj && ($webPath =  '/../../../../toyocostaweb/web/'. 'uploads/vehiculo/modelo/pdf' . $obj->getArchivoPdf())) {
-            // get the container so the full path to the image can be set
-            $container = $this->getConfigurationPool()->getContainer();
-            $fullPath = $container->get('request')->getBasePath().'/'.$webPath;
+        // $fileFieldOptions2 = array('required' => false);
+        // if ($obj && ($webPath =  '/../../../../toyocostaweb/web/'. 'uploads/vehiculo/modelo/pdf' . $obj->getArchivoPdf())) {
+        //     // get the container so the full path to the image can be set
+        //     $container = $this->getConfigurationPool()->getContainer();
+        //     $fullPath = $container->get('request')->getBasePath().'/'.$webPath;
 
-            // add a 'help' option containing the preview's img tag
-            // $fileFieldOptions2['help'] = '<img src="'.$fullPath.'" class="admin-preview" />';
-        }
+        //     // add a 'help' option containing the preview's img tag
+        //     // $fileFieldOptions2['help'] = '<img src="'.$fullPath.'" class="admin-preview" />';
+        // }
 
 
 
@@ -129,7 +129,7 @@ class VehiculoModelosAdmin extends Admin
             ->add('descripcion')
             ->add('precio')
             ->add('precio_neto')
-            ->add('filePdf', 'file', $fileFieldOptions2)
+            // ->add('filePdf', 'file', $fileFieldOptions2)
             ->add('fileModelo', 'file', $fileFieldOptions)
             // ->with('Especificaciones')
             //     ->add('especificaciones', 'sonata_type_collection', array(

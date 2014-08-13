@@ -60,3 +60,9 @@ services:
         arguments: [~, Celmedia\Toyocosta\VehiculosBundle\Entity\Plazo, SonataAdminBundle:CRUD]
         tags:
             - {name: sonata.admin, manager_type: orm, group: "Vehiculos", label: Plazo}
+
+    celmedia_toyocosta_vehiculos.admin.vehiculo_especificacion:
+        class: Celmedia\Toyocosta\VehiculosBundle\Admin\VehiculoEspecificacionAdmin
+        arguments: [~, Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoEspecificacion, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: "Vehiculos", label: Especificaciones de Vehiculo}

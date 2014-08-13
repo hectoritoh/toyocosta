@@ -54,7 +54,7 @@ Celmedia\Toyocosta\VehiculosBundle\Entity\Vehiculo:
         targetEntity: VehiculoColores
         mappedBy: vehiculo
         cascade: ["persist"]
-        
+
       galeria:
         targetEntity: VehiculoGaleria
         mappedBy: vehiculogaleria
@@ -69,6 +69,10 @@ Celmedia\Toyocosta\VehiculosBundle\Entity\Vehiculo:
         targetEntity: SlideVehiculos
         mappedBy: vehiculo_slide
 
+      especificaciones:
+        targetEntity: VehiculoEspecificacion
+        mappedBy: vehiculo_especificacion
+        cascade: ["persist"]
 
     manyToOne:
       categoria:
