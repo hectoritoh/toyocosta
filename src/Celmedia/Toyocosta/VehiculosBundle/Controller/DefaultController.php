@@ -796,6 +796,11 @@ class DefaultController extends Controller
         ), 200); //codigo de error diferente
     }
 
+    public function especificacionAction(){
+
+       return $this->render('CelmediaToyocostaVehiculosBundle:Pages:especificacion.html.twig', array());
+    }
+
     public function imprimirVariableDebug($variable){
         echo "<pre>";
         print_r($variable);

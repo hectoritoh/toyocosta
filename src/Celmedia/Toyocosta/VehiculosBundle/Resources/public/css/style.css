@@ -1792,3 +1792,35 @@ li.disabled > .btn.btn-anterior{
 		height: 60px;
 	}
  }
+
+ ul.tabs-especificaciones{
+ 	background: #f5f5f5;
+ 	text-align: center;
+ }
+
+ul.tabs-especificaciones li{
+	border-right: 1px solid #ccc;
+	padding-left: 0px;
+    padding-right: 0px;
+}
+
+ul.tabs-especificaciones li.active{
+	background: #5C8391;
+	color: white;
+}
+
+ul.tabs-especificaciones li > a{
+	margin-right: 0px;
+	color: #A4A4A4;
+
+}
+
+ul.tabs-especificaciones li > a:hover{
+	background: #5C8391;
+	color: white;
+}
+
+.nav-tabs > li.active > a, .nav-tabs > li.active > a:hover, .nav-tabs > li.active > a:focus {    
+    color: #fff !important;
+    cursor: default;
+}

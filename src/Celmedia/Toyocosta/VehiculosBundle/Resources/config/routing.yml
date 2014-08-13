@@ -107,3 +107,7 @@ consultar_plazo:
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:consultarPreciosFinales }
     options:
         expose: true
+
+especificacion:
+    path:      /vehiculo/especificacion
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:especificacion }
