@@ -20,6 +20,12 @@ Celmedia\Toyocosta\ContenidoBundle\Entity\Contenido:
             type: string
             length: 100
             nullable: true
+        formato:
+            type: text
+            nullable: true
+        rawText:
+            type: text
+            nullable: true
         estado:
             type: integer
             unsigned: false

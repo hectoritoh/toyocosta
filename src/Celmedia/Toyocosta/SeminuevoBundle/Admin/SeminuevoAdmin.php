@@ -104,17 +104,6 @@ class SeminuevoAdmin extends Admin
             ->add('username', 'hidden', array(
                 'data' => 'admin' ))
             ->add('descripcion_corta')
-            // ->add('Descripcion', 'sonata_formatter_type', array(
-            //     'event_dispatcher' => $formMapper->getFormBuilder()->getEventDispatcher(),
-            //     'format_field'   => 'descripcion_corta',
-            //     'source_field'   => 'descripcion_corta',
-            //     'source_field_options'      => array(
-            //         'attr' => array('class' => 'span10', 'rows' => 20)
-            //     ),
-            //     'listener'       => true,
-            //     'target_field'   => 'content'
-            // ))
-
             ->add('estado' , 'choice', array('choices' => array(1 => 'Disponible' , 2 => 'Proximammente' , 3 => 'Reservado', 4 => 'Vendido') ) )
             ->add('estado_publicacion' , 'choice', array('choices' => array(1 => 'Aprobado' , 2 => 'Pendiente' , 3 => 'Rechazado') ) )
             ->with('Galeria')

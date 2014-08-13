@@ -46,14 +46,14 @@ Celmedia\Toyocosta\ContenidoBundle\Entity\InfoMantenimiento:
         modelo:
             type: string
             length: 250
-            nullable: false
+            nullable: true
         kilometros:
             type: string
             length: 10
-            nullable: false
+            nullable: true
         comentarios:
             type: text
-            nullable: false
+            nullable: true
         created:
             type: datetime
             gedmo:

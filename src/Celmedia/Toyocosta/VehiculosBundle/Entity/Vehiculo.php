@@ -4,7 +4,6 @@ namespace Celmedia\Toyocosta\VehiculosBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
-use Symfony\Component\HttpFoundation\File\File;
 /**
  * Vehiculo
  */
@@ -91,6 +90,11 @@ class Vehiculo
     private $slides_vehiculos;
 
     /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $especificaciones;
+
+    /**
      * @var \Celmedia\Toyocosta\VehiculosBundle\Entity\CategoriaVehiculo
      */
     private $categoria;
@@ -114,6 +118,7 @@ class Vehiculo
         $this->galeria = new \Doctrine\Common\Collections\ArrayCollection();
         $this->modelos = new \Doctrine\Common\Collections\ArrayCollection();
         $this->slides_vehiculos = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->especificaciones = new \Doctrine\Common\Collections\ArrayCollection();
         $this->plazos = new \Doctrine\Common\Collections\ArrayCollection();
         $this->imagenes = new \Doctrine\Common\Collections\ArrayCollection();
     }
@@ -514,6 +519,39 @@ class Vehiculo
     }
 
     /**
+     * Add especificaciones
+     *
+     * @param \Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoEspecificacion $especificaciones
+     * @return Vehiculo
+     */
+    public function addEspecificacione(\Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoEspecificacion $especificaciones)
+    {
+        $this->especificaciones[] = $especificaciones;
+
+        return $this;
+    }
+
+    /**
+     * Remove especificaciones
+     *
+     * @param \Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoEspecificacion $especificaciones
+     */
+    public function removeEspecificacione(\Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoEspecificacion $especificaciones)
+    {
+        $this->especificaciones->removeElement($especificaciones);
+    }
+
+    /**
+     * Get especificaciones
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getEspecificaciones()
+    {
+        return $this->especificaciones;
+    }
+
+    /**
      * Set categoria
      *
      * @param \Celmedia\Toyocosta\VehiculosBundle\Entity\CategoriaVehiculo $categoria
@@ -604,7 +642,7 @@ class Vehiculo
     /**
      * @ORM\PrePersist
      */
-    public function lifecycleFileUpload()
+        public function lifecycleFileUpload()
     {
         
         $this->uploadFileThumb();
@@ -775,6 +813,7 @@ class Vehiculo
         // clean up the file property as you won't need it anymore
         $this->setFileFicha(null);
     }
+
 
 
 }

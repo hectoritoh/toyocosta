@@ -90,7 +90,7 @@
 
             {% set i = 0 %}
             {% for row  in seminuevos | batch(4) %}
-                <div class="row" style="{% if loop.index > 2 %} display:none; {% endif %} ">
+                <div class="row" style="{% if loop.index > 2 %} display:none; {% endif %} margin-top:10px; ">
                     {% for seminuevo in row %}
                     <div class="col-md-3 col-sm-4 col-xs-6">
                         <div class="container-fluid">

@@ -870,6 +870,20 @@ fieldset.ty-fieldset-border {
 .btn-vehiculo:focus .icono-btn{
 	border-left: 2px solid #FFFFFF;
 }*/
+.accesos2 a{
+	display: block;
+	border-bottom: solid 1px #e5e5e5;
+	line-height: 22px;
+	color: #666;
+	font-size: 11px;
+	font-weight: bold;
+	text-transform: uppercase;
+	text-decoration: none;
+	text-align: left;
+	background: url("../../bundles/celmediatoyocostavehiculos/images/icon/li_subnavy.gif") no-repeat 0% 50%;
+	padding-left: 10px;
+}
+
 .icono-descarga{
 	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/iconos/icono-descarga.png");
 	background-position: center bottom;
@@ -1825,6 +1839,7 @@ ul.tabs-especificaciones li > a:hover{
     color: #fff !important;
     cursor: default;
 }
+<<<<<<< HEAD
 .breadcrumb li > a{
 	color:#a4a4a4;
 } 
@@ -1840,3 +1855,5 @@ ul.tabs-especificaciones li > a:hover{
 	right: 0px;
 	display: inline-block;
 }
+=======
+>>>>>>> b1a0170380c2478ed808a03da4376695e7366703

@@ -27,6 +27,11 @@ class VehiculoAdmin extends Admin
 
     public function preUpdate( $obj ){
 
+        
+        foreach ($obj->getEspecificaciones() as $modelo ) {
+
+                $modelo->setVehiculoEspecificacion( $obj );
+        }
 
 
         foreach ($obj->getGaleria() as $galeria ){
@@ -196,15 +201,6 @@ class VehiculoAdmin extends Admin
             ->add('fileBanner', 'file', $fileFieldOptions )
             ->add('fileFicha', 'file', $fileFieldOptions3 )
             ->add('plazos')
-            ->with('Colores del Vehiculo')
-                ->add('colores', 'sonata_type_collection', array(
-                     'by_reference' => false,
-                           // Prevents the "Delete" option from being displayed
-                     'type_options' => array('delete' => false)) , array(
-                     'edit' => 'inline',
-                     'inline' => 'standard',
-                 ))
-            ->end()
             // GALERIA CON MEDIA BUNDLE ENTITY GALLERY
             ->add('imagenes', 'sonata_type_collection', array(
                 'cascade_validation' => true,
@@ -216,7 +212,6 @@ class VehiculoAdmin extends Admin
                 'admin_code' => 'sonata.media.admin.gallery_has_media'
                 )
             )
-            // ->add('colores')
             // ->with('Galeria')
             //     ->add('galeria', 'sonata_type_collection', array(
             //          'by_reference' => false,
@@ -225,7 +220,24 @@ class VehiculoAdmin extends Admin
             //          'edit' => 'inline',
             //          'inline' => 'standard',
             //      ))
-            // ->end() 
+            // ->end()
+            ->with('Especificaciones del Vehiculo')
+                ->add('especificaciones', 'sonata_type_collection', array(
+                     'by_reference' => false,
+                     'type_options' => array('delete' => false)) , array(
+                     'edit' => 'inline',
+                     'inline' => 'standard',
+                 ))
+            ->end()
+            ->with('Colores del Vehiculo')
+                ->add('colores', 'sonata_type_collection', array(
+                     'by_reference' => false,
+                           // Prevents the "Delete" option from being displayed
+                     'type_options' => array('delete' => false)) , array(
+                     'edit' => 'inline',
+                     'inline' => 'standard',
+                 ))
+            ->end()
             ->with('Modelos del Vehiculo')
                 ->add('modelos', 'sonata_type_collection', array(
                      'by_reference' => false,

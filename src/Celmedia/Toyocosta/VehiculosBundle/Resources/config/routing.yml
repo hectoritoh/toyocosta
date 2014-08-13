@@ -6,6 +6,19 @@ toyocosta_homepage:
     pattern:  /
     defaults: { _controller: CelmediaToyocostaVehiculosBundle:Default:index }
 
+autos:
+    path:      /autos
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:autos }
+camionetas:
+    path:      /camionetas
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:camionetas }
+suv:
+    path:      /suv
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:suv }
+hibridos:
+    path:      /hibridos
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:hibridos }
+
 ver_vehiculo:
     path:      /vehiculos/{vehiculoid}
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:verVehiculo }
@@ -21,6 +34,12 @@ mantenimiento:
 mantenimiento_servicio:
     path:      /mantenimiento/{servicioid}
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:mantenimientoXServicio }
+
+envio_mantenimiento:
+    path:      /mantenimientoenvio
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:envioMantenimiento }
+    options:
+        expose: true
 
 test_drive:
     path:      /testdrive
@@ -70,6 +89,7 @@ envio_rrhh_adjunto:
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:ajaxUploadFormData }
     options:
         expose: true
+
 
 # envio_test:
 #     path:      /testdrive/form
