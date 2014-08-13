@@ -35,6 +35,12 @@ mantenimiento_servicio:
     path:      /mantenimiento/{servicioid}
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:mantenimientoXServicio }
 
+envio_mantenimiento:
+    path:      /mantenimientoenvio
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:envioMantenimiento }
+    options:
+        expose: true
+
 test_drive:
     path:      /testdrive
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:test }
@@ -84,6 +90,7 @@ envio_rrhh_adjunto:
     options:
         expose: true
 
+
 # envio_test:
 #     path:      /testdrive/form
 #     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:envioTestDrive }
@@ -113,3 +120,7 @@ consultar_plazo:
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:consultarPreciosFinales }
     options:
         expose: true
+
+especificacion:
+    path:      /vehiculo/especificacion
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:especificacion }

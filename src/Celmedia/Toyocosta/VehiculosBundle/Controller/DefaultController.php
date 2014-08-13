@@ -843,6 +843,11 @@ class DefaultController extends Controller
         ), 200); //codigo de error diferente
     }
 
+    public function especificacionAction(){
+
+       return $this->render('CelmediaToyocostaVehiculosBundle:Pages:especificacion.html.twig', array());
+    }
+
     public function imprimirVariableDebug($variable){
         echo "<pre>";
         print_r($variable);
@@ -885,7 +890,7 @@ class DefaultController extends Controller
     }
 
     public function envioRrhhAction(Request $request){
-        $em = $this->getDoctrine()->getManager();        
+        $em = $this->getDoctrine()->getManager();
 
         if ($request->isMethod('POST')) {
 
@@ -925,7 +930,7 @@ class DefaultController extends Controller
 
 
             $subject = "Recursos Humanos desde Toyocosta";
-            $body = '<strong>Informaci&oacute;n del Recursos Humanos:</strong> <br /><br />               
+            $body = '<strong>Informaci&oacute;n del Recursos Humanos:</strong> <br /><br />
             Nombre:  '.$rrhh->getNombre().' <br />
             Apellido:   '. $rrhh->getApellido() .' <br />
             Telefono:  '. $rrhh->getTelefono() .'  <br />
@@ -946,6 +951,128 @@ class DefaultController extends Controller
             ->setBody($body)
 
             ->attach(\Swift_Attachment::fromPath( $rrhh->getCurriculum() ));
+
+
+            $envioMail = $this->get('mailer')->send($message);
+
+            $transport = $this->container->get('mailer')->getTransport();
+            $spool = $transport->getSpool();
+            $spool->flushQueue($this->container->get('swiftmailer.transport.real'));
+
+
+            if ( $envioMail ) {
+                 return new JsonResponse(array(
+                    'codigo' => 1,
+                    'Mensaje' => "El mensaje ha sido enviado"
+                ), 200); //codigo de error diferente
+            } else {
+                 return new JsonResponse(array(
+                    'codigo' => 0,
+                    'Mensaje' => "No se ha enviado mensaje"
+                ), 200); //codigo de error diferente
+            }
+        }
+
+        return new JsonResponse(array(
+            'codigo' => 0,
+            'Mensaje' => "No se recibio por post"
+        ), 200); //codigo de error diferente
+    }
+
+    public function envioMantenimientoAction(Request $request){
+        $em = $this->getDoctrine()->getManager();
+
+
+        if ($request->isMethod('POST')) {
+            $nombre = $request->request->get('nombre');
+            $apellido = $request->request->get('apellido');
+            $telefono = $request->request->get('telefono');
+            $email = $request->request->get('email');
+            $celular = $request->request->get('celular');
+            $fecha = $request->request->get('fecha');
+            $reservaid = $request->request->get('reserva');
+            $observaciones = $request->request->get('observaciones');
+            $tallerid = $request->request->get('taller');
+            $comentario = $request->request->get('comentario');
+            $modeloid = $request->request->get('modelo');
+            $kilometraje = $request->request->get('kilometraje');
+
+
+            if(!$nombre || !$apellido || !$telefono || !$email || !$celular || !$fecha || !$reservaid || !$observaciones || !$tallerid ){
+                return new JsonResponse(array(
+                    'codigo' => 0,
+                    'Mensaje' => "faltan parametros"
+                ), 200); //codigo de error diferente
+            }
+
+            $reserva = $em->getRepository('CelmediaToyocostaContenidoBundle:TipoReserva')->findOneBy(
+                array(
+                    'id' => $reservaid,
+                    "estado" => 1
+                )
+            );
+            $taller = $em->getRepository('CelmediaToyocostaContenidoBundle:Establecimiento')->findOneBy(
+                array(
+                    'id' => $tallerid,
+                    "estado" => 1
+                )
+            );
+            
+
+            // Creamos el objeto rrhh
+            $mantenimiento = new \Celmedia\Toyocosta\ContenidoBundle\Entity\InfoMantenimiento();
+
+            $mantenimiento->setNombre( $nombre  );
+            $mantenimiento->setApellido( $apellido  );
+            $mantenimiento->setTelefono( $telefono  );
+            $mantenimiento->setEmail( $email  );
+            $mantenimiento->setCelular( $celular  );
+            $mantenimiento->setFechaTentativa( new \DateTime($fecha ) );
+            $mantenimiento->setTipoReserva( $reserva );
+            $mantenimiento->setTaller( $taller );
+
+            if($modeloid){
+                $vehiculoModelo = $em->getRepository('CelmediaToyocostaVehiculosBundle:VehiculoModelos')->findOneBy(
+                    array(
+                        'id' => $modeloid,
+                        "estado" => 1
+                    )
+                );
+                $mantenimiento->setModelo( $vehiculoModelo );
+                $mantenimiento->setKilometros( $kilometraje );
+            }
+
+            $em->persist(  $mantenimiento );
+            $em->flush();
+
+
+
+
+            $subject = "Cita de Mantenimiento desde Toyocosta";
+            $body = '<strong>Informaci&oacute;n de Cita de Mantenimiento:</strong> <br /><br />
+            Nombre:  '.$mantenimiento->getNombre().' <br />
+            Apellido:   '. $mantenimiento->getApellido() .' <br />
+            Email:  '. $mantenimiento->getEmail() .' <br />
+            Telefono:  '. $mantenimiento->getTelefono() .'  <br />
+            Celular:  '. $mantenimiento->getCelular() .' <br />
+            Fecha Tentativa:  '. $fecha .' <br />
+            Tipo Reserva:  '. $mantenimiento->getTipoReserva()->getNombre() .' <br />
+            Taller:  '. $mantenimiento->getTaller()->getNombre() .' <br />
+            Modelo:  '. $mantenimiento->getModelo()->getNombre() .' <br />
+            Kilometraje:  '. $mantenimiento->getKilometros() .' <br />';
+      
+
+            $message = \Swift_Message::newInstance()
+
+            ->setSubject($subject)
+
+            ->setFrom(array('ycosquillo@celmedia.com' => 'Web Toyocosta'))
+
+            ->setTo(array( $email => 'Recurso' , 'ycosquillo@celmedia.com' => 'Toyocosta'))
+            
+            ->setContentType("text/html")
+
+            ->setBody($body);
 
 
             $envioMail = $this->get('mailer')->send($message);
