@@ -34,8 +34,10 @@ function reservaSelected(elemento){
       //Reserva de mantenimiento
       //alert("lalala");
       $("#sm-modelo-km").show();
+      $("#sm-comentario").hide();
     }else{
       $("#sm-modelo-km").hide();
+      $("#sm-comentario").show();
     }
 
     var parametros = {
@@ -56,7 +58,7 @@ function reservaSelected(elemento){
               option += '<option value="'+ respuesta.talleres[i].id + '">' + respuesta.talleres[i].nombre + '</option>';
             };
 
-            $("#taller").html(option);
+            $("#mtaller").html(option);
           }
           //console.log(respuesta.precio);
         }, 
@@ -634,9 +636,8 @@ $(document).ready(function(){
                   });
 
           }
-
-
     });
+
 
 
     var $validator = $("#cotizarForm").validate({
@@ -941,5 +942,121 @@ $(document).ready(function(){
 
 
 
+    
+    $("#form-mantenimiento").validate({
+        debug: true,
+        submitHandler: function (form) {
+            var parametros = {
+                nombre: $("#mnombre").val(),
+                apellido: $("#mapellido").val(),
+                telefono: $("#mtelefono").val(),
+                email: $("#memail").val(),
+                celular: $("#mcelular").val(),
+                fecha: $("#mfecha").val(),
+                reserva: $("#mreserva").val(),
+                observaciones: $("#mobservaciones").val(),
+                taller: $("#mtaller").val(),
+                comentario: $("#mcomentario").val(),
+                modelo: $("#mmodelo").val(),
+                kilometraje: $("#mkilometraje").val()
+            }
+            
+            $.ajax({
+                url: Routing.generate('envio_mantenimiento'),
+                type: 'POST',
+                async: true,
+                data: parametros,
+                dataType: "json",
+                success: function (respuesta) {
 
+                  if (respuesta.codigo == 1 ) {
+                      $('#contenedorEspereMantenimiento').hide();
+                      $('#contenedorFormMantenimiento').show();
+                       alert('Su pedido de informaci\u00F3n fu\u00E9 enviado con \u00E9xito');
+                       document.getElementById("form-mantenimiento").reset();
+                       //window.location = Routing.generate('contactenos');
+                  } else if (respuesta.codigo == 0 ) {
+                        alert(respuesta.mensaje);
+                  } else{
+                    alert("error");
+                  }
+
+                }, 
+                error: function (error) {
+                  console.log("ERROR: " + error);
+                },
+                beforeSend: function () {
+                    $('#contenedorFormMantenimiento').hide();
+                    $('#contenedorEspereMantenimiento').show();
+                }
+            });
+        },
+        rules: {
+            mnombre: {
+                required: true
+            },
+            mapellido: {
+                required: true
+            },
+            mtelefono: {
+                required: true,
+                minlength:7,
+                maxlength:15,
+                number:true
+            },
+            memail: {
+              required:true,
+              email: true
+            },
+            mcelular: {
+                required: true,
+                minlength:7,
+                maxlength:15,
+                number:true
+            },
+            mfecha: {
+              required: true
+            },
+            mreserva: { 
+              required: true
+            },
+            mobservaciones: {
+              required: true
+            },
+            mtaller: {
+              required: true
+            },
+            mcomentario: {
+              required: true
+            },
+            mmodelo: {
+              required: true
+            },
+            mkilometraje: {
+              required: true
+            }
+
+          },
+          showErrors: function (errorMap, errorList) {
+               // Clean up any tooltips for valid elements
+              $.each(this.validElements(), function (index, element) {
+                  var $element = $(element);
+
+                  $element.data("title", "") // Clear the title - there is no error associated anymore
+                      .removeClass("error")
+                      .tooltip("destroy");
+              });
+
+              // Create new tooltips for invalid elements
+              $.each(errorList, function (index, error) {
+                  var $element = $(error.element);
+
+                  $element.tooltip("destroy") // Destroy any pre-existing tooltip so we can repopulate with new tooltip content
+                      .data("title", error.message)
+                      .addClass("error")
+                      .tooltip(); // Create a new tooltip based on the error messsage we just set in the title
+                  });
+
+          }
+    });
 });
