@@ -15,9 +15,51 @@ class DefaultController extends Controller
 
     public function principalAction()
     {
+
+        $em = $this->getDoctrine()->getManager();
+        
+        $subcategoria = $this->getDoctrine()->getRepository('CelmediaToyocostaMontacargasBundle:Subcategoria')->findBy( array("estado"=> 1) );
+
    
-        return $this->render('CelmediaToyocostaMontacargasBundle:Pages:principal.html.twig', array());
+        return $this->render('CelmediaToyocostaMontacargasBundle:Pages:principal.html.twig', array("subcategoria" => $subcategoria ));
     }
+
+
+
+
+    public function obtenerSubcategoriaXCategoriaAction($categoriaId){
+        $em = $this->getDoctrine()->getManager();
+
+        // $categoria = $this->getDoctrine()->getRepository('CelmediaToyocostaMontacargasBundle:CategoriaMontacarga')->findOneBy(array("id" => $categoriaId, "estado"=> 1));
+        
+        $subcategorias = $this->getDoctrine()->getRepository("CelmediaToyocostaMontacargasBundle:Subcategoria")->findBy(array(
+            "montacarga_categoria" => $categoriaId,
+            "estado" => 1
+                )
+        );
+
+        return $this->render('CelmediaToyocostaMontacargasBundle:Blocks:categoria.html.twig' , array( "subcategorias" => $subcategorias, "categoriaId" => $categoriaId ) );
+    }
+
+
+
+    public function obtenerMontacargaXSubcategoriaAction($subcategoriaId){
+        $em = $this->getDoctrine()->getManager();
+
+        
+        $montacargas = $this->getDoctrine()->getRepository("CelmediaToyocostaMontacargasBundle:Montacarga")->findBy(array(
+            "montacarga_subcategoria" => $subcategoriaId,
+            "estado" => 1
+                )
+        );
+
+        return $this->render('CelmediaToyocostaMontacargasBundle:Blocks:subcategoria.html.twig' , array( "montacargas" => $montacargas , "subcategoriaId" => $subcategoriaId ) );
+    }
+
+    
+
+
+
     public function postVentaAction(){
 
     	return $this->render('CelmediaToyocostaMontacargasBundle:Pages:post_venta.html.twig', array());
@@ -38,9 +80,20 @@ class DefaultController extends Controller
     	return $this->render('CelmediaToyocostaMontacargasBundle:Pages:usados.html.twig', array());
     }
 
-    public function productosAction(){
+    public function productoAction( $montacargaid ){
 
-    	return $this->render('CelmediaToyocostaMontacargasBundle:Pages:productos.html.twig', array());
+        $em = $this->getDoctrine()->getManager();
+
+
+        $montacarga = $this->getDoctrine()->getRepository("CelmediaToyocostaMontacargasBundle:Montacarga")->findOneBy(array(
+            "id" => $montacargaid,
+            "estado" => 1
+                )
+        );
+
+        $montacargas = $this->getDoctrine()->getRepository("CelmediaToyocostaMontacargasBundle:Montacarga")->findAll();
+
+    	return $this->render('CelmediaToyocostaMontacargasBundle:Pages:producto.html.twig', array("montacarga" => $montacarga, "montacargas" => $montacargas ));
     }
 
     public function cotizacionAction(){

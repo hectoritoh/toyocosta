@@ -1,0 +1,89 @@
+    
+
+    <ul style="display:none" id="sub-categorias-menu-{{ categoriaId }}" class="submenu-pro">
+      {% for subcategoria in subcategorias %}
+          <li>
+          {{ subcategoria.nombre }}
+          {{ render(controller("CelmediaToyocostaMontacargasBundle:Default:obtenerMontacargaXSubcategoria" , { 'subcategoriaId':  subcategoria.id } ) ) }}
+          </li>
+      {% endfor %}
+    </ul>
+
+
+
+
+{#
+  <ul id="sample-menu-1" class="sf-menu">
+    <li id="sub-menu-productos-1">
+      <a class="img_producto" >
+        {% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/sub-menu/subm-montacargas.jpg' %}
+          <img src="{{ asset_url }}" class="img-responsive imagen-submenu" />
+        {% endimage %}
+      </a>
+      <ul style="display:none" id="sub-categorias-menu-1" class="submenu-pro">
+        <li>
+        <a href="">Uno</a>
+          <ul id="" class="submenu-pro sub-sub-menu">
+            <li>
+              Lifter
+            </li>
+            <li>Oxion</li>
+          </ul>
+        </li>
+        <li>Dos</li>
+        <li>tres</li>
+      </ul>
+    </li>
+
+    <li id="sub-menu-productos-2" >
+      <a class="img_producto" >
+        {% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/sub-menu/subm-raymond.jpg' %}
+          <img src="{{ asset_url }}" class="img-responsive imagen-submenu"  />
+        {% endimage %}
+      </a>
+      <ul style="display:none" id="sub-categorias-menu-2" class="submenu-pro">
+        <li>Uno</li>
+        <li>Dos</li>
+        <li>tres</li>
+      </ul>
+    </li>
+
+    <li id="sub-menu-productos-3" >
+      <a class="img_producto" >
+        {% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/sub-menu/subm-bt.jpg' %}
+          <img src="{{ asset_url }}" class="img-responsive imagen-submenu"  />
+        {% endimage %}
+      </a>
+      <ul style="display:none" id="sub-categorias-menu-3" class="submenu-pro">
+        <li id="sub-sub-menu-1">Uno</li>
+        <li id="sub-sub-menu-2">Dos</li>
+        <li id="sub-sub-menu-3">tres
+            <ul class="submenu-pro sub-sub-menu" id="sub-3">
+              <li>Sub Uno</li>
+              <li>Sub Dos</li>
+            </ul>
+        </li>
+
+      </ul>
+    </li>
+
+    <li id="sub-menu-productos-4">
+      <a class="img_producto" >
+        {% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/sub-menu/subm-cascade.jpg' %}
+          <img src="{{ asset_url }}" class="img-responsive imagen-submenu" />
+        {% endimage %}
+      </a>
+      <ul style="display:none" id="sub-categorias-menu-4" class="submenu-pro">
+        <li>Uno
+           <ul class="submenu-pro sub-sub-menu">
+            <li>Sub Uno</li>
+            <li>Sub Dos</li>
+          </ul>
+        </li>  
+        <li>Dos</li>
+        <li>tres</li>
+      </ul>
+    </li>
+
+  </ul>
+#}

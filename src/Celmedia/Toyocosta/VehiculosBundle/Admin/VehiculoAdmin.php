@@ -186,7 +186,7 @@ class VehiculoAdmin extends Admin
             $fullPath = $container->get('request')->getBasePath().'/'.$webPath;
 
             // add a 'help' option containing the preview's img tag
-            $fileFieldOptions3['help'] = '<img src="'.$fullPath.'" class="img-responsive" />';
+            $fileFieldOptions3['help'] = '<a href="'.$fullPath.'" target="_blank"> Ficha Tecnica </a>';
         }
 
 

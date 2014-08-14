@@ -118,7 +118,7 @@ twig:
         resources:
             # - 'SonataAdminBundle:Form:silex_form_div_layout.html.twig'
             - 'SonataFormatterBundle:Form:formatter.html.twig'
-            # - 'SonataMediaBundle:Form:media_widgets.html.twig'
+            - 'SonataMediaBundle:Form:media_widgets.html.twig'
 
 # Assetic Configuration
 assetic:
@@ -184,7 +184,7 @@ sonata_media:
                 small:     { width: 200, quality: 100}
                 big:       { width: 800 , quality: 70}
                 slider:    { width: 1905 , quality: 100}
-        vista:
+        montacarga:
             providers:
                 - sonata.media.provider.image
                 - sonata.media.provider.youtube
@@ -192,7 +192,7 @@ sonata_media:
             formats:
                 preview:   { width: 100, quality: 100}
                 small:     { width: 200, quality: 100}
-                large:     { width: 600, quality: 100}
+                large:     { width: 730, quality: 100}
 
     cdn:
         server:

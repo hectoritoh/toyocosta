@@ -5,10 +5,18 @@
     background-image: url("../../bundles/celmediatoyocostamontacargas/images/banner-montacargas.jpg");
    /* background-size: cover;*/
   /* background: url("../../bundles/celmediatoyocostamontacargas/images/banner-montacargas.jpg") no-repeat scroll left center transparent;*/
-    height: 333px;
+    height: 190px;
     color: #FFF;
 }
-
+.navbar-nav-montacarga > li > a {
+    line-height: 8px;
+}
+.fondo-blanco{
+    background-color: #ffffff;
+}
+.fondo-blanco li{
+    color: #999;
+}
 .menu-montacargas-top{
 	position: relative;
     top: 71px;
@@ -147,7 +155,7 @@ span.boton-naranja{
 	color: #FFF;
 }
 .titulo-interno{
-	font: 7.2em Arial,sans-serif;
+	font: 5.2em Arial,sans-serif;
     left: 13%;
     position: relative;
     top: 40%;
@@ -162,7 +170,8 @@ span.boton-naranja{
     left: 25%;
     float: left;
     position: absolute;
-    top:121px;
+    /*top:121px;*/
+    top: 108px;
     z-index: 999;
 }
 

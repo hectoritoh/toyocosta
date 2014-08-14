@@ -1,0 +1,183 @@
+{% extends 'CelmediaToyocostaMontacargasBundle::layout.html.twig' %}
+
+
+{% block contenido %}
+
+    {% include 'CelmediaToyocostaMontacargasBundle:Blocks:top.submenu.html.twig' %}
+	<div class="banner-montacargas">
+		<h1 class="titulo-interno">PRODUCTOS</h1>
+	</div>
+
+
+	<div class="container">			
+		<div class="row">
+			<div class="col-md-12">
+				<ol class="breadcrumb fondo-blanco">
+	              <li><a href="{{ path('montacargas_home')}}">INICIO</a></li>
+	              <li>MONTACARGAS</li>
+	              <li style="text-transform:uppercase;">{{ montacarga.montacargaSubcategoria.nombre }}</li>
+	              <li class="active"><strong style="text-transform:uppercase;"> {{ montacarga.modelo }} </strong></li>
+	            </ol>
+			</div>			
+		</div>
+		
+		<div class="row">
+			<div class="col-xs-8 col-md-6 col-md-offset-2">
+				<h3 style="text-align:justify; margin-top:10px;"><strong style="text-transform:uppercase;">{{ montacarga.modelo }}</strong></h3>
+			</div>
+			<div class="col-xs-4 col-md-2">
+				{% if montacarga.ficha %}
+				<a href="{{ asset('uploads/montacargas/ficha/'   ~   montacarga.ficha ) }}" class="btn btn-anterior" target="_blank" style="width:100%;">Ficha T&eacute;cnica</a>
+				{% endif %}
+			</div>
+		</div>
+
+		{% if montacarga.imagenes|length > 0 %}
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2" >
+                <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+
+                  <!-- Wrapper for slides -->
+                  	<div class="carousel-inner">
+
+	                  	{% for mGaleria  in montacarga.imagenes  %}
+
+							<div class="item {% if loop.first %}active{% endif %}">					 	
+							 
+							 	{% media mGaleria.media , 'large' with { 'style': 'width:730px;' } %}
+							 	
+							</div>
+
+						{% endfor %}
+
+	                    {#<div class="item active">
+	                      	{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/banner-montacargas.jpg' %}
+								<img src="{{ asset_url }}" class="img-responsive" />
+			        		{% endimage %}
+	                      <div class="carousel-caption" style="left: 12%; padding: 10px; background:#ff730d;">
+	                            
+	                            <p class="txt-caption" style="text-align:left; color:white; ">INFORMACI&Oacute;N DEL MONTACARGA</p>
+	                            
+	                      </div>
+	                    </div>
+	                    <div class="item">
+	                      	{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/banner-montacargas.jpg' %}
+								<img src="{{ asset_url }}" class="img-responsive" />
+			        		{% endimage %}
+	                      <div class="carousel-caption" style="left: 12%; padding: 10px; background:#ff730d;">
+	                           <p class="txt-caption" style="text-align:left; color:white; ">INFORMACI&Oacute;N DEL MONTACARGA</p>
+	                               
+	                      </div>
+	                    </div>#}
+
+                  	</div>
+
+	                  <!-- Controls -->
+	                {% if montacarga.imagenes|length > 1 %}
+	                  <a class="left carousel-control" style="top:40% !important; width:5% !important" href="#carousel-example-generic" role="button" data-slide="prev">
+		                  <div style="background:#df182b; padding:10px;">
+		                    <span class="glyphicon glyphicon-chevron-left-mont"></span>
+		                  </div>
+	                  </a>
+	                  <a class="right carousel-control" style="top:40% !important; width:5% !important" href="#carousel-example-generic" role="button" data-slide="next">
+		                  <div style="background:#df182b; padding:10px;">
+		                    <span class="glyphicon glyphicon-chevron-right-mont"></span>
+		                  </div>  
+	                  </a>
+
+					{% endif %}	
+                </div>
+
+            </div>
+		</div>	
+		{% endif %}
+
+
+		<div class="row">
+			<div class="col-md-10 col-md-offset-1">	
+				<h3 style="text-align:center"><strong>CARACTER&Iacute;STICA DEL MONTACARGAS</strong></h3><br/><br/>
+
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2">
+
+						{{ montacarga.caracteristicas | raw }}
+
+						{#<ul class="lista-montacargas">
+							<li>Permiten concentrar sus recursos al objeto de su empresa.</li><br/>
+							<li>El canon de arrendamiento es 100% deducible de impuestos.</li><br/>
+							<li>No afecta el nivel de endeudamiento de su negocio.</li>
+							<li>Facilita la labor financiera y operativa.</li><br/>
+							<li>Mejora notablemente el flujo de caja.</li><br/>
+							<li>Disponer de flotas renovada sin acudir a grandes inversiones.</li>
+						</ul>#}
+
+			    	</div>
+			    	{#<div class="col-md-6">	
+			    		<ul class="lista-montacargas">
+			    			<li>Respaldo con equipos en Stand by.</li><br/>
+			    			<li>SErvicio de mantenimiento y respuestos.</li><br/>
+			    			<li>Seguro de responsabilidad civil.</li><br/>
+			    			<li>Reducci&oacute;n de tiempo muerto (montacargas fuera de servicios).</li><br/>
+			    			<li>Capacitaci&oacute;n a operacios sin costo adicional.</li><br/>
+			    		</ul>
+			    	</div>	#}
+			    	
+				</div>
+				<br/><br/>
+				<div class="row">
+					<div class="col-md-3 col-md-offset-3">
+						<a href="{{ path('montacargas_cotizacion') }}"><button class="btn btn-anterior"  style="width:100%;">Solicitar Cotizaci&oacute;n</button></a>
+					</div>
+					<div class="col-md-3">
+						<button class="btn btn-info"  style="width:100%;">Cont&aacute;ctenos</button>
+					</div>
+				</div>
+				
+			</div>			
+		</div>
+		<br/><br/>
+		
+		<div class="row">
+			<h5 ><strong>OTROS MODELOS</strong></h5><hr/ style="margin-top:0px !important">
+			{% for item in montacargas %}
+
+				<a href="{{ path('ver_montacarga', {'montacargaid': item.id } )  }}">
+				    <div class="col-md-2">
+				    {% for thumb in item.imagenes %}
+
+				    	{% if loop.first %}
+
+				        {% media thumb.media , 'small' with {'class': 'img-responsive'} %}
+				    	{% endif %}
+
+				    {% endfor %}
+				    </div>
+				</a>
+			{% endfor %}
+			{#<div class="col-md-2">
+				{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/accesos/acceso-cascade.jpg' %}
+					<img src="{{ asset_url }}" class="img-responsive" />
+        		{% endimage %}
+			</div>	
+			<div class="col-md-2">
+				{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/accesos/acceso-m-toyota.jpg' %}
+					<img src="{{ asset_url }}" class="img-responsive" />
+        		{% endimage %}
+			</div>
+			<div class="col-md-2">
+				{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/accesos/acceso-raymond.jpg' %}
+					<img src="{{ asset_url }}" class="img-responsive" />
+        		{% endimage %}
+			</div>
+			<div class="col-md-2">
+				{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/accesos/acceso_bt.jpg' %}
+					<img src="{{ asset_url }}" class="img-responsive" />
+        		{% endimage %}
+			</div>#}		
+		</div>
+			
+		<br/><br/><br/>
+	</div>										
+	
+
+{% endblock %}

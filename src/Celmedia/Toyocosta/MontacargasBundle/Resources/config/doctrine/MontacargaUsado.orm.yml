@@ -22,6 +22,12 @@ Celmedia\Toyocosta\MontacargasBundle\Entity\MontacargaUsado:
         descripcion:
             type: text
             nullable: true
+        formato:
+            type: text
+            nullable: true
+        rawText:
+            type: text
+            nullable: true
         estado:
             type: integer
             unsigned: false
@@ -41,6 +47,19 @@ Celmedia\Toyocosta\MontacargasBundle\Entity\MontacargaUsado:
       galeria:
         targetEntity: MontacargaUsadoGaleria
         mappedBy: montacarga_usado
+        cascade: ["persist"]
+    manyToMany:
+      imagenes:
+        targetEntity: Application\Sonata\MediaBundle\Entity\GalleryHasMedia
+        joinTable:
+          name: montacarga_usado_imagen
+          joinColumns:
+            id_montacargausado:
+              referencedColumnName: id
+          inverseJoinColumns:
+            id_imagen:
+              referencedColumnName: id
+              unique: true
         cascade: ["persist"]
 
     lifecycleCallbacks:

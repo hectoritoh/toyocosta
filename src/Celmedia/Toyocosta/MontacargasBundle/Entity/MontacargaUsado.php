@@ -35,6 +35,16 @@ class MontacargaUsado
     private $descripcion;
 
     /**
+     * @var string
+     */
+    private $formato;
+
+    /**
+     * @var string
+     */
+    private $rawText;
+
+    /**
      * @var integer
      */
     private $estado;
@@ -55,11 +65,17 @@ class MontacargaUsado
     private $galeria;
 
     /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $imagenes;
+
+    /**
      * Constructor
      */
     public function __construct()
     {
         $this->galeria = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->imagenes = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -165,6 +181,52 @@ class MontacargaUsado
     }
 
     /**
+     * Set formato
+     *
+     * @param string $formato
+     * @return MontacargaUsado
+     */
+    public function setFormato($formato)
+    {
+        $this->formato = $formato;
+
+        return $this;
+    }
+
+    /**
+     * Get formato
+     *
+     * @return string 
+     */
+    public function getFormato()
+    {
+        return $this->formato;
+    }
+
+    /**
+     * Set rawText
+     *
+     * @param string $rawText
+     * @return MontacargaUsado
+     */
+    public function setRawText($rawText)
+    {
+        $this->rawText = $rawText;
+
+        return $this;
+    }
+
+    /**
+     * Get rawText
+     *
+     * @return string 
+     */
+    public function getRawText()
+    {
+        return $this->rawText;
+    }
+
+    /**
      * Set estado
      *
      * @param integer $estado
@@ -264,6 +326,39 @@ class MontacargaUsado
     public function getGaleria()
     {
         return $this->galeria;
+    }
+
+    /**
+     * Add imagenes
+     *
+     * @param \Application\Sonata\MediaBundle\Entity\GalleryHasMedia $imagenes
+     * @return MontacargaUsado
+     */
+    public function addImagene(\Application\Sonata\MediaBundle\Entity\GalleryHasMedia $imagenes)
+    {
+        $this->imagenes[] = $imagenes;
+
+        return $this;
+    }
+
+    /**
+     * Remove imagenes
+     *
+     * @param \Application\Sonata\MediaBundle\Entity\GalleryHasMedia $imagenes
+     */
+    public function removeImagene(\Application\Sonata\MediaBundle\Entity\GalleryHasMedia $imagenes)
+    {
+        $this->imagenes->removeElement($imagenes);
+    }
+
+    /**
+     * Get imagenes
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getImagenes()
+    {
+        return $this->imagenes;
     }
     /**
      * @ORM\PrePersist
