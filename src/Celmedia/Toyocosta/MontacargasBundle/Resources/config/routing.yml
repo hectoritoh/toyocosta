@@ -22,11 +22,20 @@ montacargas_usados:
     path:      /montacargas/usados
     defaults:  { _controller: CelmediaToyocostaMontacargasBundle:Default:usados }
 
+envio_exitoso:
+    pattern:  /montacargas/mensaje
+    defaults: { _controller: CelmediaToyocostaMontacargasBundle:Default:mensaje }
+
 montacargas_cotizacion:
     path:      /montacargas/cotizacion/{idmontacarga}
     defaults:  { _controller: CelmediaToyocostaMontacargasBundle:Default:cotizacion }
 
+usados_cotizacion:
+    path:      /montacargas/usado/{idusado}
+    defaults:  { _controller: CelmediaToyocostaMontacargasBundle:Default:cotizacionUsado }
+
 ver_montacarga:
     path:      /montacargas/{montacargaid}
     defaults:  { _controller: CelmediaToyocostaMontacargasBundle:Default:producto }
+
 

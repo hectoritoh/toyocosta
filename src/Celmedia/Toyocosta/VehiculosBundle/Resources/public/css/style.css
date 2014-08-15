@@ -1860,3 +1860,6 @@ ul.tabs-especificaciones li > a:hover{
 #footer-banners{
 	display: none;
 }
+#fondo-error{
+	background-image: url("../../../bundles/celmediatoyocostavehiculos/images/404.jpg");
+}

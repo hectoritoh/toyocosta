@@ -44,15 +44,7 @@ $(document).ready(function() {
 	      	var a = id.split('-');
 	      	var num = a[3];
 	      	$(id).css({'opacity': '0.7'});
-	      	if(num==1){
-	      		$('#sub-categorias-menu-'+num).css({'display':'block'});
-	      	}else if(num==2){
-	      		$('#sub-categorias-menu-'+num).css({'display':'block','right': '283px'});
-	      	}else if(num==3){
-				$('#sub-categorias-menu-'+num).css({'display':'block','right': '142px'});
-	      	}else if(num==4){
-				$('#sub-categorias-menu-'+num).css({'display':'block','right': '0px'});
-	      	}
+	      	$('#sub-categorias-menu-'+num).css({'display':'block'});
 	 	 
 		},
 		//on mouseout
@@ -79,16 +71,7 @@ $(document).ready(function() {
 	      	var a = id.split('-');
 	      	var num = a[3];
 	      	$(id).css({'opacity': '0.7'});
-	      	if(num==1){
-	      		$('#sub-'+num).css({'display':'block'});
-	      	}else if(num==2){
-	      		$('#sub-'+num).css({'display':'block','right': '280px'});
-	      	}else if(num==3){
-				$('#sub-'+num).css({'display':'block','left':'138px','top':'74px'});
-	      	}else if(num==4){
-				$('#sub-'+num).css({'display':'block','right': '0px'});
-	      	}
-	  
+	      	$('#sub-'+num).css({'display':'block'});  
 		 
 		},
 		//on mouseout
@@ -99,7 +82,6 @@ $(document).ready(function() {
 	      	var a = id.split('-');
 	      	var num = a[3];
 			$('#sub-'+num).css({'display':'none'});	
-		 
 		 
 		}
 

@@ -15,8 +15,12 @@
                 <ol class="breadcrumb fondo-blanco">
                   <li><a href="{{ path('montacargas_home')}}">INICIO</a></li>
                   <li>COTIZACION</li>
+                  {% if app.request.get('_route') == "montacargas_cotizacion" %}
                   <li style="text-transform:uppercase;">{{ montacarga.montacargaSubcategoria.nombre }}</li>
                   <li class="active"><strong style="text-transform:uppercase;"> {{ montacarga.modelo }} </strong></li>
+                  {% else %}
+                  <li class="active"><strong style="text-transform:uppercase;"> {{ usado.modelo }} </strong></li>
+                  {% endif %}
                 </ol>
             </div>          
         </div>       
@@ -26,7 +30,16 @@
 
                 <form action="" {{ form_enctype(form) }} method="POST" role="form" id="form-register" class="form-horizontal">
 
-                   {#<input type="hidden" name="id_montacarga" value="{{ montacarga.id }}"/>#}
+                    {#{% if app.request.get('_route') == "montacargas_cotizacion" %}
+                   
+                    {% else %}
+                   
+
+                        {{ form_widget(form.usado, {'attr': {'class': 'form-control'}, 'value': usado.id }) }}
+
+                    {% endif %}#}
+
+
                     {% if error %}
                         <div class="row space-input">
                             <div class="col-md-10">
