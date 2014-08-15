@@ -186,6 +186,12 @@ $(window).bind('scroll', function() {
        // $('html, body').animate({ "top": "-=50px" }, "slow" );
     });
 
+     
+     $('a.submenu-vehiculo-item').on('click', function(event) {
+        $(this).closest('.submenu-vehiculo').find('div').removeClass("active");
+        $(this).parent().addClass("active");
+    });
+
 
 
 $(document).ready(function(){
