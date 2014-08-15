@@ -45,6 +45,19 @@ Celmedia\Toyocosta\MontacargasBundle\Entity\MontacargaCotizacion:
             gedmo:
               timestampable:
                 on: update
+    manyToOne:
+      montacarga:
+        targetEntity: Montacarga
+        inversedBy: cotizaciones
+        joinColumn:
+          name: montacarga_id
+          referencedColumnName: id
+      usado:
+        targetEntity: MontacargaUsado
+        inversedBy: cotizacionesusado
+        joinColumn:
+          name: usado_id
+          referencedColumnName: id
 
     lifecycleCallbacks:
         prePersist:   [ lifecycleFileUpload ]

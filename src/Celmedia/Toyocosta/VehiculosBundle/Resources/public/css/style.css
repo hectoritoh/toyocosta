@@ -1839,7 +1839,7 @@ ul.tabs-especificaciones li > a:hover{
     color: #fff !important;
     cursor: default;
 }
-<<<<<<< HEAD
+
 .breadcrumb li > a{
 	color:#a4a4a4;
 } 
@@ -1855,5 +1855,8 @@ ul.tabs-especificaciones li > a:hover{
 	right: 0px;
 	display: inline-block;
 }
-=======
->>>>>>> b1a0170380c2478ed808a03da4376695e7366703
+
+
+#footer-banners{
+	display: none;
+}

@@ -206,7 +206,8 @@ span.boton-naranja{
 .imagen-submenu{
 	display: inline;
 	border: 2px solid #929694;
-	margin-left: -5px;
+	/*margin-left: -5px;*/
+    margin-left: -4px;
 }
 
 .submenu-pro li:hover{

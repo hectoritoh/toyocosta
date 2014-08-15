@@ -7,69 +7,65 @@ $(window).bind('scroll', function() {
 	}
 });
 
-function centrarVert(elemento){
-	altura1=elemento.parent().height();
-	altura2=elemento.height();
-	if (altura1>=altura2) {
-		elemento.css("margin-top",(altura1/2)-(altura2/2)+"px");
+  function centrarVert(elemento){
+  	altura1=elemento.parent().height();
+  	altura2=elemento.height();
+  	if (altura1>=altura2) {
+  		elemento.css("margin-top",(altura1/2)-(altura2/2)+"px");
 
-	}else{
-		elemento.css("margin-top","20px");
-	};
-}
+  	}else{
+  		elemento.css("margin-top","20px");
+  	};
+  }
 
 
+  function centrarHorizontal(elemento){
+  	ancho1=elemento.parent().width();
+  	ancho2=elemento.width();
 
-function centrarHorizontal(elemento){
-	ancho1=elemento.parent().width();
-	ancho2=elemento.width();
+  	elemento.css("margin-left",(ancho1/2)-(ancho2/2)+"px");
 
-	elemento.css("margin-left",(ancho1/2)-(ancho2/2)+"px");
+  }
 
-}
+  function reservaSelected(elemento){
 
-function reservaSelected(elemento){
+      if ( $(elemento).val() == 1 ) { 
+        //Reserva de mantenimiento
+        //alert("lalala");
+        $("#sm-modelo-km").show();
+        $("#sm-comentario").hide();
+      }else{
+        $("#sm-modelo-km").hide();
+        $("#sm-comentario").show();
+      }
 
-    if ( $(elemento).val() == 1 ) { 
-      //Reserva de mantenimiento
-      //alert("lalala");
-      $("#sm-modelo-km").show();
-      $("#sm-comentario").hide();
-    }else{
-      $("#sm-modelo-km").hide();
-      $("#sm-comentario").show();
-    }
+      var parametros = {
+          reserva: $(elemento).val()
+      }
 
-    var parametros = {
-        reserva: $(elemento).val()
-    }
+      $.ajax({
+          url: Routing.generate('get_taller'),
+          type: 'POST',
+          async: true,
+          data: parametros,
+          dataType: "json",
+          success: function (respuesta) {
+            
+            if(respuesta.codigo == 1){
+              var option = '<option value="" selected>Selecciona un taller</option>';            
+              for (var i = 0; i < respuesta.talleres.length; i++) {
+                option += '<option value="'+ respuesta.talleres[i].id + '">' + respuesta.talleres[i].nombre + '</option>';
+              };
 
-    $.ajax({
-        url: Routing.generate('get_taller'),
-        type: 'POST',
-        async: true,
-        data: parametros,
-        dataType: "json",
-        success: function (respuesta) {
-          
-          if(respuesta.codigo == 1){
-            var option = '<option value="" selected>Selecciona un taller</option>';            
-            for (var i = 0; i < respuesta.talleres.length; i++) {
-              option += '<option value="'+ respuesta.talleres[i].id + '">' + respuesta.talleres[i].nombre + '</option>';
-            };
-
-            $("#mtaller").html(option);
+              $("#mtaller").html(option);
+            }
+            //console.log(respuesta.precio);
+          }, 
+          error: function (error) {
+            console.log("ERROR: " + error);
           }
-          //console.log(respuesta.precio);
-        }, 
-        error: function (error) {
-          console.log("ERROR: " + error);
-        }
-    });
-
-
-
-}
+      });
+  }
 
 
   function modeloSelected(modelo){
@@ -163,7 +159,7 @@ function reservaSelected(elemento){
     });
   }
 
-  
+
 
 $(document).ready(function(){
 
@@ -175,7 +171,7 @@ $(document).ready(function(){
        centrarHorizontal($(this));
      });
 
-	$('.selectcmb').selectbox();
+	// $('.selectcmb').selectbox();
 
 	/*$('[data-spy="scroll"]').each(function () {
 		var $spy = $(this).scrollspy('refresh')

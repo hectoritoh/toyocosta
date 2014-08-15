@@ -5,7 +5,7 @@
         <div class="container">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
-            <a class="navbar-brand" href="#" style="padding-top:1px;">
+            <a class="navbar-brand" href="{{ path('montacargas_home') }}" style="padding-top:1px;">
               {% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/logos/toyotaindustrial.png' %}
                 <img src="{{ asset_url }}"  />
               {% endimage %}
@@ -86,13 +86,7 @@
           <img src="{{ asset_url }}" class="img-responsive imagen-submenu" />
         {% endimage %}
       </a>
-      <ul style="display:none" id="sub-categorias-menu-4" class="submenu-pro">
-        <li id="sub-sub-menu-1" >Uno
-        </li>  
-        <li id="sub-sub-menu-2">Dos
-        </li>
-        <li>tres</li>
-      </ul>
+       {{ render(controller("CelmediaToyocostaMontacargasBundle:Default:obtenerSubcategoriaXCategoria" , { 'categoriaId': 4 } ) ) }}
     </li>
 
   </ul>

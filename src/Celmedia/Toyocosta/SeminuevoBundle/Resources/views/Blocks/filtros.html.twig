@@ -47,7 +47,7 @@
 
             <div class="col-md-2 unido" >
                 <div class="styled-select">
-                    <select name="selectestado" id="selectestado" class="form-control select-filtro selectcmb">
+                    <select name="selectestado" id="selectestado" class="form-control select-filtro selectcmb" style=" border-right: 1px solid #ccc;">
                         <option class="style-option" value="">Estado</option>
                         {% for sm_estado in estados %}
                         <option class="style-option" value="{{ sm_estado.estado }}" {% if seminuevo_estado == sm_estado.estado %} selected {% endif %} >{{ sm_estado.estado }}</option>
@@ -56,8 +56,8 @@
                 </div>
             </div>
            
-            <div class="col-md-2">
-                <input type="submit" class="btn btn-buscar-filtro" value="Buscar" />
+            <div class="col-md-2" style="border-bottom: 1px solid #ccc;border-right: 1px solid #ccc;">
+                <input type="submit" style="margin-bottom:4px;" class="btn btn-buscar-filtro" value="Buscar" />
                 {#
                   <input name="buscar" class="form-control input-lg input-buscador input-search" type="text" placeholder="Buscar">
                 #}

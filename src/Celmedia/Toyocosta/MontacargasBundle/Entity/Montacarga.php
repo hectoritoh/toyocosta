@@ -65,6 +65,11 @@ class Montacarga
     private $galeria;
 
     /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $cotizaciones;
+
+    /**
      * @var \Celmedia\Toyocosta\MontacargasBundle\Entity\Subcategoria
      */
     private $montacarga_subcategoria;
@@ -80,6 +85,7 @@ class Montacarga
     public function __construct()
     {
         $this->galeria = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->cotizaciones = new \Doctrine\Common\Collections\ArrayCollection();
         $this->imagenes = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
@@ -334,6 +340,39 @@ class Montacarga
     }
 
     /**
+     * Add cotizaciones
+     *
+     * @param \Celmedia\Toyocosta\MontacargasBundle\Entity\MontacargaCotizacion $cotizaciones
+     * @return Montacarga
+     */
+    public function addCotizacione(\Celmedia\Toyocosta\MontacargasBundle\Entity\MontacargaCotizacion $cotizaciones)
+    {
+        $this->cotizaciones[] = $cotizaciones;
+
+        return $this;
+    }
+
+    /**
+     * Remove cotizaciones
+     *
+     * @param \Celmedia\Toyocosta\MontacargasBundle\Entity\MontacargaCotizacion $cotizaciones
+     */
+    public function removeCotizacione(\Celmedia\Toyocosta\MontacargasBundle\Entity\MontacargaCotizacion $cotizaciones)
+    {
+        $this->cotizaciones->removeElement($cotizaciones);
+    }
+
+    /**
+     * Get cotizaciones
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCotizaciones()
+    {
+        return $this->cotizaciones;
+    }
+
+    /**
      * Set montacarga_subcategoria
      *
      * @param \Celmedia\Toyocosta\MontacargasBundle\Entity\Subcategoria $montacargaSubcategoria
@@ -399,8 +438,6 @@ class Montacarga
 
 
 
-
-
     /**
      * Unmapped property to handle file uploads
      */
@@ -454,7 +491,6 @@ class Montacarga
     {
         return $this->getModelo();
     }
-
 
 
 }

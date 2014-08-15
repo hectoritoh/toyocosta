@@ -3,7 +3,7 @@
 namespace Celmedia\Toyocosta\MontacargasBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 /**
  * MontacargaUsado
  */
@@ -67,6 +67,11 @@ class MontacargaUsado
     /**
      * @var \Doctrine\Common\Collections\Collection
      */
+    private $cotizacionesusado;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
     private $imagenes;
 
     /**
@@ -75,6 +80,7 @@ class MontacargaUsado
     public function __construct()
     {
         $this->galeria = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->cotizacionesusado = new \Doctrine\Common\Collections\ArrayCollection();
         $this->imagenes = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
@@ -329,6 +335,39 @@ class MontacargaUsado
     }
 
     /**
+     * Add cotizacionesusado
+     *
+     * @param \Celmedia\Toyocosta\MontacargasBundle\Entity\MontacargaCotizacion $cotizacionesusado
+     * @return MontacargaUsado
+     */
+    public function addCotizacionesusado(\Celmedia\Toyocosta\MontacargasBundle\Entity\MontacargaCotizacion $cotizacionesusado)
+    {
+        $this->cotizacionesusado[] = $cotizacionesusado;
+
+        return $this;
+    }
+
+    /**
+     * Remove cotizacionesusado
+     *
+     * @param \Celmedia\Toyocosta\MontacargasBundle\Entity\MontacargaCotizacion $cotizacionesusado
+     */
+    public function removeCotizacionesusado(\Celmedia\Toyocosta\MontacargasBundle\Entity\MontacargaCotizacion $cotizacionesusado)
+    {
+        $this->cotizacionesusado->removeElement($cotizacionesusado);
+    }
+
+    /**
+     * Get cotizacionesusado
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCotizacionesusado()
+    {
+        return $this->cotizacionesusado;
+    }
+
+    /**
      * Add imagenes
      *
      * @param \Application\Sonata\MediaBundle\Entity\GalleryHasMedia $imagenes
@@ -360,11 +399,101 @@ class MontacargaUsado
     {
         return $this->imagenes;
     }
+
+    /**
+     * @var string
+     */
+    private $ficha;
+
+
+    /**
+     * Set ficha
+     *
+     * @param string $ficha
+     * @return MontacargaUsado
+     */
+    public function setFicha($ficha)
+    {
+        $this->ficha = $ficha;
+
+        return $this;
+    }
+
+    /**
+     * Get ficha
+     *
+     * @return string 
+     */
+    public function getFicha()
+    {
+        return $this->ficha;
+    }
+
+
+
+
+    /**
+     * Unmapped property to handle file uploads
+     */
+    private $fichaPdf;
+
+    /**
+     * Sets file.
+     *
+     * @param UploadedFile $file
+     */
+    public function setFichaPdf(UploadedFile $fichaPdf = null)
+    {
+        $this->fichaPdf = $fichaPdf;
+    }
+
+    /**
+     * Get file.
+     *
+     * @return UploadedFile
+     */
+    public function getFichaPdf()
+    {
+        return $this->fichaPdf;
+    }
+
+    /**
+     * Manages the copying of the file to the relevant place on the server
+     */
+    public function uploadFichaPdf()
+    {
+        // the file property can be empty if the field is not required
+        if (null === $this->getFichaPdf()) {
+            return;
+        }
+
+        // move takes the target directory and target filename as params
+        $this->getFichaPdf()->move(
+           __DIR__.'/../../../../../web/'. 'uploads/montacargas/ficha' ,
+            $this->getFichaPdf()->getClientOriginalName()
+        );
+
+        // set the path property to the filename where you've saved the file
+        $this->ficha = $this->getFichaPdf()->getClientOriginalName();
+
+        // clean up the file property as you won't need it anymore
+        $this->setFichaPdf(null);
+    }
+
+
+    public function __toString()
+    {
+        return $this->getModelo();
+    }
+
     /**
      * @ORM\PrePersist
      */
     public function lifecycleFileUpload()
     {
         // Add your code here
+        $this->uploadFichaPdf();
     }
+
+
 }

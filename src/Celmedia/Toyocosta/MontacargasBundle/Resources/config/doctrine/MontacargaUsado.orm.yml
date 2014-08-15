@@ -22,6 +22,9 @@ Celmedia\Toyocosta\MontacargasBundle\Entity\MontacargaUsado:
         descripcion:
             type: text
             nullable: true
+        ficha:
+            type: text
+            nullable: true
         formato:
             type: text
             nullable: true
@@ -47,6 +50,10 @@ Celmedia\Toyocosta\MontacargasBundle\Entity\MontacargaUsado:
       galeria:
         targetEntity: MontacargaUsadoGaleria
         mappedBy: montacarga_usado
+        cascade: ["persist"]
+      cotizacionesusado:
+        targetEntity: MontacargaCotizacion
+        mappedBy: usado
         cascade: ["persist"]
     manyToMany:
       imagenes:

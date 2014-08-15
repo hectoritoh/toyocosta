@@ -48,6 +48,10 @@ Celmedia\Toyocosta\MontacargasBundle\Entity\Montacarga:
         targetEntity: MontacargaGaleria
         mappedBy: montacarga_galeria
         cascade: ["persist"]
+      cotizaciones:
+        targetEntity: MontacargaCotizacion
+        mappedBy: montacarga
+        cascade: ["persist"]
       # file:
       #   targetEntity: Application\Sonata\MediaBundle\Entity\Media
       #   mappedBy: montacarga
