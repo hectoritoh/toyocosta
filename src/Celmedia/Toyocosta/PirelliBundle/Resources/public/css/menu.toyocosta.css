@@ -129,12 +129,12 @@
 	background-color: #df182b;
 }
 
-.fondo-submenu-vehiculo a{
+#vehiculos-secciones .submenu-vehiculo-item{
 	color: #fffeff;
 	text-transform: uppercase;
 }
 
-.fondo-submenu-vehiculo a.active{
+#vehiculos-secciones .active .submenu-vehiculo-item{
 	color: #e9db06;
 	text-transform: uppercase;
 }

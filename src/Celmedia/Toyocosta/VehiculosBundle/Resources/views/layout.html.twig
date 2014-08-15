@@ -21,7 +21,7 @@
         <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
         <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
     </head>
-    <body>
+    <body {% if app.request.get('_route') == "ver_vehiculo" %}data-target="#vehiculos-secciones"{% elseif app.request.get('_route') == "toyocosta_homepage" %}data-target="#scrollprincipal"{% endif %}>
         {% set estaLogueado = false %}
         {% set idLogueado = 1 %}
         {#
@@ -36,10 +36,10 @@
         {% include 'CelmediaToyocostaPirelliBundle:Blocks:footer.html.twig' %}
              {% javascripts
                 '@CelmediaToyocostaPirelliBundle/Resources/public/js/jquery.js'
-                '@CelmediaToyocostaPirelliBundle/Resources/public/js/jquery.selectbox/jquery.selectbox-0.2.js'        
-                '@CelmediaToyocostaVehiculosBundle/Resources/public/js/jquery-ui-1.9.2.custom.js'            
-                '@CelmediaToyocostaVehiculosBundle/Resources/public/js/jquery.scrollTo-1.4.2-min.js' 
-                '@CelmediaToyocostaVehiculosBundle/Resources/public/js/jquery.bootstrap.wizard.min.js'                                
+                '@CelmediaToyocostaPirelliBundle/Resources/public/js/jquery.selectbox/jquery.selectbox-0.2.js'
+                '@CelmediaToyocostaVehiculosBundle/Resources/public/js/jquery-ui-1.9.2.custom.js'
+                '@CelmediaToyocostaVehiculosBundle/Resources/public/js/jquery.scrollTo-1.4.2-min.js'
+                '@CelmediaToyocostaVehiculosBundle/Resources/public/js/jquery.bootstrap.wizard.min.js'
                 '@CelmediaToyocostaPirelliBundle/Resources/public/js/bootstrap.min.js'
                 '@CelmediaToyocostaPirelliBundle/Resources/public/js/jquery.validate.min.js'
                 '@CelmediaToyocostaPirelliBundle/Resources/public/js/additional-methods.min.js'
