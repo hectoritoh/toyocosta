@@ -1863,3 +1863,6 @@ ul.tabs-especificaciones li > a:hover{
 #fondo-error{
 	background-image: url("../../../bundles/celmediatoyocostavehiculos/images/404.jpg");
 }
+.submenu-vehiculo>li>a:hover, .nav>li>a:focus {
+ background-color: transparent;
+}
