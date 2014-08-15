@@ -1,0 +1,8 @@
+
+	<ul class="submenu-pro sub-sub-menu" id="sub-{{ subcategoriaId }}">
+      {% for montacarga in montacargas %}
+      	<li>
+      		<a href="{{ path('ver_montacarga', {'montacargaid': montacarga.id } )  }}">{{ montacarga.modelo }}</a> 
+      	</li>          
+      {% endfor %}
+    </ul>

@@ -30,11 +30,13 @@ class SubcategoriaAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('id')
+            ->add('montacarga_categoria')
             ->add('nombre')
-            ->add('estado')
-            ->add('created_at')
-            ->add('updated_at')
+            ->add('estado', 'choice', array(
+           'choices' => array(
+               '1' => 'Publicado',
+               '0' => 'No publicado'
+               )))
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),
@@ -51,11 +53,13 @@ class SubcategoriaAdmin extends Admin
     protected function configureFormFields(FormMapper $formMapper)
     {
         $formMapper
-            ->add('id')
+            ->add('montacarga_categoria')
             ->add('nombre')
-            ->add('estado')
-            ->add('created_at')
-            ->add('updated_at')
+            ->add('estado', 'choice', array(
+           'choices' => array(
+               '1' => 'Publicado',
+               '0' => 'No publicado'
+               )))
         ;
     }
 

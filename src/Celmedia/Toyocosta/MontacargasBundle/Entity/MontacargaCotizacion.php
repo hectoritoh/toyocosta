@@ -59,6 +59,16 @@ class MontacargaCotizacion
      */
     private $updated;
 
+    /**
+     * @var \Celmedia\Toyocosta\MontacargasBundle\Entity\Montacarga
+     */
+    private $montacarga;
+
+    /**
+     * @var \Celmedia\Toyocosta\MontacargasBundle\Entity\MontacargaUsado
+     */
+    private $usado;
+
 
     /**
      * Get id
@@ -275,6 +285,52 @@ class MontacargaCotizacion
     public function getUpdated()
     {
         return $this->updated;
+    }
+
+    /**
+     * Set montacarga
+     *
+     * @param \Celmedia\Toyocosta\MontacargasBundle\Entity\Montacarga $montacarga
+     * @return MontacargaCotizacion
+     */
+    public function setMontacarga(\Celmedia\Toyocosta\MontacargasBundle\Entity\Montacarga $montacarga = null)
+    {
+        $this->montacarga = $montacarga;
+
+        return $this;
+    }
+
+    /**
+     * Get montacarga
+     *
+     * @return \Celmedia\Toyocosta\MontacargasBundle\Entity\Montacarga 
+     */
+    public function getMontacarga()
+    {
+        return $this->montacarga;
+    }
+
+    /**
+     * Set usado
+     *
+     * @param \Celmedia\Toyocosta\MontacargasBundle\Entity\MontacargaUsado $usado
+     * @return MontacargaCotizacion
+     */
+    public function setUsado(\Celmedia\Toyocosta\MontacargasBundle\Entity\MontacargaUsado $usado = null)
+    {
+        $this->usado = $usado;
+
+        return $this;
+    }
+
+    /**
+     * Get usado
+     *
+     * @return \Celmedia\Toyocosta\MontacargasBundle\Entity\MontacargaUsado 
+     */
+    public function getUsado()
+    {
+        return $this->usado;
     }
     /**
      * @ORM\PrePersist

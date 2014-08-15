@@ -3,7 +3,7 @@
 namespace Celmedia\Toyocosta\MontacargasBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\HttpFoundation\File\UploadedFile;
 /**
  * Montacarga
  */
@@ -32,6 +32,16 @@ class Montacarga
     /**
      * @var string
      */
+    private $formato;
+
+    /**
+     * @var string
+     */
+    private $rawText;
+
+    /**
+     * @var string
+     */
     private $ficha;
 
     /**
@@ -55,9 +65,19 @@ class Montacarga
     private $galeria;
 
     /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $cotizaciones;
+
+    /**
      * @var \Celmedia\Toyocosta\MontacargasBundle\Entity\Subcategoria
      */
     private $montacarga_subcategoria;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $imagenes;
 
     /**
      * Constructor
@@ -65,6 +85,8 @@ class Montacarga
     public function __construct()
     {
         $this->galeria = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->cotizaciones = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->imagenes = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -144,6 +166,52 @@ class Montacarga
     public function getCaracteristicas()
     {
         return $this->caracteristicas;
+    }
+
+    /**
+     * Set formato
+     *
+     * @param string $formato
+     * @return Montacarga
+     */
+    public function setFormato($formato)
+    {
+        $this->formato = $formato;
+
+        return $this;
+    }
+
+    /**
+     * Get formato
+     *
+     * @return string 
+     */
+    public function getFormato()
+    {
+        return $this->formato;
+    }
+
+    /**
+     * Set rawText
+     *
+     * @param string $rawText
+     * @return Montacarga
+     */
+    public function setRawText($rawText)
+    {
+        $this->rawText = $rawText;
+
+        return $this;
+    }
+
+    /**
+     * Get rawText
+     *
+     * @return string 
+     */
+    public function getRawText()
+    {
+        return $this->rawText;
     }
 
     /**
@@ -272,6 +340,39 @@ class Montacarga
     }
 
     /**
+     * Add cotizaciones
+     *
+     * @param \Celmedia\Toyocosta\MontacargasBundle\Entity\MontacargaCotizacion $cotizaciones
+     * @return Montacarga
+     */
+    public function addCotizacione(\Celmedia\Toyocosta\MontacargasBundle\Entity\MontacargaCotizacion $cotizaciones)
+    {
+        $this->cotizaciones[] = $cotizaciones;
+
+        return $this;
+    }
+
+    /**
+     * Remove cotizaciones
+     *
+     * @param \Celmedia\Toyocosta\MontacargasBundle\Entity\MontacargaCotizacion $cotizaciones
+     */
+    public function removeCotizacione(\Celmedia\Toyocosta\MontacargasBundle\Entity\MontacargaCotizacion $cotizaciones)
+    {
+        $this->cotizaciones->removeElement($cotizaciones);
+    }
+
+    /**
+     * Get cotizaciones
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getCotizaciones()
+    {
+        return $this->cotizaciones;
+    }
+
+    /**
      * Set montacarga_subcategoria
      *
      * @param \Celmedia\Toyocosta\MontacargasBundle\Entity\Subcategoria $montacargaSubcategoria
@@ -293,11 +394,103 @@ class Montacarga
     {
         return $this->montacarga_subcategoria;
     }
+
+    /**
+     * Add imagenes
+     *
+     * @param \Application\Sonata\MediaBundle\Entity\GalleryHasMedia $imagenes
+     * @return Montacarga
+     */
+    public function addImagene(\Application\Sonata\MediaBundle\Entity\GalleryHasMedia $imagenes)
+    {
+        $this->imagenes[] = $imagenes;
+
+        return $this;
+    }
+
+    /**
+     * Remove imagenes
+     *
+     * @param \Application\Sonata\MediaBundle\Entity\GalleryHasMedia $imagenes
+     */
+    public function removeImagene(\Application\Sonata\MediaBundle\Entity\GalleryHasMedia $imagenes)
+    {
+        $this->imagenes->removeElement($imagenes);
+    }
+
+    /**
+     * Get imagenes
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getImagenes()
+    {
+        return $this->imagenes;
+    }
     /**
      * @ORM\PrePersist
      */
     public function lifecycleFileUpload()
     {
         // Add your code here
+        $this->uploadFilePdf();
     }
+
+
+
+    /**
+     * Unmapped property to handle file uploads
+     */
+    private $filePdf;
+
+    /**
+     * Sets file.
+     *
+     * @param UploadedFile $file
+     */
+    public function setFilePdf(UploadedFile $filePdf = null)
+    {
+        $this->filePdf = $filePdf;
+    }
+
+    /**
+     * Get file.
+     *
+     * @return UploadedFile
+     */
+    public function getFilePdf()
+    {
+        return $this->filePdf;
+    }
+
+    /**
+     * Manages the copying of the file to the relevant place on the server
+     */
+    public function uploadFilePdf()
+    {
+        // the file property can be empty if the field is not required
+        if (null === $this->getFilePdf()) {
+            return;
+        }
+
+        // move takes the target directory and target filename as params
+        $this->getFilePdf()->move(
+           __DIR__.'/../../../../../web/'. 'uploads/montacargas/ficha' ,
+            $this->getFilePdf()->getClientOriginalName()
+        );
+
+        // set the path property to the filename where you've saved the file
+        $this->ficha = $this->getFilePdf()->getClientOriginalName();
+
+        // clean up the file property as you won't need it anymore
+        $this->setFilePdf(null);
+    }
+
+
+    public function __toString()
+    {
+        return $this->getModelo();
+    }
+
+
 }

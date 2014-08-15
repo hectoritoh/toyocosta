@@ -2,22 +2,18 @@
 
 {% block contenidotoyocosta %}
 
-		{% include 'CelmediaToyocostaVehiculosBundle:Blocks:top.menu.secciones.html.twig' %}
+{% include 'CelmediaToyocostaVehiculosBundle:Blocks:top.menu.secciones.html.twig' %}
 
-<div class="row banner-certificados">
-	<div class="container contenedor-centrar">
-		<div class="text-left">
-            <h1 class="title-banner">Banner </h1>
-        </div>
-	</div>
+<div class="row" style="position:relative; top:70px; height: 380px;">
+	{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/banner/lp.jpg' %}
+		<img src="{{ asset_url }}" class="img-responsive" />
+	{% endimage %}
 </div>
 
-
-
 <div class="container">
-	 <div class="row"><br/><br/>
+	 <div class="row">
         <div class="col-md-12">
-            <ol class="breadcrumb">
+            <ol class="breadcrumb breadcrumb-ty">
               <li><a href="#">HOME</a></li>
               <li><a href="#">PRIUS C</a></li>
               <li class="active"><strong>ESPECIFICACIONES</strong></li>
@@ -31,7 +27,10 @@
     </div>
 	<div class="row">
 		<div class="col-xs-4 col-md-10">
-			<p style="text-align:justify">Regresar</p>
+			<a href="#" style="color:black">
+				<i class="icono-regresar"></i>
+				<strong>Regresar</strong>
+			</a>
 		</div>
 		<div class="col-xs-4 col-md-2">
 			<a class="btn btn-vehiculo" target="_blank" href="#">
@@ -85,11 +84,73 @@
 					</div>
 				</div>
 				<div class="tab-pane" id="exterior">
-					<p>Holaaaa</p>
+					<br/><br/>
+					<div class="table-responsive">
+					  <table class="table">
+					    <tr class="active">
+  							<td>informacion uno</td>
+  							<td>informacion dos</td>
+  						</tr>
+  						 <tr>
+  							<td>informacion uno</td>
+  							<td>informacion dos</td>
+  						</tr>
+  						 <tr class="active">
+  							<td>informacion uno</td>
+  							<td>informacion dos</td>
+  						</tr>
+  						 <tr>
+  							<td>informacion uno</td>
+  							<td>informacion dos</td>
+  						</tr>	
+					  </table>
+					</div>
 				</div>
 				<div class="tab-pane" id="interior">
+					<br/><br/>
+					<div class="table-responsive">
+					  <table class="table">
+					    <tr class="active">
+  							<td>informacion uno</td>
+  							<td>informacion dos</td>
+  						</tr>
+  						 <tr>
+  							<td>informacion uno</td>
+  							<td>informacion dos</td>
+  						</tr>
+  						 <tr class="active">
+  							<td>informacion uno</td>
+  							<td>informacion dos</td>
+  						</tr>
+  						 <tr>
+  							<td>informacion uno</td>
+  							<td>informacion dos</td>
+  						</tr>	
+					  </table>
+					</div>
 				</div>
 				<div class="tab-pane" id="seguridad">
+					<br/><br/>
+					<div class="table-responsive">
+					  <table class="table">
+					    <tr class="active">
+  							<td>informacion uno</td>
+  							<td>informacion dos</td>
+  						</tr>
+  						 <tr>
+  							<td>informacion uno</td>
+  							<td>informacion dos</td>
+  						</tr>
+  						 <tr class="active">
+  							<td>informacion uno</td>
+  							<td>informacion dos</td>
+  						</tr>
+  						 <tr>
+  							<td>informacion uno</td>
+  							<td>informacion dos</td>
+  						</tr>	
+					  </table>
+					</div>
 				</div>
 			</div>	
 

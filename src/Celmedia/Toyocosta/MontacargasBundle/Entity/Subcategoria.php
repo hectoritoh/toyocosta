@@ -216,4 +216,13 @@ class Subcategoria
     {
         // Add your code here
     }
+
+
+    public function __toString()
+    {
+        return $this->getNombre();
+    }
+
+
+
 }

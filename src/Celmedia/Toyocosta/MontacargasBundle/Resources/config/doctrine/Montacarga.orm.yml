@@ -19,6 +19,12 @@ Celmedia\Toyocosta\MontacargasBundle\Entity\Montacarga:
         caracteristicas:
             type: text
             nullable: false
+        formato:
+            type: text
+            nullable: true
+        rawText:
+            type: text
+            nullable: true
         ficha:
             type: text
             nullable: false
@@ -42,7 +48,22 @@ Celmedia\Toyocosta\MontacargasBundle\Entity\Montacarga:
         targetEntity: MontacargaGaleria
         mappedBy: montacarga_galeria
         cascade: ["persist"]
-
+      cotizaciones:
+        targetEntity: MontacargaCotizacion
+        mappedBy: montacarga
+        cascade: ["persist"]
+      # file:
+      #   targetEntity: Application\Sonata\MediaBundle\Entity\Media
+      #   mappedBy: montacarga
+      #   orderBy:
+      #      position: ASC
+    # oneToOne:
+    #   file:
+    #     targetEntity: Application\Sonata\MediaBundle\Entity\Media
+    #     cascade: ["persist"]
+    #     joinColumn:
+    #       name: media_id
+    #       referencedColumnName: id
     manyToOne:
       montacarga_subcategoria:
         targetEntity: Subcategoria
@@ -50,6 +71,19 @@ Celmedia\Toyocosta\MontacargasBundle\Entity\Montacarga:
         joinColumn:
           name: subcategoria_id
           referencedColumnName: id
+    manyToMany:
+      imagenes:
+        targetEntity: Application\Sonata\MediaBundle\Entity\GalleryHasMedia
+        joinTable:
+          name: montacarga_imagen
+          joinColumns:
+            id_montacarga:
+              referencedColumnName: id
+          inverseJoinColumns:
+            id_imagen:
+              referencedColumnName: id
+              unique: true
+        cascade: ["persist"]
 
 
     lifecycleCallbacks:

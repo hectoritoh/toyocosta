@@ -47,9 +47,9 @@ $(document).ready(function() {
 	      	if(num==1){
 	      		$('#sub-categorias-menu-'+num).css({'display':'block'});
 	      	}else if(num==2){
-	      		$('#sub-categorias-menu-'+num).css({'display':'block','right': '280px'});
+	      		$('#sub-categorias-menu-'+num).css({'display':'block','right': '283px'});
 	      	}else if(num==3){
-				$('#sub-categorias-menu-'+num).css({'display':'block','right': '140px'});
+				$('#sub-categorias-menu-'+num).css({'display':'block','right': '142px'});
 	      	}else if(num==4){
 				$('#sub-categorias-menu-'+num).css({'display':'block','right': '0px'});
 	      	}
