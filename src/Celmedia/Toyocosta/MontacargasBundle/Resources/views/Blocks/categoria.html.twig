@@ -1,16 +1,14 @@
-    
-
+  
     <ul style="display:none" id="sub-categorias-menu-{{ categoriaId }}" class="submenu-pro">
-      {% for subcategoria in subcategorias %}
-          <li>
-          {{ subcategoria.nombre }}
-          {{ render(controller("CelmediaToyocostaMontacargasBundle:Default:obtenerMontacargaXSubcategoria" , { 'subcategoriaId':  subcategoria.id } ) ) }}
-          </li>
-      {% endfor %}
+     {% set i = 1 %}     
+     {% for subcategoria in subcategorias %}
+         <li id="sub-sub-menu-{{ i }}">
+         {{ subcategoria.nombre }}
+         {{ render(controller("CelmediaToyocostaMontacargasBundle:Default:obtenerMontacargaXSubcategoria" , { 'subcategoriaId':  subcategoria.id } ) ) }}
+         </li>
+         {% set i = i + 1 %}
+     {% endfor %}
     </ul>
-
-
-
 
 {#
   <ul id="sample-menu-1" class="sf-menu">

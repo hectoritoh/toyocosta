@@ -104,7 +104,7 @@
                                                     {% endif %} 
                                                 </div>
 
-                                                <div class="ty-caption">
+                                                <div class="ty-caption-montacarga">
                                                     
                                                     <span class="ty-nombre">{{ item.modelo }}</span>
                                                     
@@ -150,7 +150,7 @@
 
                                                 <div class="row">
                                                     <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 espacio-a">
-                                                        <a href="" class="btn btn-lg btn-rojo">Solicitar cotización</a>
+                                                        <a href="{{ path('usados_cotizacion', {'idusado' : item.id })}}" class="btn btn-lg btn-rojo">Solicitar cotización</a>
                                                     </div>
                                                 </div>
                                                 

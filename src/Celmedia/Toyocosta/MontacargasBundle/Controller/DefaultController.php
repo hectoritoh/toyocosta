@@ -76,6 +76,12 @@ class DefaultController extends Controller
     	return $this->render('CelmediaToyocostaMontacargasBundle:Pages:tecnologia_sas.html.twig', array());
     }
 
+    public function mensajeAction(){
+
+        return $this->render('CelmediaToyocostaMontacargasBundle:Pages:envio.exitoso.html.twig');
+    }
+
+
     public function usadosAction(){
 
     	$em = $this->getDoctrine()->getManager();
@@ -135,8 +141,7 @@ class DefaultController extends Controller
                 Telefono:  '. $info->getTelefono() .'  <br />
                 Email:  '. $info->getEmail() .' <br />
                 Ciudad:  '. $info->getCiudad() .' <br />
-                Area:   '. $info->getArea() .' <br />
-                Observacion:  '. $info->getObservaciones() .' ';
+                Mensaje:  '. $info->getMensaje() .' ';
 
             }
 
@@ -162,9 +167,87 @@ class DefaultController extends Controller
 
     }
 
+    
+    public function cotizacionUsadoAction(Request $request, $idusado ){
+
+
+        $em = $this->getDoctrine()->getManager();
+
+
+        $usado = $this->getDoctrine()->getRepository("CelmediaToyocostaMontacargasBundle:MontacargaUsado")->findOneBy(array(
+            "id" => $idusado,
+            "estado" => 1
+                )
+        );
+
+
+        $cotizacion = new MontacargaCotizacion();
+
+        $form = $this->createFormBuilder($cotizacion)
+        ->add("nombre", "text" , array("required"=> true ))
+        ->add("apellido", "text" , array("required"=> true ))
+        ->add("cedula", "text" , array("required"=> true,  "max_length"=> 10 ))
+        ->add("email", "email" ,  array("required"=> true )) 
+        ->add("telefono", "text" , array("required"=> true, "max_length"=> 10 ))  
+        ->add("ciudad", "text" , array("required"=> true ))
+        ->add("mensaje", "textarea" , array("required"=> true ))
+        // ->add("usado", "hidden" , array("required"=> true ))
+        ->add('captcha', 'captcha')
+        ->getForm(); 
+
+
+        if ($request->isMethod('POST')) {
+        
+
+            $form->bind($request);
+
+                
+            if ($form->isValid() ) {
+
+            
+                $data = $form->getData(); 
+
+                $email = $data->getEmail();
+                
+
+
+                $formulario = "usado";
+
+                if( $this->enviarCorreo($email, $data, $formulario ) ){
+                
+                    $em = $this->getDoctrine()->getManager();
+                    $em->persist( $data );
+                    $em->flush();
+
+
+                    return $this->redirect($this->generateUrl('envio_exitoso'));
+                    
+                }else{
+                    
+                    $error = "Ha ocurrido un error al enviar el mensaje. Por favor inténtelo nuevamente en unos minutos.";
+                    return $this->render('CelmediaToyocostaMontacargasBundle:Pages:cotizacion.html.twig' , 
+                        array( "usado" => $usado , "form"=> $form->createView(), "error" => $error )
+                        );
+
+                }
 
 
 
+            }else{
+
+                    $error = "El codigo no coincide";
+                    return $this->render('CelmediaToyocostaMontacargasBundle:Pages:cotizacion.html.twig' , 
+                        array( "usado" => $usado , "form"=> $form->createView(), "error" => $error )
+                        );
+
+            }
+
+
+
+        }
+
+        return $this->render('CelmediaToyocostaMontacargasBundle:Pages:cotizacion.html.twig', array("usado" => $usado , "form"=> $form->createView() , "error" => false ));
+    }
 
 
     public function cotizacionAction(Request $request, $idmontacarga ){
@@ -216,7 +299,7 @@ class DefaultController extends Controller
                     $em->flush();
 
 
-                    return $this->redirect($this->generateUrl('registro_exitoso'));
+                    return $this->redirect($this->generateUrl('envio_exitoso'));
                     
                 }else{
                     
@@ -244,4 +327,7 @@ class DefaultController extends Controller
 
         return $this->render('CelmediaToyocostaMontacargasBundle:Pages:cotizacion.html.twig', array("montacarga" => $montacarga , "form"=> $form->createView() , "error" => false ));
     }
+
+
+
 }

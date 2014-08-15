@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>An Error Occurred: {{ status_text }}</title>
+
+    {% block head %}
+
+	    <link rel="stylesheet" href="{{ asset('bundles/celmediatoyocostapirelli/css/bootstrap.min.css') }}" type="text/css" media="all" />
+     	<link rel="stylesheet" href="{{ asset('bundles/celmediatoyocostapirelli/css/menu.toyocosta.css') }}" type="text/css" media="all" />
+      	<link rel="stylesheet" href="{{ asset('bundles/celmediatoyocostavehiculos/css/footer.css') }}" type="text/css" media="all" />
+       	<link rel="stylesheet" href="{{ asset('bundles/celmediatoyocostavehiculos/css/style.css') }}" type="text/css" media="all" />
+
+       	<script type="text/javascript" src="{{ asset('bundles/celmediatoyocostapirelli/js/jquery.js') }}" ></script>
+       	<script type="text/javascript" src="{{ asset('bundles/celmediatoyocostavehiculos/js/jquery-ui-1.9.2.custom.js') }}" ></script>
+       	<script type="text/javascript" src="{{ asset('bundles/celmediatoyocostapirelli/js/bootstrap.min.js') }}" ></script>
+
+	{% endblock %}
+
+    </head>
+    <body>
+    {% block body %}
+
+	    {% include 'CelmediaToyocostaVehiculosBundle:Blocks:top.menu.secciones.html.twig' %}
+	    <div id="fondo-error" class="seccion-ty fondo-seccion">
+			<div class="v-center-contenedor">
+				<div class="">
+
+					<div class="container-fluid">
+						
+						<div class="row text-center" style="padding-top:150px;">
+
+							<div class="col-md-12">
+								<h1 class="precio-caption">No se pudo encontrar la pagina solicitada.</h1>
+							</div>
+						</div>
+
+						<div class="row text-center" style="padding-top:25px;">
+							<div class="col-md-4 col-md-offset-4">
+								<a style="text-decoration:none;" href="{{ path('toyocosta_homepage') }}" class="btn-lg btn-rojo link-accesos">
+									Regresar a la p&aacute;gina principal
+								</a>
+							</div>
+						</div>
+						
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+    {% endblock %}
+</body>
+</html>
