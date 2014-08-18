@@ -213,6 +213,11 @@ class DefaultController extends Controller
 
         $seminuevo = $em->getRepository('CelmediaToyocostaSeminuevoBundle:Seminuevo')->findOneBy(array("id"=> $seminuevoid, "estado_publicacion" => "1"));
 
+        $banners = $this->getDoctrine()->getRepository("CelmediaToyocostaVehiculosBundle:SlidePrincipal")->findBy(array(
+            "estado" => 1 , "seccion" => "seminuevo"
+                )
+        );
+
         $seminuevoPlazo = $em->getRepository('CelmediaToyocostaVehiculosBundle:Plazo')->findBy(
             array(
                 "estado" => 1
@@ -233,6 +238,7 @@ class DefaultController extends Controller
             "seminuevo" => $seminuevo,
             'entradaMinima' => $entradaMinima,
             'seminuevoPlazo' => $seminuevoPlazo,
+            'banners' => $banners
         ));
 
     }
