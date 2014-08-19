@@ -1,10 +1,14 @@
+.row{
+    margin-left: 0px;
+    margin-right: 0px;
+}
 .banner-montacargas {
 	-webkit-background-size: cover; 
 	-moz-background-size: cover; 
 	-o-background-size: cover; 
-    background-image: url("../../bundles/celmediatoyocostamontacargas/images/banner-montacargas.jpg");
+    background-image: url("../../../bundles/celmediatoyocostamontacargas/images/banner-montacargas.jpg");
    /* background-size: cover;*/
-  /* background: url("../../bundles/celmediatoyocostamontacargas/images/banner-montacargas.jpg") no-repeat scroll left center transparent;*/
+  /* background: url("../../../bundles/celmediatoyocostamontacargas/images/banner-montacargas.jpg") no-repeat scroll left center transparent;*/
     height: 190px;
     color: #FFF;
 }
@@ -12,9 +16,9 @@
     -webkit-background-size: cover; 
     -moz-background-size: cover; 
     -o-background-size: cover; 
-    background-image: url("../../bundles/celmediatoyocostamontacargas/images/banner.jpg");
+    background-image: url("../../../bundles/celmediatoyocostamontacargas/images/banner.jpg");
    /* background-size: cover;*/
-  /* background: url("../../bundles/celmediatoyocostamontacargas/images/banner-montacargas.jpg") no-repeat scroll left center transparent;*/
+  /* background: url("../../../bundles/celmediatoyocostamontacargas/images/banner-montacargas.jpg") no-repeat scroll left center transparent;*/
     height: 155px;
     color: #FFF;
 }
@@ -84,22 +88,22 @@
 }
 
 .toyota {
-    background: url("../../bundles/celmediatoyocostamontacargas/images/accesos/logo-toyota.jpg") no-repeat scroll 50% center rgba(0, 0, 0, 0);
+    background: url("../../../bundles/celmediatoyocostamontacargas/images/accesos/logo-toyota.jpg") no-repeat scroll 50% center rgba(0, 0, 0, 0);
     border: 1px solid #ccc8c8;
     height: 54px;
 }
 .raymond {
-    background: url("../../bundles/celmediatoyocostamontacargas/images/accesos/logo-raymon.jpg") no-repeat scroll 50% center rgba(0, 0, 0, 0);
+    background: url("../../../bundles/celmediatoyocostamontacargas/images/accesos/logo-raymon.jpg") no-repeat scroll 50% center rgba(0, 0, 0, 0);
     border: 1px solid #ccc8c8;
     height: 54px;
 }
 .bt {
-    background: url("../../bundles/celmediatoyocostamontacargas/images/accesos/logo-bt.jpg") no-repeat scroll 50% center rgba(0, 0, 0, 0);
+    background: url("../../../bundles/celmediatoyocostamontacargas/images/accesos/logo-bt.jpg") no-repeat scroll 50% center rgba(0, 0, 0, 0);
     border: 1px solid #ccc8c8;
     height: 54px;
 }
 .cascade {
-    background: url("../../bundles/celmediatoyocostamontacargas/images/accesos/logo-cascade.jpg") no-repeat scroll 50% center rgba(0, 0, 0, 0);
+    background: url("../../../bundles/celmediatoyocostamontacargas/images/accesos/logo-cascade.jpg") no-repeat scroll 50% center rgba(0, 0, 0, 0);
     border: 1px solid #ccc8c8;
     height: 54px;
 }
@@ -115,7 +119,7 @@
 ul.lista-montacargas{
    color: #9b9c9e;
    font: 0.9875em Arial,sans-serif;
-   list-style-image: url("../../bundles/celmediatoyocostamontacargas/images/iconos/icono-rojo.png");
+   list-style-image: url("../../../bundles/celmediatoyocostamontacargas/images/iconos/icono-rojo.png");
 }
 
 .titulo-ubicacion-montacargas{
@@ -247,7 +251,7 @@ span.boton-naranja{
 
 .glyphicon-chevron-left-mont {
     background-color: #df182b;
-    background-image: url("../../bundles/celmediatoyocostamontacargas/images/iconos/left.png");
+    background-image: url("../../../bundles/celmediatoyocostamontacargas/images/iconos/left.png");
     background-repeat: no-repeat;
     height: 40px;
     width: 21px;
@@ -255,7 +259,7 @@ span.boton-naranja{
 
 .glyphicon-chevron-right-mont {
     background-color: #df182b;
-    background-image: url("../../bundles/celmediatoyocostamontacargas/images/iconos/right.png");
+    background-image: url("../../../bundles/celmediatoyocostamontacargas/images/iconos/right.png");
     background-position: right center;
     background-repeat: no-repeat;
     height: 40px;
@@ -272,7 +276,7 @@ span.boton-naranja{
     height: 45px;
     bottom: 44px;
     color: #ffffff;
-    background-image: url("../../bundles/celmediatoyocostamontacargas/images/iconos/caption.png");
+    background-image: url("../../../bundles/celmediatoyocostamontacargas/images/iconos/caption.png");
     background-position: left top;
     background-repeat: no-repeat;
     font-family: 'Arial', 'Helvetica',sans-serif;

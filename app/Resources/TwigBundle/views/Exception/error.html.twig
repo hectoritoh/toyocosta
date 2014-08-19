@@ -6,14 +6,25 @@
 
     {% block head %}
 
-	    <link rel="stylesheet" href="{{ asset('bundles/celmediatoyocostapirelli/css/bootstrap.min.css') }}" type="text/css" media="all" />
+	    {#<link rel="stylesheet" href="{{ asset('bundles/celmediatoyocostapirelli/css/bootstrap.min.css') }}" type="text/css" media="all" />
      	<link rel="stylesheet" href="{{ asset('bundles/celmediatoyocostapirelli/css/menu.toyocosta.css') }}" type="text/css" media="all" />
       	<link rel="stylesheet" href="{{ asset('bundles/celmediatoyocostavehiculos/css/footer.css') }}" type="text/css" media="all" />
        	<link rel="stylesheet" href="{{ asset('bundles/celmediatoyocostavehiculos/css/style.css') }}" type="text/css" media="all" />
 
        	<script type="text/javascript" src="{{ asset('bundles/celmediatoyocostapirelli/js/jquery.js') }}" ></script>
        	<script type="text/javascript" src="{{ asset('bundles/celmediatoyocostavehiculos/js/jquery-ui-1.9.2.custom.js') }}" ></script>
-       	<script type="text/javascript" src="{{ asset('bundles/celmediatoyocostapirelli/js/bootstrap.min.js') }}" ></script>
+       	<script type="text/javascript" src="{{ asset('bundles/celmediatoyocostapirelli/js/bootstrap.min.js') }}" ></script>#}
+
+
+        {% include 'CelmediaToyocostaVehiculosBundle:Default:includes.html.twig' %}
+
+
+        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+
+        {% include 'CelmediaToyocostaVehiculosBundle:Default:libs.html.twig' %}
+
+
 
 	{% endblock %}
 

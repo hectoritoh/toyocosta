@@ -8,7 +8,7 @@
         <meta name="author" content="">
         <title>Toyocosta</title>
 
-        {% stylesheets
+        {#{% stylesheets
             "@CelmediaToyocostaPirelliBundle/Resources/public/css/bootstrap.min.css"
             "@CelmediaToyocostaPirelliBundle/Resources/public/css/menu.toyocosta.css"
             "@CelmediaToyocostaVehiculosBundle/Resources/public/css/resetvehiculos.css"
@@ -16,25 +16,31 @@
             "@CelmediaToyocostaVehiculosBundle/Resources/public/css/style.css"
             "@CelmediaToyocostaVehiculosBundle/Resources/public/css/yc.css"
         %}
-            <link type="text/css" rel="stylesheet" media="all" href="{{ asset_url }}" />
-        {% endstylesheets %}
+        <link type="text/css" rel="stylesheet" media="all" href="{{ asset_url }}" />
+        {% endstylesheets %}#}
+
+        {% include 'CelmediaToyocostaVehiculosBundle:Default:includes.html.twig' %}
+
+
         <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
         <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+
+
     </head>
     <body {% if app.request.get('_route') == "ver_vehiculo" %}data-target="#vehiculos-secciones"{% elseif app.request.get('_route') == "toyocosta_homepage" %}data-target="#scrollprincipal"{% endif %}>
-        {% set estaLogueado = false %}
-        {% set idLogueado = 1 %}
-        {#
-        {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-            Hi {{ app.user.username }}
-        {% endif %}
-        #}
+
         {% block contenidotoyocosta %}
             
         {% endblock %}
 
         {% include 'CelmediaToyocostaPirelliBundle:Blocks:footer.html.twig' %}
-             {% javascripts
+        
+
+
+        {% include 'CelmediaToyocostaVehiculosBundle:Default:libs.html.twig' %}
+
+
+        {#{% javascripts
                 '@CelmediaToyocostaPirelliBundle/Resources/public/js/jquery.js'
                 '@CelmediaToyocostaPirelliBundle/Resources/public/js/jquery.selectbox/jquery.selectbox-0.2.js'
                 '@CelmediaToyocostaVehiculosBundle/Resources/public/js/jquery-ui-1.9.2.custom.js'
@@ -51,7 +57,7 @@
                 '@CelmediaToyocostaPirelliBundle/Resources/public/js/script.js'
             %}
             <script type="text/javascript" src="{{ asset_url }}"></script>
-        {% endjavascripts %}  
+        {% endjavascripts %}  #}
 
 
         {% block js %}

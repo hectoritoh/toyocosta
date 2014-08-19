@@ -127,6 +127,10 @@ class DefaultController extends Controller
         $seminuevos = $querySM->getQuery()->getResult();
 
 
+        $banners = $this->getDoctrine()->getRepository("CelmediaToyocostaVehiculosBundle:SlidePrincipal")->findBy(array(
+            "estado" => 1 , "seccion" => "seminuevo"
+                )
+        );
 
         return $this->render('CelmediaToyocostaSeminuevoBundle:Pages:seminuevos.html.twig', array(
                 "seminuevos" => $seminuevos,
@@ -134,7 +138,8 @@ class DefaultController extends Controller
                 "seminuevo_anio" => $anio,
                 "seminuevo_precio" => $precio,
                 "seminuevo_provincia" => $provincia,
-                "seminuevo_estado" => $estado
+                "seminuevo_estado" => $estado,
+                "banners" => $banners
             )
         );
     }

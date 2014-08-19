@@ -8,7 +8,7 @@
         <meta name="author" content="">
         <title>Toyocosta-Montacargas</title>
 
-        {% stylesheets
+        {#{% stylesheets
             "@CelmediaToyocostaPirelliBundle/Resources/public/css/bootstrap.min.css"
             "@CelmediaToyocostaPirelliBundle/Resources/public/css/menu.toyocosta.css"
             "@CelmediaToyocostaVehiculosBundle/Resources/public/css/resetvehiculos.css"
@@ -19,7 +19,14 @@
             "@CelmediaToyocostaPirelliBundle/Resources/public/css/estilo.pirelli.css"
         %}
             <link type="text/css" rel="stylesheet" media="all" href="{{ asset_url }}" />
-        {% endstylesheets %}
+        {% endstylesheets %}#}
+
+
+        {% include 'CelmediaToyocostaVehiculosBundle:Default:includes.html.twig' %}
+
+        <link rel="stylesheet" href="{{ asset('bundles/celmediatoyocostamontacargas/css/style-montacargas.css') }}" type="text/css" media="all" />
+
+
         <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
         <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
     </head>
@@ -32,7 +39,12 @@
 
         {% include 'CelmediaToyocostaPirelliBundle:Blocks:footer.html.twig' %}
         
-         {% javascripts
+        {% include 'CelmediaToyocostaVehiculosBundle:Default:libs.html.twig' %}
+
+
+        <script type="text/javascript" src="{{ asset('bundles/celmediatoyocostamontacargas/js/script-montacargas.js') }}" ></script>
+ 
+        {#{% javascripts
 
             '@CelmediaToyocostaPirelliBundle/Resources/public/js/jquery.js'
             '@CelmediaToyocostaPirelliBundle/Resources/public/js/jquery.selectbox/jquery.selectbox-0.2.js'        
@@ -54,9 +66,9 @@
             
         %}
         <script type="text/javascript" src="{{ asset_url }}"></script>
-        {% endjavascripts %}  
-
-
+        {% endjavascripts %}  #}
+    
+        
         {% block js %}
 
         {% endblock %}
