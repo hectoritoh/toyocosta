@@ -214,8 +214,8 @@ fieldset.ty-fieldset-border {
     border-top: 1px solid #555555;
     padding: 0px 0px 5px 0px;
     margin: 10px 0px 10px 0px;
-    -webkit-box-shadow:  0px 0px 0px 0px #000;
-            box-shadow:  0px 0px 0px 0px #000;
+    /*-webkit-box-shadow:  0px 0px 0px 0px #000;
+            box-shadow:  0px 0px 0px 0px #000;*/
 }
 
     legend.ty-legend-border {
@@ -462,8 +462,8 @@ fieldset.ty-fieldset-border {
 	background-position: right center;
 }
 .txt-indicador{
-	font-size: 12px;
-	color: #9C9C9C;
+	font-size: 10px;
+	color: #6D6D6D;
 }
 .txt-blanco{
 	color: #FFFFFF;
@@ -484,20 +484,18 @@ fieldset.ty-fieldset-border {
 .cuadro-precio.text-right{
 	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/varios/recuadro-precio-der.png");
 	background-position: top right;
+	height: 82px;
 }
 .cuadro-precio.text-left{
 	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/varios/recuadro-precio.png");
 	background-position: top left;
+	height: 82px;
 }
 .cuadro-caption{
-	/*border-left: 2px solid red;
-	border-top-right-radius: 5px;
-	background-image: url("../../../web/img/Autos-box/Fondo.png");
-	height: 80px;*/
 
 	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/varios/recuadro-accesos.png"); 
 	background-repeat: no-repeat;
-	height: 149px;
+	height: 140px;
 	
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -525,10 +523,8 @@ fieldset.ty-fieldset-border {
 }
 .link-caption {
 	list-style-type: none;
-	/*border-bottom: 1px solid #63676A;*/
 	margin-left: 18px;
-	/*margin-right: 28px;*/
-	padding: 13px;
+	padding: 11px;
 }
 .link-caption:hover{
 	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/varios/mayorq.png"); 
@@ -988,8 +984,7 @@ fieldset.ty-fieldset-border {
 	height: 85px;
 }
 .espaciado-menu-2{
-	/*height: 150px;*/
-	height: 117px;
+	height: 110px;
 }
 .texto-detalle{
 	color: #313131;
@@ -1604,6 +1599,9 @@ li.disabled > .btn.btn-anterior{
 
 	.modal-lg-seminuevo {
 	width: 1100px;
+	}
+	.carousel-indicators {
+	bottom: 40px;
 	}
 	
 }
@@ -2565,4 +2563,13 @@ button.close-ficha{
 }
 .space-top-30{
 	padding-top: 30px;
+}
+.txt-model a:hover{
+	color: #970000;
+}
+.fondo-blanco{
+	background-color: transparent;
+}
+.txt-line{
+	text-decoration: line-through;
 }

@@ -64,6 +64,11 @@ Celmedia\Toyocosta\ContenidoBundle\Entity\InfoMantenimiento:
             gedmo:
               timestampable:
                 on: update
+    oneToMany:
+      registros_reserva:
+        targetEntity: Registro
+        mappedBy: cita
+        cascade: ["persist"]
 
     lifecycleCallbacks:
         prePersist:   [ lifecycleFileUpload ]

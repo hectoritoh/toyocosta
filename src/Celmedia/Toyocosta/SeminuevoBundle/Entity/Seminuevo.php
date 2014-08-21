@@ -80,6 +80,21 @@ class Seminuevo
     private $username;
 
     /**
+     * @var float
+     */
+    private $bono;
+
+    /**
+     * @var float
+     */
+    private $liquidacion;
+
+    /**
+     * @var string
+     */
+    private $link_ofertar;
+
+    /**
      * @var \DateTime
      */
     private $created;
@@ -429,6 +444,75 @@ class Seminuevo
     }
 
     /**
+     * Set bono
+     *
+     * @param float $bono
+     * @return Seminuevo
+     */
+    public function setBono($bono)
+    {
+        $this->bono = $bono;
+
+        return $this;
+    }
+
+    /**
+     * Get bono
+     *
+     * @return float 
+     */
+    public function getBono()
+    {
+        return $this->bono;
+    }
+
+    /**
+     * Set liquidacion
+     *
+     * @param float $liquidacion
+     * @return Seminuevo
+     */
+    public function setLiquidacion($liquidacion)
+    {
+        $this->liquidacion = $liquidacion;
+
+        return $this;
+    }
+
+    /**
+     * Get liquidacion
+     *
+     * @return float 
+     */
+    public function getLiquidacion()
+    {
+        return $this->liquidacion;
+    }
+
+    /**
+     * Set link_ofertar
+     *
+     * @param string $linkOfertar
+     * @return Seminuevo
+     */
+    public function setLinkOfertar($linkOfertar)
+    {
+        $this->link_ofertar = $linkOfertar;
+
+        return $this;
+    }
+
+    /**
+     * Get link_ofertar
+     *
+     * @return string 
+     */
+    public function getLinkOfertar()
+    {
+        return $this->link_ofertar;
+    }
+
+    /**
      * Set created
      *
      * @param \DateTime $created
@@ -603,8 +687,11 @@ class Seminuevo
         // Add your code here
     }
 
-    public function __toString()
+
+        public function __toString()
     {
         return $this->getModelo();
     }
+
+    
 }

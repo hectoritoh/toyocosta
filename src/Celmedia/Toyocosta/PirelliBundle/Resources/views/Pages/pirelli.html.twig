@@ -19,7 +19,7 @@
     <div class="row buscador-pirelli">
         <div class="form-group">
 
-            <div class="col-md-12">
+            <div class="col-md-12" style="padding: 0px;">
                 <div class="form">
 
                     <div class="row">
@@ -28,7 +28,7 @@
                         </div>
                         
                         <form name="buscador" action="{{ path('pirelli_buscador') }}" method="post" >
-                            <div class="col-md-8">                            
+                            <div class="col-md-8" style="padding: 0px;">                            
                                 {% if llanta_modelo is not defined or llanta_modelo is null %}
                                     {% set llanta_modelo = "0" %}
                                 {% endif %}
@@ -45,14 +45,10 @@
                                 {{ render(controller("CelmediaToyocostaPirelliBundle:Default:getFiltros" , { 'segmento': tipo_llanta , 'llanta_modelo': llanta_modelo, 'llanta_medida': llanta_medida, 'llanta_rin': llanta_rin, 'llanta_precio': llanta_precio }))   }}
 
                             </div>
-                            <div class="col-md-2" style="padding-bottom: 5px;border-bottom: 1px solid #ccc;border-left: 1px solid #ccc;">
+                            <div class="col-md-2" style="padding-bottom:4px;border-bottom: 1px solid #ccc;border-left: 1px solid #ccc;">
                                 <input type="hidden"  name="categoria" value="{{ tipo_llanta }}" />
 
                                 <input type="submit" class="btn btn-buscar-filtro" value="Buscar" />
-
-                                {#
-        						  <input name="buscar" class="form-control input-lg input-buscador input-search" type="text" placeholder="Buscar">
-                                #}
 
                             </div>
                         </form>
@@ -72,8 +68,8 @@
 
         <div class="col-md-10 col-md-offset-1">
             <div class="row">
-                <ol class="breadcrumb" style="margin-bottom:0px;">
-                  <li><a href="#">HOME</a></li>
+                <ol class="breadcrumb" style="margin-bottom:5px;padding-left:30px;">
+                  <li><a href="{{ path('toyocosta_homepage') }}">INICIO</a></li>
                   <li><a href="{{ path('pirelli_home') }}">PIRELLI</a></li>
                   <li class="active">{{ tipo_llanta|upper }}</li>
                 </ol>
@@ -81,7 +77,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="row">
-                        <div class="col-md-12 contenedor-centrar">
+                        <div class="col-md-12">
                             <div class="banner">
                                 <a href="http://www.toyocosta.com/lp-pirelli-mail-toyocosta/" target="_blank">
 

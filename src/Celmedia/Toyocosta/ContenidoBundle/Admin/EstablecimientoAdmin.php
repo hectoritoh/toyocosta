@@ -68,6 +68,7 @@ class EstablecimientoAdmin extends Admin
             ->add('latitud')
             ->add('longuitud')
             ->add('telefono')
+            ->add('contactos')
             ->add('estado', 'choice', array(
            'choices' => array(
                '1' => 'Publicado',

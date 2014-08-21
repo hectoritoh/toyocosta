@@ -13,9 +13,9 @@
 		<div class="row">
 			<div class="col-md-12">
 				<ol class="breadcrumb fondo-blanco">
-	              <li><a href="{{ path('montacargas_home')}}">INICIO</a></li>
-	              <li>MONTACARGAS</li>
-	              <li style="text-transform:uppercase;">{{ montacarga.montacargaSubcategoria.nombre }}</li>
+	              <li><a href="{{ path('toyocosta_homepage')}}">INICIO</a></li>
+	              <li><a href="{{ path('montacargas_home') }}">MONTACARGAS</a></li>
+	              <li><strong style="text-transform:uppercase;">{{ montacarga.montacargaSubcategoria.nombre }}</strong></li>
 	              <li class="active"><strong style="text-transform:uppercase;"> {{ montacarga.modelo }} </strong></li>
 	            </ol>
 			</div>			
@@ -141,39 +141,20 @@
 			<h5 ><strong>OTROS MODELOS</strong></h5><hr/ style="margin-top:0px !important">
 			{% for item in montacargas %}
 
-				<a href="{{ path('ver_montacarga', {'montacargaid': item.id } )  }}">
-				    <div class="col-md-2">
-				    {% for thumb in item.imagenes %}
+				    <div class="col-md-2 txt-model">
+						<a class="txt-negro" href="{{ path('ver_montacarga', {'montacargaid': item.id } )  }}">
+						    {% for thumb in item.imagenes %}
 
-				    	{% if loop.first %}
+						    	{% if loop.first %}
+						    	<strong class="txt-mayusculas">{{ item.modelo }}</strong>
+						        {% media thumb.media , 'small' with {'class': 'img-responsive'} %}
+						    	{% endif %}
 
-				        {% media thumb.media , 'small' with {'class': 'img-responsive'} %}
-				    	{% endif %}
-
-				    {% endfor %}
+						    {% endfor %}
+						</a>
 				    </div>
-				</a>
 			{% endfor %}
-			{#<div class="col-md-2">
-				{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/accesos/acceso-cascade.jpg' %}
-					<img src="{{ asset_url }}" class="img-responsive" />
-        		{% endimage %}
-			</div>	
-			<div class="col-md-2">
-				{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/accesos/acceso-m-toyota.jpg' %}
-					<img src="{{ asset_url }}" class="img-responsive" />
-        		{% endimage %}
-			</div>
-			<div class="col-md-2">
-				{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/accesos/acceso-raymond.jpg' %}
-					<img src="{{ asset_url }}" class="img-responsive" />
-        		{% endimage %}
-			</div>
-			<div class="col-md-2">
-				{% image '@CelmediaToyocostaMontacargasBundle/Resources/public/images/accesos/acceso_bt.jpg' %}
-					<img src="{{ asset_url }}" class="img-responsive" />
-        		{% endimage %}
-			</div>#}		
+		
 		</div>
 			
 		<br/><br/><br/>

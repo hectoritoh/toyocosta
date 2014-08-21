@@ -106,6 +106,8 @@ class SeminuevoAdmin extends Admin
             ->add('descripcion_corta')
             ->add('estado' , 'choice', array('choices' => array(1 => 'Disponible' , 2 => 'Proximammente' , 3 => 'Reservado', 4 => 'Vendido') ) )
             ->add('estado_publicacion' , 'choice', array('choices' => array(1 => 'Aprobado' , 2 => 'Pendiente' , 3 => 'Rechazado') ) )
+            ->add('coloresseminuevo')
+            ->add('certificados')
             ->with('Galeria')
                 ->add('galeria', 'sonata_type_collection', array(
                      'by_reference' => false,
@@ -114,6 +116,11 @@ class SeminuevoAdmin extends Admin
                      'edit' => 'inline',
                      'inline' => 'standard',
                  ))
+            ->end()
+            ->with('Extra')
+                ->add('bono')
+                ->add('liquidacion')
+                ->add('link_ofertar')
             ->end()
             // GALERIA CON MEDIA BUNDLE ENTITY GALLERY
             // ->add('imagenes', 'sonata_type_collection', array(
@@ -126,8 +133,6 @@ class SeminuevoAdmin extends Admin
             //     'admin_code' => 'sonata.media.admin.gallery_has_media'
             //     )
             // )          
-            ->add('coloresseminuevo')
-            ->add('certificados')
             ->setHelps(array(
                     'coloresseminuevo' => 'Color'
                 ))

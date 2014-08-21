@@ -31,7 +31,7 @@
             <div class="v-center-contenido">
               <div class="container-fluid">
                 <div class="row espacio-a">
-                  <div class="col-md-3 col-sm-8 {% if item.menuPosicion == 0 %}col-md-offset-2 col-sm-offset-2 {% elseif item.menuPosicion == 1 %}col-md-offset-7 col-sm-offset-2 {% endif %}">
+                  <div class="col-md-3 col-sm-8 {% if item.menuPosicion == 0 %}col-md-offset-2 col-sm-offset-2 {% elseif item.menuPosicion == 1 %}col-md-offset-7 col-sm-offset-2 {% endif %}" style="margin-top: 60px;">
                     <img src="{{ asset('uploads/slide-vehiculos/logos/' ~ item.logo ) }}" class="img-responsive {% if item.menuPosicion == 0 %}obj-izq{% elseif item.menuPosicion == 1 %}obj-der{% endif %}">
                   </div>
                 </div>
@@ -39,7 +39,7 @@
                   <div class="col-md-4 col-sm-8 {% if item.menuPosicion == 0 %}col-md-offset-2 col-sm-offset-2 {% elseif item.menuPosicion == 1 %}col-md-offset-6 col-sm-offset-2 {% endif %}">
                     <div class="cuadro-precio {% if item.menuPosicion == 0 %}text-left{% elseif item.menuPosicion == 1 %}text-right{% endif %}">
                       <h4 class="txt-caption">Precio <span class="precio-caption">${{ item.vehiculoSlide.precioNeto }}</span></h4>
-                      <p class="parrafo-caption">{{ item.vehiculoSlide.informacion}}</p>
+                      <p class="parrafo-caption {% if item.menuPosicion == 0 %} col-xs-10 {% elseif item.menuPosicion == 1 %} col-xs-10 col-xs-offset-2 {% endif %}" style="padding:0px;">{{ item.vehiculoSlide.informacion}}</p>
                     </div>
                   </div>
                 </div>
@@ -49,7 +49,7 @@
                       <ul class="list-caption">
                         <li class="link-caption"><a class="link" href="{{ path('ver_vehiculo', {'vehiculoid': item.vehiculoSlide.id } )  }}#vehiculo-cotizar">Solicita Cotizaci&oacute;n</a></li>
                         <li class="link-caption"><a class="link" href="{{ path('test_drive') }}">Test Drive</a></li>
-                        <li class="link-caption"><a class="link" href="{{ path('ver_vehiculo', {'vehiculoid': item.vehiculoSlide.id } )  }}">Ver m&aacute;s</a></li>
+                        <li class="link-caption" style="background-color: #df182b;"><a class="link" href="{{ path('ver_vehiculo', {'vehiculoid': item.vehiculoSlide.id } )  }}">Explorar</a></li>
                       </ul>
                     </div><!-- cuadro-caption -->
                   </div>

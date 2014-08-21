@@ -107,7 +107,26 @@ class DefaultController extends Controller
                 )
         );
 
-        $montacargas = $this->getDoctrine()->getRepository("CelmediaToyocostaMontacargasBundle:Montacarga")->findAll();
+        $montacargas = $this->getDoctrine()->getRepository("CelmediaToyocostaMontacargasBundle:Montacarga")->findBy(
+                   array('estado' => 1),        // $where 
+                   array('created' => 'DESC'),    // $orderBy
+                   6,                        // $limit
+                   0                          // $offset
+                 );
+        
+
+        // $montacargas = $this->getDoctrine()->getRepository("CelmediaToyocostaMontacargasBundle:Montacarga")->findAll();
+
+        // $i = 0;
+        // $indices_montacargas_aleatorias = array_rand($montacargas, 2);
+        // $montacargas_mostrar = array();
+
+        // foreach ($montacargas as $item) {
+
+        //     if (in_array($i, $indices_montacargas_aleatorias))
+        //         $montacargas_mostrar[] = $item;
+        // }
+
 
     	return $this->render('CelmediaToyocostaMontacargasBundle:Pages:producto.html.twig', array("montacarga" => $montacarga, "montacargas" => $montacargas ));
     }

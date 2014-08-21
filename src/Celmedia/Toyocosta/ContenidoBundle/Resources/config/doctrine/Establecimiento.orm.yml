@@ -47,6 +47,25 @@ Celmedia\Toyocosta\ContenidoBundle\Entity\Establecimiento:
               timestampable:
                 on: update
 
+    manyToMany:
+      contactos:
+        targetEntity: Contacto
+        joinTable:
+            name: establecimiento_contacto
+            joinColumns:
+              id_establecimiento:
+                referencedColumnName: id
+            inverseJoinColumns:
+              id_contacto:
+                referencedColumnName: id
+        cascade: ["persist"]
+
+    oneToMany:
+      obsequios:
+        targetEntity: Obsequio
+        mappedBy: establecimiento
+        cascade: ["persist"]
+
     lifecycleCallbacks:
         prePersist:   [ lifecycleFileUpload ]
         preUpdate:    [ lifecycleFileUpload ]

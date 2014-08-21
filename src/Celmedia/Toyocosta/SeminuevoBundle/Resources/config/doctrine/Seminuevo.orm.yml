@@ -58,6 +58,15 @@ Celmedia\Toyocosta\SeminuevoBundle\Entity\Seminuevo:
             type: string
             length: 140
             nullable: false
+        bono:
+            type: float
+            nullable: true
+        liquidacion:
+            type: float
+            nullable: true
+        link_ofertar:
+            type: text
+            nullable: true
         created:
             type: datetime
             gedmo:

@@ -59,6 +59,24 @@ class Establecimiento
      */
     private $updated;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $obsequios;
+
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $contactos;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->obsequios = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->contactos = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -276,6 +294,72 @@ class Establecimiento
     {
         return $this->updated;
     }
+
+    /**
+     * Add obsequios
+     *
+     * @param \Celmedia\Toyocosta\ContenidoBundle\Entity\Obsequio $obsequios
+     * @return Establecimiento
+     */
+    public function addObsequio(\Celmedia\Toyocosta\ContenidoBundle\Entity\Obsequio $obsequios)
+    {
+        $this->obsequios[] = $obsequios;
+
+        return $this;
+    }
+
+    /**
+     * Remove obsequios
+     *
+     * @param \Celmedia\Toyocosta\ContenidoBundle\Entity\Obsequio $obsequios
+     */
+    public function removeObsequio(\Celmedia\Toyocosta\ContenidoBundle\Entity\Obsequio $obsequios)
+    {
+        $this->obsequios->removeElement($obsequios);
+    }
+
+    /**
+     * Get obsequios
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getObsequios()
+    {
+        return $this->obsequios;
+    }
+
+    /**
+     * Add contactos
+     *
+     * @param \Celmedia\Toyocosta\ContenidoBundle\Entity\Contacto $contactos
+     * @return Establecimiento
+     */
+    public function addContacto(\Celmedia\Toyocosta\ContenidoBundle\Entity\Contacto $contactos)
+    {
+        $this->contactos[] = $contactos;
+
+        return $this;
+    }
+
+    /**
+     * Remove contactos
+     *
+     * @param \Celmedia\Toyocosta\ContenidoBundle\Entity\Contacto $contactos
+     */
+    public function removeContacto(\Celmedia\Toyocosta\ContenidoBundle\Entity\Contacto $contactos)
+    {
+        $this->contactos->removeElement($contactos);
+    }
+
+    /**
+     * Get contactos
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getContactos()
+    {
+        return $this->contactos;
+    }
     /**
      * @ORM\PrePersist
      */
@@ -284,9 +368,11 @@ class Establecimiento
         // Add your code here
     }
 
-    public function __toString()
+        public function __toString()
     {
         return $this->getNombre();
     }
+
+
 
 }

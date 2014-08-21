@@ -1,0 +1,40 @@
+Celmedia\Toyocosta\ContenidoBundle\Entity\Contacto:
+    type: entity
+    table: contacto
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        nombre:
+            type: string
+            length: 250
+            nullable: false
+        email:
+            type: string
+            length: 250
+            nullable: false
+        telefono:
+            type: integer
+            nullable: true
+        estado:
+            type: integer
+            unsigned: false
+            nullable: false
+        created:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: create
+        updated:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: update
+
+    lifecycleCallbacks:
+        prePersist:   [ lifecycleFileUpload ]
+        preUpdate:    [ lifecycleFileUpload ]

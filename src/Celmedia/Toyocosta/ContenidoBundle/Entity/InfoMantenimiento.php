@@ -84,6 +84,18 @@ class InfoMantenimiento
      */
     private $updated;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $registros_reserva;
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->registros_reserva = new \Doctrine\Common\Collections\ArrayCollection();
+    }
 
     /**
      * Get id
@@ -415,6 +427,39 @@ class InfoMantenimiento
     public function getUpdated()
     {
         return $this->updated;
+    }
+
+    /**
+     * Add registros_reserva
+     *
+     * @param \Celmedia\Toyocosta\ContenidoBundle\Entity\Registro $registrosReserva
+     * @return InfoMantenimiento
+     */
+    public function addRegistrosReserva(\Celmedia\Toyocosta\ContenidoBundle\Entity\Registro $registrosReserva)
+    {
+        $this->registros_reserva[] = $registrosReserva;
+
+        return $this;
+    }
+
+    /**
+     * Remove registros_reserva
+     *
+     * @param \Celmedia\Toyocosta\ContenidoBundle\Entity\Registro $registrosReserva
+     */
+    public function removeRegistrosReserva(\Celmedia\Toyocosta\ContenidoBundle\Entity\Registro $registrosReserva)
+    {
+        $this->registros_reserva->removeElement($registrosReserva);
+    }
+
+    /**
+     * Get registros_reserva
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getRegistrosReserva()
+    {
+        return $this->registros_reserva;
     }
     /**
      * @ORM\PrePersist

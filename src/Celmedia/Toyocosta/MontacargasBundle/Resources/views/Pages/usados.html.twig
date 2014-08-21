@@ -7,20 +7,22 @@
 	<div class="banner-montacargas">
         <h1 class="titulo-interno">USADOS</h1>   
     </div>
-	
-	<div class="container">			
-		{% include 'CelmediaToyocostaMontacargasBundle:Blocks:filtros.html.twig' %}
 
-		<div class="row">
-			<div class="col-md-12">
-                <ol class="breadcrumb fondo-blanco">
+
+        {% include 'CelmediaToyocostaMontacargasBundle:Blocks:filtros.html.twig' %}
+
+        <div class="row">
+            <div class="col-md-12" style="height:15px;">
+                {#<ol class="breadcrumb fondo-blanco">
                   <li><a href="{{ path('montacargas_home')}}">HOME</a></li>
                   <li class="active"><strong> USADOS</strong></li>
-                </ol>
-			</div>			
-		</div>
-		
+                </ol>#}
+            </div>          
+        </div>
+        
 
+	
+	<div class="container">			
 
 
         {% set i = 0 %}

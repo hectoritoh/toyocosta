@@ -37,20 +37,26 @@
             <li>
               <a href="{{ path('certificados')}}">Certificado Seminuevos</a>
             </li>
+            <li>
+              <a href="#">Servicios</a>
+            </li>
           </ul>
         </li>
         <li>
           <a href="http://www.toyocosta.com/blog">Noticias</a>
         </li>
-        <li class="dropdown">
+        {#<li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">
             Servicios
           </a>
           <ul class="dropdown-menu" role="menu">
             <li>
-              <a href="{{ path('mantenimiento')}}">Citas de Mantenimiento</a>
+              <a href="{{ path('mantenimiento')}}">Cita de Mantenimiento</a>
             </li>
           </ul>
+        </li>#}
+        <li>
+          <a href="{{ path('mantenimiento')}}">Cita de Mantenimiento</a>
         </li>
         <li>
           <a href="{{ path('test_drive') }}">Test Drive</a>

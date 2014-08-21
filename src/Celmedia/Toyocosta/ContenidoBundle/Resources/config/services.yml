@@ -40,3 +40,15 @@ services:
         arguments: [~, Celmedia\Toyocosta\ContenidoBundle\Entity\Color, SonataAdminBundle:CRUD]
         tags:
             - {name: sonata.admin, manager_type: orm, group: 'Contenido', label: Color}
+
+    celmedia_toyocosta_contenido.admin.obsequio:
+        class: Celmedia\Toyocosta\ContenidoBundle\Admin\ObsequioAdmin
+        arguments: [~, Celmedia\Toyocosta\ContenidoBundle\Entity\Obsequio, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: 'Contenido', label: Obsequios}
+
+    celmedia_toyocosta_contenido.admin.contacto:
+        class: Celmedia\Toyocosta\ContenidoBundle\Admin\ContactoAdmin
+        arguments: [~, Celmedia\Toyocosta\ContenidoBundle\Entity\Contacto, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: 'Contenido', label: Contacto de Establecimientos/Talleres}

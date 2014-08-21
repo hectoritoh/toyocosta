@@ -1,0 +1,42 @@
+Celmedia\Toyocosta\ContenidoBundle\Entity\Registro:
+    type: entity
+    table: registro
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        estado:
+            type: integer
+            unsigned: false
+            nullable: false
+        created:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: create
+        updated:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: update
+    manyToOne:
+      obsequio:
+        targetEntity: Obsequio
+        inversedBy: registros
+        joinColumn:
+          name: obsequio_id
+          referencedColumnName: id
+      cita:
+        targetEntity: InfoMantenimiento
+        inversedBy: registros_reserva
+        joinColumn:
+          name: cita_id
+          referencedColumnName: id
+
+    lifecycleCallbacks:
+        prePersist:   [ lifecycleFileUpload ]
+        preUpdate:    [ lifecycleFileUpload ]

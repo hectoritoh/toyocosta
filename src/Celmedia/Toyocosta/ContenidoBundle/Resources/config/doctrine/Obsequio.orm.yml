@@ -1,0 +1,51 @@
+Celmedia\Toyocosta\ContenidoBundle\Entity\Obsequio:
+    type: entity
+    table: obsequio
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        nombre:
+            type: string
+            length: 140
+            nullable: false
+        imagen:
+            type: text
+            nullable: false
+        stock:
+            type: integer
+            nullable: false
+        estado:
+            type: integer
+            unsigned: false
+            nullable: false
+        created:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: create
+        updated:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: update
+    manyToOne:
+      establecimiento:
+        targetEntity: Establecimiento
+        inversedBy: obsequios
+        joinColumn:
+          name: establecimiento_id
+          referencedColumnName: id
+    oneToMany:
+      registros:
+        targetEntity: Registro
+        mappedBy: obsequio
+        cascade: ["persist"]
+
+    lifecycleCallbacks:
+        prePersist:   [ lifecycleFileUpload ]
+        preUpdate:    [ lifecycleFileUpload ]

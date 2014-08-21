@@ -3,9 +3,13 @@
 
 {% block contenidoseminuevos1 %}
 
-	<div class="buscador-seminuevo container-fluid">
+	<div class="buscador-seminuevo">
         <div class="row">
-            <form class="col-md-10 col-md-offset-1" name="buscador" action="{{ path('seminuevos_buscador') }}" method="post" >
+            <div class="col-md-1 bloque-vacio">
+
+            </div>
+
+            <form class="col-md-10" name="buscador" action="{{ path('seminuevos_buscador') }}" method="post" style="padding:0px;" >
                 {% if seminuevo_modelo is not defined or seminuevo_modelo is null %}
                     {% set seminuevo_modelo = "0" %}
                 {% endif %}
@@ -24,6 +28,11 @@
 
                 {{ render(controller("CelmediaToyocostaSeminuevoBundle:Default:getFiltros" , { 'seminuevo_modelo': seminuevo_modelo, 'seminuevo_anio': seminuevo_anio, 'seminuevo_precio': seminuevo_precio, 'seminuevo_provincia': seminuevo_provincia, 'seminuevo_estado': seminuevo_estado } ) ) }}
             </form>
+
+            <div class="col-md-1 bloque-vacio">
+
+            </div>
+
         </div>
     </div>
 {% endblock %}
@@ -31,10 +40,10 @@
 {% block breadcrumb %}
     
     {% if app.user %}
-        <div class="container ty-breadcrumb" {#style="display: none;"#}>
+        <div class="container ty-breadcrumb">
             <div class="row">
                 <ol class="breadcrumb">
-                    <li><a href="#">HOME</a></li>
+                    <li><a href="{{ path('toyocosta_homepage') }}">INICIO</a></li>
                     <li><a href="{{ path('seminuevos_home') }}">Seminuevos</a></li>
                     <li class="active">
                         {% if app.request.get('_route') == "seminuevos_home" %}
@@ -152,7 +161,7 @@
                                                 <button type="button" class="close close-ficha" data-dismiss="modal" aria-hidden="true"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <div class="col-md-6 fondo-ficha" style="padding:20px;min-height: 400px;">
+                                                <div class="col-md-6 fondo-ficha" style="padding:20px;min-height: 410px;">
                                                     
                                                     <div class="contenedor-foto">
                                                         <div id="carousel-seminuevo{{ i }}" class="carousel slide" data-ride="carousel">
@@ -183,7 +192,7 @@
                                                     </div>
                                                     
                                                 </div>
-                                                <div class="col-md-6 fondo-ficha" style="padding:10px;min-height: 400px;">
+                                                <div class="col-md-6 fondo-ficha" style="padding:10px;min-height: 410px;">
                                                     
                                                     <div class="container-fluid">
                                                         <div class="row">
@@ -192,10 +201,15 @@
                                                                     <legend class="ty-legend-border">Característica:</legend>
                                                                     <div class="row">
                                                                         <div class="col-md-6 col-sm-6 col-xs-6">
-                                                                            <span class="modal-sm-txt">Precio:</span>
+                                                                            <span class="modal-sm-txt">Precio {% if seminuevo.liquidacion %} Liquidaci&oacute;n {% endif %}:</span>
                                                                         </div>
                                                                         <div class="col-md-6 col-sm-6 col-xs-6 text-right">
-                                                                            <span class="modal-sm-txt-valor">{{  seminuevo.precio }}</span>
+                                                                            <span class="modal-sm-txt-valor {% if seminuevo.liquidacion %} txt-line {% endif %}">{{  seminuevo.precio }}</span>
+                                                                            {% if seminuevo.bono %}
+                                                                                <span class="txt-rojo" style="font-size: 16px;font-weight: bold;">(BONO ${{ seminuevo.bono }} )</span>
+                                                                            {% elseif seminuevo.liquidacion %}
+                                                                                <span class="txt-rojo" style="font-size: 16px;font-weight: bold;">${{ seminuevo.liquidacion }}</span>
+                                                                            {% endif %}
                                                                         </div>
                                                                     </div>
                                                                     <div class="modal-divisor"></div>
@@ -243,10 +257,10 @@
                                                                         <div class="row">
                                                                             {% for certificado in row %}
                                                                                 <div class="col-md-2 col-sm-2 col-xs-2 text-left">
-                                                                                    <a href="{{ path('certificados') }}" class="" alt="{{ certificado.nombre }}">
+                                                                                    <a data-toggle="tooltip" data-placement="top" title="conoce m&aacute;s" href="{{ path('certificados') }}" class="cert" alt="{{ certificado.nombre }}">
                                                                                         <img src="{{ asset('uploads/seminuevos/certificados/'   ~   certificado.imagen ) }}" alt="{{ certificado.nombre }}" class="img-responsive obj-centrar"/>
                                                                                     </a>
-                                                                                </div>                                                                        
+                                                                                </div>                          
                                                                             {% endfor %}
                                                                         </div>                                                                    
                                                                     {% endfor %}
@@ -256,9 +270,14 @@
                                                         </div>
 
                                                         <div class="row">
-                                                            <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 espacio-a">
+                                                            <div class="col-md-6 col-sm-6 {% if seminuevo.linkOfertar %} col-md-offset-1 col-sm-offset-1 {% else %} col-md-offset-3 col-sm-offset-3 {% endif %} espacio-a">
                                                                 <a href="{{ path('seminuevos_cotizador', {'seminuevoid': seminuevo.id } ) }}" class="btn btn-rojo">Solicitar cotización</a>
                                                             </div>
+                                                            {% if seminuevo.linkOfertar %}
+                                                                <div class="col-md-4 col-sm-4 espacio-a">
+                                                                    <a style="width:100%;" href="{{ seminuevo.linkOfertar }}" class="btn btn-descarga">Ofertar</a>
+                                                                </div>
+                                                            {% endif %}
                                                         </div>
                                                         
                                                     </div>
