@@ -2573,3 +2573,6 @@ button.close-ficha{
 .txt-line{
 	text-decoration: line-through;
 }
+#bloque-obsequio{
+	display: none;
+}

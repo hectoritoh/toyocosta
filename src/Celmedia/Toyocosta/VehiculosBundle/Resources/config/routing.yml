@@ -120,6 +120,11 @@ consultar_plazo:
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:consultarPreciosFinales }
     options:
         expose: true
+consultar_obsequios:
+    path:      /obsequios
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:consultarObsequios }
+    options:
+        expose: true
 
 especificacion:
     path:      /vehiculo/especificacion

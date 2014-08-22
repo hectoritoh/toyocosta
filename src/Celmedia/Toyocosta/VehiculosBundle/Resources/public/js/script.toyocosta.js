@@ -1,3 +1,6 @@
+// var imgDir = {{ asset('uploads/obsequios/') }};
+
+
 $(window).bind('scroll', function() {
 	if ($(window).scrollTop() > 50) {
 		$('.sombra-toyocosta').addClass('bajar');
@@ -131,6 +134,61 @@ $(window).bind('scroll', function() {
     });
   }
 
+  function tallerSelected(elemento){
+      
+      var url = $("#dir").text();
+      // if ( $(elemento).val() == 1 ) { 
+        
+      //   $("#sm-modelo-km").show();
+      //   $("#sm-comentario").hide();
+
+      // }else{
+
+      //   $("#sm-modelo-km").hide();
+      //   $("#sm-comentario").show();
+      // }
+
+      var parametros = {
+          taller: $(elemento).val()
+      }
+
+      $.ajax({
+          url: Routing.generate('consultar_obsequios'),
+          type: 'POST',
+          async: true,
+          data: parametros,
+          dataType: "json",
+          success: function (respuesta) {
+            
+            if(respuesta.codigo == 1){
+              var option = '<option selected disabled="disabled"></option>';            
+              for (var i = 0; i < respuesta.obsequios.length; i++) {
+                option += '<option value="'+ respuesta.obsequios[i].id + '" data-img-src="'+url+''+respuesta.obsequios[i].imagen+'" ></option>';
+              };
+
+              $("#regalo").html(option);
+
+            }
+             $("#regalo").imagepicker();
+
+             if (respuesta.obsequios.length == 0) {
+                $("#bloque-obsequio").hide();   
+             }else{
+
+                $("#bloque-obsequio").show();
+             };
+
+            //console.log(respuesta.precio);
+          }, 
+          error: function (error) {
+            console.log("ERROR: " + error);
+          }
+      });
+
+
+  }
+
+
   function plazoSelectedSM(plazo, idseminuevo){
     var parametros = {
         plazoid: $(plazo).val(),
@@ -158,7 +216,6 @@ $(window).bind('scroll', function() {
         }
     });
   }
-
 
 
      $('a.navegacion-sl').on('click', function(event) {
@@ -204,6 +261,7 @@ $(document).ready(function(){
        centrarHorizontal($(this));
      });
 
+ 
 	// $('.selectcmb').selectbox();
 
 	/*$('[data-spy="scroll"]').each(function () {
@@ -1050,7 +1108,8 @@ $(document).ready(function(){
                 taller: $("#mtaller").val(),
                 comentario: $("#mcomentario").val(),
                 modelo: $("#mmodelo").val(),
-                kilometraje: $("#mkilometraje").val()
+                kilometraje: $("#mkilometraje").val(),
+                regalo: $("#regalo").val()
             }
             
             $.ajax({
@@ -1125,6 +1184,9 @@ $(document).ready(function(){
               required: true
             },
             mkilometraje: {
+              required: true
+            },
+            regalo: {
               required: true
             }
 

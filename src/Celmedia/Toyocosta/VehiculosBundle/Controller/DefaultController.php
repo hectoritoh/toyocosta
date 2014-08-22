@@ -380,7 +380,59 @@ class DefaultController extends Controller
 
         return $this->render('CelmediaToyocostaVehiculosBundle:Forms:landing.html.twig');
     }
+    public function consultarObsequiosAction(Request $request){
 
+
+        $em = $this->getDoctrine()->getManager();
+
+        $connection = $em->getConnection();
+        $sqlRegistro = "
+                    SELECT obsequio.*, IFNULL(A.registro, 0) registro FROM obsequio 
+                    LEFT JOIN (SELECT obsequio_id, count(obsequio_id) registro 
+                    FROM registro GROUP BY obsequio_id) A ON obsequio.id = A.obsequio_id WHERE obsequio.estado = 1 
+                      ";
+
+        $query = $connection->prepare($sqlRegistro);
+        $query->execute();
+        $registros = $query->fetchAll();
+
+
+        
+        if ($request->isMethod('POST')) {
+
+
+            $id_taller = $request->request->get('taller');
+
+
+            $em = $this->getDoctrine()->getManager(); 
+
+            $obsequios = $this->getDoctrine()->getRepository("CelmediaToyocostaContenidoBundle:Obsequio")->findBy(array(
+                "estado" => 1 ,
+                "establecimiento" => $id_taller
+                )
+            );
+            
+
+            $arrayObsequios = array();
+
+            foreach ($obsequios as $obsequio) {
+                array_push($arrayObsequios, array('id' => $obsequio->getId() , 'imagen' => $obsequio->getImagen() ) );
+            }
+
+
+            return new JsonResponse(array(
+                'codigo' => 1,
+                'obsequios' => $arrayObsequios
+            ), 200);            
+        }
+        return new JsonResponse(array(
+            'codigo' => 0,
+            'Mensaje' => "No se recibio por post"
+        ), 200); //codigo de error diferente
+
+
+
+    }
     public function getTallerAction(Request $request){
 
 
@@ -996,6 +1048,7 @@ class DefaultController extends Controller
             $comentario = $request->request->get('comentario');
             $modeloid = $request->request->get('modelo');
             $kilometraje = $request->request->get('kilometraje');
+            $regalo = $request->request->get('regalo');
 
 
             if(!$nombre || !$apellido || !$telefono || !$email || !$celular || !$fecha || !$reservaid || !$observaciones || !$tallerid ){
@@ -1019,13 +1072,15 @@ class DefaultController extends Controller
             );
             
 
-            // Creamos el objeto rrhh
+            // Creamos el objeto infomantenimiento
             $mantenimiento = new \Celmedia\Toyocosta\ContenidoBundle\Entity\InfoMantenimiento();
 
             $mantenimiento->setNombre( $nombre  );
             $mantenimiento->setApellido( $apellido  );
             $mantenimiento->setTelefono( $telefono  );
             $mantenimiento->setEmail( $email  );
+            $mantenimiento->setObservaciones( $observaciones  );
+            $mantenimiento->setComentarios( $comentario  );
             $mantenimiento->setCelular( $celular  );
             $mantenimiento->setFechaTentativa( new \DateTime($fecha ) );
             $mantenimiento->setTipoReserva( $reserva );
@@ -1040,11 +1095,38 @@ class DefaultController extends Controller
                 );
                 $mantenimiento->setModelo( $vehiculoModelo );
                 $mantenimiento->setKilometros( $kilometraje );
+
+                $extraMensaje = " Modelo:  ".$mantenimiento->getModelo()->getNombre()." <br />
+                Kilometraje:  ".$mantenimiento->getKilometros();
+
+            }else{
+
+                $extraMensaje = " Comentario:  ".$mantenimiento->getComentarios();
+            }
+           
+
+
+            $registro = new \Celmedia\Toyocosta\ContenidoBundle\Entity\Registro();
+
+            $registro->setEstado(1);
+
+            if($regalo){
+                $obsequio = $em->getRepository('CelmediaToyocostaContenidoBundle:Obsequio')->findOneBy(
+                    array(
+                        'id' => $regalo,
+                        "estado" => 1
+                    )
+                );
+                $registro->setObsequio( $obsequio );
+                
             }
 
-            $em->persist(  $mantenimiento );
-            $em->flush();
+            $registro->setCita($mantenimiento);
 
+
+            $em->persist(  $mantenimiento );
+            $em->persist(  $registro );
+            $em->flush();
 
 
 
@@ -1054,12 +1136,12 @@ class DefaultController extends Controller
             Apellido:   '. $mantenimiento->getApellido() .' <br />
             Email:  '. $mantenimiento->getEmail() .' <br />
             Telefono:  '. $mantenimiento->getTelefono() .'  <br />
-            Celular:  '. $mantenimiento->getCelular() .' <br />
+            Celular:  '. $mantenimiento->getCelular() .' <br />            
+            Observaciones:  '. $mantenimiento->getObservaciones() .' <br />
             Fecha Tentativa:  '. $fecha .' <br />
             Tipo Reserva:  '. $mantenimiento->getTipoReserva()->getNombre() .' <br />
             Taller:  '. $mantenimiento->getTaller()->getNombre() .' <br />
-            Modelo:  '. $mantenimiento->getModelo()->getNombre() .' <br />
-            Kilometraje:  '. $mantenimiento->getKilometros() .' <br />';
+            ' . $extraMensaje . ' <br /> ';
       
 
             $message = \Swift_Message::newInstance()
