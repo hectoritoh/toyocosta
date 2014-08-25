@@ -2576,3 +2576,12 @@ button.close-ficha{
 #bloque-obsequio{
 	display: none;
 }
+.thumbnail p{
+
+	color: #A29999;
+	text-align: center;
+	font-size: 11px;
+	padding-bottom: 0px;
+	line-height: 0;
+
+}

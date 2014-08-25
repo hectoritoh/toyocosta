@@ -383,21 +383,7 @@ class DefaultController extends Controller
     public function consultarObsequiosAction(Request $request){
 
 
-        $em = $this->getDoctrine()->getManager();
-
-        $connection = $em->getConnection();
-        $sqlRegistro = "
-                    SELECT obsequio.*, IFNULL(A.registro, 0) registro FROM obsequio 
-                    LEFT JOIN (SELECT obsequio_id, count(obsequio_id) registro 
-                    FROM registro GROUP BY obsequio_id) A ON obsequio.id = A.obsequio_id WHERE obsequio.estado = 1 
-                      ";
-
-        $query = $connection->prepare($sqlRegistro);
-        $query->execute();
-        $registros = $query->fetchAll();
-
-
-        
+       
         if ($request->isMethod('POST')) {
 
 
@@ -406,18 +392,36 @@ class DefaultController extends Controller
 
             $em = $this->getDoctrine()->getManager(); 
 
-            $obsequios = $this->getDoctrine()->getRepository("CelmediaToyocostaContenidoBundle:Obsequio")->findBy(array(
-                "estado" => 1 ,
-                "establecimiento" => $id_taller
-                )
-            );
+            // $obsequios = $this->getDoctrine()->getRepository("CelmediaToyocostaContenidoBundle:Obsequio")->findBy(array(
+            //     "estado" => 1 ,
+            //     "establecimiento" => $id_taller
+            //     )
+            // );
             
+
+            $connection = $em->getConnection();
+            $sqlObsequios = "
+                        SELECT obsequio. * , IFNULL(A.registro, 0) registro FROM obsequio 
+                        LEFT JOIN (SELECT obsequio_id, count(obsequio_id) registro 
+                        FROM registro GROUP BY obsequio_id) A ON obsequio.id = A.obsequio_id WHERE obsequio.estado = 1 AND obsequio.establecimiento_id = '".$id_taller."'
+                          ";
+
+            $query = $connection->prepare($sqlObsequios);
+            $query->execute();
+            $obsequios = $query->fetchAll();
+
 
             $arrayObsequios = array();
 
-            foreach ($obsequios as $obsequio) {
-                array_push($arrayObsequios, array('id' => $obsequio->getId() , 'imagen' => $obsequio->getImagen() ) );
+
+            for ($i=0; $i < count($obsequios) ; $i++) { 
+                
+                array_push($arrayObsequios, array('id' => $obsequios[$i]['id'], 'imagen' => $obsequios[$i]['imagen'], 'stock' => $obsequios[$i]['stock'], 'registro' => $obsequios[$i]['registro'] ) );
             }
+
+            // foreach ($obsequios as $obsequio) {
+            //     array_push($arrayObsequios, array('id' => $obsequio->getId() , 'imagen' => $obsequio->getImagen() ) );
+            // }
 
 
             return new JsonResponse(array(
@@ -1051,6 +1055,10 @@ class DefaultController extends Controller
             $regalo = $request->request->get('regalo');
 
 
+            $seleccionoRegalo = $request->request->get('selectedRegalo');
+
+
+
             if(!$nombre || !$apellido || !$telefono || !$email || !$celular || !$fecha || !$reservaid || !$observaciones || !$tallerid ){
                 return new JsonResponse(array(
                     'codigo' => 0,
@@ -1071,6 +1079,14 @@ class DefaultController extends Controller
                 )
             );
             
+            // if ($seleccionoRegalo !== "si" ) {
+
+            //     $premio =  "no selecciono regalo";
+
+            // }else{
+            //     $premio = $regalo;
+            // }
+
 
             // Creamos el objeto infomantenimiento
             $mantenimiento = new \Celmedia\Toyocosta\ContenidoBundle\Entity\InfoMantenimiento();

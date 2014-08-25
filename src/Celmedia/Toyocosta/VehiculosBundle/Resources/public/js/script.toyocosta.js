@@ -1,4 +1,4 @@
-// var imgDir = {{ asset('uploads/obsequios/') }};
+var seleccionado = false; 
 
 
 $(window).bind('scroll', function() {
@@ -137,16 +137,7 @@ $(window).bind('scroll', function() {
   function tallerSelected(elemento){
       
       var url = $("#dir").text();
-      // if ( $(elemento).val() == 1 ) { 
-        
-      //   $("#sm-modelo-km").show();
-      //   $("#sm-comentario").hide();
-
-      // }else{
-
-      //   $("#sm-modelo-km").hide();
-      //   $("#sm-comentario").show();
-      // }
+      
 
       var parametros = {
           taller: $(elemento).val()
@@ -163,13 +154,47 @@ $(window).bind('scroll', function() {
             if(respuesta.codigo == 1){
               var option = '<option selected disabled="disabled"></option>';            
               for (var i = 0; i < respuesta.obsequios.length; i++) {
-                option += '<option value="'+ respuesta.obsequios[i].id + '" data-img-src="'+url+''+respuesta.obsequios[i].imagen+'" ></option>';
+
+                var valor = respuesta.obsequios[i]['stock'] - respuesta.obsequios[i]['registro'];
+
+                if ( valor == 0 ) {
+
+                    option += '<option value="'+ respuesta.obsequios[i]['id'] + '" disabled="disabled" data-img-src="'+url+''+respuesta.obsequios[i]['imagen']+'" >AGOTADO</option>';
+
+                }else{
+
+                    option += '<option value="'+ respuesta.obsequios[i]['id'] + '" data-img-src="'+url+''+respuesta.obsequios[i]['imagen']+'" ></option>';
+                }
+
+
               };
 
               $("#regalo").html(option);
 
             }
-             $("#regalo").imagepicker();
+             $("#regalo").imagepicker({
+
+                show_label  : true    
+
+             });
+
+             $("option[disabled=disabled]").each(function(){
+
+                var ruta = $(this).attr("data-img-src");
+                $("img[src='"+  ruta +"']").css({opacity: 0.5});
+
+
+              });
+
+
+
+              $(".thumbnail").click(function(){
+
+                $("#selectedRegalo").val("si");
+
+                seleccionado = true; 
+
+              });
 
              if (respuesta.obsequios.length == 0) {
                 $("#bloque-obsequio").hide();   
@@ -1109,7 +1134,9 @@ $(document).ready(function(){
                 comentario: $("#mcomentario").val(),
                 modelo: $("#mmodelo").val(),
                 kilometraje: $("#mkilometraje").val(),
-                regalo: $("#regalo").val()
+                regalo: $("#regalo").val(),
+                selectedRegalo: $("#selectedRegalo").val()
+
             }
             
             $.ajax({
