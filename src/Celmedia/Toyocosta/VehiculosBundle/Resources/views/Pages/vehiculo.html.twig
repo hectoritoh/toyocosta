@@ -36,7 +36,7 @@
 										<h2 class="txt-precio">${{vehiculo.precioNeto}}</h2>
 										<span class="espacio-a">{{vehiculo.descripcion}}</span>
 										<br />
-										<span class="espacio-a">{{vehiculo.informacion}}</span>							 
+										<span class="espacio-a">{{vehiculo.informacion}}</span>
 										{#
 										<h4 class="">
 											Mira el Test Drive de Andr&eacute;s con el Prius C
@@ -52,12 +52,9 @@
 								<div class="row">
 									<div class="col-md-7 espacio-a">
 										<a href="{{ path('test_drive') }}" class="btn btn-vehiculo">Test Drive</a>
-										{% if vehiculo.ficha %}
-										<a href="{{ asset('uploads/vehiculo/ficha/'   ~   vehiculo.ficha ) }}" class="btn btn-vehiculo" target="_blank">
-											Ficha Técnica
-											<i class="icono-descarga"></i> 
+										<a href="{{ path('especificacion', {'vehiculoid': vehiculo.id } )  }}" class="btn btn-vehiculo">
+											Especificaciones
 										</a>
-										{% endif %}
 									</div>
 									<div class="col-md-5 espacio-a">
 										<a href="#vehiculo-cotizar" class="btn btn-vehiculo-rojo">Cotizar</a>

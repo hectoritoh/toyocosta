@@ -95,7 +95,7 @@ $(window).bind('scroll', function() {
               option += '<option value="'+ respuesta.plazos[i]["id"] + '">' + respuesta.plazos[i]["valor"] + '</option>';
             };
 
-            //$("#vselectplazo").html(option);
+            $("#vselectplazo").html(option);
             $("#imgModelo").attr("src", respuesta.imagenModelo); //FZZIO cambiar por las imagenes de modelo
           }
           //console.log(respuesta.precio);
@@ -285,6 +285,8 @@ $(document).ready(function(){
 	$('.centrado-horizontal').each(function () {
        centrarHorizontal($(this));
      });
+
+  $(".tab-especificaciones").find("table").addClass("table table-hover table-responsive table-striped");
 
  
 	// $('.selectcmb').selectbox();
