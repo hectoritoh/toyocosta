@@ -1901,6 +1901,11 @@ ul.tabs-especificaciones li > a:hover{
  background-color: transparent;
 }
 
+a.submenu-vehiculo-item.active,
+a.submenu-vehiculo-item:hover{
+	color: #FFFF00;
+}
+
 /********************************************ESTILO PIRELLI******************************************/
 /* Large desktop */
 @media (min-width: 1921px) { 

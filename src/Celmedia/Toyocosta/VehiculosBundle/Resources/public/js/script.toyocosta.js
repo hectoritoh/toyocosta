@@ -278,6 +278,8 @@ $(window).bind('scroll', function() {
 
 $(document).ready(function(){
 
+  $('.navbar-nav-vehiculos').find('li').removeClass("active");
+
  	$('.contenedor-centrar').each(function () {
        centrarVert($(this));
      });
@@ -397,6 +399,16 @@ $(document).ready(function(){
           $("#rutacv").val(data.result.rutaarchivo);
         }
     });
+
+    $('.input-foto-seminuevo').fileupload({
+        dataType: 'json',
+        url: Routing.generate('seminuevo_foto_adjunta'),
+        done: function (e, data) {
+          //alert(data.result.rutaarchivo);
+          $(this).parent().find("input[type=hidden]").val(data.result.rutaarchivo);
+        }
+    });
+
 
     $("#form-rrhh").validate({
       debug: true,
@@ -597,7 +609,6 @@ $(document).ready(function(){
                   foto6: $("#sm_input_file_6").val(),
                   foto7: $("#sm_input_file_7").val(),
                   foto8: $("#sm_input_file_8").val()
-
               }
 
               $.ajax({
@@ -660,21 +671,21 @@ $(document).ready(function(){
               	minlength:6,
               	maxlength: 7
               },
-              sm_input_file_1:{ 
-              	required: true
-              },
-              sm_input_file_2: {
-              	required: true
-              },
-              sm_input_file_3: {
-              	required: true
-              },
-              sm_input_file_4:{
-              	required:true
-              },
               autorizo:{
               	required: true
-              }
+              },
+              /*sm_input_file_1:{ 
+                required: true
+              },
+              sm_input_file_2: {
+                required: true
+              },
+              sm_input_file_3: {
+                required: true
+              },
+              sm_input_file_4:{
+                required:true
+              }*/
           },
           showErrors: function (errorMap, errorList) {
                // Clean up any tooltips for valid elements
