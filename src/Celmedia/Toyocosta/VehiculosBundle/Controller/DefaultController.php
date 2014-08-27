@@ -195,7 +195,14 @@ class DefaultController extends Controller
                 )
         );
         
-        return $this->render('CelmediaToyocostaVehiculosBundle:Forms:matenimiento.html.twig' , array( "vehiculos" => $vehiculos , "reservas" => $reservas ));
+
+        $banners = $this->getDoctrine()->getRepository("CelmediaToyocostaVehiculosBundle:SlidePrincipal")->findBy(array(
+            "estado" => 1 , "seccion" => "mantenimiento"
+                )
+        );
+
+
+        return $this->render('CelmediaToyocostaVehiculosBundle:Forms:matenimiento.html.twig' , array( "vehiculos" => $vehiculos , "reservas" => $reservas , "banners" => $banners ));
     }
 
     public function mantenimientoXServicioAction($servicioid){
@@ -1079,13 +1086,25 @@ class DefaultController extends Controller
                 )
             );
             
-            // if ($seleccionoRegalo !== "si" ) {
+            $obsequio = $em->getRepository('CelmediaToyocostaContenidoBundle:Obsequio')->findOneBy(
+                array(
+                    'id' => $regalo,
+                    "estado" => 1
+                )
+            );
 
-            //     $premio =  "no selecciono regalo";
+            if ($seleccionoRegalo !== "si" ) {
 
-            // }else{
-            //     $premio = $regalo;
-            // }
+                $premio =  "Premio: No selecciono regalo";
+
+
+            }else{
+                
+                $premio = "Premio: ".$obsequio->getNombre();
+                
+            }
+            
+
 
 
             // Creamos el objeto infomantenimiento
@@ -1127,14 +1146,9 @@ class DefaultController extends Controller
             $registro->setEstado(1);
 
             if($regalo){
-                $obsequio = $em->getRepository('CelmediaToyocostaContenidoBundle:Obsequio')->findOneBy(
-                    array(
-                        'id' => $regalo,
-                        "estado" => 1
-                    )
-                );
-                $registro->setObsequio( $obsequio );
                 
+                $registro->setObsequio( $obsequio );
+
             }
 
             $registro->setCita($mantenimiento);
@@ -1144,6 +1158,16 @@ class DefaultController extends Controller
             $em->persist(  $registro );
             $em->flush();
 
+
+
+            $arrayCorreo = array( $email => 'Recurso' , 'ycosquillo@celmedia.com' => 'Toyocosta' );
+
+
+            foreach ( $taller->getContactos() as $item) {
+
+                array_push($arrayCorreo, $item->getEmail() );
+
+            }
 
 
             $subject = "Cita de Mantenimiento desde Toyocosta";
@@ -1157,7 +1181,8 @@ class DefaultController extends Controller
             Fecha Tentativa:  '. $fecha .' <br />
             Tipo Reserva:  '. $mantenimiento->getTipoReserva()->getNombre() .' <br />
             Taller:  '. $mantenimiento->getTaller()->getNombre() .' <br />
-            ' . $extraMensaje . ' <br /> ';
+            ' . $extraMensaje . ' <br /> 
+            ' . $premio . ' <br />';
       
 
             $message = \Swift_Message::newInstance()
@@ -1166,7 +1191,7 @@ class DefaultController extends Controller
 
             ->setFrom(array('ycosquillo@celmedia.com' => 'Web Toyocosta'))
 
-            ->setTo(array( $email => 'Recurso' , 'ycosquillo@celmedia.com' => 'Toyocosta'))
+            ->setTo( $arrayCorreo )
             
             ->setContentType("text/html")
 

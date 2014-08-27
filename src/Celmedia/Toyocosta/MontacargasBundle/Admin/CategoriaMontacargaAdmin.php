@@ -14,15 +14,17 @@ class CategoriaMontacargaAdmin extends Admin
     public function preUpdate( $obj ){
 
 
-        if ( $obj->getFileThumb() != null  ) {
+        if ( $obj->getImagenThumb() != null  ) {
             
-            $obj->uploadFileThumb();
+            $obj->uploadImagenThumb();
+
+
 
         }
 
-        if ( $obj->getFileLogo() != null  ) {
+        if ( $obj->getImagenLogo() != null  ) {
             
-            $obj->uploadFileLogo();
+            $obj->uploadImagenLogo();
 
         }
 
@@ -79,7 +81,7 @@ class CategoriaMontacargaAdmin extends Admin
 
         
         $fileFieldOptions = array('required' => false);
-        if ($obj && ($webPath = '/../../../../toyocostaweb/web/'. 'uploads/montacargas/categoria/' .    $obj->getFileThumb())) {
+        if ($obj && ($webPath = '/../../../../toyocostaweb/web/'. 'uploads/montacargas/categoria/' .    $obj->getFotoThumb())) {
             // get the container so the full path to the image can be set
             $container = $this->getConfigurationPool()->getContainer();
             $fullPath = $container->get('request')->getBasePath().'/'.$webPath;
@@ -89,7 +91,7 @@ class CategoriaMontacargaAdmin extends Admin
         }
         
         $fileFieldOptions2 = array('required' => false);
-        if ($obj && ($webPath = '/../../../../toyocostaweb/web/'. 'uploads/montacargas/categoria/' .    $obj->getFileLogo())) {
+        if ($obj && ($webPath = '/../../../../toyocostaweb/web/'. 'uploads/montacargas/categoria/' .    $obj->getLogo())) {
             
             $container = $this->getConfigurationPool()->getContainer();
             $fullPath = $container->get('request')->getBasePath().'/'.$webPath;
@@ -102,8 +104,8 @@ class CategoriaMontacargaAdmin extends Admin
 
         $formMapper
             ->add('nombre')
-            ->add('fileThumb', 'file', $fileFieldOptions )
-            ->add('FileLogo', 'file', $fileFieldOptions2 )
+            ->add('imagenThumb', 'file', $fileFieldOptions )
+            ->add('imagenLogo', 'file', $fileFieldOptions2 )
             ->add('estado', 'choice', array(
            'choices' => array(
                '1' => 'Publicado',

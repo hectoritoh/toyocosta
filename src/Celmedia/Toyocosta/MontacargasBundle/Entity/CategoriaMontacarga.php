@@ -242,8 +242,8 @@ class CategoriaMontacarga
      */
      public function lifecycleFileUpload()
     {
-        $this->uploadFileThumb();
-        $this->uploadFileLogo();
+        $this->uploadImagenThumb();
+        $this->uploadImagenLogo();
 
     }
 
@@ -257,16 +257,16 @@ class CategoriaMontacarga
     /**
      * Unmapped property to handle file uploads
      */
-    private $fileThumb;
+    private $imagenThumb;
 
     /**
      * Sets file.
      *
      * @param UploadedFile $file
      */
-    public function setFileThumb(UploadedFile $fileThumb = null)
+    public function setImagenThumb(UploadedFile $imagenThumb = null)
     {
-        $this->fileThumb = $fileThumb;
+        $this->imagenThumb = $imagenThumb;
     }
 
     /**
@@ -274,32 +274,32 @@ class CategoriaMontacarga
      *
      * @return UploadedFile
      */
-    public function getFileThumb()
+    public function getImagenThumb()
     {
-        return $this->fileThumb;
+        return $this->imagenThumb;
     }
 
     /**
      * Manages the copying of the file to the relevant place on the server
      */
-    public function uploadFileThumb()
+    public function uploadImagenThumb()
     {
         // the file property can be empty if the field is not required
-        if (null === $this->getFileThumb()) {
+        if (null === $this->getImagenThumb()) {
             return;
         }
 
         // move takes the target directory and target filename as params
-        $this->getFileThumb()->move(
+        $this->getImagenThumb()->move(
            __DIR__.'/../../../../../web/'. 'uploads/montacargas/categoria' ,
-            $this->getFileThumb()->getClientOriginalName()
+            $this->getImagenThumb()->getClientOriginalName()
         );
 
         // set the path property to the filename where you've saved the file
-        $this->foto_thumb = $this->getFileThumb()->getClientOriginalName();
+        $this->foto_thumb = $this->getImagenThumb()->getClientOriginalName();
 
         // clean up the file property as you won't need it anymore
-        $this->setFileThumb(null);
+        $this->setImagenThumb(null);
     }
 
 
@@ -312,16 +312,16 @@ class CategoriaMontacarga
     /**
      * Unmapped property to handle file uploads
      */
-    private $FileLogo;
+    private $imagenLogo;
 
     /**
      * Sets file.
      *
      * @param UploadedFile $file
      */
-    public function setFileLogo(UploadedFile $FileLogo = null)
+    public function setImagenLogo(UploadedFile $imagenLogo = null)
     {
-        $this->FileLogo = $FileLogo;
+        $this->imagenLogo = $imagenLogo;
     }
 
     /**
@@ -329,32 +329,32 @@ class CategoriaMontacarga
      *
      * @return UploadedFile
      */
-    public function getFileLogo()
+    public function getImagenLogo()
     {
-        return $this->FileLogo;
+        return $this->imagenLogo;
     }
 
     /**
      * Manages the copying of the file to the relevant place on the server
      */
-    public function uploadFileLogo()
+    public function uploadImagenLogo()
     {
         // the file property can be empty if the field is not required
-        if (null === $this->getFileLogo()) {
+        if (null === $this->getImagenLogo()) {
             return;
         }
 
         // move takes the target directory and target filename as params
-        $this->getFileLogo()->move(
+        $this->getImagenLogo()->move(
            __DIR__.'/../../../../../web/'. 'uploads/montacargas/categoria' ,
-            $this->getFileLogo()->getClientOriginalName()
+            $this->getImagenLogo()->getClientOriginalName()
         );
 
         // set the path property to the filename where you've saved the file
-        $this->logo = $this->getFileLogo()->getClientOriginalName();
+        $this->logo = $this->getImagenLogo()->getClientOriginalName();
 
         // clean up the file property as you won't need it anymore
-        $this->setFileLogo(null);
+        $this->setImagenLogo(null);
     }
 
 

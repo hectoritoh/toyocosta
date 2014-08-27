@@ -54,10 +54,10 @@ class SlidePrincipalAdmin extends Admin
             ->add('seccion', 'choice', array(
                'choices' => array(
                    'principal' => 'Banner Principal',
-                   'seminuevo' => 'Banner Seminuevo'
+                   'seminuevo' => 'Banner Seminuevo',
+                   'mantenimiento' => 'Banner Cita de Mantenimiento'
                    )))
             ->add('link')
-            ->add('imagen_banner')
                 ->add('estado', 'choice', array(
            'choices' => array(
                '1' => 'Publicado',
@@ -95,7 +95,8 @@ class SlidePrincipalAdmin extends Admin
             ->add('seccion', 'choice', array(
                'choices' => array(
                    'principal' => 'Banner Principal',
-                   'seminuevo' => 'Banner Seminuevo'
+                   'seminuevo' => 'Banner Seminuevo',
+                   'mantenimiento' => 'Banner Cita de Mantenimiento'
                    )))
             ->add('ImagenSlide', 'file', $fileFieldOptions)
             ->add('descripcion')

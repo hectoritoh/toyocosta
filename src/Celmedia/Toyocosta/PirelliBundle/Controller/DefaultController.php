@@ -252,7 +252,6 @@
         public function enviarCorreo($correos_array, $contacto ) {
 
 
-                // $pathArchivoPill = __DIR__ . '/../../../../web/uploads/pills/' . $pill->getImagen();
                 $id_llanta = $contacto->getLlanta();
 
                 $llanta =  $this->getDoctrine()->getRepository("CelmediaToyocostaPirelliBundle:Llanta")->findOneBy(array(
@@ -270,18 +269,20 @@
 
                     ->setTo(array( $correos_array , 'pirellimatriz@toyocosta.com.ec' => 'Toyocosta'))
 
-                    ->setBody('Pedido de informacion                
-                    Llanta:  '.$modelo.' 
-                    Nombre:   '. $contacto->getNombre() .'
-                    Apellido:  '. $contacto->getApellido() .'
-                    Telefono:  '. $contacto->getTelefono() .'
-                    Celular:  '. $contacto->getCelular() .'
-                    Email: '. $contacto->getEmail() .'
-                    Cedula:  '. $contacto->getCedula() .'
-                    Comentario:   '. $contacto->getComentario().' '
-                    );
-                // ->attach(\Swift_Attachment::fromPath($pathArchivoPill)->setFilename('PillBrief.png'))
-                // ->setContentType("text/html");
+                    ->setContentType("text/html")
+
+
+                    ->setBody( '<strong>Informacion del Contacto:</strong> <br /><br />               
+                        Llanta:  '.$modelo.' <br />
+                        Nombre:  '.$contacto->getNombre().' <br />
+                        Apellido:   '. $contacto->getApellido() .' <br />
+                        Cedula:  '.$contacto->getCedula().' <br />
+                        Email:  '. $contacto->getEmail() .' <br />
+                        Telefono:  '. $contacto->getTelefono() .'  <br />
+                        Celular:  '. $contacto->getCelular() .'  <br />
+                        Comentario:  '. $contacto->getComentario() .' '
+                     );
+                    
 
 
                 if ($this->get('mailer')->send($message)) {

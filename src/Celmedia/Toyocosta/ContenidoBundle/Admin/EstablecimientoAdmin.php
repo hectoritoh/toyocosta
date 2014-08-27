@@ -38,6 +38,7 @@ class EstablecimientoAdmin extends Admin
             ->add('nombre')
             ->add('horario')
             ->add('ubicacion')
+            ->add('contactos')
             ->add('latitud')
             ->add('longuitud')
             ->add('telefono')
