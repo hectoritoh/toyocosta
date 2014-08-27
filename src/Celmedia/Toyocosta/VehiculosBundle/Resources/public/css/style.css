@@ -1447,6 +1447,10 @@ li.disabled > .btn.btn-anterior{
 	overflow: hidden;
 }
 
+.header-seminuevos{
+	height: 100px;
+}
+
 
 /*Media Querys*/
 /* Large desktop */
@@ -1659,6 +1663,10 @@ li.disabled > .btn.btn-anterior{
 		height: 60px;
 	}
 
+	.header-seminuevos{
+		height: auto;
+	}
+
  }
  
 /* Landscape phone to portrait tablet */
@@ -1729,6 +1737,16 @@ li.disabled > .btn.btn-anterior{
 	.alto-agencia{
 		height: 60px;
 	}
+
+
+	.seccion-ty{
+		height: auto;
+	}
+
+	.header-seminuevos{
+		height: auto;
+	}
+
  }
 
 /* Landscape phones and down */
@@ -1811,6 +1829,16 @@ li.disabled > .btn.btn-anterior{
 	.alto-agencia{
 		height: 60px;
 	}
+
+	.seccion-ty{
+		height: auto;
+	}
+
+	.header-seminuevos{
+		height: auto;
+	}
+
+
  }
 
  ul.tabs-especificaciones{
@@ -1851,7 +1879,7 @@ ul.tabs-especificaciones li > a:hover{
 } 
 
 .icono-regresar{
-	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/iconos/icono-flecha.png");
+	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/iconos/icono-flecha-regresar.png");
 	background-position: center bottom;
 	width: 18px;
 	position: relative;
@@ -1871,6 +1899,11 @@ ul.tabs-especificaciones li > a:hover{
 }
 .submenu-vehiculo>li>a:hover, .nav>li>a:focus {
  background-color: transparent;
+}
+
+a.submenu-vehiculo-item.active,
+a.submenu-vehiculo-item:hover{
+	color: #FFFF00;
 }
 
 /********************************************ESTILO PIRELLI******************************************/
@@ -2584,4 +2617,9 @@ button.close-ficha{
 	padding-bottom: 0px;
 	line-height: 0;
 
+}
+
+/*************************************************************************/
+.tab-especificaciones{
+	
 }

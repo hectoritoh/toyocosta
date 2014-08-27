@@ -132,7 +132,7 @@ class SeminuevoAdmin extends Admin
                 'link_parameters' => array('context' => 'default'),
                 'admin_code' => 'sonata.media.admin.gallery_has_media'
                 )
-            )          
+            )
             ->setHelps(array(
                     'coloresseminuevo' => 'Color'
                 ))

@@ -906,9 +906,29 @@ class DefaultController extends Controller
         ), 200); //codigo de error diferente
     }
 
-    public function especificacionAction(){
+    public function especificacionAction($vehiculoid){
+        $em = $this->getDoctrine()->getManager();
 
-       return $this->render('CelmediaToyocostaVehiculosBundle:Pages:especificacion.html.twig', array());
+        $vehiculo = $em->getRepository("CelmediaToyocostaVehiculosBundle:Vehiculo")->findOneBy(array(
+            "id" => $vehiculoid,
+            "estado" => 1
+            )
+        );
+
+        /*
+        $especificaciones = $em->getRepository("CelmediaToyocostaVehiculosBundle:VehiculoEspecificacion")->findBy(array(
+            "id" => $vehiculoid,
+            "estado" => 1
+            )
+        );
+        */
+
+
+
+       return $this->render('CelmediaToyocostaVehiculosBundle:Pages:especificacion.html.twig', array(
+            "vehiculo" => $vehiculo,
+            //"especificaciones" => $especificaciones
+        ));
     }
 
     public function imprimirVariableDebug($variable){

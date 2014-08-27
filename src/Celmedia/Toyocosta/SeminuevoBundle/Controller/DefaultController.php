@@ -7,6 +7,8 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\SecurityContextInterface;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\File\Input;
 
 use Celmedia\Toyocosta\SeminuevoBundle\Entity\Seminuevo;
 use Application\Sonata\MediaBundle\Entity\GalleryHasMedia;
@@ -473,7 +475,7 @@ class DefaultController extends Controller
 
 
             // $pathArchivoPill = __DIR__ . '/../../../../web/uploads/seminuevos/' . $pill->getImagen();
-            $colores = $seminuevo->getColores();
+            $colores = $seminuevo->getColoresseminuevo();
 
 
 
@@ -532,6 +534,8 @@ class DefaultController extends Controller
             $ciudad = $request->request->get('ciudad');
             $placa = $request->request->get('placa');
 
+
+
             $foto1 = $request->request->get('foto1');
             $foto2 = $request->request->get('foto2');
             $foto3 = $request->request->get('foto3');
@@ -543,45 +547,171 @@ class DefaultController extends Controller
 
 
             $em = $this->getDoctrine()->getManager();
-            $vehiculo_colores =$em->getRepository('CelmediaToyocostaSeminuevoBundle:SeminuevoColores')->findOneBy(array("id"=> $color));
+
+            $em = $this->getDoctrine()->getManager();
+            $seminuevo_color =$em->getRepository('CelmediaToyocostaContenidoBundle:Color')->findOneBy(array("id"=> $color));
 
 
-            $vehiculo = new \Celmedia\Toyocosta\SeminuevoBundle\Entity\Seminuevo();
+            $seminuevo = new \Celmedia\Toyocosta\SeminuevoBundle\Entity\Seminuevo();
             
 
 
-            $vehiculo->setModelo( $modelo  );
-            $vehiculo->setKilometraje( $kilometraje  );
-            $vehiculo->setMarca( $marca  );
-            $vehiculo->setTipo( $tipo  );
-            $vehiculo->setPrecio( $precio  );
-            $vehiculo->setAnio( $anio  );
-            $vehiculo->setColores( $vehiculo_colores  );
-            $vehiculo->setUbicacion( $ciudad );
-            $vehiculo->setPlaca( $placa );
+            $seminuevo->setModelo( $modelo  );
+            $seminuevo->setKilometraje( $kilometraje  );
+            $seminuevo->setMarca( $marca  );
+            $seminuevo->setTipo( $tipo  );
+            $seminuevo->setPrecio( $precio  );
+            $seminuevo->setAnio( $anio  );
+            $seminuevo->setColoresseminuevo( $seminuevo_color  );
+            $seminuevo->setUbicacion( $ciudad );
+            $seminuevo->setPlaca( $placa );
 
-            $vehiculo->setInformacion("Informacion");
-            $vehiculo->setDescripcionCorta("Descripcion");
+            $fotoN1 = new \Application\Sonata\MediaBundle\Entity\GalleryHasMedia($foto1); $em->persist(  $fotoN1 ); $em->flush();
+            $fotoN2 = new \Application\Sonata\MediaBundle\Entity\GalleryHasMedia($foto2); $em->persist(  $fotoN2 ); $em->flush();
+            $fotoN3 = new \Application\Sonata\MediaBundle\Entity\GalleryHasMedia($foto3); $em->persist(  $fotoN3 ); $em->flush();
+            $fotoN4 = new \Application\Sonata\MediaBundle\Entity\GalleryHasMedia($foto4); $em->persist(  $fotoN4 ); $em->flush();
+            $fotoN5 = new \Application\Sonata\MediaBundle\Entity\GalleryHasMedia($foto5); $em->persist(  $fotoN5 ); $em->flush();
+            $fotoN6 = new \Application\Sonata\MediaBundle\Entity\GalleryHasMedia($foto6); $em->persist(  $fotoN6 ); $em->flush();
+            $fotoN7 = new \Application\Sonata\MediaBundle\Entity\GalleryHasMedia($foto7); $em->persist(  $fotoN7 ); $em->flush();
+            $fotoN8 = new \Application\Sonata\MediaBundle\Entity\GalleryHasMedia($foto8); $em->persist(  $fotoN8 ); $em->flush();
 
-            $vehiculo->setEstado( 1 ); // Disponible = 1
-            $vehiculo->setEstadoPublicacion( 2 ); //Pendiente = 2
-            $vehiculo->setUsername( $usuario );
+
+            $seminuevo->addImagene( $fotoN1 );
+            $seminuevo->addImagene( $fotoN2 );
+            $seminuevo->addImagene( $fotoN3 );
+            $seminuevo->addImagene( $fotoN4 );
+            $seminuevo->addImagene( $fotoN5 );
+            $seminuevo->addImagene( $fotoN6 );
+            $seminuevo->addImagene( $fotoN7 );
+            $seminuevo->addImagene( $fotoN8 );
             
-            $em = $this->getDoctrine()->getManager(); 
-            $em->persist(  $vehiculo );
+
+
+
+            $seminuevo->setInformacion("Informacion");
+            $seminuevo->setDescripcionCorta("Descripcion");
+
+            $seminuevo->setEstado( 1 ); // Disponible = 1
+            $seminuevo->setEstadoPublicacion( 2 ); //Pendiente = 2
+            $seminuevo->setUsername( $usuario );
+            
+            $em->persist(  $seminuevo );
             $em->flush();
 
 
 
-            $this->enviarCorreo($email, $vehiculo );
+
+            ////////////////////////////////////////////////////
 
 
-            $response = array("code" => 1, "success" => true);
+            $message = \Swift_Message::newInstance()
+                ->setSubject('Venta de Seminuevo desde Toyocosta ')
+
+                ->setFrom(array('ycosquillo@celmedia.com' => 'Web Toyocosta'))
+
+                ->setTo(array( 'ycosquillo@celmedia.com' => 'Administrador de seminuevos Toyocosta'))
+                
+                ->setContentType("text/html")
+
+                ->setBody('<h1>Información de Seminuevo</h1> <br /><br />               
+                <strong>Usuario:</strong>  '.$seminuevo->getUsername().' <br />
+                <strong>Modelo:</strong>   '. $seminuevo->getModelo() .' <br />
+                <strong>Marca:</strong>  '. $seminuevo->getMarca() .'  <br />
+                <strong>Tipo:</strong>  '. $seminuevo->getTipo() .' <br />
+                <strong>kilometraje:</strong>  '. $seminuevo->getKilometraje() .' <br />
+                <strong>Precio:</strong>   '. $seminuevo->getPrecio() .' <br />
+                <strong>Anio:</strong>  '. $seminuevo->getAnio() .' <br />
+                <strong>Ubicación:</strong>  '. $seminuevo->getUbicacion() .' <br />
+                <strong>Placa:</strong>  '. $seminuevo->getPlaca() .' <br />
+                <strong>Color:</strong>   '. $seminuevo->getColoresseminuevo().' '
+
+                );
+
+            if( $foto1 ){
+                $message->attach(\Swift_Attachment::fromPath( $foto1 ));
+            }
+            if( $foto2 ){
+                $message->attach(\Swift_Attachment::fromPath( $foto2 ));
+            }
+            if( $foto3 ){
+                $message->attach(\Swift_Attachment::fromPath( $foto3 ));
+            }
+            if( $foto4 ){
+                $message->attach(\Swift_Attachment::fromPath( $foto4 ));
+            }
+            if( $foto5 ){
+                $message->attach(\Swift_Attachment::fromPath( $foto5 ));
+            }
+            if( $foto6 ){
+                $message->attach(\Swift_Attachment::fromPath( $foto6 ));
+            }
+            if( $foto7 ){
+                $message->attach(\Swift_Attachment::fromPath( $foto7 ));
+            }
+            if( $foto8 ){
+                $message->attach(\Swift_Attachment::fromPath( $foto8 ));
+            }
             
-            return new Response(json_encode($response));
 
-            
+
+            $envioMail = $this->get('mailer')->send($message);
+
+            $transport = $this->container->get('mailer')->getTransport();
+            $spool = $transport->getSpool();
+            $spool->flushQueue($this->container->get('swiftmailer.transport.real'));
+
+
+            if ( $envioMail ) {
+                 return new JsonResponse(array(
+                    'codigo' => 1,
+                    'Mensaje' => "El mensaje ha sido enviado"
+                ), 200); //codigo de error diferente
+            } else {
+                 return new JsonResponse(array(
+                    'codigo' => 0,
+                    'Mensaje' => "No se ha enviado mensaje"
+                ), 200); //codigo de error diferente
+            }
+
+            ////////////////////////////////////////////////////            
         }
 
+        return new JsonResponse(array(
+            'codigo' => 0,
+            'Mensaje' => "No se recibio por post"
+        ), 200); //codigo de error diferente
     }
+
+
+
+    public function ajaxUploadFotoDataAction()
+    {
+        $request = $this->get('request');
+
+        $uploaded_file = $request->files->get('sm_input_file');
+        $path = 'uploads/seminuevosvenda/';
+        $filename = "";
+
+        if ($uploaded_file)
+        {
+
+                $uploaded_file_info = pathinfo($uploaded_file->getClientOriginalName());
+                $filename = uniqid() . "-" . $uploaded_file->getClientOriginalName();
+                $uploaded_file->move($path, $filename);
+
+            $response = 'success';
+        }
+
+        else $response = 'error';
+
+        //$response = new Response(json_encode(array('response'=>$response)));
+        //$response->headers->set('Content-Type', 'application/json');
+        //return $response;
+
+        return new JsonResponse(array(
+            'response' => $response,
+            "rutaarchivo" => $path . $filename
+        )); //codigo de error diferente
+    }
+
 }

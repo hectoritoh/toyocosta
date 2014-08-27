@@ -4,160 +4,104 @@
 
 {% include 'CelmediaToyocostaVehiculosBundle:Blocks:top.menu.secciones.html.twig' %}
 
-<div class="row" style="position:relative; top:70px; height: 380px;">
-	{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/banner/lp.jpg' %}
-		<img src="{{ asset_url }}" class="img-responsive" />
-	{% endimage %}
-</div>
-
-<div class="container">
-	 <div class="row">
-        <div class="col-md-12">
-            <ol class="breadcrumb breadcrumb-ty">
-              <li><a href="#">HOME</a></li>
-              <li><a href="#">PRIUS C</a></li>
-              <li class="active"><strong>ESPECIFICACIONES</strong></li>
-            </ol>
-        </div><br/><br/>          
-    </div>
-    <div class="row">
-		<div class="col-md-12">
-			<h3 style="text-align:center"><strong>ESPECIFICACIONES DEL VEH&Iacute;CULO</strong></h3>
-		</div><br/>
-    </div>
-	<div class="row">
-		<div class="col-xs-4 col-md-10">
-			<a href="#" style="color:black">
-				<i class="icono-regresar"></i>
-				<strong>Regresar</strong>
-			</a>
-		</div>
-		<div class="col-xs-4 col-md-2">
-			<a class="btn btn-vehiculo" target="_blank" href="#">
-				Ficha Técnica
-				<i class="icono-descarga"></i>
-			</a>
+{% if vehiculo %}
+	<div class="row" style="position:relative; top:70px; height: 380px;">
+		<div class="container-fluid vehiculo-banner" style="background-image: url({{ asset('uploads/vehiculo/banner/'   ~   vehiculo.imagenBanner ) }});">
+			&nbsp;
 		</div>
 	</div>
-	<br/><br/>
-</div>
-<div style="border-bottom: 2px solid #ccc8c8">
+
 	<div class="container">
-	<div class="row">
-		<div class="col-md-12">
-				<ul class="nav nav-tabs row tabs-especificaciones" role="tablist">
-				  <li class="active col-md-3"><a href="#mecanica" role="tab" data-toggle="tab"><strong>MEC&Aacute;NICA</strong></a></li>
-				  <li class="col-md-3" ><a href="#exterior" role="tab" data-toggle="tab"><strong>EXTERIOR</strong></a></li>
-				  <li class="col-md-3"><a href="#interior" role="tab" data-toggle="tab"><strong>INTERIOR</strong></a></li>
-				  <li class="col-md-3" ><a href="#seguridad " role="tab" data-toggle="tab"><strong>SEGURIDAD</strong></a></li>
-				</ul>
+		 <div class="row">
+	        <div class="col-md-12">
+	            <ol class="breadcrumb breadcrumb-ty">
+	              <li><a href="{{ path('toyocosta_homepage') }}">INICIO</a></li>
+	              <li><a href="{{ path('ver_vehiculo', {'vehiculoid': vehiculo.id } )  }}">{{vehiculo.nombre}}</a></li>
+	              <li class="active"><strong>ESPECIFICACIONES</strong></li>
+	            </ol>
+	        </div><br/><br/>          
+	    </div>
+	    <div class="row">
+			<div class="col-md-12">
+				<h3 style="text-align:center"><strong>ESPECIFICACIONES DEL VEH&Iacute;CULO</strong></h3>
+			</div><br/>
+	    </div>
+		<div class="row">
+			<div class="col-xs-4 col-md-10">
+				<a href="{{ path('ver_vehiculo', {'vehiculoid': vehiculo.id } )  }}" style="color:black">
+					<i class="icono-regresar"></i>
+					<strong>Regresar</strong>
+				</a>
+			</div>
+			<div class="col-xs-4 col-md-2">
+				{% if vehiculo.ficha %}
+					<a href="{{ asset('uploads/vehiculo/ficha/'   ~   vehiculo.ficha ) }}" class="btn btn-vehiculo" target="_blank">
+						Ficha Técnica
+						<i class="icono-descarga"></i> 
+					</a>
+				{% endif %}
+			</div>
 		</div>
+		<br/><br/>
 	</div>
-	</div>
-</div>
-<div class="container">	
-	<div class="row">
-		<div class="col-md-12">
-			
-			<div class="tab-content">
-				<div class="tab-pane active" id="mecanica">
-					<br/><br/>
-					<div class="table-responsive">
-					  <table class="table">
-					    <tr class="active">
-  							<td>informacion uno</td>
-  							<td>informacion dos</td>
-  						</tr>
-  						 <tr>
-  							<td>informacion uno</td>
-  							<td>informacion dos</td>
-  						</tr>
-  						 <tr class="active">
-  							<td>informacion uno</td>
-  							<td>informacion dos</td>
-  						</tr>
-  						 <tr>
-  							<td>informacion uno</td>
-  							<td>informacion dos</td>
-  						</tr>	
-					  </table>
-					</div>
-				</div>
-				<div class="tab-pane" id="exterior">
-					<br/><br/>
-					<div class="table-responsive">
-					  <table class="table">
-					    <tr class="active">
-  							<td>informacion uno</td>
-  							<td>informacion dos</td>
-  						</tr>
-  						 <tr>
-  							<td>informacion uno</td>
-  							<td>informacion dos</td>
-  						</tr>
-  						 <tr class="active">
-  							<td>informacion uno</td>
-  							<td>informacion dos</td>
-  						</tr>
-  						 <tr>
-  							<td>informacion uno</td>
-  							<td>informacion dos</td>
-  						</tr>	
-					  </table>
-					</div>
-				</div>
-				<div class="tab-pane" id="interior">
-					<br/><br/>
-					<div class="table-responsive">
-					  <table class="table">
-					    <tr class="active">
-  							<td>informacion uno</td>
-  							<td>informacion dos</td>
-  						</tr>
-  						 <tr>
-  							<td>informacion uno</td>
-  							<td>informacion dos</td>
-  						</tr>
-  						 <tr class="active">
-  							<td>informacion uno</td>
-  							<td>informacion dos</td>
-  						</tr>
-  						 <tr>
-  							<td>informacion uno</td>
-  							<td>informacion dos</td>
-  						</tr>	
-					  </table>
-					</div>
-				</div>
-				<div class="tab-pane" id="seguridad">
-					<br/><br/>
-					<div class="table-responsive">
-					  <table class="table">
-					    <tr class="active">
-  							<td>informacion uno</td>
-  							<td>informacion dos</td>
-  						</tr>
-  						 <tr>
-  							<td>informacion uno</td>
-  							<td>informacion dos</td>
-  						</tr>
-  						 <tr class="active">
-  							<td>informacion uno</td>
-  							<td>informacion dos</td>
-  						</tr>
-  						 <tr>
-  							<td>informacion uno</td>
-  							<td>informacion dos</td>
-  						</tr>	
-					  </table>
-					</div>
-				</div>
-			</div>	
 
+	{% if  vehiculo.especificaciones|length > 0 %}
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+
+					<ul class="nav nav-tabs row tabs-especificaciones" role="tablist">
+						{% for especificacion in vehiculo.especificaciones %}
+							<li class="{% if loop.first %}active{% endif %} col-md-3">
+								<a href="#{{especificacion.seccion}}" role="tab" data-toggle="tab"><strong>{{especificacion.seccion | upper }}</strong></a>
+							</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="container">	
+			<div class="row">
+				<div class="col-md-12">
+					<div class="tab-content">
+
+						{% for especificacion in vehiculo.especificaciones %}
+
+							<div class="tab-especificaciones tab-pane {% if loop.first %}active{% endif %} " id="{{especificacion.seccion}}">
+								<br/><br/>
+								{{especificacion.rawText | raw}}
+								<br/><br/>
+							</div>
+
+						{% endfor %}
+					</div>
+				</div>
+			</div>
 		</div>
 
+	{% else %}
+	    
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					No se han definido especificaciones para este vehículo.
+				</div>
+			</div>
+		</div>
+
+	{% endif %}
+
+
+{% else %}
+	<div class="container">
+		<div class="row">
+			<div class="col-md-12">
+				No se encuentra vehículo.
+			</div>
+		</div>
 	</div>
-</div>
+{% endif %}
 
 
 {% endblock %}

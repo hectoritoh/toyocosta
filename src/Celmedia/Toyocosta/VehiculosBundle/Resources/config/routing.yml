@@ -127,5 +127,5 @@ consultar_obsequios:
         expose: true
 
 especificacion:
-    path:      /vehiculo/especificacion
+    path:      /vehiculo/especificacion/{vehiculoid}
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:especificacion }
