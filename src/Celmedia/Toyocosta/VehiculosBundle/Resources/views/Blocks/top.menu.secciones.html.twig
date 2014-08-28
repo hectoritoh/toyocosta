@@ -2,12 +2,7 @@
   <div class="container-fluid visible-md visible-lg hidden-sm hidden-xs">
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right navbar-nav-menu-0">
-        <!-- <li class="active">
-          <a href="#">Regístrese</a>
-        </li>
-        <li>
-          <a href="#">Iniciar sesión</a>
-        </li> -->
+
         {% if app.user %}
 
           <li class="dropdown">
@@ -45,16 +40,6 @@
         <li>
           <a href="http://www.toyocosta.com/blog">Noticias</a>
         </li>
-        {#<li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-            Servicios
-          </a>
-          <ul class="dropdown-menu" role="menu">
-            <li>
-              <a href="{{ path('mantenimiento')}}">Cita de Mantenimiento</a>
-            </li>
-          </ul>
-        </li>#}
         <li>
           <a href="{{ path('mantenimiento')}}">Cita de Mantenimiento</a>
         </li>
@@ -104,11 +89,11 @@
             <a href="#" data-target="categoria-2" class="item-submenu item-submenu-v">Camionetas</a>
           </li>
           <li>
-            <a href="#" data-target="categoria-3" class="item-submenu item-submenu-v">SUV</a>
+            <a href="#" data-target="categoria-3" class="item-submenu item-submenu-v">TODOTERRENO</a>
           </li>
-          <li>
+          {#<li>
             <a href="#" data-target="categoria-4" class="item-submenu item-submenu-v">Híbridos</a>
-          </li>
+          </li>#}
           <li>
             <a href="{{ path('montacargas_home') }}" data-target="categoria-5" class="item-submenu">Montacargas</a>
           </li>
@@ -132,7 +117,7 @@
     {{ render(controller("CelmediaToyocostaVehiculosBundle:Default:obtenerVehiculosXCategoria" , { 'categoriaId': 1 } ) ) }}
     {{ render(controller("CelmediaToyocostaVehiculosBundle:Default:obtenerVehiculosXCategoria" , { 'categoriaId': 2 } ) ) }}
     {{ render(controller("CelmediaToyocostaVehiculosBundle:Default:obtenerVehiculosXCategoria" , { 'categoriaId': 3 } ) ) }}
-    {{ render(controller("CelmediaToyocostaVehiculosBundle:Default:obtenerVehiculosXCategoria" , { 'categoriaId': 4 } ) ) }}
+    {#{{ render(controller("CelmediaToyocostaVehiculosBundle:Default:obtenerVehiculosXCategoria" , { 'categoriaId': 4 } ) ) }}#}
     
   </div>
 

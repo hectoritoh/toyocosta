@@ -2,15 +2,7 @@
   <div class="container-fluid">
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right navbar-nav-menu-0">
-        <!-- <li class="active">
-          <a href="#">Regístrese</a>
-        </li>
-        <li>
-          <a href="#">Iniciar sesión</a>
-        </li> -->
-        <!-- <li>
-          <a href="#">&nbsp;</a>
-        </li> -->
+
         <li class="active">
           <a href="{{ path('toyocosta_homepage') }}">Inicio</a>
         </li>
@@ -33,16 +25,6 @@
         <li>
           <a href="http://www.toyocosta.com/blog">Noticias</a>
         </li>
-        {#<li class="dropdown">
-          <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-            Servicios
-          </a>
-          <ul class="dropdown-menu" role="menu">
-            <li>
-              <a href="{{ path('mantenimiento')}}">Cita de Mantenimiento</a>
-            </li>
-          </ul>
-        </li>#}
         <li>
           <a href="{{ path('mantenimiento')}}">Cita de Mantenimiento</a>
         </li>
@@ -94,9 +76,9 @@
           <li>
             <a href="#{{ categoriasVehiculo[2].nombre|lower }}-seccion" class="navegacion-sl">{{ categoriasVehiculo[2].nombre}}</a>
           </li>
-          <li>
+          {#<li>
             <a href="#{{ categoriasVehiculo[3].nombre|lower }}-seccion" class="navegacion-sl">{{ categoriasVehiculo[3].nombre}}</a>
-          </li>
+          </li>#}
           <li>
             <a href="#montacargas-seccion" class="navegacion-sl">Montacargas</a>
           </li>

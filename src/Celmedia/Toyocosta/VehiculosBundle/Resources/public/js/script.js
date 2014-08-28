@@ -100,6 +100,8 @@ var margenlink = 0;
 
 $(document).ready(function(){
 
+    
+    
     $('.cert').tooltip();
 
     // MODAL PARA USADOS MONTACARGAS 

@@ -48,11 +48,11 @@ class DefaultController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
 
-        $categoriaid =$this->getDoctrine()->getRepository('CelmediaToyocostaVehiculosBundle:CategoriaVehiculo')->findOneBy(array("nombre" => "suv", "estado"=> 1));
+        $categoriaid =$this->getDoctrine()->getRepository('CelmediaToyocostaVehiculosBundle:CategoriaVehiculo')->findOneBy(array("nombre" => "todoterreno", "estado"=> 1));
         
         $vehiculos = $this->getDoctrine()->getRepository('CelmediaToyocostaVehiculosBundle:Vehiculo')->findBy( array("estado"=> 1 , "categoria" => $categoriaid ) );
 
-        return $this->render('CelmediaToyocostaVehiculosBundle:Pages:productos.html.twig', array("categoria_vehiculo" => "suv" , 'vehiculos' => $vehiculos ) );
+        return $this->render('CelmediaToyocostaVehiculosBundle:Pages:productos.html.twig', array("categoria_vehiculo" => "todoterreno" , 'vehiculos' => $vehiculos ) );
     }
 
 

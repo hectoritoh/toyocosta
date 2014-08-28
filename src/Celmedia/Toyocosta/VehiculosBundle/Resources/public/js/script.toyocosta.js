@@ -278,6 +278,17 @@ $(window).bind('scroll', function() {
 
 $(document).ready(function(){
 
+  // $('.carousel-inner').on('slide.bs.carousel', function () {
+
+  //     $('.centrado-horizontal').each(function () {
+  //              centrarHorizontal($(this));
+  //       });  
+
+  //       $(this).find(".item .mascara").fadeOut();
+  //       $(this).find(".item.active .mascara").fadeIn();
+
+  // });
+
   $('.navbar-nav-vehiculos').find('li').removeClass("active");
 
  	$('.contenedor-centrar').each(function () {

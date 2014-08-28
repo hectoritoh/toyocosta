@@ -1009,7 +1009,7 @@ fieldset.ty-fieldset-border {
 .galeria-v-control{
 	width: 77px;
 	height: 77px;
-	top: 50%;
+	top: 30%;
 }
 
 .carousel-control .slider-galeria{
@@ -2002,7 +2002,7 @@ a.submenu-vehiculo-item:hover{
 .banner-pirelli-distribuidor{
 	background-image: url("../../bundles/celmediatoyocostapirelli/images/banners-pirelli/distribuidores.jpg");
 	background-size: cover;
-	height: 186px;
+	height: 275px;
 }
 .nav-buscador a{
 	font-size: 16px;

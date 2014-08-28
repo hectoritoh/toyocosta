@@ -13,11 +13,11 @@ camionetas:
     path:      /camionetas
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:camionetas }
 suv:
-    path:      /suv
+    path:      /todoterreno
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:suv }
-hibridos:
-    path:      /hibridos
-    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:hibridos }
+# hibridos:
+#     path:      /hibridos
+#     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:hibridos }
 
 ver_vehiculo:
     path:      /vehiculos/{vehiculoid}

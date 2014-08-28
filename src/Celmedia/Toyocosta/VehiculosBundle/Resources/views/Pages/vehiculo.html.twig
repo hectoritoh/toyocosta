@@ -124,32 +124,36 @@
 
 					<div class="carousel-inner alto-completo">
 						{% for row  in vehiculoModelos | batch(3) %}
-						<div class="item {% if loop.first %}active{% endif %}">
+						<div class="item {% if loop.first %}active{% endif %} mascara">
 							<div class="container-fluid">
 								<div class="row">
 									<div class="col-md-9 centrado-horizontal">
-									{% for vehiculoModelo in row %}
-									<div class="col-md-4 text-center c-modelo">
-										<div class="vehic-modelo">
-											<div class="container-fluid">
-												<div class="row" style="min-height:190px;">
-													<div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 text-center">
-														<h3 class="modelo-titular txt-negrita espacio-a">{{ vehiculoModelo.nombre }}</h3>
-														<p class="modelo-titular espacio-a">{{ vehiculoModelo.descripcion }}</p>
-														<h4 class="txt-negro espacio-a">SIN IVA: <span class="txt-rojo">${{ vehiculoModelo.precio }}</span></h4>
-														<h4 class="txt-negro espacio-a">CON IVA: <span class="txt-rojo">${{ vehiculoModelo.precioNeto }}</span></h4>
+										<div class="row centrado-horizontal">
+											
+											{% for vehiculoModelo in row %}
+											<div class="col-md-4 text-center c-modelo">
+												<div class="vehic-modelo">
+													<div class="container-fluid">
+														<div class="row" style="min-height:190px;">
+															<div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 text-center">
+																<h3 class="modelo-titular txt-negrita espacio-a">{{ vehiculoModelo.nombre }}</h3>
+																<p class="modelo-titular espacio-a">{{ vehiculoModelo.descripcion }}</p>
+																<h4 class="txt-negro espacio-a">SIN IVA: <span class="txt-rojo">${{ vehiculoModelo.precio }}</span></h4>
+																<h4 class="txt-negro espacio-a">CON IVA: <span class="txt-rojo">${{ vehiculoModelo.precioNeto }}</span></h4>
+															</div>
+														</div>
+														<div class="row">
+															<br />
+														</div>
+														<div class="row">
+															<img src="{{ asset('uploads/vehiculo/modelo/' ~ vehiculoModelo.imagenModelo ) }}" class="img-responsive obj-centrar" />
+														</div>
 													</div>
 												</div>
-												<div class="row">
-													<br />
-												</div>
-												<div class="row">
-													<img src="{{ asset('uploads/vehiculo/modelo/' ~ vehiculoModelo.imagenModelo ) }}" class="img-responsive obj-centrar" />
-												</div>
 											</div>
+											{% endfor %}
+
 										</div>
-									</div>
-									{% endfor %}
 
 									</div>
 								</div>
