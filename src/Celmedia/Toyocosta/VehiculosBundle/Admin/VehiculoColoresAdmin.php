@@ -45,6 +45,7 @@ class VehiculoColoresAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
+            ->add('vehiculo')
             ->add('imagen_color')
             ->add('estado', 'choice', array(
            'choices' => array(
