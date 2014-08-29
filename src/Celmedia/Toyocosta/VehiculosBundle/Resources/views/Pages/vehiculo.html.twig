@@ -127,11 +127,11 @@
 						<div class="item {% if loop.first %}active{% endif %} mascara">
 							<div class="container-fluid">
 								<div class="row">
-									<div class="col-md-9 centrado-horizontal">
-										<div class="row centrado-horizontal">
+									<div class="col-md-10 col-md-offset-1">
+										<div class="row">
 											
 											{% for vehiculoModelo in row %}
-											<div class="col-md-4 text-center c-modelo">
+											<div class="col-md-4 text-center c-modelo  {% if vehiculoModelos|length == 1 %}centrado-horizontal{% elseif vehiculoModelos|length == 2 %} {% if loop.first %} col-md-offset-2 {% endif %} {% endif %}">
 												<div class="vehic-modelo">
 													<div class="container-fluid">
 														<div class="row" style="min-height:190px;">
