@@ -19,7 +19,7 @@ class LlantaAdmin extends Admin
 
         // use $fileFieldOptions so we can add other options to the field
         $fileFieldOptions = array('required' => false);
-        if ($obj && ($webPath = __DIR__.'../../../../../../../../../../../../toyocostaweb/web/'. 'uploads/pirelli/' .    $obj->getImagen())) {
+        if ($obj && ($webPath = 'uploads/pirelli/' .    $obj->getImagen())) {
             // get the container so the full path to the image can be set
             $container = $this->getConfigurationPool()->getContainer();
             $fullPath = $container->get('request')->getBasePath().'/'.$webPath;
@@ -30,13 +30,13 @@ class LlantaAdmin extends Admin
 
         // use $fileFieldOptions so we can add other options to the field
         $fileFieldOptions2 = array('required' => false);
-        if ($obj && ($webPath = __DIR__.'../../../../../../../../../../../../toyocostaweb/web/'. 'uploads/pirelli/fichas/' .    $obj->getFicha())) {
+        if ($obj && ($webPath = 'uploads/pirelli/fichas/' .    $obj->getFicha())) {
             // get the container so the full path to the image can be set
             $container = $this->getConfigurationPool()->getContainer();
             $fullPath = $container->get('request')->getBasePath().'/'.$webPath;
 
             // add a 'help' option containing the preview's img tag
-            $fileFieldOptions2['help'] = '<img src="'.$fullPath.'" class="img-responsive" />';
+            $fileFieldOptions2['help'] = '<a href="'.$fullPath.'" target="_blank"> Ficha Tecnica </a>';
         }
 
 

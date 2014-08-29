@@ -77,7 +77,7 @@ class ObsequioAdmin extends Admin
 
         $fileFieldOptions = array('required' => false);
 
-        if ($obj && ($webPath = '/../../../../toyocostaweb/web/'. 'uploads/obsequios/' .    $obj->getImagen())) {
+        if ($obj && ($webPath = 'uploads/obsequios/' .    $obj->getImagen())) {
             
             $container = $this->getConfigurationPool()->getContainer();
 

@@ -103,7 +103,7 @@ class VehiculoModelosAdmin extends Admin
 
         // use $fileFieldOptions so we can add other options to the field
         $fileFieldOptions = array('required' => false);
-        if ($obj && ($webPath =  '/../../../../toyocostaweb/web/'. 'uploads/vehiculo/modelo/' . $obj->getImagenModelo())) {
+        if ($obj && ($webPath =  'uploads/vehiculo/modelo/' . $obj->getImagenModelo())) {
             // get the container so the full path to the image can be set
             $container = $this->getConfigurationPool()->getContainer();
             $fullPath = $container->get('request')->getBasePath().'/'.$webPath;

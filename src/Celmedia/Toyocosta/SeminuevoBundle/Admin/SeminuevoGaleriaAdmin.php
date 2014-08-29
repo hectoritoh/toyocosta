@@ -68,7 +68,7 @@ class SeminuevoGaleriaAdmin extends Admin
         $obj = $this->getSubject();
 
         $fileFieldOptions = array('required' => false);
-        if ($obj && ($webPath = '/../../../../toyocostaweb/web/'. 'uploads/seminuevos/' .    $obj->getImagen())) {
+        if ($obj && ($webPath = 'uploads/seminuevos/' .    $obj->getImagen())) {
             
             $container = $this->getConfigurationPool()->getContainer();
 

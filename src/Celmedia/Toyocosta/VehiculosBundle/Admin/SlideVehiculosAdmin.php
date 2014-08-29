@@ -93,7 +93,7 @@ class SlideVehiculosAdmin extends Admin
 
         // use $fileFieldOptions so we can add other options to the field
         $fileFieldOptions = array('required' => false);
-        if ($obj && ($webPath = '/../../../../toyocostaweb/web/'. 'uploads/slide-vehiculos/portada/' .    $obj->getImagenSlide())) {
+        if ($obj && ($webPath = 'uploads/slide-vehiculos/portada/' .    $obj->getImagenSlide())) {
             // get the container so the full path to the image can be set
             $container = $this->getConfigurationPool()->getContainer();
             $fullPath = $container->get('request')->getBasePath().'/'.$webPath;
@@ -103,7 +103,7 @@ class SlideVehiculosAdmin extends Admin
         }
         // use $fileFieldOptions so we can add other options to the field
         $fileFieldOptions2 = array('required' => false);
-        if ($obj && ($webPath = '/../../../../toyocostaweb/web/'. 'uploads/slide-vehiculos/bullets/' .    $obj->getImagenThumb())) {
+        if ($obj && ($webPath = 'uploads/slide-vehiculos/bullets/' .    $obj->getImagenThumb())) {
             // get the container so the full path to the image can be set
             $container = $this->getConfigurationPool()->getContainer();
             $fullPath = $container->get('request')->getBasePath().'/'.$webPath;
@@ -114,7 +114,7 @@ class SlideVehiculosAdmin extends Admin
 
         // use $fileFieldOptions so we can add other options to the field
         $fileFieldOptions3 = array('required' => false);
-        if ($obj && ($webPath = '/../../../../toyocostaweb/web/'. 'uploads/slide-vehiculos/logos/' .    $obj->getLogo())) {
+        if ($obj && ($webPath = 'uploads/slide-vehiculos/logos/' .    $obj->getLogo())) {
             // get the container so the full path to the image can be set
             $container = $this->getConfigurationPool()->getContainer();
             $fullPath = $container->get('request')->getBasePath().'/'.$webPath;

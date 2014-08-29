@@ -81,7 +81,7 @@ class SlidePrincipalAdmin extends Admin
         $obj = $this->getSubject();
 
         $fileFieldOptions = array('required' => false);
-        if ($obj && ($webPath = '/../../../../toyocostaweb/web/'. 'uploads/slide-principal/' .    $obj->getImagenBanner())) {
+        if ($obj && ($webPath = 'uploads/slide-principal/' .    $obj->getImagenBanner())) {
             // get the container so the full path to the image can be set
             $container = $this->getConfigurationPool()->getContainer();
             $fullPath = $container->get('request')->getBasePath().'/'.$webPath;

@@ -72,7 +72,7 @@ class SeminuevoCertificadoAdmin extends Admin
         $obj = $this->getSubject();
 
         $fileFieldOptions = array('required' => false);
-        if ($obj && ($webPath = '/../../../../toyocostaweb/web/'. 'uploads/seminuevos/certificados/' .    $obj->getImagen())) {
+        if ($obj && ($webPath = 'uploads/seminuevos/certificados/' .    $obj->getImagen())) {
             
             $container = $this->getConfigurationPool()->getContainer();
 

@@ -81,7 +81,7 @@ class CategoriaMontacargaAdmin extends Admin
 
         
         $fileFieldOptions = array('required' => false);
-        if ($obj && ($webPath = '/../../../../toyocostaweb/web/'. 'uploads/montacargas/categoria/' .    $obj->getFotoThumb())) {
+        if ($obj && ($webPath = 'uploads/montacargas/categoria/' .    $obj->getFotoThumb())) {
             // get the container so the full path to the image can be set
             $container = $this->getConfigurationPool()->getContainer();
             $fullPath = $container->get('request')->getBasePath().'/'.$webPath;
@@ -91,7 +91,7 @@ class CategoriaMontacargaAdmin extends Admin
         }
         
         $fileFieldOptions2 = array('required' => false);
-        if ($obj && ($webPath = '/../../../../toyocostaweb/web/'. 'uploads/montacargas/categoria/' .    $obj->getLogo())) {
+        if ($obj && ($webPath = 'uploads/montacargas/categoria/' .    $obj->getLogo())) {
             
             $container = $this->getConfigurationPool()->getContainer();
             $fullPath = $container->get('request')->getBasePath().'/'.$webPath;

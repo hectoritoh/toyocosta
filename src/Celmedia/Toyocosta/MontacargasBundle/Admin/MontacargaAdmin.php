@@ -74,7 +74,7 @@ class MontacargaAdmin extends Admin
         $obj = $this->getSubject();
 
         $fileFieldOptions3 = array('required' => false);
-        if ($obj && ($webPath = '/../../../../toyocostaweb/web/'. 'uploads/montacargas/ficha/' .    $obj->getFicha())) {
+        if ($obj && ($webPath = 'uploads/montacargas/ficha/' .    $obj->getFicha())) {
             // get the container so the full path to the image can be set
             $container = $this->getConfigurationPool()->getContainer();
             $fullPath = $container->get('request')->getBasePath().'/'.$webPath;
