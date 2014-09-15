@@ -196,7 +196,8 @@ sonata_media:
 
     cdn:
         server:
-            path: http://localhost/toyocostaweb/web/uploads/media # http://media.sonata-project.org/
+            path: http://www.toyocosta.com/page/web/uploads/media # http://media.sonata-project.org/
+            # path: http://localhost/toyocostaweb/web/uploads/media # http://media.sonata-project.org/
 
     filesystem:
         local:
@@ -281,3 +282,8 @@ sonata_formatter:
         # twig:
         #     service: sonata.formatter.text.twigengine
         #     extensions: [] # Twig formatter cannot have extensions
+mobile_detect:
+    redirect:
+        mobile: ~
+        tablet: ~
+    switch_device_view: ~

@@ -46,6 +46,8 @@ class AppKernel extends Kernel
             new Sonata\IntlBundle\SonataIntlBundle(),
             new Gregwar\CaptchaBundle\GregwarCaptchaBundle(),
 
+            new SunCat\MobileDetectBundle\MobileDetectBundle(),
+
             new FOS\UserBundle\FOSUserBundle(),
             new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),

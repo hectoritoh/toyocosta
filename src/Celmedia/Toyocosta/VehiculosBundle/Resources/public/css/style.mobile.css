@@ -1,0 +1,39 @@
+.panel-title{
+	padding: 0px 15px 0px 15px;
+}
+
+/*RESET MOBILE*/
+.panel-body{
+	padding: 0px;
+}
+.media-list{
+	background-color: #EFEFEF;
+	margin-bottom: 0px;
+}
+.media-body{
+	padding: 20px;
+}
+.media-heading{
+	font-size: 15px;
+	color: #333333;
+}
+.media{
+	padding: 12px;
+	border-bottom: 1px solid #DCD9D9;
+	margin-top: 0px;
+}
+.media:active {
+	border-right: 6px solid #DE1D30;
+}
+.media h4:active, .media h4:focus, .media h4:hover{
+	color: #DE1D30;
+	text-decoration: none;
+}
+a:focus , a:hover {
+	text-decoration: none;
+	outline: 0px;
+	outline-offset: 0px;
+}
+.panel-title>a:active {
+	color: #DE1D30;
+}

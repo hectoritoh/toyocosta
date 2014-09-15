@@ -4,7 +4,7 @@
         "Read more about it at http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "de14ee837ba6e7b4460659c8df6e5830",
+    "hash": "35ac68853d7c74f9beefcf2371c0ce7c",
     "packages": [
         {
             "name": "dflydev/markdown",
@@ -804,23 +804,23 @@
         },
         {
             "name": "egeloen/ckeditor-bundle",
-            "version": "2.4.0",
+            "version": "2.5.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/egeloen/IvoryCKEditorBundle.git",
-                "reference": "de3d2e0170ed4c73035887ef4f1fcea4884aa36b"
+                "reference": "a3f595101e571788af94aded9417a90ccbf66496"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/egeloen/IvoryCKEditorBundle/zipball/de3d2e0170ed4c73035887ef4f1fcea4884aa36b",
-                "reference": "de3d2e0170ed4c73035887ef4f1fcea4884aa36b",
+                "url": "https://api.github.com/repos/egeloen/IvoryCKEditorBundle/zipball/a3f595101e571788af94aded9417a90ccbf66496",
+                "reference": "a3f595101e571788af94aded9417a90ccbf66496",
                 "shasum": ""
             },
             "require": {
-                "egeloen/json-builder": "~1.0",
+                "egeloen/json-builder": "~1.0.0",
                 "php": ">=5.3.3",
-                "symfony/form": "~2.1",
-                "symfony/framework-bundle": "~2.1"
+                "symfony/form": "~2.2",
+                "symfony/framework-bundle": "~2.2"
             },
             "require-dev": {
                 "phpunit/phpunit": "~4.0",
@@ -833,7 +833,7 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "2.4-dev"
+                    "dev-master": "2.5-dev"
                 }
             },
             "autoload": {
@@ -855,7 +855,7 @@
             "keywords": [
                 "CKEditor"
             ],
-            "time": "2014-07-15 15:45:25"
+            "time": "2014-08-29 16:31:01"
         },
         {
             "name": "egeloen/json-builder",
@@ -2184,6 +2184,58 @@
             "time": "2014-05-05 02:43:50"
         },
         {
+            "name": "mobiledetect/mobiledetectlib",
+            "version": "2.7.9",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/serbanghita/Mobile-Detect.git",
+                "reference": "610846237295e3e50a1923e7cc1639a956ead22a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/serbanghita/Mobile-Detect/zipball/610846237295e3e50a1923e7cc1639a956ead22a",
+                "reference": "610846237295e3e50a1923e7cc1639a956ead22a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.0.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "classmap": [
+                    "Mobile_Detect.php"
+                ],
+                "psr-0": {
+                    "Detection": "namespaced/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Serban Ghita",
+                    "email": "serbanghita@gmail.com",
+                    "homepage": "http://ghita.org",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Mobile_Detect is a lightweight PHP class for detecting mobile devices. It uses the User-Agent string combined with specific HTTP headers to detect the mobile environment.",
+            "homepage": "https://github.com/serbanghita/Mobile-Detect",
+            "keywords": [
+                "detect mobile devices",
+                "mobile",
+                "mobile detect",
+                "mobile detector",
+                "php mobile detect"
+            ],
+            "time": "2014-03-07 13:33:54"
+        },
+        {
             "name": "monolog/monolog",
             "version": "1.10.0",
             "source": {
@@ -2616,12 +2668,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataAdminBundle.git",
-                "reference": "60bda9d77b0a746a4308d3557fa59706dc1cc6ae"
+                "reference": "8f9e230a281f7c9722772b0604533b03204fd6f2"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/60bda9d77b0a746a4308d3557fa59706dc1cc6ae",
-                "reference": "60bda9d77b0a746a4308d3557fa59706dc1cc6ae",
+                "url": "https://api.github.com/repos/sonata-project/SonataAdminBundle/zipball/8f9e230a281f7c9722772b0604533b03204fd6f2",
+                "reference": "8f9e230a281f7c9722772b0604533b03204fd6f2",
                 "shasum": ""
             },
             "require": {
@@ -2687,7 +2739,7 @@
                 "bootstrap",
                 "sonata"
             ],
-            "time": "2014-08-26 20:20:42"
+            "time": "2014-09-02 13:37:52"
         },
         {
             "name": "sonata-project/block-bundle",
@@ -2695,12 +2747,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataBlockBundle.git",
-                "reference": "e4195582740d0e26346761be9cf5f4aa6fc26238"
+                "reference": "32534c6867c49b685108c46a8699d7ed8df2ee09"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataBlockBundle/zipball/e4195582740d0e26346761be9cf5f4aa6fc26238",
-                "reference": "e4195582740d0e26346761be9cf5f4aa6fc26238",
+                "url": "https://api.github.com/repos/sonata-project/SonataBlockBundle/zipball/32534c6867c49b685108c46a8699d7ed8df2ee09",
+                "reference": "32534c6867c49b685108c46a8699d7ed8df2ee09",
                 "shasum": ""
             },
             "require": {
@@ -2751,7 +2803,7 @@
                 "block",
                 "sonata"
             ],
-            "time": "2014-08-14 12:40:45"
+            "time": "2014-09-01 20:18:58"
         },
         {
             "name": "sonata-project/cache",
@@ -2819,12 +2871,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataCoreBundle.git",
-                "reference": "88c530177f1784f9628d247c7fcfbcb91353b07f"
+                "reference": "6f36419ad655ee8d396a7d31237e52ec0b1f3ff4"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataCoreBundle/zipball/88c530177f1784f9628d247c7fcfbcb91353b07f",
-                "reference": "88c530177f1784f9628d247c7fcfbcb91353b07f",
+                "url": "https://api.github.com/repos/sonata-project/SonataCoreBundle/zipball/6f36419ad655ee8d396a7d31237e52ec0b1f3ff4",
+                "reference": "6f36419ad655ee8d396a7d31237e52ec0b1f3ff4",
                 "shasum": ""
             },
             "require": {
@@ -2873,7 +2925,7 @@
             "keywords": [
                 "sonata"
             ],
-            "time": "2014-08-21 08:31:30"
+            "time": "2014-09-01 21:20:34"
         },
         {
             "name": "sonata-project/datagrid-bundle",
@@ -2981,12 +3033,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataDoctrineORMAdminBundle.git",
-                "reference": "34b8f90d65b57fcd2008a1b809b56edd2d1961a4"
+                "reference": "1ab6b728ef03d6565bdde6b0c2b65a9e7a2659b9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataDoctrineORMAdminBundle/zipball/34b8f90d65b57fcd2008a1b809b56edd2d1961a4",
-                "reference": "34b8f90d65b57fcd2008a1b809b56edd2d1961a4",
+                "url": "https://api.github.com/repos/sonata-project/SonataDoctrineORMAdminBundle/zipball/1ab6b728ef03d6565bdde6b0c2b65a9e7a2659b9",
+                "reference": "1ab6b728ef03d6565bdde6b0c2b65a9e7a2659b9",
                 "shasum": ""
             },
             "require": {
@@ -3043,7 +3095,7 @@
                 "generator",
                 "sonata"
             ],
-            "time": "2014-08-18 08:58:10"
+            "time": "2014-09-01 20:21:38"
         },
         {
             "name": "sonata-project/easy-extends-bundle",
@@ -3164,12 +3216,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataFormatterBundle.git",
-                "reference": "a151dde6473fce7e895e8a8a2b2214919d6a2a22"
+                "reference": "0895279860a176c30510438472bf6dd2bf15782b"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataFormatterBundle/zipball/a151dde6473fce7e895e8a8a2b2214919d6a2a22",
-                "reference": "a151dde6473fce7e895e8a8a2b2214919d6a2a22",
+                "url": "https://api.github.com/repos/sonata-project/SonataFormatterBundle/zipball/0895279860a176c30510438472bf6dd2bf15782b",
+                "reference": "0895279860a176c30510438472bf6dd2bf15782b",
                 "shasum": ""
             },
             "require": {
@@ -3177,9 +3229,11 @@
                 "knplabs/knp-markdown-bundle": "~1.2.0",
                 "sonata-project/block-bundle": "~2.2,>=2.2.1",
                 "sonata-project/core-bundle": "~2.2",
-                "sonata-project/markitup-bundle": "~2.1",
                 "symfony/symfony": "~2.3",
                 "twig/twig": "*"
+            },
+            "require-dev": {
+                "sonata-project/markitup-bundle": "~2.1"
             },
             "type": "symfony-bundle",
             "extra": {
@@ -3216,7 +3270,7 @@
                 "markitup",
                 "sonata"
             ],
-            "time": "2014-08-22 16:01:57"
+            "time": "2014-09-01 08:58:10"
         },
         {
             "name": "sonata-project/google-authenticator",
@@ -3383,17 +3437,16 @@
         },
         {
             "name": "sonata-project/markitup-bundle",
-            "version": "2.1.0",
-            "target-dir": "Sonata/MarkItUpBundle",
+            "version": "dev-master",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataMarkItUpBundle.git",
-                "reference": "869b85ba924aa2333e5464bc0193813c31ea5859"
+                "reference": "e29098d45f2f01242e70bcddd7a48a80868c9cd7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataMarkItUpBundle/zipball/869b85ba924aa2333e5464bc0193813c31ea5859",
-                "reference": "869b85ba924aa2333e5464bc0193813c31ea5859",
+                "url": "https://api.github.com/repos/sonata-project/SonataMarkItUpBundle/zipball/e29098d45f2f01242e70bcddd7a48a80868c9cd7",
+                "reference": "e29098d45f2f01242e70bcddd7a48a80868c9cd7",
                 "shasum": ""
             },
             "require": {
@@ -3402,13 +3455,12 @@
             "type": "symfony-bundle",
             "extra": {
                 "branch-alias": {
-                    "dev-2.0": "2.0.x-dev",
                     "dev-master": "2.1.x-dev"
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Sonata\\MarkItUpBundle": ""
+                "psr-4": {
+                    "Sonata\\MarkItUpBundle\\": ""
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -3444,7 +3496,7 @@
                 "textile",
                 "wiki"
             ],
-            "time": "2013-02-25 13:32:15"
+            "time": "2014-09-01 08:04:27"
         },
         {
             "name": "sonata-project/media-bundle",
@@ -3452,12 +3504,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/sonata-project/SonataMediaBundle.git",
-                "reference": "7a21a95d8fc3acd60124c996417fb3eb65c7252d"
+                "reference": "f478e1358448c96a3a80eca198d2fa31fdff7772"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sonata-project/SonataMediaBundle/zipball/7a21a95d8fc3acd60124c996417fb3eb65c7252d",
-                "reference": "7a21a95d8fc3acd60124c996417fb3eb65c7252d",
+                "url": "https://api.github.com/repos/sonata-project/SonataMediaBundle/zipball/f478e1358448c96a3a80eca198d2fa31fdff7772",
+                "reference": "f478e1358448c96a3a80eca198d2fa31fdff7772",
                 "shasum": ""
             },
             "require": {
@@ -3530,7 +3582,7 @@
                 "vimeo",
                 "youtube"
             ],
-            "time": "2014-08-21 13:41:39"
+            "time": "2014-09-01 08:58:53"
         },
         {
             "name": "sonata-project/notification-bundle",
@@ -3679,16 +3731,15 @@
         {
             "name": "stof/doctrine-extensions-bundle",
             "version": "dev-master",
-            "target-dir": "Stof/DoctrineExtensionsBundle",
             "source": {
                 "type": "git",
                 "url": "https://github.com/stof/StofDoctrineExtensionsBundle.git",
-                "reference": "085cda7ce5dc12b807a5a7856f178c93725a9166"
+                "reference": "cfe13e8c64a5067f6d0ce63630a0c97911789198"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/stof/StofDoctrineExtensionsBundle/zipball/085cda7ce5dc12b807a5a7856f178c93725a9166",
-                "reference": "085cda7ce5dc12b807a5a7856f178c93725a9166",
+                "url": "https://api.github.com/repos/stof/StofDoctrineExtensionsBundle/zipball/cfe13e8c64a5067f6d0ce63630a0c97911789198",
+                "reference": "cfe13e8c64a5067f6d0ce63630a0c97911789198",
                 "shasum": ""
             },
             "require": {
@@ -3707,8 +3758,8 @@
                 }
             },
             "autoload": {
-                "psr-0": {
-                    "Stof\\DoctrineExtensionsBundle": ""
+                "psr-4": {
+                    "Stof\\DoctrineExtensionsBundle\\": ""
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -3736,7 +3787,58 @@
                 "translatable",
                 "tree"
             ],
-            "time": "2014-07-08 17:06:10"
+            "time": "2014-08-28 20:29:53"
+        },
+        {
+            "name": "suncat/mobile-detect-bundle",
+            "version": "v0.9.5",
+            "target-dir": "SunCat/MobileDetectBundle",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/suncat2000/MobileDetectBundle.git",
+                "reference": "d11a9cea4f15472e280de84d639c4ab17663b45b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/suncat2000/MobileDetectBundle/zipball/d11a9cea4f15472e280de84d639c4ab17663b45b",
+                "reference": "d11a9cea4f15472e280de84d639c4ab17663b45b",
+                "shasum": ""
+            },
+            "require": {
+                "mobiledetect/mobiledetectlib": "2.7.*",
+                "php": ">=5.3.0",
+                "symfony/framework-bundle": ">=2.1,<3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.1"
+            },
+            "type": "symfony-bundle",
+            "autoload": {
+                "psr-0": {
+                    "SunCat\\MobileDetectBundle": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Nikolay Ivlev",
+                    "email": "nikolay.kotovsky@gmail.com",
+                    "homepage": "http://www.creotika.ru"
+                }
+            ],
+            "description": "Symfony2 bundle for detect mobile devices, managing mobile view types, redirect to mobile version.",
+            "homepage": "https://github.com/suncat2000/MobileDetectBundle",
+            "keywords": [
+                "mobile",
+                "mobile detect",
+                "mobile redirect",
+                "mobile view managing",
+                "symfony mobile"
+            ],
+            "time": "2014-07-10 20:26:50"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -4353,7 +4455,8 @@
         "sonata-project/datagrid-bundle": 20,
         "sonata-project/media-bundle": 20,
         "jms/serializer-bundle": 20,
-        "gregwar/captcha-bundle": 20
+        "gregwar/captcha-bundle": 20,
+        "sonata-project/markitup-bundle": 20
     },
     "prefer-stable": false,
     "platform": {
