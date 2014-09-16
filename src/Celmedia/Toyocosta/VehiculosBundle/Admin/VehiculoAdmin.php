@@ -221,14 +221,6 @@ class VehiculoAdmin extends Admin
             //          'inline' => 'standard',
             //      ))
             // ->end()
-            ->with('Especificaciones del Vehiculo')
-                ->add('especificaciones', 'sonata_type_collection', array(
-                     'by_reference' => false,
-                     'type_options' => array('delete' => false)) , array(
-                     'edit' => 'inline',
-                     'inline' => 'standard',
-                 ))
-            ->end()
             ->with('Colores del Vehiculo')
                 ->add('colores', 'sonata_type_collection', array(
                      'by_reference' => false,
@@ -240,6 +232,14 @@ class VehiculoAdmin extends Admin
             ->end()
             ->with('Modelos del Vehiculo')
                 ->add('modelos', 'sonata_type_collection', array(
+                     'by_reference' => false,
+                     'type_options' => array('delete' => false)) , array(
+                     'edit' => 'inline',
+                     'inline' => 'standard',
+                 ))
+            ->end()
+            ->with('Especificaciones del Vehiculo')
+                ->add('especificaciones', 'sonata_type_collection', array(
                      'by_reference' => false,
                      'type_options' => array('delete' => false)) , array(
                      'edit' => 'inline',
