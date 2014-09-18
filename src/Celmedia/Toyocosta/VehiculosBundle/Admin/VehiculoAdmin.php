@@ -270,12 +270,12 @@ class VehiculoAdmin extends Admin
             ->add('imagen_banner')
             ->add('imagen_thumb')
             ->add('estado')
-            ->with('Videos y Fotos')
-                ->add('galeria')
-            ->end()
-            ->with('Colores de Vehiculo')
-                ->add('colores')
-            ->end()
+            // ->with('Videos y Fotos')
+            //     ->add('galeria')
+            // ->end()
+            // ->with('Colores de Vehiculo')
+            //     ->add('colores')
+            // ->end()
         ;
     }
 
