@@ -112,7 +112,7 @@ class VehiculoAdmin extends Admin
             ->add('nombre', null, array('editable' => true))
             ->add('precio')
             ->add('precio_neto')
-            ->add('informacion')
+            ->add('informacion', null, array('editable' => true))
             ->add('descripcion', null, array('editable' => true))
             ->add('estado', 'choice', array(
            'choices' => array(
