@@ -73,10 +73,9 @@ class VehiculoModelosAdmin extends Admin
         $listMapper
             ->add('vehiculomodel')
             ->add('nombre')
-            ->add('descripcion')
+            ->add('descripcion', null, array('editable' => true))
             ->add('precio')
             ->add('precio_neto')
-            // ->add('archivo_pdf')
             ->add('imagen_modelo')
             ->add('estado', 'choice', array(
                'choices' => array(
