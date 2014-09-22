@@ -450,14 +450,14 @@ fieldset.ty-fieldset-border {
 	/*background-image: url("../../../web/img/Iconos/left.png");*/
 	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/varios/left.png"); 
 	height: 105px;
-	width: 100%;
+	width: 50%;
 	background-repeat: no-repeat;
 }
 .glyphicon-chevron-right{
 	/*background-image: url("../../../web/img/Iconos/right.png");*/
 	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/varios/right.png"); 
 	height: 105px;
-	width: 100%;
+	width: 50%;
 	background-repeat: no-repeat;
 	background-position: right center;
 }
