@@ -109,13 +109,13 @@ class SeminuevoAdmin extends Admin
             ->add('coloresseminuevo')
             ->add('certificados')
             // ->with('Galeria')
-            //     ->add('galeria', 'sonata_type_collection', array(
-            //          'by_reference' => false,
-            //                // Prevents the "Delete" option from being displayed
-            //          'type_options' => array('delete' => false)) , array(
-            //          'edit' => 'inline',
-            //          'inline' => 'standard',
-            //      ))
+            ->add('galeria', 'sonata_type_collection', array(
+                 'by_reference' => false,
+                       // Prevents the "Delete" option from being displayed
+                 'type_options' => array('delete' => false)) , array(
+                 'edit' => 'inline',
+                 'inline' => 'standard',
+             ))
             // ->end()
             // ->with('Extra')
                 ->add('bono')
@@ -123,16 +123,16 @@ class SeminuevoAdmin extends Admin
                 ->add('link_ofertar')
             // ->end()
             // GALERIA CON MEDIA BUNDLE ENTITY GALLERY
-            ->add('imagenes', 'sonata_type_collection', array(
-                'cascade_validation' => true,
-                ), array(
-                'edit' => 'inline',
-                'inline' => 'table',
-                'sortable' => 'position',
-                'link_parameters' => array('context' => 'default'),
-                'admin_code' => 'sonata.media.admin.gallery_has_media'
-                )
-            )
+            // ->add('imagenes', 'sonata_type_collection', array(
+            //     'cascade_validation' => true,
+            //     ), array(
+            //     'edit' => 'inline',
+            //     'inline' => 'table',
+            //     'sortable' => 'position',
+            //     'link_parameters' => array('context' => 'default'),
+            //     'admin_code' => 'sonata.media.admin.gallery_has_media'
+            //     )
+            // )
             ->setHelps(array(
                     'coloresseminuevo' => 'Color'
                 ))
