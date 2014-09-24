@@ -117,11 +117,11 @@ class SeminuevoAdmin extends Admin
             //          'inline' => 'standard',
             //      ))
             // ->end()
-            ->with('Extra')
+            // ->with('Extra')
                 ->add('bono')
                 ->add('liquidacion')
                 ->add('link_ofertar')
-            ->end()
+            // ->end()
             // GALERIA CON MEDIA BUNDLE ENTITY GALLERY
             ->add('imagenes', 'sonata_type_collection', array(
                 'cascade_validation' => true,
