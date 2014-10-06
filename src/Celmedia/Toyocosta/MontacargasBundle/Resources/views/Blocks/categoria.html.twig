@@ -2,7 +2,7 @@
     <ul style="display:none" id="sub-categorias-menu-{{ categoriaId }}" class="submenu-pro">
      {% set i = 1 %}     
      {% for subcategoria in subcategorias %}
-         <li id="sub-sub-menu-{{ i }}">
+         <li id="sub-sub-menu-{{ subcategoria.id }}">
          {{ subcategoria.nombre }}
          {{ render(controller("CelmediaToyocostaMontacargasBundle:Default:obtenerMontacargaXSubcategoria" , { 'subcategoriaId':  subcategoria.id } ) ) }}
          </li>
