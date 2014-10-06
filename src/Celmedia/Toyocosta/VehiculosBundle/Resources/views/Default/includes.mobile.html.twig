@@ -3,6 +3,10 @@
             "@CelmediaToyocostaVehiculosBundle/Resources/public/css/bootstrap.min.css"
             '@CelmediaToyocostaVehiculosBundle/Resources/public/js/image.picker/image-picker.css'
             "@CelmediaToyocostaVehiculosBundle/Resources/public/css/style.mobile.css"
+            filter="cssrewrite"
         %}
         <link type="text/css" rel="stylesheet" media="all" href="{{ asset_url }}" />
         {% endstylesheets %}
+
+
+        <link href="{{ asset('bundles/celmediatoyocostavehiculos/css/style.mobile.css') }}" rel="stylesheet" type="text/css" />

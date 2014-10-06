@@ -22,10 +22,10 @@
 	border-bottom: 1px solid #DCD9D9;
 	margin-top: 0px;
 }
-.media:active {
+.media-autos:active {
 	border-right: 6px solid #DE1D30;
 }
-.media h4:active, .media h4:focus, .media h4:hover{
+.media-autos h4:active, .media-autos h4:focus, .media-autos h4:hover{
 	color: #DE1D30;
 	text-decoration: none;
 }
@@ -36,4 +36,69 @@ a:focus , a:hover {
 }
 .panel-title>a:active {
 	color: #DE1D30;
+}
+.back-accesos{
+	background-image: url('../../celmediatoyocostavehiculos/images/icon/texturafooter.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: top center;
+}
+.back-footer{
+	background-image: url('../../celmediatoyocostapirelli/images/Textura/textura.png');
+	background-repeat: no-repeat;
+	background-size: cover;
+	background-position: top center;
+	border-top: 2px solid #E1182B;
+	height: 50px;
+}
+/*.menu-movil{
+	background-image: url('../../celmediatoyocostavehiculos/images/icon/menu.png');
+	height: 20px;
+	background-position: top center;
+	background-repeat: no-repeat;
+}
+.menu-movil:hover{
+	background-image: url('../../celmediatoyocostavehiculos/images/icon/menuhover.png');
+	height: 20px;
+	background-position: top center;
+	background-repeat: no-repeat;
+}*/
+.text-footer{
+	color: #ffffff;
+	font-size: 10px;
+}
+/*RESET*/
+.panel-group {
+	margin-bottom: 0px;
+}
+.txt-gris{
+	color: #989898;
+}
+
+.nav-movil{
+	margin: 0px -15px;
+}
+.nav-movil>li>a {
+	line-height: 12px;
+	font-size: 11px;
+	color: #333333;
+}
+.navbar-default .nav-movil>li>a {
+	border-bottom: 1px solid #DCD9D9;
+	margin-left: 10px;
+	margin-right: 10px;
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.navbar-default .nav-movil>li>a:hover, .navbar-default .nav-movil>li>a:focus {
+	color: #E1182B;
+}
+.txt-menu{
+	border-bottom: 1px solid #DCD9D9;
+	margin: 0 auto;
+	padding: 10px;
+}
+.media-footer{
+	color: #1b343b;
+	font-weight: 700;
 }
