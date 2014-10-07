@@ -1,7 +1,7 @@
 <div class="row menu-montacargas-top">
   <div class="submenu">
     
-      <nav class="navbar navbar-default nav-pirelli" role="navigation">
+      <nav class="navbar navbar-default nav-pirelli nav-montacargas" role="navigation">
         <div class="container">
           <!-- Brand and toggle get grouped for better mobile display -->
           <div class="navbar-header">
@@ -29,9 +29,9 @@
               <li  {% if app.request.get('_route') == 'montacargas_renta' %}  class="active"  {% endif %} >
                 <a href="{{ path('montacargas_renta') }}">RENTAS</a>
               </li>
-              <li  {% if app.request.get('_route') == 'montacargas_usados' %}  class="active"  {% endif %} >
+              {#<li  {% if app.request.get('_route') == 'montacargas_usados' %}  class="active"  {% endif %} >
                 <a href="{{ path('montacargas_usados') }}">USADOS</a>
-              </li>
+              </li>#}
               <li {% if app.request.get('_route') == 'montacargas_sas' %}  class="active"  {% endif %} >
                 <a href="{{path('montacargas_sas')}}">SAS</a>
               </li>

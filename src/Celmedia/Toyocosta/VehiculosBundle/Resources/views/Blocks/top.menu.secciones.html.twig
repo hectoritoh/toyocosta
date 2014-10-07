@@ -1,5 +1,5 @@
 <div class="navbar navbar-fixed-top navbar-toyocosta" role="navigation">
-  <div class="container-fluid visible-md visible-lg hidden-sm hidden-xs">
+  <div class="container-fluid background-submenu visible-md visible-lg hidden-sm hidden-xs">
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right navbar-nav-menu-0">
 
@@ -65,7 +65,7 @@
     </div><!--/.nav-collapse -->
   </div>
 
-  <div class="container-fluid sombra-toyocosta">
+  <div class="container-fluid">
     <div class="navbar-header page-scroll">
       <button type="button" class="navbar-toggle navbar-toggle-toyocosta" data-toggle="collapse" data-target=".navbar-collapse">
         <span class="sr-only">Toggle navigation</span>
@@ -80,7 +80,7 @@
       </a>
     </div>
     <div class="navbar-collapse collapse">
-      <form class="navbar-form navbar-right navbar-buscar" role="form">
+      <form class="navbar-form navbar-left navbar-buscar" role="form">
         <ul class="nav navbar-nav navbar-nav-vehiculos">
           <li>
             <a href="#" data-target="categoria-1" class="item-submenu item-submenu-v">Autos</a>
@@ -103,10 +103,10 @@
           <li>
             <a href="{{ path('seminuevos_home') }}" class="">Seminuevos</a>
           </li>
-          <li class="form-group">
+          {#<li class="form-group">
             <input type="text" placeholder="Buscar" class="form-control input-buscar">
             <input type="submit" class="btn btn-buscar" value="" />
-          </li>
+          </li>#}
         </ul>
       </form>
 

@@ -984,7 +984,7 @@ fieldset.ty-fieldset-border {
 	height: 85px;
 }
 .espaciado-menu-2{
-	height: 110px;
+	height: 124px;
 }
 .texto-detalle{
 	color: #313131;
@@ -1107,17 +1107,19 @@ fieldset.ty-fieldset-border {
 }
 
 .navbar-toyocosta .navbar-nav-vehiculos > li > a{
-	color: #363636;
-	font-size: 12px;
-	padding-top: 7px;
-	padding-bottom: 7px;
+	color: #323232;
+	font-size: 14px;
+	padding-top: 15px;
+	padding-bottom: 15px;
 	text-transform: uppercase;
 }
 .navbar-toyocosta .navbar-nav-menu-0 > li > a{
-	color: #606060;
-	line-height: 5px;
-	font-size: 10px;
-	text-transform: uppercase;
+	color: #6E6E6E;
+	line-height: 10px;
+	font-size: 11px;
+	/* text-transform: uppercase; */
+	padding-top: 12px;
+	padding-bottom: 12px;
 }
 
 .navbar-toyocosta .navbar-nav-menu-0 .dropdown-menu > li > a {
@@ -1125,6 +1127,16 @@ fieldset.ty-fieldset-border {
 	line-height: normal;
 	font-size: 10px;
 	text-transform: uppercase;
+}
+.navbar-nav-vehiculos>li>a:hover, .navbar-nav-vehiculos>li>a:focus {
+	text-decoration: none;
+	background-color: #DF182B;
+	color: #FFFFFF;
+}
+.navbar-nav-menu-0>li>a:hover, .navbar-nav-menu-0>li>a:focus {
+	text-decoration: none;
+	background-color: transparent;
+	color: #DF182B;
 }
 
 
@@ -1255,10 +1267,9 @@ fieldset.ty-fieldset-border {
 
 .toyocosta-brand{
 	padding-left: 70px;
-	padding-top: 4px;
-	padding-bottom: 4px;
-	/*line-height: 30px;*/
-	height: 34px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	height: 50px;
 }
 
 
@@ -1570,6 +1581,7 @@ li.disabled > .btn.btn-anterior{
 		margin-bottom: 0px;
 		margin-top: 0px;
 		padding: 0px;
+		margin-left: 50px;
 	}
 
 	.img-absoluta{
@@ -1654,10 +1666,10 @@ li.disabled > .btn.btn-anterior{
 	.navbar-toyocosta .navbar-nav-vehiculos > li > a{
 		/*padding-top: 0px;
 		padding-bottom: 0px;*/
-		padding-left: 5px;
-		padding-right: 5px;
+		padding-left: 15px;
+		padding-right: 15px;
 		text-align: center;
-		font-size: 10px;
+		font-size: 12px;
 	}
 	.alto-agencia{
 		height: 60px;
@@ -1922,7 +1934,7 @@ a.submenu-vehiculo-item:hover{
 @media (min-width: 1200px) {
 	
 	.alto-pirelli{
-		height: 71px;
+		height: 85px;
 	}
 	#nav-principal li a {
 		padding-right: 10px;
@@ -2622,4 +2634,8 @@ button.close-ficha{
 /*************************************************************************/
 .tab-especificaciones{
 	
+}
+.background-submenu{
+	background-color: #F5F5F5;
+	box-shadow: 0 5px 5px -5px #CECECE;
 }

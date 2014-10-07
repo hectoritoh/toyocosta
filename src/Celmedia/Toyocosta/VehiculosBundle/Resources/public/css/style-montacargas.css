@@ -20,7 +20,13 @@
 }
 .navbar-nav-montacarga > li > a {
     line-height: 8px;
+    padding: 14px 30px;
 }
+.nav-montacargas{
+    margin-bottom: 55px;
+}
+
+
 .fondo-blanco{
     background-color: #ffffff;
 }
@@ -29,7 +35,7 @@
 }
 .menu-montacargas-top{
 	position: relative;
-    top: 71px;
+    top: 85px;
 }
 
 .menu-montacargas {
@@ -180,8 +186,7 @@ span.boton-naranja{
     left: 25%;
     float: left;
     position: absolute;
-    /*top:121px;*/
-    top: 108px;
+    top: 120px;
     z-index: 999;
 }
 .sf-menu {

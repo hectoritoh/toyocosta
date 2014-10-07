@@ -50,7 +50,23 @@
                     <select name="selectestado" id="selectestado" class="form-control select-filtro selectcmb" style=" border-right: 1px solid #ccc;">
                         <option class="style-option" value="">Estado</option>
                         {% for sm_estado in estados %}
-                        <option class="style-option" value="{{ sm_estado.estado }}" {% if seminuevo_estado == sm_estado.estado %} selected {% endif %} >{{ sm_estado.estado }}</option>
+                        <option class="style-option" value="{{ sm_estado.estado }}" {% if seminuevo_estado == sm_estado.estado %} selected {% endif %} >
+                        {#{{ sm_estado.estado }}#}
+                        {% if sm_estado.estado == 1 %}
+                            {# 1 => 'Disponible' #}
+                            Disponible
+                        {% elseif sm_estado.estado == 2 %}
+                            {# 2 => 'Proximammente' #}
+                            Próximamente
+                        {% elseif sm_estado.estado == 3 %}
+                            {# 3 => 'Reservado' #}
+                            Reservado
+                        {% elseif sm_estado.estado == 4 %}
+                            {# 4 => 'Vendido' #}
+                            Vendido
+                        {% endif %}
+
+                        </option>
                         {% endfor %}
                     </select>
                 </div>

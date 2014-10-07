@@ -1,10 +1,10 @@
 <div class="navbar navbar-fixed-top navbar-toyocosta">
-  <div class="container-fluid">
+  <div class="container-fluid background-submenu">
     <div class="navbar-collapse collapse">
       <ul class="nav navbar-nav navbar-right navbar-nav-menu-0">
 
         <li class="active">
-          <a href="{{ path('toyocosta_homepage') }}">Inicio</a>
+          <a class="" href="{{ path('toyocosta_homepage') }}">Inicio</a>
         </li>
         <li class="dropdown">
           <a class="dropdown-toggle" data-toggle="dropdown" href="#">
@@ -50,7 +50,7 @@
     </div><!--/.nav-collapse -->
   </div>
 
-  <div class="container-fluid sombra-toyocosta">
+  <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle navbar-toggle-toyocosta" data-toggle="collapse" data-target="#principal-menu">
         <span class="sr-only">Toggle navigation</span>
@@ -65,7 +65,7 @@
       </a>
     </div>  
     <div class="navbar-collapse collapse" id="principal-menu">
-      <div class="navbar-form navbar-right navbar-buscar">
+      <div class="navbar-form navbar-left navbar-buscar">
         <ul class="nav navbar-nav navbar-nav-vehiculos">
           <li class="active">
             <a href="#{{ categoriasVehiculo[0].nombre|lower }}-seccion" class="navegacion-sl">{{ categoriasVehiculo[0].nombre}}</a>
@@ -88,11 +88,10 @@
           <li>
             <a href="#seminuevos-seccion" class="navegacion-sl">Seminuevos</a>
           </li>
-          <li class="form-group">
+          {#<li class="form-group">
             <input type="text" placeholder="Buscar" class="form-control input-buscar">
             <input type="submit" class="btn btn-buscar" value="" />
-          </li>
-
+          </li>#}
         </ul>
       </div>
 
