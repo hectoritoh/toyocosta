@@ -9,7 +9,7 @@ services:
         class: Celmedia\Toyocosta\MontacargasBundle\Admin\MontacargaAdmin
         arguments: [~, Celmedia\Toyocosta\MontacargasBundle\Entity\Montacarga, SonataAdminBundle:CRUD]
         tags:
-            - {name: sonata.admin, manager_type: orm, group: 'Montacargas', label: Montacarga}
+            - {name: sonata.admin, manager_type: orm, group: 'Montacargas', label: Montacargas y Accesorios Cascade}
 
     celmedia_toyocosta_montacargas.admin.categoria_montacarga:
         class: Celmedia\Toyocosta\MontacargasBundle\Admin\CategoriaMontacargaAdmin
