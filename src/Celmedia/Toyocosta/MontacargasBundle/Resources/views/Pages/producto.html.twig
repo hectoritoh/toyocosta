@@ -146,8 +146,11 @@
 						    {% for thumb in item.imagenes %}
 
 						    	{% if loop.first %}
-						    	<strong class="txt-mayusculas">{{ item.modelo }}</strong>
-						        {% media thumb.media , 'small' with {'class': 'img-responsive'} %}
+						    	<div class="ficha-busqueda">
+						    		
+						    		<strong class="txt-mayusculas">{{ item.modelo }}</strong>
+						    	</div>
+						        {% media thumb.media , 'small' with {'class': 'img-responsive', 'style': 'height:80px;'} %}
 						    	{% endif %}
 
 						    {% endfor %}
