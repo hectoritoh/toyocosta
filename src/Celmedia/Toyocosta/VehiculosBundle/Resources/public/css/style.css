@@ -2131,7 +2131,7 @@ a.submenu-vehiculo-item:hover{
 }
 #footer{
 	/*background-color: #1D363B;*/
-	background-image: url('../../bundles/celmediatoyocostavehiculos/images/pirelli/Textura/textura.png');
+	background-image: url('../../bundles/celmediatoyocostavehiculos/images/pirelli/textura/textura.png');
 	background-repeat: repeat;
 	color: #fff;
 	bottom: 0;
@@ -2296,7 +2296,7 @@ button.close-ficha{
 	font-size: 15px;
 }
 .footer-banners{
-	background-image: url('../../bundles/celmediatoyocostavehiculos/images/pirelli/Textura/rayas.png');
+	background-image: url('../../bundles/celmediatoyocostavehiculos/images/pirelli/textura/rayas.png');
 	background-repeat: repeat;
 	/*padding: 6px 0px 30px;*/
 }
@@ -2304,7 +2304,7 @@ button.close-ficha{
 	border-top: 3px solid #D62C2F;
 }
 .fondo{
-	background-image: url('../../bundles/celmediatoyocostavehiculos/images/pirelli/Textura/rayas.png');
+	background-image: url('../../bundles/celmediatoyocostavehiculos/images/pirelli/textura/rayas.png');
 	background-repeat: repeat;
 	height: 20px;
 }
