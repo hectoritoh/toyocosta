@@ -1915,7 +1915,7 @@ ul.tabs-especificaciones li > a:hover{
 	display: none;
 }
 #fondo-error{
-	background-image: url("../../../bundles/celmediatoyocostavehiculos/images/404.jpg");
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/404.jpg");
 }
 .submenu-vehiculo>li>a:hover, .nav>li>a:focus {
  background-color: transparent;
@@ -1990,7 +1990,7 @@ a.submenu-vehiculo-item:hover{
 	min-height: 36px;
 }
 .banner-pirelli{
-	background-image: url("../../bundles/celmediatoyocostavehiculos/images/pirelli/Banners/Pirelli.jpg");
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/pirelli/banners-pirelli/pirelli.jpg");
 	background-size: cover;
 	height: 208px;
 }
@@ -2262,7 +2262,7 @@ button.close-ficha{
 	padding-bottom: 26px;
 }
 /*FOOTER BANNERS*/
-.cita-footer{
+/*.cita-footer{
 	background-image: url("../../bundles/celmediatoyocostavehiculos/images/pirelli/Banners/Cita.jpg");
 	background-repeat: no-repeat;
 	height: 108px;
@@ -2286,7 +2286,7 @@ button.close-ficha{
 	background-image: url("../../bundles/celmediatoyocostavehiculos/images/pirelli/Banners/Seminuevos.jpg");
 	background-repeat: no-repeat;
 	height: 108px;
-}
+}*/
 .mas-footer{
 	background-image: url('../../bundles/celmediatoyocostavehiculos/images/pirelli/icon/mas.png');
 	background-repeat: no-repeat;
