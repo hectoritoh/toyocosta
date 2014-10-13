@@ -44,6 +44,12 @@ class LandingController extends Controller
         return $this->render('CelmediaToyocostaVehiculosBundle:Landing:etiquetaGoogle.html.twig');
     }
 
+    public function mailingEtiquetaAction(){
+
+        return $this->render('CelmediaToyocostaVehiculosBundle:Mailing:etiqueta.html.twig');
+    }
+
+    
 	
 	public function envioLandingAction(Request $request){
 

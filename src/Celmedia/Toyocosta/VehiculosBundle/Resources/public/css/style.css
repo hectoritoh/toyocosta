@@ -1749,7 +1749,9 @@ li.disabled > .btn.btn-anterior{
 	.alto-agencia{
 		height: 60px;
 	}
-
+	.banner-lp{
+		top: 50px;
+	}
 
 	.seccion-ty{
 		height: auto;
@@ -1858,7 +1860,9 @@ li.disabled > .btn.btn-anterior{
 	.txt-info{
 		font-size: 12px;
 	}
-
+	.banner-lp{
+		top: 50px;
+	}
  }
 
  ul.tabs-especificaciones{
@@ -2529,14 +2533,9 @@ button.close-ficha{
 	background-size: cover;
 	height: 333px;		
 }
-/*.banner-lp{
-	background-image: url("../../../bundles/celmediatoyocostavehiculos/images/banner/lp.jpg");
-	background-size: cover;
-	height: 333px;		
-}*/
 .banner-lp{
 	position: relative;
-	top: 50px;
+/*	top: 50px;*/
 }
 .lp-contenido{
 	padding-top: 38px;

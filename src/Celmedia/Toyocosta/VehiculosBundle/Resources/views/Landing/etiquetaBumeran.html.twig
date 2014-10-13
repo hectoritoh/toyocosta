@@ -5,11 +5,19 @@
 
 		{% include 'CelmediaToyocostaVehiculosBundle:Blocks:top.menu.secciones.html.twig' %}
 
-<div class="row banner-lp">
-	{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/landings/lp.jpg' %}
+<div class="row banner-lp visible-md visible-lg visible-sm hidden-xs">
+	{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/landings/etiqueta.jpg' %}
 	    <img src="{{ asset_url }}" alt=""  style="width:100%;" class="img-responsive" />
 	{% endimage %}
 </div>
+
+<div class="row banner-lp hidden-md hidden-lg hidden-sm visible-xs">
+	{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/landings/etiqueta-m.jpg' %}
+	    <img src="{{ asset_url }}" alt=""  style="width:100%;" class="img-responsive" />
+	{% endimage %}
+</div>
+
+
 <div class="container">
 
 	<div class="row lp-contenido">
@@ -97,8 +105,9 @@
 				</div>
 
 
-				<div class="row space-input">
-					<div class="col-md-10 col-md-offset-2 col-xs-12">
+				
+				<div class="row space-input" style="padding-top:20px;">
+					<div class="col-md-4 col-md-offset-2 col-sm-4 col-sm-offset-2 col-xs-12" style="padding-top:15px;">
 
 						<a href="{{ asset('uploads/landing/etiquetaroja.pdf' ) }}" class="" target="_blank">
 							Listado de Seminuevos Etiqueta Roja.
@@ -107,17 +116,9 @@
 
 					</div>
 
-				</div>
-				
-				<div class="row space-input">
-					<div class="col-md-10 col-md-offset-1 col-xs-12" style="padding-top:20px;">
+					<div class="col-md-3 col-sm-3" style="padding-right:0px;">
 
-						<div class="row">
-							<div class="col-md-3 col-md-offset-4">
-
-                                <input type="submit" value="Enviar" class="btn btn-lg btn-info" style="width:100%;">
-							</div>
-						</div>	
+                        <input type="submit" value="Enviar" class="btn btn-lg btn-info" style="width:100%;">
 					</div>
 
 				</div>

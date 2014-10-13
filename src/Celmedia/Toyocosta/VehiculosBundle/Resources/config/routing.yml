@@ -164,3 +164,9 @@ envio_landing:
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:envioLanding }
     options:
         expose: true
+
+# MAILING
+
+mailing:
+    path:      /mailing/etiqueta-roja
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:mailingEtiqueta }
