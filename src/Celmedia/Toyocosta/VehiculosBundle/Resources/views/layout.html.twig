@@ -27,7 +27,8 @@
 
 
     </head>
-    <body {% if app.request.get('_route') == "ver_vehiculo" %}data-target="#vehiculos-secciones"{% elseif app.request.get('_route') == "toyocosta_homepage" %}data-target="#scrollprincipal"{% endif %}>
+    <body>
+    {#<body data-spy="scroll" {% if app.request.get('_route') == "ver_vehiculo" %}data-target="#vehiculos-secciones"{% elseif app.request.get('_route') == "toyocosta_homepage" %}data-target="#scrollprincipal"{% endif %}>#}
 
         {% block contenidotoyocosta %}
             

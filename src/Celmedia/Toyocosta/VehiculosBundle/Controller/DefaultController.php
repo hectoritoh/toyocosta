@@ -383,10 +383,6 @@ class DefaultController extends Controller
     }
 
 
-    public function landingAction(){
-
-        return $this->render('CelmediaToyocostaVehiculosBundle:Forms:landing.html.twig');
-    }
     public function consultarObsequiosAction(Request $request){
 
 
@@ -531,7 +527,9 @@ class DefaultController extends Controller
                 Valor de entrada:  '. $info->getValorEntrada() .' <br />
                 Interes del vehiculo:  '. $info->getInteresVehiculo() .' <br />
                 Entrada minima:  '. $info->getInteresEntrada() .' ';
+
             }
+
 
             $message = \Swift_Message::newInstance()
 
@@ -602,7 +600,6 @@ class DefaultController extends Controller
         }
 
     }
-
 
 
     // public function envioTestDriveAction(Request $request){

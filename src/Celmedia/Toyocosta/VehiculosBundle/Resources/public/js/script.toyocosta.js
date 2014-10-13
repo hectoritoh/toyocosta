@@ -1,15 +1,6 @@
 var seleccionado = false; 
 
 
-$(window).bind('scroll', function() {
-	if ($(window).scrollTop() > 50) {
-		$('.sombra-toyocosta').addClass('bajar');
-	}
-	else {
-		$('.sombra-toyocosta').removeClass('bajar');
-	}
-});
-
   function centrarVert(elemento){
   	altura1=elemento.parent().height();
   	altura2=elemento.height();
@@ -243,51 +234,24 @@ $(window).bind('scroll', function() {
   }
 
 
-     $('a.navegacion-sl').on('click', function(event) {
-    //$("a.navegacion-sl").click(function (e) {
-        //e.preventDefault();
-        //console.log(event);
-
-        $(this).closest('.navbar-nav-vehiculos').find('li').removeClass("active");
-        $(this).parent().addClass("active");
-
-        /*$.smoothScroll({
-          scrollElement: $('div.scrollme'),
-          scrollTarget: '#findme'
-        });
-        return false;*/
-
-        /*var $anchor = $(this);
-        var target = $(this.hash);
-        console.log(target);
-        target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-        $('html, body').stop().animate({scrollTop: $($anchor.attr('href')).offset().top}, 1500, 'easeInOutExpo');
-
-        */
-
-       // $('html, body').animate({ "top": "-=50px" }, "slow" );
-    });
-
      
-     $('a.submenu-vehiculo-item').on('click', function(event) {
-        $(this).closest('.submenu-vehiculo').find('div').removeClass("active");
-        $(this).parent().addClass("active");
-    });
+  $('a.submenu-vehiculo-item').on('click', function(event) {
+      $(this).closest('.submenu-vehiculo').find('div').removeClass("active");
+      $(this).parent().addClass("active");
+  });
 
 
+  $(window).bind('scroll', function() {
+    if ($(window).scrollTop() > 50) {
+      $('.header-toyocosta').addClass('bajar');
+    }
+    else {
+      $('.header-toyocosta').removeClass('bajar');
+    }
+  });
 
 $(document).ready(function(){
 
-  // $('.carousel-inner').on('slide.bs.carousel', function () {
-
-  //     $('.centrado-horizontal').each(function () {
-  //              centrarHorizontal($(this));
-  //       });  
-
-  //       $(this).find(".item .mascara").fadeOut();
-  //       $(this).find(".item.active .mascara").fadeIn();
-
-  // });
 
   $('.navbar-nav-vehiculos').find('li').removeClass("active");
 
@@ -300,11 +264,75 @@ $(document).ready(function(){
      });
 
       // MODAL PARA LAS LLANTAS PIRELLI 
-    $('a[id^="llanta"]').click(function(){
+  $('a[id^="llanta"]').click(function(){
 
         var id = $(this).attr('id');
         $('#Modal_llanta'+id).modal({show:true})
-    });
+  });
+
+
+  $(".tab-especificaciones").find("table").addClass("table table-hover table-responsive table-striped");
+
+
+  $("a.item-submenu-v").click(function (e) {
+    e.preventDefault();
+    $(".contenedor-submenu-items").hide();
+    $( "#" + $(this).attr("data-target") ).show();
+    $('#fondo-submenu').stop(true, true).slideToggle( "slow" );
+  });
+  
+
+   // function filterPath(string) {
+   //  return string
+   //    .replace(/^\//,'')
+   //    .replace(/(index|default).[a-zA-Z]{3,4}$/,'')
+   //    .replace(/\/$/,'');
+   //  }
+   //  var locationPath = filterPath(location.pathname);
+   //  var scrollElem = scrollableElement('html', 'body');
+   
+   //  $('a[href*=#].navegacion-sl').each(function() {
+   //    var thisPath = filterPath(this.pathname) || locationPath;
+   //    if (  locationPath == thisPath
+   //    && (location.hostname == this.hostname || !this.hostname)
+   //    && this.hash.replace(/#/,'') ) {
+   //      var $target = $(this.hash), target = this.hash;
+   //      if (target) {
+   //        var targetOffset = $target.offset().top;
+   //        $(this).click(function(event) {
+   //          event.preventDefault();
+   //          $(scrollElem).animate({scrollTop: targetOffset}, 400, function() {
+   //            location.hash = target;
+   //          });
+   //        });
+   //      }
+   //    }
+   //  });
+   
+   //  // use the first element that is "scrollable"
+   //  function scrollableElement(els) {
+   //    for (var i = 0, argLength = arguments.length; i <argLength; i++) {
+   //      var el = arguments[i],
+   //          $scrollElement = $(el);
+   //      if ($scrollElement.scrollTop()> 0) {
+   //        return el;
+   //      } else {
+   //        $scrollElement.scrollTop(1);
+   //        var isScrollable = $scrollElement.scrollTop()> 0;
+   //        $scrollElement.scrollTop(0);
+   //        if (isScrollable) {
+   //          return el;
+   //        }
+   //      }
+   //    }
+   //    return [];
+   //  }
+
+
+
+
+
+    //////////ENVIO DE FORMULARIOS/////////////////
 
     $("#form-pirelli").validate({
         debug: true,
@@ -399,109 +427,7 @@ $(document).ready(function(){
         }
     });
 
-  $(".tab-especificaciones").find("table").addClass("table table-hover table-responsive table-striped");
 
- 
-
-	// $('.selectcmb').selectbox();
-
-	/*$('[data-spy="scroll"]').each(function () {
-		var $spy = $(this).scrollspy('refresh')
-	})*/
-
-	/*$('.page-scroll a.navegacion').bind('click', function(event) {
-		event.preventDefault();
-
-		var $anchor = $(this);
-		$('html, body').stop().animate({
-			scrollTop: $($anchor.attr('href')).offset().top
-		}, 1500, 'easeInOutExpo');
-	});*/
-
-
-  /*$('a[href*=#].navegacion-sl:not([href=#])').click(function() {
-    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
-      var target = $(this.hash);
-      alert("lala " + target);
-      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
-      if (target.length) {
-        $('html,body').animate({
-          scrollTop: target.offset().top
-        }, 1000);
-        return false;
-      }
-    }
-  });*/
-
-   /*function filterPath(string) {
-    return string
-      .replace(/^\//,'')
-      .replace(/(index|default).[a-zA-Z]{3,4}$/,'')
-      .replace(/\/$/,'');
-    }
-    var locationPath = filterPath(location.pathname);
-    var scrollElem = scrollableElement('html', 'body');
-   
-    $('a[href*=#].navegacion-sl').each(function() {
-      var thisPath = filterPath(this.pathname) || locationPath;
-      if (  locationPath == thisPath
-      && (location.hostname == this.hostname || !this.hostname)
-      && this.hash.replace(/#/,'') ) {
-        var $target = $(this.hash), target = this.hash;
-        if (target) {
-          var targetOffset = $target.offset().top;
-          $(this).click(function(event) {
-            event.preventDefault();
-            $(scrollElem).animate({scrollTop: targetOffset}, 400, function() {
-              location.hash = target;
-            });
-          });
-        }
-      }
-    });
-   
-    // use the first element that is "scrollable"
-    function scrollableElement(els) {
-      for (var i = 0, argLength = arguments.length; i <argLength; i++) {
-        var el = arguments[i],
-            $scrollElement = $(el);
-        if ($scrollElement.scrollTop()> 0) {
-          return el;
-        } else {
-          $scrollElement.scrollTop(1);
-          var isScrollable = $scrollElement.scrollTop()> 0;
-          $scrollElement.scrollTop(0);
-          if (isScrollable) {
-            return el;
-          }
-        }
-      }
-      return [];
-    }*/
-
-
-    $("a.item-submenu-v").click(function (e) {
-        e.preventDefault();
-        $(".contenedor-submenu-items").hide();
-        $( "#" + $(this).attr("data-target") ).show();
-    	$('#fondo-submenu').stop(true, true).slideToggle( "slow" );
-    });
-
-  
-
-	/*$('ul.navbar-nav-vehiculos > li').click(function (e) {
-        e.preventDefault();
-        $('ul.navbar-nav-vehiculos > li').removeClass('active');
-        $(this).addClass('active');
-    });*/
-
-	/*$('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-		//console.log (e.target); // activated tab
-		//console.log (e.relatedTarget); // previous tab
-		//console.log (this);
-		$(this).parent('li').removeClass("active");
-		$(e.target).parent('li').addClass("active");
-	})*/
     $('#rcv').fileupload({
         dataType: 'json',
         url: Routing.generate('envio_rrhh_adjunto'),
@@ -519,8 +445,7 @@ $(document).ready(function(){
           //alert(data.result.rutaarchivo);
           $(this).parent().find("input[type=hidden]").val(data.result.rutaarchivo);
         }
-    });
-
+    });  
 
     $("#form-rrhh").validate({
       debug: true,
@@ -697,6 +622,7 @@ $(document).ready(function(){
           });
       }
     });
+    
 
     $("#form-vehiculo").validate({
           debug: true,
@@ -938,7 +864,129 @@ $(document).ready(function(){
           }
     });
 
+  
+    $("#form-mantenimiento").validate({
+        debug: true,
+        submitHandler: function (form) {
+            var parametros = {
+                nombre: $("#mnombre").val(),
+                apellido: $("#mapellido").val(),
+                telefono: $("#mtelefono").val(),
+                email: $("#memail").val(),
+                celular: $("#mcelular").val(),
+                fecha: $("#mfecha").val(),
+                reserva: $("#mreserva").val(),
+                observaciones: $("#mobservaciones").val(),
+                taller: $("#mtaller").val(),
+                comentario: $("#mcomentario").val(),
+                modelo: $("#mmodelo").val(),
+                kilometraje: $("#mkilometraje").val(),
+                regalo: $("#regalo").val(),
+                selectedRegalo: $("#selectedRegalo").val()
 
+            }
+            
+            $.ajax({
+                url: Routing.generate('envio_mantenimiento'),
+                type: 'POST',
+                async: true,
+                data: parametros,
+                dataType: "json",
+                success: function (respuesta) {
+
+                  if (respuesta.codigo == 1 ) {
+                      $('#contenedorEspereMantenimiento').hide();
+                      $('#contenedorFormMantenimiento').show();
+                       alert('Su pedido de informaci\u00F3n fu\u00E9 enviado con \u00E9xito');
+                       document.getElementById("form-mantenimiento").reset();
+                       //window.location = Routing.generate('contactenos');
+                  } else if (respuesta.codigo == 0 ) {
+                        alert(respuesta.mensaje);
+                  } else{
+                    alert("error");
+                  }
+
+                }, 
+                error: function (error) {
+                  console.log("ERROR: " + error);
+                },
+                beforeSend: function () {
+                    $('#contenedorFormMantenimiento').hide();
+                    $('#contenedorEspereMantenimiento').show();
+                }
+            });
+        },
+        rules: {
+            mnombre: {
+                required: true
+            },
+            mapellido: {
+                required: true
+            },
+            mtelefono: {
+                required: true,
+                minlength:7,
+                maxlength:15,
+                number:true
+            },
+            memail: {
+              required:true,
+              email: true
+            },
+            mcelular: {
+                required: true,
+                minlength:7,
+                maxlength:15,
+                number:true
+            },
+            mfecha: {
+              required: true
+            },
+            mreserva: { 
+              required: true
+            },
+            mobservaciones: {
+              required: true
+            },
+            mtaller: {
+              required: true
+            },
+            mcomentario: {
+              required: true
+            },
+            mmodelo: {
+              required: true
+            },
+            mkilometraje: {
+              required: true
+            },
+            regalo: {
+              required: true
+            }
+
+          },
+          showErrors: function (errorMap, errorList) {
+               // Clean up any tooltips for valid elements
+              $.each(this.validElements(), function (index, element) {
+                  var $element = $(element);
+
+                  $element.data("title", "") // Clear the title - there is no error associated anymore
+                      .removeClass("error")
+                      .tooltip("destroy");
+              });
+
+              // Create new tooltips for invalid elements
+              $.each(errorList, function (index, error) {
+                  var $element = $(error.element);
+
+                  $element.tooltip("destroy") // Destroy any pre-existing tooltip so we can repopulate with new tooltip content
+                      .data("title", error.message)
+                      .addClass("error")
+                      .tooltip(); // Create a new tooltip based on the error messsage we just set in the title
+                  });
+
+          }
+    });
 
     var $validator = $("#cotizarForm").validate({
       debug: true,
@@ -1241,128 +1289,4 @@ $(document).ready(function(){
     }); 
 
 
-
-    
-    $("#form-mantenimiento").validate({
-        debug: true,
-        submitHandler: function (form) {
-            var parametros = {
-                nombre: $("#mnombre").val(),
-                apellido: $("#mapellido").val(),
-                telefono: $("#mtelefono").val(),
-                email: $("#memail").val(),
-                celular: $("#mcelular").val(),
-                fecha: $("#mfecha").val(),
-                reserva: $("#mreserva").val(),
-                observaciones: $("#mobservaciones").val(),
-                taller: $("#mtaller").val(),
-                comentario: $("#mcomentario").val(),
-                modelo: $("#mmodelo").val(),
-                kilometraje: $("#mkilometraje").val(),
-                regalo: $("#regalo").val(),
-                selectedRegalo: $("#selectedRegalo").val()
-
-            }
-            
-            $.ajax({
-                url: Routing.generate('envio_mantenimiento'),
-                type: 'POST',
-                async: true,
-                data: parametros,
-                dataType: "json",
-                success: function (respuesta) {
-
-                  if (respuesta.codigo == 1 ) {
-                      $('#contenedorEspereMantenimiento').hide();
-                      $('#contenedorFormMantenimiento').show();
-                       alert('Su pedido de informaci\u00F3n fu\u00E9 enviado con \u00E9xito');
-                       document.getElementById("form-mantenimiento").reset();
-                       //window.location = Routing.generate('contactenos');
-                  } else if (respuesta.codigo == 0 ) {
-                        alert(respuesta.mensaje);
-                  } else{
-                    alert("error");
-                  }
-
-                }, 
-                error: function (error) {
-                  console.log("ERROR: " + error);
-                },
-                beforeSend: function () {
-                    $('#contenedorFormMantenimiento').hide();
-                    $('#contenedorEspereMantenimiento').show();
-                }
-            });
-        },
-        rules: {
-            mnombre: {
-                required: true
-            },
-            mapellido: {
-                required: true
-            },
-            mtelefono: {
-                required: true,
-                minlength:7,
-                maxlength:15,
-                number:true
-            },
-            memail: {
-              required:true,
-              email: true
-            },
-            mcelular: {
-                required: true,
-                minlength:7,
-                maxlength:15,
-                number:true
-            },
-            mfecha: {
-              required: true
-            },
-            mreserva: { 
-              required: true
-            },
-            mobservaciones: {
-              required: true
-            },
-            mtaller: {
-              required: true
-            },
-            mcomentario: {
-              required: true
-            },
-            mmodelo: {
-              required: true
-            },
-            mkilometraje: {
-              required: true
-            },
-            regalo: {
-              required: true
-            }
-
-          },
-          showErrors: function (errorMap, errorList) {
-               // Clean up any tooltips for valid elements
-              $.each(this.validElements(), function (index, element) {
-                  var $element = $(element);
-
-                  $element.data("title", "") // Clear the title - there is no error associated anymore
-                      .removeClass("error")
-                      .tooltip("destroy");
-              });
-
-              // Create new tooltips for invalid elements
-              $.each(errorList, function (index, error) {
-                  var $element = $(error.element);
-
-                  $element.tooltip("destroy") // Destroy any pre-existing tooltip so we can repopulate with new tooltip content
-                      .data("title", error.message)
-                      .addClass("error")
-                      .tooltip(); // Create a new tooltip based on the error messsage we just set in the title
-                  });
-
-          }
-    });
 });

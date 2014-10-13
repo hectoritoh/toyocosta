@@ -35,11 +35,6 @@ mantenimiento_servicio:
     path:      /mantenimiento/{servicioid}
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:mantenimientoXServicio }
 
-envio_mantenimiento:
-    path:      /mantenimientoenvio
-    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:envioMantenimiento }
-    options:
-        expose: true
 
 test_drive:
     path:      /testdrive
@@ -63,14 +58,17 @@ contactenos_agencia:
     options:
         expose: true
 
-
 certificados:
     path:      /certificados
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:certificados }
 
-landing:
-    path:      /landing
-    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:landing }
+
+
+envio_mantenimiento:
+    path:      /mantenimientoenvio
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:envioMantenimiento }
+    options:
+        expose: true
 
 envio_contacto:
     path:      /contacto/form
@@ -90,7 +88,6 @@ envio_rrhh_adjunto:
     options:
         expose: true
 
-
 # envio_test:
 #     path:      /testdrive/form
 #     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:envioTestDrive }
@@ -102,6 +99,10 @@ envio_cotizacion:
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:envioCotizacion }
     options:
         expose: true
+
+
+
+
 
 get_taller:
     path:      /getTaller
@@ -129,3 +130,37 @@ consultar_obsequios:
 especificacion:
     path:      /vehiculo/especificacion/{vehiculoid}
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:especificacion }
+
+
+# LANDING PAGES
+
+landingseo:
+    path:      /landing/etiqueta-seowebmaster
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:etiquetaSeo }
+
+landinginnvento:
+    path:      /landing/etiqueta-innvento
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:etiquetaInnvento }
+
+landingbumeran:
+    path:      /landing/etiqueta-bumeran
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:etiquetaBumeran }
+
+landingurbano:
+    path:      /landing/etiqueta-urbano
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:etiquetaUrbano }
+
+landingface:
+    path:      /landing/etiqueta-facebook
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:etiquetaFacebook }
+
+landinggoogle:
+    path:      /landing/etiqueta-google
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:etiquetaGoogle }
+
+
+envio_landing:
+    path:      /landing/form
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:envioLanding }
+    options:
+        expose: true

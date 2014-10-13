@@ -1,8 +1,8 @@
 #empresa-seccion{
-	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/empresa/cielo.jpg"); 
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/empresa/cielo.jpg"); 
 }
 #region-seccion{
-	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/empresa/costa.jpg"); 
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/empresa/costa.jpg"); 
 }
 
 .btn-info{

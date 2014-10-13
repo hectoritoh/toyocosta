@@ -1,0 +1,135 @@
+
+{% extends 'CelmediaToyocostaVehiculosBundle::layout.html.twig' %}
+
+{% block contenidotoyocosta %}
+
+		{% include 'CelmediaToyocostaVehiculosBundle:Blocks:top.menu.secciones.html.twig' %}
+
+<div class="row banner-lp">
+	{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/landings/lp.jpg' %}
+	    <img src="{{ asset_url }}" alt=""  style="width:100%;" class="img-responsive" />
+	{% endimage %}
+</div>
+<div class="container">
+
+	<div class="row lp-contenido">
+
+
+		<div class="col-md-12 text-center">
+			<h1 class="txt-lp-1 txt-rojo">ETIQUETA ROJA SEMINUEVOS</h1>
+			{#<h2 class="txt-lp-2">SOLICITAR COTIZACI&Oacute;N</h2>#}
+			<p class="txt-lp-p txt-info">Por favor llene el siguiente formulario para que un representante de Toyocosta pueda comunicarse inmediatamente con usted.</p>
+
+		</div>
+
+		<div class="col-md-12">
+
+			<form id="form-etiqueta" class="form-info">
+				
+				<input type="hidden" id="campana" name="campana" value="Etiqueta roja Seminuevos, mail - SeoWebmaster" />
+
+				<div class="row space-input">
+					<div class="col-md-10 col-md-offset-1 col-xs-12">
+
+						<div class="row">
+							<div class="col-sm-4 col-sm-offset-1 col-xs-12">
+								<label>Nombre:</label>
+								<input id="nombre" name="nombre" type="text" class="form-control" placeholder="" />
+							</div>
+							<div class="col-sm-4 col-sm-offset-1 col-xs-12">
+								<label>Apellido:</label>
+								<input id="apellido" name="apellido" type="text" class="form-control" placeholder="" />
+							</div>
+
+						</div>	
+					</div>
+
+				</div>
+
+				<div class="row space-input">
+					<div class="col-md-10 col-md-offset-1 col-xs-12">
+
+						<div class="row">
+							<div class="col-sm-4 col-sm-offset-1 col-xs-12">
+								<label>Tel&eacute;fono:</label>
+								<input id="telefono" name="telefono" type="text" class="form-control" placeholder="" />
+							</div>
+							<div class="col-sm-4 col-sm-offset-1 col-xs-12">
+								<label>Celular:</label>
+								<input id="celular" name="celular" type="text" class="form-control" placeholder="" />
+							</div>
+
+						</div>	
+					</div>
+
+				</div>
+
+				<div class="row space-input">
+					<div class="col-md-10 col-md-offset-1 col-xs-12">
+
+						<div class="row">
+							<div class="col-sm-4 col-sm-offset-1 col-xs-12">
+								<label>Email:</label>
+								<input id="email" name="email" type="text" class="form-control" placeholder="" />
+							</div>
+							<div class="col-sm-4 col-sm-offset-1 col-xs-12">
+								<label>C&eacute;dula:</label>
+								<input id="cedula" name="cedula" type="text" class="form-control" placeholder="" />
+							</div>
+
+						</div>	
+					</div>
+
+				</div>
+
+				<div class="row space-input">
+					<div class="col-md-10 col-md-offset-1 col-xs-12">
+
+						<div class="row">
+							<div class="col-sm-9 col-sm-offset-1 col-xs-12">
+								<label>Comentarios:</label>
+								<textarea id="comentario" name="comentario" class="form-control" rows="3"></textarea>
+
+							</div>
+						</div>	
+					</div>
+
+				</div>
+
+
+				<div class="row space-input">
+					<div class="col-md-10 col-md-offset-2 col-xs-12">
+
+						<a href="{{ asset('uploads/landing/etiquetaroja.pdf' ) }}" class="" target="_blank">
+							Listado de Seminuevos Etiqueta Roja.
+							<i class="icono-descarga"></i> 
+						</a>
+
+					</div>
+
+				</div>
+				
+				<div class="row space-input">
+					<div class="col-md-10 col-md-offset-1 col-xs-12" style="padding-top:20px;">
+
+						<div class="row">
+							<div class="col-md-3 col-md-offset-4">
+
+                                <input type="submit" value="Enviar" class="btn btn-lg btn-info" style="width:100%;">
+							</div>
+						</div>	
+					</div>
+
+				</div>
+
+			</form>
+
+		</div>
+
+
+	</div>
+
+</div>
+
+
+{% endblock %}

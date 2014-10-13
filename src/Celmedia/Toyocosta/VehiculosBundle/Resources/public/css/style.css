@@ -357,13 +357,13 @@ fieldset.ty-fieldset-border {
 }
 
 #pirelli-seccion{
-	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/slide/pirelli.jpg"); 
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/slide/pirelli.jpg"); 
 }
 #montacargas-seccion{
-	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/slide/montacargas.jpg"); 
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/slide/montacargas.jpg"); 
 }
 #seminuevos-seccion{
-	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/slide/seminuevos.jpg"); 
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/slide/seminuevos.jpg"); 
 }
 
 /*Botones*/
@@ -447,15 +447,15 @@ fieldset.ty-fieldset-border {
 }
 
 .glyphicon-chevron-left{
-	/*background-image: url("../../../web/img/Iconos/left.png");*/
-	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/varios/left.png"); 
+	/*background-image: url("../../../web/img/icon/left.png");*/
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/varios/left.png"); 
 	height: 105px;
 	width: 50%;
 	background-repeat: no-repeat;
 }
 .glyphicon-chevron-right{
-	/*background-image: url("../../../web/img/Iconos/right.png");*/
-	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/varios/right.png"); 
+	/*background-image: url("../../../web/img/icon/right.png");*/
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/varios/right.png"); 
 	height: 105px;
 	width: 50%;
 	background-repeat: no-repeat;
@@ -482,18 +482,18 @@ fieldset.ty-fieldset-border {
 	background-size: cover;
 }
 .cuadro-precio.text-right{
-	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/varios/recuadro-precio-der.png");
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/varios/recuadro-precio-der.png");
 	background-position: top right;
 	height: 82px;
 }
 .cuadro-precio.text-left{
-	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/varios/recuadro-precio.png");
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/varios/recuadro-precio.png");
 	background-position: top left;
 	height: 82px;
 }
 .cuadro-caption{
 
-	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/varios/recuadro-accesos.png"); 
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/varios/recuadro-accesos.png"); 
 	background-repeat: no-repeat;
 	height: 140px;
 	
@@ -527,7 +527,7 @@ fieldset.ty-fieldset-border {
 	padding: 11px;
 }
 .link-caption:hover{
-	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/varios/mayorq.png"); 
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/varios/mayorq.png"); 
 	background-repeat: no-repeat;
 	background-position: 145px 18px;
 }
@@ -575,7 +575,7 @@ fieldset.ty-fieldset-border {
 */
 
 .fondo-montacarga{
-	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/slide/montacargas.jpg"); 
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/slide/montacargas.jpg"); 
 	background-repeat: no-repeat;
 	height: 864px;
 	background-size: cover;
@@ -586,14 +586,14 @@ fieldset.ty-fieldset-border {
 	padding-bottom: 60px;
 }
 .fondo-pirelli{
-	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/slide/pirelli.jpg"); 
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/slide/pirelli.jpg"); 
 	background-repeat: no-repeat;
 	height: 864px;	
 	background-size: cover;
 	/*height: 100%;*/
 }
 .fondo-seminuevos{
-	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/slide/seminuevos.jpg"); 
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/slide/seminuevos.jpg"); 
 	background-repeat: no-repeat;
 	height: 864px;
 	background-size: cover;
@@ -682,7 +682,7 @@ fieldset.ty-fieldset-border {
 	position: relative;
 	/*height: 118px;*/
 	height: 60px;
-	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/banner/banner-cotizar.jpg");
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/banner/banner-cotizar.jpg");
 	background-repeat: no-repeat;
 	-webkit-background-size: cover;
 	-moz-background-size: cover;
@@ -708,7 +708,7 @@ fieldset.ty-fieldset-border {
 	width: 194px;
 	position: relative;
 	height: 40px;
-	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/varios/sprite-cotizar-1.png");
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/varios/sprite-cotizar-1.png");
 	background-color: transparent;
 	border-radius: 0px;
 	outline: none;
@@ -730,7 +730,7 @@ fieldset.ty-fieldset-border {
 	width: 194px;
 	position: relative;
 	height: 40px;
-	background-image: url(".../../../../../web/bundles/celmediatoyocostaseminuevo/images/sprite-cotizador.png");
+	background-image: url("../../bundles/celmediatoyocostaseminuevo/images/sprite-cotizador.png");
 	background-color: transparent;
 	border-radius: 0px;
 	outline: none;
@@ -881,7 +881,7 @@ fieldset.ty-fieldset-border {
 }
 
 .icono-descarga{
-	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/iconos/icono-descarga.png");
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/icon/icono-descarga.png");
 	background-position: center bottom;
 	width: 20px;
 	position: relative;
@@ -930,13 +930,13 @@ fieldset.ty-fieldset-border {
 	float: left;
 	display: inline-block;
 	margin-right: 10px;	
-	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/empresa/agencia.png");
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/empresa/agencia.png");
 	background-position: 0px 0px;
 	background-repeat: no-repeat;
 }
 
 .ico-empresa-agencia:hover{
-	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/empresa/agenciahover.png");	
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/empresa/agenciahover.png");	
 	background-position: -1px 0px;
 }
 
@@ -997,7 +997,7 @@ fieldset.ty-fieldset-border {
 	width: 100%;
 	height: 100%;
 	top: 0px;
-	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/varios/recuadro-modelos.png");
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/varios/recuadro-modelos.png");
 	background-repeat: no-repeat;
 	background-position: top center;
 	-webkit-background-size: contain;
@@ -1026,10 +1026,10 @@ fieldset.ty-fieldset-border {
 }
 
 .carousel-control .slider-galeria.left{
-	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/iconos/flecha-izquierda.png");
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/icon/flecha-izquierda.png");
 }
 .carousel-control .slider-galeria.right{
-	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/iconos/flecha-derecha.png");
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/icon/flecha-derecha.png");
 }
 
 
@@ -1043,7 +1043,7 @@ fieldset.ty-fieldset-border {
 	float: left;
 	display: inline-block;
 	border: 1px solid #d8d8d8;            
-	background: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/iconos/dropdown.png") no-repeat right center;
+	background: url("../../bundles/celmediatoyocostavehiculos/images/icon/dropdown.png") no-repeat right center;
 	cursor: pointer;
 }
 .select-wrapper, .select-wrapper select{
@@ -1052,7 +1052,7 @@ fieldset.ty-fieldset-border {
 	line-height: 26px;
 }
 .select-wrapper:hover{
-	background: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/iconos/dropdown-hover.png") no-repeat right center;
+	background: url("../../bundles/celmediatoyocostavehiculos/images/icon/dropdown-hover.png") no-repeat right center;
 	border-color: #239fdb;
 }
 .select-wrapper .holder{
@@ -1185,7 +1185,7 @@ fieldset.ty-fieldset-border {
 	overflow: hidden;
 	position: relative;
 	cursor: pointer;
-	background-image: url(".../../../../../web/bundles/celmediatoyocostaseminuevo/images/sprite-img.png"); 
+	background-image: url("../../bundles/celmediatoyocostaseminuevo/images/sprite-img.png"); 
 	background-repeat: no-repeat;
 	background-position: center bottom;
 	color: #000;
@@ -1197,13 +1197,13 @@ fieldset.ty-fieldset-border {
 }
 
 .form-group-sm .custom-input-file:hover{
-	background-image: url(".../../../../../web/bundles/celmediatoyocostaseminuevo/images/sprite-img.png"); 
+	background-image: url("../../bundles/celmediatoyocostaseminuevo/images/sprite-img.png"); 
 	background-repeat: no-repeat;
 	background-position: center bottom;
 }
 
 .eu-estado{
-	background-image: url(".../../../../../web/bundles/celmediatoyocostaseminuevo/images/sprite-circulo.png"); 
+	background-image: url("../../bundles/celmediatoyocostaseminuevo/images/sprite-circulo.png"); 
 	background-repeat: no-repeat;
 	background-position: center center;	
 	width: 104px;
@@ -1211,19 +1211,19 @@ fieldset.ty-fieldset-border {
 	margin: 0 auto;
 }
 .eu-estado-disponible{
-	background-image: url(".../../../../../web/bundles/celmediatoyocostaseminuevo/images/sprite-de-estados.png"); 
+	background-image: url("../../bundles/celmediatoyocostaseminuevo/images/sprite-de-estados.png"); 
 	background-position: 0px -215px;
 }
 .eu-estado-proximamente{
-	background-image: url(".../../../../../web/bundles/celmediatoyocostaseminuevo/images/sprite-de-estados.png"); 
+	background-image: url("../../bundles/celmediatoyocostaseminuevo/images/sprite-de-estados.png"); 
 	background-position: 0px -323px;
 }
 .eu-estado-reservado{
-	background-image: url(".../../../../../web/bundles/celmediatoyocostaseminuevo/images/sprite-de-estados.png"); 
+	background-image: url("../../bundles/celmediatoyocostaseminuevo/images/sprite-de-estados.png"); 
 	background-position: 0px -107px;
 }
 .eu-estado-vendido{
-	background-image: url(".../../../../../web/bundles/celmediatoyocostaseminuevo/images/sprite-de-estados.png"); 
+	background-image: url("../../bundles/celmediatoyocostaseminuevo/images/sprite-de-estados.png"); 
 	background-position: 0px 0px;
 }
 .txt-estado-texto{
@@ -1315,7 +1315,7 @@ fieldset.ty-fieldset-border {
 	height: 56px;
 	bottom: 0px;
 	color: #ffffff;
-	background-image: url(".../../../../../web/bundles/celmediatoyocostaseminuevo/images/info-slider.png"); 
+	background-image: url("../../bundles/celmediatoyocostaseminuevo/images/info-slider.png"); 
 	background-position: center top;
 	background-repeat: no-repeat;
 	font-family: 'Arial', 'Helvetica',sans-serif;
@@ -1849,7 +1849,15 @@ li.disabled > .btn.btn-anterior{
 	.header-seminuevos{
 		height: auto;
 	}
-
+	.txt-lp-1{
+		font-size: 24px;
+	}
+	.txt-lp-2{
+		font-size: 20px;
+	}
+	.txt-info{
+		font-size: 12px;
+	}
 
  }
 
@@ -1891,7 +1899,7 @@ ul.tabs-especificaciones li > a:hover{
 } 
 
 .icono-regresar{
-	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/iconos/icono-flecha-regresar.png");
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/icon/icono-flecha-regresar.png");
 	background-position: center bottom;
 	width: 18px;
 	position: relative;
@@ -1982,37 +1990,37 @@ a.submenu-vehiculo-item:hover{
 	min-height: 36px;
 }
 .banner-pirelli{
-	background-image: url("../../bundles/celmediatoyocostapirelli/images/Banners/Pirelli.jpg");
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/pirelli/Banners/Pirelli.jpg");
 	background-size: cover;
 	height: 208px;
 }
 .banner-pirelli-suv{
-	background-image: url("../../bundles/celmediatoyocostapirelli/images/banners-pirelli/suv.jpg");
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/pirelli/banners-pirelli/suv.jpg");
 	background-size: cover;
 	height: 186px;
 }
 .banner-pirelli-autos{
-	background-image: url("../../bundles/celmediatoyocostapirelli/images/banners-pirelli/autos.jpg");
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/pirelli/banners-pirelli/autos.jpg");
 	background-size: cover;
 	height: 186px;
 }
 .banner-pirelli-industriales{
-	background-image: url("../../bundles/celmediatoyocostapirelli/images/banners-pirelli/industriales.jpg");
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/pirelli/banners-pirelli/industriales.jpg");
 	background-size: cover;
 	height: 186px;
 }
 .banner-pirelli-camionetas{
-	background-image: url("../../bundles/celmediatoyocostapirelli/images/banners-pirelli/camionetas.jpg");
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/pirelli/banners-pirelli/camionetas.jpg");
 	background-size: cover;
 	height: 186px;
 }
 .banner-pirelli-camiones{
-	background-image: url("../../bundles/celmediatoyocostapirelli/images/banners-pirelli/camion.jpg");
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/pirelli/banners-pirelli/camion.jpg");
 	background-size: cover;
 	height: 186px;
 }
 .banner-pirelli-distribuidor{
-	background-image: url("../../bundles/celmediatoyocostapirelli/images/banners-pirelli/distribuidores.jpg");
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/pirelli/banners-pirelli/distribuidores.jpg");
 	background-size: cover;
 	height: 275px;
 }
@@ -2123,7 +2131,7 @@ a.submenu-vehiculo-item:hover{
 }
 #footer{
 	/*background-color: #1D363B;*/
-	background-image: url('../../bundles/celmediatoyocostapirelli/images/Textura/textura.png');
+	background-image: url('../../bundles/celmediatoyocostavehiculos/images/pirelli/Textura/textura.png');
 	background-repeat: repeat;
 	color: #fff;
 	bottom: 0;
@@ -2143,21 +2151,21 @@ a.submenu-vehiculo-item:hover{
 	font-size: 10px;
 }
 .tweet-icon{
-	background-image: url('../../bundles/celmediatoyocostapirelli/images/Iconos/tweet-icon.png');
+	background-image: url('../../bundles/celmediatoyocostavehiculos/images/pirelli/iconos/tweet-icon.png');
 	background-repeat: no-repeat;
 	background-position: 0px 0px;
 	height: 23px;
 	margin-bottom: 10px;
 }
 .face-icon{
-	background-image: url('../../bundles/celmediatoyocostapirelli/images/Iconos/face-icon.png');
+	background-image: url('../../bundles/celmediatoyocostavehiculos/images/pirelli/iconos/face-icon.png');
 	background-repeat: no-repeat;
 	background-position: 0px 0px;
 	height: 23px;
 	margin-bottom: 10px;
 }
 .blog-icon{
-	background-image: url('../../bundles/celmediatoyocostapirelli/images/Iconos/blog-icon.png');
+	background-image: url('../../bundles/celmediatoyocostavehiculos/images/pirelli/iconos/blog-icon.png');
 	background-repeat: no-repeat;
 	background-position: 0px 0px;
 	height: 23px;
@@ -2176,7 +2184,7 @@ a.submenu-vehiculo-item:hover{
 	color: #fff;
 }
 .input-buscador{
-	background-image: url('../../bundles/celmediatoyocostapirelli/images/Iconos/icon-buscador.png');
+	background-image: url('../../bundles/celmediatoyocostavehiculos/images/pirelli/icon/icon-buscador.png');
 	background-position: right;
 	background-repeat: no-repeat;
 }
@@ -2188,7 +2196,7 @@ a.submenu-vehiculo-item:hover{
 	color: #FFFFFF;
 }
 button.close-ficha{
-	background-image: url('../../bundles/celmediatoyocostapirelli/images/Iconos/X.png');
+	background-image: url('../../bundles/celmediatoyocostavehiculos/images/pirelli/iconos/x.png');
 	background-repeat: no-repeat;
 	width: 14px;
 	height: 13px;
@@ -2255,32 +2263,32 @@ button.close-ficha{
 }
 /*FOOTER BANNERS*/
 .cita-footer{
-	background-image: url("../../bundles/celmediatoyocostapirelli/images/Banners/Cita.jpg");
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/pirelli/Banners/Cita.jpg");
 	background-repeat: no-repeat;
 	height: 108px;
 }
 .exonerados-footer{
-	background-image: url("../../bundles/celmediatoyocostapirelli/images/Banners/Exonerados.jpg");
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/pirelli/Banners/Exonerados.jpg");
 	background-repeat: no-repeat;
 	height: 108px;
 }
 .pirelli-footer{
-	background-image: url("../../bundles/celmediatoyocostapirelli/images/Banners/pirellibanner.jpg");
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/pirelli/Banners/pirellibanner.jpg");
 	background-repeat: no-repeat;
 	height: 108px;
 }
 .montacargas-footer{
-	background-image: url("../../bundles/celmediatoyocostapirelli/images/Banners/Montacargas.jpg");
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/pirelli/Banners/Montacargas.jpg");
 	background-repeat: no-repeat;
 	height: 108px;
 }
 .seminuevos-footer{
-	background-image: url("../../bundles/celmediatoyocostapirelli/images/Banners/Seminuevos.jpg");
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/pirelli/Banners/Seminuevos.jpg");
 	background-repeat: no-repeat;
 	height: 108px;
 }
 .mas-footer{
-	background-image: url('../../bundles/celmediatoyocostapirelli/images/Iconos/mas.png');
+	background-image: url('../../bundles/celmediatoyocostavehiculos/images/pirelli/icon/mas.png');
 	background-repeat: no-repeat;
 	height: 27px;
 }
@@ -2288,7 +2296,7 @@ button.close-ficha{
 	font-size: 15px;
 }
 .footer-banners{
-	background-image: url('../../bundles/celmediatoyocostapirelli/images/Textura/rayas.png');
+	background-image: url('../../bundles/celmediatoyocostavehiculos/images/pirelli/Textura/rayas.png');
 	background-repeat: repeat;
 	/*padding: 6px 0px 30px;*/
 }
@@ -2296,7 +2304,7 @@ button.close-ficha{
 	border-top: 3px solid #D62C2F;
 }
 .fondo{
-	background-image: url('../../bundles/celmediatoyocostapirelli/images/Textura/rayas.png');
+	background-image: url('../../bundles/celmediatoyocostavehiculos/images/pirelli/Textura/rayas.png');
 	background-repeat: repeat;
 	height: 20px;
 }
@@ -2315,7 +2323,7 @@ button.close-ficha{
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
-	background: transparent url('../../bundles/celmediatoyocostapirelli/images/Iconos/flecha-negra.png') no-repeat 73% center;
+	background: transparent url('../../bundles/celmediatoyocostavehiculos/images/pirelli/icon/flecha-negra.png') no-repeat 73% center;
 }*/
 .sbHolder {
     font-family: Arial,sans-serif;
@@ -2343,7 +2351,7 @@ button.close-ficha{
 }
 
 .sbToggle {
-    background-image: url('../../bundles/celmediatoyocostapirelli/images/Iconos/flecha-negra.png') ;
+    background-image: url('../../bundles/celmediatoyocostavehiculos/images/pirelli/icon/flecha-negra.png') ;
     background-position: center;
     background-repeat: no-repeat no-repeat;
     display: block;
@@ -2356,7 +2364,7 @@ button.close-ficha{
     /*border-left: 1px solid #cccccc ; */
 }
 .sbToggle:hover {
-    background-image: url('../../bundles/celmediatoyocostapirelli/images/Iconos/flecha-negra.png') ;
+    background-image: url('../../bundles/celmediatoyocostavehiculos/images/pirelli/icon/flecha-negra.png') ;
     background-position: center;
     background-repeat: no-repeat no-repeat;
 }
@@ -2383,7 +2391,7 @@ button.close-ficha{
 .sbOptions a:focus,
 .sbOptions a.sbFocus{
 	color: #D62C2F;
-	background-image: url('../../bundles/celmediatoyocostapirelli/images/Iconos/flecha-roja.png') ;
+	background-image: url('../../bundles/celmediatoyocostavehiculos/images/pirelli/icon/flecha-roja.png') ;
 	background-repeat: no-repeat;
 	background-position: 100% 10px;
 }
@@ -2472,10 +2480,10 @@ button.close-ficha{
 
 
 #empresa-seccion{
-	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/empresa/cielo.jpg"); 
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/empresa/cielo.jpg"); 
 }
 #region-seccion{
-	background-image: url(".../../../../../web/bundles/celmediatoyocostavehiculos/images/empresa/costa.jpg"); 
+	background-image: url("../../bundles/celmediatoyocostavehiculos/images/empresa/costa.jpg"); 
 }
 
 .btn-info{
@@ -2521,10 +2529,18 @@ button.close-ficha{
 	background-size: cover;
 	height: 333px;		
 }
-.banner-lp{
+/*.banner-lp{
 	background-image: url("../../bundles/celmediatoyocostavehiculos/images/banner/lp.jpg");
 	background-size: cover;
 	height: 333px;		
+}*/
+.banner-lp{
+	position: relative;
+	top: 50px;
+}
+.lp-contenido{
+	padding-top: 38px;
+	padding-bottom: 30px;
 }
 .banner-seminuevos{
 	background-image: url("../../bundles/celmediatoyocostavehiculos/images/banner/seminuevo.jpg");
