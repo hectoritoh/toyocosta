@@ -19,7 +19,7 @@
 	padding-right: 0px;
 }
 .icon-facebook{
-	background-image: url('../../bundles/celmediatoyocostavehiculos/images/pirelli/iconos/facebook.png');
+	background-image: url('../../../bundles/celmediatoyocostavehiculos/images/pirelli/iconos/facebook.png');
 	background-repeat: no-repeat;
 	background-position: 0px -36px;
 	height: 35px;
@@ -27,12 +27,12 @@
 	width: 34px;
 }
 .icon-facebook:hover{
-	background-image: url('../../bundles/celmediatoyocostavehiculos/images/pirelli/iconos/facebook.png');
+	background-image: url('../../../bundles/celmediatoyocostavehiculos/images/pirelli/iconos/facebook.png');
 	background-repeat: no-repeat;
 	background-position: 0px 0px;
 }
 .icon-twitter{
-	background-image: url('../../bundles/celmediatoyocostavehiculos/images/pirelli/iconos/twitter.png');
+	background-image: url('../../../bundles/celmediatoyocostavehiculos/images/pirelli/iconos/twitter.png');
 	background-repeat: no-repeat;
 	background-position: 0px -36px;
 	height: 35px;
@@ -40,12 +40,12 @@
 	width: 34px;
 }
 .icon-twitter:hover{
-	background-image: url('../../bundles/celmediatoyocostavehiculos/images/pirelli/iconos/twitter.png');
+	background-image: url('../../../bundles/celmediatoyocostavehiculos/images/pirelli/iconos/twitter.png');
 	background-repeat: no-repeat;
 	background-position: 0px 0px;
 }
 .icon-blog{
-	background-image: url('../../bundles/celmediatoyocostavehiculos/images/pirelli/iconos/blog.png');
+	background-image: url('../../../bundles/celmediatoyocostavehiculos/images/pirelli/iconos/blog.png');
 	background-repeat: no-repeat;
 	background-position: 0px -36px;
 	height: 35px;
@@ -53,12 +53,12 @@
 	width: 34px;
 }
 .icon-blog:hover{
-	background-image: url('../../bundles/celmediatoyocostavehiculos/images/pirelli/iconos/blog.png');
+	background-image: url('../../../bundles/celmediatoyocostavehiculos/images/pirelli/iconos/blog.png');
 	background-repeat: no-repeat;
 	background-position: 0px 0px;
 }
 .btn-buscar{
-	background-image: url('../../bundles/celmediatoyocostavehiculos/images/pirelli/iconos/buscador.png');
+	background-image: url('../../../bundles/celmediatoyocostavehiculos/images/pirelli/iconos/buscador.png');
 	background-repeat: no-repeat;
 	background-position: 0px -67px;
 	height: 34px;
@@ -69,7 +69,7 @@
 	position: relative;
 }
 .btn-buscar:hover{
-	background-image: url('../../bundles/celmediatoyocostavehiculos/images/pirelli/iconos/buscador.png');
+	background-image: url('../../../bundles/celmediatoyocostavehiculos/images/pirelli/iconos/buscador.png');
 	background-repeat: no-repeat;
 	background-position: 0px -10px;
 	height: 34px;
@@ -105,7 +105,7 @@
 }
 
 .fondo-submenu{
-	background-image: url("../../bundles/celmediatoyocostavehiculos/images/varios/textura-submenu.jpg");
+	background-image: url("../../../bundles/celmediatoyocostavehiculos/images/varios/textura-submenu.jpg");
 	position: absolute;
 	width: 100%;
 	z-index: 10;

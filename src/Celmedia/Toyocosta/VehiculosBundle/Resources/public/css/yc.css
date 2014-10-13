@@ -1,8 +1,8 @@
 #empresa-seccion{
-	background-image: url("../../bundles/celmediatoyocostavehiculos/images/empresa/cielo.jpg"); 
+	background-image: url("../../../bundles/celmediatoyocostavehiculos/images/empresa/cielo.jpg"); 
 }
 #region-seccion{
-	background-image: url("../../bundles/celmediatoyocostavehiculos/images/empresa/costa.jpg"); 
+	background-image: url("../../../bundles/celmediatoyocostavehiculos/images/empresa/costa.jpg"); 
 }
 
 .btn-info{
@@ -20,62 +20,62 @@
 
 /*BANNERS*/
 .banner-mantenimiento{
-	background-image: url("../../bundles/celmediatoyocostavehiculos/images/banner/mantenimiento.jpg");
+	background-image: url("../../../bundles/celmediatoyocostavehiculos/images/banner/mantenimiento.jpg");
 	background-size: cover;
 	/*height: 333px;*/
 	height: 275px;
 }
 .banner-test{
-	background-image: url("../../bundles/celmediatoyocostavehiculos/images/banner/test.jpg");
+	background-image: url("../../../bundles/celmediatoyocostavehiculos/images/banner/test.jpg");
 	background-size: cover;
 	/*height: 333px;*/
 	height: 285px;
 }
 .banner-rrhh{
-	background-image: url("../../bundles/celmediatoyocostavehiculos/images/banner/rrhh.jpg");
+	background-image: url("../../../bundles/celmediatoyocostavehiculos/images/banner/rrhh.jpg");
 	background-size: cover;
 	/*height: 333px;	*/
 	height: 275px;
 }
 .banner-contacto{
-	background-image: url("../../bundles/celmediatoyocostavehiculos/images/banner/contacto.jpg");
+	background-image: url("../../../bundles/celmediatoyocostavehiculos/images/banner/contacto.jpg");
 	background-size: cover;
 	/*height: 333px;*/
 	height: 250px;	
 }
 .banner-certificados{
-	background-image: url("../../bundles/celmediatoyocostavehiculos/images/banner/certificados.jpg");
+	background-image: url("../../../bundles/celmediatoyocostavehiculos/images/banner/certificados.jpg");
 	background-size: cover;
 	height: 333px;		
 }
 .banner-lp{
-	background-image: url("../../bundles/celmediatoyocostavehiculos/images/banner/lp.jpg");
+	background-image: url("../../../bundles/celmediatoyocostavehiculos/images/banner/lp.jpg");
 	background-size: cover;
 	height: 333px;		
 }
 .banner-seminuevos{
-	background-image: url("../../bundles/celmediatoyocostavehiculos/images/banner/seminuevo.jpg");
+	background-image: url("../../../bundles/celmediatoyocostavehiculos/images/banner/seminuevo.jpg");
 	background-size: cover;
 	height: 270px;
 	/*height: 333px;		*/
 }
 .banner-autos{
-	background-image: url("../../bundles/celmediatoyocostavehiculos/images/banner/certificados.jpg");
+	background-image: url("../../../bundles/celmediatoyocostavehiculos/images/banner/certificados.jpg");
 	background-size: cover;
 	height: 278px;		
 }
 .banner-camionetas{
-	background-image: url("../../bundles/celmediatoyocostavehiculos/images/banner/certificados.jpg");
+	background-image: url("../../../bundles/celmediatoyocostavehiculos/images/banner/certificados.jpg");
 	background-size: cover;
 	height: 278px;		
 }
 .banner-suv{
-	background-image: url("../../bundles/celmediatoyocostavehiculos/images/banner/certificados.jpg");
+	background-image: url("../../../bundles/celmediatoyocostavehiculos/images/banner/certificados.jpg");
 	background-size: cover;
 	height: 278px;		
 }
 .banner-hibridos{
-	background-image: url("../../bundles/celmediatoyocostavehiculos/images/banner/certificados.jpg");
+	background-image: url("../../../bundles/celmediatoyocostavehiculos/images/banner/certificados.jpg");
 	background-size: cover;
 	height: 278px;		
 }

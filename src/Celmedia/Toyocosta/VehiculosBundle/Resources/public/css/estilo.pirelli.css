@@ -61,37 +61,37 @@
 	min-height: 36px;
 }
 /*.banner-pirelli{
-	background-image: url("../../bundles/celmediatoyocostavehiculos/images/pirelli/Banners/Pirelli.jpg");
+	background-image: url("../../../bundles/celmediatoyocostavehiculos/images/pirelli/Banners/Pirelli.jpg");
 	background-size: cover;
 	height: 208px;
 }*/
 .banner-pirelli-suv{
-	background-image: url("../../bundles/celmediatoyocostavehiculos/images/pirelli/banners-pirelli/suv.jpg");
+	background-image: url("../../../bundles/celmediatoyocostavehiculos/images/pirelli/banners-pirelli/suv.jpg");
 	background-size: cover;
 	height: 186px;
 }
 .banner-pirelli-autos{
-	background-image: url("../../bundles/celmediatoyocostavehiculos/images/pirelli/banners-pirelli/autos.jpg");
+	background-image: url("../../../bundles/celmediatoyocostavehiculos/images/pirelli/banners-pirelli/autos.jpg");
 	background-size: cover;
 	height: 186px;
 }
 .banner-pirelli-industriales{
-	background-image: url("../../bundles/celmediatoyocostavehiculos/images/pirelli/banners-pirelli/industriales.jpg");
+	background-image: url("../../../bundles/celmediatoyocostavehiculos/images/pirelli/banners-pirelli/industriales.jpg");
 	background-size: cover;
 	height: 186px;
 }
 .banner-pirelli-camionetas{
-	background-image: url("../../bundles/celmediatoyocostavehiculos/images/pirelli/banners-pirelli/camionetas.jpg");
+	background-image: url("../../../bundles/celmediatoyocostavehiculos/images/pirelli/banners-pirelli/camionetas.jpg");
 	background-size: cover;
 	height: 186px;
 }
 .banner-pirelli-camiones{
-	background-image: url("../../bundles/celmediatoyocostavehiculos/images/pirelli/banners-pirelli/camion.jpg");
+	background-image: url("../../../bundles/celmediatoyocostavehiculos/images/pirelli/banners-pirelli/camion.jpg");
 	background-size: cover;
 	height: 186px;
 }
 .banner-pirelli-distribuidor{
-	background-image: url("../../bundles/celmediatoyocostavehiculos/images/pirelli/banners-pirelli/distribuidores.jpg");
+	background-image: url("../../../bundles/celmediatoyocostavehiculos/images/pirelli/banners-pirelli/distribuidores.jpg");
 	background-size: cover;
 	height: 186px;
 }
@@ -202,7 +202,7 @@
 }
 #footer{
 	/*background-color: #1D363B;*/
-	background-image: url('../../bundles/celmediatoyocostavehiculos/images/pirelli/textura/textura.png');
+	background-image: url('../../../bundles/celmediatoyocostavehiculos/images/pirelli/textura/textura.png');
 	background-repeat: repeat;
 	color: #fff;
 	bottom: 0;
@@ -222,21 +222,21 @@
 	font-size: 10px;
 }
 .tweet-icon{
-	background-image: url('../../bundles/celmediatoyocostavehiculos/images/pirelli/iconos/tweet-icon.png');
+	background-image: url('../../../bundles/celmediatoyocostavehiculos/images/pirelli/iconos/tweet-icon.png');
 	background-repeat: no-repeat;
 	background-position: 0px 0px;
 	height: 23px;
 	margin-bottom: 10px;
 }
 .face-icon{
-	background-image: url('../../bundles/celmediatoyocostavehiculos/images/pirelli/iconos/face-icon.png');
+	background-image: url('../../../bundles/celmediatoyocostavehiculos/images/pirelli/iconos/face-icon.png');
 	background-repeat: no-repeat;
 	background-position: 0px 0px;
 	height: 23px;
 	margin-bottom: 10px;
 }
 .blog-icon{
-	background-image: url('../../bundles/celmediatoyocostavehiculos/images/pirelli/iconos/blog-icon.png');
+	background-image: url('../../../bundles/celmediatoyocostavehiculos/images/pirelli/iconos/blog-icon.png');
 	background-repeat: no-repeat;
 	background-position: 0px 0px;
 	height: 23px;
@@ -255,7 +255,7 @@
 	color: #fff;
 }
 .input-buscador{
-	background-image: url('../../bundles/celmediatoyocostavehiculos/images/pirelli/iconos/icon-buscador.png');
+	background-image: url('../../../bundles/celmediatoyocostavehiculos/images/pirelli/iconos/icon-buscador.png');
 	background-position: right;
 	background-repeat: no-repeat;
 }
@@ -267,7 +267,7 @@
 	color: #FFFFFF;
 }
 button.close-ficha{
-	background-image: url('../../bundles/celmediatoyocostavehiculos/images/pirelli/iconos/X.png');
+	background-image: url('../../../bundles/celmediatoyocostavehiculos/images/pirelli/iconos/X.png');
 	background-repeat: no-repeat;
 	width: 14px;
 	height: 13px;
@@ -335,26 +335,14 @@ button.close-ficha{
 /*FOOTER BANNERS*/
 
 .mas-footer{
-	background-image: url('../../bundles/celmediatoyocostavehiculos/images/pirelli/iconos/mas.png');
+	background-image: url('../../../bundles/celmediatoyocostavehiculos/images/pirelli/iconos/mas.png');
 	background-repeat: no-repeat;
 	height: 27px;
 }
 .text-banner-footer{
 	font-size: 15px;
 }
-.footer-banners{
-	background-image: url('../../bundles/celmediatoyocostavehiculos/images/pirelli/textura/rayas.png');
-	background-repeat: repeat;
-	/*padding: 6px 0px 30px;*/
-}
-.border-rojo{
-	border-top: 3px solid #D62C2F;
-}
-.fondo{
-	background-image: url('../../bundles/celmediatoyocostavehiculos/images/pirelli/textura/rayas.png');
-	background-repeat: repeat;
-	height: 20px;
-}
+
 .banner-promocional{
 	/*margin-top: 20px;*/
 }
@@ -370,7 +358,7 @@ button.close-ficha{
 	-webkit-appearance: none;
 	-moz-appearance: none;
 	appearance: none;
-	background: transparent url('../../bundles/celmediatoyocostavehiculos/images/pirelli/iconos/flecha-negra.png') no-repeat 73% center;
+	background: transparent url('../../../bundles/celmediatoyocostavehiculos/images/pirelli/iconos/flecha-negra.png') no-repeat 73% center;
 }*/
 .sbHolder {
     font-family: Arial,sans-serif;
@@ -398,7 +386,7 @@ button.close-ficha{
 }
 
 .sbToggle {
-    background-image: url('../../bundles/celmediatoyocostavehiculos/images/pirelli/iconos/flecha-negra.png') ;
+    background-image: url('../../../bundles/celmediatoyocostavehiculos/images/pirelli/iconos/flecha-negra.png') ;
     background-position: center;
     background-repeat: no-repeat no-repeat;
     display: block;
@@ -411,7 +399,7 @@ button.close-ficha{
     /*border-left: 1px solid #cccccc ; */
 }
 .sbToggle:hover {
-    background-image: url('../../bundles/celmediatoyocostavehiculos/images/pirelli/iconos/flecha-negra.png') ;
+    background-image: url('../../../bundles/celmediatoyocostavehiculos/images/pirelli/iconos/flecha-negra.png') ;
     background-position: center;
     background-repeat: no-repeat no-repeat;
 }
@@ -438,7 +426,7 @@ button.close-ficha{
 .sbOptions a:focus,
 .sbOptions a.sbFocus{
 	color: #D62C2F;
-	background-image: url('../../bundles/celmediatoyocostavehiculos/images/pirelli/iconos/flecha-roja.png') ;
+	background-image: url('../../../bundles/celmediatoyocostavehiculos/images/pirelli/iconos/flecha-roja.png') ;
 	background-repeat: no-repeat;
 	background-position: 100% 10px;
 }
