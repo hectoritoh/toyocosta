@@ -35,11 +35,13 @@
         "sonata-project/easy-extends-bundle": "dev-master",
         "sonata-project/user-bundle": "dev-master",
         "sonata-project/datagrid-bundle": "~2.2@dev",
-        "sonata-project/media-bundle": "dev-master",
+        "sonata-project/media-bundle": "~2.3",
         "jms/serializer-bundle": "dev-master",
         "gregwar/captcha-bundle": "dev-master",
         "suncat/mobile-detect-bundle": "0.9.*",
-        "sonata-project/markitup-bundle": "2.1.*@dev"
+        "sonata-project/markitup-bundle": "2.1.*@dev", 
+        "kriswallsmith/assetic": "1.1.x@stable"
+        
     },
     "scripts": {
         "post-install-cmd": [
