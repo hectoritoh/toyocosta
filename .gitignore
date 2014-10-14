@@ -567,9 +567,8 @@ vehiculo.php
 vehiculo_especificaciones.php
 vehiculo_galeria.php
 vehiculo_mantenimiento.php
+BKPrepuesto_mas.php
+web/error_log
 vehiculo_modelos.php
 .ftpquota
 .htaccess
-BKPrepuesto_mas.php
-error_log
-web/error_log
