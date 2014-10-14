@@ -571,3 +571,5 @@ vehiculo_modelos.php
 .ftpquota
 .htaccess
 BKPrepuesto_mas.php
+error_log
+web/error_log
