@@ -72,8 +72,8 @@ class SeminuevoAdmin extends Admin
             // ->add('anio')
             // ->add('ubicacion')
             // ->add('placa')
-            ->add('informacion')
-            ->add('descripcion_corta')
+            // ->add('informacion')
+            // ->add('descripcion_corta')
             ->add('estado' , 'choice', array('choices' => array(1 => 'Disponible' , 2 => 'Proximammente' , 3 => 'Reservado', 4 => 'Vendido') ) )
             ->add('estado_publicacion' , 'choice', array('choices' => array(1 => 'Aprobado' , 2 => 'Pendiente' , 3 => 'Rechazado') ) )
             ->add('_action', 'actions', array(
