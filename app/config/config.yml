@@ -233,8 +233,8 @@ swiftmailer:
    transport:  smtp
    port:       587
    host:       mail.misp.cl
-   username:   ycosquillo@celmedia.com
-   password:   xinitaCM12
+   username:   webtoyocosta@gmail.com
+   password:   web_toyota
    spool:     { type: memory }
 
 stof_doctrine_extensions:

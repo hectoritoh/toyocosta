@@ -168,9 +168,9 @@ class DefaultController extends Controller
 
             ->setSubject($subject)
 
-            ->setFrom(array('ycosquillo@celmedia.com' => 'Web Toyocosta'))
+            ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
 
-            ->setTo(array( $correos_array , 'ycosquillo@celmedia.com' => 'Toyocosta'))
+            ->setTo(array( $correos_array , 'cdnventas@toyocosta.com' => 'Toyocosta', 'ycosquillo@celmedia.com' => 'Admin'))
             
             ->setContentType("text/html")
 

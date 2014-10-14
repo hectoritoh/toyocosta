@@ -265,9 +265,9 @@
                 $message = \Swift_Message::newInstance()
                     ->setSubject('Pedido de informacion desde Toyocosta /  Pirelli')
 
-                    ->setFrom(array('ycosquillo@celmedia.com' => 'Web Toyocosta'))
+                    ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
 
-                    ->setTo(array( $correos_array , 'pirellimatriz@toyocosta.com.ec' => 'Toyocosta'))
+                    ->setTo(array( $correos_array , 'pirellimatriz@toyocosta.com.ec' => 'Toyocosta', 'ycosquillo@celmedia.com' => 'Admin'))
 
                     ->setContentType("text/html")
 
