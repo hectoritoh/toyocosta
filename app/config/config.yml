@@ -231,8 +231,8 @@ fos_user:
 # Swiftmailer Configuration
 swiftmailer:
    transport:  smtp
-   port:       587
-   host:       mail.misp.cl
+   port:       465
+   host:       ssl://smtp.gmail.com
    username:   webtoyocosta@gmail.com
    password:   web_toyota
    spool:     { type: memory }
