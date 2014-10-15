@@ -9,6 +9,10 @@
     background-image: url("../../celmediatoyocostavehiculos/images/montacargas/banner-montacargas.jpg");
     height: 190px;
     color: #FFF;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
 }
 .banner-mt {
     -webkit-background-size: cover; 
@@ -50,7 +54,7 @@
 }
 
 .categorias{
-    height: 55px;
+    height: 54px;
     overflow: hidden;
     padding: 0;
     position: absolute;
@@ -70,17 +74,20 @@
 .lista-categoria{
 	opacity: 0.7;
 	background-color: #ff730d;
-	/*height: 172px;*/
-	margin-top: 38px;
+	/*height: 69px;*/
+	margin-top: 37px;
 	
 }
 
 .ver {
-    border-bottom: 1px solid #ffffff;
+    /* border-bottom: 1px solid #ffffff; */
     color: #ffffff;
-    padding: 15px 10px 8px 12px;
+    /* padding: 15px 10px 8px 12px; */
     position: absolute;
     width: 100%;
+    padding: 10px;
+    font-size: 11px;
+    font-weight: normal;
 }
 
 .imagen-logo {

@@ -18,8 +18,8 @@
               <li  {% if app.request.get('_route') == 'montacargas_home' %} class="active" {% endif %}   >           
                 <a href="{{ path('montacargas_home') }}">PRINCIPAL</a>
               </li>
-              <li  {% if app.request.get('_route') == 'ver_montacarga' %}  class="active"  {% endif %}   >
-                <a href="#" onclick='mostrarSubmenu("sample1");' >MODELOS</a>
+              <li style="background-color: #fff;border-radius: 12px;margin-top: 5px;height: 26px;" {% if app.request.get('_route') == 'ver_montacarga' %}  class="active" {% endif %}   >
+                <a href="#" onclick='mostrarSubmenu("sample1");' style="color: #df192b;padding: 10px 22px;">MODELOS</a>
               </li>
 
 

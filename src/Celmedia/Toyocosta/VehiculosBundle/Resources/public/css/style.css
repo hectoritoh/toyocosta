@@ -2036,7 +2036,7 @@ a.submenu-vehiculo-item:hover{
 	color: #fff;
 }
 #nav-list-pirelli li a:hover, #nav-list-pirelli>.active>a {
-	color: #FCDB05;
+	color: #FCDB05 !important;
 	background-color: transparent;
 }
 #nav-list-buscador li a{
