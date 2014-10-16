@@ -4,20 +4,13 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="">
         <meta name="author" content="">
-        <title>Toyocosta</title>
+        <title>TOYOCOSTA | Representante Oficial Toyota para el Ecuador</title>
+        
+        <meta name="description" content="Concesionario autorizado para la venta de autos, camionetas, hibridos de la marca Toyota para la region Costa."/>
 
-        {#{% stylesheets
-            "@CelmediaToyocostaPirelliBundle/Resources/public/css/bootstrap.min.css"
-            "@CelmediaToyocostaPirelliBundle/Resources/public/css/menu.toyocosta.css"
-            "@CelmediaToyocostaVehiculosBundle/Resources/public/css/resetvehiculos.css"
-            "@CelmediaToyocostaVehiculosBundle/Resources/public/css/footer.css"
-            "@CelmediaToyocostaVehiculosBundle/Resources/public/css/style.css"
-            "@CelmediaToyocostaVehiculosBundle/Resources/public/css/yc.css"
-        %}
-        <link type="text/css" rel="stylesheet" media="all" href="{{ asset_url }}" />
-        {% endstylesheets %}#}
+        <meta name="keywords" content="Autos Toyota, Camionetas Toyota, Hilux, Autos Ecuador, Toyota, Toyota Ecuador" />
+
 
         {% include 'CelmediaToyocostaVehiculosBundle:Default:includes.html.twig' %}
 
@@ -41,27 +34,24 @@
         {% include 'CelmediaToyocostaVehiculosBundle:Default:libs.html.twig' %}
 
 
-        {#{% javascripts
-                '@CelmediaToyocostaPirelliBundle/Resources/public/js/jquery.js'
-                '@CelmediaToyocostaPirelliBundle/Resources/public/js/jquery.selectbox/jquery.selectbox-0.2.js'
-                '@CelmediaToyocostaVehiculosBundle/Resources/public/js/jquery-ui-1.9.2.custom.js'
-                '@CelmediaToyocostaPirelliBundle/Resources/public/js/bootstrap.min.js'
-                '@CelmediaToyocostaVehiculosBundle/Resources/public/js/jquery.bootstrap.wizard.min.js'
-                '@CelmediaToyocostaPirelliBundle/Resources/public/js/jquery.validate.min.js'
-                '@CelmediaToyocostaPirelliBundle/Resources/public/js/additional-methods.min.js'
-                '@CelmediaToyocostaPirelliBundle/Resources/public/js/messages_es.js'
-                '@CelmediaToyocostaContenidoBundle/Resources/public/js/jquery.ui.widget.js'
-                '@CelmediaToyocostaContenidoBundle/Resources/public/js/jquery.iframe-transport.js'
-                '@CelmediaToyocostaContenidoBundle/Resources/public/js/jquery.fileupload.js'
-                '@CelmediaToyocostaPirelliBundle/Resources/public/js/script.pirelli.js'
-                '@CelmediaToyocostaVehiculosBundle/Resources/public/js/script.toyocosta.js'
-                '@CelmediaToyocostaPirelliBundle/Resources/public/js/script.js'
-            %}
-            <script type="text/javascript" src="{{ asset_url }}"></script>
-        {% endjavascripts %}  #}
+
         {% block js %}
 
         {% endblock %}
-                            
+        
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-22594492-1']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+        </script>               
+
     </body>
 </html>

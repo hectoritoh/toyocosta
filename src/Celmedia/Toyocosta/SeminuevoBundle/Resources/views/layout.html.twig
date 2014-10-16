@@ -8,17 +8,10 @@
         <meta name="author" content="">
         <!-- <link rel="shortcut icon" href="../../assets/ico/favicon.ico"> -->
         <title>Toyocosta :: Seminuevos</title>
-
-        {#{% stylesheets
-            "@CelmediaToyocostaPirelliBundle/Resources/public/css/bootstrap.min.css"
-            "@CelmediaToyocostaPirelliBundle/Resources/public/css/jquery.selectbox/jquery.selectbox.css"
-            "@CelmediaToyocostaPirelliBundle/Resources/public/css/menu.toyocosta.css"
-            "@CelmediaToyocostaVehiculosBundle/Resources/public/css/footer.css"
-            "@CelmediaToyocostaVehiculosBundle/Resources/public/css/style.css"
-            "@CelmediaToyocostaVehiculosBundle/Resources/public/css/yc.css"
-         %}
-        <link type="text/css" rel="stylesheet" media="all" href="{{ asset_url }}" />
-        {% endstylesheets %}#}
+        <meta name="description" content="Contamos con los mejores vehículos “seminuevos” del país. Tenemos los mejores precios y planes de financiamiento." />
+        <meta name="keywords" content="Toyota seminuevos, Toyota Autos seminuevos, Toyota Suv seminuevos, Toyota Híbridos seminuevos, Toyota Montacargas seminuevos, Precios de Carros Toyota seminuevos, Carros Toyota Ecuador seminuevos, Carros Toyota seminuevos, Seminuevos Autos Ecuador, camionetas toyota seminuevos, autos toyota seminuevos, suv toyota seminuevos, hibrídos toyota seminuevos, montacargas toyota seminuevos" />
+        
+        
         {% include 'CelmediaToyocostaVehiculosBundle:Default:includes.html.twig' %}
 
         <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
@@ -164,32 +157,27 @@
 
         {% include 'CelmediaToyocostaPirelliBundle:Blocks:footer.html.twig' %}
         
-        {#{% javascripts
-                '@CelmediaToyocostaPirelliBundle/Resources/public/js/jquery.js'       
-                '@CelmediaToyocostaVehiculosBundle/Resources/public/js/jquery.scrollTo-1.4.2-min.js' 
-                '@CelmediaToyocostaVehiculosBundle/Resources/public/js/jquery-ui-1.9.2.custom.js' 
-                '@CelmediaToyocostaPirelliBundle/Resources/public/js/jquery.selectbox/jquery.selectbox-0.2.js' 
-                '@CelmediaToyocostaVehiculosBundle/Resources/public/js/jquery.bootstrap.wizard.min.js'
 
-                '@CelmediaToyocostaPirelliBundle/Resources/public/js/bootstrap.min.js' 
-                '@CelmediaToyocostaPirelliBundle/Resources/public/js/jquery.validate.min.js'
-                '@CelmediaToyocostaPirelliBundle/Resources/public/js/additional-methods.min.js'
-                '@CelmediaToyocostaPirelliBundle/Resources/public/js/messages_es.js' 
-
-                '@CelmediaToyocostaContenidoBundle/Resources/public/js/jquery.ui.widget.js'
-                '@CelmediaToyocostaContenidoBundle/Resources/public/js/jquery.iframe-transport.js'
-                '@CelmediaToyocostaContenidoBundle/Resources/public/js/jquery.fileupload.js'
-                '@CelmediaToyocostaVehiculosBundle/Resources/public/js/script.toyocosta.js'
-                '@CelmediaToyocostaPirelliBundle/Resources/public/js/script.js' 
-                
-            %}
-            <script type="text/javascript" src="{{ asset_url }}"></script>
-        {% endjavascripts %}#}
         {% include 'CelmediaToyocostaVehiculosBundle:Default:libs.html.twig' %}
 
 
         {% block js %}
             
         {% endblock %}
+
+        <script type="text/javascript">
+
+          var _gaq = _gaq || [];
+          _gaq.push(['_setAccount', 'UA-22594492-1']);
+          _gaq.push(['_trackPageview']);
+
+          (function() {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+          })();
+
+        </script>   
+
     </body>
 </html>
