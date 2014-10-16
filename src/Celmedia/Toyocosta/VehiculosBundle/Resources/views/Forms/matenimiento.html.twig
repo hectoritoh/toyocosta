@@ -20,7 +20,7 @@
 	               
 	        <div class="item {% if loop.first %} active {% endif %}">
 	          
-	            <img src="{{ asset('uploads/slide-principal/'   ~   item.imagenBanner ) }}" class="img-responsive obj-centrar">
+	            <img src="{{ asset('uploads/slide-principal/'   ~   item.imagenBanner ) }}" class="img-responsive obj-centrar" style="width:100%;">
 	            <div class="carousel-caption" style="padding-bottom:0px;">
 	                    
 
@@ -242,15 +242,16 @@
 
 			</div>
 
-			<div class="col-md-6 alto-completo" style="display:none;" id="contenedorEspereMantenimiento">
-				<div class="container-fluid">
-					<div class="row" style="margin-top: 40px; margin-bottom:40px;">
-						<div class="col-md-12 text-center">
-							<h4 class="txt-negro">Enviando información...</h4>
-						</div>
+
+			<div class="container" id="contenedorEspereMantenimiento" style="display:none;height:250px;">
+				<div class="row">
+					<div class="col-md-8 col-sm-10 col-xs-12 col-md-offset-2 col-sm-offset-1 text-center">
+						<h4 class="txt-rojo txt-negrita">Enviando información...</h4>
 					</div>
 				</div>
 			</div>
+
+
 
 		</div>
 
