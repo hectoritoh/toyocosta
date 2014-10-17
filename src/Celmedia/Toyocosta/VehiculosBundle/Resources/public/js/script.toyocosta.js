@@ -872,13 +872,14 @@ $(document).ready(function(){
                   }
 
                 }, 
-                error: function (error) {
-                  console.log("ERROR: " + error);
-                },
                 beforeSend: function () {
                     $('#contenedorFormMantenimiento').hide();
                     $('#contenedorEspereMantenimiento').show();
+                },
+                error: function (error) {
+                  console.log("ERROR: " + error);
                 }
+                
             });
         },
         rules: {

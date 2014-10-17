@@ -229,13 +229,21 @@ fos_user:
 
 
 # Swiftmailer Configuration
+# swiftmailer:
+#    transport:  smtp
+#    port:       465
+#    host:       smtp.gmail.com
+#    username:   webtoyocosta@gmail.com
+#    password:   web_toyota
+#    spool:     { type: memory }
 swiftmailer:
    transport:  smtp
-   port:       465
-   host:       ssl://smtp.gmail.com
+   encryption: ssl
+   auth_mode:  login
+   host:       smtp.gmail.com
    username:   webtoyocosta@gmail.com
    password:   web_toyota
-   spool:     { type: memory }
+
 
 stof_doctrine_extensions:
     default_locale: en_US

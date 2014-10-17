@@ -1035,9 +1035,9 @@ class DefaultController extends Controller
 
             $envioMail = $this->get('mailer')->send($message);
 
-            $transport = $this->container->get('mailer')->getTransport();
-            $spool = $transport->getSpool();
-            $spool->flushQueue($this->container->get('swiftmailer.transport.real'));
+            // $transport = $this->container->get('mailer')->getTransport();
+            // $spool = $transport->getSpool();
+            // $spool->flushQueue($this->container->get('swiftmailer.transport.real'));
 
 
             if ( $envioMail ) {
@@ -1218,9 +1218,9 @@ class DefaultController extends Controller
 
             $envioMail = $this->get('mailer')->send($message);
 
-            $transport = $this->container->get('mailer')->getTransport();
-            $spool = $transport->getSpool();
-            $spool->flushQueue($this->container->get('swiftmailer.transport.real'));
+            // $transport = $this->container->get('mailer')->getTransport();
+            // $spool = $transport->getSpool();
+            // $spool->flushQueue($this->container->get('swiftmailer.transport.real'));
 
 
             if ( $envioMail ) {
