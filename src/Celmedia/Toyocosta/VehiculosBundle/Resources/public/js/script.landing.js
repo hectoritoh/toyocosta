@@ -32,9 +32,6 @@ $(document).ready(function(){
                     // error
                     alert('error');
                 }
-              },
-              error: function (error) {
-                console.log("ERROR: " + error);
               },beforeSend: function () {
                   $('#form-etiqueta').hide();
                   $('#contenedorEspere').show();

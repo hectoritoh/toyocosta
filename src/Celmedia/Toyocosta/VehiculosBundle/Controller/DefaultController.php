@@ -1060,11 +1060,14 @@ class DefaultController extends Controller
     }
 
     public function envioMantenimientoAction(Request $request){
+
+        ini_set('max_execution_time', 600);
+
         $em = $this->getDoctrine()->getManager();
 
 
         if ($request->isMethod('POST')) {
-            
+
             $nombre = $request->request->get('nombre');
             $apellido = $request->request->get('apellido');
             $telefono = $request->request->get('telefono');
