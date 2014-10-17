@@ -238,8 +238,6 @@ fos_user:
 #    spool:     { type: memory }
 swiftmailer:
    transport:  smtp
-   encryption: ssl
-   auth_mode:  login
    host:       smtp.gmail.com
    username:   webtoyocosta@gmail.com
    password:   web_toyota
