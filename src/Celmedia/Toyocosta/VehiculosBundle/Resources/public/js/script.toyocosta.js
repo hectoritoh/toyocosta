@@ -857,8 +857,8 @@ $(document).ready(function(){
                 success: function (respuesta) {
 
                   if (respuesta.codigo == 1 ) {
-                      $('#contenedorEspereMantenimiento').hide();
-                      $('#contenedorFormMantenimiento').show();
+                      // $('#contenedorEspereMantenimiento').hide();
+                      // $('#contenedorFormMantenimiento').show();
                        alert('Su pedido de informaci\u00F3n fu\u00E9 enviado con \u00E9xito');
                        document.getElementById("form-mantenimiento").reset();
                        //window.location = Routing.generate('contactenos');
@@ -873,8 +873,8 @@ $(document).ready(function(){
                   console.log("ERROR: " + error);
                 },
                 beforeSend: function () {
-                    $('#contenedorFormMantenimiento').hide();
-                    $('#contenedorEspereMantenimiento').show();
+                    // $('#contenedorFormMantenimiento').hide();
+                    // $('#contenedorEspereMantenimiento').show();
                 }
             });
         },
