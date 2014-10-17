@@ -163,29 +163,32 @@ var seleccionado = false;
               $("#regalo").html(option);
 
             }
-             $("#regalo").imagepicker({
+             
+
+
+            $("#regalo").imagepicker({
 
                 show_label  : true    
 
-             });
+            });
 
-             $("option[disabled=disabled]").each(function(){
+            $("option[disabled=disabled]").each(function(){
 
                 var ruta = $(this).attr("data-img-src");
                 $("img[src='"+  ruta +"']").css({opacity: 0.5});
 
 
-              });
+            });
 
 
 
-              $(".thumbnail").click(function(){
+            $(".thumbnail").click(function(){
 
                 $("#selectedRegalo").val("si");
 
                 seleccionado = true; 
 
-              });
+            });
 
              if (respuesta.obsequios.length == 0) {
                 $("#bloque-obsequio").hide();   
@@ -857,8 +860,8 @@ $(document).ready(function(){
                 success: function (respuesta) {
 
                   if (respuesta.codigo == 1 ) {
-                      // $('#contenedorEspereMantenimiento').hide();
-                      // $('#contenedorFormMantenimiento').show();
+                      $('#contenedorEspereMantenimiento').hide();
+                      $('#contenedorFormMantenimiento').show();
                        alert('Su pedido de informaci\u00F3n fu\u00E9 enviado con \u00E9xito');
                        document.getElementById("form-mantenimiento").reset();
                        //window.location = Routing.generate('contactenos');
@@ -873,8 +876,8 @@ $(document).ready(function(){
                   console.log("ERROR: " + error);
                 },
                 beforeSend: function () {
-                    // $('#contenedorFormMantenimiento').hide();
-                    // $('#contenedorEspereMantenimiento').show();
+                    $('#contenedorFormMantenimiento').hide();
+                    $('#contenedorEspereMantenimiento').show();
                 }
             });
         },

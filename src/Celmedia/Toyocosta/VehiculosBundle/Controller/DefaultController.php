@@ -1064,6 +1064,7 @@ class DefaultController extends Controller
 
 
         if ($request->isMethod('POST')) {
+            
             $nombre = $request->request->get('nombre');
             $apellido = $request->request->get('apellido');
             $telefono = $request->request->get('telefono');
@@ -1235,10 +1236,10 @@ class DefaultController extends Controller
             }
         }
 
-        return new JsonResponse(array(
-            'codigo' => 0,
-            'Mensaje' => "No se recibio por post"
-        ), 200); //codigo de error diferente
+        // return new JsonResponse(array(
+        //     'codigo' => 0,
+        //     'Mensaje' => "No se recibio por post"
+        // ), 200); //codigo de error diferente
     }
 
 }
