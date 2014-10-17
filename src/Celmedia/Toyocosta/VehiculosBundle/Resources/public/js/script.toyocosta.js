@@ -875,10 +875,11 @@ $(document).ready(function(){
                 beforeSend: function () {
                     $('#contenedorFormMantenimiento').hide();
                     $('#contenedorEspereMantenimiento').show();
-                },
-                error: function (error) {
-                  console.log("ERROR: " + error);
                 }
+                // ,
+                // error: function (error) {
+                //   console.log("ERROR: " + error);
+                // }
                 
             });
         },
