@@ -237,7 +237,7 @@ fos_user:
 #    password:   web_toyota
 #    spool:     { type: memory }
 swiftmailer:
-   transport:  smtp
+   transport:  gmail
    host:       smtp.gmail.com
    username:   webtoyocosta@gmail.com
    password:   web_toyota
