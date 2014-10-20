@@ -1231,12 +1231,14 @@ class DefaultController extends Controller
                     'codigo' => 1,
                     'Mensaje' => "El mensaje ha sido enviado"
                 ), 200); //codigo de error diferente
-            } else {
+            }else {
                  return new JsonResponse(array(
                     'codigo' => 0,
                     'Mensaje' => "No se ha enviado mensaje"
                 ), 200); //codigo de error diferente
             }
+        
+
         }
 
         // return new JsonResponse(array(

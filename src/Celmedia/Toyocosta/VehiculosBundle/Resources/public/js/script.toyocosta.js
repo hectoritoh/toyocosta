@@ -865,9 +865,9 @@ $(document).ready(function(){
                        alert('Su pedido de informaci\u00F3n fu\u00E9 enviado con \u00E9xito');
                        document.getElementById("form-mantenimiento").reset();
                        //window.location = Routing.generate('contactenos');
-                  } else if (respuesta.codigo == 0 ) {
+                  }else if (respuesta.codigo == 0 ) {
                         alert(respuesta.mensaje);
-                  } else{
+                  }else{
                     alert("error");
                   }
 

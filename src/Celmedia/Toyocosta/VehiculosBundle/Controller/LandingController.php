@@ -125,7 +125,7 @@ class LandingController extends Controller
 
         ->setSubject($subject)
 
-        ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
+        ->setFrom(array('ycosquillo@celmedia.com' => 'Web Toyocosta'))
 
         ->setTo(array( $correos_array , 'cdnventas@toyocosta.com' => 'Toyocosta', 'ycosquillo@celmedia.com' => 'Admin'))
         
