@@ -237,7 +237,7 @@ swiftmailer:
    auth_mode:  login
    port:       587
    encryption: tls
-   spool:     { type: memory }
+   # spool:     { type: memory }
 # swiftmailer:
 #    transport:  gmail
 #    host:       smtp.gmail.com
