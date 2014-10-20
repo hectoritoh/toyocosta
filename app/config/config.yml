@@ -238,19 +238,11 @@ fos_user:
 #    port:       587
 #    encryption: tls
 #    spool:     { type: memory }
-# swiftmailer:
-#    transport:  gmail
-#    host:       smtp.gmail.com
-#    username:   webtoyocosta@gmail.com
-#    password:   web_toyota
 swiftmailer:
-   transport:  smtp
-   port:       587
-   host:       mail.misp.cl
-   username:   ycosquillo@celmedia.com
-   password:   xinitaCM12
-   spool:     { type: memory }
-
+   transport:  gmail
+   host:       smtp.gmail.com
+   username:   webtoyocosta@gmail.com
+   password:   web_toyota
 
 stof_doctrine_extensions:
     default_locale: en_US
