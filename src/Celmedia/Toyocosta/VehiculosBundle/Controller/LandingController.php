@@ -83,7 +83,10 @@ class LandingController extends Controller
             $em->flush();
 
 
-            if( $this->enviarCorreo($email, $info, $campana ) ){
+            $envio = $this->enviarCorreo($email, $info, $campana );
+
+
+            if( $envio ){
                 return new JsonResponse(array(
                     'codigo' => 1,
                     'Mensaje' => "El mensaje ha sido enviado"
@@ -130,13 +133,14 @@ class LandingController extends Controller
 
         ->setBody($body);
 
+        $envioMail = $this->get('mailer')->send($message);
 
-
-        if ($this->get('mailer')->send($message)) {
+        if ( $envioMail ){
             return true;
-        } else {
+        }else{
             return false;
         }
+
 
     }
 
