@@ -125,9 +125,9 @@ class LandingController extends Controller
 
         ->setSubject($subject)
 
-        ->setFrom(array('ycosquillo@celmedia.com' => 'Web Toyocosta'))
+        ->setFrom(array('web@toyocosta.com' => 'Web Toyocosta'))
 
-        ->setTo(array( $correos_array , 'cdnventas@toyocosta.com' => 'Toyocosta', 'ycosquillo@celmedia.com' => 'Admin'))
+        ->setTo(array( $correos_array , 'cdnventas@toyocosta.com.ec' => 'Toyocosta', 'ycosquillo@celmedia.com' => 'Admin'))
         
         ->setContentType("text/html")
 
