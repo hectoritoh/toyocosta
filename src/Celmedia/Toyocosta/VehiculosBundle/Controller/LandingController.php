@@ -53,6 +53,9 @@ class LandingController extends Controller
 	
 	public function envioLandingAction(Request $request){
 
+        ini_set('max_execution_time', 600);
+
+        $em = $this->getDoctrine()->getManager();
 
 
         if ($request->isMethod('POST')) {
@@ -78,7 +81,7 @@ class LandingController extends Controller
             $info->setComentarios( $comentario  );
             
             
-            $em = $this->getDoctrine()->getManager(); 
+            // $em = $this->getDoctrine()->getManager(); 
             $em->persist(  $info );
             $em->flush();
 
@@ -126,52 +129,16 @@ class LandingController extends Controller
 
 
 
+
         }
 
-
+        return new JsonResponse(array(
+            'codigo' => 0,
+            'Mensaje' => "No se recibio por post"
+        ), 200); //codigo de error diferente
 
     }
 
-
-
-    public function enviarCorreo($correos_array, $info , $campana) {
-
-
-        $subject = "Pedido de Informacion de ".$campana." desde Toyocosta"; 
-
-
-
-        $body = '<strong>Informacion del Landing Page:</strong> <br /><br />               
-        Nombre:  '.$info->getNombre().' <br />
-        Apellido:   '. $info->getApellido() .' <br />
-        Cedula:  '.$info->getCedula().' <br />
-        Telefono:  '. $info->getTelefono() .'  <br />
-        Email:  '. $info->getEmail() .' <br />
-        Celular:  '. $info->getCelular() .' <br />
-        Comentarios:  '. $info->getComentarios() .' ';
-
-        $message = \Swift_Message::newInstance()
-
-        ->setSubject($subject)
-
-        ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
-
-        ->setTo(array( $correos_array , 'cdnventas@toyocosta.com.ec' => 'Toyocosta', 'ycosquillo@celmedia.com' => 'Admin'))
-        
-        ->setContentType("text/html")
-
-        ->setBody($body);
-
-        $envioMail = $this->get('mailer')->send($message);
-
-        if ( $envioMail ){
-            return true;
-        }else{
-            return false;
-        }
-
-
-    }
 
 
 
