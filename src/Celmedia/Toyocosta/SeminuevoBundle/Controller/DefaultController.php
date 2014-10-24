@@ -430,7 +430,7 @@ class DefaultController extends Controller
 
             ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
 
-            ->setTo(array( $cotizacion->getEmail() => 'Usuario' , 'cdnventas@toyocosta.com' => 'Toyocosta' , 'ycosquillo@celmedia.com' => 'Admin'))
+            ->setTo(array( $cotizacion->getEmail() => 'Usuario' , 'cdnventas@toyocosta.com.ec' => 'Toyocosta' , 'ycosquillo@celmedia.com' => 'Admin'))
             
             ->setContentType("text/html")
 
@@ -485,7 +485,7 @@ class DefaultController extends Controller
 
                 ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
 
-                ->setTo(array( $correos_array , 'cdnventas@toyocosta.com' => 'Toyocosta', 'ycosquillo@celmedia.com' => 'Admin'))
+                ->setTo(array( $correos_array , 'cdnventas@toyocosta.com.ec' => 'Toyocosta', 'ycosquillo@celmedia.com' => 'Admin'))
                 
                 ->setContentType("text/html")
 
@@ -609,7 +609,7 @@ class DefaultController extends Controller
 
                 ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
 
-                ->setTo(array( 'cdnventas@toyocosta.com' => 'Administrador de seminuevos Toyocosta', 'ycosquillo@celmedia.com' => 'Admin'))
+                ->setTo(array( 'cdnventas@toyocosta.com.ec' => 'Administrador de seminuevos Toyocosta', 'ycosquillo@celmedia.com' => 'Admin'))
                 
                 ->setContentType("text/html")
 

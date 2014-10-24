@@ -535,7 +535,7 @@ class DefaultController extends Controller
 
             ->setSubject($subject)
 
-            ->setFrom(array('web@toyocosta.com' => 'Web Toyocosta'))
+            ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
 
             ->setTo(array( $correos_array , 'cdnventas@toyocosta.com.ec' => 'Toyocosta', 'ycosquillo@celmedia.com' => 'Admin'))
             
@@ -1022,7 +1022,7 @@ class DefaultController extends Controller
 
             ->setSubject($subject)
 
-            ->setFrom(array('web@toyocosta.com' => 'Web Toyocosta'))
+            ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
 
             ->setTo(array( $email => 'Recurso' , 'lrugel@toyocosta.com.ec' => 'Toyocosta'))
             
@@ -1210,7 +1210,7 @@ class DefaultController extends Controller
 
             ->setSubject($subject)
 
-            ->setFrom(array('web@toyocosta.com' => 'Web Toyocosta'))
+            ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
 
             ->setTo( $arrayCorreo )
             

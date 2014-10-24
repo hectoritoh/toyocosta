@@ -1,0 +1,50 @@
+<div class="container-fluid">
+	<div class="row" style="border-bottom: 2px solid #E1182B;">
+		
+		<nav class="navbar navbar-default" role="navigation" style="margin-bottom: 0px;">
+			<div class="container-fluid">
+				
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-principal">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">
+						{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/icon/logotoyocosta.png' %}
+						<img src="{{ asset_url }}" alt="" class="img-responsive" style="" />
+						{% endimage %}
+					</a>
+				</div>
+
+				
+				<div class="collapse navbar-collapse" id="navbar-collapse-principal">
+					<ul class="nav navbar-nav nav-movil">
+						<p class="text-center txt-gris txt-menu">Menu</p>
+						<li><a href="#">INICIO</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">PRODUCTOS <span class="caret"></span></a>
+							<ul class="dropdown-menu" role="menu">
+								<p class="text-center txt-gris txt-menu">Productos</p>
+								<li><a href="#">AUTOS</a></li>
+								<li><a href="#">CAMIONETAS</a></li>
+								<li><a href="#">TODO TERRENO</a></li>
+								<li class="divider"></li>
+								<li><a href="#">MONTACARGAS</a></li>
+							</ul>
+						</li>
+						<li><a href="#">PIRELLI</a></li>
+						<li><a href="#">NOTICIA</a></li>
+						<li><a href="#">COTIZAR</a></li>
+						<li><a href="#">CITA DE MANTENIMIENTO</a></li>
+						<li><a href="#">TEST DRIVE</a></li>
+						<li><a href="#">CONTACTOS</a></li>
+
+					</ul>
+					
+				</div>
+			</div>
+		</nav>
+	</div>
+
+</div>

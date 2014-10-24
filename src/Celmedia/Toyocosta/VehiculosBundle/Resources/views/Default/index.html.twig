@@ -1,4 +1,6 @@
 {#{% extends is_mobile() ?  'CelmediaToyocostaVehiculosBundle::layout.mobile.html.twig' :  'CelmediaToyocostaVehiculosBundle::layout.html.twig' %}#}
+
+{#{% extends 'CelmediaToyocostaVehiculosBundle::layout.mobile.html.twig' %}#}
 {% extends 'CelmediaToyocostaVehiculosBundle::layout.html.twig' %}
 
 
@@ -7,7 +9,7 @@
 	        {{ render(controller("CelmediaToyocostaVehiculosBundle:Default:obtenerMenuPrincipal" ))   }}
 
 
-		{{ render(controller("CelmediaToyocostaVehiculosBundle:Default:obtenerSlidePrincipal") ) }}
+			{{ render(controller("CelmediaToyocostaVehiculosBundle:Default:obtenerSlidePrincipal") ) }}
 
 	        {% for categoria in categoriasVehiculo %}
 	                {{ render(controller("CelmediaToyocostaVehiculosBundle:Default:obtenerVehiculos" , { 'tipoVehiculo': categoria.id , 'prefijo': categoria.nombre|lower }))   }}
@@ -28,57 +30,6 @@
 
 
     {% block contenidoMobil %}
-    	<!-- HEADER -->
-    	<div class="container-fluid">
-    		<div class="row">
-    			
-			    <nav class="navbar navbar-default" role="navigation" style="margin-bottom: 0px;">
-				  <div class="container-fluid">
-				    
-				    <div class="navbar-header">
-				      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-principal">
-				        <span class="sr-only">Toggle navigation</span>
-				        <span class="icon-bar"></span>
-				        <span class="icon-bar"></span>
-				      </button>
-				      <a class="navbar-brand" href="#">
-				      	{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/icon/logotoyocosta.png' %}
-						<img src="{{ asset_url }}" alt="" class="img-responsive" style="" />
-						{% endimage %}
-				      </a>
-				    </div>
-
-				    
-				    <div class="collapse navbar-collapse" id="navbar-collapse-principal">
-				      <ul class="nav navbar-nav nav-movil">
-				      	<p class="text-center txt-gris txt-menu">Menu</p>
-				        <li><a href="#">INICIO</a></li>
-				        <li class="dropdown">
-				          <a href="#" class="dropdown-toggle" data-toggle="dropdown">PRODUCTOS <span class="caret"></span></a>
-				          <ul class="dropdown-menu" role="menu">
-				          	<p class="text-center txt-gris txt-menu">Productos</p>
-				            <li><a href="#">AUTOS</a></li>
-				            <li><a href="#">CAMIONETAS</a></li>
-				            <li><a href="#">TODO TERRENO</a></li>
-				            <li class="divider"></li>
-				            <li><a href="#">MONTACARGAS</a></li>
-				          </ul>
-				        </li>
-				        <li><a href="#">PIRELLI</a></li>
-				        <li><a href="#">NOTICIA</a></li>
-				        <li><a href="#">COTIZAR</a></li>
-				        <li><a href="#">CITA DE MANTENIMIENTO</a></li>
-				        <li><a href="#">TEST DRIVE</a></li>
-				        <li><a href="#">CONTACTOS</a></li>
-
-				      </ul>
-				   
-				    </div>
-				  </div>
-				</nav>
-    		</div>
-
-    	</div>
 
         <div class="container-fluid">
         	<div id="carousel-principal-mobil" class="carousel slide row" data-ride="carousel">
@@ -140,7 +91,7 @@
 
 				        <ul class="media-list">
 
-						  <a href="#" class="link">
+						  <a href="{{path('m_vehiculo')}}" class="link">
 						  	
 							  <li class="media media-autos">
 							    <div class="pull-right">
@@ -152,15 +103,16 @@
 							  </li>
 						  </a>
 
-						  <li class="media media-autos">
-						    <div class="pull-right">
-						      <img src="http://placehold.it/64x64/E4E469" class="media-object">
-						    </div>
-						    <div class="media-body">
-						      <h4 class="media-heading">Hilux CD 4x2</h4>
-						    </div>
-						  </li>
-
+						  	<a href="#" class="link">
+							  <li class="media media-autos">
+							    <div class="pull-right">
+							      <img src="http://placehold.it/64x64/E4E469" class="media-object">
+							    </div>
+							    <div class="media-body">
+							      <h4 class="media-heading">Hilux CD 4x2</h4>
+							    </div>
+							  </li>
+							</a>
 						</ul>
 
 				      </div>
@@ -207,88 +159,6 @@
 				</div>	
         	</div>
 
-        </div>
-
-        <div class="container-fluid back-accesos">
-        	<div class="row">
-        		<div class="col-xs-12">
-        			<div class="media">
-					  <a class="pull-left" href="#">
-						{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/icon/noticias.png' %}
-						<img src="{{ asset_url }}" alt="" class="media-object img-responsive" style="" />
-						{% endimage %}
-
-					  </a>
-					  <div class="media-body">
-						  <a href="#">
-						  	
-						    <h4 class="media-heading media-footer">Noticias</h4>
-						  </a>
-					  </div>
-					</div>
-	        	</div>
-	        	<div class="col-xs-12">
-	        		<div class="media">
-					  <a class="pull-left" href="#">
-						{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/icon/cotizar.png' %}
-						<img src="{{ asset_url }}" alt="" class="media-object img-responsive" style="" />
-						{% endimage %}
-
-					  </a>
-					  <div class="media-body">
-					    <a href="#">
-					    	
-					    	<h4 class="media-heading media-footer">Cotizar</h4>
-					    </a>
-					  </div>
-					</div>
-	        	</div>
-	        	<div class="col-xs-12">
-	        		<div class="media">
-					  <a class="pull-left" href="#">
-						{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/icon/test.png' %}
-						<img src="{{ asset_url }}" alt="" class="media-object img-responsive" style="" />
-						{% endimage %}
-
-					  </a>
-					  <div class="media-body">
-					    <a href="#">
-					    	<h4 class="media-heading media-footer">Test Drive</h4>
-					    </a>
-					  </div>
-					</div>
-	        	</div>
-	        	<div class="col-xs-12">
-	        		<div class="media">
-					  <a class="pull-left" href="#">
-						{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/icon/citas.png' %}
-						<img src="{{ asset_url }}" alt="" class="media-object img-responsive" style="" />
-						{% endimage %}
-
-					  </a>
-					  <div class="media-body">
-					    <a href="#">
-					    	<h4 class="media-heading media-footer">Cita de Mantenimiento</h4>
-					    </a>
-					  </div>
-					</div>
-	        	</div>
-        	</div>	
-        </div>
-        <!-- FOOTER -->
-        <div class="container-fluid">
-        	<div class="row back-footer">
-        		<div class="col-xs-12" style="padding-top:15px;">
-        			<div class="col-xs-8">
-        				<p class="text-footer text-center">COPYRIGHT 2013 TOYOCOSTA. ALL RIGHTS RESERVED.</p>
-        			</div>
-        			<div class="col-xs-4">
-        				{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/icon/logotoyota.png' %}
-						<img src="{{ asset_url }}" alt="" class="media-object img-responsive" style="" />
-						{% endimage %}
-        			</div>
-        		</div>
-        	</div>
         </div>
 
     {% endblock %}

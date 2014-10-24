@@ -1,0 +1,66 @@
+{% extends 'CelmediaToyocostaVehiculosBundle::layout.mobile.html.twig' %}
+
+
+{% block contenidoMobil %}
+	<div class="container-fluid vehiculo-banner" style="background-image: url({{ asset('uploads/vehiculo/banner/hilux-cd-4x4.jpg') }});">
+		<div class="empty-banner">
+			&nbsp;
+        </div>
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-12">
+				<ol class="breadcrumb breadcrumb-mobil">
+					<li>
+						<a href="#" class="txt-rojo">Inicio</a>
+					</li>
+					<li class="active">Hilux CD 4X4</li>
+				</ol>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-10 col-xs-offset-1">
+				<h1>Hilux CD 4X4</h1>
+				<h3>Precio</h3>
+				<h2>$31590</h2>
+				<p>El precio incluye IVA, Seguro y hunter no incluidos.</p><br/>
+				<p>Que no te lo cuenten, ven y descubre la calidad de un Toyota.</p><br/><br/>
+			</div>
+
+		</div>
+
+
+		<div class="row">
+			<div class="col-xs-10 col-xs-offset-1">
+				<p>COLORES DISPONIBLES:</p><br/>
+				<ol class="colores-indicators carousel-indicators-vh">
+			    	{#{% for vehiculoColor in vehiculoColores %}
+		    		<li data-target="#vehiculo-colores-carousel" data-slide-to="{{loop.index -1 }}"  class="vehic-miniaturas {% if loop.first %}active{% endif %}" style="background-color: {{vehiculoColor.coloresvehiculo.valor}} ;"></li>
+		    		{% endfor %}#}
+		    		<li data-target="#vehiculo-colores-carousel" data-slide-to="0" class="vehic-miniaturas active" style="background-color: #ffffff ;"></li>
+		    		<li data-target="#vehiculo-colores-carousel" data-slide-to="1" class="vehic-miniaturas " style="background-color: #050582 ;"></li>
+		    		<li data-target="#vehiculo-colores-carousel" data-slide-to="2" class="vehic-miniaturas " style="background-color: #ada399 ;"></li>
+		    		<li data-target="#vehiculo-colores-carousel" data-slide-to="3" class="vehic-miniaturas " style="background-color: #494c51 ;"></li>
+		    		<li data-target="#vehiculo-colores-carousel" data-slide-to="4" class="vehic-miniaturas " style="background-color: #000000 ;"></li>
+		    		<li data-target="#vehiculo-colores-carousel" data-slide-to="5" class="vehic-miniaturas " style="background-color: #75211f ;"></li>
+
+			    		
+		    	</ol>
+			</div>
+	    </div>
+	    <div class="row">
+	    	<div class="col-xs-12">
+	    		<div class="col-xs-10 col-xs-offset-1 btn btn-rojo">
+		    		Cotizar
+		    	</div>
+	    	</div>
+	    	<div class="col-xs-12">
+		    	<div class="col-xs-10 col-xs-offset-1 btn btn-blanco-rojo">
+		    		Test Drive
+		    	</div>
+	    		
+	    	</div>
+	    </div>
+	</div>
+
+{% endblock %}

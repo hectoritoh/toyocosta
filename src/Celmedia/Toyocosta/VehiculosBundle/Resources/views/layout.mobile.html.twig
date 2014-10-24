@@ -19,15 +19,19 @@
     </head>
     <body>
 
+        <!-- HEADER -->
+        {% include 'CelmediaToyocostaVehiculosBundle:Mobile:header.mobile.html.twig' %}
+
+
         {% block contenidoMobil %}
 
             
         {% endblock %}
 
 
-
-        {#{% include 'CelmediaToyocostaPirelliBundle:Blocks:footer.mobile.html.twig' %}#}
-        
+ 
+        <!-- FOOTER -->
+        {% include 'CelmediaToyocostaVehiculosBundle:Mobile:footer.mobile.html.twig' %}
 
 
         {% include 'CelmediaToyocostaVehiculosBundle:Default:libs.mobile.html.twig' %}

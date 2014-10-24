@@ -131,6 +131,12 @@ especificacion:
     path:      /vehiculo/especificacion/{vehiculoid}
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:especificacion }
 
+# ROUTING MOBIL
+
+m_vehiculo:
+    path:      /vehiculo
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Mobile:verVehiculo }
+
 
 # LANDING PAGES
 

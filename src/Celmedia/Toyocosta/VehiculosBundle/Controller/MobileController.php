@@ -14,7 +14,7 @@ use Symfony\Component\HttpFoundation\File\Input;
 class MobileController extends Controller
 {
 
-	    public function indexMobilAction()
+	public function indexMobilAction()
     {
         
         // $em = $this->getDoctrine()->getManager();
@@ -23,6 +23,9 @@ class MobileController extends Controller
 
     	return $this->render('CelmediaToyocostaVehiculosBundle:Default:index.html.twig' );
     }
+    public function verVehiculoAction(){
 
+    	return $this->render('CelmediaToyocostaVehiculosBundle:Mobile:vehiculo.html.twig' );	
+    }
 
 }
