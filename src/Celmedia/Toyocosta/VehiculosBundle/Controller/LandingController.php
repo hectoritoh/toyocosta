@@ -109,8 +109,10 @@ class LandingController extends Controller
 
             ->setBody($body);
 
+            $envioMail = $this->get('mailer')->send($message);
 
-            if ($this->get('mailer')->send($message)) {
+
+            if ( $envioMail ) {
                 return new JsonResponse(array(
                     'codigo' => 1,
                     'Mensaje' => "El mensaje ha sido enviado"
@@ -121,21 +123,6 @@ class LandingController extends Controller
                     'Mensaje' => "No se ha enviado mensaje"
                 ), 200); //codigo de error diferente
             }
-            
-            // $envio = $this->enviarCorreo($email, $info, $campana );
-
-
-            // if( $envio ){
-            //     return new JsonResponse(array(
-            //         'codigo' => 1,
-            //         'Mensaje' => "El mensaje ha sido enviado"
-            //     ), 200); //codigo de error diferente
-            // }else{
-            //     return new JsonResponse(array(
-            //         'codigo' => 0,
-            //         'Mensaje' => "No se ha recibido informacion"
-            //     ), 200); //codigo de error diferente
-            // }
 
 
 
