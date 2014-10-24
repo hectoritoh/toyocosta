@@ -83,20 +83,62 @@ class LandingController extends Controller
             $em->flush();
 
 
-            $envio = $this->enviarCorreo($email, $info, $campana );
+
+            $subject = "Pedido de Informacion de ".$campana." desde Toyocosta"; 
 
 
-            if( $envio ){
+
+            $body = '<strong>Informacion del Landing Page:</strong> <br /><br />               
+            Nombre:  '.$info->getNombre().' <br />
+            Apellido:   '. $info->getApellido() .' <br />
+            Cedula:  '.$info->getCedula().' <br />
+            Telefono:  '. $info->getTelefono() .'  <br />
+            Email:  '. $info->getEmail() .' <br />
+            Celular:  '. $info->getCelular() .' <br />
+            Comentarios:  '. $info->getComentarios() .' ';
+
+            $message = \Swift_Message::newInstance()
+
+            ->setSubject($subject)
+
+            ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
+
+            ->setTo(array( $correos_array , 'cdnventas@toyocosta.com.ec' => 'Toyocosta', 'ycosquillo@celmedia.com' => 'Admin'))
+            
+            ->setContentType("text/html")
+
+            ->setBody($body);
+
+
+            if ($this->get('mailer')->send($message)) {
                 return new JsonResponse(array(
                     'codigo' => 1,
                     'Mensaje' => "El mensaje ha sido enviado"
                 ), 200); //codigo de error diferente
-            }else{
+            } else {
                 return new JsonResponse(array(
                     'codigo' => 0,
-                    'Mensaje' => "No se ha recibido informacion"
+                    'Mensaje' => "No se ha enviado mensaje"
                 ), 200); //codigo de error diferente
             }
+            
+            // $envio = $this->enviarCorreo($email, $info, $campana );
+
+
+            // if( $envio ){
+            //     return new JsonResponse(array(
+            //         'codigo' => 1,
+            //         'Mensaje' => "El mensaje ha sido enviado"
+            //     ), 200); //codigo de error diferente
+            // }else{
+            //     return new JsonResponse(array(
+            //         'codigo' => 0,
+            //         'Mensaje' => "No se ha recibido informacion"
+            //     ), 200); //codigo de error diferente
+            // }
+
+
+
         }
 
 
