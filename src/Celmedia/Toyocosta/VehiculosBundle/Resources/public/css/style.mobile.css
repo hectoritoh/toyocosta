@@ -173,6 +173,27 @@ a:focus , a:hover {
 	color: #FFFFFF;
 	border: 2px solid #df1928;
 }
+.txt-valor-precio{
+	color: #df1928;
+	margin-top: 0px;
+}
+.txt-vehiculo{
+	font-size: 20px;
+	font-weight: bold;
+	font-family: arial;
+}
+.txt-precio{
+	font-size: 18px;
+	font-weight: bold;
+	margin-bottom: 2px;
+}
+.txt-descrip1{
+	font-size: 12px;
+}
+.txt-descrip2{
+	font-size: 13px;
+}
+
 
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) { 
