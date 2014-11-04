@@ -12,18 +12,18 @@
 			<div class="col-xs-12">
 				<ol class="breadcrumb breadcrumb-mobil">
 					<li>
-						<a href="#" class="txt-rojo">Inicio</a>
+						<a href="#" class="txt-gris">INICIO</a>
 					</li>
-					<li class="active">Hilux CD 4X4</li>
+					<li class="active">{{ vehiculo.nombre }}</li>
 				</ol>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-xs-10 col-xs-offset-1">
-				<h1 class="txt-vehiculo">Hilux CD 4X4</h1>
+				<h1 class="txt-vehiculo">{{ vehiculo.nombre }}</h1>
 				<h3 class="txt-precio">Precio</h3>
-				<h2 class="txt-valor-precio">$31590</h2>
-				<p class="txt-descrip1">El precio incluye IVA, Seguro y hunter no incluidos.</p><br/>
+				<h2 class="txt-valor-precio">${{ vehiculo.precioNeto }}</h2>
+				<p class="txt-descrip1">{{vehiculo.descripcion}}</p><br/>
 				<p class="txt-descrip2">Que no te lo cuenten, ven y descubre la calidad de un Toyota.</p><br/><br/>
 			</div>
 
@@ -34,15 +34,16 @@
 			<div class="col-xs-10 col-xs-offset-1">
 				<p>COLORES DISPONIBLES:</p><br/>
 				<ol class="colores-indicators carousel-indicators-vh">
-			    	{#{% for vehiculoColor in vehiculoColores %}
+			    	{% for vehiculoColor in vehiculoColores %}
 		    		<li data-target="#vehiculo-colores-carousel" data-slide-to="{{loop.index -1 }}"  class="vehic-miniaturas {% if loop.first %}active{% endif %}" style="background-color: {{vehiculoColor.coloresvehiculo.valor}} ;"></li>
-		    		{% endfor %}#}
-		    		<li data-target="#vehiculo-colores-carousel" data-slide-to="0" class="vehic-miniaturas active" style="background-color: #ffffff ;"></li>
+		    		{% endfor %}
+
+		    		{#<li data-target="#vehiculo-colores-carousel" data-slide-to="0" class="vehic-miniaturas active" style="background-color: #ffffff ;"></li>
 		    		<li data-target="#vehiculo-colores-carousel" data-slide-to="1" class="vehic-miniaturas " style="background-color: #050582 ;"></li>
 		    		<li data-target="#vehiculo-colores-carousel" data-slide-to="2" class="vehic-miniaturas " style="background-color: #ada399 ;"></li>
 		    		<li data-target="#vehiculo-colores-carousel" data-slide-to="3" class="vehic-miniaturas " style="background-color: #494c51 ;"></li>
 		    		<li data-target="#vehiculo-colores-carousel" data-slide-to="4" class="vehic-miniaturas " style="background-color: #000000 ;"></li>
-		    		<li data-target="#vehiculo-colores-carousel" data-slide-to="5" class="vehic-miniaturas " style="background-color: #75211f ;"></li>
+		    		<li data-target="#vehiculo-colores-carousel" data-slide-to="5" class="vehic-miniaturas " style="background-color: #75211f ;"></li>#}
 
 			    		
 		    	</ol>
@@ -50,14 +51,19 @@
 	    </div>
 	    <div class="row">
 	    	<div class="col-xs-12">
-	    		<div class="col-xs-10 col-xs-offset-1 btn btn-rojo">
-		    		Cotizar
-		    	</div>
+	    		<a href="{{path('m_cotizar_vehiculo', {'vehname': vehiculo.nombre , 'vehiculoid' : vehiculo.id })}}">
+		    		<div class="col-xs-10 col-xs-offset-1 btn btn-rojo">
+			    		Cotizar
+			    	</div>
+			    </a>
 	    	</div>
 	    	<div class="col-xs-12">
-		    	<div class="col-xs-10 col-xs-offset-1 btn btn-blanco-rojo">
-		    		Test Drive
-		    	</div>
+	    		<a href="{{ path('m_testdrive')}}">
+			    	<div class="col-xs-10 col-xs-offset-1 btn btn-blanco-rojo">
+			    		Test Drive
+			    	</div>
+	    			
+	    		</a>
 	    		
 	    	</div>
 	    </div>

@@ -2,14 +2,16 @@
 	<div class="row">
 		<div class="col-xs-12">
 			<div class="media">
-				<a class="pull-left" href="#">
-					{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/icon/noticias.png' %}
-					<img src="{{ asset_url }}" alt="" class="media-object img-responsive" style="" />
-					{% endimage %}
+				<a class="pull-left" href="http://www.toyocosta.com/blog/">
+					<div class="col-xs-10">
+						{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/icon/noticias.png' %}
+						<img src="{{ asset_url }}" alt="" class="media-object img-responsive" style="" />
+						{% endimage %}
+					</div>
 
 				</a>
 				<div class="media-body">
-					<a href="#">
+					<a href="http://www.toyocosta.com/blog/">
 						
 						<h4 class="media-heading media-footer">Noticias</h4>
 					</a>
@@ -18,14 +20,16 @@
 		</div>
 		<div class="col-xs-12">
 			<div class="media">
-				<a class="pull-left" href="#">
-					{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/icon/cotizar.png' %}
-					<img src="{{ asset_url }}" alt="" class="media-object img-responsive" style="" />
-					{% endimage %}
+				<a class="pull-left" href="{{path('m_cotizar')}}">
+					<div class="col-xs-10">
+						{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/icon/cotizar.png' %}
+						<img src="{{ asset_url }}" alt="" class="media-object img-responsive" style="" />
+						{% endimage %}
+					</div>
 
 				</a>
 				<div class="media-body">
-					<a href="#">
+					<a href="{{path('m_cotizar')}}">
 						
 						<h4 class="media-heading media-footer">Cotizar</h4>
 					</a>
@@ -34,14 +38,16 @@
 		</div>
 		<div class="col-xs-12">
 			<div class="media">
-				<a class="pull-left" href="#">
-					{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/icon/test.png' %}
-					<img src="{{ asset_url }}" alt="" class="media-object img-responsive" style="" />
-					{% endimage %}
+				<a class="pull-left" href="{{path('m_testdrive')}}">
+					<div class="col-xs-10">
+						{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/icon/test.png' %}
+						<img src="{{ asset_url }}" alt="" class="media-object img-responsive" style="" />
+						{% endimage %}
+					</div>
 
 				</a>
 				<div class="media-body">
-					<a href="#">
+					<a href="{{path('m_testdrive')}}">
 						<h4 class="media-heading media-footer">Test Drive</h4>
 					</a>
 				</div>
@@ -49,14 +55,16 @@
 		</div>
 		<div class="col-xs-12">
 			<div class="media">
-				<a class="pull-left" href="#">
-					{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/icon/citas.png' %}
-					<img src="{{ asset_url }}" alt="" class="media-object img-responsive" style="" />
-					{% endimage %}
+				<a class="pull-left" href="{{path('m_citamantenimiento')}}">
+					<div class="col-xs-10">
+						{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/icon/citas.png' %}
+						<img src="{{ asset_url }}" alt="" class="media-object img-responsive" style="" />
+						{% endimage %}
+					</div>
 
 				</a>
 				<div class="media-body">
-					<a href="#">
+					<a href="{{path('m_citamantenimiento')}}">
 						<h4 class="media-heading media-footer">Cita de Mantenimiento</h4>
 					</a>
 				</div>

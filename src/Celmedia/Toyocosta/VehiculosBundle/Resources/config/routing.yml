@@ -20,7 +20,7 @@ suv:
 #     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:hibridos }
 
 ver_vehiculo:
-    path:      /vehiculos/{vehiculoid}
+    path:      /vehiculos/{vehname}/{vehiculoid}
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:verVehiculo }
 
 empresa:
@@ -131,11 +131,43 @@ especificacion:
     path:      /vehiculo/especificacion/{vehiculoid}
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:especificacion }
 
-# ROUTING MOBIL
+# ROUTING MOVIL
 
 m_vehiculo:
-    path:      /vehiculo
+    path:      /vehiculo/{vehname}/{vehiculoid}
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Mobile:verVehiculo }
+
+m_cotizar:
+    path:       /cotizar
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Mobile:cotizarVehiculo }
+
+m_cotizar_vehiculo:
+    path:       /cotizar/{vehname}/{vehiculoid}
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Mobile:cotizarVehiculoxId }
+
+m_pirelli:
+    path:       /distribuidor/pirelli
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Mobile:pirelli }
+
+m_montacargas:
+    path:       /montacarga
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Mobile:montacargas }
+
+m_infopirelli:
+    path:       /informacion-pirelli
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Mobile:infoPirelli }
+
+m_citamantenimiento:
+    path:       /cita-mantenimiento
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Mobile:mantenimiento }
+
+m_testdrive:
+    path:       /test-drive
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Mobile:testdrive }
+
+m_contacto:
+    path:       /contactenos
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Mobile:contactenos }
 
 
 # LANDING PAGES

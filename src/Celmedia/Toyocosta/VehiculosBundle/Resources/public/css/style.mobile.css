@@ -1,3 +1,7 @@
+
+.mayuscula{
+	text-transform: uppercase;
+}
 .panel-title{
 	padding: 0px 15px 0px 15px;
 }
@@ -11,14 +15,18 @@
 	margin-bottom: 0px;
 }
 .media-body{
-	padding: 20px;
+	padding-top: 20px;
+	padding-left: 20px;
 }
 .media-heading{
-	font-size: 15px;
+	font-size: 12px;
 	color: #333333;
+	text-transform: uppercase;
+	padding-left: 10px;
 }
 .media{
-	padding: 12px;
+	/*padding-top: 10px;
+	padding-bottom: 10px;*/
 	border-bottom: 1px solid #DCD9D9;
 	margin-top: 0px;
 }
@@ -28,6 +36,18 @@
 .media-autos h4:active, .media-autos h4:focus, .media-autos h4:hover{
 	color: #DE1D30;
 	text-decoration: none;
+}
+.media-object{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+.media>.pull-left {
+	margin-right: -28px;
+}
+
+.obj-menu{
+	width: 50%;
+	margin: 0 auto;	
 }
 a:focus , a:hover {
 	text-decoration: none;
@@ -140,6 +160,9 @@ a:focus , a:hover {
 	border-radius: 0px;
 	text-align: center;
 }
+.breadcrumb-mobil li{
+	font-size: 10px;
+}
 .vehiculo-banner{
 	background-position: center;
 	background-repeat: no-repeat;
@@ -181,6 +204,8 @@ a:focus , a:hover {
 	font-size: 20px;
 	font-weight: bold;
 	font-family: arial;
+	margin-top: 0px;
+	margin-bottom: 15px;
 }
 .txt-precio{
 	font-size: 18px;
@@ -193,8 +218,49 @@ a:focus , a:hover {
 .txt-descrip2{
 	font-size: 13px;
 }
-
-
+.txt-datos-personales{
+	font-size: 12px;
+	color: #A0A0A0;
+}
+label {
+	font-weight: normal;
+	color: #A0A0A0;
+	font-size: 11px;
+}
+.nav-cotizador>li>a{
+	padding: 10px 12px;
+	font-size: 10px;
+}
+.nav-tabs>li>a {
+ 	margin-right: 0px; 
+	border:0px;
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+	color: #df1928;
+	background-color: transparent;
+	border: 0px;
+	border-bottom-color: #d3d3d3;
+}
+.nav-tabs {
+	border-radius: 6px;
+	border: 1px solid #D3D3D3;
+	background-color: #efefef;
+}
+.nav-cotizador>li>a:hover, .nav-cotizador>li>a:focus {
+	background-color: transparent;
+	color: #df1928;
+}
+.txt-rojo{
+	color: #df1928;	
+}
+.txt-result{
+	font-size: 12px;
+}
+.txt-detalle{
+	font-size: 10px;
+	color: #A0A0A0;
+	
+}
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) { 
 

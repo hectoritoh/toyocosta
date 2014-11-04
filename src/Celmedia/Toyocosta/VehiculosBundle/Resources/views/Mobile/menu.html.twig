@@ -1,0 +1,47 @@
+        <div class="container-fluid">
+        	
+        	<div class="row">
+        		
+        		<div class="panel-group" id="accordion">
+
+        			{% for item in categoriasVehiculo %}
+
+        			<div class="panel">
+        				<div class="panel-heading">
+        					<h4 class="panel-title">
+        						<a data-toggle="collapse" data-parent="#accordion" href="#{{ item.nombre}}" class="mayuscula">
+        							{{ item.nombre }}
+        						</a>
+        					</h4>
+        				</div>
+        				<div id="{{ item.nombre}}" class="panel-collapse collapse">
+        					<div class="panel-body">
+
+        						<ul class="media-list">
+
+
+    								{{ render(controller("CelmediaToyocostaVehiculosBundle:Mobile:obtenerVehiculosXCategoria" , { 'categoriaId':  item.id } ) ) }}
+
+        						</ul>
+
+        					</div>
+        				</div>
+        			</div>
+
+        			{% endfor %}
+
+
+        			<div class="panel">
+        				<div class="panel-heading">
+        					<h4 class="panel-title">
+        						<a data-toggle="collapse" data-parent="#accordion" href=" {{ path('m_montacargas') }} ">
+        							MONTACARGAS
+        						</a>
+        					</h4>
+        				</div>
+        			</div>
+
+        		</div>	
+        	</div>
+
+        </div>

@@ -19,6 +19,9 @@ Celmedia\Toyocosta\VehiculosBundle\Entity\SlidePrincipal:
         imagen_banner:
             type: text
             nullable: false
+        imagen_movil:
+            type: text
+            nullable: true
         seccion:
             type: string
             length: 500

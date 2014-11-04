@@ -1,0 +1,16 @@
+
+{% for vehiculo  in vehiculos %}
+
+<a href="{{path('m_vehiculo', {'vehiculoid': vehiculo.id , 'vehname': vehiculo.nombre } )}}" class="link">
+
+	<li class="media media-autos">
+		<div class="pull-right" style="margin-left:0px;">
+			<img src="{{ asset('uploads/vehiculo/thumb/' ~ vehiculo.imagenThumb ) }}" alt="" class="img-responsive obj-menu" />
+		</div>
+		<div class="media-body">
+			<h4 class="media-heading">{{ vehiculo.nombre }}</h4>
+		</div>
+	</li>
+</a>
+
+{% endfor %}

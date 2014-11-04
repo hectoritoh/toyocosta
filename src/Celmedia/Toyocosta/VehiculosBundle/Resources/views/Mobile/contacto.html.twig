@@ -1,0 +1,91 @@
+{% extends 'CelmediaToyocostaVehiculosBundle::layout.mobile.html.twig' %}
+
+
+{% block contenidoMobil %}
+	<div class="container-fluid" style="">
+		<div class="row">
+			{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/movil/contactenos.jpg' %}
+			<img src="{{ asset_url }}" alt="" class="img-responsive" style="" />
+			{% endimage %}
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-12">
+				<ol class="breadcrumb breadcrumb-mobil">
+					<li>
+						<a href="#" class="txt-gris">INICIO</a>
+					</li>
+					<li class="active">CONT&Aacute;CTENOS</li>
+				</ol>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<h1 class="txt-vehiculo">Cont&aacute;ctenos</h1>	
+				
+				<p class="txt-result">
+					Por favor llene el siguiente formulario para que un representante
+					de Toyocosta pueda comunicarse inmediatamente con usted.
+				</p>			
+			</div>
+
+		</div>
+
+
+		<div class="row">
+			<div class="col-xs-12">
+				
+
+				<!-- Tab panes -->
+				<form role="form">
+
+			  		<div class="form-group">
+			  			<label>Nombre:</label>
+			  			<input type="text" class="form-control" id="nombre" name="nombre" />
+			  		</div>
+			  		<div class="form-group">
+			  			<label>Apellido:</label>
+			  			<input type="text" class="form-control" id="apellido" name="apellido" />
+			  		</div>
+					<div class="form-group">
+					    <label>Email:</label>
+					    <input type="email" class="form-control" id="email" name="email"/>
+					</div>						  	
+			  		<div class="form-group">
+			  			<label>Telefono:</label>
+			  			<input type="text" class="form-control" id="telefono" name="telefono" />
+			  		</div>
+				  	<div class="form-group">
+				    	<label>Ciudad:</label>
+			  			<input type="text" class="form-control" id="ciudad" name="ciudad" />
+				  	</div>
+				  	<div class="form-group">
+				    	<label>Area:</label>
+			  			<select id="area" name="area" class="form-control">
+			  				<option>Fco.Orellana</option>
+			  				<option>Fco.Orellana</option>
+			  			</select>
+				  	</div>
+				  	<div class="form-group">
+				    	<label>Comentario:</label>
+			  			<textarea id="comentario" name="comentario" class="form-control"></textarea>
+				  	</div>
+				  
+				  <!-- <button type="submit" class="btn btn-default">Submit</button> -->
+					
+					<input type="submit" value="Enviar" class="btn btn-rojo" style="width:100%;">
+
+				</form>
+
+
+
+			</div>
+	    </div>
+
+	    <div class="row" style="height:20px;">
+	    	&nbsp;
+	    </div>
+	</div>
+
+{% endblock %}

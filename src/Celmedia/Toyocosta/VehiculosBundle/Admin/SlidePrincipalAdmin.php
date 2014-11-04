@@ -24,7 +24,11 @@ class SlidePrincipalAdmin extends Admin
             
         }
 
-        
+        if ( $obj->getImagenMovil() != null  ) {
+            
+            $obj->uploadImagenMobilBanner();
+            
+        }
 
     }
 
@@ -90,6 +94,17 @@ class SlidePrincipalAdmin extends Admin
             $fileFieldOptions['help'] = '<img src="'.$fullPath.'" class="img-responsive" />';
         }
 
+        $fileFieldOptions2 = array('required' => false);
+        if ($obj && ($webPath = 'uploads/slide-principal/mobil/' .    $obj->getImagenMovil())) {
+            // get the container so the full path to the image can be set
+            $container = $this->getConfigurationPool()->getContainer();
+            $fullPath = $container->get('request')->getBasePath().'/'.$webPath;
+
+            // add a 'help' option containing the preview's img tag
+            $fileFieldOptions2['help'] = '<img src="'.$fullPath.'" class="img-responsive" />';
+        }
+
+
 
         $formMapper
             ->add('seccion', 'choice', array(
@@ -99,6 +114,7 @@ class SlidePrincipalAdmin extends Admin
                    'mantenimiento' => 'Banner Cita de Mantenimiento'
                    )))
             ->add('ImagenSlide', 'file', $fileFieldOptions)
+            ->add('ImagenMobilBanner', 'file', $fileFieldOptions2)
             ->add('descripcion')
             ->add('link')
             ->add('boton')
@@ -141,7 +157,6 @@ class SlidePrincipalAdmin extends Admin
                         
         }
 
-  
 
     }
 

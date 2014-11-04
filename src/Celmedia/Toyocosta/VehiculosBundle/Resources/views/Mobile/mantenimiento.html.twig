@@ -1,0 +1,164 @@
+{% extends 'CelmediaToyocostaVehiculosBundle::layout.mobile.html.twig' %}
+
+
+{% block contenidoMobil %}
+	<div class="container-fluid" style="">
+		<div class="row">
+			{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/movil/cita.jpg' %}
+			<img src="{{ asset_url }}" alt="" class="img-responsive" style="" />
+			{% endimage %}
+		</div>
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-12">
+				<ol class="breadcrumb breadcrumb-mobil">
+					<li>
+						<a href="#" class="txt-gris">INICIO</a>
+					</li>
+					<li class="active">CITA DE MANTENIMIENTO</li>
+				</ol>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-12">
+				<h1 class="txt-vehiculo">Cita de Mantenimiento</h1>	
+				<p class="txt-result">
+					Por favor llene el siguiente formulario para que un representante
+					de Toyocosta pueda comunicarse inmediatamente con usted.
+				</p>			
+			</div>
+
+		</div>
+
+
+		<div class="row">
+			<div class="col-xs-12">
+				
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs nav-cotizador" role="tablist">
+				  <li class="active" style="border-right: 1px solid #d3d3d3;"><a href="#datos" role="tab" data-toggle="tab">TUS DATOS</a></li>
+				  <li style="border-right: 1px solid #d3d3d3;"><a href="#resultados" role="tab" data-toggle="tab">TU VEHICULO</a></li>
+				  <li><a href="#confirmacion" role="tab" data-toggle="tab">CONFIRMACI&Oacute;N</a></li>
+				  
+				</ul>
+
+				<!-- Tab panes -->
+				<form role="form">
+				<div class="tab-content">
+						<div class="tab-pane active" id="datos">
+						  	<h3 class="txt-datos-personales">DATOS PERSONALES</h3>
+
+								<div class="form-group">
+						  			<label>Nombre:</label>
+						  			<input type="text" class="form-control" id="nombre" name="nombre" />
+						  		</div>
+						  		<div class="form-group">
+						  			<label>Apellido:</label>
+						  			<input type="text" class="form-control" id="apellido" name="apellido" />
+						  		</div>
+								<div class="form-group">
+								    <label for="exampleInputEmail1">Email:</label>
+								    <input type="email" class="form-control" id="email" name="email"/>
+								</div>						  	
+						  		<div class="form-group">
+						  			<label>Telefono:</label>
+						  			<input type="text" class="form-control" id="telefono" name="telefono" />
+						  		</div>
+							  	<div class="form-group">
+							    	<label>Celular:</label>
+						  			<input type="text" class="form-control" id="celular" name="celular" />
+							  	</div>
+							  
+							  <!-- <button type="submit" class="btn btn-default">Submit</button> -->
+								<a href="#resultados" role="tab" data-toggle="tab">
+								  	<div class="col-xs-12 btn btn-rojo">
+							    		Siguiente
+							    	</div>
+							    </a>
+						</div>
+					  	<div class="tab-pane" id="resultados">
+					  		<h3 class="txt-datos-personales">DATOS DEL VEH&Iacute;CULO</h3>
+
+					  								
+						  	<div class="form-group">
+						    	<label>Tipo de Reserva:</label>
+					  			<select name="reserva" id="reserva" class="form-control">
+					  				<option>Mantenimiento</option>
+					  				<option>Reparaciones</option>
+					  				<option>Revision Vehicular</option>
+					  			</select>
+						  	</div>
+						  	<div class="form-group">
+						    	<label>Taller:</label>
+					  			<select name="taller" id="taller" class="form-control">
+					  				<option>Matriz</option>
+					  				<option>Fco. de Orellana</option>
+					  				<option>Daule</option>
+					  			</select>
+						  	</div>
+
+						  	<div class="form-group">
+						    	<label>Fecha Tentativa:</label>
+					  			<input type="date" id="fecha" name="fecha" class="form-control" />
+						  	</div>
+
+						  	<div class="form-group">
+						    	<label>Observaciones:</label>
+					  			<textarea class="form-control" id="observaciones" name="observaciones"></textarea>
+						  	</div>
+
+						  	<div class="form-group">
+						    	<label>Modelo:</label>
+					  			<select name="modelo" id="modelo" class="form-control">
+					  				<option>Hilux CD 4x4</option>
+					  				<option>Fortuner</option>
+					  				<option>Sedan</option>
+					  			</select>
+						  	</div>
+						  	<div class="form-group">
+						    	<label>Kilometraje:</label>
+					  			<select name="kilometraje" id="kilometraje" class="form-control">
+					  				<option>1000km</option>
+					  				<option>5000km</option>
+					  				<option>10000km</option>
+					  			</select>
+						  	</div>
+
+						  	<div class="form-group">
+						    	<label>Comentario:</label>
+					  			<textarea class="form-control" id="comentario" name="comentario"></textarea>
+						  	</div>
+
+						  	<input type="submit" value="Enviar" class="btn btn-rojo" style="width:100%;">
+
+					  	</div>
+				  	<div class="tab-pane" id="confirmacion">
+						<h3 class="txt-datos-personales">GRACIAS</h3>
+
+						<p class="txt-result txt-gris">
+							Su pedido de informacion se ha completado correctamente.<br />
+							Un representante de Toyocosta se contactar&aacute; con usted 
+							inmediatamente.
+						</p>
+
+						<a href="#datos" role="tab" data-toggle="tab">
+						  	<div class="col-xs-12 btn btn-rojo">
+					    		Regresar al inicio
+					    	</div>
+					    </a>				  		
+				  	</div>
+				</div>
+				</form>
+
+
+
+			</div>
+	    </div>
+
+	    <div class="row" style="height:20px;">
+	    	&nbsp;
+	    </div>
+	</div>
+
+{% endblock %}

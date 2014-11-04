@@ -10,7 +10,7 @@
 						<span class="icon-bar"></span>
 						<span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="#">
+					<a class="navbar-brand" href="{{path('toyocosta_homepage')}}">
 						{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/icon/logotoyocosta.png' %}
 						<img src="{{ asset_url }}" alt="" class="img-responsive" style="" />
 						{% endimage %}
@@ -30,15 +30,15 @@
 								<li><a href="#">CAMIONETAS</a></li>
 								<li><a href="#">TODO TERRENO</a></li>
 								<li class="divider"></li>
-								<li><a href="#">MONTACARGAS</a></li>
+								<li><a href="{{path('m_montacargas')}}">MONTACARGAS</a></li>
 							</ul>
 						</li>
-						<li><a href="#">PIRELLI</a></li>
-						<li><a href="#">NOTICIA</a></li>
-						<li><a href="#">COTIZAR</a></li>
-						<li><a href="#">CITA DE MANTENIMIENTO</a></li>
-						<li><a href="#">TEST DRIVE</a></li>
-						<li><a href="#">CONTACTOS</a></li>
+						<li><a href="{{path('m_pirelli')}}">PIRELLI</a></li>
+						<li><a href="http://www.toyocosta.com/blog/">NOTICIA</a></li>
+						<li><a href="{{path('m_cotizar')}}">COTIZAR</a></li>
+						<li><a href="{{path('m_citamantenimiento')}}">CITA DE MANTENIMIENTO</a></li>
+						<li><a href="{{path('m_testdrive')}}">TEST DRIVE</a></li>
+						<li><a href="{{path('m_contacto')}}">CONTACTOS</a></li>
 
 					</ul>
 					

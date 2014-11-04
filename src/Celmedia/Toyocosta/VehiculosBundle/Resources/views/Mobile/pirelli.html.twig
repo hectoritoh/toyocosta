@@ -1,0 +1,47 @@
+{% extends 'CelmediaToyocostaVehiculosBundle::layout.mobile.html.twig' %}
+
+
+{% block contenidoMobil %}
+	<div class="container-fluid" style="">
+		<div class="row">
+			{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/movil/pirelli.jpg' %}
+			<img src="{{ asset_url }}" alt="" class="img-responsive" style="" />
+			{% endimage %}
+		</div>
+	</div>
+		<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-12">
+				<ol class="breadcrumb breadcrumb-mobil">
+					<li>
+						<a href="#" class="txt-gris">INICIO</a>
+					</li>
+					<li class="active">PIRELLI</li>
+				</ol>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-xs-10 col-xs-offset-1">
+				<p class="txt-vehiculo">Pirelli</p>
+				<p class="txt-result txt-gris">
+					DISTRIBUIDOR AUTORIZADO PIRELLI<br/><br/>
+					Toyocosta S.A. en calidad de representante exclusivo para el Ecuador de Montacargas TOYOTA, se encuentra encaminada a satisfacer las diferentes necesidades de transporte y carga en el segmento industrial, ofertando productos como la venta y alquiler de montacargas, así como la post venta para cada necesidad desde el año 2010.
+				</p>
+			</div>
+	    </div>
+	    <div class="row">
+	    	<div class="col-xs-12">
+	    		<a href="{{path('m_infopirelli')}}">
+		    		<div class="col-xs-10 col-xs-offset-1 btn btn-rojo">
+			    		M&aacute;s Informaci&oacute;n
+			    	</div>
+			    </a>
+	    	</div>
+	    </div>
+	    <div class="row" style="height:20px;">
+	    	&nbsp;
+	    </div>
+	</div>
+
+{% endblock %}
