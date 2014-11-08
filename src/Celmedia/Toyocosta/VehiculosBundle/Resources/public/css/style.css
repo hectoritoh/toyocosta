@@ -730,7 +730,7 @@ fieldset.ty-fieldset-border {
 	width: 194px;
 	position: relative;
 	height: 40px;
-	background-image: url("../../../bundles/celmediatoyocostaseminuevo/images/sprite-cotizador.png");
+	background-image: url("../../../bundles/celmediatoyocostavehiculos/images/seminuevos/sprite-cotizador.png");
 	background-color: transparent;
 	border-radius: 0px;
 	outline: none;
@@ -1185,7 +1185,7 @@ fieldset.ty-fieldset-border {
 	overflow: hidden;
 	position: relative;
 	cursor: pointer;
-	background-image: url("../../../bundles/celmediatoyocostaseminuevo/images/sprite-img.png"); 
+	background-image: url("../../../bundles/celmediatoyocostavehiculos/images/seminuevos/sprite-img.png"); 
 	background-repeat: no-repeat;
 	background-position: center bottom;
 	color: #000;
@@ -1197,13 +1197,13 @@ fieldset.ty-fieldset-border {
 }
 
 .form-group-sm .custom-input-file:hover{
-	background-image: url("../../../bundles/celmediatoyocostaseminuevo/images/sprite-img.png"); 
+	background-image: url("../../../bundles/celmediatoyocostavehiculos/images/seminuevos/sprite-img.png"); 
 	background-repeat: no-repeat;
 	background-position: center bottom;
 }
 
 .eu-estado{
-	background-image: url("../../../bundles/celmediatoyocostaseminuevo/images/sprite-circulo.png"); 
+	background-image: url("../../../bundles/celmediatoyocostavehiculos/images/seminuevos/sprite-circulo.png"); 
 	background-repeat: no-repeat;
 	background-position: center center;	
 	width: 104px;
@@ -1211,19 +1211,19 @@ fieldset.ty-fieldset-border {
 	margin: 0 auto;
 }
 .eu-estado-disponible{
-	background-image: url("../../../bundles/celmediatoyocostaseminuevo/images/sprite-de-estados.png"); 
+	background-image: url("../../../bundles/celmediatoyocostavehiculos/images/seminuevos/sprite-de-estados.png"); 
 	background-position: 0px -215px;
 }
 .eu-estado-proximamente{
-	background-image: url("../../../bundles/celmediatoyocostaseminuevo/images/sprite-de-estados.png"); 
+	background-image: url("../../../bundles/celmediatoyocostavehiculos/images/seminuevos/sprite-de-estados.png"); 
 	background-position: 0px -323px;
 }
 .eu-estado-reservado{
-	background-image: url("../../../bundles/celmediatoyocostaseminuevo/images/sprite-de-estados.png"); 
+	background-image: url("../../../bundles/celmediatoyocostavehiculos/images/seminuevos/sprite-de-estados.png"); 
 	background-position: 0px -107px;
 }
 .eu-estado-vendido{
-	background-image: url("../../../bundles/celmediatoyocostaseminuevo/images/sprite-de-estados.png"); 
+	background-image: url("../../../bundles/celmediatoyocostavehiculos/images/seminuevos/sprite-de-estados.png"); 
 	background-position: 0px 0px;
 }
 .txt-estado-texto{
@@ -1315,7 +1315,7 @@ fieldset.ty-fieldset-border {
 	height: 56px;
 	bottom: 0px;
 	color: #ffffff;
-	background-image: url("../../../bundles/celmediatoyocostaseminuevo/images/info-slider.png"); 
+	background-image: url("../../../bundles/celmediatoyocostavehiculos/images/seminuevos/info-slider.png"); 
 	background-position: center top;
 	background-repeat: no-repeat;
 	font-family: 'Arial', 'Helvetica',sans-serif;

@@ -71,7 +71,7 @@ envio_mantenimiento:
         expose: true
 
 envio_contacto:
-    path:      /contacto/form
+    path:      /enviando/form
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:envioContacto }
     options:
         expose: true

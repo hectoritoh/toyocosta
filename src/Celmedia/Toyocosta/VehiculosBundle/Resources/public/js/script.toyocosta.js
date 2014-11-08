@@ -515,27 +515,32 @@ $(document).ready(function(){
               type: 'POST',
               async: true,
               data: parametros,
-              dataType: "json",
+              dataType: 'json',
               success: function (respuesta) {
                 console.log(respuesta);
-                if (respuesta.codigo == 1 ) {
-                    //alert('Su pedido de informaci\u00F3n fu\u00E9 enviado con \u00E9xito');
-                    $('#contenedorEspereContacto').hide();
-                    $('#contenedorFormContacto').show();
-                    document.getElementById("form-contacto").reset();
-                    //window.location = Routing.generate('contactenos');
-                } else if (respuesta.codigo == 0 ) {
-                    // error
-                    alert('error');
-                }
-              },
-              error: function (error) {
-                console.log("ERROR: " + error);
+                // console.log(JSON.stringify(respuesta.codigo));
+                  if (respuesta.codigo == 1 ) {
+                      $('#contenedorEspereContacto').hide();
+                      $('#contenedorFormContacto').show();
+                       alert('Su pedido de informaci\u00F3n fu\u00E9 enviado con \u00E9xito');
+                       document.getElementById("form-mantenimiento").reset();
+                       //window.location = Routing.generate('contactenos');
+                  }else if (respuesta.codigo == 0 ) {
+                        alert(respuesta.mensaje);
+                  }else{
+                    alert("error");
+                  }
+
+
               },beforeSend: function () {
                   $('#contenedorFormContacto').hide();
                   $('#contenedorEspereContacto').show();
                   
+              },
+              error: function (respuesta) {
+                console.log("ERROR: " + respuesta);
               }
+
           });
       },
       rules: {
@@ -955,7 +960,7 @@ $(document).ready(function(){
           }
     });
 
-    var $validator = $("#cotizarForm").validate({
+    var $validatorvehiculo = $("#cotizarForm").validate({
       debug: true,
       submitHandler: function (form) {
         //alert("ok");
@@ -1020,7 +1025,7 @@ $(document).ready(function(){
     $('#rootwizard .finish').click(function() {
         var $valid = $("#cotizarForm").valid();
         if(!$valid) {
-          $validator.focusInvalid();
+          $validatorvehiculo.focusInvalid();
           return false;
         }else{
 
@@ -1077,7 +1082,7 @@ $(document).ready(function(){
 
         var $valid = $("#cotizarForm").valid();
         if(!$valid) {
-          $validator.focusInvalid();
+          $validatorvehiculo.focusInvalid();
           return false;
         }
       }, onTabShow: function(tab, navigation, index) {

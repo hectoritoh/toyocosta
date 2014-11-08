@@ -557,6 +557,7 @@ class DefaultController extends Controller
     public function envioContactoAction(Request $request){
 
 
+        $em = $this->getDoctrine()->getManager(); 
 
         if ($request->isMethod('POST')) {
 
@@ -580,83 +581,69 @@ class DefaultController extends Controller
             $info->setObservaciones( $observacion  );
             
             
-            $em = $this->getDoctrine()->getManager(); 
             $em->persist(  $info );
             $em->flush();
 
-            $formulario = "contacto";
+            // $formulario = "contacto";
+            // print_r($info);
 
-            if( $this->enviarCorreo($email, $info, $formulario ) ){
-                return new JsonResponse(array(
-                    'codigo' => 1,
-                    'Mensaje' => "El mensaje ha sido enviado"
-                ), 200); //codigo de error diferente
-            }else{
-                return new JsonResponse(array(
+            
+            $subject = "Pedido de Informacion Contacto desde Toyocosta"; 
+
+            $body = '<strong>Informacion de Contacto:</strong> <br /><br />               
+            Nombre:  '.$info->getNombre().' <br />
+            Apellido:   '. $info->getApellido() .' <br />
+            Telefono:  '. $info->getTelefono() .'  <br />
+            Email:  '. $info->getEmail() .' <br />
+            Ciudad:  '. $info->getCiudad() .' <br />
+            Area:   '. $info->getArea() .' <br />
+            Observacion:  '. $info->getObservaciones() .' ';
+
+
+
+            $message = \Swift_Message::newInstance()
+
+            ->setSubject($subject)
+
+            ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
+
+            ->setTo(array( $email , 'ycosquillo@celmedia.com' => 'Admin'))
+            
+            ->setContentType("text/html")
+
+            ->setBody($body);
+
+
+            $envioMail = $this->get('mailer')->send($message);
+
+
+            if ( $envioMail ) {
+
+                $response = json_encode(array('codigo' => 1 ));
+
+                return new Response($response, 200, array(
+                    'Content-Type' => 'application/json'
+                ));
+
+
+            }else {
+                 return new JsonResponse(array(
                     'codigo' => 0,
-                    'Mensaje' => "No se ha recibido vehiculo"
+                    'Mensaje' => "No se ha enviado mensaje"
                 ), 200); //codigo de error diferente
             }
+        
+
+
         }
+
+        return new JsonResponse(array(
+            'codigo' => 0,
+            'Mensaje' => "No se ha recibio por post"
+        ), 200); //codigo de error diferente
 
     }
 
-
-    // public function envioTestDriveAction(Request $request){
-
-
-    //     if ($request->isMethod('POST')) {
-
-    //         $nombre = $request->request->get('nombre');
-    //         $apellido = $request->request->get('apellido');
-    //         $telefono = $request->request->get('telefono');
-    //         $email = $request->request->get('email');
-    //         $cedula = $request->request->get('cedula');
-    //         $nacimiento = $request->request->get('nacimiento');
-    //         $agencia = $request->request->get('agencia');
-    //         $ciudad = $request->request->get('ciudad');
-    //         $vehiculo = $request->request->get('vehiculo');
-    //         $fecha_test = $request->request->get('fecha_test');
-    //         $hora_test = $request->request->get('hora_test');
-    //         $observacion = $request->request->get('observacion');
-
-    //         $info = new \Celmedia\Toyocosta\ContenidoBundle\Entity\InfoTestDrive();
-
-    //         $info->setNombre( $nombre  );
-    //         $info->setApellido( $apellido  );
-    //         $info->setTelefono( $telefono  );
-    //         $info->setEmail( $email  );
-    //         $info->setCedula( $cedula);
-    //         $info->setFechaNacimiento( new \DateTime($nacimiento) );
-    //         $info->setAgencia( $agencia  );
-    //         $info->setCiudad( $ciudad  );
-    //         $info->setVehiculo($vehiculo);
-    //         $info->setFechaTest( new \DateTime($fecha_test ) );
-    //         $info->setHoraTest( $hora_test  );
-    //         $info->setObservaciones( $observacion  );
-            
-            
-    //         $em = $this->getDoctrine()->getManager(); 
-    //         $em->persist(  $info );
-    //         $em->flush();
-
-    //         $formulario = "testdrive";
-
-    //         if( $this->enviarCorreo($email, $info, $formulario ) ){
-    //             return new JsonResponse(array(
-    //                 'codigo' => 1,
-    //                 'Mensaje' => "El mensaje ha sido enviado"
-    //             ), 200); //codigo de error diferente
-    //         }else{
-    //             return new JsonResponse(array(
-    //                 'codigo' => 0,
-    //                 'Mensaje' => "No se ha recibido vehiculo"
-    //             ), 200); //codigo de error diferente
-    //         }
-
-    //     }
-
-    // }
 
     public function consultarPreciosXModeloAction(Request $request){
         $em = $this->getDoctrine()->getManager();        
@@ -1241,10 +1228,10 @@ class DefaultController extends Controller
 
         }
 
-        // return new JsonResponse(array(
-        //     'codigo' => 0,
-        //     'Mensaje' => "No se recibio por post"
-        // ), 200); //codigo de error diferente
+        return new JsonResponse(array(
+            'codigo' => 0,
+            'Mensaje' => "No se recibio por post"
+        ), 200); //codigo de error diferente
     }
 
 }
