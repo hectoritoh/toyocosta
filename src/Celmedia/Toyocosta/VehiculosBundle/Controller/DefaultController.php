@@ -584,8 +584,8 @@ class DefaultController extends Controller
             $em->persist(  $info );
             $em->flush();
 
-            // $formulario = "contacto";
-            // print_r($info);
+        //     // $formulario = "contacto";
+        //     // print_r($info);
 
             
             $subject = "Pedido de Informacion Contacto desde Toyocosta"; 
@@ -600,14 +600,14 @@ class DefaultController extends Controller
             Observacion:  '. $info->getObservaciones() .' ';
 
 
-
+ 
             $message = \Swift_Message::newInstance()
 
             ->setSubject($subject)
 
             ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
 
-            ->setTo(array( $email , 'ycosquillo@celmedia.com' => 'Admin'))
+            ->setTo(array( $email , 'cdnventas@toyocosta.com.ec' => 'Toyocosta', 'ycosquillo@celmedia.com' => 'Admin'))
             
             ->setContentType("text/html")
 
@@ -637,10 +637,10 @@ class DefaultController extends Controller
 
         }
 
-        return new JsonResponse(array(
-            'codigo' => 0,
-            'Mensaje' => "No se ha recibio por post"
-        ), 200); //codigo de error diferente
+        // return new JsonResponse(array(
+        //     'codigo' => 0,
+        //     'Mensaje' => "No se ha recibio por post"
+        // ), 200); //codigo de error diferente
 
     }
 

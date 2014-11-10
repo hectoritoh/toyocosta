@@ -523,7 +523,7 @@ $(document).ready(function(){
                       $('#contenedorEspereContacto').hide();
                       $('#contenedorFormContacto').show();
                        alert('Su pedido de informaci\u00F3n fu\u00E9 enviado con \u00E9xito');
-                       document.getElementById("form-mantenimiento").reset();
+                       document.getElementById("form-contacto").reset();
                        //window.location = Routing.generate('contactenos');
                   }else if (respuesta.codigo == 0 ) {
                         alert(respuesta.mensaje);
