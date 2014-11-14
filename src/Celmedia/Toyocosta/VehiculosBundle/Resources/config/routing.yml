@@ -128,7 +128,7 @@ consultar_obsequios:
         expose: true
 
 especificacion:
-    path:      /vehiculo/especificacion/{vehiculoid}
+    path:      /vehiculo/especificacion/{vehname}/{vehiculoid}
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:especificacion }
 
 # ROUTING MOVIL
@@ -153,10 +153,6 @@ m_montacargas:
     path:       /montacarga
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Mobile:montacargas }
 
-m_infopirelli:
-    path:       /informacion-pirelli
-    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Mobile:infoPirelli }
-
 m_citamantenimiento:
     path:       /cita-mantenimiento
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Mobile:mantenimiento }
@@ -168,6 +164,30 @@ m_testdrive:
 m_contacto:
     path:       /contactenos
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Mobile:contactenos }
+
+m_envio_contactenos:
+    path:      /enviando/contactenos
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Mobile:enviarContactenos }
+    options:
+        expose: true
+
+m_envio_test:
+    path:      /enviando/testdrive
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Mobile:enviarTest }
+    options:
+        expose: true
+
+m_envio_cita:
+    path:      /enviando/cita
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Mobile:enviarCita }
+    options:
+        expose: true
+
+m_envio_cotizacion:
+    path:      /enviando/cotizacion
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Mobile:enviarCotizacion }
+    options:
+        expose: true
 
 
 # LANDING PAGES

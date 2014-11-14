@@ -190,12 +190,22 @@ var seleccionado = false;
 
             });
 
-             if (respuesta.obsequios.length == 0) {
-                $("#bloque-obsequio").hide();   
-             }else{
 
+              // taller 1 mantenimiento 
+
+             if ( respuesta.obsequios.length == 0 ) {
+
+                $("#bloque-obsequio").hide();   
+
+             }else if( $("#mreserva").val() != 1 ){
+
+                $("#bloque-obsequio").hide();  
+
+             }else{
+              
                 $("#bloque-obsequio").show();
              };
+
 
             //console.log(respuesta.precio);
           }, 

@@ -4,17 +4,37 @@
         		
         		<div class="panel-group" id="accordion">
 
+                    {% set i = 0 %}
+
         			{% for item in categoriasVehiculo %}
 
         			<div class="panel">
         				<div class="panel-heading">
-        					<h4 class="panel-title">
-        						<a data-toggle="collapse" data-parent="#accordion" href="#{{ item.nombre}}" class="mayuscula">
-        							{{ item.nombre }}
-        						</a>
-        					</h4>
+                            
+                            <div class="col-xs-10">
+                                <h4 class="panel-title">
+                                    <a id="collap{{i}}" data-toggle="collapse" data-parent="#accordion" href="#Vehiculo{{ i }}" class="mayuscula">
+                                        {{ item.nombre }}
+                                    </a>
+                                </h4>
+                                
+                            </div>
+
+                            <div id="downVehiculo{{ i }}" class="col-xs-2">
+                                {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/movil/down.png' %}
+                                <img src="{{ asset_url }}" alt="" class="img-responsive" style="" />
+                                {% endimage %}
+                            </div>
+
+                            <div id="upVehiculo{{ i }}" class="col-xs-2" style="display:none;">
+                                {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/movil/up.png' %}
+                                <img src="{{ asset_url }}" alt="" class="img-responsive" style="" />
+                                {% endimage %}
+                            </div>
+
+
         				</div>
-        				<div id="{{ item.nombre}}" class="panel-collapse collapse">
+        				<div id="Vehiculo{{ i }}" class="panel-collapse collapse">
         					<div class="panel-body">
 
         						<ul class="media-list">
@@ -28,16 +48,20 @@
         				</div>
         			</div>
 
+                    {% set i = i + 1 %}
+
         			{% endfor %}
 
 
         			<div class="panel">
         				<div class="panel-heading">
-        					<h4 class="panel-title">
-        						<a data-toggle="collapse" data-parent="#accordion" href=" {{ path('m_montacargas') }} ">
-        							MONTACARGAS
-        						</a>
-        					</h4>
+                            <div class="col-xs-10">
+            					<h4 class="panel-title">
+            						<a href=" {{ path('m_montacargas') }} ">
+            							MONTACARGAS
+            						</a>
+            					</h4>
+                            </div>
         				</div>
         			</div>
 

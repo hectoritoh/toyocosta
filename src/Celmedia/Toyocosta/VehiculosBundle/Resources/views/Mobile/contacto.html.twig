@@ -38,7 +38,7 @@
 				
 
 				<!-- Tab panes -->
-				<form role="form">
+				<form role="form" id="form-contacto">
 
 			  		<div class="form-group">
 			  			<label>Nombre:</label>
@@ -63,8 +63,10 @@
 				  	<div class="form-group">
 				    	<label>Area:</label>
 			  			<select id="area" name="area" class="form-control">
-			  				<option>Fco.Orellana</option>
-			  				<option>Fco.Orellana</option>
+		  					<option  class=""  value="" >Seleccione la agencia</option>
+							{% for agencia in agencias   %}
+							<option  class=""  value="{{ agencia.nombre  }}" >{{  agencia.nombre }}</option>
+							{% endfor %}
 			  			</select>
 				  	</div>
 				  	<div class="form-group">
@@ -78,7 +80,9 @@
 
 				</form>
 
-
+				<p id="contacto-mensaje" class="txt-rojo txt-negrita" style="display:none;">
+					Enviando Información...
+				</p>
 
 			</div>
 	    </div>

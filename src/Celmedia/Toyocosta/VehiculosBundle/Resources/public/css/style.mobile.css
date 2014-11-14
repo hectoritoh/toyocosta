@@ -3,7 +3,7 @@
 	text-transform: uppercase;
 }
 .panel-title{
-	padding: 0px 15px 0px 15px;
+	padding: 5px 0px 5px 0px;
 }
 
 /*RESET MOBILE*/
@@ -261,6 +261,70 @@ label {
 	color: #A0A0A0;
 	
 }
+.pager li>a, .pager li>span {
+	
+	background-color: #df1928;
+
+}
+#bloque-obsequio{
+	display: none;
+}
+
+.panel-heading {
+	padding: 10px 15px;
+	height: 45px;
+}
+.navbar-brand {
+	padding: 9px;
+	height: 45px;
+}
+.sobre{
+	float: right;
+	border-left: 1px solid #ccc;
+}
+.sobre a{
+	padding-top: 13px;
+}
+
+#mail_sobre_hover{
+	display: none;
+}
+
+.glyphicon-chevron-right {
+	background-image: url("../../celmediatoyocostavehiculos/images/movil/right.png");
+	height: 74px;
+	width: 50%;
+	background-repeat: no-repeat;
+	background-position: right center;
+}
+
+
+.glyphicon-chevron-left {
+	background-image: url("../../celmediatoyocostavehiculos/images/movil/left.png");
+	height: 74px;
+	width: 50%;
+	background-repeat: no-repeat;
+}
+
+.carousel-control .icon-prev, .carousel-control .glyphicon-chevron-left {
+	left: 12%;
+}
+.carousel-control .icon-next, .carousel-control .glyphicon-chevron-right {
+	right: 12%;
+}
+.btn-ver-mas{
+	background-color: #FFFFFF;
+	color: #767676;
+	text-shadow: 0px 0px 0px transparent;
+	width: 100%;
+	text-transform: uppercase;
+	border-radius: 3px;
+}
+.carousel-caption{
+	top: 75%;
+}
+
+
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) { 
 

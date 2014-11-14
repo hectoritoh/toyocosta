@@ -18,14 +18,13 @@
 
     </head>
     <body>
-    <script type="text/javascript">
+    {#<script type="text/javascript">
         window.location.href = "http://www.toyocosta.com/m/"
-    </script>
+    </script>#}
 
 
         
-        {#{% include 'CelmediaToyocostaVehiculosBundle:Mobile:header.mobile.html.twig' %}
-
+        {{ render(controller("CelmediaToyocostaVehiculosBundle:Mobile:obtenerHeaderMenu" ))   }}
 
         {% block contenidoMobil %}
 
@@ -44,7 +43,6 @@
         {% block js %}
 
         {% endblock %}
-        #}
-                            
+                                    
     </body>
 </html>

@@ -1,0 +1,69 @@
+
+
+
+<div class="container-fluid">
+	<div class="row" style="border-bottom: 2px solid #E1182B;">
+		
+				<div class="logo">
+					<a class="navbar-brand" href="{{path('toyocosta_homepage')}}">
+						{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/icon/logotoyocosta.png' %}
+						<img src="{{ asset_url }}" alt="" class="img-responsive" style="" />
+						{% endimage %}
+					</a>
+				</div>
+				<div id="dl-menu" class="dl-menuwrapper">
+					
+				    <button class="dl-trigger">Open Menu</button>
+				    <ul class="dl-menu" style="z-index:999;">
+				    	<p class="text-center txt-gris txt-menu">Menu</p>
+				    	<li><a href="{{path('toyocosta_homepage')}}">INICIO</a></li>
+				        <li>
+							<a href="#">PRODUCTOS</a>
+							<ul class="dl-submenu">
+								{% for item in categoriasVehiculo %}
+									<li>
+										<a href="#" style="text-transform: uppercase;">{{ item.nombre }}</a>
+										
+
+											{{ render(controller("CelmediaToyocostaVehiculosBundle:Mobile:obtenerProductosxCategoria" , { 'categoriaId':  item.id } ) ) }}
+
+
+									</li>
+
+								{% endfor %}
+
+								<li><a href="{{path('m_montacargas')}}" style="text-transform: uppercase;">MONTACARGAS</a></li>
+							</ul>
+						</li>
+				        <li><a href="{{path('m_pirelli')}}">PIRELLI</a></li>
+						<li><a href="http://www.toyocosta.com/blog/">NOTICIA</a></li>
+						<li><a href="{{path('m_cotizar')}}">COTIZAR</a></li>
+						<li><a href="{{path('m_citamantenimiento')}}">CITA DE MANTENIMIENTO</a></li>
+						<li><a href="{{path('m_testdrive')}}">TEST DRIVE</a></li>
+						<li><a href="{{path('m_contacto')}}">CONTACTOS</a></li>
+
+
+				    </ul>
+				    <div class="sobre">
+						<a id="mail_sobre" class="navbar-brand" href="{{path('m_contacto')}}">
+								
+							{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/movil/mail.png' %}
+							<img src="{{ asset_url }}" alt="" class="img-responsive" style="" />
+							{% endimage %}
+								
+
+
+						</a>
+
+						<a  id="mail_sobre_hover" class="navbar-brand" href="{{path('m_contacto')}}">
+							
+							{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/movil/mailhover.png' %}
+							<img src="{{ asset_url }}" alt="" class="img-responsive" style="" />
+							{% endimage %}
+						</a>
+						
+					</div>
+				</div>
+	</div>
+
+</div>

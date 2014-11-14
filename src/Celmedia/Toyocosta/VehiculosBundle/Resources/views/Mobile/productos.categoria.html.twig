@@ -1,0 +1,13 @@
+<ul class="dl-submenu">
+{% for vehiculo  in vehiculos %}
+
+	<li class="">
+		
+		<a href="{{path('m_vehiculo', {'vehiculoid': vehiculo.id , 'vehname': vehiculo.nombre } )}}" class="link">
+
+			{{ vehiculo.nombre }}
+		</a>
+	</li>
+
+{% endfor %}
+</ul>
