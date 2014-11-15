@@ -304,7 +304,7 @@
 
     // CITA DE MANTENIMIENTO ///////////////////////
 
-    var $validatortest = $("#form-cita").validate({
+    var $validatorcita = $("#form-cita").validate({
       debug: true,
       submitHandler: function (form) {
         //alert("ok");
@@ -376,7 +376,7 @@
     $('#citawizard .finish').click(function() {
         var $valid = $("#form-cita").valid();
         if(!$valid) {
-          $validatortest.focusInvalid();
+          $validatorcita.focusInvalid();
           return false;
         }else{
 
@@ -443,7 +443,7 @@
 
         var $valid = $("#form-cita").valid();
         if(!$valid) {
-          $validatortest.focusInvalid();
+          $validatorcita.focusInvalid();
           return false;
         }
       }, onTabShow: function(tab, navigation, index) {
@@ -474,7 +474,7 @@
 
     // COTIZACION 
 
-    var $validatortest = $("#form-cotizar").validate({
+    var $validatorcotizar = $("#form-cotizar").validate({
       debug: true,
       submitHandler: function (form) {
         //alert("ok");
@@ -549,7 +549,7 @@
     $('#cotizarwizard .finish').click(function() {
         var $valid = $("#form-cotizar").valid();
         if(!$valid) {
-          $validatortest.focusInvalid();
+          $validatorcotizar.focusInvalid();
           return false;
         }else{
 
@@ -612,7 +612,7 @@
 
         var $valid = $("#form-cotizar").valid();
         if(!$valid) {
-          $validatortest.focusInvalid();
+          $validatorcotizar.focusInvalid();
           return false;
         }
       }, onTabShow: function(tab, navigation, index) {
