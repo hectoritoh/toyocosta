@@ -196,7 +196,7 @@ sonata_media:
 
     cdn:
         server:
-            path: http://www.toyocosta.com/page/web/uploads/media # http://media.sonata-project.org/
+            path: http://www.toyocosta.com/web/uploads/media # http://media.sonata-project.org/
             # path: http://localhost/toyocostaweb/web/uploads/media # http://media.sonata-project.org/
 
     filesystem:
