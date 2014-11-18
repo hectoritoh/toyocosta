@@ -50,7 +50,36 @@ class LandingController extends Controller
     }
 
     
-	
+	// LANDINGS 17/11/2014
+
+
+    public function rentBumeranAction(){
+
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:rentBumeran.html.twig');
+    }
+
+    public function ravSeowebmasterAction(){
+
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:ravSeowebmaster.html.twig');
+    }
+
+    public function yarisSolucionesAction(){
+
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:yarisSoluciones.html.twig');
+    }
+    
+    public function yarisInventoAction(){
+
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:yarisInvento.html.twig');
+    }
+    
+    public function seminuevoBumeranAction(){
+
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:seminuevoBumeran.html.twig');
+    }
+
+
+
 	public function envioLandingAction(Request $request){
 
         ini_set('max_execution_time', 600);

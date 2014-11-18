@@ -216,6 +216,27 @@ landinggoogle:
     path:      /landing/etiqueta-google
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:etiquetaGoogle }
 
+# Landings 17/11/2014
+
+landing_rent_bumeran:
+    path:      /landing/rent-bumeran
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:rentBumeran }
+
+landing_rav_seo:
+    path:      /landing/rav-seowebmaster
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:ravSeowebmaster }
+
+landing_yaris_soluciones:
+    path:      /landing/yaris-soluciones
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:yarisSoluciones }
+
+landing_yaris_invento:
+    path:      /landing/yaris-invento
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:yarisInvento }
+
+landing_seminuevo_bumeran:
+    path:      /landing/seminuevo-bumeran
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:seminuevoBumeran }
 
 envio_landing:
     path:      /landing/form
