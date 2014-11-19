@@ -1168,7 +1168,7 @@ class DefaultController extends Controller
 
 
 
-            $arrayCorreo = array( $email => 'Recurso' , 'ycosquillo@celmedia.com' => 'Admin' );
+            $arrayCorreo = array( $email => 'Recurso' ,  'cdnventas@toyocosta.com.ec' => 'Toyocosta', 'ycosquillo@celmedia.com' => 'Admin' );
 
 
             foreach ( $taller->getContactos() as $item) {
