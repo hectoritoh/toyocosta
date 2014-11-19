@@ -1201,7 +1201,7 @@ class DefaultController extends Controller
 
             ->setTo( $arrayCorreo )
             
-            ->setCc('cdnventas@toyocosta.com.ec' , 'Toyocosta')
+            // ->setCc('cdnventas@toyocosta.com.ec' , 'Toyocosta')
 
             ->setContentType("text/html")
 
