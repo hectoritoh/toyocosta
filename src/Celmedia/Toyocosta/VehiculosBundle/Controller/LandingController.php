@@ -79,7 +79,12 @@ class LandingController extends Controller
     }
 
 
+    public function navidadBannerAction(){
 
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:navidadBanner.html.twig');
+    }
+    
+    
 	public function envioLandingAction(Request $request){
 
         ini_set('max_execution_time', 600);

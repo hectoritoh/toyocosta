@@ -238,6 +238,12 @@ landing_seminuevo_bumeran:
     path:      /landing/seminuevo-bumeran
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:seminuevoBumeran }
 
+landing_navidad_banner:
+    path:      /landing/navidad
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:navidadBanner }
+
+
+
 envio_landing:
     path:      /landing/form
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:envioLanding }
