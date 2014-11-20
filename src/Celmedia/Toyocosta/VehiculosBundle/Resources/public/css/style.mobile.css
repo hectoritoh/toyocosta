@@ -314,11 +314,15 @@ label {
 }
 .btn-ver-mas{
 	background-color: #FFFFFF;
-	color: #767676;
+	color: #666666;
 	text-shadow: 0px 0px 0px transparent;
 	width: 100%;
 	text-transform: uppercase;
 	border-radius: 3px;
+	box-shadow: 0 4px 18px -4px #2C2929;
+}
+.btn-ver-mas:hover{
+	color: #DF182B;
 }
 .carousel-caption{
 	top: 75%;
