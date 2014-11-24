@@ -105,7 +105,7 @@
                         <div class="container-fluid">
                             <div class="row">
                                 <div class="col-md-12 fondo-ficha sin-padding">
-                                    <a id="seminuevo{{ seminuevo.modelo | replace(' ':'_')  }}" data-toggle="modal" href="#modal_seminuevo{{ seminuevo.modelo | replace(' ':'_') }}">
+                                    <a id="seminuevo{{ seminuevo.modelo | replace({' ': '_'})  }}" data-toggle="modal" href="#modal_seminuevo{{ seminuevo.modelo | replace({' ': '_'}) }}">
                                         <div class="row img-ficha-sm cimg-smpreview">
                                             {# seminuevo.galeria[0] = Va item 0 porque es la foto destacada #}
                                             <img src="{{ asset('uploads/seminuevos/'   ~   seminuevo.galeria[0].imagen ) }}" alt="{{ seminuevo.modelo }}" class="img-responsive obj-centrar"/>
@@ -148,13 +148,13 @@
                                     </div>
                                     <div class="row">
                                         <div class="col-md-12">
-                                            <a href="#modal_seminuevo{{ seminuevo.modelo | replace(' ':'_')  }}" data-toggle="modal" class="btn btn-iniciar">Más información</a>
+                                            <a href="#modal_seminuevo{{ seminuevo.modelo | replace({' ': '_'})  }}" data-toggle="modal" class="btn btn-iniciar">Más información</a>
                                         </div>
                                     </div>
                                 </div>
                                 
                                 <!-- Modal -->
-                                <div class="modal fade" id="modal_seminuevo{{ seminuevo.modelo | replace(' ':'_')  }}" tabindex="-1" role="dialog">
+                                <div class="modal fade" id="modal_seminuevo{{ seminuevo.modelo | replace({' ': '_'})  }}" tabindex="-1" role="dialog">
                                     <div class="modal-dialog modal-lg-seminuevo">
                                         <div class="modal-content modal-content-seminuevo">
                                             <div class="modal-header header-ficha">
