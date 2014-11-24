@@ -447,7 +447,7 @@ class MobileController extends Controller
                 )
             );
 
-            $vehiculoModelo = $em->getRepository('CelmediaToyocostaVehiculosBundle:VehiculoModelos')->findOneBy(
+            $vehiculo = $em->getRepository('CelmediaToyocostaVehiculosBundle:Vehiculo')->findOneBy(
                 array(
                     'id' => $modeloid,
                     "estado" => 1
@@ -468,6 +468,7 @@ class MobileController extends Controller
             
 
 
+            $contenido = 'Mensaje: '.$comentario.' , Vehiculo: '.$vehiculo->getNombre().'';
 
             // Creamos el objeto infomantenimiento
             $mantenimiento = new \Celmedia\Toyocosta\ContenidoBundle\Entity\InfoMantenimiento();
@@ -477,19 +478,19 @@ class MobileController extends Controller
             $mantenimiento->setTelefono( $telefono  );
             $mantenimiento->setEmail( $email  );
             $mantenimiento->setObservaciones( $observaciones  );
-            $mantenimiento->setComentarios( $comentario  );
+            $mantenimiento->setComentarios( $contenido  );
             $mantenimiento->setCelular( $celular  );
             $mantenimiento->setFechaTentativa( new \DateTime($fecha ) );
             $mantenimiento->setTipoReserva( $reserva );
             $mantenimiento->setTaller( $taller );
-            $mantenimiento->setModelo( $vehiculoModelo );
+            //$mantenimiento->setModelo( $vehiculoModelo );
             $mantenimiento->setKilometros( $kilometraje );
 
 
 
-            $extraMensaje = " Modelo:  ".$mantenimiento->getModelo()->getNombre()." <br />
+            $extraMensaje = " Vehiculo:  ".$vehiculo->getNombre()." <br />
             Kilometraje:  ".$mantenimiento->getKilometros()." <br />
-            Comentario:  ".$mantenimiento->getComentarios();
+            Comentario:  ".$comentario;
 
 
 
