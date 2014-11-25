@@ -1065,7 +1065,7 @@ class DefaultController extends Controller
             $observaciones = $request->request->get('observaciones');
             $tallerid = $request->request->get('taller');
             $comentario = $request->request->get('comentario');
-            $modeloid = $request->request->get('modelo');
+            $vehiculoid = $request->request->get('modelo');
             $kilometraje = $request->request->get('kilometraje');
             $regalo = $request->request->get('regalo');
 
@@ -1129,17 +1129,17 @@ class DefaultController extends Controller
             $mantenimiento->setTipoReserva( $reserva );
             $mantenimiento->setTaller( $taller );
 
-            if($modeloid){
-                $vehiculoModelo = $em->getRepository('CelmediaToyocostaVehiculosBundle:VehiculoModelos')->findOneBy(
+            if($vehiculoid){
+                $vehiculo = $em->getRepository('CelmediaToyocostaVehiculosBundle:Vehiculo')->findOneBy(
                     array(
-                        'id' => $modeloid,
+                        'id' => $vehiculoid,
                         "estado" => 1
                     )
                 );
-                $mantenimiento->setModelo( $vehiculoModelo );
+                $mantenimiento->setModelo( $vehiculo->getNombre() );
                 $mantenimiento->setKilometros( $kilometraje );
 
-                $extraMensaje = " Modelo:  ".$mantenimiento->getModelo()->getNombre()." <br />
+                $extraMensaje = " Modelo:  ".$mantenimiento->getModelo()." <br />
                 Kilometraje:  ".$mantenimiento->getKilometros();
 
             }else{

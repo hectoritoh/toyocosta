@@ -409,7 +409,7 @@ class MobileController extends Controller
             $fecha = $request->request->get('fecha');
             $reservaid = $request->request->get('reserva');
             $tallerid = $request->request->get('taller');
-            $modeloid = $request->request->get('modelo');
+            $vehiculoid = $request->request->get('modelo');
             $kilometraje = $request->request->get('kilometraje');
             $comentario = $request->request->get('comentario');
             $observaciones = $request->request->get('observaciones');
@@ -420,7 +420,7 @@ class MobileController extends Controller
 
 
 
-            if(!$nombre || !$apellido || !$telefono || !$email || !$celular || !$fecha || !$reservaid || !$tallerid || !$kilometraje || !$modeloid ){
+            if(!$nombre || !$apellido || !$telefono || !$email || !$celular || !$fecha || !$reservaid || !$tallerid || !$kilometraje || !$vehiculoid ){
                 return new JsonResponse(array(
                     'codigo' => 0,
                     'mensaje' => "Complete todos los campos requeridos"
@@ -449,7 +449,7 @@ class MobileController extends Controller
 
             $vehiculo = $em->getRepository('CelmediaToyocostaVehiculosBundle:Vehiculo')->findOneBy(
                 array(
-                    'id' => $modeloid,
+                    'id' => $vehiculoid,
                     "estado" => 1
                 )
             );
@@ -483,7 +483,7 @@ class MobileController extends Controller
             $mantenimiento->setFechaTentativa( new \DateTime($fecha ) );
             $mantenimiento->setTipoReserva( $reserva );
             $mantenimiento->setTaller( $taller );
-            //$mantenimiento->setModelo( $vehiculoModelo );
+            $mantenimiento->setModelo( $vehiculo->getNombre() );
             $mantenimiento->setKilometros( $kilometraje );
 
 
