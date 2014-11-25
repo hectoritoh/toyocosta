@@ -1140,7 +1140,7 @@ fieldset.ty-fieldset-border {
 	font-size: 10px;
 	text-transform: uppercase;
 }
-.navbar-nav-vehiculos>li>a:hover, .navbar-nav-vehiculos>li>a:focus {
+.navbar-nav-vehiculos>li>a:hover, .navbar-nav-vehiculos>li>a:focus, .navbar-nav-vehiculos>li>a:active {
 	text-decoration: none;
 	background-color: #DF182B;
 	color: #FFFFFF;
@@ -1933,7 +1933,7 @@ ul.tabs-especificaciones li > a:hover{
 #fondo-error{
 	background-image: url("../../../bundles/celmediatoyocostavehiculos/images/404.jpg");
 }
-.submenu-vehiculo>li>a:hover, .nav>li>a:focus {
+.submenu-vehiculo>li>a:hover, .submenu-vehiculo>li>a:focus {
  background-color: transparent;
 }
 

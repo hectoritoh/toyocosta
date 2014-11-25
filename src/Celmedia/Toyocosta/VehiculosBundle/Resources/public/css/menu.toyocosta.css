@@ -1,3 +1,9 @@
+#qLoverlay{
+	background-image: url('../../../bundles/celmediatoyocostavehiculos/images/logo-cargador.png');
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+}
+
 #linkstop{
 	background-color: #F5F5F5;
 	line-height: 35px;
