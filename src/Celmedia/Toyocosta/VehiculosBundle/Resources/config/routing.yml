@@ -242,6 +242,15 @@ landing_navidad_banner:
     path:      /landing/navidad
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:navidadBanner }
 
+# Landings 01/12/2014
+
+landing_financiamiento_face:
+    path:      /landing/financiamiento-face
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:financiamientoFace }
+
+landing_navidad_face:
+    path:      /landing/navidad-face
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:navidadFace }
 
 
 envio_landing:

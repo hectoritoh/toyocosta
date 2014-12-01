@@ -84,7 +84,22 @@ class LandingController extends Controller
         return $this->render('CelmediaToyocostaVehiculosBundle:Landing:navidadBanner.html.twig');
     }
     
+    // LANDINGS 01/12/2014
+
+
+    public function financiamientoFaceAction(){
+
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:financiamiento.facebook.html.twig');
+    }
+
+
+    public function navidadFaceAction(){
+
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:navidad.facebook.html.twig');
+    }
+
     
+
 	public function envioLandingAction(Request $request){
 
         ini_set('max_execution_time', 600);
