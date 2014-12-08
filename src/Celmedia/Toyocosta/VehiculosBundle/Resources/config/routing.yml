@@ -252,6 +252,29 @@ landing_navidad_face:
     path:      /landing/navidad-face
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:navidadFace }
 
+# Landings 08/12/2014
+
+landing_nav_green:
+    path:      /landing/navidad-green
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:navGreen }
+
+landing_nav_seo:
+    path:      /landing/navidad-seo
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:navSeo }
+
+landing_nav_black:
+    path:      /landing/navidad-black
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:navBlack }
+
+landing_nav_ceo:
+    path:      /landing/navidad-ceo
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:navCeo }
+
+
+
+
+
+
 
 envio_landing:
     path:      /landing/form

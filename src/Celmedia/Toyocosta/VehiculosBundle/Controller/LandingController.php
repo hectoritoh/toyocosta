@@ -98,6 +98,34 @@ class LandingController extends Controller
         return $this->render('CelmediaToyocostaVehiculosBundle:Landing:navidad.facebook.html.twig');
     }
 
+        
+    // LANDINGS 08/12/2014
+
+
+    public function navGreenAction(){
+
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:navGreen.html.twig');
+    }
+
+
+    public function navSeoAction(){
+
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:navSeo.html.twig');
+    }
+
+
+    public function navBlackAction(){
+
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:navBlack.html.twig');
+    }
+
+
+    public function navCeoAction(){
+
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:navCeo.html.twig');
+    }
+
+
     
 
 	public function envioLandingAction(Request $request){
