@@ -268,7 +268,7 @@ class MobileController extends Controller
 
             ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
 
-            ->setTo(array( $email ,  'cdnventas@toyocosta.com.ec' => 'Toyocosta', 'ycosquillo@celmedia.com' => 'Admin'))
+            ->setTo(array( $email ,  'cdnventas@toyocosta.com.ec' => 'Toyocosta' ))
             
             ->setContentType("text/html")
 
@@ -358,7 +358,7 @@ class MobileController extends Controller
 
             ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
 
-            ->setTo(array( $email , 'cdnventas@toyocosta.com.ec' => 'Toyocosta', 'ycosquillo@celmedia.com' => 'Admin'))
+            ->setTo(array( $email , 'cdnventas@toyocosta.com.ec' => 'Toyocosta' ))
             
             ->setContentType("text/html")
 
@@ -513,7 +513,7 @@ class MobileController extends Controller
 
 
 
-            $arrayCorreo = array( $email => 'Recurso' , 'ycosquillo@celmedia.com' => 'Admin' );
+            $arrayCorreo = array( $email => 'Recurso'  );
 
 
             foreach ( $taller->getContactos() as $item) {
@@ -682,7 +682,7 @@ class MobileController extends Controller
 
             ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
 
-            ->setTo(array( $email ,  'cdnventas@toyocosta.com.ec' => 'Toyocosta', 'ycosquillo@celmedia.com' => 'Admin'))
+            ->setTo(array( $email ,  'cdnventas@toyocosta.com.ec' => 'Toyocosta' ))
             
             ->setContentType("text/html")
 

@@ -267,7 +267,7 @@
 
                     ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
 
-                    ->setTo(array( $correos_array , 'pirellimatriz@toyocosta.com.ec' => 'Toyocosta', 'ycosquillo@celmedia.com' => 'Admin'))
+                    ->setTo(array( $correos_array , 'pirellimatriz@toyocosta.com.ec' => 'Toyocosta' ))
 
                     ->setContentType("text/html")
 

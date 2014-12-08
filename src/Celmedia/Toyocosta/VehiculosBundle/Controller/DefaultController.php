@@ -537,7 +537,7 @@ class DefaultController extends Controller
 
             ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
 
-            ->setTo(array( $correos_array , 'cdnventas@toyocosta.com.ec' => 'Toyocosta', 'ycosquillo@celmedia.com' => 'Admin'))
+            ->setTo(array( $correos_array , 'cdnventas@toyocosta.com.ec' => 'Toyocosta' ))
             
             ->setContentType("text/html")
 
@@ -607,7 +607,7 @@ class DefaultController extends Controller
 
             ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
 
-            ->setTo(array( $email , 'cdnventas@toyocosta.com.ec' => 'Toyocosta', 'ycosquillo@celmedia.com' => 'Admin'))
+            ->setTo(array( $email , 'cdnventas@toyocosta.com.ec' => 'Toyocosta' ))
             
             ->setContentType("text/html")
 
@@ -1168,7 +1168,7 @@ class DefaultController extends Controller
 
 
 
-            $arrayCorreo = array( $email => 'Recurso' , 'ycosquillo@celmedia.com' => 'Admin' );
+            $arrayCorreo = array( $email => 'Recurso' );
 
 
             foreach ( $taller->getContactos() as $item) {
