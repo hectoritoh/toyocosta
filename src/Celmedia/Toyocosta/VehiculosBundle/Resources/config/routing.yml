@@ -281,7 +281,10 @@ landing_fin_sol:
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:finanSol }
 
 
-
+# Landing para red social
+landing_rs:
+    path:      /landing/toyocosta-rs
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:rs }
 
 
 envio_landing:

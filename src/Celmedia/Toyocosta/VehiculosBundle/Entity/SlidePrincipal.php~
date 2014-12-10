@@ -32,6 +32,11 @@ class SlidePrincipal
     /**
      * @var string
      */
+    private $imagen_movil;
+
+    /**
+     * @var string
+     */
     private $seccion;
 
     /**
@@ -132,6 +137,29 @@ class SlidePrincipal
     public function getImagenBanner()
     {
         return $this->imagen_banner;
+    }
+
+    /**
+     * Set imagen_movil
+     *
+     * @param string $imagenMovil
+     * @return SlidePrincipal
+     */
+    public function setImagenMovil($imagenMovil)
+    {
+        $this->imagen_movil = $imagenMovil;
+
+        return $this;
+    }
+
+    /**
+     * Get imagen_movil
+     *
+     * @return string 
+     */
+    public function getImagenMovil()
+    {
+        return $this->imagen_movil;
     }
 
     /**
@@ -251,14 +279,15 @@ class SlidePrincipal
     /**
      * @ORM\PrePersist
      */
-     public function lifecycleFileUpload()
+    public function lifecycleFileUpload()
     {
+        // Add your code here
         $this->uploadImagenSlide();
+        $this->uploadImagenMobilBanner();
     }
 
 
-
-        /**
+            /**
      * Unmapped property to handle file uploads
      */
     private $ImagenSlide;
@@ -307,10 +336,61 @@ class SlidePrincipal
     }
 
 
+
+            /**
+     * Unmapped property to handle file uploads
+     */
+    private $ImagenMobilBanner;
+
+    /**
+     * Sets file.
+     *
+     * @param UploadedFile $file
+     */
+    public function setImagenMobilBanner(UploadedFile $ImagenMobilBanner = null)
+    {
+        $this->ImagenMobilBanner = $ImagenMobilBanner;
+    }
+
+    /**
+     * Get file.
+     *
+     * @return UploadedFile
+     */
+    public function getImagenMobilBanner()
+    {
+        return $this->ImagenMobilBanner;
+    }
+
+    /**
+     * Manages the copying of the file to the relevant place on the server
+     */
+    public function uploadImagenMobilBanner()
+    {
+        // the file property can be empty if the field is not required
+        if (null === $this->getImagenMobilBanner()) {
+            return;
+        }
+
+        // move takes the target directory and target filename as params
+        $this->getImagenMobilBanner()->move(
+           __DIR__.'/../../../../../web/'. 'uploads/slide-principal/mobil' ,
+            $this->getImagenMobilBanner()->getClientOriginalName()
+        );
+
+        // set the path property to the filename where you've saved the file
+        $this->imagen_movil = $this->getImagenMobilBanner()->getClientOriginalName();
+
+        // clean up the file property as you won't need it anymore
+        $this->setImagenMobilBanner(null);
+    }
+
+
     public function __toString()
     {
         return $this->getLink();
     }
+
 
 
 }

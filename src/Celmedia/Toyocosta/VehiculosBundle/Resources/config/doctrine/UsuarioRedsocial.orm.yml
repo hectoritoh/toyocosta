@@ -1,0 +1,50 @@
+Celmedia\Toyocosta\VehiculosBundle\Entity\UsuarioRedsocial:
+    type:  entity
+    table: usuario_redsocial
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        facebook_id:
+            type: string
+            nullable: true
+        facebook_access_token:
+            type: string
+            nullable: true
+        twitter_id:
+            type: string
+            nullable: true
+        twitter_access_token:
+            type: string
+            nullable: true
+        first_name:
+            type: string
+            nullable: true
+        last_name:
+            type: string
+            nullable: true
+        gender:
+            type: string
+            nullable: true
+        link:
+            type: string
+            nullable: true
+        name:
+            type: string
+            nullable: true
+        verificado:
+            type: boolean
+            nullable: false
+        servicio:
+            type: string
+            nullable: false
+        telefono:
+            type: string
+            nullable: true
+        ciudad:
+            type: string
+            nullable: true
