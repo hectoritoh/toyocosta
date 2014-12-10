@@ -141,6 +141,10 @@ class LandingController extends Controller
     }
 
     
+    public function mailingCuotasAction(){
+
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:cuotas.html.twig');
+    }
 
 
 	public function envioLandingAction(Request $request){

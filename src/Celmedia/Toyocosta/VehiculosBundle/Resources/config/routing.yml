@@ -295,3 +295,7 @@ envio_landing:
 mailing:
     path:      /mailing/etiqueta-roja
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:mailingEtiqueta }
+
+mailing-cuotas:
+    path:      /mailing/cuotas
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:mailingCuotas }
