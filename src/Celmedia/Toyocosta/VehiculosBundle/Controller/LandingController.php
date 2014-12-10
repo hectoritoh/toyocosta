@@ -126,7 +126,22 @@ class LandingController extends Controller
     }
 
 
+    // LANDINGS 10/12/2014
+
+
+    public function finanBlackAction(){
+
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:finanBlack.html.twig');
+    }
+
+
+    public function finanSolAction(){
+
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:finanSoluciones.html.twig');
+    }
+
     
+
 
 	public function envioLandingAction(Request $request){
 

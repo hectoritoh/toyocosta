@@ -270,7 +270,15 @@ landing_nav_ceo:
     path:      /landing/navidad-ceo
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:navCeo }
 
+# Landings 10/12/2014
 
+landing_fin_black:
+    path:      /landing/finan-black
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:finanBlack }
+
+landing_fin_sol:
+    path:      /landing/finan-soluciones
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:finanSol }
 
 
 
