@@ -300,3 +300,61 @@ mobile_detect:
         mobile: ~
         tablet: ~
     switch_device_view: ~
+
+hwi_oauth:
+    # name of the firewall in which this bundle is active, this setting MUST be set
+    firewall_name: secured_area
+    resource_owners:
+        facebook:
+            type:          facebook
+            client_id:     556243797790231
+            client_secret: 81e9d210184c72e3b9a9f293a613eafc
+#            infos_url:     https://graph.facebook.com/me?fields=username,name,picture.type(square)
+            scope:         public_profile,email,user_friends
+            paths:
+                email:          email
+                public_profile: public_profile
+                profilepicture: picture.data.url     
+
+        twitter:
+            type:                twitter
+            client_id:           rfRy86FcWo3FUIauuw0rqNyIb
+            client_secret:       0XbnR8oOY50RNm86tfCTS6Z1WEuqlkjev4sINITIF6MVkXppDj
+
+
+
+
+    http_client:
+        verify_peer: false
+
+    fosub:
+        # try 30 times to check if a username is available (foo, foo1, foo2 etc)
+        username_iterations: 30
+
+        # mapping between resource owners (see below) and properties
+        properties:
+            facebook: facebookUId
+            twitter:  twitterUId
+
+    connect:
+        account_connector: my_user_provider
+
+services:
+    hwi_oauth.user.provider.entity:
+        class: HWI\Bundle\OAuthBundle\Security\Core\User\OAuthUserProvider
+    # an optional setting to configure a query string parameter which can be used to redirect
+    # the user after authentication, e.g. /connect/facebook?_destination=/my/destination will
+    # redirect the user to /my/destination after facebook authenticates them.  If this is not
+    # set then the user will be redirected to the original resource that they requested, or
+    # the base address if no resource was requested.  This is similar to the behaviour of
+    # [target_path_parameter for form login](http://symfony.com/doc/2.0/cookbook/security/form_login.html).
+    # target_path_parameter: _destination
+
+    # an optional setting to use the HTTP REFERER header to be used in case no
+    # previous URL was stored in the session (i.e. no resource was requested).
+    # This is similar to the behaviour of
+    # [using the referring URL for form login](http://symfony.com/doc/2.0/cookbook/security/form_login.html#using-the-referring-url).
+    # use_referer: true
+
+    # here you will add one (or more) configurations for resource owners
+    # and other settings you want to adjust in this bundle, just checkout the list below!

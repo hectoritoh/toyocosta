@@ -40,7 +40,8 @@
         "gregwar/captcha-bundle": "dev-master",
         "suncat/mobile-detect-bundle": "0.9.*",
         "sonata-project/markitup-bundle": "2.1.*@dev", 
-        "kriswallsmith/assetic": "1.1.x@stable"
+        "kriswallsmith/assetic": "1.1.x@stable",
+        "hwi/oauth-bundle": "0.4.*@dev"
         
     },
     "scripts": {

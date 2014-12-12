@@ -48,6 +48,8 @@ class AppKernel extends Kernel
 
             new SunCat\MobileDetectBundle\MobileDetectBundle(),
 
+            new HWI\Bundle\OAuthBundle\HWIOAuthBundle(),
+
             new FOS\UserBundle\FOSUserBundle(),
             new Sonata\UserBundle\SonataUserBundle('FOSUserBundle'),
             new Application\Sonata\UserBundle\ApplicationSonataUserBundle(),

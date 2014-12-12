@@ -1631,7 +1631,9 @@ li.disabled > .btn.btn-anterior{
 	.carousel-indicators {
 	bottom: 40px;
 	}
-	
+	.modal-dialog{
+		width: 724px;
+	}
 }
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) and (max-width: 979px) { 
@@ -1777,6 +1779,15 @@ li.disabled > .btn.btn-anterior{
 
 /* Landscape phones and down */
 @media (max-width: 480px) { 
+	.hh-modal-container{
+		height: 500px !important;
+	}
+	.hh-header-modal{
+		height: 172px !important;
+	}
+	.txt-sub-rs{
+		font-size: 16px !important;
+	}
 	.iconos-ty{
 		float: left;
 	}
@@ -2665,4 +2676,59 @@ button.close-ficha{
 .background-submenu{
 	background-color: #F5F5F5;
 	box-shadow: 0 5px 5px -5px #CECECE;
+}
+
+
+/*CSS PARA MODAL LANDING RS*/
+
+.hh-modal-container{
+	width: 100%;
+	height: 700px;
+	background-image: url("../../../bundles/celmediatoyocostavehiculos/images/varios/premia.png");
+	background-position: center top;
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+.hh-header-modal{
+	height: 325px;
+}
+.txt-sub-rs{
+	font-size: 23px;
+	text-align: center;
+	color: #747474;
+}
+.txt-ti-rs{
+	font-size: 21px;
+	color: #FE0100;
+}
+#social-connect{
+	margin: 15px 0px 15px 0px;
+}
+.icono-correcto{
+	width: 22px;
+	height: 22px;
+	background-position: center center;
+	background-repeat: no-repeat;
+	margin-top: 5px;
+}
+.icono-correcto.icono-ok{
+	background-image: url("../../../bundles/celmediatoyocostavehiculos/images/varios/icono-correcto.png");
+}
+.icono-correcto.icono-not{
+	background-image: url("../../../bundles/celmediatoyocostavehiculos/images/varios/icono-incorrecto.png");
+}
+
+.btn-hh {
+	width: 100%;
+	position: relative;
+	background-image: none;
+	background-color: #cc0000;
+	color: #FFFFFF;
+	border-radius: 0px;
+}
+.btn-hh:hover{
+	color: #cc0000;
+	background-color: #ffffff;
+	border-color: #cc0000;
+	font-weight: bold;
 }

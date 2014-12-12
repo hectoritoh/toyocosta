@@ -5,135 +5,348 @@
 
 		{% include 'CelmediaToyocostaVehiculosBundle:Blocks:top.menu.secciones.html.twig' %}
 
-<div class="row banner-lp visible-md visible-lg visible-sm hidden-xs" style="top:40px;">
-	{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/landings/cuotas2.png' %}
-	    <img src="{{ asset_url }}" alt=""  style="width:100%;" class="img-responsive" />
-	{% endimage %}
-</div>
-
-<div class="row banner-lp hidden-md hidden-lg hidden-sm visible-xs">
-	{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/landings/cuotas2-m.png' %}
-	    <img src="{{ asset_url }}" alt=""  style="width:100%;" class="img-responsive" />
-	{% endimage %}
-</div>
-
-
-<div class="container">
-
-	<div class="row lp-contenido">
-
-
-		<div class="col-md-12 text-center">
-			<h1 class="txt-lp-1 txt-rojo">NAVIDAD TOYOTA</h1>
-			
-			<p class="txt-lp-p txt-info">Por favor llene el siguiente formulario para que un representante de Toyocosta pueda comunicarse inmediatamente con usted.</p>
-
+		<div class="row banner-lp visible-md visible-lg visible-sm hidden-xs" style="top:40px;">
+			{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/landings/premia.png' %}
+			    <img src="{{ asset_url }}" alt=""  style="width:100%;" class="img-responsive" />
+			{% endimage %}
 		</div>
 
-		<div class="col-md-12">
+		<div class="row banner-lp hidden-md hidden-lg hidden-sm visible-xs">
+			{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/landings/premia-m.png' %}
+			    <img src="{{ asset_url }}" alt=""  style="width:100%;" class="img-responsive" />
+			{% endimage %}
+		</div>
 
-			<form id="form-etiqueta" class="form-info">
-				
-				<input type="hidden" id="campana" name="campana" value="Financiamiento de seminuevos, mailing - Toyocosta RS" />
 
-				<div class="row space-input">
-					<div class="col-md-10 col-md-offset-1 col-xs-12">
 
+
+	        
+
+	          <div class="container" style="">
+                <div class="row">
+                    <div class="col-md-12">
+
+
+                        <div class="modal fade modal-slh" id="modalRegistrar" tabindex="-1" role="dialog" aria-labelledby="modalRegistrarLabel" aria-hidden="true">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-body">
+                                        <div class="hh-modal-container">
+                                            <div class="container-fluid">
+                                                <div class="row hh-header-modal">
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12 text-center">
+                                                        <h2 class="texto-negro txt-ti-rs">¡TOYOCOSTA PREMIA TU FIDELIDAD!</h2>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-12 text-center">
+                                                        <h2 class="texto-negro txt-sub-rs">Danos Like en Facebook o s&iacute;guenos en Twitter y entra al sorteo por una tablet.</h2>
+                                                    </div>
+                                                </div>
+                                                {% if app.user %}
+                                                	<div id="form-registro">
+                                                		
+	                                                	<div class="row row-espaciado-m cont-campo">
+	                                                        <div class="col-md-6 col-sm-6 col-xs-8 col-md-offset-3 col-sm-offset-3 text-center">
+	                                                            <input type="hidden" name="isFBLike" id="isFBLike" value="" />
+	                                                            {% if app.user.facebookUid %}
+	                                                                <div class="fb-like-box" data-href="https://www.facebook.com/toyocosta" data-colorscheme="light" data-show-faces="false" data-header="false" data-stream="false" data-show-border="false"></div>
+	                                                            {% elseif app.user.twitterUid %}
+	                                                                <input type="hidden" name="isFBLike" id="isFBLike" value="ok" />
+	                                                                <a href="https://twitter.com/toyocostanews" class="twitter-follow-button" data-show-count="false" data-lang="es" data-size="large">Seguir a @toyocostanews</a>
+	                                                            {% endif %}
+	                                                        </div>
+	                                                        <div class="col-md-1 col-sm-1 col-xs-1 text-left">
+	                                                            <div class="icono-correcto"></div>
+	                                                        </div>
+	                                                    </div>
+	                                                    
+	                                                    <div class="row row-espaciado-m" style="margin-top:25px;">
+	                                                        <div class="col-md-4 col-sm-4 col-md-offset-4 col-sm-offset-4 text-center">
+	                                                            {#<input type="submit" class="btn btn-hh" id="btn-registrar" value="LISTO">#}
+	                                                            <button type="button" class="btn btn-hh" data-dismiss="modal" onclick="validarEmail();">LISTO</button>
+	                                                        </div>
+	                                                    </div>
+
+                                                	</div>
+
+
+                                                {% else %}
+
+                                                <div class="row">
+                                                    <div id="social-connect" class="col-md-12 text-center">
+	            
+											            {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/varios/btn-fbconnect.png' %}
+											            <img  onclick="fb_login();"  src="{{ asset_url }}" alt="facebook connect" class="img-responsive" style="cursor:pointer;margin:0 auto;" />
+											            {% endimage %}
+											            
+											            
+											            <div class="clearfix">
+											            </div>
+											            
+											        </div>
+
+											        <div  class="col-md-12 text-center">
+											        	
+											            {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/varios/btn-twconnect.png' %}
+											            <img  onclick="window.location='{{ url("hwi_oauth_service_redirect", {service: "twitter"}) }}'" src="{{ asset_url }}" alt="twitter connect"   class="img-responsive"  style="cursor:pointer;margin:0 auto;" />
+											            {% endimage %}
+
+
+											        </div>
+
+                                                </div>
+
+                                               {% endif %}
+
+                                               <div class="row">
+                                               		<div class="col-md-12 text-center" style="padding-top:20px;">
+                                               			<p>*PROMOCI&Oacute;N ES EXCLUSIVA PARA CLIENTES DE TOYOCOSTA</p>
+                                               		</div>
+                                               </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>   
+
+
+
+
+		<div class="container">
+
+			<div class="row lp-contenido">
+
+
+				<div class="col-md-12 text-center">
+					<h1 class="txt-lp-1 txt-rojo">NAVIDAD TOYOTA</h1>
+					
+					<p class="txt-lp-p txt-info">Por favor llene el siguiente formulario para que un representante de Toyocosta pueda comunicarse inmediatamente con usted.</p>
+
+				</div>
+
+				<div class="col-md-12">
+
+					<form id="form-etiqueta" class="form-info">
+						
+						<input type="hidden" id="campana" name="campana" value="Navidad Toyota, cliente" />
+
+						<div class="row space-input">
+							<div class="col-md-10 col-md-offset-1 col-xs-12">
+
+								<div class="row">
+									<div class="col-sm-4 col-sm-offset-1 col-xs-12">
+										<label>Nombre:</label>
+										<input id="nombre" name="nombre" type="text" class="form-control" placeholder="" />
+									</div>
+									<div class="col-sm-4 col-sm-offset-1 col-xs-12">
+										<label>Apellido:</label>
+										<input id="apellido" name="apellido" type="text" class="form-control" placeholder="" />
+									</div>
+
+								</div>	
+							</div>
+
+						</div>
+
+						<div class="row space-input">
+							<div class="col-md-10 col-md-offset-1 col-xs-12">
+
+								<div class="row">
+									<div class="col-sm-4 col-sm-offset-1 col-xs-12">
+										<label>Tel&eacute;fono:</label>
+										<input id="telefono" name="telefono" type="text" class="form-control" placeholder="" />
+									</div>
+									<div class="col-sm-4 col-sm-offset-1 col-xs-12">
+										<label>Celular:</label>
+										<input id="celular" name="celular" type="text" class="form-control" placeholder="" />
+									</div>
+
+								</div>	
+							</div>
+
+						</div>
+
+						<div class="row space-input">
+							<div class="col-md-10 col-md-offset-1 col-xs-12">
+
+								<div class="row">
+									<div class="col-sm-4 col-sm-offset-1 col-xs-12">
+										<label>Email:</label>
+										<input id="email" name="email" type="text" class="form-control" placeholder="" />
+									</div>
+									<div class="col-sm-4 col-sm-offset-1 col-xs-12">
+										<label>C&eacute;dula:</label>
+										<input id="cedula" name="cedula" type="text" class="form-control" placeholder="" />
+									</div>
+
+								</div>	
+							</div>
+
+						</div>
+
+						<div class="row space-input">
+							<div class="col-md-10 col-md-offset-1 col-xs-12">
+
+								<div class="row">
+									<div class="col-sm-4 col-sm-offset-1 col-xs-12">
+										<label>Modelo:</label>
+										<input id="modelo" name="modelo" type="text" class="form-control" placeholder="" />
+									</div>
+									<div class="col-sm-4 col-sm-offset-1 col-xs-12">
+										<label>Año:</label>
+										<input id="anio" name="anio" type="text" class="form-control" placeholder="" />
+									</div>
+
+								</div>	
+							</div>
+
+						</div>
+
+						<div class="row space-input">
+							<div class="col-md-10 col-md-offset-1 col-xs-12">
+
+								<div class="row">
+									<div class="col-sm-9 col-sm-offset-1 col-xs-12">
+										<label>Comentarios:</label>
+										<textarea id="comentario" name="comentario" class="form-control" rows="3"></textarea>
+
+									</div>
+								</div>	
+							</div>
+
+						</div>
+
+
+						
+						<div class="row space-input" style="padding-top:20px;">
+
+							<div class="col-md-3 col-md-offset-2 col-sm-3 col-xs-12" style="padding-right:0px;">
+
+		                        <input type="submit" value="Enviar" class="btn btn-lg btn-info" style="width:100%;">
+							</div>
+
+						</div>
+
+					</form>
+
+
+
+					<div class="container" id="contenedorEspere" style="display:none;height:200px;">
 						<div class="row">
-							<div class="col-sm-4 col-sm-offset-1 col-xs-12">
-								<label>Nombre:</label>
-								<input id="nombre" name="nombre" type="text" class="form-control" placeholder="" />
+							<div class="col-md-8 col-sm-10 col-xs-12 col-md-offset-2 col-sm-offset-1 text-center">
+								<h4 class="txt-rojo txt-negrita">Enviando información...</h4>
 							</div>
-							<div class="col-sm-4 col-sm-offset-1 col-xs-12">
-								<label>Apellido:</label>
-								<input id="apellido" name="apellido" type="text" class="form-control" placeholder="" />
-							</div>
-
-						</div>	
+						</div>
 					</div>
 
-				</div>
-
-				<div class="row space-input">
-					<div class="col-md-10 col-md-offset-1 col-xs-12">
-
-						<div class="row">
-							<div class="col-sm-4 col-sm-offset-1 col-xs-12">
-								<label>Tel&eacute;fono:</label>
-								<input id="telefono" name="telefono" type="text" class="form-control" placeholder="" />
-							</div>
-							<div class="col-sm-4 col-sm-offset-1 col-xs-12">
-								<label>Celular:</label>
-								<input id="celular" name="celular" type="text" class="form-control" placeholder="" />
-							</div>
-
-						</div>	
-					</div>
-
-				</div>
-
-				<div class="row space-input">
-					<div class="col-md-10 col-md-offset-1 col-xs-12">
-
-						<div class="row">
-							<div class="col-sm-4 col-sm-offset-1 col-xs-12">
-								<label>Email:</label>
-								<input id="email" name="email" type="text" class="form-control" placeholder="" />
-							</div>
-							<div class="col-sm-4 col-sm-offset-1 col-xs-12">
-								<label>C&eacute;dula:</label>
-								<input id="cedula" name="cedula" type="text" class="form-control" placeholder="" />
-							</div>
-
-						</div>	
-					</div>
-
-				</div>
-
-				<div class="row space-input">
-					<div class="col-md-10 col-md-offset-1 col-xs-12">
-
-						<div class="row">
-							<div class="col-sm-9 col-sm-offset-1 col-xs-12">
-								<label>Comentarios:</label>
-								<textarea id="comentario" name="comentario" class="form-control" rows="3"></textarea>
-
-							</div>
-						</div>	
-					</div>
 
 				</div>
 
 
-				
-				<div class="row space-input" style="padding-top:20px;">
-
-					<div class="col-md-3 col-md-offset-2 col-sm-3 col-xs-12" style="padding-right:0px;">
-
-                        <input type="submit" value="Enviar" class="btn btn-lg btn-info" style="width:100%;">
-					</div>
-
-				</div>
-
-			</form>
-
-
-
-			<div class="container" id="contenedorEspere" style="display:none;height:200px;">
-				<div class="row">
-					<div class="col-md-8 col-sm-10 col-xs-12 col-md-offset-2 col-sm-offset-1 text-center">
-						<h4 class="txt-rojo txt-negrita">Enviando información...</h4>
-					</div>
-				</div>
 			</div>
 
-
 		</div>
+		<div id="fb-root"></div>
+
+{% endblock %}
 
 
-	</div>
 
-</div>
+{% block js %}
+
+
+	<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
+
+	<script src="https://connect.facebook.net/en_US/all.js"></script>
+
+	<script type="text/javascript">
+	  
+
+	        window.fbAsyncInit = function () {
+	            // init the FB JS SDK
+	            FB.init({
+	                appId: '556243797790231', // App ID from the app dashboard
+	                channelUrl: 'dev.toyocosta.com:89/toyocosta/channel.html', // Channel file for x-domain comms
+	                status: true, // Check Facebook Login status
+	                xfbml: true, // Look for social plugins on the page
+	                cookie: true, // enable cookies to allow the server to access the session
+	            });
+	        };
+
+   	 		// window.fbAsyncInit = function() {
+			  //   FB.init({
+			  //     appId      : '556243797790231',
+			  //     xfbml      : true,
+			  //     version    : 'v2.2'
+			  //   });
+			  // };
+
+
+
+	        // Load the SDK asynchronously
+	        (function (d) {
+	                var js, id = 'facebook-jssdk',
+	                    ref = d.getElementsByTagName('script')[0];
+	                if (d.getElementById(id)) {
+	                    return;
+	                }
+	                js = d.createElement('script');
+	                js.id = id;
+	                js.async = true;
+	                js.src = "//connect.facebook.net/es_LA/all.js";
+	                ref.parentNode.insertBefore(js, ref);
+	            }
+	            (document));
+
+
+	        
+	        function fb_login() {
+	            FB.getLoginStatus(function(response) {
+	                if (response.status === 'connected') {
+	                    // connected
+	                    //alert('Already connected, redirect to login page to create token.');
+	                    console.log('Already connected, redirect to login page to create token.');
+	                    document.location = "{{ url("hwi_oauth_service_redirect", {service: "facebook"}) }}";
+	                } else {
+	                    // not_authorized
+	                    FB.login(function(response) {
+	                        if (response.authResponse) {
+	                            document.location = "{{ url("hwi_oauth_service_redirect", {service: "facebook"}) }}";
+	                        } else {
+	                            //alert('Cancelled.');
+	                            console.log('Cancelled.');
+	                        }
+	                    }, {scope: 'email'});
+	                }
+	            });
+	        }
+
+
+	        (! function (d, s, id) {
+	                var js, fjs = d.getElementsByTagName(s)[0],
+	                    p = /^http:/.test(d.location) ? 'http' : 'https';
+	                if (!d.getElementById(id)) {
+	                    js = d.createElement(s);
+	                    js.id = id;
+	                    js.src = p + '://platform.twitter.com/widgets.js';
+	                    fjs.parentNode.insertBefore(js, fjs);
+	                }
+	            }
+	            (document, 'script', 'twitter-wjs'));
+	  
+	</script>
+
+
 
 
 {% endblock %}

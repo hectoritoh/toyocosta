@@ -283,7 +283,7 @@ landing_fin_sol:
 
 # Landing para red social
 landing_rs:
-    path:      /landing/toyocosta-rs
+    path:      /landing/navidad-toyota
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:rs }
 
 
@@ -302,3 +302,7 @@ mailing:
 mailing-cuotas:
     path:      /mailing/cuotas
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:mailingCuotas }
+
+mailing-navidad:
+    path:      /mailing/toyota-navidad
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:mailingNavidad }

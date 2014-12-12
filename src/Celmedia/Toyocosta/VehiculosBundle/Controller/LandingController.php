@@ -153,7 +153,12 @@ class LandingController extends Controller
     }
 
 
+    public function mailingNavidadAction(){
 
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:navidadToyota.html.twig');
+    }
+
+    
 
 
 
@@ -175,6 +180,12 @@ class LandingController extends Controller
             $comentario = $request->request->get('comentario');
             $campana = $request->request->get('campana');
 
+            // campos extras
+
+            $modelo = $request->request->get('modelo');
+            $anio = $request->request->get('anio');
+
+
 
             $info = new \Celmedia\Toyocosta\ContenidoBundle\Entity\InfoLandings();
 
@@ -186,6 +197,18 @@ class LandingController extends Controller
             $info->setCelular( $celular  );
             $info->setComentarios( $comentario  );
             
+            if ( $modelo && $anio ) {
+                
+                $info->setModelo( $modelo  );
+                $info->setAnio( $anio  );
+
+                $extraMensaje = " Modelo:  ".$modelo." <br />
+                Año:  ".$anio;
+            }else{
+
+                $extraMensaje = " ";
+            }
+
             
             // $em = $this->getDoctrine()->getManager(); 
             $em->persist(  $info );
@@ -204,7 +227,8 @@ class LandingController extends Controller
             Telefono:  '. $info->getTelefono() .'  <br />
             Email:  '. $info->getEmail() .' <br />
             Celular:  '. $info->getCelular() .' <br />
-            Comentarios:  '. $info->getComentarios() .' ';
+            Comentarios:  '. $info->getComentarios() .' <br />
+            ' . $extraMensaje . ' ';
 
             $message = \Swift_Message::newInstance()
 

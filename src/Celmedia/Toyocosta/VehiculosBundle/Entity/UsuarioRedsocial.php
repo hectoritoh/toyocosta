@@ -3,21 +3,23 @@
 namespace Celmedia\Toyocosta\VehiculosBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use FOS\UserBundle\Model\User as BaseUser;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * UsuarioRedsocial
  */
-class UsuarioRedsocial
+class UsuarioRedsocial extends BaseUser
 {
     /**
      * @var integer
      */
-    private $id;
+    protected $id;
 
     /**
      * @var string
      */
-    private $facebook_id;
+    protected $facebook_id;
 
     /**
      * @var string
@@ -27,7 +29,7 @@ class UsuarioRedsocial
     /**
      * @var string
      */
-    private $twitter_id;
+    protected $twitter_id;
 
     /**
      * @var string

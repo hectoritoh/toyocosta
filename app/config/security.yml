@@ -79,6 +79,26 @@ security:
                 path:           /admin/logout
             anonymous:          true
 
+        secured_area:
+            anonymous: ~
+            oauth:
+                resource_owners:
+                    facebook:           "/login/check-facebook"
+                    twitter:            "/login/check-twitter"
+                login_path:        /landing/navidad-toyota
+                use_forward:       false
+                failure_path:      /landing/navidad-toyota
+                always_use_default_target_path: true
+                default_target_path:            /landing/navidad-toyota
+                target_path_parameter:          _target_path
+                use_referer:                    false
+
+#                oauth_user_provider:
+#                    service: hwi_oauth.user.provider.entity
+                oauth_user_provider:
+               #this is my custom user provider, created from FOSUBUserProvider - will manage the
+               #automatic user registration on your site, with data from the provider (facebook. google, etc.)
+                    service: my_user_provider
         # -> end custom configuration
 
         # default login area for standard users
@@ -96,7 +116,6 @@ security:
                 failure_path:   /seminuevos
             logout:             true
             anonymous:          true
-
 
 
     access_control:

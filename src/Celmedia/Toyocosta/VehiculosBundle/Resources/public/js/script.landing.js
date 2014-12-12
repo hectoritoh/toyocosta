@@ -11,7 +11,9 @@ $(document).ready(function(){
               celular: $("#celular").val(),
               cedula: $("#cedula").val(),
               comentario: $("#comentario").val(),
-              campana: $("#campana").val()
+              campana: $("#campana").val(),
+              modelo: $("#modelo").val(),
+              anio: $("#anio").val()
           }
 
           $.ajax({
