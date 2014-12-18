@@ -19,8 +19,8 @@ class FOSUBUserProvider extends BaseClass {
         $service = $response->getResourceOwner()->getName();
 
         $setter = 'set' . ucfirst($service);
-        $setter_id = $setter . 'Id';
-        $setter_token = $setter . 'AccessToken';
+        $setter_id = $setter . 'Uid';
+        $setter_token = 'setToken';
 
         //we "disconnect" previously connected users
         if (null !== $previousUser = $this->userManager->findUserBy(array($property => $username))) {
