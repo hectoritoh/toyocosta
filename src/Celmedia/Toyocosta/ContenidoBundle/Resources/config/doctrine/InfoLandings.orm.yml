@@ -9,6 +9,10 @@ Celmedia\Toyocosta\ContenidoBundle\Entity\InfoLandings:
             nullable: false
             generator:
                 strategy: IDENTITY
+        campana:
+            type: string
+            length: 300
+            nullable: false
         nombre:
             type: string
             length: 140

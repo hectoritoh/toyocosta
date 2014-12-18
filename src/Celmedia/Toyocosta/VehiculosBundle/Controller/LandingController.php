@@ -196,6 +196,8 @@ class LandingController extends Controller
             $info->setCedula( $cedula  );
             $info->setCelular( $celular  );
             $info->setComentarios( $comentario  );
+            $info->setCampana( $campana  );
+            
             
             if ( $modelo && $anio ) {
                 

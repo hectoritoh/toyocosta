@@ -367,4 +367,32 @@ class InfoLandings
     {
         // Add your code here
     }
+    /**
+     * @var string
+     */
+    private $campana;
+
+
+    /**
+     * Set campana
+     *
+     * @param string $campana
+     * @return InfoLandings
+     */
+    public function setCampana($campana)
+    {
+        $this->campana = $campana;
+
+        return $this;
+    }
+
+    /**
+     * Get campana
+     *
+     * @return string 
+     */
+    public function getCampana()
+    {
+        return $this->campana;
+    }
 }
