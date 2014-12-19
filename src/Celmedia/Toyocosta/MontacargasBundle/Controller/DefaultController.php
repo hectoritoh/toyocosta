@@ -461,6 +461,97 @@ class DefaultController extends Controller
         );
     }
 
+    
+    public function monContactoAction(Request $request)
+    {
+    	
+
+        $form = $this->createFormBuilder()
+        ->add("nombre", "text" , array("required"=> true ))
+        ->add("apellido", "text" , array("required"=> true ))
+        ->add("email", "email" ,  array("required"=> true )) 
+        ->add("telefono", "text" , array("required"=> true, "max_length"=> 10 ))  
+        ->add("ciudad", "text" , array("required"=> true ))
+        ->add("mensaje", "textarea" , array("required"=> true ))
+        ->add('captcha', 'captcha')
+        ->getForm(); 
+
+
+        if ($request->isMethod('POST')) {
+        
+
+            $form->bind($request);
+
+                
+            if ($form->isValid() ) {
+
+            
+                //$data = $form->getData(); 
+
+
+
+
+                $subject = "Pedido de Informacion de Montacarga - Post Venta desde Toyocosta"; 
+
+                $body = '<strong>Informacion del Contacto:</strong> <br /><br />               
+                Nombre:  '.$form->get('nombre')->getData().' <br />
+                Apellido:   '. $form->get('apellido')->getData().' <br />
+                Telefono:  '.$form->get('telefono')->getData() .'  <br />
+                Email:  '. $form->get('email')->getData() .' <br />
+                Ciudad:  '. $form->get('ciudad')->getData() .' <br />
+                Mensaje:  '.$form->get('mensaje')->getData() .'<br/>
+                <br/><strong>Toyocosta.</strong> ';
+
+                $message = \Swift_Message::newInstance()
+
+                ->setSubject($subject)
+
+                ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
+
+                ->setTo(array( 'pproanio@toyocosta.com.ec' => 'Patricia  Proaño' , 'jordonez@toyocosta.com.ec' => 'Julio Ordoñez' ))
+                //->setTo('ycosquillo@celmedia.com')
+
+                ->setContentType("text/html")
+
+                ->setBody($body);
+
+
+
+               if( $this->get('mailer')->send($message) ) {
+                
+                    
+                    return $this->redirect($this->generateUrl('envio_exitoso'));
+                    
+                }else{
+                    
+                    $error = "Ha ocurrido un error al enviar el mensaje. Por favor inténtelo nuevamente en unos minutos.";
+                    return $this->render('CelmediaToyocostaMontacargasBundle:Pages:contacto.html.twig' , 
+                        array( "form"=> $form->createView(), "error" => $error )
+                        );
+
+                }
+
+
+
+            }else{
+
+                    $error = "El codigo no coincide";
+                    return $this->render('CelmediaToyocostaMontacargasBundle:Pages:contacto.html.twig' , 
+                        array( "form"=> $form->createView(), "error" => $error )
+                        );
+
+            }
+
+
+
+        }
+
+        return $this->render('CelmediaToyocostaMontacargasBundle:Pages:contacto.html.twig', array( "form" => $form->createView() , "error" => false ));
+
+
+
+    }
+
 
 
 }

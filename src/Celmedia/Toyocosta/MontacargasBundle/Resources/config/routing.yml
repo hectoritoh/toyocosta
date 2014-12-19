@@ -26,6 +26,10 @@ envio_exitoso:
     pattern:  /montacargas/mensaje
     defaults: { _controller: CelmediaToyocostaMontacargasBundle:Default:mensaje }
 
+montacargas_contacto:
+    pattern:  /montacargas/contacto
+    defaults: { _controller: CelmediaToyocostaMontacargasBundle:Default:monContacto }
+
 montacargas_cotizacion:
     path:      /montacargas/cotizacion/{idmontacarga}
     defaults:  { _controller: CelmediaToyocostaMontacargasBundle:Default:cotizacion }
