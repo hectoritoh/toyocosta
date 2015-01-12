@@ -79,6 +79,22 @@ security:
                 path:           /admin/logout
             anonymous:          true
 
+        # default login area for standard users SE CAMBIA EL ORDEN main with secured area
+
+        # This firewall is used to handle the public login area
+        # This part is handled by the FOS User Bundle
+        main:
+            pattern:             .*
+            context:             user
+            form_login:
+                provider:       fos_userbundle
+                login_path:     /login
+                use_forward:    false
+                check_path:     /login_check
+                failure_path:   /seminuevos
+            logout:             true
+            anonymous:          true
+
         secured_area:
             anonymous: ~
             oauth:
@@ -100,22 +116,6 @@ security:
                #automatic user registration on your site, with data from the provider (facebook. google, etc.)
                     service: my_user_provider
         # -> end custom configuration
-
-        # default login area for standard users
-
-        # This firewall is used to handle the public login area
-        # This part is handled by the FOS User Bundle
-        main:
-            pattern:             .*
-            context:             user
-            form_login:
-                provider:       fos_userbundle
-                login_path:     /login
-                use_forward:    false
-                check_path:     /login_check
-                failure_path:   /seminuevos
-            logout:             true
-            anonymous:          true
 
 
     access_control:
