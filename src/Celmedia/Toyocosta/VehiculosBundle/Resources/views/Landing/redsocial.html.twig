@@ -268,7 +268,159 @@
 	<script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
 
 	<script src="https://connect.facebook.net/en_US/all.js"></script>
+	<script type="text/javascript">
+	
+			$(document).ready(function(){
 
+			  validarEmail();
+
+			});
+
+			function verificarLike() {
+			    FB.api({
+			        method: 'pages.isFan',
+			        page_id: '385913538116350'
+			    }, function (resp) {
+			        if (resp) {
+			            //alert("You like the Application.");
+			            $("#isFBLike").val("ok");
+			            $("#isFBLike").parents(".cont-campo").find(".icono-correcto").removeClass('icono-not');
+			            $("#isFBLike").parents(".cont-campo").find(".icono-correcto").addClass('icono-ok');
+			        } else {
+			            //alert("You don't like the Application.");
+			            $("#isFBLike").val("");
+			            $("#isFBLike").parents(".cont-campo").find(".icono-correcto").removeClass('icono-ok');
+			            $("#isFBLike").parents(".cont-campo").find(".icono-correcto").addClass('icono-not');
+			        }
+			    });
+			}
+
+			function verificarFollow() {
+
+			}
+
+			var likeFanpage = function (url, html_element) {
+			    //alert("like");
+			    $("#isFBLike").val("ok");
+			    $("#isFBLike").parents(".cont-campo").find(".icono-correcto").removeClass('icono-not');
+			    $("#isFBLike").parents(".cont-campo").find(".icono-correcto").addClass('icono-ok');
+			}
+
+			var unLikeFanpage = function (url, html_element) {
+			    //alert("unlike");
+			    $("#isFBLike").val("");
+			    $("#isFBLike").parents(".cont-campo").find(".icono-correcto").removeClass('icono-ok');
+			    $("#isFBLike").parents(".cont-campo").find(".icono-correcto").addClass('icono-not');
+			}
+
+			function manejarEventoTW(intent_event) {
+			    //console.log('The user that was followed was', intent_event.data.screen_name);
+			    if (intent_event.data.screen_name) {
+			        //console.log("follow");
+			        $("#isFBLike").val("ok");
+			        $("#isFBLike").parents(".cont-campo").find(".icono-correcto").removeClass('icono-not');
+			        $("#isFBLike").parents(".cont-campo").find(".icono-correcto").addClass('icono-ok');
+			    } else {
+			        //console.log("not follow");
+			        $("#isFBLike").val("");
+			        $("#isFBLike").parents(".cont-campo").find(".icono-correcto").removeClass('icono-ok');
+			        $("#isFBLike").parents(".cont-campo").find(".icono-correcto").addClass('icono-not');
+			    }
+			}
+
+
+
+			$(window).load(function () {
+			    //checkLoginState();
+
+			    verificarLike();
+			    verificarFollow();
+
+
+			    FB.Event.subscribe('edge.create', likeFanpage);
+			    FB.Event.subscribe('edge.remove', unLikeFanpage);
+
+			    //$("#carousel-example-generic").carousel('pause');
+
+
+
+			    twttr.events.bind('click', manejarEventoTW);
+			    twttr.events.bind('follow', manejarEventoTW);
+
+			});
+
+
+
+			function validarEmail() {
+
+
+			    $("#form-registro").validate({
+			        debug: true,
+			        ignore: [], //habilitarlo para los input hiddens
+			        // submitHandler: function (form) {
+			        //     var parametros = {
+			                
+			        //     }
+			        //     $.ajax({
+			        //         url: Routing.generate('actualizar_mail') + "",
+			        //         type: 'POST',
+			        //         async: true,
+			        //         data: parametros,
+			        //         success: function (respuesta) {
+			        //             //alert(respuesta);
+			        //             if (respuesta == "ok") {
+			        //                 $("#modalRegistrar").modal("hide");
+			        //             } else {
+			        //                 // error
+			        //             }
+			        //         },
+			        //         error: function () {
+
+			        //         }
+			        //     });
+
+			        // },
+			        rules: {
+			            okInput: {
+			                required: true
+			            },
+			            isFBLike: {
+			                required: true
+			            }
+			        },
+			        showErrors: function (errorMap, errorList) {
+			            // Clean up any tooltips for valid elements
+			            $.each(this.validElements(), function (index, element) {
+			                var $element = $(element);
+
+			                $element.parents(".cont-campo").find(".icono-correcto").removeClass('icono-not');
+			                $element.parents(".cont-campo").find(".icono-correcto").addClass('icono-ok');
+
+			                $element.data("title", "") // Clear the title - there is no error associated anymore
+			                .removeClass("error")
+			                    .tooltip("destroy");
+			            });
+
+			            // Create new tooltips for invalid elements
+			            $.each(errorList, function (index, error) {
+			                var $element = $(error.element);
+
+			                $element.parents(".cont-campo").find(".icono-correcto").removeClass('icono-ok');
+			                $element.parents(".cont-campo").find(".icono-correcto").addClass('icono-not');
+			                $element.tooltip("destroy") // Destroy any pre-existing tooltip so we can repopulate with new tooltip content
+			                .data("title", error.message)
+			                    .addClass("error")
+			                    .tooltip(); // Create a new tooltip based on the error messsage we just set in the title
+
+			            });
+
+			        }
+			    });
+
+			}
+
+
+	</script>
 	<script type="text/javascript">
 	  
 
