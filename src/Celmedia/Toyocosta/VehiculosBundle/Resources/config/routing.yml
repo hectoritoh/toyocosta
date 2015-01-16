@@ -20,7 +20,7 @@ suv:
 #     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:hibridos }
 
 ver_vehiculo:
-    path:      /vehiculos/{vehname}/{vehiculoid}
+    path:      /{categoria}/Toyota/{vehname}/{vehiculoid}
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:verVehiculo }
 
 empresa:
@@ -128,7 +128,7 @@ consultar_obsequios:
         expose: true
 
 especificacion:
-    path:      /vehiculo/especificacion/{vehname}/{vehiculoid}
+    path:      /{categoria}/Toyota/{vehname}/{vehiculoid}/especificacion
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:especificacion }
 
 # ROUTING MOVIL

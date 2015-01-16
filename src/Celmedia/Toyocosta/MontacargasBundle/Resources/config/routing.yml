@@ -31,7 +31,7 @@ montacargas_contacto:
     defaults: { _controller: CelmediaToyocostaMontacargasBundle:Default:monContacto }
 
 montacargas_cotizacion:
-    path:      /montacargas/cotizacion/{idmontacarga}
+    path:      /montacargas/{categoria}/{modelo}/{idmontacarga}/cotizacion
     defaults:  { _controller: CelmediaToyocostaMontacargasBundle:Default:cotizacion }
 
 usados_cotizacion:
@@ -39,7 +39,7 @@ usados_cotizacion:
     defaults:  { _controller: CelmediaToyocostaMontacargasBundle:Default:cotizacionUsado }
 
 ver_montacarga:
-    path:      /montacargas/{montacargaid}
+    path:      /montacargas/{categoria}/{modelo}/{montacargaid}
     defaults:  { _controller: CelmediaToyocostaMontacargasBundle:Default:producto }
 
 

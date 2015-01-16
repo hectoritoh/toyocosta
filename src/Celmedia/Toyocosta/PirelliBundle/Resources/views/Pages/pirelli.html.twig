@@ -111,7 +111,7 @@
                     <div class="col-md-3">
                         <div class="row">
                             <div class="col-md-10 fondo-ficha contenedor-centrar" style="padding:0px;">
-                                <a id="llanta{{ i }}" data-toggle="modal" href="#Modal_llanta{{ i }}">
+                                <a id="llanta{{ llanta.modelo | replace({' ': '_'}) }}{{ llanta.id }}" data-toggle="modal" href="#Modal_llanta{{ llanta.modelo | replace({' ': '_'}) }}{{ llanta.id }}" onclick="trackOutboundLink('#Modal_llanta{{ llanta.modelo | replace({' ': '_'}) }}{{ llanta.id }}'); return false;">
                                 <div class="row img-ficha">
 
                                     <img src="{{ asset('uploads/pirelli/'   ~   llanta.imagen ) }}" alt="{{ llanta.modelo }}" class="img-responsive"/>
@@ -148,7 +148,7 @@
                             </div>
 
                             <!-- Modal -->
-                            <div class="modal fade"  class="modal fade "  id="Modal_llanta{{ i }}" tabindex="-1" role="dialog">
+                            <div class="modal fade"  class="modal fade "  id="Modal_llanta{{ llanta.modelo | replace({' ': '_'}) }}{{ llanta.id }}" tabindex="-1" role="dialog">
                                 <div class="modal-dialog modal-lg">
                                     <div class="modal-content">
                                         <div class="modal-header header-ficha">
@@ -235,7 +235,7 @@
 
 
                                                     <div class="col-md-12">
-                                                        <a href="{{  path('pirelli_informacion' , {  'id_llanta': llanta.id }) }}">
+                                                        <a href="{{  path('pirelli_informacion' , { 'modelo': llanta.modelo, 'id_llanta': llanta.id }) }}">
                                                             <div class="col-md-10 col-md-offset-1 btn btn-info">M&aacute;s informaci&oacute;n</div>
                                                         </a>
                                                     </div>

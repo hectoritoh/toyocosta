@@ -3,7 +3,7 @@
 
 	{% block contenido %}
 
-	    {% include 'CelmediaToyocostaMontacargasBundle:Blocks:top.submenu.html.twig' %}
+    {{ render(controller("CelmediaToyocostaMontacargasBundle:Default:obtenerMenuPrincipal" ))   }}
 		<div class="banner-mt">
 	        <h1 class="titulo-interno">MONTACARGAS</h1>   
 	    </div>

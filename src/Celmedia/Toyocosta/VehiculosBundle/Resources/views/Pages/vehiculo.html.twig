@@ -1,12 +1,22 @@
 {% extends 'CelmediaToyocostaVehiculosBundle::layout.html.twig' %}
 
+{% block seo %}
+    
+    <title>TOYOCOSTA | Toyota  {{vehiculo.nombre}}</title>
+    
+    <meta name="description" content="Conoce las especificaciones y modelos disponibles del nuevo Toyota {{vehiculo.nombre}}, disponible en Toyocosta."/>
+
+    <meta name="keywords" content="toyota {{vehiculo.nombre}} ecuador, toyota {{vehiculo.nombre}} guayaquil, toyota {{vehiculo.nombre}} toyocosta, toyota {{vehiculo.nombre}} modelos, toyota {{vehiculo.nombre}} cotizar, toyota {{vehiculo.nombre}} galeria" />
+
+{% endblock %}
+
 	{% block contenidotoyocosta %}
 
 		{% include 'CelmediaToyocostaVehiculosBundle:Blocks:top.menu.secciones.html.twig' with { 'vehiculoId': vehiculo.id, 'vehiculoNombre': vehiculo.nombre, 'categoriaNombre': vehiculo.categoria.nombre} %}
 
 
 
-		<div id="vehiculo-detalles" class="vehiculo-seccion-2">	
+		<div id="detalles" class="vehiculo-seccion-2">	
 			<div class="espaciado-vehiculo visible-md visible-lg hidden-sm hidden-xs">
 				&nbsp;
             </div>
@@ -52,12 +62,12 @@
 								<div class="row">
 									<div class="col-md-7 espacio-a">
 										<a href="{{ path('test_drive') }}" class="btn btn-vehiculo">Test Drive</a>
-										<a href="{{ path('especificacion', {'vehname': vehiculo.nombre ,'vehiculoid': vehiculo.id } )  }}" class="btn btn-vehiculo">
+										<a href="{{ path('especificacion', {'categoria': vehiculo.categoria.nombre , 'vehname': vehiculo.nombre ,'vehiculoid': vehiculo.id } )  }}" class="btn btn-vehiculo">
 											Especificaciones
 										</a>
 									</div>
 									<div class="col-md-5 espacio-a">
-										<a href="#vehiculo-cotizar" class="btn btn-vehiculo-rojo">Cotizar</a>
+										<a href="#cotizar" class="btn btn-vehiculo-rojo">Cotizar</a>
 									</div>
 								</div>
 							</div>
@@ -108,7 +118,7 @@
 		<!-- vehiculo-modelos -->		
 		{% if vehiculoModelos|length > 0 %}
 
-		<div id="vehiculo-modelos" class="container-fluid fondoGris">
+		<div id="modelos" class="container-fluid fondoGris">
 			<div class="row">
 				<div class="col-md-12 text-center">
 					<br /><br /><br /><br /><br /><br />
@@ -186,7 +196,7 @@
 
 		
 		{% if vehiculo.imagenes|length > 0 %}
-		<div id="vehiculo-galeria" class="vehiculo-seccion fondoGris">
+		<div id="galeria" class="vehiculo-seccion fondoGris">
 			<br /><br /><br />
 			<div id="vehiculo-carousel" class="carousel slide alto-completo" data-ride="carousel" data-interval="false">
 				{#<ol class="carousel-indicators">
@@ -221,7 +231,7 @@
 		{% endif %}
 
 
-		<div id="vehiculo-cotizar" class="vehiculo-seccion-2">
+		<div id="cotizar" class="vehiculo-seccion-2">
 			<div class="container">
 				<div class="row">
 					<div class="col-md-12 text-center">

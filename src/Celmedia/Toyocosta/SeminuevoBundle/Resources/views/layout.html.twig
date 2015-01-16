@@ -4,14 +4,19 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="">
         <meta name="author" content="">
-        <!-- <link rel="shortcut icon" href="../../assets/ico/favicon.ico"> -->
-        <title>Toyocosta :: Seminuevos</title>
-        <meta name="description" content="Contamos con los mejores vehículos “seminuevos” del país. Tenemos los mejores precios y planes de financiamiento." />
-        <meta name="keywords" content="Toyota seminuevos, Toyota Autos seminuevos, Toyota Suv seminuevos, Toyota Híbridos seminuevos, Toyota Montacargas seminuevos, Precios de Carros Toyota seminuevos, Carros Toyota Ecuador seminuevos, Carros Toyota seminuevos, Seminuevos Autos Ecuador, camionetas toyota seminuevos, autos toyota seminuevos, suv toyota seminuevos, hibrídos toyota seminuevos, montacargas toyota seminuevos" />
-        
-        
+
+        {% block seo %}
+            
+            <title>TOYOCOSTA | Seminuevos</title>
+            
+            <meta name="description" content="¿Necesitas vender tu auto? En Toyocosta te ofrecemos una amplia variedad de autos seminuevos con la mejor garantía."/>
+
+            <meta name="keywords" content="autos seminuevos Toyota guayaquil, carros seminuevos toyota guayaquil, autos seminuevos toyocosta." />
+
+        {% endblock %}
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
         {% include 'CelmediaToyocostaVehiculosBundle:Default:includes.html.twig' %}
 
         <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
@@ -23,7 +28,7 @@
         * as the event label.
         */
         var trackOutboundLink = function(url) {
-           ga('send', 'event', 'outbound', 'click', url, {'hitCallback':
+           ga('send', 'event', 'seminuevos', 'click', url, {'hitCallback':
              function () {
              document.location = url;
              }

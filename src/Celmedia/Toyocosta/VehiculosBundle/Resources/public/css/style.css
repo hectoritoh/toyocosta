@@ -1631,9 +1631,9 @@ li.disabled > .btn.btn-anterior{
 	.carousel-indicators {
 	bottom: 40px;
 	}
-	.modal-dialog{
+/*	.modal-dialog{
 		width: 724px;
-	}
+	}*/
 }
 /* Portrait tablet to landscape and desktop */
 @media (min-width: 768px) and (max-width: 979px) { 

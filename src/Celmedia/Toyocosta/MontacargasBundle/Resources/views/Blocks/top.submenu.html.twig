@@ -48,46 +48,20 @@
 
 
   <ul id="sample-menu-1" class="sf-menu">
-    <li id="sub-menu-productos-1">
+  {% set i = 1 %}
+  {% for categoria in categoriasMontacargas %}
+      
+    <li id="sub-menu-productos-{{i}}">
       <a class="img_producto" >
-        {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/montacargas/sub-menu/subm-montacargas.jpg' %}
-          <img src="{{ asset_url }}" class="img-responsive imagen-submenu" />
-        {% endimage %}
+
+        <img src="{{ asset('uploads/montacargas/categoria/' ~ categoria.fotoThumb ) }}" alt="" class="img-responsive imagen-submenu"/>
+
       </a>
-      {{ render(controller("CelmediaToyocostaMontacargasBundle:Default:obtenerSubcategoriaXCategoria" , { 'categoriaId': 1 } ) ) }}
+      {{ render(controller("CelmediaToyocostaMontacargasBundle:Default:obtenerSubcategoriaXCategoria" , { 'categoriaId': categoria.id } ) ) }}
 
     </li>
-
-    <li id="sub-menu-productos-2" >
-      <a class="img_producto" >
-        {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/montacargas/sub-menu/subm-raymond.jpg' %}
-          <img src="{{ asset_url }}" class="img-responsive imagen-submenu"  />
-        {% endimage %}
-      </a>
-      {{ render(controller("CelmediaToyocostaMontacargasBundle:Default:obtenerSubcategoriaXCategoria" , { 'categoriaId': 2 } ) ) }}
-
-
-    </li>
-
-    <li id="sub-menu-productos-3" >
-      <a class="img_producto" >
-        {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/montacargas/sub-menu/subm-bt.jpg' %}
-          <img src="{{ asset_url }}" class="img-responsive imagen-submenu"  />
-        {% endimage %}
-      </a>
-      {{ render(controller("CelmediaToyocostaMontacargasBundle:Default:obtenerSubcategoriaXCategoria" , { 'categoriaId': 3 } ) ) }}
-
-
-    </li>
-
-    <li id="sub-menu-productos-4">
-      <a class="img_producto" >
-        {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/montacargas/sub-menu/subm-cascade.jpg' %}
-          <img src="{{ asset_url }}" class="img-responsive imagen-submenu" />
-        {% endimage %}
-      </a>
-       {{ render(controller("CelmediaToyocostaMontacargasBundle:Default:obtenerSubcategoriaXCategoria" , { 'categoriaId': 4 } ) ) }}
-    </li>
+    {% set i = i + 1 %}
+  {% endfor %}
 
   </ul>
 

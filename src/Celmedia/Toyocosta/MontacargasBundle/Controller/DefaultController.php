@@ -25,7 +25,12 @@ class DefaultController extends Controller
         return $this->render('CelmediaToyocostaMontacargasBundle:Pages:principal.html.twig', array("subcategoria" => $subcategoria ));
     }
 
-
+    public function obtenerMenuPrincipalAction(){
+        $em = $this->getDoctrine()->getManager();
+        
+        $categoriasMontacargas = $this->getDoctrine()->getRepository('CelmediaToyocostaMontacargasBundle:CategoriaMontacarga')->findBy( array("estado"=> 1) );
+        return $this->render('CelmediaToyocostaMontacargasBundle:Blocks:top.submenu.html.twig', array('categoriasMontacargas' => $categoriasMontacargas ) );
+    }
 
 
     public function obtenerSubcategoriaXCategoriaAction($categoriaId){

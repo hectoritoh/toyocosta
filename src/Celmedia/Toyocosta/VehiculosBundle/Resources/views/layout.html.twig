@@ -5,13 +5,16 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="">
-        <title>TOYOCOSTA | Representante Oficial Toyota para el Ecuador</title>
+        {% block seo %}
+            <title>TOYOCOSTA | Concesionario de Toyota en Guayaquil</title>
         
-        <meta name="description" content="Concesionario autorizado para la venta de autos, camionetas, hibridos de la marca Toyota para la region Costa."/>
+            <meta name="description" content="Toyocosta es el concesionario autorizado para la venta de autos, camionetas e híbridos de la marca Toyota en la región Costa."/>
 
-        <meta name="keywords" content="Autos Toyota, Camionetas Toyota, Hilux, Autos Ecuador, Toyota, Toyota Ecuador" />
+            <meta name="keywords" content="concesionario toyota guayaquil, autos toyota ecuador, camionetas toyota ecuador, autos seminuevos ecuador toyota, carros toyota guayaquil, autos toyocosta, toyocosta pirelli, toyocosta montacargas." />
+        {% endblock %}
 
-
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+        
         {% include 'CelmediaToyocostaVehiculosBundle:Default:includes.html.twig' %}
 
 

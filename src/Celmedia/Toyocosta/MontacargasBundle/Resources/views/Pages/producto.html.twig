@@ -3,7 +3,8 @@
 
 {% block contenido %}
 
-    {% include 'CelmediaToyocostaMontacargasBundle:Blocks:top.submenu.html.twig' %}
+    {{ render(controller("CelmediaToyocostaMontacargasBundle:Default:obtenerMenuPrincipal" ))   }}
+
 	<div class="banner-montacargas">
 		<h1 class="titulo-interno">PRODUCTOS</h1>
 	</div>
@@ -126,7 +127,7 @@
 				<br/><br/>
 				<div class="row">
 					<div class="col-md-3 col-md-offset-3">
-						<a href="{{ path('montacargas_cotizacion', {'idmontacarga' : montacarga.id }) }}"><button class="btn btn-anterior"  style="width:100%;">Solicitar Cotizaci&oacute;n</button></a>
+						<a href="{{ path('montacargas_cotizacion', {'categoria':montacarga.montacargaSubcategoria.montacargaCategoria.nombre, 'modelo':montacarga.modelo, 'idmontacarga' : montacarga.id }) }}"><button class="btn btn-anterior"  style="width:100%;">Solicitar Cotizaci&oacute;n</button></a>
 					</div>
 					{#<div class="col-md-3">
 						<button class="btn btn-info"  style="width:100%;">Cont&aacute;ctenos</button>
@@ -142,7 +143,7 @@
 			{% for item in montacargas %}
 
 				    <div class="col-md-2 txt-model">
-						<a class="txt-negro" href="{{ path('ver_montacarga', {'montacargaid': item.id } )  }}">
+						<a class="txt-negro" href="{{ path('ver_montacarga', { 'categoria':item.montacargaSubcategoria.montacargaCategoria.nombre, 'modelo':item.modelo, 'montacargaid': item.id } )  }}">
 						    {% for thumb in item.imagenes %}
 
 						    	{% if loop.first %}

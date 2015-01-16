@@ -8,7 +8,7 @@
         <meta name="author" content="">
         <title>Toyocosta :: Pirelli</title>
 
-        
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
         
         {% include 'CelmediaToyocostaVehiculosBundle:Default:includes.html.twig' %}
 
@@ -16,6 +16,20 @@
 
         <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
         <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+        <script>
+            /**
+            * Function that tracks a click on an outbound link in Google Analytics.
+            * This function takes a valid URL string as an argument, and uses that URL string
+            * as the event label.
+            */
+            var trackOutboundLink = function(url) {
+               ga('send', 'event', 'pirelli', 'click', url, {'hitCallback':
+                 function () {
+                 document.location = url;
+                 }
+               });
+            }
+        </script>
         <script>
           (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
           (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

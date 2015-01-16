@@ -2,7 +2,7 @@
 	<ul class="submenu-pro sub-sub-menu" id="sub-{{ subcategoriaId }}">
       {% for montacarga in montacargas %}
       	<li>
-      		<a style="color:white" href="{{ path('ver_montacarga', {'montacargaid': montacarga.id } )  }}">{{ montacarga.modelo }}</a> 
+      		<a style="color:white" href="{{ path('ver_montacarga', {'categoria':montacarga.montacargaSubcategoria.montacargaCategoria.nombre, 'modelo':montacarga.modelo,'montacargaid': montacarga.id } )  }}">{{ montacarga.modelo }}</a> 
       	</li>          
       {% endfor %}
     </ul>

@@ -3,7 +3,7 @@
 
 {% block contenido %}
 
-    {% include 'CelmediaToyocostaMontacargasBundle:Blocks:top.submenu.html.twig' %}
+    {{ render(controller("CelmediaToyocostaMontacargasBundle:Default:obtenerMenuPrincipal" ))   }}
     
     <div class="banner-montacargas">
         <h1 class="titulo-interno">COTIZACI&Oacute;N</h1>
@@ -139,7 +139,7 @@
                                 <div class="col-md-5 col-md-offset-1">
                                 {% if app.request.get('_route') == "montacargas_cotizacion" %}
 
-                                    <a href="{{ path('ver_montacarga', {'montacargaid': montacarga.id } )  }}">
+                                    <a href="{{ path('ver_montacarga', {'categoria':montacarga.montacargaSubcategoria.montacargaCategoria.nombre, 'modelo':montacarga.modelo, 'montacargaid': montacarga.id } )  }}">
                                 
                                 {% else %}
                                     

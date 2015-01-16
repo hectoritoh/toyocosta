@@ -16,7 +16,7 @@
 	        <div class="col-md-12">
 	            <ol class="breadcrumb breadcrumb-ty">
 	              <li><a href="{{ path('toyocosta_homepage') }}">INICIO</a></li>
-	              <li><a href="{{ path('ver_vehiculo', {'vehname': vehiculo.nombre ,'vehiculoid': vehiculo.id } )  }}">{{vehiculo.nombre}}</a></li>
+	              <li><a href="{{ path('ver_vehiculo', {"categoria":vehiculo.categoria.nombre, 'vehname': vehiculo.nombre ,'vehiculoid': vehiculo.id } )  }}">{{vehiculo.nombre}}</a></li>
 	              <li class="active"><strong>ESPECIFICACIONES</strong></li>
 	            </ol>
 	        </div><br/><br/>          
@@ -28,7 +28,7 @@
 	    </div>
 		<div class="row">
 			<div class="col-xs-4 col-md-10">
-				<a href="{{ path('ver_vehiculo', {'vehname': vehiculo.nombre ,'vehiculoid': vehiculo.id } )  }}" style="color:black">
+				<a href="{{ path('ver_vehiculo', {"categoria":vehiculo.categoria.nombre, 'vehname': vehiculo.nombre ,'vehiculoid': vehiculo.id } )  }}" style="color:black">
 					<i class="icono-regresar"></i>
 					<strong>Regresar</strong>
 				</a>

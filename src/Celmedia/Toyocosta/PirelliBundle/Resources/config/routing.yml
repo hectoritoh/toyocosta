@@ -33,7 +33,7 @@ pirelli_filtro:
     defaults: { _controller: CelmediaToyocostaPirelliBundle:Default:filtroBuscadorPirelli }
 
 pirelli_informacion:
-    pattern:  /pirelli/informacion/{id_llanta}
+    pattern:  /pirelli/{{modelo}}/{id_llanta}/informacion
     defaults: { _controller: CelmediaToyocostaPirelliBundle:Default:informacionPirelli }
 
 pirelli_distribuidores:
