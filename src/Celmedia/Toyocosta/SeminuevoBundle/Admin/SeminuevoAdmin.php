@@ -64,6 +64,7 @@ class SeminuevoAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
+            ->add('username')
             ->add('modelo')
             ->add('marca')
             ->add('tipo')

@@ -523,6 +523,9 @@ class DefaultController extends Controller
         if ($request->isMethod('POST')) {
 
             $usuario = $request->request->get('usuario');
+            $nombre = $request->request->get('nombre');
+            $telefono = $request->request->get('telefono');
+            $cedula = $request->request->get('cedula');
             $email = $request->request->get('email');
             $modelo = $request->request->get('modelo');
             $kilometraje = $request->request->get('kilometraje');
@@ -615,6 +618,9 @@ class DefaultController extends Controller
 
                 ->setBody('<h1>Información de Seminuevo</h1> <br /><br />               
                 <strong>Usuario:</strong>  '.$seminuevo->getUsername().' <br />
+                <strong>Nombres:</strong>  '.$nombre.' <br />
+                <strong>Telefono:</strong>  '.$telefono.' <br />
+                <strong>Cedula:</strong>  '.$cedula.' <br /><br />
                 <strong>Modelo:</strong>   '. $seminuevo->getModelo() .' <br />
                 <strong>Marca:</strong>  '. $seminuevo->getMarca() .'  <br />
                 <strong>Tipo:</strong>  '. $seminuevo->getTipo() .' <br />

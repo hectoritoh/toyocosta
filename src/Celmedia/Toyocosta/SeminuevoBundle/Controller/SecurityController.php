@@ -79,6 +79,9 @@ class SecurityController extends Controller
 
         $form = $this->createFormBuilder($usuario)
         ->add("email", "email" ,  array("required"=> true ))   
+        ->add("firstname", "text" ,  array("required"=> true ))  
+        ->add("phone", "text" ,  array("required"=> true )) 
+        ->add("biography", "text" ,  array("required"=> true ))   
         ->add("username", "text" , array("required"=> true ))
         ->add("password", "repeated" , array(
             'type' => 'password',
@@ -127,7 +130,7 @@ class SecurityController extends Controller
 
                 $pass = $encoder->encodePassword($usuario->getPassword(), $usuario->getSalt());
                 $usuario->setPassword(  $pass );
-                $usuario->setEnabled( 0 );
+                $usuario->setEnabled( 1 );
 
                 $em = $this->getDoctrine()->getManager();
                 $em->persist( $usuario );

@@ -37,13 +37,16 @@
     <div class="container-fluid" {#style="display: none;"#}>
         <div class="row">
             <div class="col-md-12 text-center">
-            	<h2>VENDA SU USADO</h2>
+            	<h2>VENDA SU SEMINUEVO</h2>
             	<span class="lbl-form-sm">Los campos con * son obligatorios</span>
             </div>
         </div>
     </div>
    	<form id="form-vehiculo" {{ form_enctype(form) }}  role="form" class="container form-vsm" enctype="multipart/form-data"{#style="display: none;"#}>
    		<input type="hidden" name="usuario" id="usuario" value="{{app.user.username}}"/>
+   		<input type="hidden" name="nombre" id="nombre" value="{{app.user.firstname}}"/>
+   		<input type="hidden" name="telefono" id="telefono" value="{{app.user.phone}}"/>
+   		<input type="hidden" name="cedula" id="cedula" value="{{app.user.biography}}"/>
    		<input type="hidden" name="email" id="email" value="{{app.user.email}}"/>
 
         <div class="row">
@@ -235,7 +238,7 @@
 		<div class="row">
 			<div class="col-md-5 col-sm-5 col-md-offset-1  col-sm-offset-1">
 				<div class="form-group form-group-sm">
-					<label class="lbl-form-sm" for="sm_input_precio">Precio*</label>
+					<label class="lbl-form-sm" for="sm_input_precio">Precio esperado*</label>
 					<input type="number" class="form-control form-control-sm" name="sm_input_precio" id="sm_input_precio" placeholder="">
 				</div>
 			</div>

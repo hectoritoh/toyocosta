@@ -38,7 +38,7 @@
             <div class="row space-input">
                 <div class="col-md-10 col-md-offset-1">
 
-                    <p class="txt-info" style="padding-left:15px;">Llene el siguiente formulario para poder publicar tu auto usado.</p> 
+                    <p class="txt-info" style="padding-left:15px;">Llene el siguiente formulario para poder publicar tu auto seminuevo.</p> 
 
                 </div>
 
@@ -62,14 +62,47 @@
                 {% endif %}
 
                 {{ form_widget(form._token) }}
+                
                 <div class="row space-input">
                     <div class="col-md-10 col-md-offset-1">
 
                         <div class="row">
-                                {{ form_label(form.username, 'Usuario:', {'label_attr': {'class': 'col-sm-4'}}) }}
+                                {{ form_label(form.firstname, 'Nombres:', {'label_attr': {'class': 'col-sm-4'}}) }}
 
                                 <div class="col-sm-5">
-                                    {{ form_widget(form.username, {'attr': {'class': 'form-control'}}) }}
+                                    {{ form_widget(form.firstname, {'attr': {'class': 'form-control'}}) }}
+                                </div>
+
+
+                        </div>  
+                    </div>
+
+                </div>
+
+                <div class="row space-input">
+                    <div class="col-md-10 col-md-offset-1">
+
+                        <div class="row">
+                                {{ form_label(form.biography, 'Cédula:', {'label_attr': {'class': 'col-sm-4'}}) }}
+
+                                <div class="col-sm-5">
+                                    {{ form_widget(form.biography, {'attr': {'class': 'form-control'}}) }}
+                                </div>
+
+
+                        </div>  
+                    </div>
+
+                </div>
+                
+                <div class="row space-input">
+                    <div class="col-md-10 col-md-offset-1">
+
+                        <div class="row">
+                                {{ form_label(form.phone, 'Teléfono:', {'label_attr': {'class': 'col-sm-4'}}) }}
+
+                                <div class="col-sm-5">
+                                    {{ form_widget(form.phone, {'attr': {'class': 'form-control'}}) }}
                                 </div>
 
 
@@ -93,6 +126,23 @@
                     </div>
 
                 </div>
+                <hr>
+                <div class="row space-input">
+                    <div class="col-md-10 col-md-offset-1">
+
+                        <div class="row">
+                                {{ form_label(form.username, 'Usuario:', {'label_attr': {'class': 'col-sm-4'}}) }}
+
+                                <div class="col-sm-5">
+                                    {{ form_widget(form.username, {'attr': {'class': 'form-control'}}) }}
+                                </div>
+
+
+                        </div>  
+                    </div>
+
+                </div>
+
 
 
                 <div class="row space-input">
