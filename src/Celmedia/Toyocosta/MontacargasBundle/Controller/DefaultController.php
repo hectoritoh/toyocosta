@@ -496,7 +496,7 @@ class DefaultController extends Controller
 
 
 
-                $subject = "Pedido de Informacion de Montacarga - Post Venta desde Toyocosta"; 
+                $subject = "Pedido de Informacion de Contacto Montacarga desde Toyocosta"; 
 
                 $body = '<strong>Informacion del Contacto:</strong> <br /><br />               
                 Nombre:  '.$form->get('nombre')->getData().' <br />

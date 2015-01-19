@@ -1,5 +1,14 @@
 {% extends 'CelmediaToyocostaMontacargasBundle::layout.html.twig' %}
 
+{% block seo %}
+    
+    <title>TOYOCOSTA | {{montacarga.montacargaSubcategoria.montacargaCategoria.nombre}} {{ montacarga.modelo }} | Cotización</title>
+    
+    <meta name="description" content="Solicita más información sobre el {{montacarga.montacargaSubcategoria.montacargaCategoria.nombre}} {{ montacarga.modelo }} llenando el siguiente formulario y un asesor de Toyocosta se comunicará contigo."/>
+
+    <meta name="keywords" content="montacargas {{montacarga.montacargaSubcategoria.montacargaCategoria.nombre}} guayaquil, repuestos montacargas {{montacarga.montacargaSubcategoria.montacargaCategoria.nombre}} guayaquil, {{montacarga.montacargaSubcategoria.montacargaCategoria.nombre}} montacargas {{ montacarga.modelo }} cotización" />
+
+{% endblock %}
 
 {% block contenido %}
 

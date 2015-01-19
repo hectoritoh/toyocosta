@@ -1,5 +1,14 @@
 {% extends 'CelmediaToyocostaMontacargasBundle::layout.html.twig' %}
 
+{% block seo %}
+    
+    <title>TOYOCOSTA | {{montacarga.montacargaSubcategoria.montacargaCategoria.nombre}} {{ montacarga.modelo }}</title>
+    
+    <meta name="description" content="Información y ficha técnica del montacargas {{montacarga.montacargaSubcategoria.montacargaCategoria.nombre}} {{ montacarga.modelo }}, disponible ahora en Toyocosta."/>
+
+    <meta name="keywords" content="montacargas {{montacarga.montacargaSubcategoria.montacargaCategoria.nombre}} guayaquil, repuestos montacargas {{montacarga.montacargaSubcategoria.montacargaCategoria.nombre}} guayaquil, {{montacarga.montacargaSubcategoria.montacargaCategoria.nombre}} montacargas {{ montacarga.modelo }}" />
+
+{% endblock %}
 
 {% block contenido %}
 

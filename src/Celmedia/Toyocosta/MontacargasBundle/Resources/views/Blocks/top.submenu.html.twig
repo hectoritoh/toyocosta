@@ -35,6 +35,10 @@
               <li {% if app.request.get('_route') == 'montacargas_sas' %}  class="active"  {% endif %} >
                 <a href="{{path('montacargas_sas')}}">SAS</a>
               </li>
+              <li  {% if app.request.get('_route') == 'montacargas_contacto' %}  class="active"  {% endif %} >
+                <a href="{{ path('montacargas_contacto') }}">CONTACTO</a>
+              </li>
+
             </ul>
           </div>
         </div>
