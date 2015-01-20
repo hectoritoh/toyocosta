@@ -16,7 +16,6 @@ class CategoriaVehiculoAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('id')
             ->add('nombre')
             ->add('estado')
         ;

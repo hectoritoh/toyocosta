@@ -65,6 +65,8 @@ class LlantaAdmin extends Admin
     {
         $datagridMapper
             ->add('modelo')
+            ->add('segmento')
+            ->add('medida')
         ;
     }
 
@@ -72,11 +74,10 @@ class LlantaAdmin extends Admin
     protected function configureListFields(ListMapper $listMapper)
     {
         $listMapper
-            ->add('id')
             ->addIdentifier('modelo')
             ->add('segmento')
             ->add('medida')
-
+            ->add('estado' , 'choice', array('choices' => array(1 => 'Publicado' , 0 => 'No publicado') ) ) //if no type is specified, SonataAdminBundle tries to guess it
         ;
     }
 

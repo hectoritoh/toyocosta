@@ -29,14 +29,10 @@ class MontacargaAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('id')
+            ->add('montacarga_subcategoria')
             ->add('modelo')
             ->add('precio')
-            ->add('caracteristicas')
-            ->add('ficha')
             ->add('estado')
-            ->add('created')
-            ->add('updated')
         ;
     }
 

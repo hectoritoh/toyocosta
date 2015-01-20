@@ -16,11 +16,8 @@ class MontacargaUsadoGaleriaAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('id')
             ->add('foto')
             ->add('estado')
-            ->add('created_at')
-            ->add('updated_at')
         ;
     }
 

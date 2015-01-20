@@ -44,7 +44,6 @@ class SlideVehiculosAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('id')
             ->add('imagen_slide')
             ->add('imagen_thumb')
             ->add('menu_posicion')

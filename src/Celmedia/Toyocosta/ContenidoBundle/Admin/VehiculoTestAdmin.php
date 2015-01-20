@@ -16,13 +16,10 @@ class VehiculoTestAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('id')
             ->add('nombre')
             ->add('serie')
             ->add('ubicacion')
             ->add('estado')
-            ->add('created')
-            ->add('updated')
         ;
     }
 

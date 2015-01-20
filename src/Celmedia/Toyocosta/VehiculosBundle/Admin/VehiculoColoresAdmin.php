@@ -33,7 +33,6 @@ class VehiculoColoresAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('id')
             ->add('imagen_color')
             ->add('estado')
         ;

@@ -34,7 +34,6 @@ class SeminuevoGaleriaAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('id')
             ->add('imagen')
             ->add('estado')
         ;

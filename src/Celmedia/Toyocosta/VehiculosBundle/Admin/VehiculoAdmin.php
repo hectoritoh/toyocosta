@@ -92,7 +92,7 @@ class VehiculoAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('id')
+            ->add('categoria')
             ->add('nombre')
             ->add('precio')
             ->add('precio_neto')

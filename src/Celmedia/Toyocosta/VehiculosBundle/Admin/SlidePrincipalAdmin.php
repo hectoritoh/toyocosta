@@ -41,7 +41,6 @@ class SlidePrincipalAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('id')
             ->add('link')
             ->add('descripcion')
             ->add('imagen_banner')

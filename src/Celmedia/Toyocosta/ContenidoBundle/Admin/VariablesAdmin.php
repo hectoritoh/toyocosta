@@ -16,13 +16,10 @@ class VariablesAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('id')
             ->add('concepto')
             ->add('entrada_minima')
             ->add('interes')
             ->add('estado')
-            ->add('created')
-            ->add('updated')
         ;
     }
 

@@ -16,7 +16,6 @@ class EstablecimientoAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('id')
             ->add('nombre')
             ->add('horario')
             ->add('ubicacion')

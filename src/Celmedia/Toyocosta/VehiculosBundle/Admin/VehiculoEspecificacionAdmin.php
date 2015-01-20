@@ -16,14 +16,7 @@ class VehiculoEspecificacionAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('id')
             ->add('seccion')
-            ->add('contenido')
-            ->add('formato')
-            ->add('rawText')
-            ->add('estado')
-            ->add('created')
-            ->add('updated')
         ;
     }
 

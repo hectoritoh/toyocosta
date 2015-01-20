@@ -18,7 +18,6 @@ class ContenidoAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('id')
             ->add('titulo')
             ->add('texto')
             ->add('abreviatura')

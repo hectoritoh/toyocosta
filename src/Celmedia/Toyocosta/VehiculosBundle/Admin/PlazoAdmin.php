@@ -16,7 +16,6 @@ class PlazoAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('id')
             ->add('nombre')
             ->add('valor')
             ->add('estado')

@@ -42,7 +42,7 @@ class SeminuevoAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('id')
+            ->add('username')
             ->add('modelo')
             ->add('marca')
             ->add('tipo')
@@ -51,8 +51,6 @@ class SeminuevoAdmin extends Admin
             ->add('anio')
             ->add('ubicacion')
             ->add('placa')
-            ->add('informacion')
-            ->add('descripcion_corta')
             ->add('estado')
             ->add('estado_publicacion')
         ;

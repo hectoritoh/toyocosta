@@ -16,11 +16,8 @@ class SubcategoriaAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('id')
             ->add('nombre')
             ->add('estado')
-            ->add('created_at')
-            ->add('updated_at')
         ;
     }
 

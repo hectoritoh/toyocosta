@@ -30,13 +30,13 @@ services:
         tags:
             - {name: sonata.admin, manager_type: orm, group: "Vehiculos", label: Categorias}
 
-    celmedia_toyocosta_vehiculos.admin.vehiculo_galeria:
-        class: Celmedia\Toyocosta\VehiculosBundle\Admin\VehiculoGaleriaAdmin
-        arguments: [~, Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoGaleria, CelmediaToyocostaVehiculosBundle:VehiculoGaleriaAdmin, SonataAdminBundle:CRUD]
-        tags:
-            - {name: sonata.admin, manager_type: orm, group: "Vehiculos", label: Galeria}
-        calls:
-            - [ setTranslationDomain, [Celmedia\Toyocosta\VehiculosBundle]]
+    # celmedia_toyocosta_vehiculos.admin.vehiculo_galeria:
+    #     class: Celmedia\Toyocosta\VehiculosBundle\Admin\VehiculoGaleriaAdmin
+    #     arguments: [~, Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoGaleria, CelmediaToyocostaVehiculosBundle:VehiculoGaleriaAdmin, SonataAdminBundle:CRUD]
+    #     tags:
+    #         - {name: sonata.admin, manager_type: orm, group: "Vehiculos", label: Galeria}
+    #     calls:
+    #         - [ setTranslationDomain, [Celmedia\Toyocosta\VehiculosBundle]]
 
     celmedia_toyocosta_vehiculos.admin.vehiculo_modelos:
         class: Celmedia\Toyocosta\VehiculosBundle\Admin\VehiculoModelosAdmin

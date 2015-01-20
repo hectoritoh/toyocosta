@@ -21,7 +21,7 @@ class DistribuidorAdmin extends Admin
             ->add('ciudad')
             ->add('telefono')
             ->add('contacto')
-            ->add('estado')
+
         ;
     }
 
@@ -36,7 +36,11 @@ class DistribuidorAdmin extends Admin
             ->add('ciudad')
             ->add('telefono')
             ->add('contacto')
-            ->add('estado')
+            ->add('estado', 'choice', array(
+           'choices' => array(
+               '1' => 'Publicado',
+               '0' => 'No publicado'
+               )))
             ->add('_action', 'actions', array(
                 'actions' => array(
                     'show' => array(),

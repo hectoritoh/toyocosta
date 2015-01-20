@@ -38,13 +38,8 @@ class CategoriaMontacargaAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('id')
             ->add('nombre')
-            ->add('foto_thumb')
-            ->add('logo')
             ->add('estado')
-            ->add('created_at')
-            ->add('updated_at')
         ;
     }
 

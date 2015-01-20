@@ -18,11 +18,8 @@ class TipoReservaAdmin extends Admin
     protected function configureDatagridFilters(DatagridMapper $datagridMapper)
     {
         $datagridMapper
-            ->add('id')
             ->add('nombre')
             ->add('estado')
-            ->add('created')
-            ->add('updated')
         ;
     }
 
