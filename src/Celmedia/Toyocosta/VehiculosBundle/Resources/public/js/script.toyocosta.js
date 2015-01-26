@@ -632,7 +632,6 @@ $(document).ready(function(){
           submitHandler: function (form) {
               var parametros = {
               	  usuario: $("#usuario").val(),
-              	  email: $("#email").val(),
                   modelo: $("#sm_input_modelo").val(),
                   kilometraje: $("#sm_input_kilometraje").val(),
                   marca: $("#selectmarca").val(),
@@ -649,7 +648,11 @@ $(document).ready(function(){
                   foto5: $("#sm_input_file_5").val(),
                   foto6: $("#sm_input_file_6").val(),
                   foto7: $("#sm_input_file_7").val(),
-                  foto8: $("#sm_input_file_8").val()
+                  foto8: $("#sm_input_file_8").val(),
+                  nombre: $("#nombre").val(),
+                  telefono: $("#telefono").val(),
+                  cedula: $("#cedula").val(),
+                  email: $("#email").val()
               }
 
               $.ajax({

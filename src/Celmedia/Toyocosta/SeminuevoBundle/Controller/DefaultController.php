@@ -569,24 +569,118 @@ class DefaultController extends Controller
             $seminuevo->setUbicacion( $ciudad );
             $seminuevo->setPlaca( $placa );
 
-            $fotoN1 = new \Application\Sonata\MediaBundle\Entity\GalleryHasMedia($foto1); $em->persist(  $fotoN1 ); $em->flush();
-            $fotoN2 = new \Application\Sonata\MediaBundle\Entity\GalleryHasMedia($foto2); $em->persist(  $fotoN2 ); $em->flush();
-            $fotoN3 = new \Application\Sonata\MediaBundle\Entity\GalleryHasMedia($foto3); $em->persist(  $fotoN3 ); $em->flush();
-            $fotoN4 = new \Application\Sonata\MediaBundle\Entity\GalleryHasMedia($foto4); $em->persist(  $fotoN4 ); $em->flush();
-            $fotoN5 = new \Application\Sonata\MediaBundle\Entity\GalleryHasMedia($foto5); $em->persist(  $fotoN5 ); $em->flush();
-            $fotoN6 = new \Application\Sonata\MediaBundle\Entity\GalleryHasMedia($foto6); $em->persist(  $fotoN6 ); $em->flush();
-            $fotoN7 = new \Application\Sonata\MediaBundle\Entity\GalleryHasMedia($foto7); $em->persist(  $fotoN7 ); $em->flush();
-            $fotoN8 = new \Application\Sonata\MediaBundle\Entity\GalleryHasMedia($foto8); $em->persist(  $fotoN8 ); $em->flush();
+            // $fotoN1 = new \Application\Sonata\MediaBundle\Entity\GalleryHasMedia($foto1); $em->persist(  $fotoN1 ); $em->flush();
+            // $fotoN2 = new \Application\Sonata\MediaBundle\Entity\GalleryHasMedia($foto2); $em->persist(  $fotoN2 ); $em->flush();
+            // $fotoN3 = new \Application\Sonata\MediaBundle\Entity\GalleryHasMedia($foto3); $em->persist(  $fotoN3 ); $em->flush();
+            // $fotoN4 = new \Application\Sonata\MediaBundle\Entity\GalleryHasMedia($foto4); $em->persist(  $fotoN4 ); $em->flush();
+            // $fotoN5 = new \Application\Sonata\MediaBundle\Entity\GalleryHasMedia($foto5); $em->persist(  $fotoN5 ); $em->flush();
+            // $fotoN6 = new \Application\Sonata\MediaBundle\Entity\GalleryHasMedia($foto6); $em->persist(  $fotoN6 ); $em->flush();
+            // $fotoN7 = new \Application\Sonata\MediaBundle\Entity\GalleryHasMedia($foto7); $em->persist(  $fotoN7 ); $em->flush();
+            // $fotoN8 = new \Application\Sonata\MediaBundle\Entity\GalleryHasMedia($foto8); $em->persist(  $fotoN8 ); $em->flush();
 
 
-            $seminuevo->addImagene( $fotoN1 );
-            $seminuevo->addImagene( $fotoN2 );
-            $seminuevo->addImagene( $fotoN3 );
-            $seminuevo->addImagene( $fotoN4 );
-            $seminuevo->addImagene( $fotoN5 );
-            $seminuevo->addImagene( $fotoN6 );
-            $seminuevo->addImagene( $fotoN7 );
-            $seminuevo->addImagene( $fotoN8 );
+
+            // if( $foto1 ){
+            //     $galeria1 = new \Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoGaleria(); 
+            //     $galeria1->setImagen( $foto1  );
+            //     $galeria1->setEstado( 1  );
+            //     $galeria1->setSeminuevoGaleria( $seminuevo  );
+
+            //     $em->persist(  $galeria1 ); 
+            //     $em->flush();
+            //     $seminuevo->addGalerium($galeria1);
+            // }
+            // if( $foto2 ){
+            //     $galeria2 = new \Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoGaleria();
+                
+            //     $galeria2->setImagen( $foto2  );
+            //     $galeria2->setEstado( 1  );
+            //     $galeria2->setSeminuevoGaleria( $seminuevo  );
+
+            //     $em->persist(  $galeria2 ); 
+            //     $em->flush();
+            //     $seminuevo->addGalerium($galeria2);
+
+            // }
+            // if( $foto3 ){
+            //     $galeria3 = new \Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoGaleria();
+                
+            //     $galeria3->setImagen( $foto3  );
+            //     $galeria3->setEstado( 1  );
+            //     $galeria3->setSeminuevoGaleria( $seminuevo  );
+
+            //     $em->persist(  $galeria3 ); 
+            //     $em->flush();
+            //     $seminuevo->addGalerium($galeria3);              
+            // }
+            // if( $foto4 ){
+            //     $fotoSN4 = new \Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoGaleria();
+                    
+            //     $galeria4->setImagen( $foto4  );
+            //     $galeria4->setEstado( 1  );
+            //     $galeria4->setSeminuevoGaleria( $seminuevo  );
+
+            //     $em->persist(  $galeria4 ); 
+            //     $em->flush();
+            //     $seminuevo->addGalerium($galeria4);               
+            // }
+            // if( $foto5 ){
+            //     $galeria5 = new \Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoGaleria();
+                
+            //     $galeria5->setImagen( $foto5  );
+            //     $galeria5->setEstado( 1  );
+            //     $galeria5->setSeminuevoGaleria( $seminuevo  );
+
+            //     $em->persist(  $galeria5 ); 
+            //     $em->flush();
+            //     $seminuevo->addGalerium($galeria5);                
+            // }
+            // if( $foto6 ){
+            //     $galeria6 = new \Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoGaleria();
+                
+            //     $galeria6->setImagen( $foto6  );
+            //     $galeria6->setEstado( 1  );
+            //     $galeria6->setSeminuevoGaleria( $seminuevo  );
+
+            //     $em->persist(  $galeria6 ); 
+            //     $em->flush();
+            //     $seminuevo->addGalerium($galeria6);
+
+            // }
+            // if( $foto7 ){
+            //     $galeria7 = new \Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoGaleria();
+                
+            //     $galeria7->setImagen( $foto7  );
+            //     $galeria7->setEstado( 1  );
+            //     $galeria7->setSeminuevoGaleria( $seminuevo  );
+
+            //     $em->persist(  $galeria7 ); 
+            //     $em->flush();
+            //     $seminuevo->addGalerium($galeria7);
+
+            // }
+            // if( $foto8 ){
+            //     $galeria8 = new \Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoGaleria();
+                
+            //     $galeria8->setImagen( $foto8  );
+            //     $galeria8->setEstado( 1  );
+            //     $galeria8->setSeminuevoGaleria( $seminuevo  );
+
+            //     $em->persist(  $galeria8 ); 
+            //     $em->flush();
+            //     $seminuevo->addGalerium($galeria8);
+            // }
+            
+
+
+            // $seminuevo->addImagene( $fotoN1 );
+            // $seminuevo->addImagene( $fotoN2 );
+            // $seminuevo->addImagene( $fotoN3 );
+            // $seminuevo->addImagene( $fotoN4 );
+            // $seminuevo->addImagene( $fotoN5 );
+            // $seminuevo->addImagene( $fotoN6 );
+            // $seminuevo->addImagene( $fotoN7 );
+            // $seminuevo->addImagene( $fotoN8 );
             
 
 
@@ -613,7 +707,8 @@ class DefaultController extends Controller
                 ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
 
                 ->setTo(array( 'cdnventas@toyocosta.com.ec' => 'Administrador de seminuevos Toyocosta' ))
-                
+                //->setTo(array( 'ycosquillo@celmedia.com' => 'Administrador de seminuevos Toyocosta' ))
+
                 ->setContentType("text/html")
 
                 ->setBody('<h1>Información de Seminuevo</h1> <br /><br />               
@@ -662,9 +757,9 @@ class DefaultController extends Controller
 
             $envioMail = $this->get('mailer')->send($message);
 
-            $transport = $this->container->get('mailer')->getTransport();
-            $spool = $transport->getSpool();
-            $spool->flushQueue($this->container->get('swiftmailer.transport.real'));
+            // $transport = $this->container->get('mailer')->getTransport();
+            // $spool = $transport->getSpool();
+            // $spool->flushQueue($this->container->get('swiftmailer.transport.real'));
 
 
             if ( $envioMail ) {
