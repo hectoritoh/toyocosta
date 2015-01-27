@@ -11,6 +11,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\HttpFoundation\File\Input;
 
 use Celmedia\Toyocosta\SeminuevoBundle\Entity\Seminuevo;
+use Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoGaleria;
 use Application\Sonata\MediaBundle\Entity\GalleryHasMedia;
 
 class DefaultController extends Controller
@@ -548,8 +549,14 @@ class DefaultController extends Controller
             $foto7 = $request->request->get('foto7');
             $foto8 = $request->request->get('foto8');
 
-
-            $em = $this->getDoctrine()->getManager();
+            $archivo1 = $request->request->get('archivo1');
+            $archivo2 = $request->request->get('archivo2');
+            $archivo3 = $request->request->get('archivo3');
+            $archivo4 = $request->request->get('archivo4');
+            $archivo5 = $request->request->get('archivo5');
+            $archivo6 = $request->request->get('archivo6');
+            $archivo7 = $request->request->get('archivo7');
+            $archivo8 = $request->request->get('archivo8');
 
             $em = $this->getDoctrine()->getManager();
             $seminuevo_color =$em->getRepository('CelmediaToyocostaContenidoBundle:Color')->findOneBy(array("id"=> $color));
@@ -569,6 +576,13 @@ class DefaultController extends Controller
             $seminuevo->setUbicacion( $ciudad );
             $seminuevo->setPlaca( $placa );
 
+            $seminuevo->setInformacion("Informacion");
+            $seminuevo->setDescripcionCorta("Descripcion");
+
+            $seminuevo->setEstado( 1 ); // Disponible = 1
+            $seminuevo->setEstadoPublicacion( 2 ); //Pendiente = 2
+            $seminuevo->setUsername( $usuario );
+
             // $fotoN1 = new \Application\Sonata\MediaBundle\Entity\GalleryHasMedia($foto1); $em->persist(  $fotoN1 ); $em->flush();
             // $fotoN2 = new \Application\Sonata\MediaBundle\Entity\GalleryHasMedia($foto2); $em->persist(  $fotoN2 ); $em->flush();
             // $fotoN3 = new \Application\Sonata\MediaBundle\Entity\GalleryHasMedia($foto3); $em->persist(  $fotoN3 ); $em->flush();
@@ -579,100 +593,6 @@ class DefaultController extends Controller
             // $fotoN8 = new \Application\Sonata\MediaBundle\Entity\GalleryHasMedia($foto8); $em->persist(  $fotoN8 ); $em->flush();
 
 
-
-            // if( $foto1 ){
-            //     $galeria1 = new \Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoGaleria(); 
-            //     $galeria1->setImagen( $foto1  );
-            //     $galeria1->setEstado( 1  );
-            //     $galeria1->setSeminuevoGaleria( $seminuevo  );
-
-            //     $em->persist(  $galeria1 ); 
-            //     $em->flush();
-            //     $seminuevo->addGalerium($galeria1);
-            // }
-            // if( $foto2 ){
-            //     $galeria2 = new \Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoGaleria();
-                
-            //     $galeria2->setImagen( $foto2  );
-            //     $galeria2->setEstado( 1  );
-            //     $galeria2->setSeminuevoGaleria( $seminuevo  );
-
-            //     $em->persist(  $galeria2 ); 
-            //     $em->flush();
-            //     $seminuevo->addGalerium($galeria2);
-
-            // }
-            // if( $foto3 ){
-            //     $galeria3 = new \Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoGaleria();
-                
-            //     $galeria3->setImagen( $foto3  );
-            //     $galeria3->setEstado( 1  );
-            //     $galeria3->setSeminuevoGaleria( $seminuevo  );
-
-            //     $em->persist(  $galeria3 ); 
-            //     $em->flush();
-            //     $seminuevo->addGalerium($galeria3);              
-            // }
-            // if( $foto4 ){
-            //     $fotoSN4 = new \Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoGaleria();
-                    
-            //     $galeria4->setImagen( $foto4  );
-            //     $galeria4->setEstado( 1  );
-            //     $galeria4->setSeminuevoGaleria( $seminuevo  );
-
-            //     $em->persist(  $galeria4 ); 
-            //     $em->flush();
-            //     $seminuevo->addGalerium($galeria4);               
-            // }
-            // if( $foto5 ){
-            //     $galeria5 = new \Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoGaleria();
-                
-            //     $galeria5->setImagen( $foto5  );
-            //     $galeria5->setEstado( 1  );
-            //     $galeria5->setSeminuevoGaleria( $seminuevo  );
-
-            //     $em->persist(  $galeria5 ); 
-            //     $em->flush();
-            //     $seminuevo->addGalerium($galeria5);                
-            // }
-            // if( $foto6 ){
-            //     $galeria6 = new \Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoGaleria();
-                
-            //     $galeria6->setImagen( $foto6  );
-            //     $galeria6->setEstado( 1  );
-            //     $galeria6->setSeminuevoGaleria( $seminuevo  );
-
-            //     $em->persist(  $galeria6 ); 
-            //     $em->flush();
-            //     $seminuevo->addGalerium($galeria6);
-
-            // }
-            // if( $foto7 ){
-            //     $galeria7 = new \Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoGaleria();
-                
-            //     $galeria7->setImagen( $foto7  );
-            //     $galeria7->setEstado( 1  );
-            //     $galeria7->setSeminuevoGaleria( $seminuevo  );
-
-            //     $em->persist(  $galeria7 ); 
-            //     $em->flush();
-            //     $seminuevo->addGalerium($galeria7);
-
-            // }
-            // if( $foto8 ){
-            //     $galeria8 = new \Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoGaleria();
-                
-            //     $galeria8->setImagen( $foto8  );
-            //     $galeria8->setEstado( 1  );
-            //     $galeria8->setSeminuevoGaleria( $seminuevo  );
-
-            //     $em->persist(  $galeria8 ); 
-            //     $em->flush();
-            //     $seminuevo->addGalerium($galeria8);
-            // }
-            
-
-
             // $seminuevo->addImagene( $fotoN1 );
             // $seminuevo->addImagene( $fotoN2 );
             // $seminuevo->addImagene( $fotoN3 );
@@ -681,16 +601,43 @@ class DefaultController extends Controller
             // $seminuevo->addImagene( $fotoN6 );
             // $seminuevo->addImagene( $fotoN7 );
             // $seminuevo->addImagene( $fotoN8 );
+
+            if( $archivo1 ){
+                $galeria1 = new \Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoGaleria(); $galeria1->setImagen( $archivo1  ); $galeria1->setEstado( 1  ); $galeria1->setSeminuevoGaleria( $seminuevo  );  
+                $em->persist(  $galeria1 ); $seminuevo->addGalerium($galeria1);
+            }
+            if( $archivo2 ){
+                $galeria2 = new \Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoGaleria(); $galeria2->setImagen( $archivo2  ); $galeria2->setEstado( 1  ); $galeria2->setSeminuevoGaleria( $seminuevo  );
+                $em->persist(  $galeria2 ); $seminuevo->addGalerium($galeria2);
+            }
+            if( $archivo3 ){
+                $galeria3 = new \Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoGaleria(); $galeria3->setImagen( $archivo3  ); $galeria3->setEstado( 1  ); $galeria3->setSeminuevoGaleria( $seminuevo  );
+                $em->persist(  $galeria3 ); $seminuevo->addGalerium($galeria3);              
+            }
+            if( $archivo4 ){
+                $galeria4 = new \Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoGaleria(); $galeria4->setImagen( $archivo4  ); $galeria4->setEstado( 1  ); $galeria4->setSeminuevoGaleria( $seminuevo  );
+                $em->persist(  $galeria4 ); $seminuevo->addGalerium($galeria4);               
+            }
+            if( $archivo5 ){
+                $galeria5 = new \Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoGaleria(); $galeria5->setImagen( $archivo5  ); $galeria5->setEstado( 1  ); $galeria5->setSeminuevoGaleria( $seminuevo  );
+                $em->persist(  $galeria5 ); $seminuevo->addGalerium($galeria5);                
+            }
+            if( $archivo6 ){
+                $galeria6 = new \Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoGaleria(); $galeria6->setImagen( $archivo6  ); $galeria6->setEstado( 1  ); $galeria6->setSeminuevoGaleria( $seminuevo  );
+                $em->persist(  $galeria6 ); $seminuevo->addGalerium($galeria6);
+
+            }
+            if( $archivo7 ){
+                $galeria7 = new \Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoGaleria(); $galeria7->setImagen( $archivo7  ); $galeria7->setEstado( 1  ); $galeria7->setSeminuevoGaleria( $seminuevo  );
+                $em->persist(  $galeria7 ); $seminuevo->addGalerium($galeria7);
+
+            }
+            if( $archivo8 ){
+                $galeria8 = new \Celmedia\Toyocosta\SeminuevoBundle\Entity\SeminuevoGaleria(); $galeria8->setImagen( $archivo8  ); $galeria8->setEstado( 1  ); $galeria8->setSeminuevoGaleria( $seminuevo  );
+                $em->persist(  $galeria8 ); $seminuevo->addGalerium($galeria8);
+            }
             
-
-
-
-            $seminuevo->setInformacion("Informacion");
-            $seminuevo->setDescripcionCorta("Descripcion");
-
-            $seminuevo->setEstado( 1 ); // Disponible = 1
-            $seminuevo->setEstadoPublicacion( 2 ); //Pendiente = 2
-            $seminuevo->setUsername( $usuario );
+            
             
             $em->persist(  $seminuevo );
             $em->flush();
@@ -706,8 +653,8 @@ class DefaultController extends Controller
 
                 ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
 
-                ->setTo(array( 'cdnventas@toyocosta.com.ec' => 'Administrador de seminuevos Toyocosta' ))
-                //->setTo(array( 'ycosquillo@celmedia.com' => 'Administrador de seminuevos Toyocosta' ))
+                //->setTo(array( 'cdnventas@toyocosta.com.ec' => 'Administrador de seminuevos Toyocosta' ))
+                ->setTo(array( 'ycosquillo@celmedia.com' => 'Administrador de seminuevos Toyocosta' ))
 
                 ->setContentType("text/html")
 
@@ -790,7 +737,7 @@ class DefaultController extends Controller
         $request = $this->get('request');
 
         $uploaded_file = $request->files->get('sm_input_file');
-        $path = 'uploads/seminuevosvenda/';
+        $path = 'uploads/seminuevos/';
         $filename = "";
 
         if ($uploaded_file)
@@ -811,7 +758,8 @@ class DefaultController extends Controller
 
         return new JsonResponse(array(
             'response' => $response,
-            "rutaarchivo" => $path . $filename
+            "rutaarchivo" => $path . $filename,
+            "archivo"=> $filename
         )); //codigo de error diferente
     }
 

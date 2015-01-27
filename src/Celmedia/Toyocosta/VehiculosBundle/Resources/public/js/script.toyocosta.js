@@ -442,6 +442,7 @@ $(document).ready(function(){
         done: function (e, data) {
           //alert(data.result.rutaarchivo);
           $(this).parent().find("input[type=hidden]").val(data.result.rutaarchivo);
+          $(this).parent().find(".archivo").text(data.result.archivo);
         }
     });  
 
@@ -649,6 +650,14 @@ $(document).ready(function(){
                   foto6: $("#sm_input_file_6").val(),
                   foto7: $("#sm_input_file_7").val(),
                   foto8: $("#sm_input_file_8").val(),
+                  archivo1: $("#archivo1").text(),
+                  archivo2: $("#archivo2").text(),
+                  archivo3: $("#archivo3").text(),
+                  archivo4: $("#archivo4").text(),
+                  archivo5: $("#archivo5").text(),
+                  archivo6: $("#archivo6").text(),
+                  archivo7: $("#archivo7").text(),
+                  archivo8: $("#archivo8").text(),
                   nombre: $("#nombre").val(),
                   telefono: $("#telefono").val(),
                   cedula: $("#cedula").val(),
@@ -718,7 +727,7 @@ $(document).ready(function(){
               autorizo:{
               	required: true
               },
-              /*sm_input_file_1:{ 
+              sm_input_file_1:{ 
                 required: true
               },
               sm_input_file_2: {
@@ -729,7 +738,7 @@ $(document).ready(function(){
               },
               sm_input_file_4:{
                 required:true
-              }*/
+              }
           },
           showErrors: function (errorMap, errorList) {
                // Clean up any tooltips for valid elements
