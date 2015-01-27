@@ -653,8 +653,8 @@ class DefaultController extends Controller
 
                 ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
 
-                //->setTo(array( 'cdnventas@toyocosta.com.ec' => 'Administrador de seminuevos Toyocosta' ))
-                ->setTo(array( 'ycosquillo@celmedia.com' => 'Administrador de seminuevos Toyocosta' ))
+                ->setTo(array( 'cdnventas@toyocosta.com.ec' => 'Administrador de seminuevos Toyocosta' ))
+                //->setTo(array( 'ycosquillo@celmedia.com' => 'Administrador de seminuevos Toyocosta' ))
 
                 ->setContentType("text/html")
 
