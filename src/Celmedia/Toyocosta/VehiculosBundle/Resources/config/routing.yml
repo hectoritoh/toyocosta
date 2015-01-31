@@ -287,6 +287,31 @@ landing_rs:
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:rs }
 
 
+# Landings 10/12/2014
+
+landing_compra:
+    path:      /landing/compra-usados
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:compraUsados }
+
+landing_compra_bumeran:
+    path:      /landing/compra-bumeran
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:compraBumeran }
+
+landing_compra_facebook:
+    path:      /landing/compra-face
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:compraFacebook }
+
+landing_compra_google:
+    path:      /landing/compra-google
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:compraGoogle }
+
+landing_compra_black:
+    path:      /landing/compra-black
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:compraBlack }
+
+
+
+
 envio_landing:
     path:      /landing/form
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:envioLanding }

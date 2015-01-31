@@ -98,7 +98,7 @@ class LandingController extends Controller
         return $this->render('CelmediaToyocostaVehiculosBundle:Landing:navidad.facebook.html.twig');
     }
 
-        
+
     // LANDINGS 08/12/2014
 
 
@@ -139,8 +139,39 @@ class LandingController extends Controller
 
         return $this->render('CelmediaToyocostaVehiculosBundle:Landing:finanSoluciones.html.twig');
     }
-
+    //LANDINGS 30/01/2015
     
+    public function compraUsadosAction(){
+
+
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:compra.html.twig');
+    }
+
+    public function compraBumeranAction(){
+
+
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:compraBumeran.html.twig');
+    }
+
+    public function compraFacebookAction(){
+
+
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:compraFacebook.html.twig');
+    }
+    public function compraGoogleAction(){
+
+
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:compraGoogle.html.twig');
+    }
+    public function compraBlackAction(){
+
+
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:compraBlack.html.twig');
+    }
+
+
+
+
     public function mailingCuotasAction(){
 
         return $this->render('CelmediaToyocostaVehiculosBundle:Landing:cuotas.html.twig');
@@ -162,7 +193,7 @@ class LandingController extends Controller
 
 
 
-	public function envioLandingAction(Request $request){
+    public function envioLandingAction(Request $request){
 
         ini_set('max_execution_time', 600);
 
@@ -184,6 +215,8 @@ class LandingController extends Controller
 
             $modelo = $request->request->get('modelo');
             $anio = $request->request->get('anio');
+            $ciudad = $request->request->get('ciudad');
+            $precio = $request->request->get('precio');
 
 
 
@@ -198,17 +231,27 @@ class LandingController extends Controller
             $info->setComentarios( $comentario  );
             $info->setCampana( $campana  );
             
-            
+            $extraMensaje1 = " ";
+
+            $extraMensaje2 = " ";
+
             if ( $modelo && $anio ) {
-                
+
                 $info->setModelo( $modelo  );
                 $info->setAnio( $anio  );
 
-                $extraMensaje = " Modelo:  ".$modelo." <br />
+                $extraMensaje1 = " Modelo:  ".$modelo." <br />
                 Año:  ".$anio;
-            }else{
+            }
 
-                $extraMensaje = " ";
+            if ( $ciudad && $precio ){
+
+                $info->setCiudad( $ciudad  );
+                
+                $extraMensaje2 = " Ciudad:  ".$ciudad." <br />
+
+                Precio Esperado:  ".$precio;
+
             }
 
             
@@ -230,13 +273,16 @@ class LandingController extends Controller
             Email:  '. $info->getEmail() .' <br />
             Celular:  '. $info->getCelular() .' <br />
             Comentarios:  '. $info->getComentarios() .' <br />
-            ' . $extraMensaje . ' ';
+            ' . $extraMensaje1 . ' <br />
+            ' . $extraMensaje2 . ' ';
 
             $message = \Swift_Message::newInstance()
 
             ->setSubject($subject)
 
             ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
+
+            //->setTo(array( $email , 'ycosquillo@celmedia.com' => 'Toyocosta' ))
 
             ->setTo(array( $email , 'cdnventas@toyocosta.com.ec' => 'Toyocosta' ))
             

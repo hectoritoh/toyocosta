@@ -13,7 +13,9 @@ $(document).ready(function(){
               comentario: $("#comentario").val(),
               campana: $("#campana").val(),
               modelo: $("#modelo").val(),
-              anio: $("#anio").val()
+              anio: $("#anio").val(),
+              ciudad: $("#ciudad").val(),
+              precio: $("#precio").val()
           }
 
           $.ajax({
