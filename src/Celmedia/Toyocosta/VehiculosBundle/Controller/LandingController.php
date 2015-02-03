@@ -286,7 +286,7 @@ class LandingController extends Controller
 
             ->setTo(array( $email , 'cdnventas@toyocosta.com.ec' => 'Toyocosta' ))
             
-            ->setCc('ajacome@toyocosta.com.ec' , 'Admin')
+            // ->setCc('ajacome@toyocosta.com.ec' , 'Admin')
 
             ->setContentType("text/html")
 
