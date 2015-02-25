@@ -112,7 +112,7 @@ Celmedia\Toyocosta\SeminuevoBundle\Entity\Seminuevo:
       galeria:
         targetEntity: SeminuevoGaleria
         mappedBy: seminuevo_galeria
-        cascade: ["persist"]
+        cascade: ["persist", "remove"]
 
     manyToOne:
       coloresseminuevo:

@@ -324,10 +324,14 @@ mailing:
     path:      /mailing/etiqueta-roja
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:mailingEtiqueta }
 
-mailing-cuotas:
+mailing_cuotas:
     path:      /mailing/cuotas
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:mailingCuotas }
 
-mailing-navidad:
+mailing_navidad:
     path:      /mailing/toyota-navidad
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:mailingNavidad }
+
+mailing_venta:
+    path:      /mailing/venta
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Mailing:mailingVenta }
