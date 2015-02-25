@@ -1103,8 +1103,8 @@ class DefaultController extends Controller
 
             if ($seleccionoRegalo !== "si" ) {
 
-                $premio =  "Premio: No selecciono regalo";
-
+                // $premio =  "Premio: No selecciono regalo";
+                $premio =  " ";
 
             }else{
                 
@@ -1167,7 +1167,7 @@ class DefaultController extends Controller
 
 
 
-            $arrayCorreo = array( $email => 'Recurso' );
+            $arrayCorreo = array( $email => 'Usuario' );
 
 
             foreach ( $taller->getContactos() as $item) {
