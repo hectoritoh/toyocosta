@@ -1114,7 +1114,6 @@ class DefaultController extends Controller
             
 
 
-
             // Creamos el objeto infomantenimiento
             $mantenimiento = new \Celmedia\Toyocosta\ContenidoBundle\Entity\InfoMantenimiento();
 
@@ -1201,11 +1200,27 @@ class DefaultController extends Controller
 
             ->setTo( $arrayCorreo )
             
-            // ->setCc('cdnventas@toyocosta.com.ec' , 'Toyocosta')
+            // ->setTo( array('ycosquillo@celmedia.com' =>'Admin') )
 
+            // ->setCc('cdnventas@toyocosta.com.ec' , 'Toyocosta')
+            
             ->setContentType("text/html")
 
             ->setBody($body);
+
+            // ->attach(\Swift_Attachment::fromPath('http://www.toyocosta.com/web/img/banner.png'));
+
+
+            if ($taller == "Oficina Matriz" || $taller == "Agencia Orellana" ) {
+                
+
+                $attachment = \Swift_Attachment::fromPath('http://www.toyocosta.com/web/img/citaagendaobsequio.jpg');
+                // // Attach it to the message
+                $message->attach($attachment);
+
+                // $message->attach(\Swift_Attachment::fromPath('http://www.toyocosta.com/web/img/banner.png')->setFilename('http://www.toyocosta.com/web/images/5ce63dd.jpg'));
+
+            }
 
 
             $envioMail = $this->get('mailer')->send($message);
