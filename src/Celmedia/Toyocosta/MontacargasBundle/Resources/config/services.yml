@@ -35,11 +35,11 @@ services:
     #     tags:
     #         - {name: sonata.admin, manager_type: orm, group: 'Montacargas', label: MontacargaGaleria}
 
-    celmedia_toyocosta_montacargas.admin.montacarga_usado:
-        class: Celmedia\Toyocosta\MontacargasBundle\Admin\MontacargaUsadoAdmin
-        arguments: [~, Celmedia\Toyocosta\MontacargasBundle\Entity\MontacargaUsado, SonataAdminBundle:CRUD]
-        tags:
-            - {name: sonata.admin, manager_type: orm, group: 'Montacargas', label: MontacargaUsado}
+    # celmedia_toyocosta_montacargas.admin.montacarga_usado:
+    #     class: Celmedia\Toyocosta\MontacargasBundle\Admin\MontacargaUsadoAdmin
+    #     arguments: [~, Celmedia\Toyocosta\MontacargasBundle\Entity\MontacargaUsado, SonataAdminBundle:CRUD]
+    #     tags:
+    #         - {name: sonata.admin, manager_type: orm, group: 'Montacargas', label: MontacargaUsado}
 
     # celmedia_toyocosta_montacargas.admin.montacarga_usado_galeria:
     #     class: Celmedia\Toyocosta\MontacargasBundle\Admin\MontacargaUsadoGaleriaAdmin
