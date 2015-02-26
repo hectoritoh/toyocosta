@@ -19,8 +19,6 @@ class PlazoAdmin extends Admin
             ->add('nombre')
             ->add('valor')
             ->add('estado')
-            ->add('created')
-            ->add('updated')
         ;
     }
 

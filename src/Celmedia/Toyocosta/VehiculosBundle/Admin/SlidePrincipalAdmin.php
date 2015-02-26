@@ -43,7 +43,7 @@ class SlidePrincipalAdmin extends Admin
         $datagridMapper
             ->add('link')
             ->add('descripcion')
-            ->add('imagen_banner')
+            ->add('boton')
             ->add('estado')
         ;
     }
