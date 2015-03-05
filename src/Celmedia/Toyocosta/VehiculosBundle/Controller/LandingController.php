@@ -171,6 +171,14 @@ class LandingController extends Controller
 
 
 
+    public function movilidadAction(){
+
+
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:movilidad.html.twig');
+    }
+
+
+
 
     public function mailingCuotasAction(){
 
@@ -219,6 +227,11 @@ class LandingController extends Controller
             $precio = $request->request->get('precio');
 
 
+            // campos extras
+
+            $direccion = $request->request->get('direccion');
+            $exoneracion = $request->request->get('exoneracion');
+
 
             $info = new \Celmedia\Toyocosta\ContenidoBundle\Entity\InfoLandings();
 
@@ -253,6 +266,18 @@ class LandingController extends Controller
                 Precio Esperado:  ".$precio;
 
             }
+            
+
+            if ( $direccion && $exoneracion ){
+
+               
+                $extraMensaje3 = " Ciudad:  ".$ciudad." <br /> 
+
+                Dirección:  ".$direccion." <br />
+
+                Tipo de exoneración:  ".$exoneracion;
+
+            }
 
             
             // $em = $this->getDoctrine()->getManager(); 
@@ -274,7 +299,8 @@ class LandingController extends Controller
             Celular:  '. $info->getCelular() .' <br />
             Comentarios:  '. $info->getComentarios() .' <br />
             ' . $extraMensaje1 . ' <br />
-            ' . $extraMensaje2 . ' ';
+            ' . $extraMensaje2 . ' <br />
+            ' . $extraMensaje3 . ' ';
 
             $message = \Swift_Message::newInstance()
 

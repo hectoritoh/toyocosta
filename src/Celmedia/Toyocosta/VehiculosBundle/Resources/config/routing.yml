@@ -312,6 +312,12 @@ landing_compra_black:
 
 
 
+landing_movilidad:
+    path:      /landing/movilidad
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:movilidad }
+
+
+
 envio_landing:
     path:      /landing/form
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:envioLanding }

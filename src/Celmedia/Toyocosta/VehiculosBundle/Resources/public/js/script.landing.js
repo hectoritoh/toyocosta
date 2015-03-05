@@ -15,7 +15,9 @@ $(document).ready(function(){
               modelo: $("#modelo").val(),
               anio: $("#anio").val(),
               ciudad: $("#ciudad").val(),
-              precio: $("#precio").val()
+              precio: $("#precio").val(),
+              exoneracion: $("#exoneracion").val(),
+              direccion: $("#direccion").val()
           }
 
           $.ajax({
