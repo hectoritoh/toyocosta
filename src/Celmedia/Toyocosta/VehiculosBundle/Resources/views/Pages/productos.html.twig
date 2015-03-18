@@ -1,5 +1,17 @@
 {% extends 'CelmediaToyocostaVehiculosBundle::layout.html.twig' %}
 
+	{% block seo %}
+    
+	    <title>TOYOCOSTA | {% if categoria_vehiculo == 'autos' %} Autos {% elseif categoria_vehiculo == 'camionetas' %} Camionetas {% elseif categoria_vehiculo == 'todoterreno' %} Todoterreno {% else %} Toyota {% endif %}</title>
+	    
+	    <meta name="description" content="{% if categoria_vehiculo == 'autos' %} Descubre más información sobre los diferentes modelos de autos Toyota, disponibles ahora en Toyocosta. {% elseif categoria_vehiculo == 'camionetas' %} Revisa más sobre los diferentes modelos de camionetas Toyota, disponibles ahora en Toyocosta. {% elseif categoria_vehiculo == 'todoterreno' %} Conoce más detalles sobre los diferentes modelos de todoterreno Toyota, disponibles ahora en Toyocosta. {% else %} Descubre más información sobre los diferentes modelos de Toyota {% endif %}
+	    "/>
+
+	    <meta name="keywords" content="{% if categoria_vehiculo == 'autos' %} autos toyota guayaquil, autos toyota modelos, autos toyota cotizar, autos toyota galeria {% elseif categoria_vehiculo == 'camionetas' %} camionetas toyota guayaquil, camionetas toyota modelos, camionetas toyota cotizar, camionetas toyota galeria {% elseif categoria_vehiculo == 'todoterreno' %} todoterreno toyota guayaquil, todoterreno toyota modelos, todoterreno toyota cotizar, todoterreno toyota galeria {% else %} toyota guayaquil, toyota modelos, toyota cotizar, toyota galeria {% endif %}
+	    " />
+
+	{% endblock %}
+
 	{% block contenidotoyocosta %}
 
 	

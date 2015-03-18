@@ -7,13 +7,13 @@ toyocosta_homepage:
     defaults: { _controller: CelmediaToyocostaVehiculosBundle:Default:index }
 
 autos:
-    path:      /autos
+    path:      /autos-toyota
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:autos }
 camionetas:
-    path:      /camionetas
+    path:      /camionetas-toyota
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:camionetas }
 suv:
-    path:      /todoterreno
+    path:      /todoterreno-toyota
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:suv }
 # hibridos:
 #     path:      /hibridos
