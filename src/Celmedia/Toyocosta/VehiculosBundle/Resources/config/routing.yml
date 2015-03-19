@@ -310,11 +310,36 @@ landing_compra_black:
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:compraBlack }
 
 
-
-
 landing_movilidad:
     path:      /landing/movilidad
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:movilidad }
+
+
+# Landings 18/03/2015
+
+landing_cf_bumeran:
+    path:      /landing/compra-confiable-bumeran
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:confiableBumeran }
+
+landing_cf_data:
+    path:      /landing/compra-confiable-data
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:confiableData }
+
+landing_cf_patio:
+    path:      /landing/compra-confiable-patio
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:confiablePatio }
+
+landing_cf_autos:
+    path:      /landing/compra-confiable-autos
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:confiableAutos }
+
+landing_cf_face:
+    path:      /landing/compra-confiable-facebook
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:confiableFace }
+
+landing_cf_universo:
+    path:      /landing/compra-confiable-universo
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:confiableUniverso }
 
 
 

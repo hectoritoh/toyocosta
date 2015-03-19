@@ -173,9 +173,36 @@ class LandingController extends Controller
 
     public function movilidadAction(){
 
-
         return $this->render('CelmediaToyocostaVehiculosBundle:Landing:movilidad.html.twig');
     }
+
+    // 18-02-2015
+
+    public function confiableBumeranAction()
+    {
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:cfbumeran.html.twig');
+    }
+    public function confiableDataAction()
+    {
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:cfdata.html.twig');
+    }
+    public function confiablePatioAction()
+    {
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:cfpatio.html.twig');
+    }
+    public function confiableAutosAction()
+    {
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:cfautos.html.twig');
+    }
+    public function confiableFaceAction()
+    {
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:cfface.html.twig');
+    }
+    public function confiableUniversoAction()
+    {
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:cfuniverso.html.twig');
+    }
+
 
 
 
@@ -248,6 +275,8 @@ class LandingController extends Controller
 
             $extraMensaje2 = " ";
 
+            $extraMensaje3 = " ";
+            
             if ( $modelo && $anio ) {
 
                 $info->setModelo( $modelo  );
@@ -290,7 +319,8 @@ class LandingController extends Controller
 
 
 
-            $body = '<strong>Informacion del Landing Page:</strong> <br /><br />               
+            $body = '<strong>Información del Landing Page.</strong> <br /><br />
+            A continuación detallamos los datos ingresados: <br /><br />              
             Nombre:  '.$info->getNombre().' <br />
             Apellido:   '. $info->getApellido() .' <br />
             Cedula:  '.$info->getCedula().' <br />
@@ -300,7 +330,8 @@ class LandingController extends Controller
             Comentarios:  '. $info->getComentarios() .' <br />
             ' . $extraMensaje1 . ' <br />
             ' . $extraMensaje2 . ' <br />
-            ' . $extraMensaje3 . ' ';
+            ' . $extraMensaje3 . ' <br />  <br /> <br />  <br /> 
+            <strong>Toyocosta.</strong>';
 
             $message = \Swift_Message::newInstance()
 
