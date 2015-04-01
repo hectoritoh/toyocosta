@@ -342,9 +342,9 @@ class LandingController extends Controller
 
             ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
 
-            ->setTo(array( $email , 'ycosquillo@celmedia.com' => 'Toyocosta' ))
+            //->setTo(array( $email , 'ycosquillo@celmedia.com' => 'Toyocosta' ))
 
-            //->setTo(array( $email , 'cdnventas@toyocosta.com.ec' => 'Toyocosta' ))
+            ->setTo(array( $email , 'cdnventas@toyocosta.com.ec' => 'Toyocosta' ))
             
             // ->setCc('ajacome@toyocosta.com.ec' , 'Admin')
 
