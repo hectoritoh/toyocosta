@@ -342,6 +342,11 @@ landing_cf_universo:
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:confiableUniverso }
 
 
+landing_cm_usados:
+    path:      /landing/compra-confiable-usados
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:confiableUsados }
+
+
 
 envio_landing:
     path:      /landing/form
