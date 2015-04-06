@@ -30,7 +30,9 @@
           ga('send', 'pageview');
 
         </script>
-
+        {% block otroscript %}
+            
+        {% endblock %}
     </head>
     <body>
     {#<body data-spy="scroll" {% if app.request.get('_route') == "ver_vehiculo" %}data-target="#vehiculos-secciones"{% elseif app.request.get('_route') == "toyocosta_homepage" %}data-target="#scrollprincipal"{% endif %}>#}
