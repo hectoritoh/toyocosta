@@ -1211,23 +1211,18 @@ class DefaultController extends Controller
             // ->attach(\Swift_Attachment::fromPath('http://www.toyocosta.com/web/img/banner.png'));
 
 
-            if ($taller == "Oficina Matriz" || $taller == "Agencia Orellana" ) {
+            // if ($taller == "Oficina Matriz" || $taller == "Agencia Orellana" ) {
                 
 
-                $attachment = \Swift_Attachment::fromPath('http://www.toyocosta.com/web/img/citaagendaobsequio.jpg');
-                // // Attach it to the message
-                $message->attach($attachment);
+            //     $attachment = \Swift_Attachment::fromPath('http://www.toyocosta.com/web/img/citaagendaobsequio.jpg');
+            //     // // Attach it to the message
+            //     $message->attach($attachment);
 
-                // $message->attach(\Swift_Attachment::fromPath('http://www.toyocosta.com/web/img/banner.png')->setFilename('http://www.toyocosta.com/web/images/5ce63dd.jpg'));
 
-            }
+            // }
 
 
             $envioMail = $this->get('mailer')->send($message);
-
-            // $transport = $this->container->get('mailer')->getTransport();
-            // $spool = $transport->getSpool();
-            // $spool->flushQueue($this->container->get('swiftmailer.transport.real'));
 
 
             if ( $envioMail ) {
