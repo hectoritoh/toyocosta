@@ -23,6 +23,10 @@
 		</div>
 	</div>
 	
+	{% if tipo is not defined or tipo is null %}
+        {% set tipo = "discapacitados" %}
+    {% endif %}
+
 	<div class="fondo-seccion-2">
 		<div class="container">
 			
@@ -44,10 +48,10 @@
 					
 					  <!-- Nav tabs -->
 					  <ul class="nav nav-tabs nav-justified nav-exonerados" role="tablist">
-					    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab" class="dis">DISCAPACITADOS</a></li>
-					    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab" class="dip">DIPLOMÁTICOS Y ONG'S</a></li>
-					    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab" class="pla">PLAN RENOVA</a></li>
-					    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab" class="com">COMPRAS PÚBLICAS</a></li>
+					    <li role="presentation" class="{% if tipo == 'discapacitados' %}active{% endif %}"><a href="#home" aria-controls="home" role="tab" data-toggle="tab" class="dis">DISCAPACITADOS</a></li>
+					    <li role="presentation" class="{% if tipo == 'diplomaticos' %}active{% endif %}"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab" class="dip">DIPLOMÁTICOS Y ONG'S</a></li>
+					    <li role="presentation" class="{% if tipo == 'plan' %}active{% endif %}"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab" class="pla">PLAN RENOVA</a></li>
+					    <li role="presentation" class="{% if tipo == 'compras' %}active{% endif %}"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab" class="com">COMPRAS PÚBLICAS</a></li>
 					  </ul>
 
 				</div>	
@@ -65,7 +69,7 @@
 
 					  <!-- Tab panes -->
 					  <div class="tab-content">
-					    <div role="tabpanel" class="tab-pane active" id="home">
+					    <div role="tabpanel" class="tab-pane {% if tipo == 'discapacitados' %}active{% endif %}" id="home">
 					    	<div class="container">
 			
 								<div class="row espacio-a">
@@ -142,7 +146,7 @@
 							</div>
 
 					    </div>
-					    <div role="tabpanel" class="tab-pane" id="profile">
+					    <div role="tabpanel" class="tab-pane {% if tipo == 'diplomaticos' %}active{% endif %}" id="profile">
 
 					    	<div class="container">
 			
@@ -194,7 +198,7 @@
 							</div>
 
 					    </div>
-					    <div role="tabpanel" class="tab-pane" id="messages">
+					    <div role="tabpanel" class="tab-pane {% if tipo == 'plan' %}active{% endif %}" id="messages">
 					    	<div class="container">
 			
 								<div class="row espacio-a">
@@ -240,7 +244,7 @@
 							</div>
 
 					    </div>
-					    <div role="tabpanel" class="tab-pane" id="settings">
+					    <div role="tabpanel" class="tab-pane {% if tipo == 'compras' %}active{% endif %}" id="settings">
 					    	<div class="container">
 			
 								<div class="row espacio-a">

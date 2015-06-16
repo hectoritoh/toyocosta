@@ -40,7 +40,7 @@ exonerados:
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:exonerados }
 
 exonerados_informacion:
-    path:      /exonerados/informacion
+    path:      /exonerados/informacion/{tipo}
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:exoneradosImpuestos }
 
 

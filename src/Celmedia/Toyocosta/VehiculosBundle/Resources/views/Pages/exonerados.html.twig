@@ -34,17 +34,18 @@
 							<img src="{{ asset_url }}" class="img-responsive img-normal" alt="" style="margin:0 auto;" />
 						{% endimage %}
 
-						{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/exonerados/iconos/discapacitadoshover.png' %}
-							<img src="{{ asset_url }}" class="img-responsive img-hover" alt="" style="margin:0 auto;" />
-						{% endimage %}
-
+						<a href="{{path('exonerados_informacion', {'tipo': 'discapacitados' })}}">
+							{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/exonerados/iconos/discapacitadoshover.png' %}
+								<img src="{{ asset_url }}" class="img-responsive img-hover" alt="" style="margin:0 auto;" />
+							{% endimage %}
+						</a>
 					</div>	
 					<div id="icon2" class="col-md-3">
 						{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/exonerados/iconos/diplomaticos.png' %}
 							<img src="{{ asset_url }}" class="img-responsive img-normal" alt="" style="margin:0 auto;" />
 						{% endimage %}
 
-						<a href="{{path('exonerados_informacion')}}" target="_blank">
+						<a href="{{path('exonerados_informacion', {'tipo': 'diplomaticos' })}}">
 							
 							{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/exonerados/iconos/diplomaticoshover.png' %}
 								<img src="{{ asset_url }}" class="img-responsive img-hover" alt="" style="margin:0 auto;" />
@@ -58,9 +59,11 @@
 							<img src="{{ asset_url }}" class="img-responsive img-normal" alt="" style="margin:0 auto;" />
 						{% endimage %}
 
-						{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/exonerados/iconos/planrenovahover.png' %}
-							<img src="{{ asset_url }}" class="img-responsive img-hover" alt="" style="margin:0 auto;" />
-						{% endimage %}
+						<a href="{{path('exonerados_informacion', {'tipo': 'plan' } )}}">
+							{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/exonerados/iconos/planrenovahover.png' %}
+								<img src="{{ asset_url }}" class="img-responsive img-hover" alt="" style="margin:0 auto;" />
+							{% endimage %}
+						</a>
 
 					</div>
 					<div id="icon4" class="col-md-3">
@@ -68,10 +71,11 @@
 							<img src="{{ asset_url }}" class="img-responsive img-normal" alt="" style="margin:0 auto;" />
 						{% endimage %}
 
-						{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/exonerados/iconos/comprashover.png' %}
-							<img src="{{ asset_url }}" class="img-responsive img-hover" alt="" style="margin:0 auto;" />
-						{% endimage %}
-
+						<a href="{{path('exonerados_informacion', {'tipo': 'compras' } )}}">
+							{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/exonerados/iconos/comprashover.png' %}
+								<img src="{{ asset_url }}" class="img-responsive img-hover" alt="" style="margin:0 auto;" />
+							{% endimage %}
+						</a>
 					</div>	
 				</div>
 			</div>
