@@ -1,0 +1,101 @@
+{% extends 'CelmediaToyocostaVehiculosBundle::layout.html.twig' %}
+{% block seo %}
+    
+    <title>TOYOCOSTA | Exonerados</title>
+    
+    <meta name="description" content=""/>
+
+    <meta name="keywords" content="" />
+
+{% endblock %}
+{% block contenidotoyocosta %}
+	
+	{% include 'CelmediaToyocostaVehiculosBundle:Blocks:top.menu.secciones.html.twig' %}
+	
+	<div class="container-fluid espaciado-menu-3 {# visible-lg visible-md visible-sm hidden-xs #}">
+		&nbsp;as
+	</div>
+
+	
+	<div id="exonerados-seccion" class="fondo-seccion-2">
+		<div class="container">
+			<div class="row espacio-a">
+				<br /><br /><br /><br /><br />
+			</div>
+			<div class="row espacio-a">
+				<div class="col-lg-12">
+					{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/exonerados/titular.png' %}
+						<img src="{{ asset_url }}" class="img-responsive" alt="" style="margin:0 auto;" />
+					{% endimage %}
+				</div>
+				<div class="col-lg-6 col-lg-offset-3">
+					<div id="icon1" class="col-md-3">
+						{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/exonerados/iconos/discapacitados.png' %}
+							<img src="{{ asset_url }}" class="img-responsive img-normal" alt="" style="margin:0 auto;" />
+						{% endimage %}
+
+						{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/exonerados/iconos/discapacitadoshover.png' %}
+							<img src="{{ asset_url }}" class="img-responsive img-hover" alt="" style="margin:0 auto;" />
+						{% endimage %}
+
+					</div>	
+					<div id="icon2" class="col-md-3">
+						{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/exonerados/iconos/diplomaticos.png' %}
+							<img src="{{ asset_url }}" class="img-responsive img-normal" alt="" style="margin:0 auto;" />
+						{% endimage %}
+
+						<a href="{{path('exonerados_informacion')}}" target="_blank">
+							
+							{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/exonerados/iconos/diplomaticoshover.png' %}
+								<img src="{{ asset_url }}" class="img-responsive img-hover" alt="" style="margin:0 auto;" />
+							{% endimage %}
+
+						</a>
+
+					</div>	
+					<div id="icon3" class="col-md-3">
+						{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/exonerados/iconos/planrenova.png' %}
+							<img src="{{ asset_url }}" class="img-responsive img-normal" alt="" style="margin:0 auto;" />
+						{% endimage %}
+
+						{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/exonerados/iconos/planrenovahover.png' %}
+							<img src="{{ asset_url }}" class="img-responsive img-hover" alt="" style="margin:0 auto;" />
+						{% endimage %}
+
+					</div>
+					<div id="icon4" class="col-md-3">
+						{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/exonerados/iconos/compras.png' %}
+							<img src="{{ asset_url }}" class="img-responsive img-normal" alt="" style="margin:0 auto;" />
+						{% endimage %}
+
+						{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/exonerados/iconos/comprashover.png' %}
+							<img src="{{ asset_url }}" class="img-responsive img-hover" alt="" style="margin:0 auto;" />
+						{% endimage %}
+
+					</div>	
+				</div>
+			</div>
+			
+
+			<div class="row espacio-a">
+				<br /><br />
+			</div>
+
+			<div class="row espacio-a">
+				<div class="col-md-8 col-md-offset-2">
+					{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/exonerados/autos.png' %}
+						<img src="{{ asset_url }}" class="img-responsive" alt="" style="margin:0 auto;" />
+					{% endimage %}
+				</div>
+			</div>
+
+			<div class="row espacio-a">
+				<br /><br /><br /><br /><br />
+			</div>
+		</div>
+		
+
+	
+	</div>
+
+{% endblock %}

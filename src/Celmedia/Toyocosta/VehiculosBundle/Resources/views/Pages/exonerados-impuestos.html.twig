@@ -1,0 +1,300 @@
+{% extends 'CelmediaToyocostaVehiculosBundle::layout.html.twig' %}
+{% block seo %}
+    
+    <title>TOYOCOSTA | Exonerados</title>
+    
+    <meta name="description" content=""/>
+
+    <meta name="keywords" content="" />
+
+{% endblock %}
+{% block contenidotoyocosta %}
+	
+	{% include 'CelmediaToyocostaVehiculosBundle:Blocks:top.menu.secciones.html.twig' %}
+	
+	<div class="container-fluid espaciado-menu-3 {# visible-lg visible-md visible-sm hidden-xs #}">
+		&nbsp;as
+	</div>
+	<div class="row">
+		<div class="col-lg-12 col-md-12" style="background-color: #FCFCFA;">
+			{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/exonerados/informacion/banner.jpg' %}
+				<img src="{{ asset_url }}" class="img-responsive" alt="" style="margin:0 auto;" />
+			{% endimage %}
+		</div>
+	</div>
+	
+	<div class="fondo-seccion-2">
+		<div class="container">
+			
+			<div class="row espacio-a">
+				
+				<div class="col-lg-12">
+					<h1 class="text-center">EXONERADOS IMPUESTOS</h1>	
+				</div>	
+
+			</div>
+			
+		</div>
+
+		<div class="container">
+			
+			<div class="row">
+				
+				<div class="col-lg-12">
+					
+					  <!-- Nav tabs -->
+					  <ul class="nav nav-tabs nav-justified nav-exonerados" role="tablist">
+					    <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab" class="dis">DISCAPACITADOS</a></li>
+					    <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab" class="dip">DIPLOMÁTICOS Y ONG'S</a></li>
+					    <li role="presentation"><a href="#messages" aria-controls="messages" role="tab" data-toggle="tab" class="pla">PLAN RENOVA</a></li>
+					    <li role="presentation"><a href="#settings" aria-controls="settings" role="tab" data-toggle="tab" class="com">COMPRAS PÚBLICAS</a></li>
+					  </ul>
+
+				</div>	
+
+			</div>
+			
+		</div>
+
+
+		<div class="container-fluid" style="  border-top: 2px solid #ccc;">
+			<div class="row">
+				<div class="col-lg-12">
+					<div role="tabpanel">
+
+
+					  <!-- Tab panes -->
+					  <div class="tab-content">
+					    <div role="tabpanel" class="tab-pane active" id="home">
+					    	<div class="container">
+			
+								<div class="row espacio-a">
+									
+									<div class="col-lg-12">
+										<h3 class="text-center">PERSONAS CON DISCAPACIDAD</h3>
+										<p class="text-center">NUESTRO COMPROMISO CON LAS PERSONAS CON DISCAPACIDAD</p>	
+										<div class="row">
+											<div class="col-lg-8 col-lg-offset-2">
+												<p class="text-center">Difundir el derecho que el Estado Ecuatoriano otorga a los grupos de discapacitados de la población ecuatoriana como "grupo de atención prioritaria" para que pueda importar un vehículo nuevo marca TOYOTA ortopédico que satisfaga las necesidades especiales y que facilite su movilidad.</p>
+											</div>
+										</div>
+										<h3 class="text-center">BENEFICIOS:</h3>
+										<div class="row">
+											<div class="col-lg-8 col-lg-offset-2">
+												<ul class="list-exonerados">
+													<li>
+														Exoneración de impuestos (IVA, ICE y Aranceles), el cual se aplica de conformidad al grado de discapacidad, en los porcentajes establecido en la Ley Orgánica de Discapacidades y su Reglamento.                                                                              
+													</li>
+													<li>
+														Asesoramiento de un equipo de trabajo especializado en gestionar tramites de exoneración de impuestos.
+													</li>
+												</ul>
+											</div>	
+										</div>
+
+										<h3 class="text-center">REQUISITOS:</h3>
+										<div class="row">
+											<div class="col-lg-8 col-lg-offset-2">
+												<p class="text-center">
+													Para aplicar al beneficio debe tener el Carnet que lo habilite como persona beneficiaria de las exoneraciones por discapacidad, de acuerdo al porcentaje mínimo establecido por la Ley y el Reglamento y presentar los siguientes requisitos:
+												</p>
+												<ul class="list-exonerados">
+													<li>
+														Copia a color de cédula de identidad y carnet de discapacidad.                                                                             
+													</li>
+													<li>
+														Copia a color de la licencia de conducir.
+													</li>
+													<li>
+														Copia a color del Certificado Único de Calificación de Discapacidad o certificado que faculta la importación SENAE (emitido por el  Ministerio de Salud Pública)
+													</li>
+													<li>
+														Original de la Autorización de Exoneración de impuestos (Resolución emitida por la SENAE)
+													</li>
+												</ul>
+											</div>
+										</div>
+
+										
+
+
+									</div>	
+
+								</div>
+								
+							</div>
+
+							<div class="container-fluid caso-especial">
+								<div class="row">
+									<div class="container">
+										<h1 class="text-center" style="color: #CF1928;">CASO ESPECIAL</h1>
+										<div class="col-md-3 col-md-offset-2">
+											
+										      	{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/exonerados/informacion/hoja.png' %}
+													<img src="{{ asset_url }}" class="img-responsive" alt="" style="" />
+												{% endimage %}
+										</div>
+										<div class="col-md-5">
+											    <p>En caso de que además de la persona con discapacidad, haya otra persona autorizada a conducir el vehículo, se requiere:<br/><br/> Declaración juramentada original, copia de cedula, votación y licencia de conducir a color.</p>
+										</div>
+									</div>
+								</div>
+							</div>
+
+					    </div>
+					    <div role="tabpanel" class="tab-pane" id="profile">
+
+					    	<div class="container">
+			
+								<div class="row espacio-a">
+									
+									<div class="col-lg-12">
+										<h3 class="text-center">NUESTRO COMPROMISO CON DIPLIMÁTICOS Y ONGS</h3>
+										<div class="row">
+											<div class="col-lg-8 col-lg-offset-2">
+												<p class="text-center">Aportar con productos de calidad mediante la importación de vehículos nuevos marca TOYOTA al sector Diplomático y Organismos Internacionales  que realizan valiosas contribuciones a la sociedad ecuatoriana.</p>
+										
+											</div>	
+										</div>
+
+										<h3 class="text-center">BENEFICIOS:</h3>
+										<div class="row">
+											<div class="col-lg-8 col-lg-offset-2">
+												<p class="text-center">
+													Beneficio de exoneración de impuestos en la compra de vehículos Toyota para Diplomáticos y representantes de Organismos Internacionales, para el desarrollo de sus actividades de prestación de servicios a la ciudadanía, según sea autorizado por el Ministerio de Relaciones Exteriores y según haya sido.
+												</p>
+											</div>
+										</div>
+
+										<h3 class="text-center">REQUISITOS:</h3>
+										<div class="row" style="padding-bottom:25px;">
+											<div class="col-lg-8 col-lg-offset-2">
+												<p style="font-weight:bold;">DIPLOMÁTICOS</p>
+												<ul class="list-exonerados">
+													<li>Copia pasaporte Diplomático (2 copias a color)</li>
+													<li>Copia Carnet Diplomático (1 copia a color)</li>
+													<li>Nota verbal emitida por el Ministerio de Relaciones Exteriores</li>
+													<li>Acción de personal o nombramiento del diplomático</li>
+												</ul>
+												<p style="font-weight:bold;">ORGANISMOS INTERNACIONALES</p>
+												<ul class="list-exonerados">
+													<li>Copia del convenio entre el Ministerio de Relaciones Exteriores y el Gobierno del País que pertenece el Organismo Internacional.</li>
+													<li>Copia a color de la Cédula o Pasaporte vigente del Representante Legal del Organismo.</li>
+													<li>Nombramiento del Representante Legal.</li>
+													<li>Copia del RUC del Organismo Internacional.</li>
+												</ul>
+											</div>
+										</div>
+
+
+									</div>	
+
+								</div>
+								
+							</div>
+
+					    </div>
+					    <div role="tabpanel" class="tab-pane" id="messages">
+					    	<div class="container">
+			
+								<div class="row espacio-a">
+									
+									<div class="col-lg-12">
+										<h3 class="text-center">NUESTRO COMPROMISO CON EL TRANSPORTE PRODUCTIVO</h3>
+										
+										<div class="row">
+											<div class="col-lg-8 col-lg-offset-2">
+												<p class="text-center">Contribuir con productos de calidad mediante la importación de vehículos nuevos marca TOYOTA, para mejorar las unidades de transporte público que realizan valiosos aportes a la sociedad ecuatoriana.</p>
+											</div>
+										</div>
+										<h3 class="text-center">BENEFICIOS:</h3>
+										<div class="row">
+											<div class="col-lg-8 col-lg-offset-2">
+												<ul class="list-exonerados">
+													<li>Exoneración de aranceles en la importación de un vehículo.</li>
+													<li>Asesoramiento de un equipo de trabajo especializado en gestionar tramites de exoneración de impuestos.</li>
+												</ul>
+											</div>	
+										</div>
+
+										<h3 class="text-center">REQUISITOS:</h3>
+										<div class="row" style="padding-bottom:25px;">
+											<div class="col-lg-8 col-lg-offset-2">
+												<p style="font-weight:bold;">DIPLOMÁTICOS</p>
+												<ul class="list-exonerados">
+													<li>Pertenecer mínimo un año a una Cooperativa y/o Compañía de Transporte, legalmente constituida con permiso de operación vigente.</li>
+													<li>No haber sido beneficiado con el programa PLAN - RENOVA, en los últimos 5 años.</li>
+													<li>Copia de cedula, RUC del solicitante.</li>
+													<li>Informe técnico emitido por la Agencia Nacional de Tránsito.</li>
+													<li>Bono de chatarrización extendido por alguna de las entidades autorizadas para el efecto.</li>
+												</ul>
+											</div>
+										</div>
+										
+
+
+									</div>	
+
+								</div>
+								
+							</div>
+
+					    </div>
+					    <div role="tabpanel" class="tab-pane" id="settings">
+					    	<div class="container">
+			
+								<div class="row espacio-a">
+									
+									<div class="col-lg-12">
+										<h3 class="text-center">NUESTRO COMPROMISO CON LAS INSTITUCIONES PÚBLICAS</h3>
+										
+										<div class="row">
+											<div class="col-lg-8 col-lg-offset-2">
+												<p class="text-center">Contribuir con productos de calidad y durabilidad para mejorar el parque automotor de las Instituciones Públicas que realizan valiosos aportes a la sociedad ecuatoriana.</p>
+											</div>
+										</div>
+										
+										<h3 class="text-center">BENEFICIOS:</h3>
+										<p class="text-center">Exoneración de impuestos: Ad Valorem, ICE, IVA, Fodinfa<br/>
+										Asesoramiento de un equipo de trabajo especializado en gestionar tramites de exoneración de impuestos.
+										</p>
+
+										<h3 class="text-center">REQUISITOS:</h3>
+										<div class="row" style="padding-bottom:25px;">
+											<div class="col-lg-8 col-lg-offset-2">
+												<p>Estos son los requisitos para aplicar a un Toyota exonerado de impuestos:</p>
+												<ul class="list-exonerados">
+													<li>La Empresa Pública tiene que contar con el "Token"</li>
+													<li>Debe estar registrado en Ecuapass como "OCE"</li>
+													<li>Autorización de importación por parte del SERCOP (Servicio Nacional de Contratación Pública) con Ecuapass</li>
+													<li>RUC actualizado, mismo que debe estar catastrado como Empresa Pública</li>
+													<li>Nombramiento del Representante Legal</li>
+													<li>Declaratoria de emergencia o compra por SERCOP</li>
+												</ul>
+												
+											</div>
+										</div>
+
+
+									</div>	
+
+								</div>
+								
+							</div>
+
+
+					    </div>
+					  </div>
+
+					</div>
+
+				</div>
+			</div>	
+		</div>
+		
+		
+
+	
+	</div>
+
+{% endblock %}

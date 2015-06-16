@@ -101,6 +101,17 @@ var margenlink = 0;
 $(document).ready(function(){
 
     
+    $("#icon1 , #icon2, #icon3, #icon4").hover(function () {
+        $(this).find('.img-normal').stop(true, true).hide();
+        $(this).find('.img-hover').stop(true, true).show();
+        
+
+    }, function () {
+        $(this).find('.img-normal').stop(true, true).show();
+        $(this).find('.img-hover').stop(true, true).hide();
+        
+
+    });
     
     $('.cert').tooltip();
 

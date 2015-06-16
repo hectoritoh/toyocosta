@@ -2503,6 +2503,60 @@ button.close-ficha{
 	text-decoration: none;
 }
 
+/*********************EXONERADOS***********************/
+#exonerados-seccion{
+	background-image: url("../../../bundles/celmediatoyocostavehiculos/images/exonerados/bginicio.jpg"); 	
+}
+.list-exonerados{
+	list-style-image: url("../../../bundles/celmediatoyocostavehiculos/images/exonerados/informacion/bullet.png");
+}
+.img-hover{
+	display: none;
+	cursor: pointer;
+}
+.nav-exonerados{
+	  background-color: #E5E6EA;
+	  border: 0px;
+	  border-radius: 0px;
+	  margin-right: 0px;
+	  
+}
+ .nav.nav-tabs.nav-exonerados>li>a{
+ 	color: #333;
+ }
+.nav-tabs.nav-exonerados>.active>a, .nav-tabs.nav-exonerados>.active>a:hover, .nav-tabs.nav-exonerados>.active>a:focus{
+	border:0px;
+}
+.nav.nav-tabs.nav-exonerados>li>a.dis:hover, .nav.nav-tabs.nav-exonerados>li>a.dis:focus, .nav-tabs>li.active>a.dis, .nav-tabs>li.active>a.dis:hover, .nav-tabs>li.active>a.dis:focus{
+	background-color: #C11C7A;
+	color: #fff;
+	border-radius: 0px;
+	border-color: transparent;
+}
+.nav.nav-tabs.nav-exonerados>li>a.dip:hover, .nav.nav-tabs.nav-exonerados>li>a.dip:focus, .nav-tabs>li.active>a.dip, .nav-tabs>li.active>a.dip:hover, .nav-tabs>li.active>a.dip:focus{
+	background-color: #DA2127;
+	color: #fff;
+	border-radius: 0px;
+	border-color: transparent;
+}
+.nav.nav-tabs.nav-exonerados>li>a.pla:hover, .nav.nav-tabs.nav-exonerados>li>a.pla:focus, .nav-tabs>li.active>a.pla, .nav-tabs>li.active>a.pla:hover, .nav-tabs>li.active>a.pla:focus{
+	background-color: #EF872E;
+	color: #fff;
+	border-radius: 0px;
+	border-color: transparent;
+}
+.nav.nav-tabs.nav-exonerados>li>a.com:hover, .nav.nav-tabs.nav-exonerados>li>a.com:focus, .nav-tabs>li.active>a.com, .nav-tabs>li.active>a.com:hover, .nav-tabs>li.active>a.com:focus{
+	background-color: #436FB6;
+	color: #fff;
+	border-radius: 0px;
+	border-color: transparent;
+}
+.caso-especial{
+	margin-left: -30px;
+	margin-right: -30px;
+	background-color:#EFEFEF;
+}
+
 /****************************************STYLE SEMINUEVOS***************************/
 
 

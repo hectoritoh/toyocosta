@@ -35,6 +35,14 @@ mantenimiento_servicio:
     path:      /mantenimiento/{servicioid}
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:mantenimientoXServicio }
 
+exonerados:
+    path:      /exonerados
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:exonerados }
+
+exonerados_informacion:
+    path:      /exonerados/informacion
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:exoneradosImpuestos }
+
 
 test_drive:
     path:      /testdrive

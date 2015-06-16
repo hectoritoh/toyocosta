@@ -16,11 +16,12 @@
 	                {{ render(controller("CelmediaToyocostaVehiculosBundle:Default:obtenerVehiculos" , { 'tipoVehiculo': categoria.id , 'prefijo': categoria.nombre|lower }))   }}
 	        {% endfor %}
 
+	        {% include 'CelmediaToyocostaVehiculosBundle:Blocks:slide.seminuevo.html.twig' %}
+	        
 	        {% include 'CelmediaToyocostaVehiculosBundle:Blocks:slide.montacarga.html.twig' %}
 
 	        {% include 'CelmediaToyocostaVehiculosBundle:Blocks:slide.pirelli.html.twig' %}
 
-	        {% include 'CelmediaToyocostaVehiculosBundle:Blocks:slide.seminuevo.html.twig' %}
 
 	{% endblock %}
 
