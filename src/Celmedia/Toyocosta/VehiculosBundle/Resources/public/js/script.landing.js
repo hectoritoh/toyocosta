@@ -17,7 +17,9 @@ $(document).ready(function(){
               ciudad: $("#ciudad").val(),
               precio: $("#precio").val(),
               exoneracion: $("#exoneracion").val(),
-              direccion: $("#direccion").val()
+              direccion: $("#direccion").val(),
+              modeloexonerados: $("#modeloexonerados").val(),
+              tipoexonerados: $("#tipoexonerados").val()
           }
 
           $.ajax({

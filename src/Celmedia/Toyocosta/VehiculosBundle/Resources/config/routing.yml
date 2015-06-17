@@ -354,6 +354,10 @@ landing_cm_usados:
     path:      /landing/compra-confiable-usados
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:confiableUsados }
 
+landing_exonerados:
+    path:      /landing/exonerados
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:exonerados }
+
 
 
 envio_landing:

@@ -221,6 +221,10 @@ class LandingController extends Controller
         return $this->render('CelmediaToyocostaVehiculosBundle:Landing:redsocial.html.twig');
     }
 
+    public function exoneradosAction()
+    {
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:lpexonerados.html.twig');
+    }
 
     public function mailingNavidadAction(){
 
@@ -262,6 +266,12 @@ class LandingController extends Controller
             $direccion = $request->request->get('direccion');
             $exoneracion = $request->request->get('exoneracion');
 
+            // campos extras
+
+            $modeloexo = $request->request->get('modeloexonerados');
+            $tipoexo = $request->request->get('tipoexonerados');
+
+
 
             $info = new \Celmedia\Toyocosta\ContenidoBundle\Entity\InfoLandings();
 
@@ -279,6 +289,8 @@ class LandingController extends Controller
             $extraMensaje2 = " ";
 
             $extraMensaje3 = " ";
+
+            $extraMensaje4 = " ";
             
             if ( $modelo && $anio ) {
 
@@ -311,7 +323,16 @@ class LandingController extends Controller
 
             }
 
-            
+            if ( $tipoexo && $modeloexo ){
+
+               
+                $extraMensaje4 = " Modelo:  ".$modeloexo." <br /> 
+
+                Tipo de Exoneración:  ".$tipoexo;
+
+            }
+
+
             // $em = $this->getDoctrine()->getManager(); 
             $em->persist(  $info );
             $em->flush();
@@ -333,7 +354,8 @@ class LandingController extends Controller
             Comentarios:  '. $info->getComentarios() .' <br />
             ' . $extraMensaje1 . ' <br />
             ' . $extraMensaje2 . ' <br />
-            ' . $extraMensaje3 . ' <br />  <br /> <br />  <br /> 
+            ' . $extraMensaje3 . ' <br />
+            ' . $extraMensaje4 . ' <br />  <br /> <br />  <br /> 
             <strong>Toyocosta.</strong>';
 
             $message = \Swift_Message::newInstance()
@@ -342,11 +364,11 @@ class LandingController extends Controller
 
             ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
 
-            //->setTo(array( $email , 'ycosquillo@celmedia.com' => 'Toyocosta' ))
+            ->setTo(array( $email , 'ycosquillo@celmedia.com' => 'Toyocosta' ))
 
-            ->setTo(array( $email , 'cdnventas@toyocosta.com.ec' => 'Toyocosta' ))
+            //->setTo(array( $email , 'cdnventas@toyocosta.com.ec' => 'Toyocosta' ))
             
-            // ->setCc('ajacome@toyocosta.com.ec' , 'Admin')
+            
 
             ->setContentType("text/html")
 
