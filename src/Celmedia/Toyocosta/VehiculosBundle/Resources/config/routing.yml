@@ -43,6 +43,11 @@ exonerados_informacion:
     path:      /exonerados/informacion/{tipo}
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:exoneradosImpuestos }
 
+avaluo_pintura:
+    path:      /avaluo
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:avaluo }
+    options:
+        expose: true
 
 test_drive:
     path:      /testdrive

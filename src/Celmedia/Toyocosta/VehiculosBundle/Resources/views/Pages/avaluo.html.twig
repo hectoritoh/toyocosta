@@ -1,0 +1,208 @@
+
+{% extends 'CelmediaToyocostaVehiculosBundle::layout.html.twig' %}
+
+
+	
+{% block contenidotoyocosta %}
+	
+	{% include 'CelmediaToyocostaVehiculosBundle:Blocks:top.menu.secciones.html.twig' %}
+
+	<div class="row banner-lp visible-md visible-lg visible-sm hidden-xs" style="top:50px;">
+		{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/landings/compra.jpg' %}
+		<img src="{{ asset_url }}" alt=""  style="width:100%;" class="img-responsive" />
+		{% endimage %}
+	</div>
+
+	<div class="row banner-lp hidden-md hidden-lg hidden-sm visible-xs">
+		{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/landings/compra-m.jpg' %}
+		<img src="{{ asset_url }}" alt=""  style="width:100%;" class="img-responsive" />
+		{% endimage %}
+	</div>
+
+	<div class="container-fluid espaciado-menu-3 {# visible-lg visible-md visible-sm hidden-xs #}">
+		&nbsp;as
+	</div>
+
+
+    <div class="container-fluid" {#style="display: none;"#}>
+        <div class="row">
+            <div class="col-md-12 text-center">
+            	<h2>Solicite un avalúo</h2>
+            	<span class="lbl-form-sm">Bienvenidos al Avalúo online de pinturas, por favor llene el siguiente formulario para que un
+            	representante de Toyocosta pueda comunicarse inmediatamente con usted.</span>
+            </div>
+        </div>
+    </div>
+   	<form id="form-vehiculo" role="form" class="container form-vsm" enctype="multipart/form-data">
+   		
+   		<div class="row">
+			<div class="col-md-5 col-sm-5 col-md-offset-1  col-sm-offset-1">
+				<div class="form-group form-group-sm">
+					<label class="lbl-form-sm" for="nombre">Nombre*</label>
+					<input type="text" class="form-control form-control-sm" name="nombre" id="nombre" placeholder="">
+
+				</div>
+			</div>
+			<div class="col-md-5 col-sm-5">
+				<div class="form-group form-group-sm">
+					<label class="lbl-form-sm" for="apellido">Apellido*</label>
+					<input type="text" class="form-control form-control-sm" name="apellido" id="apellido" placeholder="">
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-5 col-sm-5 col-md-offset-1  col-sm-offset-1">
+				<div class="form-group form-group-sm">
+					<label class="lbl-form-sm" for="email">Email*</label>
+					<input type="email" class="form-control form-control-sm" name="email" id="email" placeholder="">
+
+					
+				</div>
+			</div>
+			<div class="col-md-5 col-sm-5">
+				<div class="form-group form-group-sm">
+					<label class="lbl-form-sm" for="celular">Celular*</label>
+					<input type="number" class="form-control form-control-sm" name="celular" id="celular" placeholder="">
+				</div>
+			</div>
+		</div>
+
+		<div class="row">
+			<div class="col-md-5 col-sm-5 col-md-offset-1  col-sm-offset-1">
+				<div class="form-group form-group-sm">
+					<label class="lbl-form-sm" for="cedula">Cédula*</label>
+					<input type="number" class="form-control form-control-sm" name="cedula" id="cedula" placeholder="">
+
+					
+				</div>
+			</div>
+			<div class="col-md-5 col-sm-5">
+				<div class="form-group form-group-sm">
+					<label class="lbl-form-sm" for="modelo">Modelo*</label>
+					<input type="text" class="form-control form-control-sm" name="modelo" id="modelo" placeholder="">
+				</div>
+			</div>
+		</div>
+
+
+		
+		<div class="row seccion">
+			<div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
+				<div class="form-group form-group-sm">
+					<label class="lbl-form-sm">Añada 4 fotos de la zona afectada para poder realizar un mejor avalúo.</label>
+				</div>
+			</div>
+        </div>
+
+        <div class="row">
+        	<div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
+        		<div class="container-fluid">
+        			<div class="row">
+						<div class="col-md-3 col-sm-3 col-xs-6 text-center">
+							<div class="form-group form-group-sm">
+								
+								<label class="lbl-form-sm" for="sm_file_1">Foto #1 Destacada*</label>
+								<!-- <div class="custom-input-file">
+									<input type="file" id="sm_file_1" class="input-file input-foto-seminuevo" name="sm_input_file" onchange="readURL(this);"/>									
+									<img id="sm-img-foto-1" class="sm-img-foto" src="#" alt="" />
+									<input type="hidden" id="sm_input_file_1" name="sm_input_file_1" class="foto-adjunta" value="" />
+									<div id="archivo1" class="archivo" style="display:none;"></div>
+								</div> -->
+
+								<div id="imagePreview"></div>
+								<input id="uploadFile" type="file" name="image" class="img" />
+
+							</div>
+						</div>
+						<!-- <div class="col-md-3 col-sm-3 col-xs-6 text-center">
+							<div class="form-group form-group-sm">
+								<label class="lbl-form-sm" for="sm_file_2">Foto #2 *</label>
+								<div class="custom-input-file">
+									<input type="file" id="sm_file_2" class="input-file input-foto-seminuevo" name="sm_input_file" onchange="readURL(this);"/>									
+									<img id="sm-img-foto-2" class="sm-img-foto" src="#" alt="" />
+									<input type="hidden" id="sm_input_file_2" name="sm_input_file_2" class="foto-adjunta" value="" />
+									<div id="archivo2" class="archivo" style="display:none;"></div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-6 text-center">
+							<div class="form-group form-group-sm">
+								<label class="lbl-form-sm" for="sm_file_3">Foto #3 *</label>
+								<div class="custom-input-file">
+									<input type="file" id="sm_file_3" class="input-file input-foto-seminuevo" name="sm_input_file" onchange="readURL(this);"/>									
+									<img id="sm-img-foto-3" class="sm-img-foto" src="#" alt="" />
+									<input type="hidden" id="sm_input_file_3" name="sm_input_file_3" class="foto-adjunta" value="" />
+									<div id="archivo3" class="archivo" style="display:none;"></div>
+								</div>
+							</div>
+						</div>
+						<div class="col-md-3 col-sm-3 col-xs-6 text-center">
+							<div class="form-group form-group-sm">
+								<label class="lbl-form-sm" for="sm_file_4">Foto #4 *</label>
+								<div class="custom-input-file">
+									<input type="file" id="sm_file_4" class="input-file input-foto-seminuevo" name="sm_input_file" onchange="readURL(this);"/>									
+									<img id="sm-img-foto-4" class="sm-img-foto" src="#" alt="" />
+									<input type="hidden" id="sm_input_file_4" name="sm_input_file_4" class="foto-adjunta" value="" />
+									<div id="archivo4" class="archivo" style="display:none;"></div>
+								</div>
+							</div>
+						</div> -->
+					</div> <!-- row -->
+
+
+        		</div><!-- container-fluid -->
+
+        	</div>
+		</div>
+
+		
+
+		
+		<div class="row">
+			<div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
+        		<div class="">
+        			<div class="row recuadroGris">
+						<div class="col-md-3 col-sm-3 col-md-offset-1  col-sm-offset-1" style="height: 100px;">
+							<div class="v-center-contenedor">
+								<div class="v-center-contenido ">
+									<input type="submit" class="btn btn-rojo" value="Enviar" />
+								</div>
+							</div>
+						</div>
+						<div class="col-md-7 col-sm-7" style="height: 100px;">
+							<div class="v-center-contenedor">
+								<div class="v-center-contenido ">
+									<p class="txt-gris">
+										<input type="checkbox" name="autorizo" id="autorizo" />
+										Autorizo a Toyocosta S.A. para que verifique y utilice toda la información proporcionada, así como tambien me pueda contactar a traves de los medios descritos.
+									</p>
+								</div>
+							</div>
+						</div>
+					</div><!-- recuadroGris -->
+        		</div>
+        	</div>
+        </div>
+
+        <!-- <div class="row espacio-a">
+			<div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
+				<span class="txt-rojo">*</span><span class="txt-gris">Aplican restricciones. Toyocosta se reserva el derecho de recibir un vehiculo, según marca, modelo, año, kilometraje y estado mecánico.</span>
+			</div>
+		</div> -->
+
+    </form>
+  
+
+	<style>
+	#imagePreview {
+	    width: 180px;
+	    height: 180px;
+	    background-position: center center;
+	    background-size: cover;
+	    -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, .3);
+	    display: inline-block;
+	}
+	</style>
+    
+{% endblock %}

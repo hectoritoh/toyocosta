@@ -164,6 +164,12 @@ class DefaultController extends Controller
         return $this->render('CelmediaToyocostaVehiculosBundle:Pages:exonerados.html.twig' , array());
     }
 
+    public function avaluoAction(){
+
+
+        return $this->render('CelmediaToyocostaVehiculosBundle:Pages:avaluo.html.twig' , array());
+    }
+
     public function exoneradosImpuestosAction($tipo)
     {
         return $this->render('CelmediaToyocostaVehiculosBundle:Pages:exonerados-impuestos.html.twig' , array("tipo" => $tipo));
