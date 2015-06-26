@@ -231,6 +231,11 @@ class LandingController extends Controller
         return $this->render('CelmediaToyocostaVehiculosBundle:Landing:navidadToyota.html.twig');
     }
 
+    // 26/06/2015
+    public function pirelliAction()
+    {
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:pirelli.html.twig');   
+    }
     
 
 
