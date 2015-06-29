@@ -8,13 +8,13 @@
 	{% include 'CelmediaToyocostaVehiculosBundle:Blocks:top.menu.secciones.html.twig' %}
 
 	<div class="row banner-lp visible-md visible-lg visible-sm hidden-xs" style="top:50px;">
-		{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/landings/compra.jpg' %}
+		{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/banner/avaluo.jpg' %}
 		<img src="{{ asset_url }}" alt=""  style="width:100%;" class="img-responsive" />
 		{% endimage %}
 	</div>
 
 	<div class="row banner-lp hidden-md hidden-lg hidden-sm visible-xs">
-		{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/landings/compra-m.jpg' %}
+		{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/banner/avaluo-m.jpg' %}
 		<img src="{{ asset_url }}" alt=""  style="width:100%;" class="img-responsive" />
 		{% endimage %}
 	</div>
@@ -33,20 +33,20 @@
             </div>
         </div>
     </div>
-   	<form id="form-vehiculo" role="form" class="container form-vsm" enctype="multipart/form-data">
+   	<form id="form-avaluo" role="form" class="container form-vsm" enctype="multipart/form-data" method="post">
    		
    		<div class="row">
 			<div class="col-md-5 col-sm-5 col-md-offset-1  col-sm-offset-1">
 				<div class="form-group form-group-sm">
 					<label class="lbl-form-sm" for="nombre">Nombre*</label>
-					<input type="text" class="form-control form-control-sm" name="nombre" id="nombre" placeholder="">
+					<input type="text" class="form-control form-control-sm" name="nombre" id="nombre" maxlength="100" placeholder="">
 
 				</div>
 			</div>
 			<div class="col-md-5 col-sm-5">
 				<div class="form-group form-group-sm">
 					<label class="lbl-form-sm" for="apellido">Apellido*</label>
-					<input type="text" class="form-control form-control-sm" name="apellido" id="apellido" placeholder="">
+					<input type="text" class="form-control form-control-sm" name="apellido" id="apellido" maxlength="100" placeholder="">
 				</div>
 			</div>
 		</div>
@@ -63,7 +63,7 @@
 			<div class="col-md-5 col-sm-5">
 				<div class="form-group form-group-sm">
 					<label class="lbl-form-sm" for="celular">Celular*</label>
-					<input type="number" class="form-control form-control-sm" name="celular" id="celular" placeholder="">
+					<input type="number" class="form-control form-control-sm" name="celular" id="celular" maxlength="10" placeholder="">
 				</div>
 			</div>
 		</div>
@@ -72,7 +72,7 @@
 			<div class="col-md-5 col-sm-5 col-md-offset-1  col-sm-offset-1">
 				<div class="form-group form-group-sm">
 					<label class="lbl-form-sm" for="cedula">Cédula*</label>
-					<input type="number" class="form-control form-control-sm" name="cedula" id="cedula" placeholder="">
+					<input type="number" class="form-control form-control-sm" name="cedula" id="cedula" maxlength="10" placeholder="">
 
 					
 				</div>
@@ -80,7 +80,7 @@
 			<div class="col-md-5 col-sm-5">
 				<div class="form-group form-group-sm">
 					<label class="lbl-form-sm" for="modelo">Modelo*</label>
-					<input type="text" class="form-control form-control-sm" name="modelo" id="modelo" placeholder="">
+					<input type="text" class="form-control form-control-sm" name="modelo" id="modelo" maxlength="100" placeholder="">
 				</div>
 			</div>
 		</div>
@@ -99,59 +99,75 @@
         	<div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
         		<div class="container-fluid">
         			<div class="row">
-						<div class="col-md-3 col-sm-3 col-xs-6 text-center">
+						<div class="col-md-6 col-xs-6 text-center">
 							<div class="form-group form-group-sm">
 								
 								<label class="lbl-form-sm" for="sm_file_1">Foto #1 Destacada*</label>
-								<!-- <div class="custom-input-file">
-									<input type="file" id="sm_file_1" class="input-file input-foto-seminuevo" name="sm_input_file" onchange="readURL(this);"/>									
-									<img id="sm-img-foto-1" class="sm-img-foto" src="#" alt="" />
-									<input type="hidden" id="sm_input_file_1" name="sm_input_file_1" class="foto-adjunta" value="" />
-									<div id="archivo1" class="archivo" style="display:none;"></div>
-								</div> -->
+								
+								<!-- <input id="foto1" type="file" name="foto1" class="img" /> -->
 
-								<div id="imagePreview"></div>
-								<input id="uploadFile" type="file" name="image" class="img" />
+
+								<input type="file" id="sm_file_1" class="input-file input-foto-avaluo" name="sm_input_file" />									
+								
+								<input type="hidden" id="sm_input_file_1" name="sm_input_file_1" class="foto-adjunta" value="" />
+								<div id="archivo1" class="archivo" style="display:none;"></div>
+
 
 							</div>
 						</div>
-						<!-- <div class="col-md-3 col-sm-3 col-xs-6 text-center">
+						<div class="col-md-6 col-xs-6 text-center">
 							<div class="form-group form-group-sm">
-								<label class="lbl-form-sm" for="sm_file_2">Foto #2 *</label>
-								<div class="custom-input-file">
-									<input type="file" id="sm_file_2" class="input-file input-foto-seminuevo" name="sm_input_file" onchange="readURL(this);"/>									
-									<img id="sm-img-foto-2" class="sm-img-foto" src="#" alt="" />
-									<input type="hidden" id="sm_input_file_2" name="sm_input_file_2" class="foto-adjunta" value="" />
-									<div id="archivo2" class="archivo" style="display:none;"></div>
-								</div>
+								
+								<label class="lbl-form-sm" for="sm_file_2">Foto #2 Destacada*</label>
+								
+								
+
+								<input type="file" id="sm_file_2" class="input-file input-foto-avaluo" name="sm_input_file"/>									
+
+								
+								<input type="hidden" id="sm_input_file_2" name="sm_input_file_2" class="foto-adjunta" value="" />
+								<div id="archivo2" class="archivo" style="display:none;"></div>
+
 							</div>
 						</div>
-						<div class="col-md-3 col-sm-3 col-xs-6 text-center">
+
+						
+						<div class="col-md-6 col-xs-6 text-center">
 							<div class="form-group form-group-sm">
-								<label class="lbl-form-sm" for="sm_file_3">Foto #3 *</label>
-								<div class="custom-input-file">
-									<input type="file" id="sm_file_3" class="input-file input-foto-seminuevo" name="sm_input_file" onchange="readURL(this);"/>									
-									<img id="sm-img-foto-3" class="sm-img-foto" src="#" alt="" />
-									<input type="hidden" id="sm_input_file_3" name="sm_input_file_3" class="foto-adjunta" value="" />
-									<div id="archivo3" class="archivo" style="display:none;"></div>
-								</div>
+								
+								<label class="lbl-form-sm" for="sm_file_3">Foto #3 Destacada*</label>
+								
+								
+
+								<input type="file" id="sm_file_3" class="input-file input-foto-avaluo" name="sm_input_file"/>									
+
+								<input type="hidden" id="sm_input_file_3" name="sm_input_file_3" class="foto-adjunta" value="" />
+								<div id="archivo3" class="archivo" style="display:none;"></div>
+
 							</div>
 						</div>
-						<div class="col-md-3 col-sm-3 col-xs-6 text-center">
+
+						
+						<div class="col-md-6 col-xs-6 text-center">
 							<div class="form-group form-group-sm">
-								<label class="lbl-form-sm" for="sm_file_4">Foto #4 *</label>
-								<div class="custom-input-file">
-									<input type="file" id="sm_file_4" class="input-file input-foto-seminuevo" name="sm_input_file" onchange="readURL(this);"/>									
-									<img id="sm-img-foto-4" class="sm-img-foto" src="#" alt="" />
-									<input type="hidden" id="sm_input_file_4" name="sm_input_file_4" class="foto-adjunta" value="" />
-									<div id="archivo4" class="archivo" style="display:none;"></div>
-								</div>
+								
+								<label class="lbl-form-sm" for="sm_file_4">Foto #4 Destacada*</label>
+								
+								
+
+								<input type="file" id="sm_file_4" class="input-file input-foto-avaluo" name="sm_input_file"/>									
+								
+
+								<input type="hidden" id="sm_input_file_4" name="sm_input_file_4" class="foto-adjunta" value="" />
+								<div id="archivo4" class="archivo" style="display:none;"></div>
+
 							</div>
-						</div> -->
-					</div> <!-- row -->
+						</div>
+
+					</div> 
 
 
-        		</div><!-- container-fluid -->
+        		</div>
 
         	</div>
 		</div>
@@ -170,7 +186,7 @@
 								</div>
 							</div>
 						</div>
-						<div class="col-md-7 col-sm-7" style="height: 100px;">
+						<!-- <div class="col-md-7 col-sm-7" style="height: 100px;">
 							<div class="v-center-contenedor">
 								<div class="v-center-contenido ">
 									<p class="txt-gris">
@@ -179,11 +195,13 @@
 									</p>
 								</div>
 							</div>
-						</div>
-					</div><!-- recuadroGris -->
+						</div> -->
+					</div>
         		</div>
         	</div>
         </div>
+        
+
 
         <!-- <div class="row espacio-a">
 			<div class="col-md-10 col-sm-10 col-md-offset-1 col-sm-offset-1">
@@ -193,7 +211,15 @@
 
     </form>
   
+  <div class="container" id="contenedorEspere" style="display:none;height:200px;">
+		<div class="row">
+			<div class="col-md-8 col-sm-10 col-xs-12 col-md-offset-2 col-sm-offset-1 text-center">
+				<h4 class="txt-rojo txt-negrita">Enviando información...</h4>
+			</div>
+		</div>
+	</div>
 
+	
 	<style>
 	#imagePreview {
 	    width: 180px;

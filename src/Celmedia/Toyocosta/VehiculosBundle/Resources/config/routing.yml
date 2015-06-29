@@ -46,8 +46,7 @@ exonerados_informacion:
 avaluo_pintura:
     path:      /avaluo
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:avaluo }
-    options:
-        expose: true
+
 
 test_drive:
     path:      /testdrive
@@ -95,6 +94,8 @@ envio_rrhh:
     options:
         expose: true
 
+
+
 envio_rrhh_adjunto:
     path:      /rrhh/adjunto
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:ajaxUploadFormData }
@@ -113,7 +114,11 @@ envio_cotizacion:
     options:
         expose: true
 
-
+envio_avaluo:
+    path:      /enviando/avaluo
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:envioAvaluo }
+    options:
+        expose: true
 
 
 
@@ -143,6 +148,15 @@ consultar_obsequios:
 especificacion:
     path:      /{categoria}/Toyota/{vehname}/{vehiculoid}/especificacion
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:especificacion }
+
+
+avaluo_foto_adjunta:
+    path:      /fotoadjunta
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:uploadFotoData }
+    options:
+        expose: true
+
+
 
 # ROUTING MOVIL
 

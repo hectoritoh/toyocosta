@@ -170,6 +170,132 @@ class DefaultController extends Controller
         return $this->render('CelmediaToyocostaVehiculosBundle:Pages:avaluo.html.twig' , array());
     }
 
+
+
+    public function uploadFotoDataAction()
+    {
+        $request = $this->get('request');
+
+        $uploaded_file = $request->files->get('sm_input_file');
+        $path = 'uploads/avaluo/';
+        $filename = "";
+
+        if ($uploaded_file)
+        {
+
+                $uploaded_file_info = pathinfo($uploaded_file->getClientOriginalName());
+                $filename = uniqid() . "-" . $uploaded_file->getClientOriginalName();
+                $uploaded_file->move($path, $filename);
+
+            $response = 'success';
+        }
+
+        else $response = 'error';
+
+        //$response = new Response(json_encode(array('response'=>$response)));
+        //$response->headers->set('Content-Type', 'application/json');
+        //return $response;
+
+        return new JsonResponse(array(
+            'response' => $response,
+            "rutaarchivo" => $path . $filename,
+            "archivo"=> $filename
+        )); //codigo de error diferente
+    }
+
+
+    public function envioAvaluoAction(Request $request)
+    {
+        
+
+        if ($request->isMethod('POST')) {
+
+            $nombre = $request->request->get('nombre');
+            $apellido = $request->request->get('apellido');
+            $cedula = $request->request->get('cedula');
+            $email = $request->request->get('email');
+            $modelo = $request->request->get('modelo');
+            $celular = $request->request->get('celular');
+
+            $foto1 = $request->request->get('foto1');
+            $foto2 = $request->request->get('foto2');
+            $foto3 = $request->request->get('foto3');
+            $foto4 = $request->request->get('foto4');
+
+
+
+            $message = \Swift_Message::newInstance()
+                ->setSubject('Avaluo de Pintura desde Toyocosta ')
+
+                ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
+
+                ->setTo(array( 'cdnventas@toyocosta.com.ec' => 'Cdn Ventas' ))
+                //->setTo(array( 'ycosquillo@celmedia.com' => 'Administrador de seminuevos Toyocosta' ))
+
+                ->setContentType("text/html")
+
+                ->setBody('<h1>Información del Vehículo</h1> <br />             
+                <strong>Nombre:</strong>  '.$nombre.' <br />
+                <strong>Apellido:</strong>  '.$apellido.' <br />
+                <strong>Cedula:</strong>  '.$cedula.' <br />
+                <strong>Celular:</strong>  '.$celular.' <br />
+                <strong>Email:</strong>  '.$email.' <br />
+                <strong>Modelo:</strong>   '. $modelo .' <br /> '
+
+                );
+
+            if( $foto1 ){
+                $message->attach(\Swift_Attachment::fromPath( $foto1 ));
+            }
+            if( $foto2 ){
+                $message->attach(\Swift_Attachment::fromPath( $foto2 ));
+            }
+            if( $foto3 ){
+                $message->attach(\Swift_Attachment::fromPath( $foto3 ));
+            }
+            if( $foto4 ){
+                $message->attach(\Swift_Attachment::fromPath( $foto4 ));
+            }
+
+
+            $envioMail = $this->get('mailer')->send($message);
+
+            // $transport = $this->container->get('mailer')->getTransport();
+            // $spool = $transport->getSpool();
+            // $spool->flushQueue($this->container->get('swiftmailer.transport.real'));
+
+
+            if ( $envioMail ) {
+                 return new JsonResponse(array(
+                    'codigo' => 1,
+                    'Mensaje' => "El mensaje ha sido enviado"
+                ), 200); //codigo de error diferente
+            } else {
+                 return new JsonResponse(array(
+                    'codigo' => 0,
+                    'Mensaje' => "No se ha enviado mensaje"
+                ), 200); //codigo de error diferente
+            }
+
+
+
+            ////////////////////////////////////////////////////            
+        }
+
+        return new JsonResponse(array(
+            'codigo' => 0,
+            'Mensaje' => "No se recibio por post"
+        ), 200); //codigo de error diferente
+
+
+    }
+
+  
+
+
+
+
+
     public function exoneradosImpuestosAction($tipo)
     {
         return $this->render('CelmediaToyocostaVehiculosBundle:Pages:exonerados-impuestos.html.twig' , array("tipo" => $tipo));

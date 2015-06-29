@@ -453,6 +453,17 @@ $(document).ready(function(){
         }
     });
 
+    $('.input-foto-avaluo').fileupload({
+        dataType: 'json',
+        url: Routing.generate('avaluo_foto_adjunta'),
+        done: function (e, data) {
+          //alert(data.result.rutaarchivo);
+          $(this).parent().find("input[type=hidden]").val(data.result.rutaarchivo);
+          $(this).parent().find(".archivo").text(data.result.archivo);
+        }
+    });  
+
+
     $('.input-foto-seminuevo').fileupload({
         dataType: 'json',
         url: Routing.generate('seminuevo_foto_adjunta'),
@@ -462,6 +473,8 @@ $(document).ready(function(){
           $(this).parent().find(".archivo").text(data.result.archivo);
         }
     });  
+
+    
 
     $("#form-rrhh").validate({
       debug: true,
@@ -779,6 +792,102 @@ $(document).ready(function(){
 
           }
     });
+
+    $("#form-avaluo").validate({
+          debug: true,
+          submitHandler: function (form) {
+              var parametros = {
+                  foto1: $("#sm_input_file_1").val(),
+                  foto2: $("#sm_input_file_2").val(),
+                  foto3: $("#sm_input_file_3").val(),
+                  foto4: $("#sm_input_file_4").val(),
+                  archivo1: $("#archivo1").text(),
+                  archivo2: $("#archivo2").text(),
+                  archivo3: $("#archivo3").text(),
+                  archivo4: $("#archivo4").text(),
+                  nombre: $("#nombre").val(),
+                  apellido: $("#apellido").val(),
+                  cedula: $("#cedula").val(),
+                  celular: $("#celular").val(),
+                  email: $("#email").val(),
+                  modelo: $("#modelo").val()
+              }
+
+              $.ajax({
+                  url: Routing.generate('envio_avaluo'),
+                  type: 'POST',
+                  async: true,
+                  data: parametros,
+                  success: function (response) {
+
+                      if (response.code == 1 ) {
+                          $('#contenedorEspere').hide();
+                          $('#form-avaluo').show();
+                          alert('Su pedido de informaci\u00F3n fu\u00E9 enviado con \u00E9xito');
+                          document.getElementById("form-avaluo").reset();
+                          
+                      } else if (response.code == 0 ) {
+                          // error
+                          alert('error');
+                      }
+
+                  }, 
+                  error: function (error) {
+                    console.log("ERROR: " + error);
+                  },beforeSend: function () {
+                    $('#form-avaluo').hide();
+                    $('#contenedorEspere').show();
+                  }
+              });
+
+            //window.location.href = "#mensaje-venta";
+          },
+          rules: {
+              nombre: {
+                  required: true
+              },
+              apellido: {
+                  required: true
+              },
+              celular: {
+                  required: true,
+                  minlength:10,
+                  maxlength:15,
+                  number:true
+              },
+              email: {
+                required:true,
+                email: true
+              },
+              modelo: {
+                required: true
+              }
+
+          },
+          showErrors: function (errorMap, errorList) {
+               // Clean up any tooltips for valid elements
+              $.each(this.validElements(), function (index, element) {
+                  var $element = $(element);
+
+                  $element.data("title", "") // Clear the title - there is no error associated anymore
+                      .removeClass("error")
+                      .tooltip("destroy");
+              });
+
+              // Create new tooltips for invalid elements
+              $.each(errorList, function (index, error) {
+                  var $element = $(error.element);
+
+                  $element.tooltip("destroy") // Destroy any pre-existing tooltip so we can repopulate with new tooltip content
+                      .data("title", error.message)
+                      .addClass("error")
+                      .tooltip(); // Create a new tooltip based on the error messsage we just set in the title
+                  });
+
+          }
+    });
+
+
 
     $("#form-test").validate({
           debug: true,

@@ -85,10 +85,7 @@ var margenlink = 0;
     if (input.files && input.files[0] ) {
       var reader = new FileReader();
       reader.onload = function (e) {
-        $(input).closest('.custom-input-file').find('.sm-img-foto')
-        .attr('src', e.target.result)
-        .width(104)
-        .height(90);
+        $(input).closest('.custom-input-file').find('.sm-img-foto').attr('src', e.target.result).width(104).height(90);
 
       };
       reader.readAsDataURL(input.files[0]);     
