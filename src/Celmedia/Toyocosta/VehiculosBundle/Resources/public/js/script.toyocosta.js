@@ -263,6 +263,8 @@ var seleccionado = false;
     }
   });
 
+
+
 $(document).ready(function(){
 
   $("#uploadFile").on("change", function()
@@ -459,6 +461,8 @@ $(document).ready(function(){
         done: function (e, data) {
           //alert(data.result.rutaarchivo);
           $(this).parent().find("input[type=hidden]").val(data.result.rutaarchivo);
+          $(this).parent().find(".sm-img-foto").attr('src' , data.result.rutaarchivo).width(104).height(90).show();
+          //$(input).closest('.custom-input-file').find('.sm-img-foto').attr('src', ruta ).width(104).height(90).show();
           $(this).parent().find(".archivo").text(data.result.archivo);
         }
     });  
@@ -820,13 +824,14 @@ $(document).ready(function(){
                   data: parametros,
                   success: function (response) {
 
-                      if (response.code == 1 ) {
+                      if (response.codigo == 1 ) {
                           $('#contenedorEspere').hide();
                           $('#form-avaluo').show();
                           alert('Su pedido de informaci\u00F3n fu\u00E9 enviado con \u00E9xito');
                           document.getElementById("form-avaluo").reset();
+                          $(".custom-input-file").find(".sm-img-foto").attr('src' , '');
                           
-                      } else if (response.code == 0 ) {
+                      } else if (response.codigo == 0 ) {
                           // error
                           alert('error');
                       }

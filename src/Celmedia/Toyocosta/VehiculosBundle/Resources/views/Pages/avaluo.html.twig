@@ -27,7 +27,8 @@
     <div class="container-fluid" {#style="display: none;"#}>
         <div class="row">
             <div class="col-md-12 text-center">
-            	<h2>Solicite un avalúo</h2>
+            	<h2 class="txt-lp-1 txt-rojo">Solicite un avalúo</h2>
+            	
             	<span class="lbl-form-sm">Bienvenidos al Avalúo online de pinturas, por favor llene el siguiente formulario para que un
             	representante de Toyocosta pueda comunicarse inmediatamente con usted.</span>
             </div>
@@ -105,13 +106,14 @@
 								<label class="lbl-form-sm" for="sm_file_1">Foto #1 Destacada*</label>
 								
 								<!-- <input id="foto1" type="file" name="foto1" class="img" /> -->
+								<div class="custom-input-file">
 
-
-								<input type="file" id="sm_file_1" class="input-file input-foto-avaluo" name="sm_input_file" />									
-								
-								<input type="hidden" id="sm_input_file_1" name="sm_input_file_1" class="foto-adjunta" value="" />
-								<div id="archivo1" class="archivo" style="display:none;"></div>
-
+									<input type="file" id="sm_file_1" class="input-file input-foto-avaluo" name="sm_input_file"/>
+																		
+									<img id="sm-img-foto-1" class="sm-img-foto" src="#" alt="" />
+									<input type="hidden" id="sm_input_file_1" name="sm_input_file_1" class="foto-adjunta" value="" />
+									<div id="archivo1" class="archivo" style="display:none;"></div>
+								</div>
 
 							</div>
 						</div>
@@ -120,29 +122,35 @@
 								
 								<label class="lbl-form-sm" for="sm_file_2">Foto #2 Destacada*</label>
 								
-								
+								<div class="custom-input-file">
 
-								<input type="file" id="sm_file_2" class="input-file input-foto-avaluo" name="sm_input_file"/>									
-
-								
-								<input type="hidden" id="sm_input_file_2" name="sm_input_file_2" class="foto-adjunta" value="" />
-								<div id="archivo2" class="archivo" style="display:none;"></div>
+									<input type="file" id="sm_file_2" class="input-file input-foto-avaluo" name="sm_input_file"/>									
+									<img id="sm-img-foto-2" class="sm-img-foto" src="#" alt="" />
+									
+									<input type="hidden" id="sm_input_file_2" name="sm_input_file_2" class="foto-adjunta" value="" />
+									<div id="archivo2" class="archivo" style="display:none;"></div>
+								</div>
 
 							</div>
 						</div>
 
+					</div> 
+
+					<div class="row">
 						
 						<div class="col-md-6 col-xs-6 text-center">
 							<div class="form-group form-group-sm">
 								
 								<label class="lbl-form-sm" for="sm_file_3">Foto #3 Destacada*</label>
 								
-								
+								<div class="custom-input-file">
 
-								<input type="file" id="sm_file_3" class="input-file input-foto-avaluo" name="sm_input_file"/>									
+									<input type="file" id="sm_file_3" class="input-file input-foto-avaluo" name="sm_input_file"/>
+									<img id="sm-img-foto-3" class="sm-img-foto" src="#" alt="" />									
 
-								<input type="hidden" id="sm_input_file_3" name="sm_input_file_3" class="foto-adjunta" value="" />
-								<div id="archivo3" class="archivo" style="display:none;"></div>
+									<input type="hidden" id="sm_input_file_3" name="sm_input_file_3" class="foto-adjunta" value="" />
+									<div id="archivo3" class="archivo" style="display:none;"></div>
+								</div>
 
 							</div>
 						</div>
@@ -153,19 +161,19 @@
 								
 								<label class="lbl-form-sm" for="sm_file_4">Foto #4 Destacada*</label>
 								
+								<div class="custom-input-file">
+
+									<input type="file" id="sm_file_4" class="input-file input-foto-avaluo" name="sm_input_file"/>									
+									<img id="sm-img-foto-4" class="sm-img-foto" src="#" alt="" />
+
+									<input type="hidden" id="sm_input_file_4" name="sm_input_file_4" class="foto-adjunta" value="" />
+									<div id="archivo4" class="archivo" style="display:none;"></div>
+								</div>
 								
-
-								<input type="file" id="sm_file_4" class="input-file input-foto-avaluo" name="sm_input_file"/>									
-								
-
-								<input type="hidden" id="sm_input_file_4" name="sm_input_file_4" class="foto-adjunta" value="" />
-								<div id="archivo4" class="archivo" style="display:none;"></div>
-
 							</div>
 						</div>
-
-					</div> 
-
+						
+					</div>
 
         		</div>
 
@@ -219,7 +227,7 @@
 		</div>
 	</div>
 
-	
+
 	<style>
 	#imagePreview {
 	    width: 180px;
