@@ -1,0 +1,88 @@
+{% extends 'CelmediaToyocostaMotosBundle::layout.html.twig' %}
+
+
+{% block contenido %}
+
+    {#{% include 'CelmediaToyocostaMotosBundle:Blocks:top.submenu.html.twig' %}#}
+
+    {#{{ render(controller("CelmediaToyocostaMotosBundle:Default:obtenerMenuPrincipal" ))   }}#}
+    <div class="container-fluid espaciado-menu-3 ">
+		&nbsp;as
+	</div>
+
+	<div class="row">
+		<div class="col-md-12">
+
+			<img src="{{ asset('uploads/motos/thumb/'   ~   categoria.imagenThumb ) }}" alt="{{categoria.nombre}}" class="img-responsive" style="margin:0 auto;"/>
+
+		</div>
+	</div>
+	<div class="row">
+		<div class="col-md-12" style="margin-bottom:30px;">
+			<h5 class="text-center">{{ categoria. descripcion }}</h5>
+		</div>
+	</div>
+
+
+	<div class="container">
+
+
+    {% set i = 0 %}
+    {% for row  in motos | batch(2) %}
+
+		<div class="row" style="margin-bottom:20px;">
+
+
+            {% for moto in row %}
+
+			<div class="col-md-6">
+				<div class="row">
+					<div class="col-md-10" style=" margin-left:15px;">
+						<div class="row" style="border: 1px solid #EEEEEE;">
+
+
+							{% for item in moto.colores %}
+								
+								{% if loop.first %}
+
+								<img src="{{ asset('uploads/motos/color/'   ~   item.imagenColor ) }}" alt="{{ moto.nombre }}" class="img-responsive"/>
+
+								{% endif %}							    
+
+							{% endfor %}
+
+
+
+						</div>
+						<div class="row" style="  background-color: #EEEEEE;">
+							<h5 class="text-center">{{ moto.nombre }}</h5>
+							<a href="{{ path('motos_descripcion', {'categorianombre': categoria.nombre, 'nombre':moto.nombre, 'id': moto.id } ) }}">
+								
+								<div class="col-md-6 col-md-offset-3 btn btn-vermas">
+									VER MÁS
+								</div>
+
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			{% set i = i + 1 %}
+            {% endfor %}
+
+		
+
+		</div>
+
+
+
+
+    {% endfor %}
+
+
+
+	</div>										
+	
+
+{% endblock %}

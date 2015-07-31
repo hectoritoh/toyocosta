@@ -1,6 +1,6 @@
-Celmedia\Toyocosta\ContenidoBundle\Entity\Color:
+Celmedia\Toyocosta\MotosBundle\Entity\MotoCategoria:
     type: entity
-    table: color
+    table: moto_categoria
     fields:
         id:
             id: true
@@ -13,9 +13,17 @@ Celmedia\Toyocosta\ContenidoBundle\Entity\Color:
             type: string
             length: 140
             nullable: false
-        valor:
-            type: string
-            length: 7
+        imagen_thumb:
+            type: text
+            nullable: false
+        logo_home:
+            type: text
+            nullable: false
+        logo_hover:
+            type: text
+            nullable: false
+        descripcion:
+            type: text
             nullable: false
         estado:
             type: integer
@@ -31,20 +39,11 @@ Celmedia\Toyocosta\ContenidoBundle\Entity\Color:
             gedmo:
               timestampable:
                 on: update
-    oneToMany:
-      seminuevo_color:
-        targetEntity: Celmedia\Toyocosta\SeminuevoBundle\Entity\Seminuevo
-        mappedBy: coloresseminuevo
-        cascade: ["persist"]
-      vehiculo_color:
-        targetEntity: Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoColores
-        mappedBy: coloresvehiculo
-        cascade: ["persist"]
-      moto_color:
-        targetEntity: Celmedia\Toyocosta\MotosBundle\Entity\MotoColor
-        mappedBy: coloresmotos
-        cascade: ["persist"]
 
+    oneToMany:
+        motos:
+            targetEntity: Moto
+            mappedBy: categoria
 
     lifecycleCallbacks:
         prePersist:   [ lifecycleFileUpload ]

@@ -1,0 +1,91 @@
+<div id="motos" class="seccion-ty fondo-seccion">
+	<div class="v-center-contenedor">
+		<div class="v-bottom-contenido">
+			<div id="accesos-motos" class="row" style="display:none;">
+				<div class="row" style="  margin-bottom: 8%;background-color: rgba(255, 255, 255, 0.8); background: rgba(255, 255, 255, 0.8); color: rgba(255, 255, 255, 0.8);">
+					<div class="col-md-12" style="margin-top:2%;">
+						{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/motos/logo_toyocosta_motos.png' %}
+						<img src="{{ asset_url }}" alt="" class="img-responsive" style="margin: 0 auto;margin-bottom:20px;" />
+				        {% endimage %}
+					</div>
+					<div class="col-md-4 col-md-offset-4" style="margin-bottom:2%;">
+						<div class="row">
+
+						{% for item in categoria %}
+
+							<div id="{{item.nombre|lower}}" class="col-md-3">
+
+
+
+								<img src="{{ asset('uploads/motos/thumb/' ~ item.logoHome ) }}" alt="" class="img-responsive img-normal" />
+
+
+						        <a href="{{ path('motos_home', { 'categorianombre': item.nombre , 'categoriaid': item.id } )  }}">
+
+						        	<img src="{{ asset('uploads/motos/thumb/' ~ item.logoHover ) }}" alt="" class="img-responsive img-hover" />
+															        	
+						        </a>
+							</div>
+
+						    
+						{% endfor %}
+
+							{#<div id="guzzi" class="col-md-3">
+								{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/motos/motoGuzziReg.png' %}
+									<img src="{{ asset_url }}" alt="" class="img-responsive img-normal"/>
+						        {% endimage %}
+						        <a href="#">
+									
+									{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/motos/motoGuzziHov.png' %}
+										<img src="{{ asset_url }}" alt="" class="img-responsive img-hover"/>
+							        {% endimage %}
+						        	
+						        </a>
+							</div>
+							<div id="aprilia" class="col-md-3">
+								{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/motos/motoApriliaReg.png' %}
+									<img src="{{ asset_url }}" alt="" class="img-responsive img-normal"/>
+						        {% endimage %}
+						        
+								<a href="#">
+									{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/motos/motoApriliaHov.png' %}
+										<img src="{{ asset_url }}" alt="" class="img-responsive img-hover"/>
+							        {% endimage %}
+								</a>
+							</div>
+							<div id="piaggio" class="col-md-3">
+								{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/motos/motoPiaggioReg.png' %}
+									<img src="{{ asset_url }}" alt="" class="img-responsive img-normal"/>
+						        {% endimage %}
+						        
+								<a href="#">
+									{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/motos/motoPiaggioHov.png' %}
+										<img src="{{ asset_url }}" alt="" class="img-responsive img-hover"/>
+							        {% endimage %}
+								</a>
+							</div>
+							<div id="vespa" class="col-md-3">
+								{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/motos/motoVespaReg.png' %}
+									<img src="{{ asset_url }}" alt="" class="img-responsive img-normal"/>
+						        {% endimage %}
+						        
+								<a href="#">
+									{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/motos/motoVespaHov.png' %}
+										<img src="{{ asset_url }}" alt="" class="img-responsive img-hover"/>
+							        {% endimage %}
+								</a>
+							</div>#}
+						</div>
+					</div>	
+				</div>
+				
+				<div class="row">
+					<div class="espacio-bottom-contenedor">
+						&nbsp;						
+					</div>
+				</div>
+			</div>
+
+		</div><!-- .v-bottom-contenido -->
+	</div><!-- .v-center-contenedor -->
+</div>

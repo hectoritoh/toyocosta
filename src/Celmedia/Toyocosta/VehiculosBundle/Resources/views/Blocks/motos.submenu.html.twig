@@ -1,0 +1,22 @@
+<div class="contenedor-submenu-items" id="categoria-4" data-categoria="motos">
+  {% for categoria  in categorias %}
+    <div class="contenedor-submenu-item">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <div class="item-vehiculo-nombre">{{ categoria.nombre }}</div>
+            <img src="{{ asset('uploads/motos/thumb/' ~ categoria.imagenThumb ) }}" alt="" class="img-responsive obj-centrar" style="margin-top: 10px;margin-bottom: 10px;" />
+          </div>
+          <div class="col-md-6 col-sm-6 col-xs-6 col-md-offset-3 sin-padding">
+            {#<a href="#" class="col-md-6 col-sm-6 col-xs-6 btn btn-submenu-vehiculo izq">Ver Modelos</a>#}
+            <a href="{{ path('motos_home', { 'categorianombre': categoria.nombre , 'categoriaid': categoria.id } )  }}" class="col-md-6 col-sm-6 col-xs-6 btn btn-submenu-vehiculo izq">Ver Modelos</a>
+          </div>
+          {#<div class="col-md-6 col-sm-6 col-xs-6 sin-padding">
+            <a href="{{ path('ver_vehiculo', {"categoria": vehiculo.categoria.nombre,"vehname": vehiculo.nombre , 'vehiculoid': vehiculo.id } )  }}#vehiculo-cotizar"  class="col-md-6 col-sm-6 col-xs-6 btn btn-submenu-vehiculo der">Cotizar</a>
+          </div>#}
+        </div>
+      </div>
+    </div><!-- contenedor-submenu-item -->
+  {% endfor %}
+
+</div><!-- contenedor-submenu-items -->

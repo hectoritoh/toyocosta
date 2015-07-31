@@ -97,8 +97,19 @@ var margenlink = 0;
 
 $(document).ready(function(){
 
+    $("#motos").hover(function () {
+
+        $(this).find('#accesos-motos').stop(true, true).fadeIn();
+
+    }, function () {
+
+        $(this).find('#accesos-motos').stop(true, true).fadeOut();
+        
+    });
     
-    $("#icon1 , #icon2, #icon3, #icon4").hover(function () {
+
+
+    $("#icon1 , #icon2, #icon3, #icon4, #guzzi, #aprilia, #piaggio, #vespa").hover(function () {
         $(this).find('.img-normal').stop(true, true).hide();
         $(this).find('.img-hover').stop(true, true).show();
         

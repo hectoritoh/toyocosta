@@ -261,4 +261,42 @@ class Color
         return $this->getNombre();
     }
     
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $moto_color;
+
+
+    /**
+     * Add moto_color
+     *
+     * @param \Celmedia\Toyocosta\MotosBundle\Entity\MotoColor $motoColor
+     * @return Color
+     */
+    public function addMotoColor(\Celmedia\Toyocosta\MotosBundle\Entity\MotoColor $motoColor)
+    {
+        $this->moto_color[] = $motoColor;
+
+        return $this;
+    }
+
+    /**
+     * Remove moto_color
+     *
+     * @param \Celmedia\Toyocosta\MotosBundle\Entity\MotoColor $motoColor
+     */
+    public function removeMotoColor(\Celmedia\Toyocosta\MotosBundle\Entity\MotoColor $motoColor)
+    {
+        $this->moto_color->removeElement($motoColor);
+    }
+
+    /**
+     * Get moto_color
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getMotoColor()
+    {
+        return $this->moto_color;
+    }
 }

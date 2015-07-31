@@ -1,6 +1,6 @@
-Celmedia\Toyocosta\ContenidoBundle\Entity\Color:
+Celmedia\Toyocosta\MotosBundle\Entity\Moto:
     type: entity
-    table: color
+    table: moto
     fields:
         id:
             id: true
@@ -13,10 +13,18 @@ Celmedia\Toyocosta\ContenidoBundle\Entity\Color:
             type: string
             length: 140
             nullable: false
-        valor:
-            type: string
-            length: 7
+        precio:
+            type: float
             nullable: false
+        informacion:
+            type: text
+            nullable: false
+        imagen_banner:
+            type: text
+            nullable: false
+        ficha:
+            type: text
+            nullable: true
         estado:
             type: integer
             unsigned: false
@@ -32,19 +40,18 @@ Celmedia\Toyocosta\ContenidoBundle\Entity\Color:
               timestampable:
                 on: update
     oneToMany:
-      seminuevo_color:
-        targetEntity: Celmedia\Toyocosta\SeminuevoBundle\Entity\Seminuevo
-        mappedBy: coloresseminuevo
-        cascade: ["persist"]
-      vehiculo_color:
-        targetEntity: Celmedia\Toyocosta\VehiculosBundle\Entity\VehiculoColores
-        mappedBy: coloresvehiculo
-        cascade: ["persist"]
-      moto_color:
-        targetEntity: Celmedia\Toyocosta\MotosBundle\Entity\MotoColor
-        mappedBy: coloresmotos
+      colores:
+        targetEntity: MotoColor
+        mappedBy: moto
         cascade: ["persist"]
 
+    manyToOne:
+      categoria:
+        targetEntity: MotoCategoria
+        inversedBy: motos
+        joinColumn:
+          name: categoria_id
+          referencedColumnName: id
 
     lifecycleCallbacks:
         prePersist:   [ lifecycleFileUpload ]

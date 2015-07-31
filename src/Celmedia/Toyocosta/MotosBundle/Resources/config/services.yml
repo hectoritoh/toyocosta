@@ -1,0 +1,24 @@
+parameters:
+#    celmedia_toyocosta_motos.example.class: Celmedia\Toyocosta\MotosBundle\Example
+
+services:
+#    celmedia_toyocosta_motos.example:
+#        class: %celmedia_toyocosta_motos.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
+    celmedia_toyocosta_motos.admin.moto:
+        class: Celmedia\Toyocosta\MotosBundle\Admin\MotoAdmin
+        arguments: [~, Celmedia\Toyocosta\MotosBundle\Entity\Moto, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Motos, label: Moto}
+
+    celmedia_toyocosta_motos.admin.moto_categoria:
+        class: Celmedia\Toyocosta\MotosBundle\Admin\MotoCategoriaAdmin
+        arguments: [~, Celmedia\Toyocosta\MotosBundle\Entity\MotoCategoria, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Motos, label: MotoCategoria}
+
+    celmedia_toyocosta_motos.admin.moto_color:
+        class: Celmedia\Toyocosta\MotosBundle\Admin\MotoColorAdmin
+        arguments: [~, Celmedia\Toyocosta\MotosBundle\Entity\MotoColor, SonataAdminBundle:CRUD]
+        tags:
+            - {name: sonata.admin, manager_type: orm, group: Motos, label: MotoColor}

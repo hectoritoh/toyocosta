@@ -365,6 +365,9 @@ fieldset.ty-fieldset-border {
 #seminuevos{
 	background-image: url("../../../bundles/celmediatoyocostavehiculos/images/slide/seminuevos.jpg"); 
 }
+#motos{
+	background-image: url("../../../bundles/celmediatoyocostavehiculos/images/slide/motos.jpg"); 
+}
 
 /*Botones*/
 .btn-ver-mas{

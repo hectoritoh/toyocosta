@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="">
+        {% block seo %}
+            
+            <title>TOYOCOSTA | Motos</title>
+            
+            <meta name="description" content="Conoce sobre nuestras marcas Toyota, Raymond, BT y Cascade de montacargas, todas disponibles en Toyocosta."/>
+
+            <meta name="keywords" content="montacargas Toyota guayaquil, repuestos montacargas toyota guayaquil, toyota montacargas Guayaquil post venta, toyota montacargas ecuador renta." />
+
+        {% endblock %}
+
+        <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+
+        {% include 'CelmediaToyocostaVehiculosBundle:Default:includes.html.twig' %}
+
+        <link rel="stylesheet" href="{{ asset('bundles/celmediatoyocostavehiculos/css/style.motos.css') }}" type="text/css" media="all" />
+
+
+        <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
+        <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
+        
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-22594492-1', 'auto');
+          ga('send', 'pageview');
+
+        </script>
+
+    </head>
+    <body>
+        {% include 'CelmediaToyocostaVehiculosBundle:Blocks:top.menu.secciones.html.twig' %}
+       
+        {% block contenido %}
+            
+        {% endblock %}
+
+        {% include 'CelmediaToyocostaPirelliBundle:Blocks:footer.html.twig' %}
+        
+        {% include 'CelmediaToyocostaVehiculosBundle:Default:libs.html.twig' %}
+
+
+        {#<script type="text/javascript" src="{{ asset('bundles/celmediatoyocostavehiculos/js/script-montacargas.js') }}" ></script>#}
+ 
+    
+        
+        {% block js %}
+
+        {% endblock %}
+        
+ 
+
+    </body>
+</html>

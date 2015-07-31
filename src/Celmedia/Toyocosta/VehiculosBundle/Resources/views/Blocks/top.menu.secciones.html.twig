@@ -101,7 +101,7 @@
             <a href="{{ path('seminuevos_home') }}" class="">Seminuevos</a>
           </li>
           {#<li>
-            <a href="#" data-target="categoria-4" class="item-submenu item-submenu-v">Híbridos</a>
+            <a href="#" data-target="categoria-4" class="item-submenu item-submenu-v">Motos</a>
           </li>#}
           <li>
             <a href="{{ path('montacargas_home') }}" data-target="categoria-5" class="item-submenu">Montacargas</a>
@@ -123,7 +123,8 @@
     {{ render(controller("CelmediaToyocostaVehiculosBundle:Default:obtenerVehiculosXCategoria" , { 'categoriaId': 1 } ) ) }}
     {{ render(controller("CelmediaToyocostaVehiculosBundle:Default:obtenerVehiculosXCategoria" , { 'categoriaId': 2 } ) ) }}
     {{ render(controller("CelmediaToyocostaVehiculosBundle:Default:obtenerVehiculosXCategoria" , { 'categoriaId': 3 } ) ) }}
-    {#{{ render(controller("CelmediaToyocostaVehiculosBundle:Default:obtenerVehiculosXCategoria" , { 'categoriaId': 4 } ) ) }}#}
+    
+    {#{{ render(controller("CelmediaToyocostaMotosBundle:Default:obtenerMotosXCategoria"  ) ) }}#}
     
   </div>
 

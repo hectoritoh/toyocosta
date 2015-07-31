@@ -56,6 +56,7 @@ class AppKernel extends Kernel
             new Application\Sonata\MediaBundle\ApplicationSonataMediaBundle(),
             new Celmedia\Toyocosta\MontacargasBundle\CelmediaToyocostaMontacargasBundle(),
             new JMS\SerializerBundle\JMSSerializerBundle(),
+            new Celmedia\Toyocosta\MotosBundle\CelmediaToyocostaMotosBundle(),
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {

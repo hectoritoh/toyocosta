@@ -1,0 +1,47 @@
+Celmedia\Toyocosta\MotosBundle\Entity\MotoColor:
+    type: entity
+    table: moto_color
+    fields:
+        id:
+            id: true
+            type: integer
+            unsigned: false
+            nullable: false
+            generator:
+                strategy: IDENTITY
+        imagen_color:
+            type: text
+            nullable: false
+        estado:
+            type: integer
+            unsigned: false
+            nullable: false
+        created:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: create
+        updated:
+            type: datetime
+            gedmo:
+              timestampable:
+                on: update
+
+    manyToOne:
+        moto:
+          targetEntity: Moto
+          inversedBy: colores
+          joinColumn:
+            name: moto_id
+            referencedColumnName: id
+        coloresmotos:
+          targetEntity: Celmedia\Toyocosta\ContenidoBundle\Entity\Color
+          inversedBy: moto_color
+          joinColumn:
+            name: color_id
+            referencedColumnName: id
+
+
+    lifecycleCallbacks:
+        prePersist:   [ lifecycleFileUpload ]
+        preUpdate:    [ lifecycleFileUpload ]

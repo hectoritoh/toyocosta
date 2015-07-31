@@ -110,6 +110,16 @@ class DefaultController extends Controller
         return $this->render('CelmediaToyocostaVehiculosBundle:Blocks:slide.principal.html.twig' , array( "slidePrincipal" => $slidePrincipal));
     }
 
+
+    public function obtenerSlideMotosAction(){
+        $em = $this->getDoctrine()->getManager();
+        
+        $categoria = $this->getDoctrine()->getRepository('CelmediaToyocostaMotosBundle:MotoCategoria')->findBy(array("estado"=> 1));
+
+        return $this->render('CelmediaToyocostaVehiculosBundle:Blocks:slide.motos.html.twig' , array( "categoria" => $categoria));
+    }
+
+
     public function obtenerVehiculosXCategoriaAction($categoriaId){
         $em = $this->getDoctrine()->getManager();
 

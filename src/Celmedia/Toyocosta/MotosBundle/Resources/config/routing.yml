@@ -1,0 +1,12 @@
+# celmedia_toyocosta_motos_homepage:
+#     path:     /hello/{name}
+#     defaults: { _controller: CelmediaToyocostaMotosBundle:Default:index }
+
+
+motos_home:
+    path:      /motos/{categorianombre}/{categoriaid}
+    defaults:  { _controller: CelmediaToyocostaMotosBundle:Default:index }
+
+motos_descripcion:
+    path:      /motos/{categorianombre}/{nombre}/{id}
+    defaults:  { _controller: CelmediaToyocostaMotosBundle:Default:moto }
