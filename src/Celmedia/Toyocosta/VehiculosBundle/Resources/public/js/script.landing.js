@@ -12,6 +12,7 @@ $(document).ready(function(){
               cedula: $("#cedula").val(),
               comentario: $("#comentario").val(),
               campana: $("#campana").val(),
+              taller: $("#taller").val(),
               modelo: $("#modelo").val(),
               anio: $("#anio").val(),
               ciudad: $("#ciudad").val(),

@@ -237,6 +237,16 @@ class LandingController extends Controller
         return $this->render('CelmediaToyocostaVehiculosBundle:Landing:pirelli.html.twig');   
     }
     
+        public function motosAction()
+    {
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:motos.html.twig');   
+    }
+    
+        public function tallerAction()
+    {
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:taller.html.twig');   
+    }
+    
 
 
 
@@ -275,6 +285,9 @@ class LandingController extends Controller
 
             $modeloexo = $request->request->get('modeloexonerados');
             $tipoexo = $request->request->get('tipoexonerados');
+
+            // lp taller movil cambio de correo
+            $taller = $request->request->get('taller');
 
 
 
@@ -342,9 +355,20 @@ class LandingController extends Controller
             $em->persist(  $info );
             $em->flush();
 
+            // Cambio de correo 
+
+            if ($taller) {
+
+                $to = array('tallermovil@toyocosta.com.ec'=> 'Taller Movil');
+                
+            }else{
+
+                $to = array('cdnventas@toyocosta.com.ec'=> 'Toyocosta');
+                
+            }
 
 
-            $subject = "Pedido de Informacion de ".$campana." desde Toyocosta"; 
+            $subject = "Pedido de Informacion de ".$campana." desde Web Toyocosta"; 
 
 
 
@@ -369,9 +393,9 @@ class LandingController extends Controller
 
             ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
 
-            //->setTo(array( $email , 'ycosquillo@celmedia.com' => 'Toyocosta' ))
+            ->setTo( $to )
 
-            ->setTo(array( $email , 'cdnventas@toyocosta.com.ec' => 'Toyocosta' ))
+            //->setTo(array( $email , 'cdnventas@toyocosta.com.ec' => 'Toyocosta' ))
             
             
 
