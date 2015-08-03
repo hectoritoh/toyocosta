@@ -52,7 +52,47 @@
 
         			{% endfor %}
 
+                    <div class="panel">
+                        <div class="panel-heading">
+                            
+                            <div class="col-xs-10">
+                                <h4 class="panel-title">
+                                    <a id="collap300" data-toggle="collapse" data-parent="#accordion" href="#Motos" class="mayuscula">
+                                        Motos
+                                    </a>
+                                </h4>
+                                
+                            </div>
 
+                            <div id="downVehiculo300" class="col-xs-2">
+                                {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/movil/down.png' %}
+                                <img src="{{ asset_url }}" alt="" class="img-responsive" style="" />
+                                {% endimage %}
+                            </div>
+
+                            <div id="upVehiculo300" class="col-xs-2" style="display:none;">
+                                {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/movil/up.png' %}
+                                <img src="{{ asset_url }}" alt="" class="img-responsive" style="" />
+                                {% endimage %}
+                            </div>
+
+
+                        </div>
+                        <div id="Motos" class="panel-collapse collapse">
+                            <div class="panel-body">
+
+                                <ul class="media-list">
+
+
+                                    {#{{ render(controller("CelmediaToyocostaVehiculosBundle:Mobile:obtenerVehiculosXCategoria" , { 'categoriaId':  item.id } ) ) }}#}
+
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    
         			<div class="panel">
         				<div class="panel-heading">
                             <div class="col-xs-10">
@@ -64,6 +104,12 @@
                             </div>
         				</div>
         			</div>
+
+
+
+
+                    
+
 
         		</div>	
         	</div>

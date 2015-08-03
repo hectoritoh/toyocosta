@@ -159,10 +159,15 @@ class MobileController extends Controller
     }
 
     public function obtenerMenuPrincipalAction(){
+
         $em = $this->getDoctrine()->getManager();
         
         $categoriasVehiculo = $this->getDoctrine()->getRepository('CelmediaToyocostaVehiculosBundle:CategoriaVehiculo')->findBy( array("estado"=> 1) );
-        return $this->render('CelmediaToyocostaVehiculosBundle:Mobile:menu.html.twig', array('categoriasVehiculo' => $categoriasVehiculo ) );
+
+        $categoriasMoto = $this->getDoctrine()->getRepository('CelmediaToyocostaMotosBundle:MotoCategoria')->findBy( array("estado"=> 1) );
+
+
+        return $this->render('CelmediaToyocostaVehiculosBundle:Mobile:menu.html.twig', array('categoriasVehiculo' => $categoriasVehiculo , 'categoriasMoto' => $categoriasMoto ) );
     }
 
     public function obtenerVehiculosXCategoriaAction($categoriaId){
