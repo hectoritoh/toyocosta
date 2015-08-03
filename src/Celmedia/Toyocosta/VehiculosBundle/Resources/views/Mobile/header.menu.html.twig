@@ -32,6 +32,26 @@
 
 								{% endfor %}
 
+								<li>
+									<a href="#" style="text-transform:uppercase;">Motos</a>
+
+									<ul class="dl-submenu">
+									{% for categoria  in categoriasMoto %}
+
+										<li class="">
+											
+											<a href="{{ path('m_moto_categoria', { 'categoria': categoria.nombre , 'id': categoria.id } )  }}" class="link">
+
+												{{ categoria.nombre|upper }}
+											</a>
+										</li>
+
+									{% endfor %}
+									</ul>
+
+									
+								</li>
+
 								<li><a href="{{path('m_montacargas')}}" style="text-transform: uppercase;">MONTACARGAS</a></li>
 							</ul>
 						</li>

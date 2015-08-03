@@ -1,0 +1,136 @@
+{% extends 'CelmediaToyocostaVehiculosBundle::layout.mobile.html.twig' %}
+
+
+{% block contenidoMobil %}
+	<div class="container-fluid vehiculo-banner" style="background-image: url({{ asset('uploads/motos/banner/'   ~   moto.imagenBanner ) }});">
+		<div class="empty-banner">
+			&nbsp;
+        </div>
+	</div>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-12">
+				<ol class="breadcrumb breadcrumb-mobil">
+					<li>
+						<a href="#" class="txt-gris">INICIO</a>
+					</li>
+					<li>
+						<a href="{{ path('m_moto_categoria', { 'categoria': moto.categoria.nombre , 'id': moto.categoria.id } )  }}">{{moto.categoria.nombre|upper}}</a>
+					</li>
+					<li class="active">{{ moto.nombre }}</li>
+				</ol>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-xs-10 col-xs-offset-1">
+
+				<div class="row">
+					<div class="col-xs-4">
+						<img src="{{ asset('uploads/motos/thumb/' ~ moto.categoria.imagenThumb ) }}" alt="" class="img-responsive obj-centrar" />
+					</div>
+				</div>
+
+				<h1 class="txt-vehiculo">{{ moto.nombre }}</h1>
+				<h3 class="txt-precio">Precio</h3>
+				<h2 class="txt-valor-precio">${{ moto.precio }}</h2>
+				<p class="txt-descrip1">{{moto.informacion}}</p><br/>
+				
+			</div>
+
+		</div>
+
+
+		<div class="row">
+			<div class="col-xs-10 col-xs-offset-1">
+
+				<div id="moto-colores-carousel" class="carousel slide alto-completo" data-ride="carousel" data-interval="false">
+
+				    <div class="container-fluid">
+				    	<div class="row">
+							<div class="carousel-inner carousel-inner-vh alto-completo">
+								
+								{% for motoColor in moto.colores %}
+							    <div class="item {% if loop.first %}active{% endif %} alto-completo">
+									
+										<div class="container-fluid">
+											<div class="row  espacio-a">
+							    				<img src="{{ asset('uploads/motos/color/'   ~   motoColor.imagenColor ) }}" class="img-responsive obj-centrar" />
+											</div>
+											<div class="row">
+												<div class="col-md-12 text-center espacio-a">
+													<span class="txt-negro">Color: {{ motoColor.coloresmotos.nombre }}</span>
+												</div>
+											</div>
+										</div>
+									
+							    </div>
+								{% endfor %}
+
+							</div>							    		
+				    	</div>
+				    	<div class="row">
+
+							{#<p>COLORES DISPONIBLES:</p><br/>#}
+						    <ol class="carousel-indicators carousel-indicators-vh">
+
+					    
+						    	{% for motoColor in moto.colores %}
+						    		<li data-target="#moto-colores-carousel" data-slide-to="{{loop.index -1 }}"  class="vehic-miniaturas {% if loop.first %}active{% endif %}" style="background-color: {{motoColor.coloresmotos.valor}} ;"></li>
+						    	{% endfor %}
+
+
+						    </ol>
+				    	</div>
+				    </div>
+
+				</div>
+
+
+
+
+				{#<p>COLORES DISPONIBLES:</p><br/>
+				<ol class="colores-indicators carousel-indicators-vh">
+
+			    	{% for item in moto.colores %}
+		    		<li data-target="#moto-colores-carousel" data-slide-to="{{loop.index -1 }}"  class="vehic-miniaturas {% if loop.first %}active{% endif %}" style="background-color: {{item.coloresmotos.valor}} ;"></li>
+		    		{% endfor %}
+			    		
+		    	</ol>#}
+
+
+			</div>
+	    </div>
+	    <div class="row">
+	    	<div class="col-xs-12">
+	    		<a href="">
+		    		<div class="col-xs-10 col-xs-offset-1 btn btn-rojo">
+			    		Cotizar
+			    	</div>
+			    </a>
+	    	</div>
+	    	<div class="col-xs-12">
+
+				{% if moto.ficha %}
+
+					<a href="{{ asset('uploads/motos/ficha/'   ~   moto.ficha ) }}" target="_blank">
+				    	<div class="col-xs-10 col-xs-offset-1 btn btn-blanco-rojo">
+				    		Descargar ficha técnica <i class="icono-descarga"></i> 
+				    	</div>
+		    			
+		    		</a>
+
+
+				{% endif %}
+
+
+
+	    		
+	    		
+	    	</div>
+	    </div>
+	    <div class="row" style="height:20px;">
+	    	&nbsp;
+	    </div>
+	</div>
+
+{% endblock %}

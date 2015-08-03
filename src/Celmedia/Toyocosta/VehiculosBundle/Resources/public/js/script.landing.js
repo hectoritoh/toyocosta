@@ -13,6 +13,7 @@ $(document).ready(function(){
               comentario: $("#comentario").val(),
               campana: $("#campana").val(),
               taller: $("#taller").val(),
+              fecha:$("#fecha_test").val(),
               modelo: $("#modelo").val(),
               anio: $("#anio").val(),
               ciudad: $("#ciudad").val(),

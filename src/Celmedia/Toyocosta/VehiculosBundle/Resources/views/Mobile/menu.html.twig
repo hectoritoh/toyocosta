@@ -21,15 +21,26 @@
                             </div>
 
                             <div id="downVehiculo{{ i }}" class="col-xs-2">
-                                {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/movil/down.png' %}
-                                <img src="{{ asset_url }}" alt="" class="img-responsive" style="" />
-                                {% endimage %}
+                                
+                                <a id="collap{{i}}" data-toggle="collapse" data-parent="#accordion" href="#Vehiculo{{ i }}" class="mayuscula">
+                                
+                                    {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/movil/down.png' %}
+                                    <img src="{{ asset_url }}" alt="" class="img-responsive" style="" />
+                                    {% endimage %}
+                                </a>
+
                             </div>
 
                             <div id="upVehiculo{{ i }}" class="col-xs-2" style="display:none;">
-                                {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/movil/up.png' %}
-                                <img src="{{ asset_url }}" alt="" class="img-responsive" style="" />
-                                {% endimage %}
+
+                                <a id="collap{{i}}" data-toggle="collapse" data-parent="#accordion" href="#Vehiculo{{ i }}" class="mayuscula">
+                                
+                                    {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/movil/up.png' %}
+                                    <img src="{{ asset_url }}" alt="" class="img-responsive" style="" />
+                                    {% endimage %}
+                                </a>
+
+                                
                             </div>
 
 
@@ -57,34 +68,57 @@
                             
                             <div class="col-xs-10">
                                 <h4 class="panel-title">
-                                    <a id="collap300" data-toggle="collapse" data-parent="#accordion" href="#Motos" class="mayuscula">
+                                    <a id="collap300" data-toggle="collapse" data-parent="#accordion" href="#Moto300" class="mayuscula">
                                         Motos
                                     </a>
                                 </h4>
                                 
                             </div>
 
-                            <div id="downVehiculo300" class="col-xs-2">
-                                {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/movil/down.png' %}
-                                <img src="{{ asset_url }}" alt="" class="img-responsive" style="" />
-                                {% endimage %}
+                            <div id="downMoto300" class="col-xs-2">
+                                
+                                <a id="collap300" data-toggle="collapse" data-parent="#accordion" href="#Moto300" class="mayuscula">
+                                    {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/movil/down.png' %}
+                                    <img src="{{ asset_url }}" alt="" class="img-responsive" style="" />
+                                    {% endimage %}    
+                                </a>
                             </div>
 
-                            <div id="upVehiculo300" class="col-xs-2" style="display:none;">
-                                {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/movil/up.png' %}
-                                <img src="{{ asset_url }}" alt="" class="img-responsive" style="" />
-                                {% endimage %}
+                            <div id="upMoto300" class="col-xs-2" style="display:none;">
+                                
+                                <a id="collap300" data-toggle="collapse" data-parent="#accordion" href="#Moto300" class="mayuscula">                                    
+                                    {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/movil/up.png' %}
+                                    <img src="{{ asset_url }}" alt="" class="img-responsive" style="" />
+                                    {% endimage %}   
+                                </a>
+
+
                             </div>
 
 
                         </div>
-                        <div id="Motos" class="panel-collapse collapse">
+                        <div id="Moto300" class="panel-collapse collapse">
                             <div class="panel-body">
 
                                 <ul class="media-list">
 
 
-                                    {#{{ render(controller("CelmediaToyocostaVehiculosBundle:Mobile:obtenerVehiculosXCategoria" , { 'categoriaId':  item.id } ) ) }}#}
+                                    {% for item  in categoriasMoto %}
+
+                                    <a href="{{ path('m_moto_categoria', { 'categoria': item.nombre , 'id': item.id } )  }}" class="link">
+
+                                        <li class="media media-autos">
+                                            <div class="pull-right" style="margin-left:0px;">
+                                                <img src="{{ asset('uploads/motos/thumb/' ~ item.logoHome ) }}" alt="" class="img-responsive" style="width:50%;" />
+                                            </div>
+                                            <div class="media-body">
+                                                <h4 class="media-heading">{{ item.nombre }}</h4>
+                                            </div>
+                                        </li>
+                                    </a>
+
+                                    {% endfor %}
+
 
                                 </ul>
 
@@ -92,7 +126,7 @@
                         </div>
                     </div>
 
-                    
+
         			<div class="panel">
         				<div class="panel-heading">
                             <div class="col-xs-10">

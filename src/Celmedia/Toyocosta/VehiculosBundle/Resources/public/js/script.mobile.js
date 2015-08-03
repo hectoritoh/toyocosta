@@ -1,6 +1,11 @@
 
   $(document).ready(function(){
 
+    $('#moto-colores-carousel').carousel({
+      interval: 4000
+    })
+
+
     $(".sobre").hover(function() {
 
       $(this).find('#mail_sobre').stop(true , true).hide();

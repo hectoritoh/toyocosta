@@ -164,6 +164,14 @@ m_vehiculo:
     path:      /vehiculo/{vehname}/{vehiculoid}
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Mobile:verVehiculo }
 
+m_moto_categoria:
+    path:      /motosToyota/{categoria}/{id}
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Mobile:motosXcategoria }
+
+m_moto:
+    path:      /motosToyota/{categoria}/{nombre}/{id}
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Mobile:verMoto }
+
 m_cotizar:
     path:       /cotizar
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Mobile:cotizarVehiculo }

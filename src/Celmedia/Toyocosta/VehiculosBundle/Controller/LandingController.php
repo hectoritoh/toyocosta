@@ -288,6 +288,7 @@ class LandingController extends Controller
 
             // lp taller movil cambio de correo
             $taller = $request->request->get('taller');
+            $fecha = $request->request->get('fecha');
 
 
 
@@ -302,6 +303,8 @@ class LandingController extends Controller
             $info->setComentarios( $comentario  );
             $info->setCampana( $campana  );
             
+            $extraMensaje0 = " ";
+
             $extraMensaje1 = " ";
 
             $extraMensaje2 = " ";
@@ -309,6 +312,11 @@ class LandingController extends Controller
             $extraMensaje3 = " ";
 
             $extraMensaje4 = " ";
+
+            if ( $fecha && $taller ) {
+                
+                $extraMensaje0 = " Fecha Tentativa:  ".$fecha;
+            }
             
             if ( $modelo && $anio ) {
 
@@ -360,10 +368,12 @@ class LandingController extends Controller
             if ($taller) {
 
                 $to = array('tallermovil@toyocosta.com.ec'=> 'Taller Movil');
+                //$to = array('ycosquillo@celmedia.com'=> 'Taller Movil');
                 
             }else{
 
                 $to = array('cdnventas@toyocosta.com.ec'=> 'Toyocosta');
+                //$to = array('ycosquillo@celmedia.com'=> 'Toyocosta');
                 
             }
 
@@ -381,6 +391,7 @@ class LandingController extends Controller
             Email:  '. $info->getEmail() .' <br />
             Celular:  '. $info->getCelular() .' <br />
             Comentarios:  '. $info->getComentarios() .' <br />
+            ' . $extraMensaje0 . ' <br />
             ' . $extraMensaje1 . ' <br />
             ' . $extraMensaje2 . ' <br />
             ' . $extraMensaje3 . ' <br />

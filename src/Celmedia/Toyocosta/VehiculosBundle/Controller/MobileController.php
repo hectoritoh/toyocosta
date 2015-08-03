@@ -28,8 +28,10 @@ class MobileController extends Controller
         $categoriasVehiculo = $this->getDoctrine()->getRepository('CelmediaToyocostaVehiculosBundle:CategoriaVehiculo')->findBy( array("estado"=> 1) );
 
 
+        $categoriasMoto = $this->getDoctrine()->getRepository('CelmediaToyocostaMotosBundle:MotoCategoria')->findBy( array("estado"=> 1) );
 
-        return $this->render('CelmediaToyocostaVehiculosBundle:Mobile:header.menu.html.twig' , array('categoriasVehiculo' => $categoriasVehiculo ) );
+
+        return $this->render('CelmediaToyocostaVehiculosBundle:Mobile:header.menu.html.twig' , array('categoriasVehiculo' => $categoriasVehiculo , 'categoriasMoto' => $categoriasMoto ) );
     }
     public function verVehiculoAction($vehiculoid , $vehname){
 
@@ -56,6 +58,27 @@ class MobileController extends Controller
 
 	
     }
+
+    public function verMotoAction($categoria , $nombre,  $id){
+
+
+        $em = $this->getDoctrine()->getManager();
+
+        $moto = $this->getDoctrine()->getRepository("CelmediaToyocostaMotosBundle:Moto")->findOneBy(array(
+            "id" => $id,
+            "estado" => 1
+                )
+        );
+
+
+        return $this->render('CelmediaToyocostaVehiculosBundle:Mobile:moto.html.twig' , array(
+            "moto" => $moto
+        ));
+
+    
+    }
+
+
 
  	public function cotizarVehiculoAction(){
 
@@ -171,6 +194,7 @@ class MobileController extends Controller
     }
 
     public function obtenerVehiculosXCategoriaAction($categoriaId){
+
         $em = $this->getDoctrine()->getManager();
 
         $categoria = $this->getDoctrine()->getRepository('CelmediaToyocostaVehiculosBundle:CategoriaVehiculo')->findOneBy(array("id" => $categoriaId, "estado"=> 1));
@@ -181,6 +205,24 @@ class MobileController extends Controller
         );
         return $this->render('CelmediaToyocostaVehiculosBundle:Mobile:vehiculos.categoria.html.twig' , array( "vehiculos" => $vehiculos, "categoria" => $categoria ) );
     }
+
+
+    public function motosXcategoriaAction($categoria, $id ){
+
+        $em = $this->getDoctrine()->getManager();
+
+        $categoria = $this->getDoctrine()->getRepository('CelmediaToyocostaMotosBundle:MotoCategoria')->findOneBy(array("id" => $id, "estado"=> 1));
+
+        $motos = $this->getDoctrine()->getRepository("CelmediaToyocostaMotosBundle:Moto")->findBy(array(
+            "categoria" => $id,
+            "estado" => 1
+                )
+        );
+        return $this->render('CelmediaToyocostaVehiculosBundle:Mobile:motos.categoria.html.twig' , array( "motos" => $motos, "categoria" => $categoria ) );
+    }
+
+
+    
 
 
     public function obtenerProductosxCategoriaAction($categoriaId){
