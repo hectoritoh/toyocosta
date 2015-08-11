@@ -1,0 +1,13 @@
+.btn-vermas{
+	  color: #df1928;
+	  border: 2px solid #df1928;
+	  border-radius: 5px;
+	  margin-top: 5px;
+	  margin-bottom: 15px;
+	  font-size: 12px;
+}
+.btn-vermas:hover{
+	  background-color: #df1928;
+	  color: #FFFFFF;
+	  border: 2px solid #df1928;
+}
