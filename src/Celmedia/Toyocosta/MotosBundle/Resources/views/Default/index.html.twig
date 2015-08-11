@@ -1,6 +1,16 @@
 {% extends 'CelmediaToyocostaMotosBundle::layout.html.twig' %}
 
 
+{% block seo %}
+    
+    <title>TOYOCOSTA | {{categoria.nombre}}</title>
+    
+    <meta name="description" content="Conoce las especificaciones y modelos disponibles de {{categoria.nombre}}, disponible en Toyocosta."/>
+
+    <meta name="keywords" content=" {{categoria.nombre}} ecuador,  {{categoria.nombre}} guayaquil,  {{categoria.nombre}} toyocosta,  {{categoria.nombre}} modelos,  {{categoria.nombre}} cotizar,  {{categoria.nombre}} galeria" />
+
+{% endblock %}
+
 {% block contenido %}
 
     {#{% include 'CelmediaToyocostaMotosBundle:Blocks:top.submenu.html.twig' %}#}

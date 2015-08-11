@@ -2,11 +2,11 @@
 
 {% block seo %}
     
-    {#<title>TOYOCOSTA | Toyota  {{vehiculo.nombre}}</title>
+    <title>TOYOCOSTA | Toyota  {{moto.nombre}}</title>
     
-    <meta name="description" content="Conoce las especificaciones y modelos disponibles del nuevo Toyota {{vehiculo.nombre}}, disponible en Toyocosta."/>
+    <meta name="description" content="Conoce las especificaciones y modelos disponibles de {{moto.nombre}}, disponible en Toyocosta."/>
 
-    <meta name="keywords" content="toyota {{vehiculo.nombre}} ecuador, toyota {{vehiculo.nombre}} guayaquil, toyota {{vehiculo.nombre}} toyocosta, toyota {{vehiculo.nombre}} modelos, toyota {{vehiculo.nombre}} cotizar, toyota {{vehiculo.nombre}} galeria" />#}
+    <meta name="keywords" content=" {{moto.nombre}} ecuador,  {{moto.nombre}} guayaquil,  {{moto.nombre}} toyocosta,  {{moto.nombre}} modelos,  {{moto.nombre}} cotizar,  {{moto.nombre}} galeria" />
 
 {% endblock %}
 
@@ -62,7 +62,7 @@
 								<div class="row">
 									
 									<div class="col-md-5 espacio-a">
-										<a href="#cotizar" class="btn btn-vehiculo-rojo">Cotizar</a>
+										<a href="{{path('landing_motos')}}" class="btn btn-vehiculo-rojo">Cotizar</a>
 									</div>
 
 									{% if moto.ficha %}

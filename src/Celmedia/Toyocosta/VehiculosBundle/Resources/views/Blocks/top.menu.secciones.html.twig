@@ -100,9 +100,9 @@
           <li>
             <a href="{{ path('seminuevos_home') }}" class="">Seminuevos</a>
           </li>
-          {#<li>
+          <li>
             <a href="#" data-target="categoria-4" class="item-submenu item-submenu-v">Motos</a>
-          </li>#}
+          </li>
           <li>
             <a href="{{ path('montacargas_home') }}" data-target="categoria-5" class="item-submenu">Montacargas</a>
           </li>
@@ -124,7 +124,7 @@
     {{ render(controller("CelmediaToyocostaVehiculosBundle:Default:obtenerVehiculosXCategoria" , { 'categoriaId': 2 } ) ) }}
     {{ render(controller("CelmediaToyocostaVehiculosBundle:Default:obtenerVehiculosXCategoria" , { 'categoriaId': 3 } ) ) }}
     
-    {#{{ render(controller("CelmediaToyocostaMotosBundle:Default:obtenerMotosXCategoria"  ) ) }}#}
+    {{ render(controller("CelmediaToyocostaMotosBundle:Default:obtenerMotosXCategoria"  ) ) }}
     
   </div>
 
