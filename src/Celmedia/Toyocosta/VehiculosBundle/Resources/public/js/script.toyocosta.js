@@ -575,6 +575,7 @@ $(document).ready(function(){
               email: $("#cemail").val(),
               ciudad: $("#cciudad").val(),
               area: $("#carea").val(),
+              requerimiento: $("#crequerimiento").val(),
               observacion: $("#cobs").val()
           }
 
@@ -635,6 +636,9 @@ $(document).ready(function(){
             required: true
           },
           carea: {
+            required: true
+          },
+          crequerimiento: {
             required: true
           },
           cobs:{ 

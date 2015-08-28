@@ -720,6 +720,7 @@ class DefaultController extends Controller
             $email = $request->request->get('email');
             $ciudad = $request->request->get('ciudad');
             $area = $request->request->get('area');
+            $requerimiento = $request->request->get('requerimiento');
             $observacion = $request->request->get('observacion');
 
 
@@ -737,8 +738,57 @@ class DefaultController extends Controller
             $em->persist(  $info );
             $em->flush();
 
-        //     // $formulario = "contacto";
-        //     // print_r($info);
+            
+            if ($requerimiento == "nuevos" || $requerimiento == "seminuevos" ) {
+
+                $to = array('cdnventas@toyocosta.com.ec'=> 'Toyocosta');
+                //$to = array('ycosquillo@celmedia.com'=> 'Toyocosta');
+                $requerimiento = "Vehiculos ".$requerimiento;
+
+            }elseif ($requerimiento == "cita") {
+
+                $to = array('cdnpostventa@toyocosta.com.ec'=> 'Citas Talleres');
+                //$to = array('ycosquillo@celmedia.com'=> 'Citas Talleres');
+                $requerimiento = "Citas Talleres";
+
+            }elseif ($requerimiento == "repuestos") {
+
+                $to = array('rlara@toyocosta.com.ec'=> 'Repuestos');
+                //$to = array('ycosquillo@celmedia.com'=> 'Repuestos');
+                $requerimiento = "Repuestos";
+                    
+            }elseif ($requerimiento == "pintura") {
+                
+                $to = array('rflores@toyocosta.com.ec'=> 'Enderezada y Pintura');
+                //$to = array('ycosquillo@celmedia.com'=> 'Enderezada y Pintura');
+                $requerimiento = "Enderezada y Pintura";
+
+            }elseif ($requerimiento == "montacargas") {
+                
+                $to = array('romero@toyocosta.com.ec'=> 'Montacargas');
+                //$to = array('ycosquillo@celmedia.com'=> 'Montacargas');
+                $requerimiento = "Montacargas";
+
+            }elseif ($requerimiento == "motos") {
+                
+                $to = array('cramos@toyocosta.com.ec'=> 'Motos');
+                //$to = array('ycosquillo@celmedia.com'=> 'Motos');
+                $requerimiento = "Motoa";
+
+            }elseif ($requerimiento == "pirelli") {
+                
+                $to = array('msuarez@oyocosta.com.ec'=> 'Pirelli');
+                //$to = array('ycosquillo@celmedia.com'=> 'Pirelli');
+                $requerimiento = "Pirelli";
+
+            }else{
+
+                $to = array('rfernandez@toyocosta.com.ec'=> 'Comentarios o sugerencias');
+                //$to = array('ycosquillo@celmedia.com'=> 'Comentarios o sugerencias');
+                $requerimiento = "Comentarios o sugerencias";
+                
+            }
+
 
             
             $subject = "Pedido de Informacion Contacto desde Toyocosta"; 
@@ -750,6 +800,7 @@ class DefaultController extends Controller
             Email:  '. $info->getEmail() .' <br />
             Ciudad:  '. $info->getCiudad() .' <br />
             Area:   '. $info->getArea() .' <br />
+            Requerimiento:   '. $requerimiento .' <br />
             Observacion:  '. $info->getObservaciones() .' ';
 
 
@@ -760,7 +811,8 @@ class DefaultController extends Controller
 
             ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
 
-            ->setTo(array( $email , 'cdnventas@toyocosta.com.ec' => 'Toyocosta' ))
+            //->setTo(array( $email , 'cdnventas@toyocosta.com.ec' => 'Toyocosta' ))
+            ->setTo( $to )
             
             ->setContentType("text/html")
 

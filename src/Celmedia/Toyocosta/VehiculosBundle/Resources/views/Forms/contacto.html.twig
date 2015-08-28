@@ -141,11 +141,11 @@
 							<div class="row">
 								<div class="col-xs-5">
 									<label>Nombre:</label>
-									<input id="cnombre" name="cnombre" type="text" class="form-control" placeholder="" />
+									<input id="cnombre" name="cnombre" type="text" maxlength="50" class="form-control" placeholder="" />
 								</div>
 								<div class="col-xs-5 col-xs-offset-1">
 									<label>Apellido:</label>
-									<input id="capellido" name="capellido" type="text" class="form-control" placeholder="" />
+									<input id="capellido" name="capellido" type="text" maxlength="50" class="form-control" placeholder="" />
 								</div>
 							</div>	
 						</div>
@@ -157,7 +157,7 @@
 							<div class="row">
 								<div class="col-xs-5">
 									<label>Telefono:</label>
-									<input id="cinputTelefono" name="cinputTelefono" type="text" class="form-control" placeholder="" />
+									<input id="cinputTelefono" name="cinputTelefono" type="text" maxlength="15" class="form-control" placeholder="" />
 								</div>
 								<div class="col-xs-5 col-xs-offset-1">
 									<label>Email:</label>
@@ -173,7 +173,7 @@
 							<div class="row">
 								<div class="col-xs-5">
 									<label>Ciudad:</label>
-									<input id="cciudad" name="cciudad" type="text" class="form-control" placeholder="" />
+									<input id="cciudad" name="cciudad" type="text" maxlength="50" class="form-control" placeholder="" />
 								</div>
 								<div class="col-xs-5 col-xs-offset-1">
 									<label>Area:</label><br />
@@ -184,6 +184,33 @@
 										{% endfor %}
 									</select>
 								</div>
+
+							</div>	
+						</div>
+
+					</div>
+
+					<div class="row space-input">
+						<div class="col-md-12">
+
+							<div class="row">
+								<div class="col-xs-5">
+									<label>Requirimiento:</label>
+									<select name="crequerimiento" id="crequerimiento" class="form-control txt-select" >										
+										<option value="" >Seleccione requerimiento</option>
+										<option value="nuevos" >Vehículos nuevos</option>
+										<option value="seminuevos" >Vehículos seminuevos</option>
+										<option value="cita" >Citas talleres</option>
+										<option value="repuestos" >Repuestos</option>
+										<option value="pintura" >Enderezada y Pintura</option>
+										<option value="montacargas" >Montacargas</option>
+										<option value="motos" >Motos</option>
+										<option value="pirelli" >Pirelli</option>
+										<option value="comentarios" >Comentarios o sugerencias</option>
+										
+									</select>
+								</div>
+								
 
 							</div>	
 						</div>
