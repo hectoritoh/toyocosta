@@ -18,7 +18,7 @@ Celmedia\Toyocosta\MotosBundle\Entity\Moto:
             nullable: false
         informacion:
             type: text
-            nullable: false
+            nullable: true
         imagen_banner:
             type: text
             nullable: false

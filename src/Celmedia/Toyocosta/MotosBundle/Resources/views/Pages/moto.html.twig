@@ -95,11 +95,11 @@
 														<div class="row  espacio-a">
 										    				<img src="{{ asset('uploads/motos/color/'   ~   motoColor.imagenColor ) }}" class="img-responsive obj-centrar" />
 														</div>
-														<div class="row">
+														{#<div class="row">
 															<div class="col-md-12 text-center espacio-a">
 																<span class="txt-negro">COLOR: {{ motoColor.coloresmotos.nombre }}</span>
 															</div>
-														</div>
+														</div>#}
 													</div>
 												
 										    </div>
@@ -111,9 +111,9 @@
 									    <ol class="carousel-indicators carousel-indicators-vh">
 
 								    
-									    	{% for motoColor in moto.colores %}
+									    	{#{% for motoColor in moto.colores %}
 									    		<li data-target="#vehiculo-colores-carousel" data-slide-to="{{loop.index -1 }}"  class="vehic-miniaturas {% if loop.first %}active{% endif %}" style="background-color: {{motoColor.coloresmotos.valor}} ;"></li>
-									    	{% endfor %}
+									    	{% endfor %}#}
 
 
 									    </ol>
