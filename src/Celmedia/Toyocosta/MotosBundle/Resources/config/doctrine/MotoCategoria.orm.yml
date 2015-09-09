@@ -24,7 +24,7 @@ Celmedia\Toyocosta\MotosBundle\Entity\MotoCategoria:
             nullable: false
         descripcion:
             type: text
-            nullable: false
+            nullable: true
         estado:
             type: integer
             unsigned: false
