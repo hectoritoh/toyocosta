@@ -14,7 +14,7 @@ Celmedia\Toyocosta\MotosBundle\Entity\Moto:
             length: 140
             nullable: false
         precio:
-            type: float
+            type: text
             nullable: false
         informacion:
             type: text
