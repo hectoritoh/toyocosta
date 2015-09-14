@@ -378,7 +378,7 @@ landing_cf_universo:
 
 
 landing_cm_usados:
-    path:      /landing/compra-confiable-usados
+    path:      /landing/vende-tu-auto-usado
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:confiableUsados }
 
 landing_exonerados:
