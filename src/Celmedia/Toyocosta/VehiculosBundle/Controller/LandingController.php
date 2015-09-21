@@ -247,7 +247,11 @@ class LandingController extends Controller
         return $this->render('CelmediaToyocostaVehiculosBundle:Landing:taller.html.twig');   
     }
     
-
+        public function promoAction()
+    {
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:promo.html.twig');   
+    }
+    
 
 
     public function envioLandingAction(Request $request){

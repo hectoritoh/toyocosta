@@ -400,6 +400,10 @@ landing_taller:
     path:      /landing/taller
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:taller }
 
+landing_promo:
+    path:      /landing/dias-de-promocion
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:promo }
+
 
 
 
