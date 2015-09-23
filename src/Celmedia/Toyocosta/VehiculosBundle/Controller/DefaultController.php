@@ -1270,7 +1270,8 @@ class DefaultController extends Controller
             $observaciones = $request->request->get('observaciones');
             $tallerid = $request->request->get('taller');
             $comentario = $request->request->get('comentario');
-            $vehiculoid = $request->request->get('modelo');
+            //$vehiculoid = $request->request->get('modelo');
+            $modelo = $request->request->get('modelo');
             $kilometraje = $request->request->get('kilometraje');
             $regalo = $request->request->get('regalo');
 
@@ -1333,14 +1334,28 @@ class DefaultController extends Controller
             $mantenimiento->setTipoReserva( $reserva );
             $mantenimiento->setTaller( $taller );
 
-            if($vehiculoid){
-                $vehiculo = $em->getRepository('CelmediaToyocostaVehiculosBundle:Vehiculo')->findOneBy(
-                    array(
-                        'id' => $vehiculoid,
-                        "estado" => 1
-                    )
-                );
-                $mantenimiento->setModelo( $vehiculo->getNombre() );
+            // if($vehiculoid){
+            //     $vehiculo = $em->getRepository('CelmediaToyocostaVehiculosBundle:Vehiculo')->findOneBy(
+            //         array(
+            //             'id' => $vehiculoid,
+            //             "estado" => 1
+            //         )
+            //     );
+            //     $mantenimiento->setModelo( $vehiculo->getNombre() );
+            //     $mantenimiento->setKilometros( $kilometraje );
+
+            //     $extraMensaje = " Modelo:  ".$mantenimiento->getModelo()." <br />
+            //     Kilometraje:  ".$mantenimiento->getKilometros();
+
+            // }else{
+
+            //     $extraMensaje = " Comentario:  ".$mantenimiento->getComentarios();
+            // }
+           
+            if($modelo){
+                
+                
+                $mantenimiento->setModelo( $modelo );
                 $mantenimiento->setKilometros( $kilometraje );
 
                 $extraMensaje = " Modelo:  ".$mantenimiento->getModelo()." <br />
@@ -1404,10 +1419,6 @@ class DefaultController extends Controller
             ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
 
             ->setTo( $arrayCorreo )
-            
-            // ->setTo( array('ycosquillo@celmedia.com' =>'Admin') )
-
-            // ->setCc('cdnventas@toyocosta.com.ec' , 'Toyocosta')
             
             ->setContentType("text/html")
 

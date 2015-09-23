@@ -194,11 +194,40 @@
 							<div class="row">
 								<div class="col-xs-4 col-xs-offset-1">
 									<label>Modelo:</label>
-									<select name="mmodelo" id="mmodelo"  class="form-control txt-select">
+									{#<select name="mmodelo" id="mmodelo"  class="form-control txt-select">
 										<option value="">Selecciona un modelo</option>
 										{% for vehiculo in vehiculos %}
 											<option value="{{ vehiculo.id }}" >{{ vehiculo.nombre }}</option>
 				                    	{% endfor %}
+									</select>#}
+									<select name="mmodelo" id="mmodelo" class="form-control txt-select">
+										<option value="">Selecciona un modelo</option>
+										<option value="Corolla">COROLLA</option>
+										<option value="Hilux CD4x2">HILUX CD 4X2</option>
+										<option value="Hilux CD4x4">HILUX CD 4x4</option>
+										<option value="4Runner">4RUNNER</option>
+										<option value="Fj Cruiser">FJ CRUISER</option>
+										<option value="Prius C Sport">PRIUS C SPORT</option>
+										<option value="Prius Hibrido">PRIUS HIBRIDO</option>
+										<option value="Yaris">YARIS</option>
+										<option value="Hilux Chasis 4x2">HILUX CHASIS 4X2</option>
+										<option value="Hilux CS">HILUX CS</option>
+										<option value="Fortunes">FORTUNER</option>
+										<option value="Innova 7">INNOVA 7</option>
+										<option value="Land Cruiser">LAND CRUISER</option>
+										<option value="Highlander">HIGHLANDER</option>
+										<option value="Lexus">LEXUS</option>
+										<option value="Camry">CAMRY</option>
+										<option value="Gt 86">GT-86</option>
+										<option value="Hiace">HIACE</option>
+										<option value="Sequoia">SEQUOIA</option>
+										<option value="Sienna">SIENNA</option>
+										<option value="Tacoma">TACOMA</option>
+										<option value="Corona">CORONA</option>
+										<option value="Cressida">CRESSIDA</option>
+										<option value="Crow">CROW</option>
+										<option value="Stout">STOUT</option>
+										<option value="Tercel">TERCEL</option>
 									</select>
 								</div>
 								<div class="col-xs-4 col-xs-offset-1">
