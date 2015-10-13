@@ -267,6 +267,20 @@ var seleccionado = false;
 
 $(document).ready(function(){
 
+  $("body").queryLoader2({
+    barColor: "#df192b",
+    backgroundColor: "#fff",
+        // percentage: true,
+        barHeight: 1,
+        completeAnimation: "grow",
+        minimumTime: 100,
+        onLoadComplete:function(){
+          
+
+        }
+  });
+
+  
   $("#uploadFile").on("change", function()
         {
         var files = !!this.files ? this.files : [];
@@ -284,18 +298,6 @@ $(document).ready(function(){
 
 
 
-  $("body").queryLoader2({
-    barColor: "#df192b",
-    backgroundColor: "#fff",
-        // percentage: true,
-        barHeight: 1,
-        completeAnimation: "grow",
-        minimumTime: 100,
-        onLoadComplete:function(){
-          
-
-        }
-  });
 
   $('#modalRegistrar').modal({
         backdrop: 'static',
