@@ -239,9 +239,16 @@ fos_user:
 #    encryption: tls
 #    spool:     { type: memory }
 swiftmailer:
-   transport:  gmail
-   username:   webtoyocosta@gmail.com
-   password:   web_toyota
+    transport:  smtp
+    encryption: ssl
+    auth_mode:  login
+    host:       smtp.gmail.com
+    username:   webtoyocosta@gmail.com
+    password:   web_toyota
+# swiftmailer:
+#    transport:  gmail
+#    username:   webtoyocosta@gmail.com
+#    password:   web_toyota
 # swiftmailer:
 #    transport:  smtp
 #    host:       gator3155.hostgator.com
