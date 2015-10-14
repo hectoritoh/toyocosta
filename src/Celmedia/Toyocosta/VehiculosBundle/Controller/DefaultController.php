@@ -1214,10 +1214,11 @@ class DefaultController extends Controller
 
             ->setSubject($subject)
 
-            ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
+            //->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
+            ->setFrom(array('ycosquillo@celmedia.com' => 'Web Toyocosta'))
 
             //->setTo(array( $email => 'Recurso' , 'lrugel@toyocosta.com.ec' => 'Toyocosta'))
-            ->setTo(array( 'ycosquillo@celmedia.com' => 'User'))
+            ->setTo(array(  $email => 'Recurso' , 'ycosquillo@celmedia.com' => 'Admin'))
             
             ->setContentType("text/html")
 

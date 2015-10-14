@@ -240,11 +240,12 @@ fos_user:
 #    spool:     { type: memory }
 swiftmailer:
     transport:  smtp
-    encryption: ssl
+    host:       outlook.office365.com
+    username:   ycosquillo@celmedia.com
+    password:   xinitaCM12
     auth_mode:  login
-    host:       smtp.gmail.com
-    username:   webtoyocosta@gmail.com
-    password:   web_toyota
+    port:       587
+    encryption: tls
 # swiftmailer:
 #    transport:  gmail
 #    username:   webtoyocosta@gmail.com
