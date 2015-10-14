@@ -1214,7 +1214,7 @@ class DefaultController extends Controller
 
             ->setSubject($subject)
 
-            ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
+            ->setFrom(array('web@toyocosta.com' => 'Web Toyocosta'))
             
             //->setTo(array( $email => 'Recurso' , 'lrugel@toyocosta.com.ec' => 'Toyocosta'))
             ->setTo(array(  $email => 'Recurso' , 'ycosquillo@celmedia.com' => 'Admin'))
