@@ -238,14 +238,14 @@ fos_user:
 #    port:       587
 #    encryption: tls
 #    spool:     { type: memory }
-swiftmailer:
-   transport:  gmail
-   username:   ycosquillo@gmail.com
-   password:   xinitaCM12
 # swiftmailer:
 #    transport:  gmail
-#    username:   webtoyocosta@gmail.com
-#    password:   web_toyota
+#    username:   ycosquillo@gmail.com
+#    password:   xinitaCM12
+swiftmailer:
+   transport:  gmail
+   username:   webtoyocosta@gmail.com
+   password:   web_toyota
 
 
 stof_doctrine_extensions:
