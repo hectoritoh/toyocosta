@@ -239,24 +239,14 @@ fos_user:
 #    encryption: tls
 #    spool:     { type: memory }
 swiftmailer:
-    transport:  smtp
-    host:       outlook.office365.com
-    username:   ycosquillo@celmedia.com
-    password:   xinitaCM12
-    auth_mode:  login
-    port:       587
-    encryption: tls
+   transport:  gmail
+   username:   ycosquillo@gmail.com
+   password:   xinitaCM12
 # swiftmailer:
 #    transport:  gmail
 #    username:   webtoyocosta@gmail.com
 #    password:   web_toyota
-# swiftmailer:
-#    transport:  smtp
-#    host:       gator3155.hostgator.com
-#    port:       465
-#    encryption: ssl
-#    username:   web@toyocosta.com
-#    password:   Bf}0,XCL}7Ci
+
 
 stof_doctrine_extensions:
     default_locale: en_US
