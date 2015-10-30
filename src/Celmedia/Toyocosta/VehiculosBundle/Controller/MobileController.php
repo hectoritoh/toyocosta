@@ -313,8 +313,8 @@ class MobileController extends Controller
 
             ->setSubject($subject)
 
-            ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
-            //->setFrom(array('citasweb@toyocosta.com.ec' => 'Web Toyocosta'))
+            //->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
+            ->setFrom(array('citasweb@toyocosta.com.ec' => 'Web Toyocosta'))
 
             ->setTo(array( $email ,  'cdnventas@toyocosta.com.ec' => 'Toyocosta' ))
             
@@ -404,8 +404,8 @@ class MobileController extends Controller
 
             ->setSubject($subject)
 
-            ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
-            //->setFrom(array('citasweb@toyocosta.com.ec' => 'Web Toyocosta'))
+            //->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
+            ->setFrom(array('citasweb@toyocosta.com.ec' => 'Web Toyocosta'))
 
             ->setTo(array( $email , 'cdnventas@toyocosta.com.ec' => 'Toyocosta' ))
             
@@ -591,8 +591,8 @@ class MobileController extends Controller
 
             ->setSubject($subject)
 
-            ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
-            //->setFrom(array('citasweb@toyocosta.com.ec' => 'Web Toyocosta'))
+            //->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
+            ->setFrom(array('citasweb@toyocosta.com.ec' => 'Web Toyocosta'))
 
             ->setTo( $arrayCorreo )
             
@@ -730,8 +730,8 @@ class MobileController extends Controller
 
             ->setSubject($subject)
 
-            ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
-            //->setFrom(array('citasweb@toyocosta.com.ec' => 'Web Toyocosta'))
+            //->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
+            ->setFrom(array('citasweb@toyocosta.com.ec' => 'Web Toyocosta'))
 
             ->setTo(array( $email ,  'cdnventas@toyocosta.com.ec' => 'Toyocosta' ))
             

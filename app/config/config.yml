@@ -229,19 +229,23 @@ fos_user:
 
 
 # Swiftmailer Configuration
+swiftmailer:
+   transport:  smtp
+   host:       webmail.toyocosta.com.ec
+   username:   citasweb@toyocosta.com.ec
+   password:   ABCD123.
+   auth_mode:  login
+   port:       587
+   encryption: tls
+   spool:     { type: memory }
+
+
 # swiftmailer:
-#    transport:  smtp
-#    host:       smtp.gmail.com
+#    transport:  gmail
 #    username:   webtoyocosta@gmail.com
 #    password:   web_toyota
-#    auth_mode:  login
-#    port:       587
-#    encryption: tls
-#    spool:     { type: memory }
-swiftmailer:
-   transport:  gmail
-   username:   webtoyocosta@gmail.com
-   password:   web_toyota
+
+
 # swiftmailer:
 #    transport:  smtp
 #    host:       gator3155.hostgator.com

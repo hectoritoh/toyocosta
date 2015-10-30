@@ -237,8 +237,8 @@ class DefaultController extends Controller
             $message = \Swift_Message::newInstance()
                 ->setSubject('Avaluo de Pintura desde Toyocosta ')
 
-                ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
-                //->setFrom(array('citasweb@toyocosta.com.ec' => 'Web Toyocosta'))
+                //->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
+                ->setFrom(array('citasweb@toyocosta.com.ec' => 'Web Toyocosta'))
 
                 ->setTo(array( 'cdnventas@toyocosta.com.ec' => 'Cdn Ventas' ))
                 //->setTo(array( 'ycosquillo@celmedia.com' => 'Administrador de seminuevos Toyocosta' ))
@@ -689,8 +689,8 @@ class DefaultController extends Controller
 
             ->setSubject($subject)
 
-            ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
-            //->setFrom(array('citasweb@toyocosta.com.ec' => 'Web Toyocosta'))
+            //->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
+            ->setFrom(array('citasweb@toyocosta.com.ec' => 'Web Toyocosta'))
 
             ->setTo(array( $correos_array , 'cdnventas@toyocosta.com.ec' => 'Toyocosta' ))
             
@@ -811,8 +811,8 @@ class DefaultController extends Controller
 
             ->setSubject($subject)
 
-            ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
-            //->setFrom(array('citasweb@toyocosta.com.ec' => 'Web Toyocosta'))
+            //->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
+            ->setFrom(array('citasweb@toyocosta.com.ec' => 'Web Toyocosta'))
 
             //->setTo(array( $email , 'cdnventas@toyocosta.com.ec' => 'Toyocosta' ))
             ->setTo( $to )
@@ -1217,8 +1217,8 @@ class DefaultController extends Controller
 
             ->setSubject($subject)
 
-            ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
-            //->setFrom(array('citasweb@toyocosta.com.ec' => 'Web Toyocosta'))
+            //->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
+            ->setFrom(array('citasweb@toyocosta.com.ec' => 'Web Toyocosta'))
 
             ->setTo(array('lrugel@toyocosta.com.ec' => 'Toyocosta'))
             //->setTo(array(  $email => 'Recurso' , 'ycosquillo@celmedia.com' => 'Admin'))
@@ -1421,8 +1421,8 @@ class DefaultController extends Controller
 
             ->setSubject($subject)
 
-            ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
-            //->setFrom(array('citasweb@toyocosta.com.ec' => 'Web Toyocosta'))
+            //->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
+            ->setFrom(array('citasweb@toyocosta.com.ec' => 'Web Toyocosta'))
 
             ->setTo( $arrayCorreo )
             
