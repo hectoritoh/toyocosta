@@ -395,7 +395,8 @@ landing_info_pirelli:
 landing_motos:
     path:      /landing/motos
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:motos }
-
+	
+	
 landing_taller:
     path:      /landing/taller
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:taller }
