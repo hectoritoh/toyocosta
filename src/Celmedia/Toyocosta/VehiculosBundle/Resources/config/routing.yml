@@ -395,8 +395,24 @@ landing_info_pirelli:
 landing_motos:
     path:      /landing/motos
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:motos }
+<<<<<<< HEAD
 	
 	
+=======
+
+landing_blackfriday:
+    path:      /landing/blackfriday
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:blackfriday }
+
+
+
+
+landing_blackfridaytoyota:
+    path:      /landing/blackfridaytoyota
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:blackfridaytoyota }
+
+
+>>>>>>> 06b76b38c84169ec03aadcf85fd4e6ab940d4dfe
 landing_taller:
     path:      /landing/taller
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:taller }

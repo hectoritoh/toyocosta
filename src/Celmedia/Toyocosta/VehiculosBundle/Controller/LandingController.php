@@ -241,6 +241,23 @@ class LandingController extends Controller
     {
         return $this->render('CelmediaToyocostaVehiculosBundle:Landing:motos.html.twig');   
     }
+
+
+    
+        public function blackfridayAction()
+    {
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:blackfriday.html.twig');   
+    }
+
+
+        public function blackfridaytoyotaAction()
+    {
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:blackfridaytoyota.html.twig');   
+    }
+
+
+
+
     
         public function tallerAction()
     {
@@ -271,6 +288,7 @@ class LandingController extends Controller
             $cedula = $request->request->get('cedula');
             $comentario = $request->request->get('comentario');
             $campana = $request->request->get('campana');
+            
 
             // campos extras
 
@@ -305,7 +323,8 @@ class LandingController extends Controller
             $info->setCedula( $cedula  );
             $info->setCelular( $celular  );
             $info->setComentarios( $comentario  );
-            $info->setCampana( $campana  );
+            $info->setCampana( $campana );
+          
             
             $extraMensaje0 = " ";
 
@@ -394,6 +413,9 @@ class LandingController extends Controller
             Telefono:  '. $info->getTelefono() .'  <br />
             Email:  '. $info->getEmail() .' <br />
             Celular:  '. $info->getCelular() .' <br />
+            Campana:  '. $campana .' <br />
+            Canal:  Web <br />
+            Medio: Facebook <br />
             Comentarios:  '. $info->getComentarios() .' <br />
             ' . $extraMensaje0 . ' <br />
             ' . $extraMensaje1 . ' <br />
@@ -401,6 +423,7 @@ class LandingController extends Controller
             ' . $extraMensaje3 . ' <br />
             ' . $extraMensaje4 . ' <br />  <br /> <br />  <br /> 
             <strong>Toyocosta.</strong>';
+
 
             $message = \Swift_Message::newInstance()
 
@@ -410,8 +433,10 @@ class LandingController extends Controller
             //->setFrom(array('citasweb@toyocosta.com.ec' => 'Web Toyocosta'))
 
             ->setTo( $to )
-
-            //->setTo(array( $email , 'cdnventas@toyocosta.com.ec' => 'Toyocosta' ))
+            
+        
+           
+            ->setTo(array( $email , 'cdnventas@toyocosta.com.ec' => 'Toyocosta' ))
             
             
 
