@@ -396,6 +396,18 @@ landing_motos:
     path:      /landing/motos
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:motos }
 
+landing_blackfriday:
+    path:      /landing/blackfriday
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:blackfriday }
+
+
+
+
+landing_blackfridaytoyota:
+    path:      /landing/blackfridaytoyota
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:blackfridaytoyota }
+
+
 landing_taller:
     path:      /landing/taller
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:taller }
