@@ -1392,6 +1392,8 @@ class DefaultController extends Controller
 
 
 
+      
+
             $arrayCorreo = array( $email => 'Usuario' );
 
 
@@ -1400,6 +1402,10 @@ class DefaultController extends Controller
                 array_push($arrayCorreo, $item->getEmail() );
 
             }
+			
+			//echo "<pre>";
+			//\Doctrine\Common\Util\Debug::dump($arrayCorreo);
+			//die();
 
 
             $subject = "Cita de Mantenimiento desde Toyocosta";
@@ -1421,8 +1427,9 @@ class DefaultController extends Controller
 
             ->setSubject($subject)
 
-            ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
-            //->setFrom(array('citasweb@toyocosta.com.ec' => 'Web Toyocosta'))
+            //->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
+            ->setFrom(array('citasweb@toyocosta.com.ec' => 'Web Toyocosta'))
+			
 
             ->setTo( $arrayCorreo )
             

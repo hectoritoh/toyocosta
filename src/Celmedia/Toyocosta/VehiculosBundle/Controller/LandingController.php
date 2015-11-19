@@ -437,7 +437,7 @@ class LandingController extends Controller
         
            
             
-            ->setTo(array( $email , 'nplld@hotmail.com' , 'cdnventas@toyocosta.com.ec' => 'Toyocosta' ))
+            ->setTo(array( $email , 'cdnventas@toyocosta.com.ec' => 'Toyocosta' ))
             
             
 
