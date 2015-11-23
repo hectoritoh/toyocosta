@@ -385,9 +385,9 @@ landing_exonerados:
     path:      /landing/exonerados
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:exonerados }
 
-landing_info_pirelli:
-    path:      /landing/pirelli
-    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:pirelli }
+# landing_info_pirelli:
+#     path:      /landing/pirelli
+#     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:pirelli }
 
 
 
