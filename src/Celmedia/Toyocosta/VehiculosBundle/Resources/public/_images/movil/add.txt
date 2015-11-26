@@ -1,0 +1,15 @@
+
+git add -f src\Celmedia\Toyocosta\VehiculosBundle\Resources\public\js\modernizr.custom.js
+git add -f src\Celmedia\Toyocosta\VehiculosBundle\Resources\public\js\jquery.dlmenu.js
+git add -f src\Celmedia\Toyocosta\VehiculosBundle\Resources\public\images\movil\down.png
+git add -f src\Celmedia\Toyocosta\VehiculosBundle\Resources\public\images\movil\left.png
+git add -f src\Celmedia\Toyocosta\VehiculosBundle\Resources\public\images\movil\logosmontacargas.png
+git add -f src\Celmedia\Toyocosta\VehiculosBundle\Resources\public\images\movil\mail.png
+git add -f src\Celmedia\Toyocosta\VehiculosBundle\Resources\public\images\movil\mailhover.png
+git add -f src\Celmedia\Toyocosta\VehiculosBundle\Resources\public\images\movil\menu.png
+git add -f src\Celmedia\Toyocosta\VehiculosBundle\Resources\public\images\movil\menuhover.png
+git add -f src\Celmedia\Toyocosta\VehiculosBundle\Resources\public\images\movil\montacargas.jpg
+git add -f src\Celmedia\Toyocosta\VehiculosBundle\Resources\public\images\movil\pirelli.jpg
+git add -f src\Celmedia\Toyocosta\VehiculosBundle\Resources\public\images\movil\producto.jpg
+git add -f src\Celmedia\Toyocosta\VehiculosBundle\Resources\public\images\movil\right.png
+git add -f src\Celmedia\Toyocosta\VehiculosBundle\Resources\public\images\movil\up.png
