@@ -5,6 +5,9 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="author" content="">
+        <meta http-equiv="Cache-Control" content="max-age=0, no-cache, no-store, private">
+        <meta http-equiv="Pragma" content="nocache">
+
         {% block seo %}
         <title>TOYOCOSTA | Concesionario de Toyota en Guayaquil</title>
     
@@ -40,7 +43,7 @@
 
         <script src="{{ asset('bundles/fosjsrouting/js/router.js') }}"></script>
         <script src="{{ path('fos_js_routing_js', {"callback": "fos.Router.setData"}) }}"></script>
-        
+
         {% include 'CelmediaToyocostaVehiculosBundle:Default:libs.html.twig' %}
 
         {% block otroscript %}
