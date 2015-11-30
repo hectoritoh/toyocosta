@@ -273,9 +273,9 @@ landing_seminuevo_bumeran:
     path:      /landing/seminuevo-bumeran
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:seminuevoBumeran }
 
-landing_navidad_banner:
-    path:      /landing/navidad
-    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:navidadBanner }
+# landing_navidad_banner:
+#     path:      /landing/navidad
+#     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:navidadBanner }
 
 # Landings 01/12/2014
 
@@ -400,9 +400,6 @@ landing_blackfriday:
     path:      /landing/blackfriday
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:blackfriday }
 
-
-
-
 landing_blackfridaytoyota:
     path:      /landing/blackfridaytoyota
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:blackfridaytoyota }
@@ -415,6 +412,10 @@ landing_taller:
 landing_promo:
     path:      /landing/dias-de-promocion
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:promo }
+
+landing_navidad_2015:
+    path:      /landing/navidad
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:navidad }
 
 
 

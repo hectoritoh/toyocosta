@@ -255,6 +255,11 @@ class LandingController extends Controller
         return $this->render('CelmediaToyocostaVehiculosBundle:Landing:blackfridaytoyota.html.twig');   
     }
 
+        public function navidadAction()
+    {
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:navidad2015.html.twig');   
+    }
+
 
 
 
@@ -414,8 +419,6 @@ class LandingController extends Controller
             Email:  '. $info->getEmail() .' <br />
             Celular:  '. $info->getCelular() .' <br />
             Campana:  '. $campana .' <br />
-            Canal:  Web <br />
-            Medio: Facebook <br />
             Comentarios:  '. $info->getComentarios() .' <br />
             ' . $extraMensaje0 . ' <br />
             ' . $extraMensaje1 . ' <br />
@@ -429,8 +432,8 @@ class LandingController extends Controller
 
             ->setSubject($subject)
 
-            //->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
-            ->setFrom(array('citasweb@toyocosta.com.ec' => 'Web Toyocosta'))
+            ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
+            //->setFrom(array('citasweb@toyocosta.com.ec' => 'Web Toyocosta'))
 
             ->setTo( $to )
             
