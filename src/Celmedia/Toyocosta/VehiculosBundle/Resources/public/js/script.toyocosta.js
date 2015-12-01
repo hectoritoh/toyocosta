@@ -267,18 +267,18 @@ var seleccionado = false;
 
 $(document).ready(function(){
 
-  $("body").queryLoader2({
-    barColor: "#df192b",
-    backgroundColor: "#fff",
-        // percentage: true,
-        barHeight: 1,
-        completeAnimation: "grow",
-        minimumTime: 100,
-        onLoadComplete:function(){
+  // $("body").queryLoader2({
+  //   barColor: "#df192b",
+  //   backgroundColor: "#fff",
+  //       // percentage: true,
+  //       barHeight: 1,
+  //       completeAnimation: "grow",
+  //       minimumTime: 100,
+  //       onLoadComplete:function(){
           
 
-        }
-  });
+  //       }
+  // });
 
   
   $("#uploadFile").on("change", function()
