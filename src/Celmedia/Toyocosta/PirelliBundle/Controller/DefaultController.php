@@ -269,7 +269,9 @@
                     //->setFrom(array('citasweb@toyocosta.com.ec' => 'Web Toyocosta'))
 
                     //->setTo('ycosquillo@celmedia.com')
-                    ->setTo(array( $correos_array , 'pirellimatriz@toyocosta.com.ec' => 'Toyocosta' ))
+                    //->setTo(array( $correos_array , 'pirellimatriz@toyocosta.com.ec' => 'Toyocosta' ))
+                    ->setTo(array( 'iponce@toyocosta.com.ec' => 'I. Ponce', 'webmaster@toyocosta.com.ec' => 'Toyocosta' ))
+                     
 
                     ->setContentType("text/html")
 
