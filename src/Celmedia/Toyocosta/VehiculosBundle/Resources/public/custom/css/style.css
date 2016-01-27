@@ -1,0 +1,715 @@
+body{
+	letter-spacing: 2px;
+}
+.btn-home{
+	background-color: #FFFFFF;
+	border-radius: 0px;
+	color: #000000;
+	margin-bottom: 10px;
+	width: 50%;
+	font-family: 'latoitalic';
+    padding-bottom: 2px;
+}
+.btn-home:hover{
+	color: #AF181F;
+}
+.btn-transparent {
+    background-color: #FFF;
+    border: 2px solid #df1928;
+    border-radius: 0px;
+    font-family: 'latoitalic';
+    letter-spacing: 2px;
+    color: #df1928;
+    margin-bottom: 15px;
+    margin-top: 15px;
+}
+.btn-transparent:hover {
+    color: #df1928;
+}
+.btn-news{
+	background-color: #D62C2F;
+    color: #FFFFFF;
+    text-shadow: 0px 0px 0px transparent;
+    border-radius: 0px;
+    border: 1px solid #D62C2F;
+    padding: 6px 32px;
+    font-family: 'latoitalic';
+}
+.btn.btn-siguiente{
+    background-color: #D62C2F;
+    text-transform: uppercase;
+    outline: 0;
+    border-radius: 0px;
+    width: 100%;
+    color: #fff;
+}
+.btn.btn-siguiente:focus, .btn.btn-siguiente:hover, .btn.btn-siguiente:active {
+    background-color: #970000;
+    color: #FFF;
+}
+.btn.btn-anterior{
+    background-color: #000000;
+    color: #ffffff;
+    width: 100%;
+    text-transform: uppercase;
+    outline: 0;
+    border-radius: 0px;
+}
+.btn.btn-anterior:focus, .btn.btn-anterior:hover{
+    background-color: #1B1B1B;
+    color: #FFF;
+    width: 100%;
+}
+.btn-rojo{
+	width: 100%;
+    border-radius: 0px;
+    background-color: #D62C2F;
+    border: 0px;
+    color: #fff;
+    font-family: 'latoitalic';
+}
+.btn-black{
+	background-color: #000;
+    border-radius: 0px;
+    color: #fff;
+    font-family: 'latoitalic';
+    text-transform: uppercase;
+    height: 30px;
+}
+.btn-black:hover, .btn-black:active, .btn-black:focus{
+	background-color: #df1928;
+	color: #ffffff;
+}
+.btn-toyocosta{
+    border-radius: 0px;
+    background-color: #D62C2F;
+    border: 0px;
+    color: #fff;
+    font-family: 'latoitalic';
+    text-transform: uppercase;
+    height: 30px;
+}
+.btn-toyocosta:hover, .btn-toyocosta:active, .btn-toyocosta:focus, .btn-rojo:hover, .btn-rojo:active, .btn-rojo:focus{
+	background-color: #AB090B;
+	color: #ffffff;
+}
+
+
+
+
+/*SEminuevos*/
+.text-marca{
+	text-transform: uppercase;
+    font-family: 'latoregular';
+    margin-bottom: 0px;
+}
+.text-modelo{
+	text-transform: uppercase;
+    font-family: 'latoregular';
+    color: #686868;
+}
+.divisor{
+	margin-bottom: 10px;
+    border: 0;
+    border-top: 1px solid #D3D3D3;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.txt-smprecio{
+	color: #5980AB;
+    font-family: 'latobold';
+    font-size: 18px;
+    letter-spacing: 1px;
+    text-align: right;
+}
+.txt-disponibilidad{
+	color: #7BAC15;
+	font-size: 16px;
+}
+.ico-calendar{
+	background-image: url('../../../../bundles/celmediatoyocostavehiculos/custom/img/icon/calendario.png');
+	width: 18px;
+	height: 18px;
+	float: left;
+    margin-right: 5px;
+}
+.ico-kms{
+	background-image: url('../../../../bundles/celmediatoyocostavehiculos/custom/img/icon/kilometros.png');
+	width: 18px;
+	height: 18px;
+	float: left;
+    margin-right: 5px;
+}
+.ico-color{
+	background-image: url('../../../../bundles/celmediatoyocostavehiculos/custom/img/icon/color.png');
+	width: 18px;
+	height: 18px;
+	float: left;
+    margin-right: 5px;
+}
+.semi-title{
+	color: #cccccc;
+	margin-bottom: 5px;
+}
+.semi-content{
+	color: #666666;
+	font-family: 'latobold';
+	letter-spacing: 1px;
+	margin-bottom: 5px;
+}
+.txt-prox{
+	color: #DE192D;
+	font-family: 'latobold';
+    font-size: 18px;
+}
+.contenedorProducto{
+	margin-bottom: 20px;
+}
+.usados{
+	background-image: url('../../../../bundles/celmediatoyocostavehiculos/custom/img/bg-body.jpg');
+	background-repeat: repeat;
+}
+.cimg-smpreview{
+	min-height: 175px;
+}
+.txt-marca{
+	margin: 0px;
+
+}
+.txt-modelo{
+	text-transform: uppercase;
+}
+.semi-precio{
+	color: #5980AB;
+    font-family: 'latobold';
+    margin: 0px;
+}
+.tag{
+	float: left;
+	background-color: #666666;
+	color: #ffffff;
+	padding: 5px;
+    margin-right: 10px;
+}
+.semi-certificado{
+	font-family: 'latoitalic';
+	text-decoration: underline;
+	letter-spacing: 0px;
+}
+.top-10{
+	padding-top: 10px;
+}
+.parrafo{
+	letter-spacing: 0px;
+	font-family: 'latoregular';
+}
+.nav-principal{
+	padding-top: 0px;
+    border-bottom: 1px solid #E2E2E2;
+    padding-bottom: 0px;
+}
+.ficha-certificado{
+	border:1px solid #999999;
+	min-height: 312px;
+}
+.ficha-certificado img{
+	padding-top: 40px;
+    padding-bottom: 40px;
+}
+.titular{
+	color: #df1928;
+    font-family: 'latoregular';
+    font-weight: normal;
+}
+#form-test label{
+	color: #8E8E8E;
+    font-family: 'latolight';
+}
+.space-input{
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+#bloque-obsequio{
+	display: none;
+}
+.link-taller{
+	color: #df1928;
+	text-decoration: underline;
+	font-family: 'latoitalic';
+	letter-spacing: 1px;
+}
+.img-rs{
+	float: left;
+    padding: 17px 6px;
+}
+
+
+
+
+
+/*EXONERADOS*/
+.sinpd{
+	padding-left: 0px;
+	padding-right: 0px;
+}
+.nav-tabs.nav-exonerados>.active>a, .nav-tabs.nav-exonerados>.active>a:focus, .nav-tabs.nav-exonerados>.active>a:hover{
+	border-bottom-color: transparent;
+	border: 0px;
+	border-radius: 0px;
+	background-color: transparent;
+	color: #ffffff;
+}
+.nav-tabs.nav-exonerados>li>a{
+	margin-top: -1px;
+	margin-bottom: -1px;
+	color: #ffffff;
+	text-transform: uppercase;
+	padding: 18px 15px;
+}
+.nav-exonerados>li>a:focus, .nav-exonerados>li>a:hover{
+	background-color: transparent;
+	color: #ffffff;
+	border-radius: 0px;
+	border: 1px solid transparent;
+}
+.title-exonerados{
+	color: #df1928;
+    text-transform: uppercase;
+    font-family: 'latoregular';
+    font-weight: normal;
+}
+.bg-discapacitados{
+	background-color: #BF1B78;
+}
+.bg-diplomaticos{
+	background-color: #DA2128;
+}
+.bg-plan{
+	background-color: #EF8122;
+}
+.bg-compras{
+	background-color: #446FB6;
+}
+.img-exo{
+	margin: 50px auto;
+}
+.txt-exonerados{
+	font-family: 'latoregular';
+	letter-spacing: 0px;
+	color: #ffffff;
+}
+.link-exonerados{
+	font-family: 'latoitalic';
+	color: #ffffff;
+	letter-spacing: 0px;
+	text-transform: uppercase;
+}
+.link-exonerados:hover, .link-exonerados:active, .link-exonerados:focus {
+	text-decoration: underline;
+	color: #ffffff;
+}
+.tb-20{
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+.list-exonerados {
+    list-style-image: url('../../../../bundles/celmediatoyocostavehiculos/images/exonerados/informacion/bullet.png');
+}
+.list-post>li{
+	padding-bottom: 10px;
+}
+.txt-post{
+	color: #A5A5A5;
+	font-family: 'latolight';
+	letter-spacing: 1px;
+}
+.link-post{
+	color: #000000;
+}
+.link-post:hover{
+	color: #df1928; 
+}
+
+
+
+.bg-white{
+	background-color: #ffffff;
+}
+.bg-gris{
+	background-color: #090909;
+}
+.bg-black{
+	background-color: #000000;
+	color: #ffffff;	
+}
+.title-news{
+	font-family: 'latolight';
+	color: #ffffff;
+	font-weight: normal;
+	letter-spacing: 4px;
+}
+.txt-news{
+	text-transform: uppercase;
+	color: #ffffff;
+	font-family: 'latoregular';
+	font-weight: normal;
+	letter-spacing: 4px;
+}
+.form-news{
+	margin-top: 25px;
+}
+.input-news{
+	background-color: transparent;
+    border-radius: 0px;
+   	font-family: 'latoregular';
+   	letter-spacing: 4px;
+}
+.copy-footer{
+	text-align: center;
+	font-size: 10px;
+	color: #5B5B5B;
+}
+footer{
+	background-color: #1F1F1F;
+}
+.text-footer, .text-footer a{
+	font-size: 12px;
+	color: #CCCCCC;
+	text-transform: uppercase;
+	font-family: 'latobold';
+}
+.link-footer{
+	color: #CCCCCC;
+	font-size: 12px;
+	text-transform: uppercase;
+	font-family: 'latolight';
+}
+.link-footer:hover{
+	color: #DF182B;
+}
+.border-footer{
+	padding-bottom: 40px;
+    border-bottom: 1px solid #666666;
+}
+.img-center{
+	margin: 0 auto;
+}
+.title-accesos{
+    font-family: 'latoregular';
+    letter-spacing: 4px;
+}
+.input-c{
+	width: 314px !important;
+}
+.border-detalle{
+	border-left: 1px solid #CCCCCC;
+}
+.txt-precio{
+	color: #323232;
+    font-family: 'latoregular';
+}
+.precio{
+	color: #df1928;
+	font-family: 'latobold';
+	font-size: 3em;
+}
+.title-vehiculo{
+	color: #df1928;
+	text-transform: uppercase;
+	font-family: 'latoregular';
+	text-align: center;
+}
+
+.carousel-inner-vh {
+   margin-bottom:50px;
+   margin-top: 50px;
+}
+.carousel-indicators-vh{
+	position: relative;
+}
+.nav-dimension{
+	border-bottom: 0px;
+}
+.nav-dimension>li {
+	color: #666666;
+    margin-top: 20px;
+}
+.nav-dimension>li>a {
+	text-align: center;
+	color: #666666;
+	text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.nav-dimension>li.active>a, .nav-dimension>li.active>a:hover, .nav-dimension>li.active>a:focus {
+	background-color: transparent !important;
+	border: 1px solid #df1928;
+	border-radius: 0px;
+}
+.nav-dimension>li>a:hover {
+	background-color: transparent !important;
+	border: 1px solid #df1928;
+    border-radius: 0px;
+    text-align: center;
+}
+.separador{
+	border-bottom: 1px solid #666666;
+	padding-bottom: 50px;
+}
+.carousel-indicators .vehic-miniaturas,
+.carousel-indicators .vehic-miniaturas.active{
+	width: 24px;
+	height: 24px;
+	border-radius: 18px;
+	position: relative;
+	overflow: hidden;
+	border: 2px solid #cccccc;
+
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+.carousel-indicators .vehic-miniaturas.active{
+	border: 2px solid #FF0000;
+	-webkit-transition: all 0.3s ease-in-out;
+	-moz-transition: all 0.3s ease-in-out;
+	-o-transition: all 0.3s ease-in-out;
+	-ms-transition: all 0.3s ease-in-out;
+	transition: all 0.3s ease-in-out;
+}
+.text-precios{
+	font-family: 'latobold';
+    font-size: 13px;
+}
+.valor{
+	color: #df1928;
+    font-family: 'latobold';
+    font-size: 18px;
+}
+#content-modelos{
+	position: absolute;
+	bottom: 0px;
+	color: #ffffff;
+}
+.tab-titular{
+	font-family: 'latobold';
+}
+.tab-txt{
+	font-family: 'latoregular';
+}
+#vdescripcion{
+	margin-top: 15px;
+	margin-bottom: 15px;
+	letter-spacing: 0px;
+}
+.p10{
+	padding-left: 20px;
+    padding-right: 20px;
+}
+.tab2-titular{
+	text-transform: capitalize;
+    font-family: 'latoregular';
+}
+.txt-rojo{
+	color: #df1928;
+	text-transform: uppercase;
+	font-size: 18px;
+}
+.cotizar-descripcion{
+	color: #cccccc;
+	font-size: 12px;
+	letter-spacing: 0px;
+    font-family: 'latoregular';
+}
+.txt-gris{
+	color: #CCCCCC;
+}
+.bd-right{
+	border-right:1px solid #CCCCCC;
+}
+.bd-left{
+	border-left:1px solid #CCCCCC;
+}
+.bd-bottom{
+	border-bottom:1px solid #CCCCCC;
+}
+.nav-vehiculo>li>a{
+	color: #ffffff;
+}
+.buscador-seminuevo{
+	padding-top: 15px;
+	padding-bottom: 15px;
+}
+.list-talleres{
+	padding-left: 15px;
+}
+.list-talleres>li{
+	padding-bottom: 10px;
+	letter-spacing: 0px;
+	font-family: 'latoregular';
+}
+.ficha-talleres{
+	min-height: 208px;
+    padding-top: 20px;
+}
+.parrafo-taller{
+	margin-top: 20px;
+	font-family: 'latobold';
+	padding-left: 30px;
+    padding-right: 30px;
+}
+.fondo-menu-vehiculo {
+    background-color: #F7F7F7;
+    position: absolute;
+    z-index: 100;
+    width: 100%;
+    display: none;
+}
+.contenedor-submenu-items {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+.contenedor-submenu-item {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    position: relative;
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    margin-left: -5px;
+}
+.sp{
+	margin-top: 2px;
+    margin-bottom: 2px;
+    border: 0;
+    border-top: 1px solid #DEDEDE;
+    width: 100px;
+    margin: 0 auto;
+}
+.link-submenu{
+	font-family: 'latoitalic';
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #333333;
+}
+.link-submenu:hover, .link-submenu:focus, .link-submenu:active{
+	color: #D62C2F;
+}
+.nombre-submenu{
+	font-family: 'latolight';
+    text-transform: uppercase;
+}
+
+/* Landscape phone to portrait tablet */
+@media (max-width: 767px) { 
+
+	.carousel-indicators .c-miniaturas,
+	.carousel-indicators .c-miniaturas.active{
+		width: 50px;
+		height: 50px;
+		border-radius: 25px;
+	}
+
+	.carousel-indicators .c-miniaturas:hover,
+	.carousel-indicators .c-miniaturas.active:hover{
+		width: 70px;
+		height: 70px;
+		border-radius: 35px;
+	}
+
+	.carousel-indicators .vehic-miniaturas,
+	.carousel-indicators .vehic-miniaturas.active{
+		width: 26px;
+		height: 26px;
+		border-radius: 13px;
+		border-width: 2px;
+	}
+
+
+ }
+
+/* Landscape phones and down */
+@media (max-width: 480px) { 
+
+	.carousel-indicators .c-miniaturas,
+	.carousel-indicators .c-miniaturas.active{
+		width: 50px;
+		height: 50px;
+		border-radius: 25px;
+	}
+
+	.carousel-indicators .c-miniaturas:hover,
+	.carousel-indicators .c-miniaturas.active:hover{
+		width: 70px;
+		height: 70px;
+		border-radius: 35px;
+	}
+
+	.carousel-indicators .vehic-miniaturas,
+	.carousel-indicators .vehic-miniaturas.active{
+		width: 26px;
+		height: 26px;
+		border-radius: 13px;
+		border-width: 2px;
+	}
+}
+
+
+/****************Reset******************/
+.navbar-default.navbar-shrink {
+    background-color: #fff;
+}
+.navbar-default .nav-sub li a{
+	font-size: 12px;
+    color: #777;
+    text-align: center;
+}
+.navbar-default .nav li a:hover, .navbar-default .nav li a:focus {
+    color: #DF182B;
+}
+figure.effect-ruby img{
+	opacity: 1;
+}
+figure.effect-ruby:hover p{
+	font-family: 'latoitalic';
+	letter-spacing: 2px;
+}
+a:hover, a:focus, a:active, a.active {
+    color: #df1928;
+}
+.form-control{
+	border-radius: 0px;
+	font-family: 'latoregular';
+
+}
+label {
+    color: #8E8E8E;
+    font-family: 'latoregular';
+}
+.breadcrumb{
+	background-color: transparent;
+}
+.cbp-ntaccordion h3 {
+    font-size: 1.75em;
+}
+.cbp-ntaccordion .cbp-ntcontent{
+/*	padding-top: 25px;
+    padding-bottom: 25px;*/
+}
+.cbp-ntaccordion .cbp-ntcontent p{
+	font-family: 'latoregular';
+	color: #000;
+	font-weight: normal;
+	padding-bottom: 5px;
+	letter-spacing: 1px;
+    padding-left: 30px;
+}
+.navbar-default.navbar-shrink{
+	padding: 0px;
+}
+.navbar-brand{
+	padding: 10px 15px;
+}
