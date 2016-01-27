@@ -1,0 +1,173 @@
+<!-- Navigation -->
+            <nav class="navbar navbar-default navbar-fixed-top nav-principal">
+
+                <!-- Submenu header -->
+                <div id="submenu" class="row" style="position:relative;display:none;background-color:#000000;">
+                    <div class="col-md-6 col-md-offset-3">
+                        
+                        <div class="row menu-header">
+                            <ul class="nav navbar-nav nav-sub">
+                                <li>
+                                    <a class="nav-sub-link" href="#">NOTICIAS</a>
+                                </li>
+                                <li>
+                                    <a class="nav-sub-link" href="{{path('custom_postventa')}}">POSTVENTA</a>
+                                </li>
+                                <li>
+                                    <a class="nav-sub-link" href="{{path('custom_cita')}}">CITA DE MANTENIMIENTO</a>
+                                </li>
+                                <li>
+                                    <a class="nav-sub-link" href="{{path('custom_testdrive')}}">TEST DRIVE</a>
+                                </li>
+                                <li>
+                                    <a class="nav-sub-link" href="#">CONT&Aacute;CTENOS</a>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                    </div>
+
+                </div>
+
+
+                <div class="container-fluid">
+                    
+                    <div class="col-md-1">
+                        
+                        <div class="navbar-header page-scroll">
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#header-home">
+                                <span class="sr-only">Toggle navigation</span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="navbar-brand page-scroll" href="{{path('custom_home')}}">
+                                {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/toyocosta.png' %}
+                                <img src="{{ asset_url }}" id="logoblanco" alt="Toyocosta" class="img-responsive" />
+                                {% endimage %}
+
+                                {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/toyocostarojo.png' %}
+                                <img src="{{ asset_url }}" id="logorojo" alt="Toyocosta" class="img-responsive" style="display:none;" />
+                                {% endimage %}
+                                
+                            </a>
+                        </div>
+
+                    </div>
+
+                    
+                    <div class="col-md-7">
+                        
+                        <div class="collapse navbar-collapse" id="header-home">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li class="hidden">
+                                    <a href="#page-top"></a>
+                                </li>
+
+
+                                {% for item in categoriasVehiculo %}
+                                    <li>
+                                        <a href="#" id="categoria{{item.id}}" class="item-submenu">{{item.nombre|upper }}</a>
+                                    </li>
+
+                                {% endfor %}
+
+                                {#<li>
+                                    <a class="page-scroll" href="#services">AUTOS</a>
+                                </li>
+                                <li>
+                                    <a class="page-scroll" href="#portfolio">CAMIONETAS</a>
+                                </li>
+                                <li>
+                                    <a class="page-scroll" href="#about">TODO TERRENO</a>
+                                </li>#}
+                                <li>
+                                    <a class="page-scroll" href="{{path('usados')}}">SEMINUEVOS</a>
+                                </li>
+                                <li>
+                                    <a class="page-scroll" href="{{path('custom_exonerados')}}">EXONERADOS</a>
+                                </li>
+                                <li>
+                                    <div style="cursor:pointer;padding-top:15px;" onclick="mostrarSubmenu();">
+                                        {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/icon/mas3.png' %}
+                                        <img src="{{ asset_url }}" id="mas3" alt="Mas opciones" class="img-responsive" />
+                                        {% endimage %}
+
+                                        {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/icon/menos.png' %}
+                                        <img src="{{ asset_url }}" id="menos" alt="Mas opciones" class="img-responsive" style="display:none;" />
+                                        {% endimage %}
+
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+
+
+                        
+                    </div>
+                    
+                    <div class="col-md-3 col-md-offset-1">
+                        <div class="row">
+                            <div class="col-md-4 col-md-offset-8">
+                                <a href="https://www.facebook.com/toyocosta" target="_blank">
+                                    
+                                    {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/icon/icono-facebook.png' %}
+                                    <img src="{{ asset_url }}" alt="Toyocosta" class="img-responsive img-rs" id="fb" />
+                                    {% endimage %}
+                                    {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/icon/icono-facebookhovergris.png' %}
+                                    <img src="{{ asset_url }}" alt="Toyocosta" class="img-responsive img-rs" id="fb-gris" style="display:none;" />
+                                    {% endimage %}
+                                    {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/icon/icono-facebookhover.png' %}
+                                    <img src="{{ asset_url }}" alt="Toyocosta" class="img-responsive img-rs" style="display:none;" />
+                                    {% endimage %}
+                                    
+                                </a>
+
+                                <a href="https://twitter.com/toyocostanews" target="_blank">
+
+                                    {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/icon/icono-twitter.png' %}
+                                    <img src="{{ asset_url }}" alt="Toyocosta" class="img-responsive img-rs" id="tw" />
+                                    {% endimage %}
+                                    {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/icon/icono-twitterhovergris.png' %}
+                                    <img src="{{ asset_url }}" alt="Toyocosta" class="img-responsive img-rs" id="tw-gris"  style="display:none;"/>
+                                    {% endimage %}
+                                </a>
+
+                                <a href="http://www.toyocosta.com/blog/" target="_blank">
+                                                                    
+                                    {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/icon/icono-blog.png' %}
+                                    <img src="{{ asset_url }}" alt="Toyocosta" class="img-responsive img-rs" id="bl" />
+                                    {% endimage %}
+                                    {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/icon/icono-bloghovergris.png' %}
+                                    <img src="{{ asset_url }}" alt="Toyocosta" class="img-responsive img-rs" id="bl-gris"  style="display:none;" />
+                                    {% endimage %}
+
+                                </a>
+
+                            </div>
+                            
+                        </div>
+                    </div>
+
+
+                </div>
+                
+                {% for categoria in categoriasVehiculo %}
+  
+                    <div id="submenucategoria{{categoria.id}}" class="bg-white fondo-menu-vehiculo">
+
+
+                        <div class="contenedor-submenu-items">
+                                  
+                                    {{ render(controller("CelmediaToyocostaVehiculosBundle:Custom:obtenerVehiculosXCategoria" , { 'categoriaId': categoria.id } ) ) }}
+                           
+
+                        </div>
+
+                    </div>
+
+
+                {% endfor %}
+
+
+            </nav>

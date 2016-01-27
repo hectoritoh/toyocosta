@@ -1,0 +1,497 @@
+{% extends 'CelmediaToyocostaVehiculosBundle::template.html.twig' %}
+
+{% block seo %}
+    
+    <title>TOYOCOSTA | Toyota  {{vehiculo.nombre}}</title>
+    
+    <meta name="description" content="Conoce las especificaciones y modelos disponibles del nuevo Toyota {{vehiculo.nombre}}, disponible en Toyocosta."/>
+
+    <meta name="keywords" content="toyota {{vehiculo.nombre}} ecuador, toyota {{vehiculo.nombre}} guayaquil, toyota {{vehiculo.nombre}} toyocosta, toyota {{vehiculo.nombre}} modelos, toyota {{vehiculo.nombre}} cotizar, toyota {{vehiculo.nombre}} galeria" />
+
+{% endblock %}
+
+		
+{% block bannercabecera %}
+    
+    <header>
+    	
+		<img src="{{ asset('uploads/vehiculo/banner/'   ~   vehiculo.imagenBanner ) }}" alt="" class="img-responsive" style="width:100%;" />
+
+    </header>
+    
+{% endblock %}
+
+
+{% block contenidotoyocosta %}
+
+	{#{% include 'CelmediaToyocostaVehiculosBundle:Blocks:top.menu.secciones.html.twig' with { 'vehiculoId': vehiculo.id, 'vehiculoNombre': vehiculo.nombre, 'categoriaNombre': vehiculo.categoria.nombre} %}#}
+
+	<div id="cd-intro" class="container">
+		<div class="row">
+			<div class="col-md-12" style="padding-left: 0px;">
+				<ol class="breadcrumb">
+					<li>
+						<a href="{{ path('toyocosta_homepage') }}">Inicio</a>
+					</li>
+					<li class="active">{{vehiculo.nombre}}</li>
+				</ol>
+			</div>
+		</div>
+		<div id="cd-intro-tagline" class="row" style="padding-bottom:30px;">
+			<div class="col-md-3 col-md-offset-3">
+				<h4 class="txt-precio text-right">Precio</h4>
+				<h2 class="precio text-right">${{vehiculo.precioNeto}}</h2>
+				
+			</div>
+
+			<div class="col-md-6 border-detalle">
+				<span class="espacio-a">{{vehiculo.descripcion}}</span>
+				<br />
+				<span class="espacio-a">{{vehiculo.informacion}}</span>
+				<br/>
+				<a href="{{ path('test_drive') }}" class="btn btn-transparent">Test Drive</a>
+				<a href="#cotizar" class="btn btn-transparent">Cotizar</a>
+			</div>
+		</div>
+
+
+
+	</div>
+
+
+
+	<div class="cd-secondary-nav">
+		<a href="#0" class="cd-secondary-nav-trigger">Menu<span></span></a>
+		<nav>
+			<ul>
+				<li>
+	                <a class="page-scroll" href="#colores">COLORES</a>
+	            </li>
+	            <li>
+	                <a class="page-scroll" href="#modelos">MODELOS</a>
+	            </li>
+	            <li>
+	                <a class="page-scroll" href="#galeria">GALERIA</a>
+	            </li>
+	            <li>
+	                <a class="page-scroll" href="#cotizar">COTIZAR</a>
+	            </li>
+			</ul>
+		</nav>
+	</div>
+
+	<div class="cd-main-content">
+		
+
+	    <section id="colores" class="cd-section"> 
+            <div class="container separador">
+                <div class="row">
+					<div class="col-md-12">
+						<h1 class="title-vehiculo">COLORES</h1>	
+					</div>
+					<div class="col-md-12">
+
+						<div id="vehiculo-colores-carousel" class="carousel slide alto-completo" data-ride="carousel" data-interval="false">
+
+						    <div class="container-fluid">
+						    	<div class="row">
+									<div class="carousel-inner carousel-inner-vh alto-completo">
+										{% for vehiculoColor in vehiculoColores %}
+									    <div class="item {% if loop.first %}active{% endif %} alto-completo">
+											
+												<div class="container-fluid">
+													<div class="row">
+									    				<img src="{{ asset('uploads/vehiculo/color/'   ~   vehiculoColor.imagenColor ) }}" class="img-responsive img-center" />
+													</div>
+													
+												</div>
+											
+									    </div><!-- item -->
+										{% endfor %}
+									</div>							    		
+						    	</div>
+						    	<div class="row">
+								    <ol class="carousel-indicators carousel-indicators-vh">
+								    	{% for vehiculoColor in vehiculoColores %}
+								    		<li data-target="#vehiculo-colores-carousel" data-slide-to="{{loop.index -1 }}"  class="vehic-miniaturas {% if loop.first %}active{% endif %}" style="background-color: {{vehiculoColor.coloresvehiculo.valor}} ;"></li>
+								    	{% endfor %}
+								    </ol>
+						    	</div>
+						    </div>
+
+						</div>
+
+
+					</div>
+				</div>
+            </div>
+        </section>
+
+        <section id="modelos" class="cd-section"> 
+            <div class="container separador">
+                <div class="row">
+					<div class="col-md-12">
+						<h1 class="title-vehiculo">MODELOS</h1>	
+					</div>
+				</div>
+
+				<div class="row" id="dimesion">
+
+      				<div role="tabpanel">
+
+      					<!-- Tab panes -->
+						<div class="tab-content col-md-12">
+
+          						
+          						{% set banner = 1 %}
+          						{% for item in vehiculoModelos %}
+									
+									<div role="tabpanel" class="tab-pane fade {% if loop.first %}in active{% endif %}" id="info{{banner}}">
+								    	
+	              						<div class="container-fluid">
+	              							<img src="{{ asset('uploads/vehiculo/modelo/' ~ item.imagenModelo ) }}" alt="" class="img-responsive" style="width:100%;" />
+	              						</div>
+	              						<div id="content-modelos" class="container-fluid">
+	              							<div class="col-md-12">
+	              								<h3>{{item.nombre}}</h3>
+	              							</div>
+		              						<div class="col-md-7">
+	              								<span>{{ item.descripcion }}</span>
+	              							</div>
+
+	              							<div class="col-md-3 col-md-offset-2">
+	              								<h4 class="text-precios">
+	              								SIN IVA: <span class="valor">${{ item.precio }}</span><br/>
+	              								CON IVA: <span class="valor">${{ item.precioNeto }}</span>
+	              								</h4>
+
+	              							</div>
+		              					</div>
+								    </div>		              						
+
+              				    {% set banner = banner  + 1 %}
+
+	              				{% endfor %}
+
+
+						    
+
+						</div>
+
+						<div class="col-md-8 col-md-offset-2">
+							
+							<!-- Nav tabs -->
+							<ul class="nav nav-tabs nav-dimension" role="tablist">
+
+              					{% set numero = 1 %}
+	              				{% for item in vehiculoModelos %}
+	              				
+								  	
+								  	<li role="presentation" class="{% if loop.first %}active{% endif %}">
+								    	<a href="#info{{numero}}" aria-controls="info{{numero}}" role="tab" data-toggle="tab">
+								    		<img src="{{ asset('uploads/vehiculo/thumb/' ~ vehiculo.imagenThumb ) }}" alt="" class="img-responsive"/>
+	              							{{ item.nombre }}
+								    	</a>
+								    </li>
+
+	              				    {% set numero = numero  + 1 %}
+	              				{% endfor %}
+
+
+							</ul>
+						</div>
+
+					 
+
+					</div>
+
+      				
+      			</div>
+
+
+
+            </div>
+        </section>
+
+
+        <section id="galeria" class="cd-section"> 
+            <div class="container separador">
+                <div class="row">
+					<div class="col-md-12">
+						<h1 class="title-vehiculo">GALER&Iacute;A</h1>	
+					</div>
+				</div>
+
+
+      			<div class="row">
+      				<div class="col-md-12">   
+      					<div id="gallery">
+
+      						<div class="ftg-items">
+      							<div class="ftg-items">
+
+
+          							{% for galeria in vehiculo.imagenes %}
+          							    
+          								<article class="tile ftg-cat-1">
+          									<a class="tile-inner example-image-link" data-lightbox="cat-1" href="{% path galeria.media, 'reference' %}" rel="galeria">
+          										
+          										{% media galeria.media , 'big' with {'class': 'item'}  %}
+          										<span class='title'>{{vehiculo.nombre}}</span>
+          									</a>
+          								</article>
+
+          							{% endfor %}
+
+     
+      							</div>
+      						</div>
+      					</div>
+      				</div>
+      			</div>
+
+
+
+            </div>
+        </section>
+
+
+        <section id="cotizar" class="cd-section"> 
+            <div class="container">
+                <div class="row">
+					<div class="col-md-12">
+						<h1 class="title-vehiculo">COTIZAR</h1>	
+					</div>
+				</div>
+
+
+      			<div class="row">
+      				<div class="col-md-12" style="border: 1px solid #ccc;">   
+      					<form id="cotizarForm" method="get" action="" class="form-horizontal">
+							<div id="rootwizard">
+								<div class="cotizar-banner" style="display:none;">
+									<div class="container">
+										<div class="row espacio-banner-cotizar">
+											<ul class="nav-cotizar">
+												<li>
+													<a href="#tab1" data-toggle="tab" class="pasos paso-1"></a>
+												</li>
+												<li>
+													<a href="#tab2" data-toggle="tab" class="pasos paso-2"></a>
+												</li>
+												<li>
+													<a href="#tab3" data-toggle="tab" class="pasos paso-3"></a>
+												</li>
+											</ul>
+										</div>
+									</div>
+								</div>
+								<div class="tab-content">
+									<div class="tab-pane" id="tab1">
+										<div class="container-fluid">
+											<div class="row p10">
+												<div class="col-md-12">
+													<p class="text-center" style="font-size:17px;margin-top:20px;margin-bottom:20px;">¡Estas listo para cotizar! primero selecciona un modelo</p>
+												</div>
+											</div>
+											<div class="row p10">
+												<div class="col-md-4">
+													<div class="row">
+														<h1 class="tab-titular" style="border-bottom: 1px solid #ccc;">{{vehiculo.nombre}}</h1>
+													</div>
+													
+												</div>
+												
+											</div>
+
+											<div class="row p10">
+
+												<div class="col-md-4">
+														
+													<div class="form-group">
+														<h5 class="tab-txt">Modelo</h5>	
+														<select id="vselectmodelo" name="vselectmodelo" class="form-control vselectmodelo select-custom required" onchange="modeloSelected(this);">
+															{% for vehiculoModelo  in vehiculoModelos %}
+																<option value="{{ vehiculoModelo.id }}">{{ vehiculoModelo.nombre }}</option>
+															{% endfor %}
+														</select>
+														<p id="vdescripcion"></p>
+													</div>
+
+												</div>
+
+												<div class="col-md-8">
+													<!-- <img src="" alt="" id="imgModelo" class="img-responsive obj-centrar"> -->
+													{% for vehiculoColor in vehiculoColores %}
+												    
+												    {% if loop.first %}
+
+														<img src="{{ asset('uploads/vehiculo/color/'   ~   vehiculoColor.imagenColor ) }}" class="img-responsive img-center" />
+
+												    {% endif %}
+														
+																
+													{% endfor %}
+
+												</div>
+
+												
+											</div>
+
+
+										</div>
+									</div>
+
+									<div class="tab-pane" id="tab2">
+										
+
+										<div class="container-fluid">	
+											<div class="row">
+												<div class="col-md-12">
+													<p class="text-center" style="font-size:17px;margin-top:20px;margin-bottom:20px;">Llegamos a la parte de financiamiento ¿Cu&aacute;nto dar&iacute;as de entrada?</p>
+												</div>
+											</div>
+
+											<div class="row">
+												<div class="col-md-4 text-left bd-right">
+													<h3 class="tab2-titular">Precio Total</h3>
+													<p class="tab-txt">Precio sin IVA: <br/><span class="txt-rojo" id="vpreciosi">0 USD</span></p>
+													<p class="tab-txt">Precio con IVA: <br/><span class="txt-rojo" id="vprecioci">0 USD</span></p>
+													<p class="tab-txt">Entrada mínima: <br/><span class="txt-rojo" id="ventradam">0 USD</span></p>
+													<p class="cotizar-descripcion">
+														<span class="txt-rojo">*</span>Los precios no incluyen seguro ni dispositivos. <br />
+														La entrada mínima es de 30% del valor del vehículo. La calculadora de cuotas no incluye el seguro, ni dispositivos antirobos. Para obtener cuotas más exactas con estos datos, favor consultar directamente con el concesionario.   <br />
+														El plazo, la tasa de interés, el seguro y los gastos administrativos varían según las instituciones financieras. 
+													</p>
+												</div>
+												
+
+												<div class="col-md-4 text-left">
+													<h3 class="tab2-titular">Cotizar</h3>
+													<p class="tab-txt txt-gris">Entrada:</p>
+													<input type="number" class="form-control" name="vinputEntrada" id="vinputEntrada" placeholder="">
+
+													<p class="tab-txt txt-gris">Plazo:</p>
+													<select name="vselectplazo" id="vselectplazo" class="form-control selectplazo select-custom" onchange="plazoSelected(this);">
+														<option value="">Selecciona un plazo</option>
+													</select>
+
+
+												</div>
+
+												<div class="col-md-4 text-left bd-left">
+													<h3 class="tab2-titular">Resultados</h3>
+													<p class="tab-txt">Total a financiar:  <br/> <span class="txt-rojo" id="vpreciofinanciar" >0 USD</span></p>
+													<p class="tab-txt">Cuotas Mensuales:  <br/> <span class="txt-rojo" id="vcuotas" >0 USD</span></p>
+													<p class="tab-txt">Precio final con financiamiento:  <br/> <span class="txt-rojo txt-negrita" id="vpreciofinal" >0 USD</span></p>
+													<p class="cotizar-descripcion" style="min-height: 157px;">
+														<span class="txt-rojo">*</span>Esta información es únicamente referencial y no representa ningún compromiso con Toyocosta. Para recibir información exacta contactarse con cualquiera de los concesionario del país. 
+														Esta información está sujeta a cambios sin previo aviso.
+													</p>
+												</div>
+											</div>
+										</div>
+
+
+									</div>
+									<div class="tab-pane" id="tab3">
+										<div class="container-fluid">
+											<div class="row">
+												<div class="col-md-12">
+													<p class="text-center" style="font-size:17px;margin-top:20px;margin-bottom:20px;">¡Ya falta poco! ahora ingresa tus datos para ponernos en contacto</p>
+												</div>
+											</div>
+
+											<div class="row" style="padding-top:30px;padding-bottom:30px;">
+												<div class="col-md-4 col-md-offset-1 alto-completo">
+													<div class="form-group">
+														<label for="vnombreInput">Nombre:</label>
+														<input type="text" class="form-control" name="vnombreInput" id="vnombreInput" maxlength="50" placeholder="">
+													</div>
+													<div class="form-group">
+														<label for="vapellidoInput">Apellido:</label>
+														<input type="text" class="form-control" name="vapellidoInput" id="vapellidoInput" maxlength="50" placeholder="">
+													</div>
+													<div class="form-group">
+														<label for="vcedulaInput">Cédula:</label>
+														<input type="number" class="form-control" name="vcedulaInput" id="vcedulaInput" maxlength="10" placeholder="">
+													</div>
+													<div class="form-group">
+														<label for="vtelefonoInput">Teléfono:</label>
+														<input type="number" class="form-control" name="vtelefonoInput" id="vtelefonoInput" maxlength="15" placeholder="">
+													</div>
+												</div>
+												<div class="col-md-4 col-md-offset-2 alto-completo">
+													<div class="form-group">
+														<label for="vemailInput">Email:</label>
+														<input type="email" class="form-control" name="vemailInput" id="vemailInput" maxlength="50" placeholder="">
+													</div>
+													<div class="form-group">
+														<label for="vciudadInput">Ciudad:</label>
+														<input type="text" class="form-control" name="vciudadInput" id="vciudadInput" maxlength="50" placeholder="">
+													</div>
+													<div class="form-group">
+														<label for="vmensajeInput">Mensaje:</label>
+														<textarea class="form-control" name="vmensajeInput" id="vmensajeInput" rows="5" maxlength="200"></textarea>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>	
+								<div class="container">
+									<div class="row">
+										<div class="col-md-6 col-md-offset-3">
+											<ul class="pager wizard">
+												<div class="container-fluid">
+													<div class="row">
+														<div class="col-md-6">
+															<li class="previous first" style="display:none;">
+																<a href="#" class="btn btn-anterior espaciado-a">First</a>
+															</li>
+															<li class="previous">
+																<a href="#" class="btn btn-anterior espaciado-a">Anterior</a>
+															</li>
+														</div>
+														<div class="col-md-6">
+															<li class="next">
+																<a href="#" class="btn btn-siguiente espaciado-a">Siguiente</a>
+															</li>
+															<li class="finish" style="display:none;">
+																<a href="javascript:;" class="btn btn-siguiente espaciado-a">Enviar</a>
+															</li>
+														</div>
+													</div>
+												</div>
+											</ul>								
+										</div>
+									</div>
+								</div>
+							</div>
+						</form>
+
+      				</div>
+      			</div>
+
+
+
+            </div>
+        </section>
+
+    </div>
+
+{% endblock %}
+
+
+{% block js %}
+    {{ parent() }}
+
+    {% javascripts
+        '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/js/modernizr.js'
+        '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/js/menufixed.js'
+    %}
+            
+    <script type="text/javascript" src="{{ asset_url }}"></script>
+    {% endjavascripts %}  
+
+{% endblock %}

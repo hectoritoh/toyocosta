@@ -905,6 +905,7 @@ class DefaultController extends Controller
                 'codigo' => 1,
                 'modelo' => $vehiculoModelo->getNombre(),
                 'precio' => $vehiculoModelo->getPrecio(),
+                'descripcion' => $vehiculoModelo->getDescripcion(),
                 'imagenModelo' => $baseurl . "/uploads/vehiculo/modelo/" . $vehiculoModelo->getImagenModelo(),
                 'precioNeto' => $vehiculoModelo->getPrecioNeto(),
                 'entradaMinima' => $vehiculoModelo->getPrecioNeto() * $variableVehiculo->getEntradaMinima(),

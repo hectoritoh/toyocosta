@@ -1,0 +1,27 @@
+
+  {% for vehiculo  in vehiculos %}
+    <div class="contenedor-submenu-item">
+                                
+      <div class="container-fluid">
+                              
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <div class="nombre-submenu">{{ vehiculo.nombre }}</div>
+            <img src="{{ asset('uploads/vehiculo/thumb/' ~ vehiculo.imagenThumb ) }}" alt="" class="img-responsive img-center" />
+            <br/>
+            <a class="link-submenu" href="#">Explorar</a>
+            <br/>
+            <div class="sp"></div>
+
+            <a class="link-submenu" href="#">Cotizar</a>
+            
+            
+          </div>
+          
+
+        </div>
+      </div>
+    </div>
+    
+  {% endfor %}
+

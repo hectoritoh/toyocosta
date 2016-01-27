@@ -21,6 +21,130 @@ class DefaultController extends Controller
         return $this->render('CelmediaToyocostaSeminuevoBundle:Default:index.html.twig', array('name' => $name));
     }
 
+
+    public function usadosAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        
+        //$seminuevos = $em->getRepository('CelmediaToyocostaSeminuevoBundle:Seminuevo')->findBy(array('estado_publicacion' => '1'));
+
+
+        $seminuevos = $em->getRepository('CelmediaToyocostaSeminuevoBundle:Seminuevo')->findBy(array('estado_publicacion' => '1'), array('estado'=>'asc'));
+        
+
+        $banners = $this->getDoctrine()->getRepository("CelmediaToyocostaVehiculosBundle:SlidePrincipal")->findBy(array(
+            "estado" => 1 , "seccion" => "seminuevo"
+                )
+        );
+
+        return $this->render('CelmediaToyocostaSeminuevoBundle:Custom:seminuevos.html.twig' , array( "seminuevos" => $seminuevos , "banners" => $banners ));
+    }
+
+    public function usadoDescripcionAction($nomsemi, $idsemi)
+    {
+     
+        $em = $this->getDoctrine()->getManager();
+
+        $seminuevo = $em->getRepository('CelmediaToyocostaSeminuevoBundle:Seminuevo')->findOneBy(array('id' => $idsemi , 'estado_publicacion' => '1'));
+
+
+        $seminuevoPlazo = $em->getRepository('CelmediaToyocostaVehiculosBundle:Plazo')->findBy(
+            array(
+                "estado" => 1
+            )
+        );
+
+        $variableSeminuevo = $em->getRepository('CelmediaToyocostaContenidoBundle:Variables')->findOneBy(
+            array(
+                "id" => 2, // id 2 para seminuevos
+                "estado" => 1
+            )
+        );
+
+        $entradaMinima = $seminuevo->getPrecio() * $variableSeminuevo->getEntradaMinima();
+
+
+        return $this->render('CelmediaToyocostaSeminuevoBundle:Custom:seminuevo.html.twig' , array( "seminuevo" => $seminuevo,  'entradaMinima' => $entradaMinima,
+            'seminuevoPlazo' => $seminuevoPlazo ));
+
+    }
+
+    public function getFiltrosUsadosAction( $seminuevo_modelo , $seminuevo_anio, $seminuevo_precio, $seminuevo_provincia, $seminuevo_estado )
+    {
+
+        $em = $this->getDoctrine()->getManager();
+        $repository = $this->getDoctrine()->getRepository('CelmediaToyocostaSeminuevoBundle:Seminuevo');
+
+        $query1 = $repository->createQueryBuilder('mo')
+            ->where("mo.estado_publicacion = '1' ")
+            ->groupBy('mo.modelo')
+            ->orderBy('mo.modelo', 'ASC')
+            ->getQuery();
+        $modelos = $query1->getResult();
+
+        $query2 = $repository->createQueryBuilder('an')
+            ->where("an.estado_publicacion = '1' ")
+            ->groupBy('an.anio')
+            ->orderBy('an.anio', 'DESC')
+            ->getQuery();
+        $anios = $query2->getResult();
+
+        $query3 = $repository->createQueryBuilder('pr')
+            ->where("pr.estado_publicacion = '1' ")
+            ->groupBy('pr.precio')
+            ->orderBy('pr.precio', 'DESC')
+            ->getQuery();
+        $precios = $query3->getResult();
+
+
+        $query4 = $repository->createQueryBuilder('prov')
+            ->where("prov.estado_publicacion = '1' ")
+            ->groupBy('prov.ubicacion')
+            ->orderBy('prov.ubicacion', 'ASC')
+            ->getQuery();
+        $provincias = $query4->getResult();
+
+        $query5 = $repository->createQueryBuilder('es')
+            ->where("es.estado_publicacion = '1' ")
+            ->groupBy('es.estado')
+            ->getQuery();
+        $estados = $query5->getResult();
+
+        return $this->render('CelmediaToyocostaSeminuevoBundle:Custom:filtros.html.twig' ,  array( 
+            "modelos" => $modelos,
+            "anios" => $anios,
+            "precios" => $precios,
+            "provincias" => $provincias,
+            "estados" => $estados,
+            "seminuevo_modelo" => $seminuevo_modelo,
+            "seminuevo_anio" => $seminuevo_anio,
+            "seminuevo_precio" => $seminuevo_precio,
+            "seminuevo_provincia" => $seminuevo_provincia,
+            "seminuevo_estado" => $seminuevo_estado
+        ));
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     public function seminuevosAction()
     {
     	$em = $this->getDoctrine()->getManager();

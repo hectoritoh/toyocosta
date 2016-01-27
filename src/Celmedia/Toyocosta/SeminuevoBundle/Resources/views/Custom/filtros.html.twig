@@ -1,0 +1,87 @@
+
+
+        <div class="row">        
+            <div class="col-md-2" >
+                <div class="styled-select">
+                    <select name="selectmodelo" id="selectmodelo" class="form-control select-filtro selectcmb">
+                        <option class="style-option" value="">Marca</option>
+                        {% for sm_modelo in modelos %}
+                            <option class="style-option" value="{{ sm_modelo.modelo }}" {% if seminuevo_modelo == sm_modelo.modelo %} selected="selected" {% endif %} >{{ sm_modelo.modelo }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-2" >
+                <div class="styled-select">
+                    <select name="selectmodelo" id="selectmodelo" class="form-control select-filtro selectcmb">
+                        <option class="style-option" value="">Modelo</option>
+                        {% for sm_modelo in modelos %}
+                            <option class="style-option" value="{{ sm_modelo.modelo }}" {% if seminuevo_modelo == sm_modelo.modelo %} selected="selected" {% endif %} >{{ sm_modelo.modelo }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-1" >
+                <div class="styled-select">
+                    <select name="selectanio" id="selectanio" class="form-control select-filtro selectcmb">
+                        <option class="style-option" value="">Año</option>
+                        {% for sm_anio in anios %}
+                        <option class="style-option" value="{{ sm_anio.anio }}" {% if seminuevo_anio == sm_anio.anio %} selected {% endif %} >{{ sm_anio.anio }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+            <div class="col-md-2" >
+                <div class="styled-select">
+                    <select name="selectprecio" id="selectprecio" class="form-control select-filtro selectcmb">
+                        <option class="style-option" value="">Precio</option>
+                        {% for sm_precio in precios %}
+                        <option class="style-option" value="{{ sm_precio.precio }}" {% if seminuevo_precio == sm_precio.precio %} selected {% endif %} >{{ sm_precio.precio }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-md-2" >
+                <div class="styled-select">
+                    <select name="selectprovincia" id="selectprovincia" class="form-control select-filtro selectcmb">
+                        <option class="style-option" value="">Provincia</option>
+                        {% for sm_provincia in provincias %}
+                        <option class="style-option" value="{{ sm_provincia.ubicacion }}" {% if seminuevo_provincia == sm_provincia.ubicacion %} selected {% endif %} >{{ sm_provincia.ubicacion }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <div class="col-md-2" >
+                <div class="styled-select">
+                    <select name="selectestado" id="selectestado" class="form-control select-filtro selectcmb" style=" border-right: 1px solid #ccc;">
+                        <option class="style-option" value="">Estado</option>
+                        {% for sm_estado in estados %}
+                        <option class="style-option" value="{{ sm_estado.estado }}" {% if seminuevo_estado == sm_estado.estado %} selected {% endif %} >
+                        {#{{ sm_estado.estado }}#}
+                        {% if sm_estado.estado == 1 %}
+                            {# 1 => 'Disponible' #}
+                            Disponible
+                        {% elseif sm_estado.estado == 2 %}
+                            {# 2 => 'Proximammente' #}
+                            Próximamente
+                        {% elseif sm_estado.estado == 3 %}
+                            {# 3 => 'Reservado' #}
+                            Reservado
+                        {% elseif sm_estado.estado == 4 %}
+                            {# 4 => 'Vendido' #}
+                            Vendido
+                        {% endif %}
+
+                        </option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+           
+            <div class="col-md-1">
+                <input type="submit" class="btn btn-rojo" value="Buscar" />
+            </div>
+
+        </div>

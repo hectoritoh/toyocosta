@@ -1,0 +1,500 @@
+{% extends 'CelmediaToyocostaVehiculosBundle::template.html.twig' %}
+
+{% block seo %}
+    
+    <title>TOYOCOSTA | Exonerados</title>
+    
+    <meta name="description" content=""/>
+
+    <meta name="keywords" content="" />
+
+{% endblock %}
+
+
+{% block bannercabecera %}
+
+        <header>
+            
+            <img src="{{ asset('uploads/custom/exonerados.jpg' ) }}" alt="" class="img-responsive" style="width:100%;" />
+
+        </header>
+    
+{% endblock %}
+
+
+{% block contenidotoyocosta %}
+
+        
+    
+    <div class="container-fluid">
+        <div class="row">
+            
+            <ul class="nav nav-tabs nav-justified nav-exonerados" role="tablist">
+                <li role="presentation" class="bg-discapacitados active"><a href="#discapacitados" aria-controls="discapacitados" role="tab" data-toggle="tab">Discapacitados</a></li>
+                <li role="presentation" class="bg-diplomaticos"><a href="#diplomaticos" aria-controls="diplomaticos" role="tab" data-toggle="tab">Diplom&aacute;ticos y ONG&acute;S</a></li>
+                <li role="presentation" class="bg-plan"><a href="#plan" aria-controls="plan" role="tab" data-toggle="tab">Plan Renova</a></li>
+                <li role="presentation" class="bg-compras"><a href="#compras" aria-controls="compras" role="tab" data-toggle="tab">Compras P&uacute;blicas</a></li>
+            </ul>
+
+            <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="discapacitados">
+                    
+                    <div class="container">
+                        <div class="row" style="margin-top:50px;">
+                            <div class="col-md-8 col-md-offset-2">
+                                <h1 class="title-exonerados text-center">PERSONAS CON DISCAPACIDAD</h1>
+                                <p class="text-center">NUESTRO COMPROMISO CON LAS PERSONAS CON DISCAPACIDAD</p> 
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <p class="text-center" style="letter-spacing: 0px;font-family: 'latoregular';">Difundir el derecho que el Estado Ecuatoriano otorga a los grupos de discapacitados de la población ecuatoriana como "grupo de atención prioritaria" para que pueda importar un vehículo nuevo marca TOYOTA ortopédico que satisfaga las necesidades especiales y que facilite su movilidad.</p>
+                                    </div>
+                                </div>
+                                                            
+                            </div>
+                        </div>
+
+
+                        <div class="row"  style="margin-bottom:50px;">
+
+                            <div class="col-md-12">
+                                <ul id="cbp-ntaccordion" class="cbp-ntaccordion">
+                                    
+                                        
+                                        <li class="cbp-ntopen">
+                                            <h3 class="cbp-nttrigger">BENEFICIOS</h3>
+                                            <div class="cbp-ntcontent">
+                                                <p style="display:none;">Prueba</p>
+                                                <div class="row tb-20">
+                                                    <div class="col-md-12">
+                                                        <div class="col-md-1">
+                                                            {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/icon/1click.png' %}
+                                                            <img src="{{ asset_url }}" alt="" class="img-responsive img-center"/>
+                                                            {% endimage %}
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <p>
+                                                                Exoneración de impuestos (IVA, ICE y Aranceles), el cual se aplica de conformidad al grado de discapacidad, en los porcentajes establecido en la Ley Orgánica de Discapacidades y su Reglamento.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row tb-20">
+                                                    <div class="col-md-12">
+                                                        <div class="col-md-1">
+                                                            {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/icon/2click.png' %}
+                                                            <img src="{{ asset_url }}" alt="" class="img-responsive img-center"/>
+                                                            {% endimage %}
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <p>
+                                                                Asesoramiento de un equipo de trabajo especializado en gestionar tramites de exoneración de impuestos.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>                                                                                  
+                                                
+                                            </div>
+                                        </li>
+
+                                        <li>
+                                            <h3 class="cbp-nttrigger">REQUISITOS</h3>
+                                            <div class="cbp-ntcontent">
+                                                <p>
+                                                    Para aplicar al beneficio debe tener el Carnet que lo habilite como persona beneficiaria de las exoneraciones por discapacidad, de acuerdo al porcentaje mínimo establecido por la Ley y el Reglamento y presentar los siguientes requisitos:
+                                                </p>
+                                                <div class="col-md-12">
+                                                    <ul class="list-exonerados tb-20">
+                                                        <li>
+                                                            <p class="sublist-exo">
+                                                            Copia a color de cédula de identidad y carnet de discapacidad.
+                                                            
+                                                            </p>
+                                                        </li>
+                                                        <li>
+                                                            <p class="sublist-exo">
+                                                            Copia a color de la licencia de conducir.
+                                                            
+                                                            </p>
+                                                        </li>
+                                                        <li>
+                                                            <p class="sublist-exo">
+                                                            Copia a color del Certificado Único de Calificación de Discapacidad o certificado que faculta la importación SENAE (emitido por el  Ministerio de Salud Pública).
+                                                            
+                                                            </p>
+                                                        </li>
+                                                        <li>
+                                                            <p class="sublist-exo">
+                                                            Original de la Autorización de Exoneración de impuestos (Resolución emitida por la SENAE)
+                                                            
+                                                            </p>
+                                                        </li>
+                                                    </ul>                                           
+
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        <li>
+                                            <h3 class="cbp-nttrigger">CASO ESPECIAL</h3>
+                                            <div class="cbp-ntcontent">
+                                                <div class="row tb-20">
+                                                    <div class="col-md-3">
+                                                        
+                                                            {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/images/exonerados/informacion/hoja.png' %}
+                                                                <img src="{{ asset_url }}" class="img-responsive" alt="" style="" />
+                                                            {% endimage %}
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                            <p>En caso de que además de la persona con discapacidad, haya otra persona autorizada a conducir el vehículo, se requiere:<br/><br/> Declaración juramentada original, copia de cedula, votación y licencia de conducir a color.</p>
+                                                    </div>
+                                                </div>
+                                            </div>    
+                                        </li>
+
+                                </ul> 
+
+                            </div>
+                        </div>
+
+                        
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="diplomaticos">
+                    <div class="container">
+                        <div class="row" style="margin-top:50px;">
+                            <div class="col-md-8 col-md-offset-2">
+                                <h1 class="title-exonerados text-center">NUESTRO COMPROMISO CON DIPLOMÁTICOS Y ONGS</h1>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <p class="text-center" style="letter-spacing: 0px;font-family: 'latoregular';">
+                                            Aportar con productos de calidad mediante la importación de vehículos nuevos marca TOYOTA al sector Diplomático y Organismos Internacionales que realizan valiosas contribuciones a la sociedad ecuatoriana.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row"  style="margin-bottom:50px;">
+
+                            <div class="col-md-12">
+                                <ul id="cbp-ntaccordion2" class="cbp-ntaccordion">
+                                    
+                                        
+                                        <li class="cbp-ntopen">
+                                            <h3 class="cbp-nttrigger">BENEFICIOS</h3>
+                                            <div class="cbp-ntcontent">
+                                                <p class="text-left">
+                                                    Beneficio de exoneración de impuestos en la compra de vehículos Toyota para Diplomáticos y representantes de Organismos Internacionales, para el desarrollo de sus actividades de prestación de servicios a la ciudadanía, según sea autorizado por el Ministerio de Relaciones Exteriores y según haya sido.
+                                                </p>
+                                                
+                                            </div>
+                                        </li>
+
+                                        <li>
+                                            <h3 class="cbp-nttrigger">REQUISITOS</h3>
+                                            <div class="cbp-ntcontent">
+                                                <p>
+                                                    DIPLOM&Aacute;TICOS
+                                                </p>
+                                                <div class="col-md-12">
+                                                    <ul class="list-exonerados tb-20">
+                                                        <li>
+                                                            <p class="sublist-exo">
+                                                            Copia pasaporte Diplomático (2 copias a color)                                                            
+                                                            </p>
+                                                        </li>
+                                                        <li>
+                                                            <p class="sublist-exo">
+                                                            
+                                                            Copia Carnet Diplomático (1 copia a color)
+                                                            </p>
+                                                        </li>
+                                                        <li>
+                                                            <p class="sublist-exo">
+                                                            Nota verbal emitida por el Ministerio de Relaciones Exteriores                                                            
+                                                            </p>
+                                                        </li>
+                                                        <li>
+                                                            <p class="sublist-exo">
+                                                            
+                                                            Acción de personal o nombramiento del diplomático
+                                                            </p>
+                                                        </li>
+                                                    </ul>                                           
+
+                                                </div>
+                                                <p>
+                                                    ORGANISMOS INTERNACIONALES
+                                                </p>
+                                                <div class="col-md-12">
+                                                    <ul class="list-exonerados tb-20">
+                                                        <li>
+                                                            <p class="sublist-exo">
+                                                            Copia del convenio entre el Ministerio de Relaciones Exteriores y el Gobierno del País que pertenece el Organismo Internacional.                                                          
+                                                            </p>
+                                                        </li>
+                                                        <li>
+                                                            <p class="sublist-exo">
+                                                            
+                                                            Copia a color de la Cédula o Pasaporte vigente del Representante Legal del Organismo.
+                                                            </p>
+                                                        </li>
+                                                        <li>
+                                                            <p class="sublist-exo">
+                                                            Nombramiento del Representante Legal.                                                     
+                                                            </p>
+                                                        </li>
+                                                        <li>
+                                                            <p class="sublist-exo">
+                                                            
+                                                            Copia del RUC del Organismo Internacional.
+                                                            </p>
+                                                        </li>
+                                                    </ul>                                           
+
+                                                </div>
+
+                                            </div>
+                                        </li>
+
+                                        
+                                </ul> 
+
+                            </div>
+                        </div>
+
+                        
+
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="plan">
+                    <div class="container">
+                        <div class="row" style="margin-top:50px;">
+                            <div class="col-md-8 col-md-offset-2">
+                                <h1 class="title-exonerados text-center">NUESTRO COMPROMISO CON EL TRANSPORTE PRODUCTIVO</h1>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <p class="text-center" style="letter-spacing: 0px;font-family: 'latoregular';">
+                                            Contribuir con productos de calidad mediante la importación de vehículos nuevos marca TOYOTA, para mejorar las unidades de transporte público que realizan valiosos aportes a la sociedad ecuatoriana.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row"  style="margin-bottom:50px;">
+
+                            <div class="col-md-12">
+                                <ul id="cbp-ntaccordion3" class="cbp-ntaccordion">
+                                    
+                                        
+                                        <li class="cbp-ntopen">
+                                            <h3 class="cbp-nttrigger">BENEFICIOS</h3>
+                                            <div class="cbp-ntcontent">
+                                                <p style="display:none;">Prueba</p>
+                                                <div class="row tb-20">
+                                                    <div class="col-md-12">
+                                                        <div class="col-md-1">
+                                                            {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/icon/1click.png' %}
+                                                            <img src="{{ asset_url }}" alt="" class="img-responsive img-center"/>
+                                                            {% endimage %}
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <p>
+                                                                Exoneración de aranceles en la importación de un vehículo.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="row tb-20">
+                                                    <div class="col-md-12">
+                                                        <div class="col-md-1">
+                                                            {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/icon/2click.png' %}
+                                                            <img src="{{ asset_url }}" alt="" class="img-responsive img-center"/>
+                                                            {% endimage %}
+                                                        </div>
+                                                        <div class="col-md-8">
+                                                            <p>
+                                                                Asesoramiento de un equipo de trabajo especializado en gestionar tramites de exoneración de impuestos.
+                                                            </p>
+                                                        </div>
+                                                    </div>
+                                                </div>                                                                                  
+                                                
+                                            </div>
+                                        </li>
+
+                                        <li>
+                                            <h3 class="cbp-nttrigger">REQUISITOS</h3>
+                                            <div class="cbp-ntcontent">
+                                                <p>
+                                                    DIPLOM&Aacute;TICOS:
+                                                </p>
+                                                <div class="col-md-12">
+                                                    <ul class="list-exonerados tb-20">
+                                                        <li>
+                                                            <p class="sublist-exo">
+                                                            Pertenecer mínimo un año a una Cooperativa y/o Compañía de Transporte, legalmente constituida con permiso de operación vigente.
+                                                            
+                                                            </p>
+                                                        </li>
+                                                        <li>
+                                                            <p class="sublist-exo">
+                                                            No haber sido beneficiado con el programa PLAN - RENOVA, en los últimos 5 años.
+                                                            
+                                                            </p>
+                                                        </li>
+                                                        <li>
+                                                            <p class="sublist-exo">
+                                                            Copia de cedula, RUC del solicitante..
+                                                            
+                                                            </p>
+                                                        </li>
+                                                        <li>
+                                                            <p class="sublist-exo">
+                                                            Informe técnico emitido por la Agencia Nacional de Tránsito.
+                                                            
+                                                            </p>
+                                                        </li>
+                                                        <li>
+                                                            <p class="sublist-exo">
+                                                                Bono de chatarrización extendido por alguna de las entidades autorizadas para el efecto.
+                                                            </p>
+                                                        </li>
+                                                    </ul>                                           
+
+                                                </div>
+                                            </div>
+                                        </li>
+
+                                        
+                                </ul> 
+
+                            </div>
+                        </div>
+
+                        
+
+                    </div>
+
+                </div>
+                
+                <div role="tabpanel" class="tab-pane" id="compras">
+                    <div class="container">
+                        <div class="row" style="margin-top:50px;">
+                            <div class="col-md-8 col-md-offset-2">
+                                <h1 class="title-exonerados text-center">NUESTRO COMPROMISO CON LAS INSTITUCIONES PÚBLICAS</h1>
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <p class="text-center" style="letter-spacing: 0px;font-family: 'latoregular';">
+                                            Contribuir con productos de calidad y durabilidad para mejorar el parque automotor de las Instituciones Públicas que realizan valiosos aportes a la sociedad ecuatoriana.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row"  style="margin-bottom:50px;">
+
+                            <div class="col-md-12">
+                                <ul id="cbp-ntaccordion4" class="cbp-ntaccordion">
+                                    
+                                        
+                                        <li class="cbp-ntopen">
+                                            <h3 class="cbp-nttrigger">BENEFICIOS</h3>
+                                            <div class="cbp-ntcontent">
+                                                <p class="text-left">
+                                                    Exoneración de impuestos: Ad Valorem, ICE, IVA, Fodinfa.
+                                                    Asesoramiento de un equipo de trabajo especializado en gestionar tramites de exoneración de impuestos.
+                                                </p>
+                                                
+                                            </div>
+                                        </li>
+
+                                        <li>
+                                            <h3 class="cbp-nttrigger">REQUISITOS</h3>
+                                            <div class="cbp-ntcontent">
+                                                <p>
+                                                    Estos son los requisitos para aplicar a un Toyota exonerado de impuestos:
+                                                </p>
+                                                <div class="col-md-12">
+                                                    <ul class="list-exonerados tb-20">
+                                                        <li>
+                                                            <p class="sublist-exo">
+                                                            La Empresa Pública tiene que contar con el "Token"
+                                                            </p>
+                                                        </li>
+                                                        <li>
+                                                            <p class="sublist-exo">
+                                                            
+                                                            Debe estar registrado en Ecuapass como "OCE"
+                                                            </p>
+                                                        </li>
+                                                        <li>
+                                                            <p class="sublist-exo">
+                                                            Autorización de importación por parte del SERCOP (Servicio Nacional de Contratación Pública) con Ecuapass
+                                                            </p>
+                                                        </li>
+                                                        <li>
+                                                            <p class="sublist-exo">
+                                                            
+                                                            RUC actualizado, mismo que debe estar catastrado como Empresa Pública
+                                                            </p>
+                                                        </li>
+                                                        <li>
+                                                            <p class="sublist-exo">
+                                                            
+                                                            Nombramiento del Representante Legal
+                                                            </p>
+                                                        </li>
+                                                        <li>
+                                                            <p class="sublist-exo">
+                                                            
+                                                            Declaratoria de emergencia o compra por SERCOP
+                                                            </p>
+                                                        </li>
+                                                    </ul>                                           
+
+                                                </div>
+                                                
+                                            </div>
+                                        </li>
+
+                                        
+                                </ul> 
+
+                            </div>
+                        </div>
+
+                        
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row tb-20">
+            <div class="container">
+                <div class="row">
+                    <a href="#">
+                
+                        <div class="col-md-2 col-md-offset-6 btn btn-toyocosta">
+                            COTIZAR
+                        </div>
+                    </a>
+                </div>  
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+
+{% endblock %}
+
+

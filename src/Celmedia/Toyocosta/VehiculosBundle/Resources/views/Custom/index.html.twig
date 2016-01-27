@@ -1,0 +1,163 @@
+{% extends is_mobile() ?  'CelmediaToyocostaVehiculosBundle::layout.mobile.html.twig' :  'CelmediaToyocostaVehiculosBundle::template.html.twig' %}
+
+    {% block bannercabecera %}
+                    
+        <!-- Header -->
+        <header>
+            
+            {{ render(controller("CelmediaToyocostaVehiculosBundle:Custom:obtenerSlidePrincipal") ) }}
+
+        </header>
+
+    {% endblock %}
+
+    
+    {% block contenidotoyocosta %}
+
+            
+            {{ render(controller("CelmediaToyocostaVehiculosBundle:Custom:homeVehiculos") ) }}
+
+            <!-- Accesos -->
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="row">
+                            <figure class="imghome" >
+                                {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/accesos/seminuevos.jpg' %}
+                                <img src="{{ asset_url }}" alt="" class="img-responsive"/>
+                                {% endimage %}
+                                <figcaption>    
+                                    <div class="caption" style="padding-bottom:20px;">
+                                        <h2 class="title-accesos">Todas las marcas</h2>
+                                        <a href="{{path('usados')}}">
+                                            <div class="btn btn-home">Ver m&aacute;s</div>
+                                        </a>                                        
+                                    </div>
+                                </figcaption> 
+                            </figure>   
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row">
+                            <figure class="imghome" >
+                                {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/accesos/aprilia.jpg' %}
+                                <img src="{{ asset_url }}" alt="" class="img-responsive"/>
+                                {% endimage %}
+                                <figcaption>    
+                                    <div class="caption" style="padding-bottom:20px;">
+                                        <h2 class="title-accesos">Otras Lineas</h2>
+                                        <a href="#">
+                                            <div class="btn btn-home">Motos</div>
+                                        </a> 
+                                        <a href="#">
+                                            <div class="btn btn-home">Llantas Pirelli</div>
+                                        </a>
+                                        <a href="#">
+                                            <div class="btn btn-home">Industrial</div>
+                                        </a>                                  
+                                    </div>
+                                </figcaption> 
+                            </figure>   
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row">
+                            <figure class="imghome" >
+                                {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/accesos/cita-talleres.jpg' %}
+                                <img src="{{ asset_url }}" alt="" class="img-responsive"/>
+                                {% endimage %}
+                                <figcaption>    
+                                    <div class="caption" style="padding-bottom:20px;">
+                                        <h2 class="title-accesos">Cita Talleres</h2>
+                                        <a href="{{path('custom_cita')}}">
+                                            <div class="btn btn-home">Ver m&aacute;s</div>
+                                        </a>                                        
+                                    </div>
+                                </figcaption> 
+                            </figure>   
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="row">
+                            <figure class="imghome" >
+                                {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/accesos/contactenos.jpg' %}
+                                <img src="{{ asset_url }}" alt="" class="img-responsive"/>
+                                {% endimage %}
+                                <figcaption>    
+                                    <div class="caption" style="padding-bottom:20px;">
+                                        <h2 class="title-accesos">Cont&aacute;ctenos</h2>
+                                        <a href="#">
+                                            <div class="btn btn-home">Ver m&aacute;s</div>
+                                        </a>                                        
+                                    </div>
+                                </figcaption> 
+                            </figure>   
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Newsletter -->
+            <div class="container-fluid">
+                <div class="row bg-gris">
+                    <div class="container">
+                        <div class="row" style="padding-top:25px;">
+                            <div class="col-md-12 text-center">
+                                <h2 class="title-news">SUSCR&Iacute;BASE A NUESTRO NEWSLETTER</h2>
+                                <h5 class="txt-news">Ser&aacute; el primero en enterarse de nuestras promociones y novedades.</h5>
+                            </div>
+                        </div>
+                        <div class="row" style="padding-bottom:35px;">
+                            <div class="col-md-12 text-center">
+                                <form class="form-inline form-news">
+                                  <div class="form-group">
+                                    
+                                        <input type="email" class="form-control input-news input-c" id="exampleInputEmail3" placeholder="Ingresa tu correo electrónico">
+                                    
+                                  </div>
+                                  <div class="form-group">
+                                      
+                                    
+                                        <select class="form-control input-news">
+                                            <option>Seleccione un Vehículo</option>
+                                            <option>Corolla</option>
+                                            <option>Prius C Sport</option>
+                                        </select>
+                                    
+                                  </div>
+                                                                    
+                                  <button type="submit" class="btn btn-news">ENVIAR</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+
+    {% endblock %}
+
+
+
+
+
+    {% block contenidoMobil %}
+
+        <style type="text/css">
+            html, body{
+                position: relative;
+                height: 100%;
+            }
+        </style>
+
+        {{ render(controller("CelmediaToyocostaVehiculosBundle:Mobile:obtenerSlidePrincipal") ) }}
+
+        {{ render(controller("CelmediaToyocostaVehiculosBundle:Mobile:obtenerMenuPrincipal" ))   }}
+
+
+    {% endblock %}
+
+
+
+

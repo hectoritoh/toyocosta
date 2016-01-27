@@ -1,0 +1,137 @@
+{% extends 'CelmediaToyocostaVehiculosBundle::template.html.twig' %}
+
+{% block seo %}
+    
+    <title>TOYOCOSTA | PostVenta</title>
+    
+    <meta name="description" content=""/>
+
+    <meta name="keywords" content="" />
+
+{% endblock %}
+
+
+{% block bannercabecera %}
+
+        <header>
+                       
+            {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/postventa.jpg' %}
+            <img src="{{ asset_url }}" id="logoblanco" alt="Toyocosta" class="img-responsive"  style="width:100%;" />
+            {% endimage %}
+        </header>
+    
+{% endblock %}
+
+
+{% block contenidotoyocosta %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" style="padding-left: 0px;">
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="{{ path('toyocosta_homepage') }}">Inicio</a>
+                    </li>
+                    <li class="active">PostVenta</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="row tb-20">
+            <div class="col-md-12 text-center">
+                <h1 class="titular">SERVICIOS POSTVENTA</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-12">
+                        <a class="link-post" href="{{path('custom_cita')}}">                                
+                            {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/accesos/servicio1.jpg' %}
+                            <img src="{{ asset_url }}" id="logoblanco" alt="Toyocosta" class="img-responsive"  style="width:100%;" />
+                            {% endimage %}
+                            <h4 class="top-10 text-center">Cita Talleres</h4>
+                        </a>
+                        
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-12">
+                        <a class="link-post" href="{{path('custom_tallermovil')}}">                                
+                            {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/accesos/servicio2.jpg' %}
+                            <img src="{{ asset_url }}" id="logoblanco" alt="Toyocosta" class="img-responsive"  style="width:100%;" />
+                            {% endimage %}
+                            <h4 class="top-10 text-center">TALLER M&Oacute;VIL</h4>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="row">
+                    <div class="col-md-12">
+                        <a class="link-post" href="{{path('custom_mantenimientoexpress')}}">                                
+                            {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/accesos/servicio3.jpg' %}
+                            <img src="{{ asset_url }}" id="logoblanco" alt="Toyocosta" class="img-responsive"  style="width:100%;" />
+                            {% endimage %}
+                            <h4 class="top-10 text-center">MANTENIMIENTO EXPRESS</h4>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        
+        <div class="row" style="padding-top:40px;">
+            <div class="col-md-8 col-md-offset-2">
+                <p class="text-center">
+                    El Servicio de Mantenimiento Express ofrece los mismos beneficios, garant&iacute;a y calidad que el servicio regular en un corto tiempo de espera.
+                </p>
+            </div>
+        </div>
+
+        <div class="row tb-20">
+
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/accesos/carro.png' %}
+                        <img src="{{ asset_url }}" id="logoblanco" alt="Toyocosta" class="img-responsive" />
+                        {% endimage %}
+                        
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="row">
+                    <div class="col-md-12">
+                        <ul class="list-exonerados tb-20 list-post">
+                            <li>T&eacute;cnicos Certificados en Jap&oacute;n para mantenimiento de veh&iacute;culos Toyota.</li>
+                            <li>Tiempo máximo de mantenimiento <span>*</span></li>
+                            <li>Lavado GRATIS del veh&iacute;culo</li>
+                            <li>Comodidad total durante la espera</li>
+                            <li>Supervisión directa del trabajo en taller <span>**</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="padding-bottom:150px;">
+            <div class="col-md-8 col-md-offset-2 txt-post text-center">
+                <span class="txt-rojo">*</span> Mantenimiento en 1 hora, siempre y cuando no se presenten novedades con el vehículo.<br/>
+                <span class="txt-rojo">**</span>Usted podrá controlar el mantenimiento de su vehículo y estar en contacto permanente con el personal técnico en varias estaciones de servicio
+                               
+            </div>
+        </div>
+
+    </div>
+
+
+
+{% endblock %}
+
+

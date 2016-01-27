@@ -15,13 +15,66 @@ camionetas:
 suv:
     path:      /todoterreno-toyota
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:suv }
-# hibridos:
-#     path:      /hibridos
-#     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:hibridos }
 
 ver_vehiculo:
     path:      /{categoria}/Toyota/{vehname}/{vehiculoid}
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:verVehiculo }
+
+
+
+
+
+
+custom_home:
+    path:      /home
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Custom:home }
+
+custom_vehiculo:
+    path:      /custom/{categoria}/Toyota/{nombre}/{id}
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Custom:verVehiculo }
+
+custom_exonerados:
+    path:      /exoneradoshome
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Custom:exoneradosHome }
+
+custom_info_exonerados:
+    path:      /informacion/exonerados
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Custom:exoneradosInfo }
+
+custom_talleres:
+    path:      /talleresyservicios
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Custom:talleresyservicios }
+
+custom_certificados:
+    path:      /certificadostoyocosta
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Custom:certificadostoyocosta }
+
+custom_testdrive:
+    path:      /toyocosta/testdrive
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Custom:testdriveCustom }
+
+custom_cita:
+    path:      /citatalleres
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Custom:citatalleres }
+
+custom_tallermovil:
+    path:      /tallermovil
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Custom:tallermovil }
+
+custom_mantenimientoexpress:
+    path:      /mantenimientoexpress
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Custom:mantenimientoexpress }
+
+custom_postventa:
+    path:      /postventa
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Custom:postventa }
+
+
+
+
+
+
+
 
 empresa:
     path:      /empresa

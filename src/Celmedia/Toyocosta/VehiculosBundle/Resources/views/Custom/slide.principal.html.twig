@@ -1,0 +1,58 @@
+    
+    <!-- CUSTOM -->
+    <div id="principal-carousel" class="carousel slide alto-completo" data-ride="carousel" data-interval="false">
+
+      <ol class="carousel-indicators" style=" margin-bottom: 40px;">
+        {% set i = 0 %}
+        {% for bullet in slidePrincipal %}
+            <li data-target="#principal-carousel" data-slide-to="{{ i }}"  class="{% if loop.first %}active{% endif %}">
+            </li>
+            {% set i = i + 1 %}
+        {% endfor %}
+      </ol>
+
+
+      <div class="carousel-inner alto-completo">
+        {% set i = 0 %}
+        {% for item in slidePrincipal %}
+          
+          <div class="item {% if loop.first %} active {% endif %} alto-completo item-carousel-home-ty">
+
+            <img src="{{ asset('uploads/slide-principal/' ~  item.imagenBanner ) }}" alt="" class="img-responsive" style="width:100%;" />
+
+            <div class="carousel-caption ty-principal-caption">
+              <div class="container-fluid">
+                <div class="row">
+                  {% if item.descripcion %}
+
+                  <h4 class="txt-blanco">{{ item.descripcion }}</h4>
+                  {% endif %}
+                  {% if item.link and item.boton %}
+                      <div class="col-md-4 col-md-offset-4">
+                        <a href="{{item.link}}" class="btn btn-ver-mas">
+                          {{ item.boton }}
+                        </a>
+                      </div>
+
+                  {% endif %}
+
+                </div>
+              </div>
+            </div>
+
+          </div>
+        {% endfor %}
+      </div>
+
+
+      <!-- Controls -->
+      <a class="left carousel-control" href="#principal-carousel" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+      </a>
+      <a class="right carousel-control" href="#principal-carousel" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+      </a>
+
+    </div>
+
+    <!-- FIN CUSTOM -->

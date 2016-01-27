@@ -1,0 +1,285 @@
+{% extends 'CelmediaToyocostaVehiculosBundle::template.html.twig' %}
+
+{% block seo %}
+    
+    <title>TOYOCOSTA | Test Drive</title>
+    
+    <meta name="description" content="Maneja el Toyota que tanto quieres. Registra tus datos y un operador se comunicará contigo para agendar un test drive en Toyocosta."/>
+
+    <meta name="keywords" content="test drive autos toyota guayaquil, test drive camionetas toyota guayaquil, toyocosta test drive" />
+
+{% endblock %}
+
+
+{% block bannercabecera %}
+
+        <header>
+
+            {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/test-drive.jpg' %}
+            <img src="{{ asset_url }}" id="logoblanco" alt="Toyocosta" class="img-responsive"  style="width:100%;" />
+            {% endimage %}
+
+        </header>
+    
+{% endblock %}
+
+
+{% block contenidotoyocosta %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" style="padding-left: 0px;">
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="{{ path('toyocosta_homepage') }}">Inicio</a>
+                    </li>
+                    <li class="active">Test Drive</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center titular">¡VIVE LA EXPERIENCIA TOYOCOSTA!</h1>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <p class="text-center parrafo">Que no te lo cuenten, ven y descubre la calidad de un Toyota. Ingresa sus datos y un operador se comunicará contigo.</p>
+            </div>
+        </div>
+
+        <form id="form-test" method="POST" class="form-info">
+
+            <div class="row">
+                <div class="col-md-12">
+
+                    <ul id="cbp-ntaccordion5" class="cbp-ntaccordion">
+                        
+                        
+                        <li class="cbp-ntopen">
+                            <h3 class="cbp-nttrigger">DATOS PERSONALES</h3>
+                            <div class="cbp-ntcontent">
+                                <p style="display:none;">Prueba</p>
+                                <div class="row tb-20"></div>
+                                <div class="row space-input">
+                                    <div class="col-md-10 col-md-offset-1">
+
+                                        <div class="row">
+                                            <div class="col-xs-4 col-xs-offset-1">
+                                                <label>Nombre:</label>
+
+                                                {#{{ form_widget(form.nombre, {'attr': {'class': 'form-control'}}) }}#}
+
+                                                <input id="nombre_test" name="nombre_test" type="text" class="form-control" placeholder="" />
+                                            </div>
+                                            <div class="col-xs-4 col-xs-offset-1">
+                                                <label>Apellido:</label>
+
+                                                {#{{ form_widget(form.apellido, {'attr': {'class': 'form-control'}}) }}#}
+                                                <input id="apellido_test" name="apellido_test" type="text" class="form-control" placeholder="" />
+                                            </div>
+
+                                        </div>  
+                                    </div>
+
+                                </div>
+
+                                <div class="row space-input">
+                                    <div class="col-md-10 col-md-offset-1">
+
+                                        <div class="row">
+                                            <div class="col-xs-4 col-xs-offset-1">
+                                                <label>Tel&eacute;fono:</label>
+
+                                                {#{{ form_widget(form.telefono, {'attr': {'class': 'form-control'}}) }}#}
+
+                                                <input id="telefono_test" name="telefono_test" type="text" class="form-control" placeholder="" />
+                                            </div>
+                                            <div class="col-xs-4 col-xs-offset-1">
+                                                <label>Email:</label>
+
+                                                {#{{ form_widget(form.email, {'attr': {'class': 'form-control'}}) }}#}
+
+                                                <input id="email_test" name="email_test" type="text" class="form-control" placeholder="" />
+                                            </div>
+
+                                        </div>  
+                                    </div>
+
+                                </div>
+                                                                             
+                                
+                                <div class="row space-input">
+                                    <div class="col-md-10 col-md-offset-1">
+
+                                        <div class="row">
+                                            <div class="col-xs-4 col-xs-offset-1">
+                                                <label>No. de C&eacute;dula / Pasaporte:</label>
+
+                                                {#{{ form_widget(form.cedula, {'attr': {'class': 'form-control'}}) }}#}
+
+                                                <input id="cedula_test" name="cedula_test" type="text" class="form-control" placeholder="" />
+                                            </div>
+                                            <div class="col-xs-4 col-xs-offset-1">
+                                                <label>Fecha de nacimiento</label>
+
+                                                {#{{ form_widget(form.nacimiento, {'attr': {'class': 'form-control'}}) }}#}
+                                                <input id="nacimiento_test" name="nacimiento_test" type="date" class="form-control" placeholder="" />
+                                            </div>
+
+                                        </div>  
+                                    </div>
+
+                                </div>
+
+
+                                <div class="row space-input">
+                                    <div class="col-md-10 col-md-offset-1">
+
+                                        <div class="row">
+                                            <div class="col-xs-4 col-xs-offset-1">
+                                                <label>Agencia:</label>
+
+                                                {#{{ form_widget(form.agencia, {'attr': {'class': 'form-control txt-select'}}) }}#}
+
+
+                                                <select name="agencia_test" id="agencia_test" class="form-control txt-select">
+                                                    <option value="">Seleccione la agencia</option>
+
+                                                    {% for row in agencias %}
+
+                                                        <option value="{{ row.nombre }}" >{{ row.nombre }}</option>
+                                                    {% endfor %}
+
+                                                </select>
+
+                                            </div>
+                                            <div class="col-xs-4 col-xs-offset-1">
+                                                <label>Ciudad:</label>
+
+                                                {#{{ form_widget(form.ciudad, {'attr': {'class': 'form-control'}}) }}#}
+                                                <input id="ciudad_test" name="ciudad_test" type="text" class="form-control" placeholder="" />
+                                            </div>
+
+                                        </div>  
+                                    </div>
+
+                                </div>
+
+                                <div class="row tb-20"></div>
+
+                            </div>
+                        </li>
+
+                        <li>
+                            <h3 class="cbp-nttrigger">DATOS DEL TEST</h3>
+                            <div class="cbp-ntcontent">
+                                <p style="display:none;">
+                                    Prueba
+                                </p>
+                                <div class="row tb-20"></div>
+                                    
+
+                                <div class="row space-input">
+                                    <div class="col-md-10 col-md-offset-1">
+
+                                        <div class="row">
+                                            
+                                            <div class="col-xs-4 col-xs-offset-1">
+                                                <label>Vehiculo:</label>
+                                                
+                                                <select  name="vehiculo_test" id="vehiculo_test"  class="form-control txt-select">
+                                                    <option value="">Seleccione un modelo</option>
+
+                                                    {% for vehiculo in vehiculos_test %}
+
+                                                        <option value="{{ vehiculo.nombre }}" >{{ vehiculo.nombre }}</option>
+                                                    {% endfor %}
+
+                                                </select>
+
+                                            </div>
+
+                                            <div class="col-xs-4 col-xs-offset-1">
+                                                <label>Fecha del test:</label>
+                                                
+                                                <input id="fecha_test" name="fecha_test" type="date" class="form-control" placeholder="" />
+                                            </div>
+
+                                        </div>  
+                                    </div>
+
+                                </div>
+
+                                <div class="row space-input">
+                                    <div class="col-md-10 col-md-offset-1">
+
+                                        <div class="row">
+                                            
+                                            <div class="col-xs-4 col-xs-offset-1">
+                                                <label>Hora del test:</label>
+                                                
+                                                <input id="hora_test" name="hora_test" type="text" class="form-control" placeholder="" />
+                                            </div>
+
+                                            <div class="col-xs-4 col-xs-offset-1">
+                                                <label>Observaciones:</label>
+                                            
+                                                <textarea id="obs_test" name="obs_test" class="form-control" rows="3"></textarea>
+
+                                            </div>
+
+                                        </div>  
+                                    </div>
+
+                                </div>
+
+                                <div class="row space-input">
+                                    <div class="col-md-10 col-md-offset-1" style="padding-top:40px;">
+                                        <div class="col-xs-4 col-xs-offset-4">
+                                            <div class="g-recaptcha" data-sitekey="6Ldz2AETAAAAAFVuBytqxNj6NvMtZnbCe1_Q_cgP"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row space-input">
+                                    <div class="col-md-10 col-md-offset-1" style="padding-top:20px;">
+
+                                        <div class="row">
+                                            <div class="col-md-2 col-md-offset-5">
+
+                                                <input type="submit" value="Enviar" class="btn btn-toyocosta" style="width:100%;">
+                                            </div>
+                                        </div>  
+                                    </div>
+
+                                </div>
+
+                                <div class="row tb-20"></div>
+                                
+                            </div>
+                        </li>
+
+                            
+                    </ul> 
+
+
+
+                </div>
+            </div>
+
+
+        </form>
+
+        <div class="row" style="padding-bottom:50px;"></div>
+
+    </div>
+
+
+
+{% endblock %}
+
+
