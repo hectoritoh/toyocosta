@@ -603,6 +603,34 @@ footer{
     text-transform: uppercase;
 }
 
+@media only screen and (min-width:1188px) and (max-width: 1375px) {
+	.img-rs {
+	    padding: 17px 2px;
+	}
+	.nav-principal .nav li a {
+	    font-size: 12px;
+	}
+	.nav>li>a {
+	    padding: 14px 10px;
+	}
+
+}
+
+@media only screen and (min-width:1014px) and (max-width: 1188px) {
+	.img-rs {
+	    padding: 17px 0px;
+	}
+	.nav-principal .nav li a {
+	    font-size: 10px;
+	}
+	.nav>li>a {
+	    padding: 16px 6px;
+	}
+
+}
+
+
+
 /* Landscape phone to portrait tablet */
 @media (max-width: 767px) { 
 
