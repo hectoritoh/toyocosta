@@ -242,8 +242,14 @@ body{
 	float: left;
     padding: 17px 6px;
 }
-
-
+.info-contacto{
+	letter-spacing: 0px;
+    font-family: 'latoregular';
+}
+.tb-40{
+	padding-top: 40px;
+	padding-bottom: 40px;
+}
 
 
 
@@ -629,6 +635,21 @@ footer{
 
 }
 
+@media only screen and (min-width:992px) and (max-width: 1014px) {
+	.img-rs {
+	    padding: 17px 0px;
+	}
+	.nav-principal .nav li a {
+	    font-size: 8px;
+	}
+	.nav>li>a {
+	    padding: 16px 8px;
+	}
+
+}
+
+
+
 
 
 /* Landscape phone to portrait tablet */
@@ -687,6 +708,11 @@ footer{
 
 
 /****************Reset******************/
+.nav-sub li a {
+    font-family: 'latoregular';
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
 .navbar-default.navbar-shrink {
     background-color: #fff;
 }
@@ -740,4 +766,22 @@ label {
 }
 .navbar-brand{
 	padding: 10px 15px;
+}
+.glyphicon-chevron-left {
+    background-image: url('./../../../../../bundles/celmediatoyocostavehiculos/custom/img/icon/flechaizquierda.png');
+}
+.glyphicon-chevron-right {
+    background-image: url('./../../../../../bundles/celmediatoyocostavehiculos/custom/img/icon/flechaderecha.png');
+    background-position: right center;
+}
+.carousel-control .glyphicon-chevron-left, .carousel-control .glyphicon-chevron-right, .carousel-control .icon-next, .carousel-control .icon-prev {
+    width: 15%;
+    height: 58px;
+    background-repeat: no-repeat;
+}
+.glyphicon-chevron-left:before {
+    content: initial;
+}
+.glyphicon-chevron-right:before {
+    content: initial;
 }

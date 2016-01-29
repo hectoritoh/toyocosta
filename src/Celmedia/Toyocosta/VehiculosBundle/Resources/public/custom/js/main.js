@@ -354,6 +354,106 @@ $(document).ready(function(){
         $(this).find(".ficha").css("margin-bottom","33px");
       });
 
+    $("#form-contacto").validate({
+      debug: true,
+      submitHandler: function (form) {
+          var parametros = {
+              nombre: $("#cnombre").val(),
+              apellido: $("#capellido").val(),
+              telefono: $("#cinputTelefono").val(),
+              email: $("#cemail").val(),
+              ciudad: $("#cciudad").val(),
+              area: $("#carea").val(),
+              requerimiento: $("#crequerimiento").val(),
+              observacion: $("#cobs").val()
+          }
+
+          $.ajax({
+              url: Routing.generate('envio_contacto'),
+              type: 'POST',
+              async: true,
+              data: parametros,
+              dataType: 'json',
+              success: function (respuesta) {
+                console.log(respuesta);
+                // console.log(JSON.stringify(respuesta.codigo));
+                  if (respuesta.codigo == 1 ) {
+                      $('#contenedorEspereContacto').hide();
+                      $('#contenedorFormContacto').show();
+                       alert('Su pedido de informaci\u00F3n fu\u00E9 enviado con \u00E9xito');
+                       document.getElementById("form-contacto").reset();
+                       //window.location = Routing.generate('contactenos');
+                  }else if (respuesta.codigo == 0 ) {
+                        alert(respuesta.mensaje);
+                  }else{
+                    alert("error");
+                  }
+
+
+              },beforeSend: function () {
+                  $('#contenedorFormContacto').hide();
+                  $('#contenedorEspereContacto').show();
+                  
+              },
+              error: function (respuesta) {
+                console.log("ERROR: " + respuesta);
+              }
+
+          });
+      },
+      rules: {
+          cnombre: {
+              required: true
+          },
+          capellido: {
+              required: true
+          },
+          cinputTelefono: {
+              required: true,
+              minlength: 7,
+              maxlength: 15,
+              number: true
+          },
+          cemail: {
+            required:true,
+            email: true
+          },
+          carea: {
+            required:true
+          },
+          cciudad: {
+            required: true
+          },
+          carea: {
+            required: true
+          },
+          crequerimiento: {
+            required: true
+          },
+          cobs:{ 
+            required: true
+          }
+      },
+      showErrors: function (errorMap, errorList) {
+           // Clean up any tooltips for valid elements
+          $.each(this.validElements(), function (index, element) {
+              var $element = $(element);
+              $element.data("title", "") // Clear the title - there is no error associated anymore
+                  .removeClass("error")
+                  .tooltip("destroy");
+          });
+
+          // Create new tooltips for invalid elements
+          $.each(errorList, function (index, error) {
+              var $element = $(error.element);
+              $element.tooltip("destroy") // Destroy any pre-existing tooltip so we can repopulate with new tooltip content
+                  .data("title", error.message)
+                  .addClass("error")
+                  .tooltip(); // Create a new tooltip based on the error messsage we just set in the title
+          });
+      }
+    });
+
 
     var $validatorvehiculo = $("#cotizarForm").validate({
       debug: true,
