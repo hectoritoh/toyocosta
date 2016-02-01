@@ -143,9 +143,9 @@ class CustomController extends Controller
         return $this->render('CelmediaToyocostaVehiculosBundle:Custom:postventa.html.twig' , array());
     }
 
-    public function exoneradosInfoAction()
+    public function exoneradosInfoAction($tipo)
     {
-        return $this->render('CelmediaToyocostaVehiculosBundle:Custom:exonerados_info.html.twig' , array());
+        return $this->render('CelmediaToyocostaVehiculosBundle:Custom:exonerados_info.html.twig' , array("tipo" => $tipo));
 
     }
     public function talleresyserviciosAction()

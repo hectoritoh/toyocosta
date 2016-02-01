@@ -24,20 +24,22 @@
 
 {% block contenidotoyocosta %}
 
-        
+    {% if tipo is not defined or tipo is null %}
+        {% set tipo = "discapacitados" %}
+    {% endif %}      
     
     <div class="container-fluid">
         <div class="row">
             
             <ul class="nav nav-tabs nav-justified nav-exonerados" role="tablist">
-                <li role="presentation" class="bg-discapacitados active"><a href="#discapacitados" aria-controls="discapacitados" role="tab" data-toggle="tab">Discapacitados</a></li>
-                <li role="presentation" class="bg-diplomaticos"><a href="#diplomaticos" aria-controls="diplomaticos" role="tab" data-toggle="tab">Diplom&aacute;ticos y ONG&acute;S</a></li>
-                <li role="presentation" class="bg-plan"><a href="#plan" aria-controls="plan" role="tab" data-toggle="tab">Plan Renova</a></li>
-                <li role="presentation" class="bg-compras"><a href="#compras" aria-controls="compras" role="tab" data-toggle="tab">Compras P&uacute;blicas</a></li>
+                <li role="presentation" class="bg-discapacitados {% if tipo == 'discapacitados' %}active{% endif %}"><a href="#discapacitados" aria-controls="discapacitados" role="tab" data-toggle="tab">Discapacitados</a></li>
+                <li role="presentation" class="bg-diplomaticos {% if tipo == 'diplomaticos' %}active{% endif %}"><a href="#diplomaticos" aria-controls="diplomaticos" role="tab" data-toggle="tab">Diplom&aacute;ticos y ONG&acute;S</a></li>
+                <li role="presentation" class="bg-plan {% if tipo == 'plan' %}active{% endif %}"><a href="#plan" aria-controls="plan" role="tab" data-toggle="tab">Plan Renova</a></li>
+                <li role="presentation" class="bg-compras {% if tipo == 'compras' %}active{% endif %}"><a href="#compras" aria-controls="compras" role="tab" data-toggle="tab">Compras P&uacute;blicas</a></li>
             </ul>
 
             <div class="tab-content">
-                <div role="tabpanel" class="tab-pane active" id="discapacitados">
+                <div role="tabpanel" class="tab-pane {% if tipo == 'discapacitados' %}active{% endif %}" id="discapacitados">
                     
                     <div class="container">
                         <div class="row" style="margin-top:50px;">
@@ -160,7 +162,7 @@
                         
                     </div>
                 </div>
-                <div role="tabpanel" class="tab-pane" id="diplomaticos">
+                <div role="tabpanel" class="tab-pane {% if tipo == 'diplomaticos' %}active{% endif %}" id="diplomaticos">
                     <div class="container">
                         <div class="row" style="margin-top:50px;">
                             <div class="col-md-8 col-md-offset-2">
@@ -268,7 +270,7 @@
 
                     </div>
                 </div>
-                <div role="tabpanel" class="tab-pane" id="plan">
+                <div role="tabpanel" class="tab-pane {% if tipo == 'plan' %}active{% endif %}" id="plan">
                     <div class="container">
                         <div class="row" style="margin-top:50px;">
                             <div class="col-md-8 col-md-offset-2">
@@ -381,7 +383,7 @@
 
                 </div>
                 
-                <div role="tabpanel" class="tab-pane" id="compras">
+                <div role="tabpanel" class="tab-pane {% if tipo == 'compras' %}active{% endif %}" id="compras">
                     <div class="container">
                         <div class="row" style="margin-top:50px;">
                             <div class="col-md-8 col-md-offset-2">

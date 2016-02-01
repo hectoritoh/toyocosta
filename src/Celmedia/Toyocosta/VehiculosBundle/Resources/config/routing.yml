@@ -38,7 +38,7 @@ custom_exonerados:
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Custom:exoneradosHome }
 
 custom_info_exonerados:
-    path:      /informacion/exonerados
+    path:      /informacion/exonerados/{tipo}
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Custom:exoneradosInfo }
 
 custom_talleres:

@@ -795,3 +795,25 @@ label {
 .glyphicon-chevron-right:before {
     content: initial;
 }
+.sbHolder {
+    width: 100%;
+    background-color: #FFFFFF;
+}
+.sbSelector {
+    height: 30px;
+    font-family: 'latoregular';
+    line-height: 30px;
+    width: 100%;
+    font-size: 12px;
+}
+.sbOptions{
+	width: 100%;
+	left: 0px;
+	background-color: #000000;
+}
+.sbSelector:hover, .sbSelector:focus, .sbSelector.active {
+    color: #D62C2F;
+}
+.sbToggle {
+    background: url('../../../../bundles/celmediatoyocostavehiculos/images/pirelli/iconos/select-icons.png') 0 -168px no-repeat;
+}
