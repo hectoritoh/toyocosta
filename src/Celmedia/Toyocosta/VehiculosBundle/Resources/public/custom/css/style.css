@@ -250,7 +250,13 @@ body{
 	padding-top: 40px;
 	padding-bottom: 40px;
 }
-
+.titular-catg{
+	color: #df1928;
+    font-weight: normal;
+    text-align: center;
+    padding-bottom: 15px;
+    font-family: 'latoitalic';
+}
 
 
 /*EXONERADOS*/
@@ -335,7 +341,11 @@ body{
 .link-post:hover{
 	color: #df1928; 
 }
-
+.linea{
+	background: url("../../../../bundles/celmediatoyocostavehiculos/custom/img/icon/linea.png") no-repeat scroll center bottom rgba(0, 0, 0, 0);
+    margin: 10px 0 0;
+    padding-bottom: 15px;
+}
 
 
 .bg-white{

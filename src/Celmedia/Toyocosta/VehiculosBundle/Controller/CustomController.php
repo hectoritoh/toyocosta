@@ -367,7 +367,26 @@ class CustomController extends Controller
 
     }
 
+    public function vehiculosAction()
+    {
+        $em = $this->getDoctrine()->getManager();
 
+        $autos =$this->getDoctrine()->getRepository('CelmediaToyocostaVehiculosBundle:CategoriaVehiculo')->findOneBy(array("nombre" => "autos", "estado"=> 1));        
+        $vehiculos_autos = $this->getDoctrine()->getRepository('CelmediaToyocostaVehiculosBundle:Vehiculo')->findBy( array("estado"=> 1 , "categoria" => $autos ) );
+
+
+        $camionetas =$this->getDoctrine()->getRepository('CelmediaToyocostaVehiculosBundle:CategoriaVehiculo')->findOneBy(array("nombre" => "camionetas", "estado"=> 1));        
+        $vehiculos_camionetas = $this->getDoctrine()->getRepository('CelmediaToyocostaVehiculosBundle:Vehiculo')->findBy( array("estado"=> 1 , "categoria" => $camionetas ) );
+
+
+
+        $todoterreno =$this->getDoctrine()->getRepository('CelmediaToyocostaVehiculosBundle:CategoriaVehiculo')->findOneBy(array("nombre" => "todoterreno", "estado"=> 1));
+        $vehiculos_todoterreno = $this->getDoctrine()->getRepository('CelmediaToyocostaVehiculosBundle:Vehiculo')->findBy( array("estado"=> 1 , "categoria" => $todoterreno ) );
+
+
+        return $this->render('CelmediaToyocostaVehiculosBundle:Custom:vehiculos.html.twig' , array( "vehiculos_autos" => $vehiculos_autos, "vehiculos_camionetas" => $vehiculos_camionetas, "vehiculos_todoterreno" =>$vehiculos_todoterreno ));
+
+    }
 
 
 

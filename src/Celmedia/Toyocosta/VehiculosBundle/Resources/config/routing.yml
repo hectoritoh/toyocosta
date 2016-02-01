@@ -69,6 +69,10 @@ custom_postventa:
     path:      /postventa
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Custom:postventa }
 
+custom_vehiculos:
+    path:      /vehiculos
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Custom:vehiculos }
+
 custom_contactenos:
     path:      /contactanos
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Custom:contactenos }

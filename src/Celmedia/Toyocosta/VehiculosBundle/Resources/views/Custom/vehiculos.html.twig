@@ -1,0 +1,138 @@
+{% extends 'CelmediaToyocostaVehiculosBundle::template.html.twig' %}
+
+{% block seo %}
+    
+    <title>TOYOCOSTA | Vehiculos</title>
+    
+    <meta name="description" content=""/>
+
+    <meta name="keywords" content="" />
+
+{% endblock %}
+
+
+{% block bannercabecera %}
+
+        <header>
+
+            {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/certificados.jpg' %}
+            <img src="{{ asset_url }}" id="logoblanco" alt="Toyocosta" class="img-responsive"  style="width:100%;" />
+            {% endimage %}
+
+        </header>
+    
+{% endblock %}
+
+
+{% block contenidotoyocosta %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" style="padding-left: 0px;">
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="{{ path('toyocosta_homepage') }}">Inicio</a>
+                    </li>
+                    <li class="active">Todos los modelos</li>
+                </ol>
+            </div>
+        </div>
+        
+        
+        <div class="row tb-20">
+            <div class="col-md-12">
+                <h2 class="titular-catg">Autos</h2>
+                <div class="row">
+                {% for auto in vehiculos_autos %}
+                    
+                    <div class="col-md-3 text-center">
+                        <div class="nombre-submenu">{{ auto.nombre }}</div>
+                        <img src="{{ asset('uploads/vehiculo/thumb/' ~ auto.imagenThumb ) }}" alt="" class="img-responsive img-center" />
+                        <br/>
+                        <a class="link-submenu" href="#">Explorar</a>
+                        <br/>
+                        <div class="sp"></div>
+
+                        <a class="link-submenu" href="#">Cotizar</a>
+                        
+                        
+                    </div>
+
+                {% endfor %}
+                </div>
+
+            </div>
+
+        </div>  
+
+
+        <div class="linea"></div>
+
+                
+        <div class="row tb-20">
+            <div class="col-md-12">
+                <h2 class="titular-catg">Camionetas</h2>
+                <div class="row">
+                {% for camioneta in vehiculos_camionetas %}
+                    
+                    <div class="col-md-3 text-center">
+                        <div class="nombre-submenu">{{ camioneta.nombre }}</div>
+                        <img src="{{ asset('uploads/vehiculo/thumb/' ~ camioneta.imagenThumb ) }}" alt="" class="img-responsive img-center" />
+                        <br/>
+                        <a class="link-submenu" href="#">Explorar</a>
+                        <br/>
+                        <div class="sp"></div>
+
+                        <a class="link-submenu" href="#">Cotizar</a>
+                        
+                        
+                    </div>
+
+                {% endfor %}
+                </div>
+
+            </div>
+
+        </div>  
+
+
+
+        <div class="linea"></div>
+
+        <div class="row tb-20">
+            <div class="col-md-12">
+                <h2 class="titular-catg">Todo Terreno</h2>
+                <div class="row">
+                {% for todoterreno in vehiculos_todoterreno %}
+                    
+                    <div class="col-md-3 text-center">
+                        <div class="nombre-submenu">{{ todoterreno.nombre }}</div>
+                        <img src="{{ asset('uploads/vehiculo/thumb/' ~ todoterreno.imagenThumb ) }}" alt="" class="img-responsive img-center" />
+                        <br/>
+                        <a class="link-submenu" href="#">Explorar</a>
+                        <br/>
+                        <div class="sp"></div>
+
+                        <a class="link-submenu" href="#">Cotizar</a>
+                        
+                        
+                    </div>
+
+                {% endfor %}
+                </div>
+
+            </div>
+
+        </div>  
+
+
+
+        <div class="row" style="padding-bottom:150px;"></div>
+
+    </div>
+
+
+
+{% endblock %}
+
+
