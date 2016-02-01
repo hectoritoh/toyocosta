@@ -32,8 +32,9 @@ body{
     text-shadow: 0px 0px 0px transparent;
     border-radius: 0px;
     border: 1px solid #D62C2F;
-    padding: 6px 32px;
     font-family: 'latoitalic';
+    height: 30px;
+    width: 100%;
 }
 .btn.btn-siguiente{
     background-color: #D62C2F;
@@ -378,7 +379,8 @@ body{
 	background-color: transparent;
     border-radius: 0px;
    	font-family: 'latoregular';
-   	letter-spacing: 4px;
+   	letter-spacing: 0px;
+   	border: solid 1px #515151;
 }
 .copy-footer{
 	text-align: center;
@@ -415,7 +417,7 @@ footer{
     letter-spacing: 4px;
 }
 .input-c{
-	width: 314px !important;
+	/*width: 314px !important;*/
 }
 .border-detalle{
 	border-left: 1px solid #CCCCCC;

@@ -102,44 +102,57 @@
                 <div class="row bg-gris">
                     <div class="container">
                         <div class="row" style="padding-top:25px;">
-                            <div class="col-md-12 text-center">
+                            <div class="col-md-12 col-xs-12 text-center">
                                 <h2 class="title-news">SUSCR&Iacute;BASE A NUESTRO NEWSLETTER</h2>
                                 <h5 class="txt-news">Ser&aacute; el primero en enterarse de nuestras promociones y novedades.</h5>
                             </div>
                         </div>
                         <div class="row" style="padding-bottom:35px;">
-                            <div class="col-md-12 text-center">
+                            <div class="col-md-12 col-xs-12">
                                 <form class="form-inline form-news">
-                                  <div class="form-group">
+                                  <div class="col-xs-12 col-md-4">
                                     
-                                        <input type="email" class="form-control input-news input-c" id="exampleInputEmail3" placeholder="Ingresa tu correo electrónico">
+                                        <input type="email" class="form-control input-news input-c" style="height:30px;width: 100%;" id="exampleInputEmail3" placeholder="Ingresa tu correo electrónico">
                                     
                                   </div>
-                                  <div class="form-group">
+                                  <div class="col-xs-12 col-md-4">
                                       
                                     
-                                        <select class="form-control input-news">
+                                        <select class="form-control input-news select-filtro">
                                             <option>Seleccione un Vehículo</option>
                                             <option>Corolla</option>
                                             <option>Prius C Sport</option>
                                         </select>
                                     
                                   </div>
-                                                                    
-                                  <button type="submit" class="btn btn-news">ENVIAR</button>
+                                  <div class="col-xs-12 col-md-4">
+
+                                    <button type="submit" class="btn btn-news">ENVIAR</button>
+                                  </div>
+
                                 </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-
+            <style type="text/css">
+                .sbHolder {
+                    background-color: transparent;
+                }
+            </style>
             
 
     {% endblock %}
 
 
-
+    {% block extrajs %}
+        <script type="text/javascript">
+            $(".select-filtro").selectbox({
+                effect: "fade"
+            });
+        </script>
+    {% endblock %}
 
 
     {% block contenidoMobil %}
