@@ -43,13 +43,13 @@
 				<div class="col-md-6" style="padding:0px;">
 					<form class="form-inline" style="padding-left:10px;padding-right:10px;" role="form">
 						<div class="form-group">
-							<label class="txt-form-pirelli txt-gris" style="margin-top:10px;">Seleccione el distribuidor m&aacute;s cercano a usted.
+							<label class="txt-form-pirelli txt-gris" style="margin-top:10px;">Seleccione la ciudad m&aacute;s cercana a usted.
 							</label>
 
 							<select id="distribuidorMostrar" class="form-control txt-select-pirelli" onchange="distribuidorSelected(this)" >
 								<option  class=""  value="-1" ></option>
 								{%    for distribuidor in distribuidores   %}
-								<option  class=""  value="{{ loop.index0  }}" >{{  distribuidor.nombre }}</option>
+								<option  class=""  value="{{ loop.index0  }}" >{{  distribuidor.ciudad|upper }}</option>
 								{%    endfor %}   
 							</select>
 
