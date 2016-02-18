@@ -620,6 +620,21 @@ footer{
 	font-family: 'latolight';
     text-transform: uppercase;
 }
+.nav-tabs.nav-taller>.active>a, .nav-tabs.nav-taller>.active>a:focus, .nav-tabs.nav-taller>.active>a:hover {
+    border-bottom-color: #fff;
+    background-color: #df1928;
+    color: #fff;
+    border-radius: 0px;
+    border: 0px;
+}
+.nav-tabs.nav-taller>li>a {
+    margin-right: 0;
+    border-radius: 0px;
+    border: 0px;
+    background-color: #ccc;
+    color: #666;
+}
+
 
 @media only screen and (min-width:1188px) and (max-width: 1375px) {
 	.img-rs {
@@ -818,4 +833,13 @@ label {
 }
 .sbToggle {
     background: url('../../../../bundles/celmediatoyocostavehiculos/images/pirelli/iconos/select-icons.png') 0 -168px no-repeat;
+}
+
+.lb-nav a.lb-next{
+	width: 10%;
+	background: url("../../../../bundles/celmediatoyocostavehiculos/custom/img/icon/next.png") center no-repeat;
+}
+.lb-nav a.lb-prev{
+	width: 10%;
+	background: url("../../../../bundles/celmediatoyocostavehiculos/custom/img/icon/prev.png") center no-repeat;	
 }
