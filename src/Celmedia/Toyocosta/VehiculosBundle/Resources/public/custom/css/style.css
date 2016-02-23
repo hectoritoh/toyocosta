@@ -208,6 +208,7 @@ body{
 	padding-top: 0px;
     border-bottom: 1px solid #E2E2E2;
     padding-bottom: 0px;
+    background-color: rgba(0,0,0,0.2);
 }
 .ficha-certificado{
 	border:1px solid #999999;

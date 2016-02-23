@@ -85,10 +85,8 @@ function mostrarSubmenu () {
               $("#mtaller").html(option);
             }
             //console.log(respuesta.precio);
-          }, 
-          error: function (error) {
-            console.log("ERROR: " + error);
           }
+
       });
   }
 
@@ -337,7 +335,7 @@ $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
 
     $('#gallery').finalTilesGallery({
-        gridCellSize: 20,
+        gridSize: 20,
         minTileWidth: 100
     });
 
@@ -379,7 +377,9 @@ $(document).ready(function(){
                 // console.log(JSON.stringify(respuesta.codigo));
                   if (respuesta.codigo == 1 ) {
                       $('#contenedorEspereContacto').hide();
-                      $('#contenedorFormContacto').show();
+                      //$('#contenedorFormContacto').show();
+                      
+                      $("#btn-contacto").removeAttr("disabled");
                        alert('Su pedido de informaci\u00F3n fu\u00E9 enviado con \u00E9xito');
                        document.getElementById("form-contacto").reset();
                        //window.location = Routing.generate('contactenos');
@@ -391,7 +391,8 @@ $(document).ready(function(){
 
 
               },beforeSend: function () {
-                  $('#contenedorFormContacto').hide();
+                  //$('#contenedorFormContacto').hide();
+                  $("#btn-contacto").attr('disabled','disabled');
                   $('#contenedorEspereContacto').show();
                   
               },
@@ -454,6 +455,250 @@ $(document).ready(function(){
       }
     });
 
+
+    $("#form-test").validate({
+          debug: true,
+          submitHandler: function (form) {
+              var parametros = {
+                  nombre: $("#nombre_test").val(),
+                  apellido: $("#apellido_test").val(),
+                  telefono: $("#telefono_test").val(),
+                  email: $("#email_test").val(),
+                  cedula: $("#cedula_test").val(),
+                  nacimiento: $("#nacimiento_test").val(),
+                  agencia: $("#agencia_test").val(),
+                  ciudad: $("#ciudad_test").val(),
+                  vehiculo: $("#vehiculo_test").val(),
+                  fecha_test: $("#fecha_test").val(),
+                  hora_test: $("#hora_test").val(),
+                  observacion: $("#obs_test").val()
+
+              }
+
+              $.ajax({
+                  url: Routing.generate('test_drive'),
+                  type: 'POST',
+                  async: true,
+                  data: parametros,
+                  dataType: "json",
+                  success: function (respuesta) {
+
+                    if (respuesta.codigo == 1 ) {
+                        $('#contenedorEspereTest').hide();
+                        //$('#contenedorFormTest').show();
+                          $("#btn-test").removeAttr("disabled");
+                         alert('Su pedido de informaci\u00F3n fu\u00E9 enviado con \u00E9xito');
+                         document.getElementById("form-test").reset();
+                         //window.location = Routing.generate('contactenos');
+                    } else if (respuesta.codigo == 0 ) {
+                          alert(respuesta.mensaje);
+                    } 
+
+                  }, 
+                  error: function (error) {
+                    console.log("ERROR: " + error);
+                  },
+                  beforeSend: function () {
+                      //$('#contenedorFormTest').hide();
+                      $("#btn-test").attr('disabled','disabled');
+                      $('#contenedorEspereTest').show();
+                  }
+              });
+
+          },
+          rules: {
+             nombre_test: {
+                  required: true
+              },
+              apellido_test: {
+                  required: true
+              },
+              telefono_test: {
+                  required: true,
+                  minlength:7,
+                  maxlength:15,
+                  number:true
+              },
+              email_test: {
+                required:true,
+                email: true
+              },
+              ciudad_test: {
+                required: true
+              },
+              cedula_test: {
+                required: true,
+                minlength:10,
+                maxlength:10,
+                number:true
+              },
+              nacimiento_test: {
+                required: true
+              },
+              agencia_test: {
+                required: true
+              },
+              obs_test: { 
+                required: true
+              },
+              vehiculo_test: {
+                required: true
+              },
+              fecha_test: {
+                required: true
+              },
+              hora_test: {
+                required: true
+              }
+          },
+          showErrors: function (errorMap, errorList) {
+               // Clean up any tooltips for valid elements
+              $.each(this.validElements(), function (index, element) {
+                  var $element = $(element);
+
+                  $element.data("title", "") // Clear the title - there is no error associated anymore
+                      .removeClass("error")
+                      .tooltip("destroy");
+              });
+
+              // Create new tooltips for invalid elements
+              $.each(errorList, function (index, error) {
+                  var $element = $(error.element);
+
+                  $element.tooltip("destroy") // Destroy any pre-existing tooltip so we can repopulate with new tooltip content
+                      .data("title", error.message)
+                      .addClass("error")
+                      .tooltip(); // Create a new tooltip based on the error messsage we just set in the title
+                  });
+
+          }
+    });
+
+    $("#form-mantenimiento").validate({
+        debug: true,
+        submitHandler: function (form) {
+            var parametros = {
+                nombre: $("#mnombre").val(),
+                apellido: $("#mapellido").val(),
+                telefono: $("#mtelefono").val(),
+                email: $("#memail").val(),
+                celular: $("#mcelular").val(),
+                fecha: $("#mfecha").val(),
+                reserva: $("#mreserva").val(),
+                observaciones: $("#mobservaciones").val(),
+                taller: $("#mtaller").val(),
+                comentario: $("#mcomentario").val(),
+                modelo: $("#mmodelo").val(),
+                kilometraje: $("#mkilometraje").val(),
+                regalo: $("#regalo").val(),
+                selectedRegalo: $("#selectedRegalo").val()
+
+            }
+            
+            $.ajax({
+                url: Routing.generate('envio_mantenimiento'),
+                type: 'POST',
+                async: true,
+                data: parametros,
+                dataType: "json",
+                success: function (respuesta) {
+
+                  if (respuesta.codigo == 1 ) {
+                      $('#contenedorEspereMantenimiento').hide();
+                      
+                      $("#btn-cita").removeAttr("disabled");
+                       alert('Su pedido de informaci\u00F3n fu\u00E9 enviado con \u00E9xito');
+                       document.getElementById("form-mantenimiento").reset();
+                       
+                  }else if (respuesta.codigo == 0 ) {
+                        alert(respuesta.mensaje);
+                  }else{
+                    alert("error");
+                  }
+
+                }, 
+                beforeSend: function () {
+                    //$('#contenedorFormMantenimiento').hide();
+                    $("#btn-cita").attr('disabled','disabled');
+                    $('#contenedorEspereMantenimiento').show();
+                },
+                error: function (error) {
+                  console.log("ERROR: " + error);
+                }
+                
+            });
+        },
+        rules: {
+            mnombre: {
+                required: true
+            },
+            mapellido: {
+                required: true
+            },
+            mtelefono: {
+                required: true,
+                minlength:7,
+                maxlength:15,
+                number:true
+            },
+            memail: {
+              required:true,
+              email: true
+            },
+            mcelular: {
+                required: true,
+                minlength:7,
+                maxlength:15,
+                number:true
+            },
+            mfecha: {
+              required: true
+            },
+            mreserva: { 
+              required: true
+            },
+            mobservaciones: {
+              required: true
+            },
+            mtaller: {
+              required: true
+            },
+            mcomentario: {
+              required: true
+            },
+            mmodelo: {
+              required: true
+            },
+            mkilometraje: {
+              required: true
+            },
+            regalo: {
+              required: true
+            }
+
+          },
+          showErrors: function (errorMap, errorList) {
+               // Clean up any tooltips for valid elements
+              $.each(this.validElements(), function (index, element) {
+                  var $element = $(element);
+
+                  $element.data("title", "") // Clear the title - there is no error associated anymore
+                      .removeClass("error")
+                      .tooltip("destroy");
+              });
+
+              // Create new tooltips for invalid elements
+              $.each(errorList, function (index, error) {
+                  var $element = $(error.element);
+
+                  $element.tooltip("destroy") // Destroy any pre-existing tooltip so we can repopulate with new tooltip content
+                      .data("title", error.message)
+                      .addClass("error")
+                      .tooltip(); // Create a new tooltip based on the error messsage we just set in the title
+                  });
+
+          }
+    });
 
     var $validatorvehiculo = $("#cotizarForm").validate({
       debug: true,
@@ -548,11 +793,14 @@ $(document).ready(function(){
 
                 if (respuesta.codigo == 1 ) {
                     $('#contenedorEspereCotizar').hide();
-                    $('#cotizarForm').show();
+                    
+                    $("#enviar").removeAttr("disabled");
                     alert('Su cotizaci\u00F3n fu\u00E9 enviada con \u00E9xito');
-                     //document.getElementById("cotizarForm").reset();
-                     //window.location = Routing.generate('contactenos');
+                    document.getElementById("cotizarForm").reset();
+                    
                     $('#rootwizard').find("a[href*='tab1']").trigger('click');
+
+
                 } else if (respuesta.codigo == 0 ){
                       // error
                 }
@@ -561,7 +809,8 @@ $(document).ready(function(){
                 console.log("ERROR: " + error);
               },
               beforeSend: function () {
-                  $('#cotizarForm').hide();
+                  
+                  $("#enviar").attr('disabled', 'disabled');
                   $('#contenedorEspereCotizar').show();
               }
           });

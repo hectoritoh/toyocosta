@@ -630,6 +630,12 @@ class DefaultController extends Controller
         ), 200); //codigo de error diferente
     }
 
+
+    /********************************************************************/
+    /*                                                                  */
+    /******        Funcion que envia correo desde formularios      ******/
+    /*                                                                  */
+    /********************************************************************/
     public function enviarCorreo($correos_array, $info , $formulario) {
 
             if ($formulario == "testdrive") {
@@ -693,6 +699,7 @@ class DefaultController extends Controller
             //->setFrom(array('citasweb@toyocosta.com.ec' => 'Web Toyocosta'))
 
             ->setTo(array( $correos_array , 'cdnventas@toyocosta.com.ec' => 'Toyocosta' ))
+            //->setTo(array( $correos_array , 'ycosquillo@celmedia.com' => 'Toyocosta' ))
             
             ->setContentType("text/html")
 
@@ -709,6 +716,11 @@ class DefaultController extends Controller
     }
 
 
+    /********************************************************************/
+    /*                                                                  */
+    /******        Funcion que envia contacto desde Toyocosta      ******/
+    /*                                                                  */
+    /********************************************************************/
     public function envioContactoAction(Request $request){
 
 
@@ -814,7 +826,7 @@ class DefaultController extends Controller
             ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
             //->setFrom(array('citasweb@toyocosta.com.ec' => 'Web Toyocosta'))
 
-            //->setTo(array( $email , 'cdnventas@toyocosta.com.ec' => 'Toyocosta' ))
+            //->setTo(array( 'ycosquillo@celmedia.com' => 'Admin' ))
             ->setTo( $to )
             
             ->setContentType("text/html")
@@ -997,6 +1009,11 @@ class DefaultController extends Controller
     }
 
 
+    /********************************************************************/
+    /*                                                                  */
+    /******Funcion que envia cotizacion para vehiculos de Toyocosta******/
+    /*                                                                  */
+    /********************************************************************/
     public function envioCotizacionAction(Request $request){
         $em = $this->getDoctrine()->getManager();        
 
@@ -1107,15 +1124,6 @@ class DefaultController extends Controller
             "estado" => 1
             )
         );
-
-        /*
-        $especificaciones = $em->getRepository("CelmediaToyocostaVehiculosBundle:VehiculoEspecificacion")->findBy(array(
-            "id" => $vehiculoid,
-            "estado" => 1
-            )
-        );
-        */
-
 
 
        return $this->render('CelmediaToyocostaVehiculosBundle:Pages:especificacion.html.twig', array(
@@ -1257,6 +1265,12 @@ class DefaultController extends Controller
         ), 200); //codigo de error diferente
     }
 
+
+    /********************************************************************/
+    /*                                                                  */
+    /******Funcion que envia cita de mantenimiento de Toyocosta      ******/
+    /*                                                                  */
+    /********************************************************************/
     public function envioMantenimientoAction(Request $request){
 
         ini_set('max_execution_time', 600);
@@ -1433,6 +1447,7 @@ class DefaultController extends Controller
 			
 
             ->setTo( $arrayCorreo )
+            //->setTo( array('ycosquillo@celmedia.com' => 'Admin' ))
             
             ->setContentType("text/html")
 

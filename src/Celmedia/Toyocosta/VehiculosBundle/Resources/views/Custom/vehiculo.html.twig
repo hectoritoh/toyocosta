@@ -49,7 +49,7 @@
 				<br />
 				<span class="espacio-a">{{vehiculo.informacion}}</span>
 				<br/>
-				<a href="{{ path('test_drive') }}" class="btn btn-transparent">Test Drive</a>
+				<a href="{{ path('custom_testdrive') }}" class="btn btn-transparent">Test Drive</a>
 				<a href="#cotizar" class="btn btn-transparent">Cotizar</a>
 			</div>
 		</div>
@@ -398,7 +398,10 @@
 										<div class="container-fluid">
 											<div class="row">
 												<div class="col-md-12">
-													<p class="text-center" style="font-size:17px;margin-top:20px;margin-bottom:20px;">¡Ya falta poco! ahora ingresa tus datos para ponernos en contacto</p>
+													<p class="text-center" style="font-size:17px;margin-top:20px;margin-bottom:20px;">
+													¡Ya falta poco! ahora ingresa tus datos para ponernos en contacto<br/>
+													<span id="contenedorEspereCotizar" class="txt-rojo" style="display:none;">Enviando...</span>
+													</p>
 												</div>
 											</div>
 
@@ -447,18 +450,18 @@
 													<div class="row">
 														<div class="col-md-6">
 															<li class="previous first" style="display:none;">
-																<a href="#" class="btn btn-anterior espaciado-a">First</a>
+																<a href="#cotizar" class="btn btn-anterior espaciado-a">First</a>
 															</li>
 															<li class="previous">
-																<a href="#" class="btn btn-anterior espaciado-a">Anterior</a>
+																<a href="#cotizar" class="btn btn-anterior espaciado-a">Anterior</a>
 															</li>
 														</div>
 														<div class="col-md-6">
 															<li class="next">
-																<a href="#" class="btn btn-siguiente espaciado-a">Siguiente</a>
+																<a href="#cotizar" class="btn btn-siguiente espaciado-a">Siguiente</a>
 															</li>
 															<li class="finish" style="display:none;">
-																<a href="javascript:;" class="btn btn-siguiente espaciado-a">Enviar</a>
+																<a id="enviar" href="javascript:;" class="btn btn-siguiente espaciado-a">Enviar</a>
 															</li>
 														</div>
 													</div>

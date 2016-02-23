@@ -57,8 +57,11 @@
                         <div class="col-md-2 text-left col-md-offset-1 col-xs-6">
                             <p class="text-footer">AUTOS</p>
                             <p class="links-footer">
-                                <a class="link-footer" href="#">Corolla</a><br />
-                                <a class="link-footer" href="#">Prius C Sport</a><br />
+                            {% for item in vehiculos_autos %}
+                                <a class="link-footer" href="#">{{item.nombre}}</a><br />
+                            {% endfor %}
+                                {#<a class="link-footer" href="#">Corolla</a><br />
+                                <a class="link-footer" href="#">Prius C Sport</a><br />#}
                             </p>
 
                         </div>
@@ -66,20 +69,26 @@
                         <div class="col-md-2 text-left col-xs-6">
                             <p class="text-footer">TODO TERRENO</p>
                             <p class="links-footer">
-                                <a class="link-footer" href="#">Fortuner</a><br />
+                            {% for item in vehiculos_todoterreno %}
+                                <a class="link-footer" href="#">{{item.nombre}}</a><br />
+                            {% endfor %}
+                                {#<a class="link-footer" href="#">Fortuner</a><br />
                                 <a class="link-footer" href="#">Innova 7</a><br />
                                 <a class="link-footer" href="#">Land Cruiser</a><br />
-                                <a class="link-footer" href="#">Rav 4</a><br /><br />
+                                <a class="link-footer" href="#">Rav 4</a><br /><br />#}
                             </p>
                         </div>
 
                         <div class="col-md-2 text-left col-xs-6">
                             <p class="text-footer">CAMIONETAS</p>
                             <p class="links-footer">
-                                <a class="link-footer" href="#">Hilux 2016 4X2</a><br />
+                            {% for item in vehiculos_camionetas %}
+                                <a class="link-footer" href="#">{{item.nombre}}</a><br />
+                            {% endfor %}
+                                {#<a class="link-footer" href="#">Hilux 2016 4X2</a><br />
                                 <a class="link-footer" href="#">Hilux 2016 4X4</a><br />
                                 <a class="link-footer" href="#">Hilux CD 4X2</a><br />
-                                <a class="link-footer" href="#">Hilux CD 4X4</a><br />
+                                <a class="link-footer" href="#">Hilux CD 4X4</a><br />#}
                             </p>
                         </div>
 

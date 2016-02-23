@@ -127,7 +127,7 @@
             </div>
         </div>
 
-        <div class="row">
+        {#<div class="row">
             <div class="col-md-12">
                 <div class="row">
                     <div class="col-md-12">
@@ -149,7 +149,38 @@
 
                 </div>
             </div>
+        </div>#}
+
+        <div class="row">
+            <div class="col-md-12">   
+                <div id="gallery">
+
+                    <div class="ftg-items">
+                        <div class="ftg-items">
+
+                            {% set y = 0 %}
+                            {% for galeria in seminuevo.galeria %}
+                                
+                                <article class="tile ftg-cat-1">
+                                    <a class="tile-inner example-image-link" data-lightbox="cat-1" href="{{ asset('uploads/seminuevos/'   ~   seminuevo.galeria[ y ].imagen ) }}" rel="galeria">
+                                        
+                                        
+                                        <img src="{{ asset('uploads/seminuevos/'   ~   seminuevo.galeria[ y ].imagen ) }}" alt="{{ seminuevo.modelo }}" class="item"/>
+
+                                    </a>
+                                </article>
+
+                                {% set y = y + 1 %}
+                            {% endfor %}
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
+
+
 
         <div class="separador"></div>
 
@@ -159,7 +190,7 @@
             </div>
         </div>
 
-        <div class="row" style="padding-bottom:50px;">
+        <div id="cotizar" class="row" style="padding-bottom:50px;">
             <div class="row">
                 <div class="col-md-12">
                     <p class="text-center" style="font-size:17px;margin-top:20px;margin-bottom:20px;">Llegamos a la parte de financiamiento ¿Cu&aacute;nto dar&iacute;as de entrada?</p>
@@ -282,15 +313,15 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <li class="previous first" style="display:none;">
-                                                        <a href="#" class="btn btn-anterior espaciado-a">First</a>
+                                                        <a href="#cotizar" class="btn btn-anterior espaciado-a">First</a>
                                                     </li>
                                                     <li class="previous">
-                                                        <a href="#" class="btn btn-anterior espaciado-a">Anterior</a>
+                                                        <a href="#cotizar" class="btn btn-anterior espaciado-a">Anterior</a>
                                                     </li>
                                                 </div>
                                                 <div class="col-md-6">
                                                     <li class="next">
-                                                        <a href="#" class="btn btn-siguiente espaciado-a">Siguiente</a>
+                                                        <a href="#cotizar" class="btn btn-siguiente espaciado-a">Siguiente</a>
                                                     </li>
                                                     <li class="finish" style="display:none;">
                                                         <a href="javascript:;" class="btn btn-siguiente espaciado-a">Enviar</a>
