@@ -797,7 +797,7 @@ class DefaultController extends Controller
 
             }else{
 
-                $to = array('rfernandez@toyocosta.com.ec'=> 'Comentarios o sugerencias');
+                $to = array('servicioalcliente@toyocosta.com.ec'=> 'Comentarios o sugerencias');
                 //$to = array('ycosquillo@celmedia.com'=> 'Comentarios o sugerencias');
                 $requerimiento = "Comentarios o sugerencias";
                 
