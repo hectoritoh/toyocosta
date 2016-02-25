@@ -1298,6 +1298,8 @@ class DefaultController extends Controller
 
             $seleccionoRegalo = $request->request->get('selectedRegalo');
 
+            $formulario = $request->request->get('formulario');
+
 
 
             if(!$nombre || !$apellido || !$telefono || !$email || !$celular || !$fecha || !$reservaid || !$observaciones || !$tallerid ){
@@ -1407,9 +1409,26 @@ class DefaultController extends Controller
 
 
 
-      
 
-            $arrayCorreo = array( $email => 'Usuario' );
+
+            $arrayCorreo = array();
+
+
+            if($formulario == "citatalleres" || $formulario == "mantenimientoexpress" ){
+                $arrayCorreo = array('citasweb@toyocosta.com.ec'=> 'Citas Talleres - Mantenimiento Express' );
+                //$arrayCorreo = array('ycosquillo@celmedia.com'=> 'Citas Talleres - Mantenimiento Express');                
+
+            }elseif($formulario == "tallermovil"){
+
+                $arrayCorreo = array('tallermovil@toyocosta.com.ec'=> 'Taller Movil');
+                //$arrayCorreo = array('ycosquillo@celmedia.com'=> 'Taller Movil');
+                
+
+            }else{
+                $arrayCorreo = array('citasweb@toyocosta.com.ec'=> 'Citas Talleres - Mantenimiento Express');
+                //$arrayCorreo = array('ycosquillo@celmedia.com'=> 'Otro');
+            }
+
 
 
             foreach ( $taller->getContactos() as $item) {
@@ -1423,8 +1442,9 @@ class DefaultController extends Controller
 			//die();
 
 
-            $subject = "Cita de Mantenimiento desde Toyocosta";
-            $body = '<strong>Informaci&oacute;n de Cita de Mantenimiento:</strong> <br /><br />
+            $subject = "Solicitud de Servicios desde Toyocosta";
+            $body = '<strong>Informaci&oacute;n de Solicitud:</strong> <br /><br />
+            Formulario:  '.$formulario.' <br /><br />
             Nombre:  '.$mantenimiento->getNombre().' <br />
             Apellido:   '. $mantenimiento->getApellido() .' <br />
             Email:  '. $mantenimiento->getEmail() .' <br />

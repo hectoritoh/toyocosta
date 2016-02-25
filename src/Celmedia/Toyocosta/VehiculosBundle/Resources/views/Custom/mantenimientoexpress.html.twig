@@ -56,6 +56,7 @@
 
         <form id="form-mantenimiento" class="form-info contenedor-centrar" enctype="multipart/form-data" >
 
+            <input type="hidden"  id="formulario" name="formulario"   value="mantenimientoexpress"  />
             <div class="row">
                 <div class="col-md-12">
 
@@ -306,10 +307,10 @@
 
                                 <div class="row space-input">
                                     <div class="col-md-10 col-md-offset-1" style="padding-top:20px;">
-
+                                        <h5 id="contenedorEspereMantenimiento" class="text-center" style="display:none;color:#df1928;">Enviando...</h5>
                                         <div class="row">
                                             <div class="col-md-2 col-md-offset-5">
-                                                <input type="submit" value="Enviar" class="btn btn-toyocosta" style="width:100%;">
+                                                <input id="btn-cita" type="submit" value="Enviar" class="btn btn-toyocosta" style="width:100%;">
                                             </div>
                                         </div>  
                                     </div>

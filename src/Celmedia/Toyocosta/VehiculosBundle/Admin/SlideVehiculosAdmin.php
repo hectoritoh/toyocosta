@@ -182,25 +182,25 @@ class SlideVehiculosAdmin extends Admin
             ;
                         
         }
-        if ($object->getImagenThumb() === null ) {
-            // nombre cannot be empty when the post is enabled
-            $errorElement
-                ->with('FileThumb')
-                    ->assertNotNull()
-                ->end()
-            ;
+        // if ($object->getImagenThumb() === null ) {
+        //     // nombre cannot be empty when the post is enabled
+        //     $errorElement
+        //         ->with('FileThumb')
+        //             ->assertNotNull()
+        //         ->end()
+        //     ;
                         
-        }
+        // }
 
-        if ($object->getLogo() === null ) {
-            // nombre cannot be empty when the post is enabled
-            $errorElement
-                ->with('FileLogo')
-                    ->assertNotNull()
-                ->end()
-            ;
+        // if ($object->getLogo() === null ) {
+        //     // nombre cannot be empty when the post is enabled
+        //     $errorElement
+        //         ->with('FileLogo')
+        //             ->assertNotNull()
+        //         ->end()
+        //     ;
                         
-        }
+        // }
 
 
     }

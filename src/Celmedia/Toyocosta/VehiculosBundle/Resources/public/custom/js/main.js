@@ -591,7 +591,8 @@ $(document).ready(function(){
                 modelo: $("#mmodelo").val(),
                 kilometraje: $("#mkilometraje").val(),
                 regalo: $("#regalo").val(),
-                selectedRegalo: $("#selectedRegalo").val()
+                selectedRegalo: $("#selectedRegalo").val(),
+                formulario: $("#formulario").val()
 
             }
             

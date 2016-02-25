@@ -50,7 +50,10 @@
 				<span class="espacio-a">{{vehiculo.informacion}}</span>
 				<br/>
 				<a href="{{ path('custom_testdrive') }}" class="btn btn-transparent">Test Drive</a>
-				<a href="#cotizar" class="btn btn-transparent">Cotizar</a>
+				{% if vehiculo.ficha %}
+
+				<a href="{{ asset('uploads/vehiculo/ficha/'   ~   vehiculo.ficha ) }}" target="_blank" class="btn btn-transparent">Ficha T&eacute;cnica</a>
+				{% endif %}
 			</div>
 		</div>
 

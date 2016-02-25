@@ -613,6 +613,7 @@ footer{
     text-transform: uppercase;
     font-weight: 700;
     color: #333333;
+    font-size: 12px;
 }
 .link-submenu:hover, .link-submenu:focus, .link-submenu:active{
 	color: #D62C2F;
@@ -620,6 +621,7 @@ footer{
 .nombre-submenu{
 	font-family: 'latolight';
     text-transform: uppercase;
+    font-size: 12px;
 }
 .nav-tabs.nav-taller>.active>a, .nav-tabs.nav-taller>.active>a:focus, .nav-tabs.nav-taller>.active>a:hover {
     border-bottom-color: #fff;

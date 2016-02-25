@@ -46,14 +46,14 @@
                 {% for auto in vehiculos_autos %}
                     
                     <div class="col-md-3 text-center">
-                        <div class="nombre-submenu">{{ auto.nombre }}</div>
+                        <div class="nombre-submenu" style="margin-top:15px;">{{ auto.nombre }}</div>
                         <img src="{{ asset('uploads/vehiculo/thumb/' ~ auto.imagenThumb ) }}" alt="" class="img-responsive img-center" />
                         <br/>
-                        <a class="link-submenu" href="#">Explorar</a>
+                        <a class="link-submenu" href="{{ path('custom_vehiculo', {"categoria": auto.categoria.nombre,"nombre": auto.nombre ,'id': auto.id } )  }}">Explorar</a>
                         <br/>
                         <div class="sp"></div>
 
-                        <a class="link-submenu" href="#">Cotizar</a>
+                        <a class="link-submenu" href="{{ path('custom_vehiculo', {"categoria": auto.categoria.nombre,"nombre": auto.nombre ,'id': auto.id } )  }}#cotizar">Cotizar</a>
                         
                         
                     </div>
@@ -76,14 +76,14 @@
                 {% for camioneta in vehiculos_camionetas %}
                     
                     <div class="col-md-3 text-center">
-                        <div class="nombre-submenu">{{ camioneta.nombre }}</div>
+                        <div class="nombre-submenu" style="margin-top:15px;">{{ camioneta.nombre }}</div>
                         <img src="{{ asset('uploads/vehiculo/thumb/' ~ camioneta.imagenThumb ) }}" alt="" class="img-responsive img-center" />
                         <br/>
-                        <a class="link-submenu" href="#">Explorar</a>
+                        <a class="link-submenu" href="{{ path('custom_vehiculo', {"categoria": camioneta.categoria.nombre,"nombre": camioneta.nombre ,'id': camioneta.id } )  }}">Explorar</a>
                         <br/>
                         <div class="sp"></div>
 
-                        <a class="link-submenu" href="#">Cotizar</a>
+                        <a class="link-submenu" href="{{ path('custom_vehiculo', {"categoria": camioneta.categoria.nombre,"nombre": camioneta.nombre ,'id': camioneta.id } )  }}#cotizar">Cotizar</a>
                         
                         
                     </div>
@@ -106,14 +106,14 @@
                 {% for todoterreno in vehiculos_todoterreno %}
                     
                     <div class="col-md-3 text-center">
-                        <div class="nombre-submenu">{{ todoterreno.nombre }}</div>
+                        <div class="nombre-submenu" style="margin-top:15px;">{{ todoterreno.nombre }}</div>
                         <img src="{{ asset('uploads/vehiculo/thumb/' ~ todoterreno.imagenThumb ) }}" alt="" class="img-responsive img-center" />
                         <br/>
-                        <a class="link-submenu" href="#">Explorar</a>
+                        <a class="link-submenu" href="{{ path('custom_vehiculo', {"categoria": todoterreno.categoria.nombre,"nombre": todoterreno.nombre ,'id': todoterreno.id } )  }}">Explorar</a>
                         <br/>
                         <div class="sp"></div>
 
-                        <a class="link-submenu" href="#">Cotizar</a>
+                        <a class="link-submenu" href="{{ path('custom_vehiculo', {"categoria": todoterreno.categoria.nombre,"nombre": todoterreno.nombre ,'id': todoterreno.id } )  }}#cotizar">Cotizar</a>
                         
                         
                     </div>

@@ -14,10 +14,10 @@ Celmedia\Toyocosta\VehiculosBundle\Entity\SlideVehiculos:
             nullable: false
         imagen_thumb:
             type: text
-            nullable: false
+            nullable: true
         logo:
             type: text
-            nullable: false
+            nullable: true
         menu_posicion:
             type: integer
             nullable: false

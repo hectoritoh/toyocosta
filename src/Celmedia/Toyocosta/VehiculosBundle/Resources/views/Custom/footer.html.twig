@@ -58,7 +58,7 @@
                             <p class="text-footer">AUTOS</p>
                             <p class="links-footer">
                             {% for item in vehiculos_autos %}
-                                <a class="link-footer" href="#">{{item.nombre}}</a><br />
+                                <a class="link-footer" href="{{ path('custom_vehiculo', {"categoria": item.categoria.nombre,"nombre": item.nombre ,'id': item.id } )  }}">{{item.nombre}}</a><br />
                             {% endfor %}
                                 {#<a class="link-footer" href="#">Corolla</a><br />
                                 <a class="link-footer" href="#">Prius C Sport</a><br />#}
@@ -70,7 +70,7 @@
                             <p class="text-footer">TODO TERRENO</p>
                             <p class="links-footer">
                             {% for item in vehiculos_todoterreno %}
-                                <a class="link-footer" href="#">{{item.nombre}}</a><br />
+                                <a class="link-footer" href="{{ path('custom_vehiculo', {"categoria": item.categoria.nombre,"nombre": item.nombre ,'id': item.id } )  }}">{{item.nombre}}</a><br />
                             {% endfor %}
                                 {#<a class="link-footer" href="#">Fortuner</a><br />
                                 <a class="link-footer" href="#">Innova 7</a><br />
@@ -83,7 +83,7 @@
                             <p class="text-footer">CAMIONETAS</p>
                             <p class="links-footer">
                             {% for item in vehiculos_camionetas %}
-                                <a class="link-footer" href="#">{{item.nombre}}</a><br />
+                                <a class="link-footer" href="{{ path('custom_vehiculo', {"categoria": item.categoria.nombre,"nombre": item.nombre ,'id': item.id } )  }}">{{item.nombre}}</a><br />
                             {% endfor %}
                                 {#<a class="link-footer" href="#">Hilux 2016 4X2</a><br />
                                 <a class="link-footer" href="#">Hilux 2016 4X4</a><br />
@@ -95,7 +95,7 @@
                         <div class="col-md-2 text-left col-xs-6">
                             <p class="text-footer">OTRAS LINEAS</p>
                             <p class="links-footer">
-                                <a class="link-footer" href="#">Seminuevos</a><br />
+                                <a class="link-footer" href="{{path('usados')}}">Seminuevos</a><br />
                                 <a class="link-footer" href="#">Motos</a><br />
                                 <a class="link-footer" href="#">Montacargas</a><br />
                                 <a class="link-footer" href="#">Pirelli</a><br /><br />
@@ -104,9 +104,9 @@
 
                         <div class="col-md-2 text-left col-xs-6">
                             <p class="text-footer">SERVICIOS</p>
-                            <a class="link-footer" href="#">Cita de Mantenimiento</a><br /><br />
-                            <a class="link-footer" href="#">Revisi&oacute;n Vehicular</a><br /><br />
-                            <a class="link-footer" href="#">Mantenimiento express</a><br />
+                            <a class="link-footer" href="{{path('custom_cita')}}">Cita Talleres</a><br /><br />
+                            <a class="link-footer" href="{{path('custom_tallermovil')}}">Taller M&oacute;vil</a><br /><br />
+                            <a class="link-footer" href="{{path('custom_mantenimientoexpress')}}">Mantenimiento express</a><br />
                             
                         </div>
 
