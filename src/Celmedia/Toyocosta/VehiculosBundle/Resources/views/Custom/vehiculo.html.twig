@@ -311,6 +311,7 @@
 													<div class="form-group">
 														<h5 class="tab-txt">Modelo</h5>	
 														<select id="vselectmodelo" name="vselectmodelo" class="form-control vselectmodelo select-custom required" onchange="modeloSelected(this);">
+															<option value="0">Seleccione un modelo</option>
 															{% for vehiculoModelo  in vehiculoModelos %}
 																<option value="{{ vehiculoModelo.id }}">{{ vehiculoModelo.nombre }}</option>
 															{% endfor %}
