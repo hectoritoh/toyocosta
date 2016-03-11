@@ -486,6 +486,13 @@ landing_navidad_2015:
 
 
 
+landing_promo_rav4:
+    path:      /landing/promorav4
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:promorav }
+
+
+
+
 
 envio_landing:
     path:      /landing/form

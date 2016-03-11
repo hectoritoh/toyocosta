@@ -154,20 +154,22 @@
 	              						<div class="container-fluid">
 	              							<img src="{{ asset('uploads/vehiculo/modelo/' ~ item.imagenModelo ) }}" alt="" class="img-responsive" style="width:100%;" />
 	              						</div>
-	              						<div id="content-modelos" class="container-fluid">
-	              							<div class="col-md-12">
-	              								<h3>{{item.nombre}}</h3>
-	              							</div>
-		              						<div class="col-md-7">
-	              								<span>{{ item.descripcion }}</span>
-	              							</div>
+	              						<div class="container-fluid">
+	              							<div class="col-md-12" style=" background-color: rgba(0,0,0,0.4);bottom: 115px;color:#FFFFFF;">
+	              								<div class="col-md-12">
+		              								<h3>{{item.nombre}}</h3>
+		              							</div>
+			              						<div class="col-md-7">
+		              								<span>{{ item.descripcion }}</span>
+		              							</div>
 
-	              							<div class="col-md-3 col-md-offset-2">
-	              								<h4 class="text-precios">
-	              								SIN IVA: <span class="valor">${{ item.precio }}</span><br/>
-	              								CON IVA: <span class="valor">${{ item.precioNeto }}</span>
-	              								</h4>
+		              							<div class="col-md-3 col-md-offset-2">
+		              								<h4 class="text-precios">
+		              								SIN IVA: <span class="valor">${{ item.precio }}</span><br/>
+		              								CON IVA: <span class="valor">${{ item.precioNeto }}</span>
+		              								</h4>
 
+		              							</div>
 	              							</div>
 		              					</div>
 								    </div>		              						
