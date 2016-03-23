@@ -21,7 +21,9 @@ usados_descripcion:
     pattern:  /usados/{nomsemi}/{idsemi}
     defaults: { _controller: CelmediaToyocostaSeminuevoBundle:Default:usadoDescripcion }
 
-
+usados_buscador:
+    pattern:  /buscador/usados
+    defaults: { _controller: CelmediaToyocostaSeminuevoBundle:Default:buscadorUsados }
 
 
 

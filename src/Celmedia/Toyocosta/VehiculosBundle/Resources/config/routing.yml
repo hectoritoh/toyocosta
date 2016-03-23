@@ -66,7 +66,7 @@ custom_mantenimientoexpress:
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Custom:mantenimientoexpress }
 
 custom_postventa:
-    path:      /postventa
+    path:      /posventa
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Custom:postventa }
 
 custom_vehiculos:
@@ -489,6 +489,10 @@ landing_navidad_2015:
 landing_promo_rav4:
     path:      /landing/promorav4
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:promorav }
+
+landing_hilux:
+    path:      /landing/hilux
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:hiluxSupera }
 
 
 

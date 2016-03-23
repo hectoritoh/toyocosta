@@ -5,8 +5,8 @@
                 <div class="styled-select">
                     <select name="selectmodelo" id="selectmodelo" class="form-control select-filtro selectcmb">
                         <option class="style-option" value="">Marca</option>
-                        {% for sm_modelo in modelos %}
-                            <option class="style-option" value="{{ sm_modelo.modelo }}" {% if seminuevo_modelo == sm_modelo.modelo %} selected="selected" {% endif %} >{{ sm_modelo.modelo }}</option>
+                        {% for sm_marca in marcas %}
+                            <option class="style-option" value="{{ sm_marca.marca }}" {% if seminuevo_marca == sm_marca.marca %} selected="selected" {% endif %} >{{ sm_marca.marca }}</option>
                         {% endfor %}
                     </select>
                 </div>
@@ -45,7 +45,7 @@
             <div class="col-md-2" >
                 <div class="styled-select">
                     <select name="selectprovincia" id="selectprovincia" class="form-control select-filtro selectcmb">
-                        <option class="style-option" value="">Provincia</option>
+                        <option class="style-option" value="">Ciudad</option>
                         {% for sm_provincia in provincias %}
                         <option class="style-option" value="{{ sm_provincia.ubicacion }}" {% if seminuevo_provincia == sm_provincia.ubicacion %} selected {% endif %} >{{ sm_provincia.ubicacion }}</option>
                         {% endfor %}

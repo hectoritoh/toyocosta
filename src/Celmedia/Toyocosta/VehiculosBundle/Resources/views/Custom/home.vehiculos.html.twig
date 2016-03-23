@@ -4,17 +4,37 @@
                 <div class="row text-center">
 
                     <div class="col-md-4">
-                        
                         <div class="row">
+                            {% for camioneta in camionetas %}
+                                {% if loop.first %}
+
+                                    <figure class="imghome" >
+                                        {#{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/accesos/camionetas/hilux-2016-4X2.jpg' %}
+                                        <img src="{{ asset_url }}" alt="" class="img-responsive"/>
+                                        {% endimage %}#}
+                                        <img src="{{ asset('uploads/slide-vehiculos/portada/'  ~   camioneta.imagenSlide ) }}" alt="" class="img-responsive" />
+                                        <figcaption>    
+                                            <div class="caption">
+                                                <h2 class="title-accesos">Camionetas</h2>
+                                                <a href="{{ path('custom_vehiculo', {"categoria": "Camionetas" ,"nombre": camioneta.vehiculoSlide.nombre ,'id': camioneta.vehiculoSlide.id } )  }}">
+                                                    <div class="btn btn-home">Explorar {{camioneta.vehiculoSlide.nombre }}</div>
+                                                </a>
+                                                <p>
+                                                    <a href="{{path('custom_vehiculos')}}" target="_blank" style="background-color: transparent; text-decoration:none;color: #fff;">Ver todas los camionetas</a>
+                                                </p>
+                                            </div>
+                                            <a href="http://www.toyocosta.com/blog">Ver todas los camionetas</a>
+                                        </figcaption> 
+                                    </figure> 
+
+                                {% endif %}
+                            {% endfor %}
+                        </div>
+                        
+                        {#<div class="row">
                             {% for item in autos  %}
                                 {% if loop.first %}
                                     <figure class="imghome" >
-
-
-                                        
-                                        {#{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/accesos/autos/corolla.jpg' %}
-                                        <img src="{{ asset_url }}" alt="" class="img-responsive"/>
-                                        {% endimage %}#}
 
                                         <img src="{{ asset('uploads/slide-vehiculos/portada/'  ~   item.imagenSlide ) }}" alt="" class="img-responsive" />
 
@@ -36,65 +56,56 @@
                                 {% endif %}
                             {% endfor %}
 
-                        </div>
+                        </div>#}
 
                     </div>
                     <div class="col-md-4">
                         <div class="row">
-                        {% for camioneta in camionetas %}
-                            {% if loop.first %}
+                            {% for row in todoterreno %}
+                                {% if loop.first %}
 
-                                <figure class="imghome" >
-                                    {#{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/accesos/camionetas/hilux-2016-4X2.jpg' %}
-                                    <img src="{{ asset_url }}" alt="" class="img-responsive"/>
-                                    {% endimage %}#}
-                                    <img src="{{ asset('uploads/slide-vehiculos/portada/'  ~   camioneta.imagenSlide ) }}" alt="" class="img-responsive" />
-                                    <figcaption>    
-                                        <div class="caption">
-                                            <h2 class="title-accesos">Camionetas</h2>
-                                            <a href="{{ path('custom_vehiculo', {"categoria": "Camionetas" ,"nombre": camioneta.vehiculoSlide.nombre ,'id': camioneta.vehiculoSlide.id } )  }}">
-                                                <div class="btn btn-home">Explorar {{camioneta.vehiculoSlide.nombre }}</div>
-                                            </a>
-                                            <p>
-                                                <a href="{{path('custom_vehiculos')}}" target="_blank" style="background-color: transparent; text-decoration:none;color: #fff;">Ver todas los camionetas</a>
-                                            </p>
-                                        </div>
-                                        <a href="http://www.toyocosta.com/blog">Ver todas los camionetas</a>
-                                    </figcaption> 
-                                </figure> 
+                                    <figure class="imghome" >
+                                        {#{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/accesos/todoterreno/fortuner.jpg' %}
+                                        <img src="{{ asset_url }}" alt="" class="img-responsive"/>
+                                        {% endimage %}#}
+                                        <img src="{{ asset('uploads/slide-vehiculos/portada/'  ~   row.imagenSlide ) }}" alt="" class="img-responsive" />
 
-                            {% endif %}
-                        {% endfor %}
+                                        <figcaption>    
+                                            <div class="caption">
+                                                <h2 class="title-accesos">Todo Terreno</h2>
+                                                <a href="{{ path('custom_vehiculo', {"categoria": "TodoTerreno" ,"nombre": row.vehiculoSlide.nombre ,'id': row.vehiculoSlide.id } )  }}">
+                                                    <div class="btn btn-home">Explorar {{row.vehiculoSlide.nombre }}</div>
+                                                </a>
+                                                <p>
+                                                    <a href="{{path('custom_vehiculos')}}" target="_blank" style="background-color: transparent; text-decoration:none;color: #fff;">Ver todo terreno</a>
+                                                </p>
+                                            </div>
+                                            <a href="http://www.toyocosta.com/blog">Ver todo terreno</a>
+                                        </figcaption> 
+                                    </figure> 
+
+                                {% endif %}
+                            {% endfor %}
                         </div>
                     </div>
                     <div class="col-md-4">
                         <div class="row">
-                        {% for row in todoterreno %}
-                            {% if loop.first %}
-
-                                <figure class="imghome" >
-                                    {#{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/accesos/todoterreno/fortuner.jpg' %}
-                                    <img src="{{ asset_url }}" alt="" class="img-responsive"/>
-                                    {% endimage %}#}
-                                    <img src="{{ asset('uploads/slide-vehiculos/portada/'  ~   row.imagenSlide ) }}" alt="" class="img-responsive" />
-
-                                    <figcaption>    
-                                        <div class="caption">
-                                            <h2 class="title-accesos">Todo Terreno</h2>
-                                            <a href="{{ path('custom_vehiculo', {"categoria": "TodoTerreno" ,"nombre": row.vehiculoSlide.nombre ,'id': row.vehiculoSlide.id } )  }}">
-                                                <div class="btn btn-home">Explorar {{row.vehiculoSlide.nombre }}</div>
-                                            </a>
-                                            <p>
-                                                <a href="{{path('custom_vehiculos')}}" target="_blank" style="background-color: transparent; text-decoration:none;color: #fff;">Ver todo terreno</a>
-                                            </p>
-                                        </div>
-                                        <a href="http://www.toyocosta.com/blog">Ver todo terreno</a>
-                                    </figcaption> 
-                                </figure> 
-
-                            {% endif %}
-                        {% endfor %}
+                            <figure class="imghome" >
+                                {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/accesos/exonerados.jpg' %}
+                                <img src="{{ asset_url }}" alt="" class="img-responsive"/>
+                                {% endimage %}
+                                <figcaption>    
+                                    <div class="caption" style="padding-bottom:20px;">
+                                        <h2 class="title-accesos">Exonerados</h2>
+                                        <a href="{{path('usados')}}">
+                                            <div class="btn btn-home">Ver m&aacute;s</div>
+                                        </a>                                        
+                                    </div>
+                                </figcaption> 
+                            </figure> 
                         </div>
+                        
+                        
                     </div>
                 </div>
                 

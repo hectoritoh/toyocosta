@@ -69,11 +69,18 @@ class DefaultController extends Controller
 
     }
 
-    public function getFiltrosUsadosAction( $seminuevo_modelo , $seminuevo_anio, $seminuevo_precio, $seminuevo_provincia, $seminuevo_estado )
+    public function getFiltrosUsadosAction( $seminuevo_marca , $seminuevo_modelo , $seminuevo_anio, $seminuevo_precio, $seminuevo_provincia, $seminuevo_estado )
     {
 
         $em = $this->getDoctrine()->getManager();
         $repository = $this->getDoctrine()->getRepository('CelmediaToyocostaSeminuevoBundle:Seminuevo');
+
+        $query0 = $repository->createQueryBuilder('ma')
+            ->where("ma.estado_publicacion = '1' ")
+            ->groupBy('ma.marca')
+            ->orderBy('ma.marca', 'ASC')
+            ->getQuery();
+        $marcas = $query0->getResult();
 
         $query1 = $repository->createQueryBuilder('mo')
             ->where("mo.estado_publicacion = '1' ")
@@ -111,11 +118,13 @@ class DefaultController extends Controller
         $estados = $query5->getResult();
 
         return $this->render('CelmediaToyocostaSeminuevoBundle:Custom:filtros.html.twig' ,  array( 
+            "marcas" => $marcas,
             "modelos" => $modelos,
             "anios" => $anios,
             "precios" => $precios,
             "provincias" => $provincias,
             "estados" => $estados,
+            "seminuevo_marca" => $seminuevo_marca,
             "seminuevo_modelo" => $seminuevo_modelo,
             "seminuevo_anio" => $seminuevo_anio,
             "seminuevo_precio" => $seminuevo_precio,
@@ -123,6 +132,71 @@ class DefaultController extends Controller
             "seminuevo_estado" => $seminuevo_estado
         ));
     }
+
+
+    public function buscadorUsadosAction(Request $request){
+
+        $em = $this->getDoctrine()->getManager();
+        $repository = $em->getRepository('CelmediaToyocostaSeminuevoBundle:Seminuevo');
+
+
+        $marca = $request->get('selectmarca');
+        $modelo = $request->get('selectmodelo');
+        $anio = $request->get('selectanio');
+        $precio = $request->get('selectprecio');
+        $provincia = $request->get('selectprovincia');
+        $estado = $request->get('selectestado');
+
+        $querySM = $repository->createQueryBuilder('sm')
+            ->where("sm.estado_publicacion = '1' ");
+
+        if($marca){
+            $querySM->andWhere("sm.marca LIKE :marca")
+            ->setParameter('marca', '%' . $marca . '%');
+        }
+        if($modelo){
+            $querySM->andWhere("sm.modelo LIKE :modelo")
+            ->setParameter('modelo', '%' . $modelo . '%');
+        }
+        if($anio){
+            $querySM->andWhere("sm.anio = :anio")
+            ->setParameter('anio', $anio);
+        }
+        if($precio){
+            $querySM->andWhere("sm.precio <= :precio ")
+            ->setParameter('precio', $precio);
+        }
+        if($provincia){
+            $querySM->andWhere("sm.ubicacion LIKE :provincia ")
+            ->setParameter('provincia', '%' . $provincia . '%');
+        }
+        if($estado){
+            $querySM->andWhere("sm.estado = :estado ")
+            ->setParameter('estado', $estado);
+        }
+
+        $seminuevos = $querySM->getQuery()->getResult();
+
+
+        $banners = $this->getDoctrine()->getRepository("CelmediaToyocostaVehiculosBundle:SlidePrincipal")->findBy(array(
+            "estado" => 1 , "seccion" => "seminuevo"
+                )
+        );
+
+        return $this->render('CelmediaToyocostaSeminuevoBundle:Custom:seminuevos.html.twig', array(
+                "seminuevos" => $seminuevos,
+                "seminuevo_marca" => $marca,
+                "seminuevo_modelo" => $modelo,
+                "seminuevo_anio" => $anio,
+                "seminuevo_precio" => $precio,
+                "seminuevo_provincia" => $provincia,
+                "seminuevo_estado" => $estado,
+                "banners" => $banners
+            )
+        );
+    }
+
+
 
 
 

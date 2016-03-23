@@ -40,14 +40,14 @@
                     <div class="col-md-3">
                         <div class="row">
                             <figure class="imghome" >
-                                {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/accesos/aprilia.jpg' %}
+                                {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/accesos/postventa.jpg' %}
                                 <img src="{{ asset_url }}" alt="" class="img-responsive"/>
                                 {% endimage %}
                                 <figcaption>    
                                     <div class="caption" style="padding-bottom:20px;">
-                                        <h2 class="title-accesos">Otras Lineas</h2>
-                                        <a href="#">
-                                            <div class="btn btn-home">Motos</div>
+                                        <h2 class="title-accesos">Posventa</h2>
+                                        <a href="{{path('custom_postventa')}}">
+                                            <div class="btn btn-home">Ver m&aacute;s</div>
                                         </a> 
                                         {#<a href="#">
                                             <div class="btn btn-home">Llantas Pirelli</div>
@@ -68,9 +68,15 @@
                                 {% endimage %}
                                 <figcaption>    
                                     <div class="caption" style="padding-bottom:20px;">
-                                        <h2 class="title-accesos">Cita Talleres</h2>
+                                        <h2 class="title-accesos">Servicios</h2>
                                         <a href="{{path('custom_cita')}}">
-                                            <div class="btn btn-home">Ver m&aacute;s</div>
+                                            <div class="btn btn-home">Cita Talleres</div>
+                                        </a>
+                                        <a href="{{path('custom_tallermovil')}}">
+                                            <div class="btn btn-home">Taller M&oacute;vil</div>
+                                        </a>
+                                        <a href="{{path('custom_mantenimientoexpress')}}">
+                                            <div class="btn btn-home">Mantenimiento express</div>
                                         </a>                                        
                                     </div>
                                 </figcaption> 

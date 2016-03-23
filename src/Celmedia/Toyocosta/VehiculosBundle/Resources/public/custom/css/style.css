@@ -117,15 +117,15 @@ body{
     margin-right: 15px;
 }
 .txt-smprecio{
-	color: #5980AB;
+	color: #df1928;
     font-family: 'latobold';
     font-size: 18px;
     letter-spacing: 1px;
     text-align: right;
 }
 .txt-disponibilidad{
-	color: #7BAC15;
-	font-size: 16px;
+	color: #848484;
+	font-size: 12px;
 }
 .ico-calendar{
 	background-image: url('../../../../bundles/celmediatoyocostavehiculos/custom/img/icon/calendario.png');
@@ -149,7 +149,7 @@ body{
     margin-right: 5px;
 }
 .semi-title{
-	color: #cccccc;
+	color: #848484;
 	margin-bottom: 5px;
 }
 .semi-content{
@@ -159,9 +159,9 @@ body{
 	margin-bottom: 5px;
 }
 .txt-prox{
-	color: #DE192D;
-	font-family: 'latobold';
-    font-size: 18px;
+	color: #848484;
+    /* font-family: 'latobold'; */
+    font-size: 12px;
 }
 .contenedorProducto{
 	margin-bottom: 20px;
@@ -181,9 +181,9 @@ body{
 	text-transform: uppercase;
 }
 .semi-precio{
-	color: #5980AB;
+	color: #df1928;
     font-family: 'latobold';
-    margin: 0px;
+    margin-top: 0px;
 }
 .tag{
 	float: left;
@@ -259,7 +259,26 @@ body{
     padding-bottom: 15px;
     font-family: 'latoitalic';
 }
-
+.circle-disp{
+	width: 11px;
+    height: 11px;
+    background-color: green;
+    float: left;
+    top: 4px;
+    position: relative;
+    margin-right: 5px;
+    border-radius: 10px;
+}
+.circle-prox{
+	width: 11px;
+    height: 11px;
+    background-color: #df1928;
+    float: left;
+    top: 4px;
+    position: relative;
+    margin-right: 5px;
+    border-radius: 10px;
+}
 
 /*EXONERADOS*/
 .sinpd{

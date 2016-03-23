@@ -15,7 +15,10 @@
 
         <header>
             
-            <img src="{{ asset('uploads/custom/talleres-y-servicios.jpg' ) }}" alt="" class="img-responsive" style="width:100%;" />
+            {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/talleres-y-servicios.jpg' %}
+            <img src="{{ asset_url }}" id="logoblanco" alt="Toyocosta" class="img-responsive"  style="width:100%;" />
+            {% endimage %}
+
 
         </header>
     

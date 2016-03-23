@@ -27,7 +27,11 @@
 	<div class="container-fluid buscador-seminuevo bg-black">
         <div class="row">
 
-            <form class="col-md-8 col-md-offset-2" name="buscador" action="{{ path('seminuevos_buscador') }}" method="post" style="padding:0px;" >
+            <form class="col-md-8 col-md-offset-2" name="buscador" action="{{ path('usados_buscador') }}" method="post" style="padding:0px;" >
+                
+                {% if seminuevo_marca is not defined or seminuevo_marca is null %}
+                    {% set seminuevo_marca = "0" %}
+                {% endif %}
                 {% if seminuevo_modelo is not defined or seminuevo_modelo is null %}
                     {% set seminuevo_modelo = "0" %}
                 {% endif %}
@@ -44,7 +48,7 @@
                     {% set seminuevo_estado = "0" %}
                 {% endif %}
 
-                {{ render(controller("CelmediaToyocostaSeminuevoBundle:Default:getFiltrosUsados" , { 'seminuevo_modelo': seminuevo_modelo, 'seminuevo_anio': seminuevo_anio, 'seminuevo_precio': seminuevo_precio, 'seminuevo_provincia': seminuevo_provincia, 'seminuevo_estado': seminuevo_estado } ) ) }}
+                {{ render(controller("CelmediaToyocostaSeminuevoBundle:Default:getFiltrosUsados" , { 'seminuevo_marca': seminuevo_marca, 'seminuevo_modelo': seminuevo_modelo, 'seminuevo_anio': seminuevo_anio, 'seminuevo_precio': seminuevo_precio, 'seminuevo_provincia': seminuevo_provincia, 'seminuevo_estado': seminuevo_estado } ) ) }}
             </form>
 
         </div>
@@ -92,7 +96,7 @@
                                             </div>
                                             
                                             <div class="row relleno">
-                                                <div class="col-md-12">
+                                                <div class="col-md-12" style="min-height: 50px;">
                                                     <h5 class="text-modelo">
                                                         {{ seminuevo.modelo }}
                                                     </h5>
@@ -115,13 +119,15 @@
                                             </div>
 
                                             <div class="row relleno">
-                                                <div class="col-md-7 col-xs-7">
+                                                <div class="col-md-7 col-xs-7" style="padding-top: 7px;">
                                                         {% if seminuevo.estado == 1 %}
+                                                            <span class="circle-disp"></span>
                                                             <p class="txt-disponibilidad">
                                                                 {# 1 => 'Disponible' #}
                                                                 Disponible
                                                             </p>
                                                         {% elseif seminuevo.estado == 2 %}
+                                                            <span class="circle-prox"></span>
                                                             <p class="txt-prox">
                                                                 {# 2 => 'Proximammente' #}
                                                                 Próximamente
@@ -140,7 +146,7 @@
                                             </div>
                                         </div>
                                         <div class="row btn-toggle" style="display: none;">
-                                            <a href="#">
+                                            <a href="{{path('usados_descripcion', {"nomsemi": seminuevo.marca, "idsemi": seminuevo.id } )}}">
                                                 <div class="col-md-12 col-xs-12 btn btn-black">
                                                     Ver más
                                                 </div>

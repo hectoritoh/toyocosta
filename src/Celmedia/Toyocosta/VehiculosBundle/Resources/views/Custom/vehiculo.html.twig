@@ -45,9 +45,9 @@
 			</div>
 
 			<div class="col-md-6 border-detalle">
-				<span class="espacio-a">{{vehiculo.descripcion}}</span>
-				<br />
 				<span class="espacio-a">{{vehiculo.informacion}}</span>
+				<br />
+				<span class="espacio-a" style="font-size: 12px;color: #8A8A8A;">{{vehiculo.descripcion}}</span>
 				<br/>
 				<a href="{{ path('custom_testdrive') }}" class="btn btn-transparent">Test Drive</a>
 				{% if vehiculo.ficha %}

@@ -48,7 +48,7 @@
         <div class="row" style="padding-top:20px;">
             <div class="col-md-6">
                 
-                <img src="{{ asset('uploads/seminuevos/'   ~   seminuevo.galeria[0].imagen ) }}" alt="{{ seminuevo.modelo }}" class="img-responsive obj-centrar"/>
+                <img src="{{ asset('uploads/seminuevos/'   ~   seminuevo.galeria[0].imagen ) }}" alt="{{ seminuevo.modelo }}" class="img-responsive obj-centrar" style="border: 1px solid #ccc;" />
 
             </div>
             <div class="col-md-5">
@@ -56,7 +56,7 @@
                 <p class="txt-modelo">{{seminuevo.modelo}}</p>
                 <h1 class="semi-precio">$ {{seminuevo.precio}}</h1>
                 
-                    {% if seminuevo.estado == 1 %}
+                    {#{% if seminuevo.estado == 1 %}
                         
                         <p class="txt-disponibilidad">
                             Disponible
@@ -66,7 +66,28 @@
                         <p class="txt-prox">                        
                             Próximamente
                         </p>
+                    {% endif %}#}
+
+                    {% if seminuevo.estado == 1 %}
+                        <span class="circle-disp"></span>
+                        <p class="txt-disponibilidad">
+                            {# 1 => 'Disponible' #}
+                            Disponible
+                        </p>
+                    {% elseif seminuevo.estado == 2 %}
+                        <span class="circle-prox"></span>
+                        <p class="txt-prox">
+                            {# 2 => 'Proximammente' #}
+                            Próximamente
+                        </p>
+                    {% elseif seminuevo.estado == 3 %}
+                        {# 3 => 'Reservado' #}
+                        Reservado
+                    {% elseif seminuevo.estado == 4 %}
+                        {# 4 => 'Vendido' #}
+                        Vendido
                     {% endif %}
+
                 
                 <div class="semi-title">
                     <div class="ico-calendar"></div>{{ seminuevo.anio }}
@@ -100,6 +121,14 @@
             </div>
         </div> 
 
+        <div class="row tb-20">
+            <div class="col-md-2">
+                <a href="#cotizar" class="page-scroll btn btn-siguiente">
+                    Cotizar
+                </a>
+            </div>
+        </div> 
+
         <div class="row">
             <div class="col-md-6">
                 <p style="letter-spacing:0px;">{{seminuevo.informacion}}</p>
@@ -110,7 +139,7 @@
             <div class="col-md-10">
                 <p>Equipamiento</p>
                 <div class="tag">Airbag</div>
-                <div class="tag">Alarme</div>
+                <div class="tag">Alarma</div>
                 <div class="tag">Aros</div>
                 <div class="tag">Bloque Central</div>
                 <div class="tag">Freno ABS</div>

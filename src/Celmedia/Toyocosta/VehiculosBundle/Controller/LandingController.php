@@ -280,6 +280,12 @@ class LandingController extends Controller
         return $this->render('CelmediaToyocostaVehiculosBundle:Landing:promorav4.html.twig');   
     }
 
+
+        public function hiluxSuperaAction()
+    {
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:hilux.html.twig');   
+    }
+
     
 
 
