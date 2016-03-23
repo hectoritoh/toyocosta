@@ -286,6 +286,11 @@ class LandingController extends Controller
         return $this->render('CelmediaToyocostaVehiculosBundle:Landing:hilux.html.twig');   
     }
 
+        public function hiluxFaceAction()
+    {
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:hilux-face.html.twig');   
+    }
+
     
 
 

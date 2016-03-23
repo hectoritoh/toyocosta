@@ -494,6 +494,10 @@ landing_hilux:
     path:      /landing/hilux
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:hiluxSupera }
 
+landing_hilux_face:
+    path:      /landing/hiluxsuperahilux
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:hiluxFace }
+
 
 
 
