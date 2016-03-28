@@ -293,6 +293,19 @@ class LandingController extends Controller
 
     
 
+        public function semiMailAction()
+    {
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:semimail.html.twig');   
+    }
+
+        public function semiFaceAction()
+    {
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:semiface.html.twig');   
+    }
+
+
+    
+
 
     public function envioLandingAction(Request $request){
 
@@ -359,11 +372,20 @@ class LandingController extends Controller
 
             $extraMensaje4 = " ";
 
+            $extraMensaje11 = " ";
+
             if ( $fecha && $taller ) {
                 
                 $extraMensaje0 = " Fecha Tentativa:  ".$fecha;
             }
             
+            if ( $modelo) {
+
+                $info->setModelo( $modelo  );
+
+                $extraMensaje11 = " Modelo:  ".$modelo ;
+            }
+
             if ( $modelo && $anio ) {
 
                 $info->setModelo( $modelo  );
@@ -438,6 +460,7 @@ class LandingController extends Controller
             Celular:  '. $info->getCelular() .' <br />
             Campana:  '. $campana .' <br />
             Comentarios:  '. $info->getComentarios() .' <br />
+            ' . $extraMensaje11 . ' <br />
             ' . $extraMensaje0 . ' <br />
             ' . $extraMensaje1 . ' <br />
             ' . $extraMensaje2 . ' <br />

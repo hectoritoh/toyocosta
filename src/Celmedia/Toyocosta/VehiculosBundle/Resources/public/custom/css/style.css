@@ -218,6 +218,10 @@ body{
 	padding-top: 40px;
     padding-bottom: 40px;
 }
+.titular-banner{
+	font-family: 'latolight';
+    letter-spacing: 6px;
+}
 .titular{
 	color: #df1928;
     font-family: 'latoregular';
@@ -311,6 +315,38 @@ body{
     font-family: 'latoregular';
     font-weight: normal;
 }
+.width-exo{
+	width: 20%;
+}
+
+/*.arrow_box {
+	position: relative;
+	background: #BF1B78;
+}
+.arrow_box:after, .arrow_box:before {
+	top: 100%;
+	left: 50%;
+	border: solid transparent;
+	content: " ";
+	height: 0;
+	width: 0;
+	position: absolute;
+	pointer-events: none;
+}
+
+.arrow_box:after {
+	border-color: rgba(166, 183, 213, 0);
+	border-top-color: #BF1B78;
+	border-width: 15px;
+	margin-left: -30px;
+}
+.arrow_box:before {
+	border-color: rgba(0, 0, 0, 0);
+	border-width: 36px;
+	margin-left: -36px;
+}*/
+
+
 .bg-discapacitados{
 	background-color: #BF1B78;
 }
@@ -322,6 +358,9 @@ body{
 }
 .bg-compras{
 	background-color: #446FB6;
+}
+.bg-gama{
+	background-color: #8db000;
 }
 .img-exo{
 	margin: 50px auto;
@@ -864,4 +903,69 @@ label {
 .lb-nav a.lb-prev{
 	width: 10%;
 	background: url("../../../../bundles/celmediatoyocostavehiculos/custom/img/icon/prev.png") center no-repeat;	
+}
+
+
+
+.mueve {
+	
+	position: fixed; 
+	right: -142px;
+	top:47%;
+	z-index:1000;
+	width:201px;
+
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	-webkit-transition: all 500ms ease-in-out;
+	-moz-transition: all 500ms ease-in-out;
+	-ms-transition: all 500ms ease-in-out;
+	-o-transition: all 500ms ease-in-out;
+}
+
+.mueve:hover  {
+	transform: translate(-140px, 0px);
+	-ms-transform: translate(-140px, 0px);
+	-moz-transform: translate(-140px, 0px);
+	-webkit-transform: translate(-140px, 0px);
+	-o-transform: translate(-140px, 0px);
+}
+
+@media( max-width: 700px) {
+	
+	
+	
+	.mueve {
+		
+		position: fixed; 
+		right: -106px;
+		top:47%;
+		z-index:1000;
+		width:160px;
+
+		display: block;
+		margin-left: auto;
+		margin-right: auto;
+		-webkit-transition: all 500ms ease-in-out;
+		-moz-transition: all 500ms ease-in-out;
+		-ms-transition: all 500ms ease-in-out;
+		-o-transition: all 500ms ease-in-out;
+	}
+
+	.mueve:hover  {
+		transform: translate(-104px, 0px);
+		-ms-transform: translate(-104px, 0px);
+		-moz-transform: translate(-104px, 0px);
+		-webkit-transform: translate(-104px, 0px);
+		-o-transform: translate(-104px, 0px);
+	}
+	
+	
+}
+
+.destacado{
+	margin-right: 10px;
+    right: 0px;
+    position: absolute;
 }

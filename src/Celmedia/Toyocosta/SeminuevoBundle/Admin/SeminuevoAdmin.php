@@ -73,7 +73,7 @@ class SeminuevoAdmin extends Admin
             // ->add('placa')
             // ->add('informacion')
             // ->add('descripcion_corta')
-            ->add('estado' , 'choice', array('choices' => array(1 => 'Disponible' , 2 => 'Proximammente' , 3 => 'Reservado', 4 => 'Vendido') ) )
+            ->add('estado' , 'choice', array('choices' => array(1 => 'Destacado' , 2 => 'Disponible' , 3 => 'Proximammente' , 4 => 'Reservado', 5 => 'Vendido') ) )
             ->add('estado_publicacion' , 'choice', array('choices' => array(1 => 'Aprobado' , 2 => 'Pendiente' , 3 => 'Rechazado') ) )
             ->add('_action', 'actions', array(
                 'actions' => array(
@@ -103,7 +103,7 @@ class SeminuevoAdmin extends Admin
             ->add('username', 'hidden', array(
                 'data' => 'admin' ))
             ->add('descripcion_corta')
-            ->add('estado' , 'choice', array('choices' => array(1 => 'Disponible' , 2 => 'Proximammente' , 3 => 'Reservado', 4 => 'Vendido') ) )
+            ->add('estado' , 'choice', array('choices' => array(1 => 'Destacado' , 2 => 'Disponible' , 3 => 'Proximammente' , 4 => 'Reservado', 5 => 'Vendido') ) )
             ->add('estado_publicacion' , 'choice', array('choices' => array(1 => 'Aprobado' , 2 => 'Pendiente' , 3 => 'Rechazado') ) )
             ->add('coloresseminuevo')
             ->add('certificados')
@@ -157,7 +157,7 @@ class SeminuevoAdmin extends Admin
             ->add('placa')
             ->add('informacion')
             ->add('descripcion_corta')
-            ->add('estado' , 'choice', array('choices' => array(1 => 'Disponible' , 2 => 'Proximammente' , 3 => 'Reservado', 4 => 'Vendido') ) )
+            ->add('estado' , 'choice', array('choices' => array(1 => 'Destacado' , 2 => 'Disponible' , 3 => 'Proximammente' , 4 => 'Reservado', 5 => 'Vendido') ) )
             ->add('estado_publicacion' , 'choice', array('choices' => array(1 => 'Aprobado' , 2 => 'Pendiente' , 3 => 'Rechazado') ) )
 
         ;

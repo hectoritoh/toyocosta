@@ -16,7 +16,25 @@
     <header>
     	
 		<img src="{{ asset('uploads/vehiculo/banner/'   ~   vehiculo.imagenBanner ) }}" alt="" class="img-responsive" style="width:100%;" />
-
+		<div class="container" style="position: relative;bottom: 60px;">
+			<div class="row">
+				<div class="col-md-4">
+					<img src="{{ asset('uploads/slide-vehiculos/logos/'   ~   vehiculoSlide.logo ) }}" alt="" class="img-responsive" />
+				</div>
+				<div class="col-md-4">
+					<div class="row tb-10">
+						<a href="#cotizar" class="page-scroll">
+							<div class="btn btn-toyocosta col-md-6 col-md-offset-3">Cotizar</div>
+						</a>
+					</div>
+				</div>
+				<div class="col-md-4">
+					{% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/icon/toyota.png' %}
+			        <img src="{{ asset_url }}" alt="chat" class="img-reponsive" />
+			        {% endimage %}
+				</div>
+			</div>
+		</div>
     </header>
     
 {% endblock %}

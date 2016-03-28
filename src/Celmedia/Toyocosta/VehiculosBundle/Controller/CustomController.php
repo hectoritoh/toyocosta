@@ -35,6 +35,12 @@ class CustomController extends Controller
                 )
         );
 
+        $vehiculoSlide = $this->getDoctrine()->getRepository("CelmediaToyocostaVehiculosBundle:SlideVehiculos")->findOneBy(array(
+            "vehiculo_slide" => $id , "estado" => 1
+                )
+        );
+
+
         $vehiculoColores = $this->getDoctrine()->getRepository("CelmediaToyocostaVehiculosBundle:VehiculoColores")->findBy(array(
             "vehiculo" => $vehiculo,
             "estado" => 1
@@ -50,6 +56,7 @@ class CustomController extends Controller
             "vehiculo" => $vehiculo,
             "vehiculoColores" => $vehiculoColores,
             "vehiculoModelos" => $vehiculoModelos,
+            "vehiculoSlide" => $vehiculoSlide,
             //"vehiculoGaleria" => $vehiculoGaleria
         ));
     }

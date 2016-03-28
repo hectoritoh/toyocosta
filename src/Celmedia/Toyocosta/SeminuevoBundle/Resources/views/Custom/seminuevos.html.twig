@@ -16,7 +16,11 @@
         <header>
             
             <img src="{{ asset('uploads/custom/seminuevos.jpg' ) }}" alt="" class="img-responsive" style="width:100%;" />
-
+            <div class="container" style="position: absolute;width: 100%;top: 50%;">
+                <div class="row">
+                    <h1 class="titular-banner">SEMINUEVOS</h1>
+                </div>
+            </div>
         </header>
     
 {% endblock %}
@@ -82,7 +86,12 @@
                                         <div class="ficha" style="margin-bottom: 33px;">
                                             <a id="seminuevo{{ seminuevo.modelo | replace({' ': '_'})  }}{{ seminuevo.id }}" href="#">
                                                 <div class="row img-ficha-sm cimg-smpreview">
-                                                    
+                                                    {% if seminuevo.estado == 1 %}
+                                                    {#Destacado#}
+                                                        {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/icon/tags.png' %}
+                                                        <img src="{{ asset_url }}" alt="" class="img-responsive destacado" />
+                                                        {% endimage %}
+                                                    {% endif %}
                                                     <img src="{{ asset('uploads/seminuevos/'   ~   seminuevo.galeria[0].imagen ) }}" alt="{{ seminuevo.modelo }}" class="img-responsive obj-centrar"/>
 
                                                 </div>
@@ -120,23 +129,29 @@
 
                                             <div class="row relleno">
                                                 <div class="col-md-7 col-xs-7" style="padding-top: 7px;">
-                                                        {% if seminuevo.estado == 1 %}
+                                                        {% if seminuevo.estado == 2 %}
                                                             <span class="circle-disp"></span>
                                                             <p class="txt-disponibilidad">
-                                                                {# 1 => 'Disponible' #}
+                                                            
                                                                 Disponible
                                                             </p>
-                                                        {% elseif seminuevo.estado == 2 %}
-                                                            <span class="circle-prox"></span>
-                                                            <p class="txt-prox">
-                                                                {# 2 => 'Proximammente' #}
-                                                                Próximamente
+                                                        {% elseif seminuevo.estado == 1 %}
+                                                            <span class="circle-disp"></span>
+                                                            <p class="txt-disponibilidad">
+                                                            
+                                                                Disponible
                                                             </p>
                                                         {% elseif seminuevo.estado == 3 %}
-                                                            {# 3 => 'Reservado' #}
-                                                            Reservado
+                                                            <span class="circle-prox"></span>
+                                                            <p class="txt-prox">
+                                                            
+                                                                Próximamente
+                                                            </p>
                                                         {% elseif seminuevo.estado == 4 %}
-                                                            {# 4 => 'Vendido' #}
+                                                            
+                                                            Reservado
+                                                        {% elseif seminuevo.estado == 5 %}
+                                                            
                                                             Vendido
                                                         {% endif %}
                                                 </div>

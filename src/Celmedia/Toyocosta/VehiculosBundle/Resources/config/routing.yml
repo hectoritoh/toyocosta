@@ -499,6 +499,15 @@ landing_hilux_face:
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:hiluxFace }
 
 
+landing_semi_mail:
+    path:      /landing/seminuevo/mail
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:semiMail }
+
+landing_semi_face:
+    path:      /landing/seminuevo/facebook
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:semiFace }
+
+
 
 
 
