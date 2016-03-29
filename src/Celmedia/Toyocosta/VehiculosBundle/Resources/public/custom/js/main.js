@@ -335,8 +335,10 @@ $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();
 
     $('#gallery').finalTilesGallery({
-        gridSize: 20,
-        minTileWidth: 100
+        gridSize: 15,
+        minTileWidth: 100,
+        imageSizeFactor: [[4000, .9],[1024, .8],[800, .7],[600, .6],[480, .5]],
+        allowEnlargement:  true
     });
 
      //Hover de productos

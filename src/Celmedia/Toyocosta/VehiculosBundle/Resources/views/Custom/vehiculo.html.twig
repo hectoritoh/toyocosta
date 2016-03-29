@@ -58,7 +58,7 @@
 		<div id="cd-intro-tagline" class="row" style="padding-bottom:30px;">
 			<div class="col-md-3 col-md-offset-3">
 				<h4 class="txt-precio text-right">Precio</h4>
-				<h2 class="precio text-right">${{vehiculo.precioNeto}}</h2>
+				<h2 class="precio text-right">${{vehiculo.precioNeto|number_format}}</h2>
 				
 			</div>
 
@@ -183,8 +183,8 @@
 
 		              							<div class="col-md-3 col-md-offset-2">
 		              								<h4 class="text-precios">
-		              								SIN IVA: <span class="valor">${{ item.precio }}</span><br/>
-		              								CON IVA: <span class="valor">${{ item.precioNeto }}</span>
+		              								SIN IVA: <span class="valor">${{ item.precio|number_format }}</span><br/>
+		              								CON IVA: <span class="valor">${{ item.precioNeto|number_format(2, '.', ',') }}</span>
 		              								</h4>
 
 		              							</div>
@@ -251,23 +251,20 @@
       					<div id="gallery">
 
       						<div class="ftg-items">
-      							<div class="ftg-items">
 
 
           							{% for galeria in vehiculo.imagenes %}
           							    
-          								<article class="tile ftg-cat-1">
+          								<div class="tile ftg-cat-1 ftg-enlarged ftg-loaded">
           									<a class="tile-inner example-image-link" data-lightbox="cat-1" href="{% path galeria.media, 'reference' %}" rel="galeria">
           										
           										{% media galeria.media , 'big' with {'class': 'item'}  %}
           										<span class='title'>{{vehiculo.nombre}}</span>
           									</a>
-          								</article>
+          								</div>
 
           							{% endfor %}
 
-     
-      							</div>
       						</div>
       					</div>
       				</div>
