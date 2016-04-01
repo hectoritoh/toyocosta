@@ -59,7 +59,7 @@
             <div class="col-md-5">
                 <h1 class="txt-marca">{{seminuevo.marca}}</h1>
                 <p class="txt-modelo">{{seminuevo.modelo}}</p>
-                <h1 class="semi-precio">$ {{seminuevo.precio}}</h1>
+                <h1 class="semi-precio">$ {{seminuevo.precio|number_format}}</h1>
 
                     {% if seminuevo.estado == 2 %}
                         <span class="circle-disp"></span>
@@ -135,15 +135,77 @@
         </div> 
 
         <div class="row">
-            <div class="col-md-10">
-                <p>Equipamiento</p>
-                <div class="tag">Airbag</div>
-                <div class="tag">Alarma</div>
-                <div class="tag">Aros</div>
-                <div class="tag">Bloque Central</div>
-                <div class="tag">Freno ABS</div>
-                <div class="tag">Radio CD</div>
-                <div class="tag">Velocidad Crucero</div>
+            <div class="col-md-12">
+                <h5>Equipamiento</h5>
+                <div class="row tb-20">
+                    <div class="col-md-1">
+                        {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/icon/airbags.png' %}
+                        <img src="{{ asset_url }}" alt="" class="img-responsive" />
+                        {% endimage %}
+                        <p class="text-center">Airbags</p>
+                    </div>
+                    <div class="col-md-1">
+                        {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/icon/aire-acondicionado.png' %}
+                        <img src="{{ asset_url }}" alt="" class="img-responsive" />
+                        {% endimage %}
+                        <p class="text-center">A/C</p>
+                    </div>
+                    <div class="col-md-1">
+                        {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/icon/transmision.png' %}
+                        <img src="{{ asset_url }}" alt="" class="img-responsive" />
+                        {% endimage %}
+                        <p class="text-center">Trasmisi&oacute;n</p>
+                    </div>
+                    <div class="col-md-1">
+                        {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/icon/tapizado.png' %}
+                        <img src="{{ asset_url }}" alt="" class="img-responsive" />
+                        {% endimage %}
+                        <p class="text-center">Tapizado</p>
+                    </div>
+                    <div class="col-md-1">
+                        {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/icon/direccion.png' %}
+                        <img src="{{ asset_url }}" alt="" class="img-responsive" />
+                        {% endimage %}
+                        <p class="text-center">Direcci&oacute;n</p>
+                    </div>
+                    <div class="col-md-1">
+                        {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/icon/aros.png' %}
+                        <img src="{{ asset_url }}" alt="" class="img-responsive" />
+                        {% endimage %}
+                        <p class="text-center">Aros</p>
+                    </div>
+                    <div class="col-md-1">
+                        {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/icon/traccion.png' %}
+                        <img src="{{ asset_url }}" alt="" class="img-responsive" />
+                        {% endimage %}
+                        <p class="text-center">Tracci&oacute;n</p>
+                    </div>
+                    <div class="col-md-1">
+                        {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/icon/alarma.png' %}
+                        <img src="{{ asset_url }}" alt="" class="img-responsive" />
+                        {% endimage %}
+                        <p class="text-center">Alarma</p>
+                    </div>
+                    <div class="col-md-1">
+                        {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/icon/bloqueo-central.png' %}
+                        <img src="{{ asset_url }}" alt="" class="img-responsive" />
+                        {% endimage %}
+                        <p class="text-center">Bloque Central</p>
+                    </div>
+                    <div class="col-md-1">
+                        {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/icon/frenos-abs.png' %}
+                        <img src="{{ asset_url }}" alt="" class="img-responsive" />
+                        {% endimage %}
+                        <p class="text-center">Freno ABS</p>
+                    </div>
+                    <div class="col-md-1">
+                        {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/icon/capacidad-pasajeros.png' %}
+                        <img src="{{ asset_url }}" alt="" class="img-responsive" />
+                        {% endimage %}
+                        <p class="text-center">Capacidad pasajeros</p>
+                    </div>
+                    
+                </div>
             </div>
         </div>
 

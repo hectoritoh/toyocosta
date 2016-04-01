@@ -295,31 +295,31 @@ $(document).ready(function(){
 
 
 
-    $('a[id^="categoria"]').click(function ( e ) {
+    // $('a[id^="categoria"]').click(function ( e ) {
 
-      e.preventDefault();
-      var id= $(this).attr('id');
+    //   e.preventDefault();
+    //   var id= $(this).attr('id');
 
       
-      $(".fondo-menu-vehiculo:not(#submenu"+id+")").slideUp("slow");
+    //   $(".fondo-menu-vehiculo:not(#submenu"+id+")").slideUp("slow");
       
 
-        if ($("#submenu"+id).is(":hidden") ) {
+    //     if ($("#submenu"+id).is(":hidden") ) {
 
           
-          $("#submenu"+id).stop(true, true).slideDown("slow");
+    //       $("#submenu"+id).stop(true, true).slideDown("slow");
           
           
 
-        }
-        else{
+    //     }
+    //     else{
           
-          $("#submenu"+id).stop(true, true).slideUp("slow");
+    //       $("#submenu"+id).stop(true, true).slideUp("slow");
 
-        }
+    //     }
 
 
-    });
+    // });
 
 
     $("#face, #tweet, #blog").hover(function() {
@@ -336,9 +336,7 @@ $(document).ready(function(){
 
     $('#gallery').finalTilesGallery({
         gridSize: 15,
-        minTileWidth: 100,
-        imageSizeFactor: [[4000, .9],[1024, .8],[800, .7],[600, .6],[480, .5]],
-        allowEnlargement:  true
+        minTileWidth: 100
     });
 
      //Hover de productos

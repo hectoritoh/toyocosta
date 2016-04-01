@@ -3,12 +3,14 @@ body{
 }
 .btn-home{
 	background-color: #FFFFFF;
-	border-radius: 0px;
-	color: #000000;
-	margin-bottom: 10px;
-	width: 60%;
-	font-family: 'latoitalic';
-    padding-bottom: 2px;
+    border-radius: 0px;
+    color: #000000;
+    margin-bottom: 2px;
+    width: 60%;
+    font-family: 'latoitalic';
+    /* padding-bottom: 2px; */
+    padding: 0px 12px;
+    font-size: 12px;
 }
 .btn-home:hover{
 	color: #AF181F;
@@ -655,7 +657,7 @@ footer{
     position: relative;
     display: inline-block;
     width: 200px;
-    height: 200px;
+    height: 180px;
     margin-left: -5px;
 }
 .sp{

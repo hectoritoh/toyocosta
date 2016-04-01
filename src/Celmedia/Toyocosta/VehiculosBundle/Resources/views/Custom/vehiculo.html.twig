@@ -132,7 +132,7 @@
 									</div>							    		
 						    	</div>
 						    	<div class="row">
-								    <ol class="carousel-indicators carousel-indicators-vh">
+								    <ol class="carousel-indicators carousel-indicators-vh" style="z-index:0;">
 								    	{% for vehiculoColor in vehiculoColores %}
 								    		<li data-target="#vehiculo-colores-carousel" data-slide-to="{{loop.index -1 }}"  class="vehic-miniaturas {% if loop.first %}active{% endif %}" style="background-color: {{vehiculoColor.coloresvehiculo.valor}} ;"></li>
 								    	{% endfor %}
@@ -172,21 +172,21 @@
 	              						<div class="container-fluid">
 	              							<img src="{{ asset('uploads/vehiculo/modelo/' ~ item.imagenModelo ) }}" alt="" class="img-responsive" style="width:100%;" />
 	              						</div>
-	              						<div class="container-fluid">
-	              							<div class="col-md-12" style=" background-color: rgba(0,0,0,0.4);bottom: 115px;color:#FFFFFF;">
-	              								<div class="col-md-12">
-		              								<h3>{{item.nombre}}</h3>
-		              							</div>
-			              						<div class="col-md-7">
-		              								<span>{{ item.descripcion }}</span>
-		              							</div>
+	              						<div class="container-fluid" style="position: absolute;bottom: 0px;margin-right: 15px;">
+	              							<div class="col-md-12" style=" background-color: rgba(0,0,0,0.6);color:#FFFFFF;">
+	              								<div class="row">
+	              									<div class="col-md-8" style="padding-bottom: 15px;min-width: 740px;">
+			              								<h3>{{item.nombre}}</h3>
+			              								<span>{{ item.descripcion }}</span>
+			              							</div>
 
-		              							<div class="col-md-3 col-md-offset-2">
-		              								<h4 class="text-precios">
-		              								SIN IVA: <span class="valor">${{ item.precio|number_format }}</span><br/>
-		              								CON IVA: <span class="valor">${{ item.precioNeto|number_format(2, '.', ',') }}</span>
-		              								</h4>
+			              							<div class="col-md-4 tb-20" style="margin-top: 10px;min-width: 370px;">
+			              								<h4 class="text-precios">
+			              								SIN IVA: <span class="valor">${{ item.precio|number_format }}</span><br/>
+			              								CON IVA: <span class="valor">${{ item.precioNeto|number_format(2, ',', '.') }}</span>
+			              								</h4>
 
+			              							</div>
 		              							</div>
 	              							</div>
 		              					</div>
@@ -212,7 +212,7 @@
 								  	
 								  	<li role="presentation" class="{% if loop.first %}active{% endif %}">
 								    	<a href="#info{{numero}}" aria-controls="info{{numero}}" role="tab" data-toggle="tab">
-								    		<img src="{{ asset('uploads/vehiculo/thumb/' ~ vehiculo.imagenThumb ) }}" alt="" class="img-responsive"/>
+								    		<img src="{{ asset('uploads/vehiculo/thumb/' ~ vehiculo.imagenThumb ) }}" alt="" class="img-responsive" style="max-width: 150px;" />
 	              							{{ item.nombre }}
 								    	</a>
 								    </li>

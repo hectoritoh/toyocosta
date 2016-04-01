@@ -27,11 +27,17 @@
                                 <img src="{{ asset_url }}" alt="" class="img-responsive"/>
                                 {% endimage %}
                                 <figcaption>    
-                                    <div class="caption" style="padding-bottom:20px;">
+                                    <div class="caption" style="padding-bottom:10px;">
                                         <h2 class="title-accesos">Todas las marcas</h2>
                                         <a href="{{path('usados')}}">
                                             <div class="btn btn-home">Ver m&aacute;s</div>
-                                        </a>                                        
+                                        </a>
+                                        <a href="{{path('custom_tallermovil')}}" style="visibility:hidden;">
+                                            <div class="btn btn-home">Taller M&oacute;vil</div>
+                                        </a>
+                                        <a href="{{path('custom_mantenimientoexpress')}}" style="visibility:hidden;">
+                                            <div class="btn btn-home">Mantenimiento express</div>
+                                        </a>                                         
                                     </div>
                                 </figcaption> 
                             </figure>   
@@ -44,17 +50,17 @@
                                 <img src="{{ asset_url }}" alt="" class="img-responsive"/>
                                 {% endimage %}
                                 <figcaption>    
-                                    <div class="caption" style="padding-bottom:20px;">
+                                    <div class="caption" style="padding-bottom:10px;">
                                         <h2 class="title-accesos">Posventa</h2>
                                         <a href="{{path('custom_postventa')}}">
                                             <div class="btn btn-home">Ver m&aacute;s</div>
                                         </a> 
-                                        {#<a href="#">
-                                            <div class="btn btn-home">Llantas Pirelli</div>
+                                        <a href="{{path('custom_tallermovil')}}" style="visibility:hidden;">
+                                            <div class="btn btn-home">Taller M&oacute;vil</div>
                                         </a>
-                                        <a href="#">
-                                            <div class="btn btn-home">Industrial</div>
-                                        </a>#}                                  
+                                        <a href="{{path('custom_mantenimientoexpress')}}" style="visibility:hidden;">
+                                            <div class="btn btn-home">Mantenimiento express</div>
+                                        </a>                                  
                                     </div>
                                 </figcaption> 
                             </figure>   
@@ -67,7 +73,7 @@
                                 <img src="{{ asset_url }}" alt="" class="img-responsive"/>
                                 {% endimage %}
                                 <figcaption>    
-                                    <div class="caption" style="padding-bottom:20px;">
+                                    <div class="caption" style="padding-bottom:10px;">
                                         <h2 class="title-accesos">Servicios</h2>
                                         <a href="{{path('custom_cita')}}">
                                             <div class="btn btn-home">Cita Talleres</div>
@@ -90,11 +96,17 @@
                                 <img src="{{ asset_url }}" alt="" class="img-responsive"/>
                                 {% endimage %}
                                 <figcaption>    
-                                    <div class="caption" style="padding-bottom:20px;">
+                                    <div class="caption" style="padding-bottom:10px;">
                                         <h2 class="title-accesos">Cont&aacute;ctenos</h2>
                                         <a href="#">
                                             <div class="btn btn-home">Ver m&aacute;s</div>
-                                        </a>                                        
+                                        </a> 
+                                        <a href="{{path('custom_tallermovil')}}" style="visibility:hidden;">
+                                            <div class="btn btn-home">Taller M&oacute;vil</div>
+                                        </a>
+                                        <a href="{{path('custom_mantenimientoexpress')}}" style="visibility:hidden;">
+                                            <div class="btn btn-home">Mantenimiento express</div>
+                                        </a>                                          
                                     </div>
                                 </figcaption> 
                             </figure>   
@@ -125,9 +137,13 @@
                                       
                                     
                                         <select class="form-control input-news select-filtro">
-                                            <option>Seleccione un Vehículo</option>
-                                            <option>Corolla</option>
-                                            <option>Prius C Sport</option>
+                                            <option>Seleccione un vehículo</option>
+                                            <option>Hilux CS</option>
+                                            <option>Hilux 2016 4X2</option>
+                                            <option>Hilux 2016 4X4</option>
+                                            <option>Fortuner</option>
+                                            <option>Rav4</option>
+                                            <option>Land Cruiser Prado</option>
                                         </select>
                                     
                                   </div>
