@@ -245,6 +245,21 @@
 					</div>
 				</div>
 
+				{#<div class="row">
+      				<div class="col-md-12">   
+      					<div class="row">
+      						{% for galeria in vehiculo.imagenes %}
+      							<div class="col-md-3">
+          							    
+          								
+          							{% media galeria.media , 'big' with {'class': 'item img-responsive'}  %}
+          									
+
+      							</div>
+          					{% endfor %}
+      					</div>
+      				</div>
+      			</div>#}
 
       			<div class="row">
       				<div class="col-md-12">   
