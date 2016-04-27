@@ -507,7 +507,9 @@ landing_semi_face:
     path:      /landing/seminuevo/facebook
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:semiFace }
 
-
+landing_montacargas:
+    path:      /landing/montacargas
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:montacargas }
 
 
 

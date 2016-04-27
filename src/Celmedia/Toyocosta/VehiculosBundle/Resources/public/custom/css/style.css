@@ -101,6 +101,9 @@ body{
 
 
 /*SEminuevos*/
+.header-usado{
+	position: absolute;width: 100%;top: 50%;
+}
 .text-marca{
 	text-transform: uppercase;
     font-family: 'latoregular';
@@ -697,8 +700,12 @@ footer{
     background-color: #ccc;
     color: #666;
 }
-
-
+ 
+@media only screen and (min-width:1375px) and (max-width: 1714px) {
+	.header-usado{
+		top: 36%;
+	}
+}
 @media only screen and (min-width:1188px) and (max-width: 1375px) {
 	.img-rs {
 	    padding: 17px 2px;
@@ -709,7 +716,9 @@ footer{
 	.nav>li>a {
 	    padding: 14px 10px;
 	}
-
+	.header-usado{
+		top: 34%;
+	}
 }
 
 @media only screen and (min-width:1014px) and (max-width: 1188px) {
@@ -722,7 +731,9 @@ footer{
 	.nav>li>a {
 	    padding: 16px 6px;
 	}
-
+	.header-usado{
+		top: 26%;
+	}
 }
 
 @media only screen and (min-width:992px) and (max-width: 1014px) {
@@ -735,7 +746,9 @@ footer{
 	.nav>li>a {
 	    padding: 16px 8px;
 	}
-
+	.header-usado{
+		top: 22%;
+	}
 }
 
 

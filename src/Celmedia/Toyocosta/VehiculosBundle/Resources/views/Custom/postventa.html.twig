@@ -78,7 +78,7 @@
                                         <div class="col-lg-10 col-lg-offset-1">
                                             
                                             <div class="row">
-                                                <div class="col-md-4 tb-20">
+                                                <div class="col-md-4">
                                                     {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/accesos/servicio1.jpg' %}
                                                     <img src="{{ asset_url }}" id="logoblanco" alt="cita talleres" class="img-responsive" />
                                                     {% endimage %}
@@ -86,7 +86,7 @@
                                                 </div>
                                                 <div class="col-md-8">
                                                     
-                                                    <p class="text-center">
+                                                    <p class="text-left">
                                                         El servicio técnico está certificado* por la TOYOTA MOTOR CORPORATION y en la red somos reconocidos por la inversión en alta tecnología en equipos y en capacitación del personal técnico -titulado por Japón- tanto para manejo de motores convencionales a gasolina, como los de tecnología híbrida. <br/><br/>
 
                                                         Brindamos a nuestros clientes la tranquilidad de contar de forma permanente con un stock de repuestos, gracias a que somos una red a nivel nacional.
@@ -117,10 +117,19 @@
                     
                                         <div class="col-lg-10 col-lg-offset-1">
                                             
-                                                
-                                                <div class="row tb-20">
-                                                    <div class="col-lg-8">
+                                                <div class="row" style="padding-top:40px;">
+                                                    <div class="col-md-12">
                                                         <h4 class="">Servicios:</h4>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/accesos/talleres-moviles.jpg' %}
+                                                        <img src="{{ asset_url }}" id="logoblanco" alt="cita talleres" class="img-responsive" />
+                                                        {% endimage %}
+                                                    </div>
+                                                    <div class="col-md-8">
+                                                        
                                                         <ul class="list-exonerados">
                                                             <li>
                                                                 Mantenimientos desde 1.000 km hasta 100.000 km o más.                                                                   
@@ -156,10 +165,14 @@
                                                                 Cambio de batería
                                                             </li>
                                                         </ul>
-                                                        <p>*No incluyen los mantenimientos fuertes de (40.000 km 80.000 km 120.000 km 160.000 km) en los vehículos híbridos.</p>
+                                                        
                                                     </div>  
                                                 </div>
-
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <p>*No incluyen los mantenimientos fuertes de (40.000 km 80.000 km 120.000 km 160.000 km) en los vehículos híbridos.</p>
+                                                    </div>
+                                                </div>
                                                 <div class="row tb-20">
                                                     <div class="col-lg-8">
                                                         <h4 class="">Ventajas competitivas (valor agregado):</h4>
@@ -233,20 +246,13 @@
                                     <div class="row">
                                         <div class="col-lg-10 col-lg-offset-1">
         
-                                            <div class="row" style="padding-top:40px;">
-                                                <div class="col-md-8 col-md-offset-2">
-                                                    <p class="text-center">
-                                                        El Servicio de Mantenimiento Express ofrece los mismos beneficios, garant&iacute;a y calidad que el servicio regular en un corto tiempo de espera.
-                                                    </p>
-                                                </div>
-                                            </div>
 
-                                            <div class="row tb-20">
+                                            <div class="row tb-20" style="padding-top:40px;">
 
-                                                <div class="col-md-6">
+                                                <div class="col-md-4">
                                                     <div class="row">
                                                         <div class="col-md-12">
-                                                            {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/accesos/carro.png' %}
+                                                            {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/accesos/mantenimiento-express.jpg' %}
                                                             <img src="{{ asset_url }}" id="logoblanco" alt="Toyocosta" class="img-responsive" />
                                                             {% endimage %}
                                                             
@@ -254,11 +260,14 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-md-6">
+                                                <div class="col-md-8">
                                                     <div class="row">
                                                         <div class="col-md-12">
-                                                            <ul class="list-exonerados tb-20 list-post">
-                                                                <li>T&eacute;cnicos Certificados en Jap&oacute;n para mantenimiento de veh&iacute;culos Toyota.</li>
+                                                            <p class="text-left">
+                                                                El Servicio de Mantenimiento Express ofrece los mismos beneficios, garant&iacute;a y calidad que el servicio regular en un corto tiempo de espera.
+                                                            </p>
+                                                            <ul class="list-exonerados list-post" style="padding-left:17px;">
+                                                                <li>T&eacute;cnicos Certificados en Jap&oacute;n para <br/> mantenimiento de veh&iacute;culos Toyota.</li>
                                                                 <li>Tiempo máximo de mantenimiento <span>*</span></li>
                                                                 <li>Lavado GRATIS del veh&iacute;culo</li>
                                                                 <li>Comodidad total durante la espera</li>
@@ -269,8 +278,14 @@
                                                 </div>
                                             </div>
 
-                                            <div class="row">
+                                            <div class="row tb-20">
                                                 <div class="col-md-8 col-md-offset-2 txt-post text-center">
+                                                        <div class="row tb-20">
+                                                            {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/accesos/carro.png' %}
+                                                            <img src="{{ asset_url }}" id="logoblanco" alt="Toyocosta" class="img-responsive img-center"/>
+                                                            {% endimage %}
+                                                            
+                                                        </div>
                                                     <span class="txt-rojo">*</span> Mantenimiento en 1 hora, siempre y cuando no se presenten novedades con el vehículo.<br/>
                                                     <span class="txt-rojo">**</span>Usted podrá controlar el mantenimiento de su vehículo y estar en contacto permanente con el personal técnico en varias estaciones de servicio
                                                                    

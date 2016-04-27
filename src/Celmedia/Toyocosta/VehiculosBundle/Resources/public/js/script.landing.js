@@ -21,7 +21,8 @@ $(document).ready(function(){
               exoneracion: $("#exoneracion").val(),
               direccion: $("#direccion").val(),
               modeloexonerados: $("#modeloexonerados").val(),
-              tipoexonerados: $("#tipoexonerados").val()
+              tipoexonerados: $("#tipoexonerados").val(),
+              montacargas: $("#montacargas").val()
           }
 
           $.ajax({

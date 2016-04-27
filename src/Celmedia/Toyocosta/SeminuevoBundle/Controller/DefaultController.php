@@ -99,7 +99,7 @@ class DefaultController extends Controller
         $query3 = $repository->createQueryBuilder('pr')
             ->where("pr.estado_publicacion = '1' ")
             ->groupBy('pr.precio')
-            ->orderBy('pr.precio', 'DESC')
+            ->orderBy('pr.precio', 'ASC')
             ->getQuery();
         $precios = $query3->getResult();
 
@@ -144,6 +144,12 @@ class DefaultController extends Controller
         $modelo = $request->get('selectmodelo');
         $anio = $request->get('selectanio');
         $precio = $request->get('selectprecio');
+
+        $selectprecio = $request->get('selectprecio');
+
+        
+
+
         $provincia = $request->get('selectprovincia');
         $estado = $request->get('selectestado');
 
@@ -162,10 +168,21 @@ class DefaultController extends Controller
             $querySM->andWhere("sm.anio = :anio")
             ->setParameter('anio', $anio);
         }
-        if($precio){
-            $querySM->andWhere("sm.precio <= :precio ")
-            ->setParameter('precio', $precio);
+        
+        // if($precio){
+        //     $querySM->andWhere("sm.precio <= :precio ")
+        //     ->setParameter('precio', $precio);
+        // }
+
+        if ($selectprecio) {
+
+            $precio_parts = explode("-", $selectprecio);
+            $querySM->andWhere("sm.precio > :precio1 AND sm.precio < :precio2 ")
+            ->setParameter('precio1', $precio_parts[0])
+            ->setParameter('precio2', $precio_parts[1]);
+
         }
+
         if($provincia){
             $querySM->andWhere("sm.ubicacion LIKE :provincia ")
             ->setParameter('provincia', '%' . $provincia . '%');
@@ -188,7 +205,7 @@ class DefaultController extends Controller
                 "seminuevo_marca" => $marca,
                 "seminuevo_modelo" => $modelo,
                 "seminuevo_anio" => $anio,
-                "seminuevo_precio" => $precio,
+                "seminuevo_precio" => $selectprecio,
                 "seminuevo_provincia" => $provincia,
                 "seminuevo_estado" => $estado,
                 "banners" => $banners

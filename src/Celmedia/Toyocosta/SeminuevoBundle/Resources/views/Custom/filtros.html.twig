@@ -35,9 +35,18 @@
                 <div class="styled-select">
                     <select name="selectprecio" id="selectprecio" class="form-control select-filtro selectcmb">
                         <option class="style-option" value="">Precio</option>
-                        {% for sm_precio in precios %}
-                        <option class="style-option" value="{{ sm_precio.precio }}" {% if seminuevo_precio == sm_precio.precio %} selected {% endif %} >{{ sm_precio.precio }}</option>
-                        {% endfor %}
+                        
+                        {#<option value="0-1000" {% if seminuevo_precio == '0-1000' %} selected {% endif %}>$0-$1000</option>
+                        <option value="1001-5000" {% if seminuevo_precio == '1001-5000' %} selected {% endif %}>$1001-$5000</option>#}
+                        <option value="5001-10000" {% if seminuevo_precio == '5001-10000' %} selected {% endif %}>$5001-$10000</option>
+                        <option value="10001-20000" {% if seminuevo_precio == '10001-20000' %} selected {% endif %}>$10001-$20000</option>
+                        <option value="20001-40000" {% if seminuevo_precio == '20001-40000' %} selected {% endif %}>$20001-$40000</option>
+                        <option value="40001-1000000000" {% if seminuevo_precio == '40001-1000000000' %} selected {% endif %}>+ $40001</option>
+
+                        {#{% for sm_precio in precios %}
+                            <option class="style-option" value="{{ sm_precio.precio }}" {% if seminuevo_precio == sm_precio.precio %} selected {% endif %} >{{ sm_precio.precio }}</option>
+                        {% endfor %}#}
+
                     </select>
                 </div>
             </div>

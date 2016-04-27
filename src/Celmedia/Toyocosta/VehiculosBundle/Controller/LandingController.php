@@ -303,6 +303,11 @@ class LandingController extends Controller
         return $this->render('CelmediaToyocostaVehiculosBundle:Landing:semiface.html.twig');   
     }
 
+        public function montacargasAction()
+    {
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:montacargas.html.twig');   
+    }
+
 
     
 
@@ -348,6 +353,8 @@ class LandingController extends Controller
             $taller = $request->request->get('taller');
             $fecha = $request->request->get('fecha');
 
+            // lp montacargas - cambio de correo
+            $montacargas = $request->request->get('montacargas');
 
 
             $info = new \Celmedia\Toyocosta\ContenidoBundle\Entity\InfoLandings();
@@ -438,6 +445,10 @@ class LandingController extends Controller
                 $to = array('tallermovil@toyocosta.com.ec'=> 'Taller Movil');
                 //$to = array('ycosquillo@celmedia.com'=> 'Taller Movil');
                 
+            }elseif ($montacargas) {
+
+                $to = array('conventos@toyocosta.com.ec'=> 'Ventas Montacargas');
+                //$to = array('ycosquillo@celmedia.com'=> 'Ventas Montacargas');
             }else{
 
                 $to = array('cdnventas@toyocosta.com.ec'=> 'Toyocosta');
@@ -481,7 +492,7 @@ class LandingController extends Controller
         
            
             
-            ->setTo(array( $email , 'cdnventas@toyocosta.com.ec' => 'Toyocosta' ))
+            //->setTo(array( $email , 'cdnventas@toyocosta.com.ec' => 'Toyocosta' ))
             
             
 

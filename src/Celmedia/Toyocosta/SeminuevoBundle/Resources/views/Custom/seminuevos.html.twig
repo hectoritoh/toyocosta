@@ -16,7 +16,7 @@
         <header>
             
             <img src="{{ asset('uploads/custom/seminuevos.jpg' ) }}" alt="" class="img-responsive" style="width:100%;" />
-            <div class="container" style="position: absolute;width: 100%;top: 50%;">
+            <div class="container header-usado">
                 <div class="row">
                     <h1 class="titular-banner">SEMINUEVOS</h1>
                 </div>
@@ -156,7 +156,7 @@
                                                         {% endif %}
                                                 </div>
                                                 <div class="col-md-5 col-xs-5">
-                                                    <p class="txt-smprecio">${{ seminuevo.precio|number_format }}</p>
+                                                    <p class="txt-smprecio">${{ seminuevo.precio|number_format(0, ',', '.') }}</p>
                                                 </div>
                                             </div>
                                         </div>
