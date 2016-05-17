@@ -73,6 +73,10 @@ custom_vehiculos:
     path:      /vehiculos
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Custom:vehiculos }
 
+custom_rrhh:
+    path:      /custom/rrhh
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Custom:rrhh }
+
 custom_contactenos:
     path:      /contactanos
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Custom:contactenos }

@@ -1,0 +1,150 @@
+{% extends 'CelmediaToyocostaVehiculosBundle::template.html.twig' %}
+
+{% block seo %}
+    
+    <title>TOYOCOSTA | Trabaje con Nosotros</title>
+    
+    <meta name="description" content="Planifica tu cita de mantenimiento Toyocosta registrando tus datos para que un representante se comunique contigo."/>
+
+    <meta name="keywords" content="mantenimiento toyota guayaquil, mantenimiento camionetas toyota guayaquil, toyocosta mantenimiento" />
+
+{% endblock %}
+
+
+{% block bannercabecera %}
+
+        <header>
+
+            {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/rrhh.jpg' %}
+            <img src="{{ asset_url }}" id="logoblanco" alt="Toyocosta" class="img-responsive"  style="width:100%;" />
+            {% endimage %}
+
+        </header>
+    
+{% endblock %}
+
+
+{% block contenidotoyocosta %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" style="padding-left: 0px;">
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="{{ path('toyocosta_homepage') }}">Inicio</a>
+                    </li>
+                    <li class="active">Trabaje con Nosotros</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center titular">TRABAJE CON NOSOTROS</h1>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <p class="text-center parrafo">Llene el siguiente formulario y adjunte su hoja de vida para que sea parte de nuestra base de datos y ser considerado en nuestro próximo proceso de selección.</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <form id="form-rrhh" class="form-info" enctype="multipart/form-data" method="post">
+            
+                    <div class="row space-input">
+                        <div class="col-md-10 col-md-offset-1">
+
+                            <div class="row">
+                                <div class="col-xs-4 col-xs-offset-1">
+                                    <label>Nombre:</label>
+                                    <input id="rnombre" name="rnombre" type="text" class="form-control" placeholder="" />
+                                </div>
+                                <div class="col-xs-4 col-xs-offset-1">
+                                    <label>Apellido:</label>
+                                    <input id="rapellido" name="rapellido" type="text" class="form-control" placeholder="" />
+                                </div>
+
+                            </div>  
+                        </div>
+
+                    </div>
+
+                    <div class="row space-input">
+                        <div class="col-md-10 col-md-offset-1">
+
+                            <div class="row">
+                                <div class="col-xs-4 col-xs-offset-1">
+                                    <label>Tel&eacute;fono:</label>
+                                    <input id="rtelefono" name="rtelefono" type="text" class="form-control" placeholder="" />
+                                </div>
+                                <div class="col-xs-4 col-xs-offset-1">
+                                    <label>Email:</label>
+                                    <input id="remail" name="remail" type="text" class="form-control" placeholder="" />
+                                </div>
+
+                            </div>  
+                        </div>
+
+                    </div>
+
+                    <div class="row space-input">
+                        <div class="col-md-10 col-md-offset-1">
+
+                            <div class="row">
+                                <div class="col-xs-9 col-xs-offset-1">
+                                    <label>Adjuntar Curr&iacute;culum Vitae:</label>
+                                    {#
+                                    <input type="file" id="rcv" name="rcv" value="">
+                                    #}
+                                    <input id="rcv" type="file" name="rcv[]" value="">
+
+                                    <input type="hidden" id="rutacv" name="rutacv"  value="" />
+                                </div>
+                            </div>  
+                        </div>
+
+                    </div>
+
+                    <div class="row space-input">
+                        <div class="col-md-10 col-md-offset-1">
+
+                            <div class="row">
+                                <div class="col-xs-9 col-xs-offset-1">
+                                    <label>Cargo al que desea aplicar:</label>
+                                    <textarea id="rcargo" name="rcargo" class="form-control" rows="3"></textarea>
+
+                                </div>
+                            </div>  
+                        </div>
+
+                    </div>
+
+                    <div class="row space-input">
+                        <div class="col-md-10 col-md-offset-1" style="padding-top:20px;">
+
+                            <div class="row">
+                                <div class="col-md-3 col-md-offset-4">
+                                    <input type="submit" value="Enviar" class="btn btn-toyocosta" style="width:100%;">
+                                </div>
+                            </div>  
+                        </div>
+
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+        <div class="row" style="padding-bottom:50px;"></div>
+
+    </div>
+
+
+
+{% endblock %}
+
+

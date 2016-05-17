@@ -31,7 +31,7 @@
 	<div class="container-fluid buscador-seminuevo bg-black">
         <div class="row">
 
-            <form class="col-md-8 col-md-offset-2" name="buscador" action="{{ path('usados_buscador') }}" method="post" style="padding:0px;" >
+            <form class="col-md-10 col-md-offset-1" name="buscador" action="{{ path('usados_buscador') }}" method="post" style="padding:0px;" >
                 
                 {% if seminuevo_marca is not defined or seminuevo_marca is null %}
                     {% set seminuevo_marca = "0" %}

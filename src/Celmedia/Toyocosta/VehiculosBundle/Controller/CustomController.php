@@ -418,6 +418,10 @@ class CustomController extends Controller
     }
 
 
+    public function rrhhAction(){
+
+        return $this->render('CelmediaToyocostaVehiculosBundle:Custom:rrhh.html.twig');
+    }
 
 
 

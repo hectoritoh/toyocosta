@@ -201,7 +201,7 @@ fieldset[disabled] .btn-xl.active {
 .navbar-default .nav li a {
     font-family: 'latoregular';
     text-transform: uppercase;
-    letter-spacing: 4px;
+    letter-spacing: 2px;
     color: #fff
 }
 
@@ -248,6 +248,10 @@ fieldset[disabled] .btn-xl.active {
     .navbar-default.navbar-shrink .navbar-brand {
         font-size: 1.5em
     }
+    .navbar-nav>li>a {
+        font-size: 12px;
+    }
+
 }
 
 header {
