@@ -515,6 +515,15 @@ landing_montacargas:
     path:      /landing/montacargas
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:montacargas }
 
+landing_compra_seminuevo:
+    path:      /landing/compra/seminuevo
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:compraSeminuevo }
+
+landing_fortuner_2017:
+    path:      /landing/fortuner/2017
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:fortunerNew }
+
+
 
 
 envio_landing:

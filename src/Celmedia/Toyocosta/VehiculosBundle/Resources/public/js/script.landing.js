@@ -15,6 +15,8 @@ $(document).ready(function(){
               taller: $("#taller").val(),
               fecha:$("#fecha_test").val(),
               modelo: $("#modelo").val(),
+              marca: $("#marca").val(),
+              km: $("#km").val(),
               anio: $("#anio").val(),
               ciudad: $("#ciudad").val(),
               precio: $("#precio").val(),
@@ -22,7 +24,8 @@ $(document).ready(function(){
               direccion: $("#direccion").val(),
               modeloexonerados: $("#modeloexonerados").val(),
               tipoexonerados: $("#tipoexonerados").val(),
-              montacargas: $("#montacargas").val()
+              montacargas: $("#montacargas").val(),
+              rutacv: $("#rutacv").val()
           }
 
           $.ajax({
@@ -105,5 +108,23 @@ $(document).ready(function(){
           });
       }
     });
+
+    $('#rcv').fileupload({
+        dataType: 'json',
+        url: Routing.generate('envio_rrhh_adjunto'),
+        done: function (e, data) {
+          //console.log(data.result.rutaarchivo);
+          
+          $("#rutacv").val(data.result.rutaarchivo);
+        },
+        error: function(jqXHR, textStatus, errorThrown)
+        {
+            // Handle errors here
+            console.log('ERRORS: ' + textStatus);
+            alert('Excede el tamaño el archivo max 2048 kb ');
+        }
+    });
+
+    
 
 });

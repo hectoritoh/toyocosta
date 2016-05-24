@@ -308,8 +308,15 @@ class LandingController extends Controller
         return $this->render('CelmediaToyocostaVehiculosBundle:Landing:montacargas.html.twig');   
     }
 
+    public function compraSeminuevoAction()
+    {
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:compraSeminuevo.html.twig');   
+    }
 
-    
+    public function fortunerNewAction()
+    {
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:fortuner2017.html.twig'); 
+    }
 
 
     public function envioLandingAction(Request $request){
@@ -357,6 +364,11 @@ class LandingController extends Controller
             $montacargas = $request->request->get('montacargas');
 
 
+            // lp venta seminuevos - subir foto de carro
+            $marca = $request->request->get('marca');
+            $km = $request->request->get('km');
+            $foto = $request->request->get('rutacv');
+
             $info = new \Celmedia\Toyocosta\ContenidoBundle\Entity\InfoLandings();
 
             $info->setNombre( $nombre  );
@@ -381,6 +393,10 @@ class LandingController extends Controller
 
             $extraMensaje11 = " ";
 
+            $extraMensaje12 = " ";
+
+
+
             if ( $fecha && $taller ) {
                 
                 $extraMensaje0 = " Fecha Tentativa:  ".$fecha;
@@ -404,11 +420,29 @@ class LandingController extends Controller
 
             if ( $ciudad && $precio ){
 
-                $info->setCiudad( $ciudad  );
-                
-                $extraMensaje2 = " Ciudad:  ".$ciudad." <br />
 
-                Precio Esperado:  ".$precio;
+                if ( $km && $modelo && $marca ){
+
+                    $info->setCiudad( $ciudad  );
+                    $info->setModelo( $modelo  );
+                    
+                    $extraMensaje12 = " Ciudad:  ".$ciudad." <br />
+
+                    Marca:  ".$marca." <br />
+                    Modelo:  ".$modelo." <br />
+                    Kilometraje:  ".$km." <br />
+                    Precio Esperado:  ".$precio;
+
+                }else{
+                    
+                    $info->setCiudad( $ciudad  );
+                    
+                    $extraMensaje2 = " Ciudad:  ".$ciudad." <br />
+
+                    Precio Esperado:  ".$precio;
+                }
+
+
 
             }
             
@@ -434,6 +468,8 @@ class LandingController extends Controller
             }
 
 
+            
+
             // $em = $this->getDoctrine()->getManager(); 
             $em->persist(  $info );
             $em->flush();
@@ -449,29 +485,31 @@ class LandingController extends Controller
 
                 $to = array('conventos@toyocosta.com.ec'=> 'Ventas Montacargas');
                 //$to = array('ycosquillo@celmedia.com'=> 'Ventas Montacargas');
+
             }else{
 
-                $to = array('cdnventas@toyocosta.com.ec'=> 'Toyocosta');
-                //$to = array('ycosquillo@celmedia.com'=> 'Toyocosta');
+                //$to = array('cdnventas@toyocosta.com.ec'=> 'Toyocosta');
+                $to = array('ycosquillo@celmedia.com'=> 'Toyocosta');
                 
             }
 
 
             $subject = "Pedido de Informacion de ".$campana." desde Web Toyocosta"; 
 
-
-
+            
+            
             $body = '<strong>Información del Landing Page.</strong> <br /><br />
             A continuación detallamos los datos ingresados: <br /><br />              
+            Campana:  '. $campana .' <br />
             Nombre:  '.$info->getNombre().' <br />
             Apellido:   '. $info->getApellido() .' <br />
             Cedula:  '.$info->getCedula().' <br />
             Telefono:  '. $info->getTelefono() .'  <br />
             Email:  '. $info->getEmail() .' <br />
             Celular:  '. $info->getCelular() .' <br />
-            Campana:  '. $campana .' <br />
             Comentarios:  '. $info->getComentarios() .' <br />
             ' . $extraMensaje11 . ' <br />
+            ' . $extraMensaje12 . ' <br />
             ' . $extraMensaje0 . ' <br />
             ' . $extraMensaje1 . ' <br />
             ' . $extraMensaje2 . ' <br />
@@ -487,18 +525,21 @@ class LandingController extends Controller
             ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
             //->setFrom(array('citasweb@toyocosta.com.ec' => 'Web Toyocosta'))
 
-            ->setTo( $to )
-            
-        
-           
-            
+            ->setTo( $to )                
             //->setTo(array( $email , 'cdnventas@toyocosta.com.ec' => 'Toyocosta' ))
-            
-            
-
+                        
             ->setContentType("text/html")
 
             ->setBody($body);
+
+
+            if ($foto) {
+
+                // Attach it to the message
+                $message->attach(\Swift_Attachment::fromPath( $foto ));
+                
+            }
+
 
             $envioMail = $this->get('mailer')->send($message);
 
