@@ -488,8 +488,8 @@ class LandingController extends Controller
 
             }else{
 
-                //$to = array('cdnventas@toyocosta.com.ec'=> 'Toyocosta');
-                $to = array('ycosquillo@celmedia.com'=> 'Toyocosta');
+                $to = array('cdnventas@toyocosta.com.ec'=> 'Toyocosta');
+                //$to = array('ycosquillo@celmedia.com'=> 'Toyocosta');
                 
             }
 
