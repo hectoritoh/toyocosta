@@ -116,6 +116,9 @@ $(document).ready(function(){
           //console.log(data.result.rutaarchivo);
           
           $("#rutacv").val(data.result.rutaarchivo);
+
+          $("#rcv").next().text("Adjuntado!!");
+
         },
         error: function(jqXHR, textStatus, errorThrown)
         {

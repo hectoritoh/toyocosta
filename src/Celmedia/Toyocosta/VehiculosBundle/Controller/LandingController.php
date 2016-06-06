@@ -421,15 +421,15 @@ class LandingController extends Controller
             if ( $ciudad && $precio ){
 
 
-                if ( $km && $modelo && $marca ){
+                if ( $anio && $km && $modelo && $marca ){
 
                     $info->setCiudad( $ciudad  );
-                    $info->setModelo( $modelo  );
+                    //$info->setModelo( $modelo  );
+                    //$info->setAnio( $anio  );
                     
                     $extraMensaje12 = " Ciudad:  ".$ciudad." <br />
 
                     Marca:  ".$marca." <br />
-                    Modelo:  ".$modelo." <br />
                     Kilometraje:  ".$km." <br />
                     Precio Esperado:  ".$precio;
 
