@@ -424,6 +424,266 @@ class CustomController extends Controller
     }
 
 
+    public function envioCitaTallerMovilAction (Request $request)
+    {
+        
+
+        $em = $this->getDoctrine()->getManager();
+
+
+        if ($request->isMethod('POST')) {
+
+            $nombre = $request->request->get('nombre');
+            $apellido = $request->request->get('apellido');
+            $telefono = $request->request->get('telefono');
+            $email = $request->request->get('email');
+            $celular = $request->request->get('celular');
+            $fecha = $request->request->get('fecha');
+            $observaciones = $request->request->get('observaciones');
+            $comentario = $request->request->get('comentario');
+            $modelo = $request->request->get('modelo');
+            $kilometraje = $request->request->get('kilometraje');
+
+            $path = 'uploads/mail-agradecimiento.jpg';
+
+
+            if(!$nombre || !$apellido || !$telefono || !$email || !$celular || !$fecha || !$modelo || !$kilometraje ){
+                return new JsonResponse(array(
+                    'codigo' => 0,
+                    'Mensaje' => "faltan parametros"
+                ), 200);
+            }
+
+            
+            // Creamos el objeto infomantenimiento
+            $mantenimiento = new \Celmedia\Toyocosta\ContenidoBundle\Entity\InfoMantenimiento();
+
+            $mantenimiento->setNombre( $nombre  );
+            $mantenimiento->setApellido( $apellido  );
+            $mantenimiento->setTelefono( $telefono  );
+            $mantenimiento->setEmail( $email  );
+            $mantenimiento->setObservaciones( $observaciones  );
+            $mantenimiento->setComentarios( $comentario  );
+            $mantenimiento->setCelular( $celular  );
+            $mantenimiento->setFechaTentativa( new \DateTime($fecha ) );
+            $mantenimiento->setTipoReserva( 'ninguna' );
+            $mantenimiento->setTaller( 'ninguna' );
+            $mantenimiento->setModelo( $modelo );
+            $mantenimiento->setKilometros( $kilometraje );
+
+            $em->persist(  $mantenimiento );
+            $em->flush();
+
+
+            $subject = "Solicitud de Servicios desde Toyocosta.com.ec - Taller Móvil";
+            $body = '<strong>Informaci&oacute;n de Solicitud:</strong> <br /><br />
+            Nombre:  '.$mantenimiento->getNombre().' <br />
+            Apellido:   '. $mantenimiento->getApellido() .' <br />
+            Email:  '. $mantenimiento->getEmail() .' <br />
+            Telefono:  '. $mantenimiento->getTelefono() .'  <br />
+            Celular:  '. $mantenimiento->getCelular() .' <br />  
+            Modelo:  '. $mantenimiento->getModelo() .' <br />
+            Kilometraje:  '. $mantenimiento->getKilometros() .' <br />          
+            Observaciones:  '. $mantenimiento->getObservaciones() .' <br />
+            Fecha Tentativa:  '. $fecha .' <br />
+            Comentario:  '. $mantenimiento->getComentarios() .' <br />';
+      
+
+            $message = \Swift_Message::newInstance()
+
+            ->setSubject($subject)
+
+            ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
+            //->setFrom(array('citasweb@toyocosta.com.ec' => 'Web Toyocosta'))
+            
+
+            ->setTo(array('tallermovil@toyocosta.com.ec'=> 'Taller Movil'))
+            //->setTo( array('ycosquillo@celmedia.com' => 'Admin' ))
+            
+            ->setContentType("text/html")
+
+            ->setBody(
+            
+            
+            '
+            <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+            <style type="text/css">
+                .titulo {  font-family: "Lato", sans-serif; text-align:center!important; color:#DF192A!important; padding-top: 30px!important;}
+                .fontt{ font-size: 25px; }
+                .cuadro{ padding: 20px 20%!important; }
+            </style>
+  
+            <div style=" width:100%; background: #efefef!important">
+                <h1  class="titulo"><b>NUEVO REGISTRO EN TALLER MÓVIL:<br/></b></h1>
+                
+                <div class="cuadro">
+                   <div style="padding: 30px!important ; text-align: left!important;  background: #ffffff!important;">
+                    
+                    <strong class="fontt">INFORMACIÓN DEL USUARIO:</strong> 
+
+                    <table style="width: 100%!important;"   border=1  bordercolor="ffffff"> 
+
+                         <tr  >
+                            <td style="width: 20%!important;">
+                            <b> Nombre: </b>
+                            </td>
+                            <td style="width: 80%!important;">
+                             '.$nombre.' 
+                            </td>
+                          </tr>
+                          
+                            <tr>
+                            <td style="width: 20%!important;">
+                            <b> Apellido: </b> 
+                            </td>
+                            <td  style="width: 80%!important;">
+                             '. $apellido .'
+                            </td>
+                          </tr>
+                          
+                            <tr>
+                            <td style="width: 20%!important;">
+                             <b> Email: </b>
+                            </td>
+                            <td style="width: 80%!important;">
+                             '. $email .'
+                            </td>
+                          </tr>
+                          
+                           <tr>
+                            <td style="width: 20%!important;">
+                              <b> Teléfono:  </b>
+                            </td>
+                            <td style="width: 80%!important;">
+                              '. $telefono .' 
+                            </td>
+                          </tr>
+                          
+                          <tr>
+                            <td style="width: 20%!important;">
+                              <b> Celular: </b>
+                            </td>
+                            <td style="width: 80%!important;">
+                               '. $celular .' 
+                            </td>
+                          </tr>
+                          
+                            <tr>
+                            <td style="width: 20%!important;">
+                             <b> Modelo: </b>  
+                            </td>
+                            <td style="width: 80%!important;" >
+                              '. $modelo .'
+                            </td >
+                          </tr>
+                          
+                              <tr>
+                            <td style="width: 20%!important;">
+                             <b> Kilometraje: </b>
+                            </td>
+                            <td style="width: 80%!important;">
+                             '. $kilometraje .'
+                            </td>
+                          </tr>
+
+                            <tr>
+                            <td style="width: 20%!important;">
+                             <b> Fecha Tentativa: </b>  
+                            </td>
+                            <td style="width: 80%!important;" >
+                              '. $fecha .'
+                            </td >
+                          </tr>
+
+
+                            <tr>
+                            <td style="width: 20%!important;">
+                             <b> Observaciones: </b>  
+                            </td>
+                            <td style="width: 80%!important;" >
+                              '. $observaciones .'
+                            </td >
+                          </tr>
+
+
+
+                            <br/><br/>
+                                
+
+                    </table>
+                    
+                 
+                   </div>
+                </div>
+                
+        
+            </div>
+            
+            '
+            
+            );
+
+
+
+            //->setBody($body);
+
+
+
+
+
+
+
+
+            $message2 = \Swift_Message::newInstance()
+
+            ->setSubject($subject)
+
+            ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
+            
+            ->setTo( array( $email => 'Usuario' ))
+            
+            ->setContentType("text/html")
+
+            ->setBody(            
+            
+            '
+            <img style="margin: 0 auto;" src="http://www.toyocosta.com/web/uploads/mail-agradecimiento.jpg">
+            '  
+            
+            );
+
+            //->attach(\Swift_Attachment::fromPath( $path ));
+
+
+
+
+            $envioMail = $this->get('mailer')->send($message);
+            $envioMail2 = $this->get('mailer')->send($message2);
+
+
+
+            if ( $envioMail ) {
+                 return new JsonResponse(array(
+                    'codigo' => 1,
+                    'Mensaje' => "El mensaje ha sido enviado"
+                ), 200); //codigo de error diferente
+            }else {
+                 return new JsonResponse(array(
+                    'codigo' => 0,
+                    'Mensaje' => "No se ha enviado mensaje"
+                ), 200); //codigo de error diferente
+            }
+        
+
+        }
+
+        return new JsonResponse(array(
+            'codigo' => 0,
+            'Mensaje' => "No se recibio por post"
+        ), 200); //codigo de error diferente
+
+
+    }
 
 
 }

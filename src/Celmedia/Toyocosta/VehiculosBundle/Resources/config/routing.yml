@@ -153,6 +153,12 @@ envio_mantenimiento:
     options:
         expose: true
 
+envio_tallermovil:
+    path:      /tallermovilenvio
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Custom:envioCitaTallerMovil }
+    options:
+        expose: true
+
 envio_contacto:
     path:      /enviando/form
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Default:envioContacto }

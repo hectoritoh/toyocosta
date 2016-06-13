@@ -369,6 +369,11 @@ class LandingController extends Controller
             $km = $request->request->get('km');
             $foto = $request->request->get('rutacv');
 
+
+            if (!$telefono) {
+                $telefono = "";
+            }
+
             $info = new \Celmedia\Toyocosta\ContenidoBundle\Entity\InfoLandings();
 
             $info->setNombre( $nombre  );
@@ -395,11 +400,17 @@ class LandingController extends Controller
 
             $extraMensaje12 = " ";
 
-
+            $fechatentativa = "" ;
+            $modeloextra = "" ;
+            $anioextra = "" ;
+            $precioextra = "" ;
+            $ciudadextra = "" ;
 
             if ( $fecha && $taller ) {
                 
                 $extraMensaje0 = " Fecha Tentativa:  ".$fecha;
+
+                $fechatentativa = $fecha;
             }
             
             if ( $modelo) {
@@ -407,41 +418,35 @@ class LandingController extends Controller
                 $info->setModelo( $modelo  );
 
                 $extraMensaje11 = " Modelo:  ".$modelo ;
+
+                $modeloextra = $modelo;
             }
 
-            if ( $modelo && $anio ) {
+            if ( $anio ) {
 
-                $info->setModelo( $modelo  );
+                
                 $info->setAnio( $anio  );
 
-                $extraMensaje1 = " Modelo:  ".$modelo." <br />
-                Año:  ".$anio;
+                $extraMensaje1 = " Año:  ".$anio;
+
+                $anioextra = $anio;
             }
 
-            if ( $ciudad && $precio ){
+            if ( $precio ) {
+                
+                $extraMensaje12 = " Precio Esperado:  ".$precio;
 
+                $precioextra = $precio;
 
-                if ( $anio && $km && $modelo && $marca ){
+            }
+            if ( $ciudad ){
+
 
                     $info->setCiudad( $ciudad  );
-                    //$info->setModelo( $modelo  );
-                    //$info->setAnio( $anio  );
                     
-                    $extraMensaje12 = " Ciudad:  ".$ciudad." <br />
+                    $extraMensaje2 = " Ciudad:  ".$ciudad;
 
-                    Marca:  ".$marca." <br />
-                    Kilometraje:  ".$km." <br />
-                    Precio Esperado:  ".$precio;
-
-                }else{
-                    
-                    $info->setCiudad( $ciudad  );
-                    
-                    $extraMensaje2 = " Ciudad:  ".$ciudad." <br />
-
-                    Precio Esperado:  ".$precio;
-                }
-
+                    $ciudadextra = $ciudad;
 
 
             }
@@ -479,17 +484,14 @@ class LandingController extends Controller
             if ($taller) {
 
                 $to = array('tallermovil@toyocosta.com.ec'=> 'Taller Movil');
-                //$to = array('ycosquillo@celmedia.com'=> 'Taller Movil');
                 
             }elseif ($montacargas) {
 
                 $to = array('conventos@toyocosta.com.ec'=> 'Ventas Montacargas');
-                //$to = array('ycosquillo@celmedia.com'=> 'Ventas Montacargas');
 
             }else{
 
                 $to = array('cdnventas@toyocosta.com.ec'=> 'Toyocosta');
-                //$to = array('ycosquillo@celmedia.com'=> 'Toyocosta');
                 
             }
 
@@ -500,7 +502,7 @@ class LandingController extends Controller
             
             $body = '<strong>Información del Landing Page.</strong> <br /><br />
             A continuación detallamos los datos ingresados: <br /><br />              
-            Campana:  '. $campana .' <br />
+            Campaña:  '. $campana .' <br />
             Nombre:  '.$info->getNombre().' <br />
             Apellido:   '. $info->getApellido() .' <br />
             Cedula:  '.$info->getCedula().' <br />
@@ -523,14 +525,167 @@ class LandingController extends Controller
             ->setSubject($subject)
 
             ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
-            //->setFrom(array('citasweb@toyocosta.com.ec' => 'Web Toyocosta'))
 
             ->setTo( $to )                
-            //->setTo(array( $email , 'cdnventas@toyocosta.com.ec' => 'Toyocosta' ))
+            //->setTo(array( 'ycosquillo@celmedia.com' => 'Admin' ))
                         
             ->setContentType("text/html")
 
-            ->setBody($body);
+            //->setBody($body);
+
+            ->setBody(
+            
+            
+            '
+            <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet" type="text/css">
+            <style type="text/css">
+                .titulo {  font-family: "Lato", sans-serif; text-align:center!important; color:#DF192A!important; padding-top: 30px!important;}
+                .fontt{ font-size: 25px; }
+                .cuadro{ padding: 20px 20%!important; }
+            </style>
+  
+            <div style=" width:100%; background: #efefef!important">
+                <h1  class="titulo"><b>Nuevo Registro desde Landing Page "'.$campana.' "<br/></b></h1>
+                
+                <div class="cuadro">
+                   <div style="padding: 30px!important ; text-align: left!important;  background: #ffffff!important;">
+                    
+                    <strong class="fontt">INFORMACIÓN DEL USUARIO:</strong> 
+
+                    <table style="width: 100%!important;"   border=1  bordercolor="ffffff"> 
+
+                         <tr  >
+                            <td style="width: 30%!important;">
+                            <b> Nombre: </b>
+                            </td>
+                            <td style="width: 80%!important;">
+                             '.$nombre.' 
+                            </td>
+                          </tr>
+                          
+                            <tr>
+                            <td style="width: 30%!important;">
+                            <b> Apellido: </b> 
+                            </td>
+                            <td  style="width: 80%!important;">
+                             '. $apellido .'
+                            </td>
+                          </tr>
+                          
+                            <tr>
+                            <td style="width: 30%!important;">
+                             <b> Email: </b>
+                            </td>
+                            <td style="width: 80%!important;">
+                             '. $email .'
+                            </td>
+                          </tr>
+                          
+                            <tr>
+                            <td style="width: 30%!important;">
+                             <b> Cédula: </b>  
+                            </td>
+                            <td style="width: 80%!important;" >
+                              '. $cedula .'
+                            </td >
+                          </tr>
+                          
+                           <tr>
+                            <td style="width: 30%!important;">
+                              <b> Teléfono:  </b>
+                            </td>
+                            <td style="width: 80%!important;">
+                              '. $telefono .' 
+                            </td>
+                          </tr>
+                          
+                          <tr>
+                            <td style="width: 30%!important;">
+                              <b> Celular: </b>
+                            </td>
+                            <td style="width: 80%!important;">
+                               '. $celular .' 
+                            </td>
+                          </tr>
+                          
+                            <tr>
+                            <td style="width: 30%!important;">
+                             <b> Comentarios: </b>  
+                            </td>
+                            <td style="width: 80%!important;" >
+                              '. $comentario .'
+                            </td >
+                          </tr>
+
+
+                          <tr>
+                            <td style="width: 30%!important;">
+                             <b> Modelo del Vehículo: </b>  
+                            </td>
+                            <td style="width: 80%!important;" >
+                              '. $modeloextra.'
+                            </td >
+                          </tr>
+
+
+                          <tr>
+                            <td style="width: 30%!important;">
+                             <b> Año del Vehículo: </b>  
+                            </td>
+                            <td style="width: 80%!important;" >
+                              '. $anioextra.'
+                            </td >
+                          </tr>
+                          
+                           <tr>
+                            <td style="width: 30%!important;">
+                             <b> Precio Esperado: </b>  
+                            </td>
+                            <td style="width: 80%!important;" >
+                              '. $precioextra .'
+                            </td >
+                          </tr>
+
+                              <tr>
+                            <td style="width: 30%!important;">
+                             <b> Fecha Tentativa: </b>
+                            </td>
+                            <td style="width: 80%!important;">
+                             '. $fechatentativa .'
+                            </td>
+                          </tr>
+
+                            <tr>
+                            <td style="width: 30%!important;">
+                             <b> Ciudad: </b>  
+                            </td>
+                            <td style="width: 80%!important;" >
+                              '. $ciudadextra .'
+                            </td >
+                          </tr>
+
+
+
+                            <br/><br/>
+                                
+
+                    </table>
+                    
+                    <p>
+                        ' . $extraMensaje3 . ' <br />
+                        ' . $extraMensaje4 . ' <br /> 
+                    </p>
+                 
+                   </div>
+                </div>
+                
+        
+            </div>
+            
+            '
+            
+            );
+
 
 
             if ($foto) {
@@ -541,7 +696,34 @@ class LandingController extends Controller
             }
 
 
+
+
+
+
+            $message2 = \Swift_Message::newInstance()
+
+            ->setSubject($subject)
+
+            ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
+            
+            ->setTo( array( $email => 'Usuario' ))
+            
+            ->setContentType("text/html")
+
+            ->setBody(            
+            
+            '
+            <img style="margin: 0 auto;" src="http://www.toyocosta.com/web/uploads/mail-agradecimiento.jpg">
+            '  
+            
+            );
+
+            
+
+            $envioMail2 = $this->get('mailer')->send($message2);
             $envioMail = $this->get('mailer')->send($message);
+
+
 
 
             if ( $envioMail ) {

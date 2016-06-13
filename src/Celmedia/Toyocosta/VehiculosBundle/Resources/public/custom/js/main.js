@@ -576,6 +576,121 @@ $(document).ready(function(){
 
           }
     });
+  
+
+    $("#form-taller").validate({
+        debug: true,
+        submitHandler: function (form) {
+            var parametros = {
+                nombre: $("#nombre").val(),
+                apellido: $("#apellido").val(),
+                telefono: $("#telefono").val(),
+                email: $("#email").val(),
+                celular: $("#celular").val(),
+                fecha: $("#fecha").val(),
+                observaciones: $("#observaciones").val(),
+                comentario: $("#comentario").val(),
+                modelo: $("#modelo").val(),
+                kilometraje: $("#km").val()
+
+            }
+            
+            $.ajax({
+                url: Routing.generate('envio_tallermovil'),
+                type: 'POST',
+                async: true,
+                data: parametros,
+                dataType: "json",
+                success: function (respuesta) {
+
+                  if (respuesta.codigo == 1 ) {
+                      $('#contenedorEspereMantenimiento').hide();
+                      
+                      $("#btn-cita").removeAttr("disabled");
+                       alert('Su pedido de informaci\u00F3n fu\u00E9 enviado con \u00E9xito');
+                       document.getElementById("form-taller").reset();
+                       
+                  }else if (respuesta.codigo == 0 ) {
+                        alert(respuesta.mensaje);
+                  }else{
+                    alert("error");
+                  }
+
+                }, 
+                beforeSend: function () {
+                    //$('#contenedorFormMantenimiento').hide();
+                    $("#btn-cita").attr('disabled','disabled');
+                    $('#contenedorEspereMantenimiento').show();
+                },
+                error: function (error) {
+                  console.log("ERROR: " + error);
+                }
+                
+            });
+        },
+        rules: {
+            nombre: {
+                required: true
+            },
+            apellido: {
+                required: true
+            },
+            telefono: {
+                required: true,
+                minlength:7,
+                maxlength:15,
+                number:true
+            },
+            email: {
+              required:true,
+              email: true
+            },
+            celular: {
+                required: true,
+                minlength:7,
+                maxlength:15,
+                number:true
+            },
+            fecha: {
+              required: true
+            },
+            observaciones: {
+              required: true
+            },
+            comentario: {
+              required: true
+            },
+            modelo: {
+              required: true
+            },
+            km: {
+              required: true
+            }
+
+          },
+          showErrors: function (errorMap, errorList) {
+               // Clean up any tooltips for valid elements
+              $.each(this.validElements(), function (index, element) {
+                  var $element = $(element);
+
+                  $element.data("title", "") // Clear the title - there is no error associated anymore
+                      .removeClass("error")
+                      .tooltip("destroy");
+              });
+
+              // Create new tooltips for invalid elements
+              $.each(errorList, function (index, error) {
+                  var $element = $(error.element);
+
+                  $element.tooltip("destroy") // Destroy any pre-existing tooltip so we can repopulate with new tooltip content
+                      .data("title", error.message)
+                      .addClass("error")
+                      .tooltip(); // Create a new tooltip based on the error messsage we just set in the title
+                  });
+
+          }
+    });
+
 
     $("#form-mantenimiento").validate({
         debug: true,
