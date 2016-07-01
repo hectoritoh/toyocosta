@@ -1293,6 +1293,7 @@ class DefaultController extends Controller
             //$vehiculoid = $request->request->get('modelo');
             $modelo = $request->request->get('modelo');
             $kilometraje = $request->request->get('kilometraje');
+            $placa = $request->request->get('placa');
             $regalo = $request->request->get('regalo');
 
 
@@ -1381,7 +1382,8 @@ class DefaultController extends Controller
                 $mantenimiento->setKilometros( $kilometraje );
 
                 $extraMensaje = " Modelo:  ".$mantenimiento->getModelo()." <br />
-                Kilometraje:  ".$mantenimiento->getKilometros();
+                Kilometraje:  ".$mantenimiento->getKilometros()." <br />
+                Placa:  ".$placa;
 
             }else{
 
@@ -1415,27 +1417,27 @@ class DefaultController extends Controller
 
 
             if($formulario == "citatalleres" || $formulario == "mantenimientoexpress" ){
-                $arrayCorreo = array('citasweb@toyocosta.com.ec'=> 'Citas Talleres - Mantenimiento Express' );
-                //$arrayCorreo = array('ycosquillo@celmedia.com'=> 'Citas Talleres - Mantenimiento Express');                
+                //$arrayCorreo = array('citasweb@toyocosta.com.ec'=> 'Citas Talleres - Mantenimiento Express' );
+                $arrayCorreo = array('ycosquillo@celmedia.com'=> 'Citas Talleres - Mantenimiento Express');                
 
             }elseif($formulario == "tallermovil"){
 
-                $arrayCorreo = array('tallermovil@toyocosta.com.ec'=> 'Taller Movil');
-                //$arrayCorreo = array('ycosquillo@celmedia.com'=> 'Taller Movil');
+                //$arrayCorreo = array('tallermovil@toyocosta.com.ec'=> 'Taller Movil');
+                $arrayCorreo = array('ycosquillo@celmedia.com'=> 'Taller Movil');
                 
 
             }else{
-                $arrayCorreo = array('citasweb@toyocosta.com.ec'=> 'Citas Talleres - Mantenimiento Express');
-                //$arrayCorreo = array('ycosquillo@celmedia.com'=> 'Otro');
+                //$arrayCorreo = array('citasweb@toyocosta.com.ec'=> 'Citas Talleres - Mantenimiento Express');
+                $arrayCorreo = array('ycosquillo@celmedia.com'=> 'Otro');
             }
 
 
 
-            foreach ( $taller->getContactos() as $item) {
+            // foreach ( $taller->getContactos() as $item) {
 
-                array_push($arrayCorreo, $item->getEmail() );
+            //     array_push($arrayCorreo, $item->getEmail() );
 
-            }
+            // }
 			
 			//echo "<pre>";
 			//\Doctrine\Common\Util\Debug::dump($arrayCorreo);

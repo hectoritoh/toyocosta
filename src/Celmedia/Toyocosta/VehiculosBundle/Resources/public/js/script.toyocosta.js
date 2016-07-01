@@ -1033,6 +1033,7 @@ $(document).ready(function(){
                 comentario: $("#mcomentario").val(),
                 modelo: $("#mmodelo").val(),
                 kilometraje: $("#mkilometraje").val(),
+                placa: $("#placa").val(),
                 regalo: $("#regalo").val(),
                 selectedRegalo: $("#selectedRegalo").val()
 
