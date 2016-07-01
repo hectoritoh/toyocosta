@@ -1417,18 +1417,18 @@ class DefaultController extends Controller
 
 
             if($formulario == "citatalleres" || $formulario == "mantenimientoexpress" ){
-                //$arrayCorreo = array('citasweb@toyocosta.com.ec'=> 'Citas Talleres - Mantenimiento Express' );
-                $arrayCorreo = array('ycosquillo@celmedia.com'=> 'Citas Talleres - Mantenimiento Express');                
+                $arrayCorreo = array('citasweb@toyocosta.com.ec'=> 'Citas Talleres - Mantenimiento Express' );
+                //$arrayCorreo = array('ycosquillo@celmedia.com'=> 'Citas Talleres - Mantenimiento Express');                
 
             }elseif($formulario == "tallermovil"){
 
-                //$arrayCorreo = array('tallermovil@toyocosta.com.ec'=> 'Taller Movil');
-                $arrayCorreo = array('ycosquillo@celmedia.com'=> 'Taller Movil');
+                $arrayCorreo = array('tallermovil@toyocosta.com.ec'=> 'Taller Movil');
+                //$arrayCorreo = array('ycosquillo@celmedia.com'=> 'Taller Movil');
                 
 
             }else{
-                //$arrayCorreo = array('citasweb@toyocosta.com.ec'=> 'Citas Talleres - Mantenimiento Express');
-                $arrayCorreo = array('ycosquillo@celmedia.com'=> 'Otro');
+                $arrayCorreo = array('citasweb@toyocosta.com.ec'=> 'Citas Talleres - Mantenimiento Express');
+                //$arrayCorreo = array('ycosquillo@celmedia.com'=> 'Otro');
             }
 
 
