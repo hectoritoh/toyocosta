@@ -1382,8 +1382,7 @@ class DefaultController extends Controller
                 $mantenimiento->setKilometros( $kilometraje );
 
                 $extraMensaje = " Modelo:  ".$mantenimiento->getModelo()." <br />
-                Kilometraje:  ".$mantenimiento->getKilometros()." <br />
-                Placa:  ".$placa;
+                Kilometraje:  ".$mantenimiento->getKilometros()." <br />";
 
             }else{
 
@@ -1433,11 +1432,11 @@ class DefaultController extends Controller
 
 
 
-            // foreach ( $taller->getContactos() as $item) {
+            foreach ( $taller->getContactos() as $item) {
 
-            //     array_push($arrayCorreo, $item->getEmail() );
+                array_push($arrayCorreo, $item->getEmail() );
 
-            // }
+            }
 			
 			//echo "<pre>";
 			//\Doctrine\Common\Util\Debug::dump($arrayCorreo);
@@ -1456,6 +1455,7 @@ class DefaultController extends Controller
             Fecha Tentativa:  '. $fecha .' <br />
             Tipo Reserva:  '. $mantenimiento->getTipoReserva()->getNombre() .' <br />
             Taller:  '. $mantenimiento->getTaller()->getNombre() .' <br />
+            Placa:  '. $placa .' <br />
             ' . $extraMensaje . ' <br /> 
             ' . $premio . ' <br />';
       
