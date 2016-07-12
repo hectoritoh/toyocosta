@@ -318,6 +318,11 @@ class LandingController extends Controller
         return $this->render('CelmediaToyocostaVehiculosBundle:Landing:fortuner2017.html.twig'); 
     }
 
+    public function innova8Action()
+    {
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:innova8.html.twig'); 
+    }
+
 
     public function envioLandingAction(Request $request){
 

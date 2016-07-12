@@ -529,6 +529,10 @@ landing_fortuner_2017:
     path:      /landing/fortuner/2017
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:fortunerNew }
 
+landing_innova8:
+    path:      /landing/innova8
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:innova8 }
+
 
 
 
