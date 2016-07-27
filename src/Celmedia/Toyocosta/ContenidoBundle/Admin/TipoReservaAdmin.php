@@ -20,6 +20,7 @@ class TipoReservaAdmin extends Admin
         $datagridMapper
             ->add('nombre')
             ->add('estado')
+
         ;
     }
 
@@ -30,6 +31,7 @@ class TipoReservaAdmin extends Admin
     {
         $listMapper
             ->add('nombre')
+            ->add('talleres')
             ->add('estado', 'choice', array(
            'choices' => array(
                '1' => 'Publicado',

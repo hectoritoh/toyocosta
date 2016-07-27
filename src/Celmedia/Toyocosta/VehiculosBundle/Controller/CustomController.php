@@ -228,9 +228,10 @@ class CustomController extends Controller
 
     }
 
-    public function citatalleresAction($value='')
+    public function citatalleresAction($tipo)
     {
         
+        $tipo = $tipo;
 
         $em = $this->getDoctrine()->getManager();        
         
@@ -251,7 +252,8 @@ class CustomController extends Controller
         );
 
 
-        return $this->render('CelmediaToyocostaVehiculosBundle:Custom:citatalleres.html.twig' , array( "vehiculos" => $vehiculos , "reservas" => $reservas , "banners" => $banners ));
+
+        return $this->render('CelmediaToyocostaVehiculosBundle:Custom:citatalleres.html.twig' , array( "vehiculos" => $vehiculos , "reservas" => $reservas , "banners" => $banners, "tipo" => $tipo ));
 
 
     }

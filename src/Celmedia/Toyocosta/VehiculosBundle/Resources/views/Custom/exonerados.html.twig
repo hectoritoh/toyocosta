@@ -10,7 +10,50 @@
 
 {% endblock %}
 
-
+{% block style %}
+    <style type="text/css">
+        figure.discapacitados {
+            background-color: #BF1B78!important;
+        }
+        figure.diplomaticos {
+            background-color: #DA2128!important;
+        }
+        figure.plan {
+            background-color: #EF8122!important;
+        }
+        figure.compras {
+            background-color: #446FB6!important;
+        }
+        figure.gama {
+            background-color: #8db000!important;
+        }        
+        figure {
+            height: 250px;
+        }
+        figure img {
+            margin: 0 auto;
+            top: 20px;
+            width: 135px;
+            height: 95px;
+        }
+        figure.effect-ruby a {
+            color: #fff;
+            background-color: transparent;
+        }
+        figcaption img{
+            position: relative;
+            top: 10px;
+        }
+        figure h2 {
+            font-size: 15px;
+            margin-bottom: 20px!important;
+            letter-spacing: 2px!important;
+        }
+        figure.effect-ruby figcaption {
+            bottom: 2px;
+        }
+    </style>
+{% endblock %}
 {% block bannercabecera %}
 
         <header>
@@ -28,7 +71,115 @@
     <!-- Accesos -->
     <div class="container-fluid">
         <div class="row">
-            <a class="link-exonerados" href="{{path('custom_info_exonerados', {'tipo': 'discapacitados'} )}}">
+
+
+            <div class="col-xs-2 width-exo">
+                <div class="row">
+                    <figure class="imghome discapacitados" >
+                        {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/icon/discapacitados.png' %}
+                        <img src="{{ asset_url }}" alt="" class=""/>
+                        {% endimage %}
+                        <figcaption>    
+                            <div class="caption" style="padding-bottom:10px;">
+                                <h2 class="title-accesos">Discapacitados</h2>
+                                {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/icon/separador.png' %}
+                                <img src="{{ asset_url }}" alt="" class="img-responsive img-center" style="margin-bottom: 20px;" />
+                                {% endimage %}
+                                <a class="link-exonerados" href="{{path('custom_info_exonerados', {'tipo': 'discapacitados'} )}}">
+                                    M&aacute;s informaci&oacute;n
+                                </a>                                         
+                            </div>
+                        </figcaption> 
+                    </figure>   
+                </div>
+            </div>
+
+            <div class="col-xs-2 width-exo">
+                <div class="row">
+                    <figure class="imghome diplomaticos" >
+                        {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/icon/ong-s.png' %}
+                        <img src="{{ asset_url }}" alt="" class=""/>
+                        {% endimage %}
+                        <figcaption>    
+                            <div class="caption" style="padding-bottom:10px;">
+                                <h2 class="title-accesos">Diplomáticos y ONG´S</h2>
+                                {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/icon/separador.png' %}
+                                <img src="{{ asset_url }}" alt="" class="img-responsive img-center" style="margin-bottom: 20px;" />
+                                {% endimage %}
+                                <a class="link-exonerados" href="{{path('custom_info_exonerados', {'tipo': 'diplomaticos'} )}}">
+                                    M&aacute;s informaci&oacute;n
+                                </a>                                         
+                            </div>
+                        </figcaption> 
+                    </figure>   
+                </div>
+            </div>
+
+            <div class="col-xs-2 width-exo">
+                <div class="row">
+                    <figure class="imghome plan" >
+                        {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/icon/renova.png' %}
+                        <img src="{{ asset_url }}" alt="" class=""/>
+                        {% endimage %}
+                        <figcaption>    
+                            <div class="caption" style="padding-bottom:10px;">
+                                <h2 class="title-accesos">PLAN RENOVA</h2>
+                                {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/icon/separador.png' %}
+                                <img src="{{ asset_url }}" alt="" class="img-responsive img-center" style="margin-bottom: 20px;" />
+                                {% endimage %}
+                                <a class="link-exonerados" href="{{path('custom_info_exonerados', {'tipo': 'plan'} )}}">
+                                    M&aacute;s informaci&oacute;n
+                                </a>                                         
+                            </div>
+                        </figcaption> 
+                    </figure>   
+                </div>
+            </div>
+
+            <div class="col-xs-2 width-exo">
+                <div class="row">
+                    <figure class="imghome compras" >
+                        {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/icon/compras-publicas.png' %}
+                        <img src="{{ asset_url }}" alt="" class=""/>
+                        {% endimage %}
+                        <figcaption>    
+                            <div class="caption" style="padding-bottom:10px;">
+                                <h2 class="title-accesos">COMPRAS PÚBLICAS</h2>
+                                {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/icon/separador.png' %}
+                                <img src="{{ asset_url }}" alt="" class="img-responsive img-center" style="margin-bottom: 20px;" />
+                                {% endimage %}
+                                <a class="link-exonerados" href="{{path('custom_info_exonerados', {'tipo': 'compras'} )}}">
+                                    M&aacute;s informaci&oacute;n
+                                </a>                                         
+                            </div>
+                        </figcaption> 
+                    </figure>   
+                </div>
+            </div>
+
+            <div class="col-xs-2 width-exo">
+                <div class="row">
+                    <figure class="imghome gama" >
+                        {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/icon/gama.png' %}
+                        <img src="{{ asset_url }}" alt="" class=""/>
+                        {% endimage %}
+                        <figcaption>    
+                            <div class="caption" style="padding-bottom:10px;">
+                                <h2 class="title-accesos">GAMA</h2>
+                                {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/icon/separador.png' %}
+                                <img src="{{ asset_url }}" alt="" class="img-responsive img-center" style="margin-bottom: 20px;" />
+                                {% endimage %}
+                                <a class="link-exonerados" href="{{path('custom_info_exonerados', {'tipo': 'gama'} )}}">
+                                    M&aacute;s informaci&oacute;n
+                                </a>                                         
+                            </div>
+                        </figcaption> 
+                    </figure>   
+                </div>
+            </div>
+
+
+            {#<a class="link-exonerados" href="{{path('custom_info_exonerados', {'tipo': 'discapacitados'} )}}">
                 <div class="col-md-2 bg-discapacitados width-exo col-xs-2">
                     <div class="row" style="padding-top:50px;">
                         {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/icon/discapacitados.png' %}
@@ -112,7 +263,7 @@
                         <a class="link-exonerados" href="{{path('custom_info_exonerados', {'tipo': 'gama'})}}">M&aacute;s informaci&oacute;n</a>
                     </div>
                 </div>
-            </a>
+            </a>#}
 
 
         </div>

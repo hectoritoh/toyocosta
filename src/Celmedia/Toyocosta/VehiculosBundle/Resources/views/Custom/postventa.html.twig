@@ -89,7 +89,7 @@
                                                 <div class="col-md-8">
                                                     
                                                     <p class="text-left">
-                                                        El servicio técnico está certificado* por la TOYOTA MOTOR CORPORATION y en la red somos reconocidos por la inversión en alta tecnología en equipos y en capacitación del personal técnico -titulado por Japón- tanto para manejo de motores convencionales a gasolina, como los de tecnología híbrida. <br/><br/>
+                                                        El servicio técnico está certificado* por la TOYOTA MOTOR CORPORATION y en la red somos reconocidos por la inversión en alta tecnología en equipos y en capacitación del personal técnico -titulado por Japón- tanto para manejo de motores convencionales, a diesel y a gasolina, como los de tecnología híbrida. <br/><br/>
 
                                                         Brindamos a nuestros clientes la tranquilidad de contar de forma permanente con un stock de repuestos, gracias a que somos una red a nivel nacional.
                                                         Todos nuestros repuestos tienen una garantía de 1 año o 20mil km, lo que ocurra primero.
@@ -99,7 +99,18 @@
                                             </div>
 
                                             <div class="row tb-20">
-                                                <a href="{{path('custom_cita')}}">
+                                                <div class="col-lg-8">
+                                                    <h4 class="">Horarios:</h4>
+                                                    <ul class="list-exonerados">
+                                                        <li>Lunes a Viernes | 7:30 am  a 17:30 pm</li>
+                                                        <li>Sábados | 08:30 am a 13:00 pm</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+
+                                            <div class="row tb-20">
+                                                <a href="{{path('custom_cita', {'tipo':'Mantenimiento'})}}">
                                                     <div class="btn btn-toyocosta col-md-4 col-md-offset-4">
                                                         RESERVE SU CITA
                                                     </div>
@@ -177,6 +188,16 @@
                                                         </p>
                                                     </div>
                                                 </div>
+
+                                                <div class="row tb-20">
+                                                    <div class="col-lg-8">
+                                                        <h4 class="">Servicios Adicionales:</h4>
+                                                        <ul class="list-exonerados">
+                                                            <li>Alineación, balanceo, mantenimiento A/C, limpieza inyectores, rectificado de discos de frenos.</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+
                                                 <div class="row tb-20">
                                                     <div class="col-lg-8">
                                                         <h4 class="">Ventajas competitivas (valor agregado):</h4>
@@ -207,7 +228,8 @@
                                                     <div class="col-lg-8">
                                                         <h4 class="">Horarios:</h4>
                                                         <ul class="list-exonerados">
-                                                            <li>Lunes a Viernes | 8h00 am a 17h00 pm</li>
+                                                            <li>Lunes a Viernes | 8h00 am a 16h00 pm</li>
+                                                            <li>Sábados | 9h00 am a 12h00 pm</li>
                                                         </ul>
                                                     </div>
                                                 </div>
@@ -253,11 +275,12 @@
 
                                             <div class="row tb-20" style="padding-top:40px;">
 
-                                                <div class="col-md-4">
+                                                
+                                                <div class="col-md-4" style="border-right:4px solid #CCCCCC;">
                                                     <div class="row">
                                                         <div class="col-md-12">
-                                                            {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/accesos/mantenimiento-express.jpg' %}
-                                                            <img src="{{ asset_url }}" id="logoblanco" alt="Toyocosta" class="img-responsive" />
+                                                            {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/accesos/logo-mantenimiento.png' %}
+                                                            <img src="{{ asset_url }}" id="logoblanco" alt="Toyocosta" class="img-responsive img-center" />
                                                             {% endimage %}
                                                             
                                                         </div>
@@ -268,14 +291,39 @@
                                                     <div class="row">
                                                         <div class="col-md-12">
                                                             <p class="text-left">
-                                                                El Servicio de Mantenimiento Express ofrece los mismos beneficios, garant&iacute;a y calidad que el servicio regular en un corto tiempo de espera.
+                                                                Toyocosta El Servicio de Mantenimiento Express ofrece
+                                                                los mismos beneficios, garantía y calidad que el servicio regular
+                                                                en un corto tiempo de espera.
                                                             </p>
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="row tb-20">
+                                                <div class="col-md-4">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
+                                                            {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/accesos/mantenimiento1.jpg' %}
+                                                            <img src="{{ asset_url }}" id="logoblanco" alt="Toyocosta" class="img-responsive" />
+                                                            {% endimage %}
+                                                            
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-8">
+                                                    <div class="row">
+                                                        <div class="col-md-12">
                                                             <ul class="list-exonerados list-post" style="padding-left:17px;">
-                                                                <li>T&eacute;cnicos certificados en Jap&oacute;n para <br/> mantenimiento de veh&iacute;culos Toyota.</li>
-                                                                <li>Tiempo máximo de mantenimiento <span>*</span></li>
+                                                                <li>T&eacute;cnicos Certificados en Jap&oacute;n para mantenimiento de veh&iacute;culos Toyota.</li>
+                                                                <li>Tiempo máximo de mantenimiento <span class="txt-rojo" style="font-weight:500">*</span></li>
                                                                 <li>Lavado GRATIS del veh&iacute;culo</li>
-                                                                <li>Comodidad total durante la espera</li>
-                                                                <li>Supervisión directa del trabajo en taller <span>**</span></li>
+                                                                <li>Supervisión directa del trabajo en taller <span class="txt-rojo" style="font-weight:500">**</span></li>
+                                                                <li>Comodidad total durante la espera <span class="txt-rojo" style="font-weight:500">***</span></li>
+
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -283,15 +331,16 @@
                                             </div>
 
                                             <div class="row tb-20">
-                                                <div class="col-md-8 col-md-offset-2 txt-post text-center">
+                                                <div class="col-md-12 txt-post text-center">
                                                         <div class="row tb-20">
-                                                            {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/accesos/carro.png' %}
+                                                            {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/accesos/mantenimiento2.jpg' %}
                                                             <img src="{{ asset_url }}" id="logoblanco" alt="Toyocosta" class="img-responsive img-center"/>
                                                             {% endimage %}
                                                             
                                                         </div>
-                                                    <span class="txt-rojo">*</span> Mantenimiento en 1 hora, siempre y cuando no se presenten novedades con el vehículo.<br/>
-                                                    <span class="txt-rojo">**</span>Usted podrá controlar el mantenimiento de su vehículo y estar en contacto permanente con el personal técnico en varias estaciones de servicio
+                                                    <span class="txt-rojo" style="font-weight:500">*</span> Mantenimiento en 1 hora, siempre y cuando no se presenten novedades con el vehículo.<br/>
+                                                    <span class="txt-rojo" style="font-weight:500">**</span>Usted podrá controlar el mantenimiento de su vehículo y estar en contacto permanente con el personal <br/> técnico en varias estaciones de servicio.<br/>
+                                                    <span class="txt-rojo" style="font-weight:500">***</span>Tiempo máximo en bahía express 1 hora y media.
                                                                    
                                                 </div>
                                             </div>
@@ -356,7 +405,7 @@
                                             </divc>
 
                                             <div class="row tb-20">
-                                                <a href="{{path('custom_contactenos')}}">
+                                                <a href="{{path('custom_cita', {'tipo':'Reparaciones'})}}">
                                                     <div class="btn btn-toyocosta col-md-4 col-md-offset-4">
                                                         COTICE AQUÍ
                                                     </div>
@@ -380,20 +429,34 @@
                                             
                                             <div class="row">
                                                 <div class="col-md-4">
-                                                    {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/accesos/pinturas.jpg' %}
+                                                    {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/accesos/pinturas_1.jpg' %}
                                                     <img src="{{ asset_url }}" id="logoblanco" alt="Toyocosta" class="img-responsive img-center"/>
                                                     {% endimage %}
                                                 </div>
-                                                <div class="col-md-8">
+
+                                                <div class="col-md-4">
+                                                    {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/accesos/pinturas_2.jpg' %}
+                                                    <img src="{{ asset_url }}" id="logoblanco" alt="Toyocosta" class="img-responsive img-center"/>
+                                                    {% endimage %}
+                                                </div>
+
+                                                <div class="col-md-4">
+                                                    {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/accesos/pinturas_3.jpg' %}
+                                                    <img src="{{ asset_url }}" id="logoblanco" alt="Toyocosta" class="img-responsive img-center"/>
+                                                    {% endimage %}
+                                                </div>
+                                                  
+                                            </div>
+                                            <div class="row tb-20">
+                                                <div class="col-md-12">
                                                     
                                                     <p>
                                                         Somos el taller de Enderezada y Pintura de Toyocosta, la excelencia de nuestro trabajo garantizará que su auto quede como nuevo restaurándole el color y las líneas originales y para ello contamos con los mejores procesos, altos estándares de calidad, el equipo de técnicos más calificado. Poseemos certificación internacional otorgada por Toyota Motor Corporación y estamos orgullosos de ser considerados una concesionaria de Calidad Mundial.
 
                                                     </p>
                                                     
-                                                </div>  
+                                                </div>
                                             </div>
-                                            
                                             <div class="row">
                                                 <div class="col-md-12">
                                                     <br/>
@@ -413,7 +476,7 @@
                                                     </p>
                                                     <h5>Nuestra forma de trabajar</h5>
                                                     <p>                                                        
-                                                        En nuestro taller de Enderezada y Pintura todo está debidamente planificado para su total satisfacción, les mostraremos a continuación, gráficamente, como organizamos nuestro trabajo y la infraestructura y tecnología de punta con la que contamos.<br/><br/>
+                                                        En nuestro taller de Enderezada y Pintura todo está debidamente planificado para su total satisfacción, como organizamos nuestro trabajo y la infraestructura y tecnología de punta con la que contamos.<br/><br/>
                                                     </p>
                                                     <h5>Nuestros Servicios:</h5><br/>
                                                     <ul class="list-exonerados list-post" style="padding-left:17px;">
@@ -427,9 +490,26 @@
                                                     </ul>
                                                 </div>
                                             </div>
-
                                             <div class="row tb-20">
-                                                <a href="{{path('custom_contactenos')}}">
+                                                <div class="col-lg-8">
+                                                    <h4 class="">Horarios:</h4>
+                                                    <ul class="list-exonerados">
+                                                        <li>Lunes a Viernes | 08:00 a 17:00</li>
+                                                        <li>Sábados | 09:00 a 13:00</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="row tb-20">
+                                                <div class="col-lg-8">
+                                                    <h4 class="">Ubicación:</h4>
+                                                    <ul class="list-exonerados">
+                                                        <li>Km. 9.5 Vía a Daule (Frente a Fuerte Huancavilca)</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            
+                                            <div class="row tb-20">
+                                                <a href="{{path('custom_cita', {'tipo':'Pintura'})}}">
                                                     <div class="btn btn-toyocosta col-md-4 col-md-offset-4">
                                                         COTICE AQUÍ
                                                     </div>

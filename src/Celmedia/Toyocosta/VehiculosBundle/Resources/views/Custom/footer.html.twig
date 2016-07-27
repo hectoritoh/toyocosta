@@ -106,11 +106,11 @@
 
                         <div class="col-md-2 text-left col-xs-6">
                             <p class="text-footer">SERVICIOS</p>
-                            <a class="link-footer" href="{{path('custom_cita')}}">Cita Talleres</a><br />
+                            <a class="link-footer" href="{{path('custom_cita',  {'tipo': 'mantenimiento'} )}}">Cita Talleres</a><br />
                             <a class="link-footer" href="{{path('custom_tallermovil')}}">Taller M&oacute;vil</a><br />
                             <a class="link-footer" href="{{path('custom_mantenimientoexpress')}}">Mantenimiento express</a><br />
-                            <a class="link-footer" href="{{path('custom_postventa')}}">Repuestos</a><br />
-                            <a class="link-footer" href="{{path('custom_postventa')}}">Pintura</a>
+                            <a class="link-footer" href="{{path('custom_cita',  {'tipo': 'reparaciones'} )}}">Reparaciones</a><br />
+                            <a class="link-footer" href="{{path('custom_cita',  {'tipo': 'pintura'} )}}">Pintura</a>
                             
                         </div>
 

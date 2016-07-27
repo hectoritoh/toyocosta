@@ -25,6 +25,11 @@
 
 
 {% block contenidotoyocosta %}
+    
+    {% if tipo is not defined or tipo is null %}
+        {% set tipo = "Mantenimiento" %}
+    {% endif %} 
+
 
     <div class="container">
         <div class="row">
@@ -53,7 +58,7 @@
 
         <form id="form-mantenimiento" class="form-info contenedor-centrar" enctype="multipart/form-data" >
 
-            <input type="hidden"  id="formulario" name="formulario"   value="citatalleres"  />
+            <input type="hidden"  id="formulario" name="formulario"   value="{{tipo}}"  />
             <div class="row">
                 <div class="col-md-12">
 
@@ -150,7 +155,7 @@
                                                 <select name="mreserva" id="mreserva" class="form-control txt-select" onchange="reservaSelected(this)">
                                                     <option value="">Selecciona un tipo</option>
                                                     {% for reserva in reservas %}
-                                                        <option value="{{ reserva.id }}" >{{ reserva.nombre }}</option>
+                                                        <option value="{{ reserva.id }}"  {% if tipo == reserva.nombre %} selected="selected" {% endif %} >{{ reserva.nombre }}</option>
                                                     {% endfor %}
 
                                                 </select>
