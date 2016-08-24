@@ -84,7 +84,7 @@ class CustomController extends Controller
                 )
         );
 
-        $terrenoid =$this->getDoctrine()->getRepository('CelmediaToyocostaVehiculosBundle:CategoriaVehiculo')->findOneBy(array("nombre" => "todoterreno", "estado"=> 1));
+        $terrenoid =$this->getDoctrine()->getRepository('CelmediaToyocostaVehiculosBundle:CategoriaVehiculo')->findOneBy(array("nombre" => "suv", "estado"=> 1));
         $vehiculostodoterreno = $this->getDoctrine()->getRepository("CelmediaToyocostaVehiculosBundle:SlideVehiculos")->findBy(array(
             "categoria_vehiculo" => $terrenoid , "estado" => 1
                 )
@@ -358,7 +358,7 @@ class CustomController extends Controller
 
 
 
-        $todoterreno =$this->getDoctrine()->getRepository('CelmediaToyocostaVehiculosBundle:CategoriaVehiculo')->findOneBy(array("nombre" => "todoterreno", "estado"=> 1));
+        $todoterreno =$this->getDoctrine()->getRepository('CelmediaToyocostaVehiculosBundle:CategoriaVehiculo')->findOneBy(array("nombre" => "suv", "estado"=> 1));
         $vehiculos_todoterreno = $this->getDoctrine()->getRepository('CelmediaToyocostaVehiculosBundle:Vehiculo')->findBy( array("estado"=> 1 , "categoria" => $todoterreno ) );
 
 
@@ -379,7 +379,7 @@ class CustomController extends Controller
 
 
 
-        $todoterreno =$this->getDoctrine()->getRepository('CelmediaToyocostaVehiculosBundle:CategoriaVehiculo')->findOneBy(array("nombre" => "todoterreno", "estado"=> 1));
+        $todoterreno =$this->getDoctrine()->getRepository('CelmediaToyocostaVehiculosBundle:CategoriaVehiculo')->findOneBy(array("nombre" => "suv", "estado"=> 1));
         $vehiculos_todoterreno = $this->getDoctrine()->getRepository('CelmediaToyocostaVehiculosBundle:Vehiculo')->findBy( array("estado"=> 1 , "categoria" => $todoterreno ) );
 
 

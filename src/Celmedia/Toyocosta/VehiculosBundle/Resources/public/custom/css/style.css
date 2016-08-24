@@ -465,6 +465,8 @@ footer{
 	font-size: 12px;
 	text-transform: uppercase;
 	font-family: 'latolight';
+	line-height: 24px;
+    letter-spacing: 1px;
 }
 .link-footer:hover{
 	color: #DF182B;
