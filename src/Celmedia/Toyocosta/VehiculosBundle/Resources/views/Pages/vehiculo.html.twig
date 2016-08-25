@@ -211,7 +211,7 @@
 
 
 					 	
-						 {% media vGaleria.media , 'slider'  %}
+						 {% media vGaleria.media , 'slider'  with {'class': 'img-center'}   %}
 						 
 						</div><!-- item -->
 					{% endfor %}
@@ -425,7 +425,11 @@
 
 
 
-
+			<style type="text/css">
+				.img-center{
+					margin: 0 auto;
+				}
+			</style>
 
 
 
