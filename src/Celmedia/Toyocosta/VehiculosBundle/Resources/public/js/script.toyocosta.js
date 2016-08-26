@@ -23,15 +23,24 @@ var seleccionado = false;
 
   function reservaSelected(elemento){
 
+      // Reserva Mantenimiento con id = 1
       if ( $(elemento).val() == 1 ) { 
-        //Reserva de mantenimiento
-        //alert("lalala");
         $("#sm-modelo-km").show();
         $("#sm-comentario").hide();
       }else{
         $("#sm-modelo-km").hide();
         $("#sm-comentario").show();
       }
+
+      // Reserva Mantenimiento con id = 5
+      if ( $(elemento).val() == 5 ) { 
+        
+        $("#talleroculto").hide();
+      }else{
+        $("#talleroculto").show();
+      }
+
+
 
       var parametros = {
           reserva: $(elemento).val()
@@ -1100,13 +1109,7 @@ $(document).ready(function(){
             mreserva: { 
               required: true
             },
-            mobservaciones: {
-              required: true
-            },
             mtaller: {
-              required: true
-            },
-            mcomentario: {
               required: true
             },
             mmodelo: {

@@ -1303,7 +1303,8 @@ class DefaultController extends Controller
 
 
 
-            if(!$nombre || !$apellido || !$telefono || !$email || !$celular || !$fecha || !$reservaid || !$observaciones || !$tallerid ){
+
+            if(!$nombre || !$apellido || !$telefono || !$email || !$fecha || !$reservaid){
                 return new JsonResponse(array(
                     'codigo' => 0,
                     'Mensaje' => "faltan parametros"
@@ -1316,12 +1317,8 @@ class DefaultController extends Controller
                     "estado" => 1
                 )
             );
-            $taller = $em->getRepository('CelmediaToyocostaContenidoBundle:Establecimiento')->findOneBy(
-                array(
-                    'id' => $tallerid,
-                    "estado" => 1
-                )
-            );
+
+
             
             $obsequio = $em->getRepository('CelmediaToyocostaContenidoBundle:Obsequio')->findOneBy(
                 array(
@@ -1341,7 +1338,7 @@ class DefaultController extends Controller
                 
             }
             
-
+            
 
             // Creamos el objeto infomantenimiento
             $mantenimiento = new \Celmedia\Toyocosta\ContenidoBundle\Entity\InfoMantenimiento();
@@ -1355,6 +1352,28 @@ class DefaultController extends Controller
             $mantenimiento->setCelular( $celular  );
             $mantenimiento->setFechaTentativa( new \DateTime($fecha ) );
             $mantenimiento->setTipoReserva( $reserva );
+
+
+            if (!$tallerid) {
+                
+                $taller = "ninguno";
+                $nombretaller = "ninguno";
+
+            }else{
+
+                $taller = $em->getRepository('CelmediaToyocostaContenidoBundle:Establecimiento')->findOneBy(
+                    array(
+                        'id' => $tallerid,
+                        "estado" => 1
+                    )
+                );
+
+                $nombretaller = $mantenimiento->getTaller()->getNombre();
+
+            }
+
+
+
             $mantenimiento->setTaller( $taller );
 
             // if($vehiculoid){
@@ -1421,7 +1440,7 @@ class DefaultController extends Controller
 
             }elseif($formulario == "tallermovil"){
 
-                $arrayCorreo = array('tallermovil@toyocosta.com.ec'=> 'Taller Movil');
+                $arrayCorreo = array('tallermovil@toyocosta.com.ec'=> 'Taller Movil', 'cligua@autofrancia.com.ec'=> 'Catherine Ligua');
                 //$arrayCorreo = array('ycosquillo@celmedia.com'=> 'Taller Movil');
                 
 
@@ -1432,11 +1451,11 @@ class DefaultController extends Controller
 
 
 
-            foreach ( $taller->getContactos() as $item) {
+            // foreach ( $taller->getContactos() as $item) {
 
-                array_push($arrayCorreo, $item->getEmail() );
+            //     array_push($arrayCorreo, $item->getEmail() );
 
-            }
+            // }
 			
 			//echo "<pre>";
 			//\Doctrine\Common\Util\Debug::dump($arrayCorreo);
@@ -1454,7 +1473,7 @@ class DefaultController extends Controller
             Observaciones:  '. $mantenimiento->getObservaciones() .' <br />
             Fecha Tentativa:  '. $fecha .' <br />
             Tipo Reserva:  '. $mantenimiento->getTipoReserva()->getNombre() .' <br />
-            Taller:  '. $mantenimiento->getTaller()->getNombre() .' <br />
+            Taller:  '. $nombretaller .' <br />
             Placa:  '. $placa .' <br />
             ' . $extraMensaje . ' <br /> 
             ' . $premio . ' <br />';
