@@ -25,7 +25,9 @@ $(document).ready(function(){
               modeloexonerados: $("#modeloexonerados").val(),
               tipoexonerados: $("#tipoexonerados").val(),
               montacargas: $("#montacargas").val(),
-              rutacv: $("#rutacv").val()
+              rutacv: $("#rutacv").val(),
+              dia: $("#dia").val(),
+              hora: $("#hora").val()
           }
 
           $.ajax({

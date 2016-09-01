@@ -533,6 +533,9 @@ landing_innova8:
     path:      /landing/innova8
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:innova8 }
 
+landing_openhouse:
+    path:      /landing/openhouse
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:openhouse }
 
 
 

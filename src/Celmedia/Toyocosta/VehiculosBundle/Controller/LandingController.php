@@ -323,6 +323,11 @@ class LandingController extends Controller
         return $this->render('CelmediaToyocostaVehiculosBundle:Landing:innova8.html.twig'); 
     }
 
+    public function openhouseAction()
+    {
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:openhouse.html.twig'); 
+    }
+
 
     public function envioLandingAction(Request $request){
 
@@ -374,6 +379,10 @@ class LandingController extends Controller
             $km = $request->request->get('km');
             $foto = $request->request->get('rutacv');
 
+            // lp open house
+            $dia = $request->request->get('dia');
+            $hora = $request->request->get('hora');
+
 
             if (!$telefono) {
                 $telefono = "";
@@ -400,6 +409,8 @@ class LandingController extends Controller
             $extraMensaje3 = " ";
 
             $extraMensaje4 = " ";
+
+            $extraMensaje5 = " ";
 
             $extraMensaje11 = " ";
 
@@ -477,7 +488,14 @@ class LandingController extends Controller
 
             }
 
+            if ( $dia && $hora ){
 
+               
+                $extraMensaje5 = " Dia de visita:  ".$dia." <br />
+
+                Hora:  ".$hora;
+
+            }
             
 
             // $em = $this->getDoctrine()->getManager(); 
@@ -515,6 +533,7 @@ class LandingController extends Controller
             Email:  '. $info->getEmail() .' <br />
             Celular:  '. $info->getCelular() .' <br />
             Comentarios:  '. $info->getComentarios() .' <br />
+            ' . $extraMensaje5 . ' <br />
             ' . $extraMensaje11 . ' <br />
             ' . $extraMensaje12 . ' <br />
             ' . $extraMensaje0 . ' <br />
