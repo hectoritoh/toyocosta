@@ -1357,6 +1357,7 @@ class DefaultController extends Controller
             if (!$tallerid) {
                 
                 $taller = "ninguno";
+                $mantenimiento->setTaller( $taller );
                 $nombretaller = "ninguno";
 
             }else{
@@ -1368,13 +1369,13 @@ class DefaultController extends Controller
                     )
                 );
 
-                $nombretaller = $mantenimiento->getTaller()->getNombre();
+                $nombretaller = $taller->getNombre();
 
+                $mantenimiento->setTaller( $nombretaller );
             }
 
 
 
-            $mantenimiento->setTaller( $taller );
 
             // if($vehiculoid){
             //     $vehiculo = $em->getRepository('CelmediaToyocostaVehiculosBundle:Vehiculo')->findOneBy(
