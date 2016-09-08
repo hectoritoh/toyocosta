@@ -1354,29 +1354,6 @@ class DefaultController extends Controller
             $mantenimiento->setTipoReserva( $reserva );
 
 
-            if (!$tallerid) {
-                
-                $taller = "ninguno";
-                $mantenimiento->setTaller( $taller );
-                $nombretaller = "ninguno";
-
-            }else{
-
-                $taller = $em->getRepository('CelmediaToyocostaContenidoBundle:Establecimiento')->findOneBy(
-                    array(
-                        'id' => $tallerid,
-                        "estado" => 1
-                    )
-                );
-
-                $nombretaller = $taller->getNombre();
-
-                $mantenimiento->setTaller( $nombretaller );
-            }
-
-
-
-
             // if($vehiculoid){
             //     $vehiculo = $em->getRepository('CelmediaToyocostaVehiculosBundle:Vehiculo')->findOneBy(
             //         array(
@@ -1394,7 +1371,62 @@ class DefaultController extends Controller
 
             //     $extraMensaje = " Comentario:  ".$mantenimiento->getComentarios();
             // }
-           
+
+
+            $arrayCorreo = array();
+
+
+            if($formulario == "citatalleres" || $formulario == "mantenimientoexpress" ){
+                $arrayCorreo = array('citasweb@toyocosta.com.ec'=> 'Citas Talleres - Mantenimiento Express' );
+                //$arrayCorreo = array('ycosquillo@celmedia.com'=> 'Citas Talleres - Mantenimiento Express');                
+
+            }elseif($formulario == "tallermovil"){
+
+                $arrayCorreo = array('tallermovil@toyocosta.com.ec'=> 'Taller Movil', 'cligua@autofrancia.com.ec'=> 'Catherine Ligua');
+                //$arrayCorreo = array('ycosquillo@celmedia.com'=> 'Taller Movil');
+                
+
+            }else{
+                $arrayCorreo = array('citasweb@toyocosta.com.ec'=> 'Citas Talleres - Mantenimiento Express');
+                //$arrayCorreo = array('ycosquillo@celmedia.com'=> 'Otro');
+            }
+
+
+            if (!$tallerid) {
+                
+                $taller = "ninguno";
+                $mantenimiento->setTaller( $taller );
+                $nombretaller = "ninguno";
+
+                $arrayCorreo = array('cdnpostventa@toyocosta.com.ec'=> 'Web Toyocosta');
+
+            }else{
+
+                $taller = $em->getRepository('CelmediaToyocostaContenidoBundle:Establecimiento')->findOneBy(
+                    array(
+                        'id' => $tallerid,
+                        "estado" => 1
+                    )
+                );
+
+                $nombretaller = $taller->getNombre();
+
+                $mantenimiento->setTaller( $nombretaller );
+
+
+
+                foreach ( $taller->getContactos() as $item) {
+
+                    array_push($arrayCorreo, $item->getEmail() );
+
+                }
+
+                
+            }
+
+
+
+
             if($modelo){
                 
                 
@@ -1431,32 +1463,6 @@ class DefaultController extends Controller
 
 
 
-
-            $arrayCorreo = array();
-
-
-            if($formulario == "citatalleres" || $formulario == "mantenimientoexpress" ){
-                $arrayCorreo = array('citasweb@toyocosta.com.ec'=> 'Citas Talleres - Mantenimiento Express' );
-                //$arrayCorreo = array('ycosquillo@celmedia.com'=> 'Citas Talleres - Mantenimiento Express');                
-
-            }elseif($formulario == "tallermovil"){
-
-                $arrayCorreo = array('tallermovil@toyocosta.com.ec'=> 'Taller Movil', 'cligua@autofrancia.com.ec'=> 'Catherine Ligua');
-                //$arrayCorreo = array('ycosquillo@celmedia.com'=> 'Taller Movil');
-                
-
-            }else{
-                $arrayCorreo = array('citasweb@toyocosta.com.ec'=> 'Citas Talleres - Mantenimiento Express');
-                //$arrayCorreo = array('ycosquillo@celmedia.com'=> 'Otro');
-            }
-
-
-
-            // foreach ( $taller->getContactos() as $item) {
-
-            //     array_push($arrayCorreo, $item->getEmail() );
-
-            // }
 			
 			//echo "<pre>";
 			//\Doctrine\Common\Util\Debug::dump($arrayCorreo);
