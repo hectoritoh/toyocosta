@@ -1392,13 +1392,15 @@ class DefaultController extends Controller
             }
 
 
+
+
             if (!$tallerid) {
                 
                 $taller = "ninguno";
                 $mantenimiento->setTaller( $taller );
                 $nombretaller = "ninguno";
 
-                $arrayCorreo = array('cdnpostventa@toyocosta.com.ec'=> 'Web Toyocosta');
+                $arrayCorreo = array('citasweb@toyocosta.com.ec'=> 'Citas Talleres' );
 
             }else{
 
@@ -1413,7 +1415,7 @@ class DefaultController extends Controller
 
                 $mantenimiento->setTaller( $nombretaller );
 
-
+                $arrayCorreo = array('citasweb@toyocosta.com.ec'=> 'Citas Talleres' );
 
                 foreach ( $taller->getContactos() as $item) {
 
