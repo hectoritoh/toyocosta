@@ -328,6 +328,11 @@ class LandingController extends Controller
         return $this->render('CelmediaToyocostaVehiculosBundle:Landing:openhouse.html.twig'); 
     }
 
+    public function gamamodelosAction()
+    {
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:gama_toyota.html.twig'); 
+    }
+
 
     public function envioLandingAction(Request $request){
 
@@ -384,6 +389,10 @@ class LandingController extends Controller
             $hora = $request->request->get('hora');
 
 
+            //lp gama de modelos
+            $vh_cotizar = $request->request->get('vh_cotizar');            
+
+
             if (!$telefono) {
                 $telefono = "";
             }
@@ -411,6 +420,8 @@ class LandingController extends Controller
             $extraMensaje4 = " ";
 
             $extraMensaje5 = " ";
+
+            $extraMensaje6 = " ";
 
             $extraMensaje11 = " ";
 
@@ -496,6 +507,13 @@ class LandingController extends Controller
                 Hora:  ".$hora;
 
             }
+
+            if ( $vh_cotizar ){
+
+               
+                $extraMensaje6 = " Vehiculo a cotizar:  ".$vh_cotizar;
+
+            }
             
 
             // $em = $this->getDoctrine()->getManager(); 
@@ -534,6 +552,7 @@ class LandingController extends Controller
             Celular:  '. $info->getCelular() .' <br />
             Comentarios:  '. $info->getComentarios() .' <br />
             ' . $extraMensaje5 . ' <br />
+            ' . $extraMensaje6 . ' <br />
             ' . $extraMensaje11 . ' <br />
             ' . $extraMensaje12 . ' <br />
             ' . $extraMensaje0 . ' <br />
@@ -698,6 +717,8 @@ class LandingController extends Controller
                     <p>
                         ' . $extraMensaje3 . ' <br />
                         ' . $extraMensaje4 . ' <br /> 
+                        ' . $extraMensaje5 . ' <br /> 
+                        ' . $extraMensaje6 . ' <br /> 
                     </p>
                  
                    </div>

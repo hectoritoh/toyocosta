@@ -537,6 +537,10 @@ landing_openhouse:
     path:      /landing/openhouse
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:openhouse }
 
+landing_gamamodelos:
+    path:      /landing/gamademodelos
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:gamamodelos }
+
 
 
 envio_landing:

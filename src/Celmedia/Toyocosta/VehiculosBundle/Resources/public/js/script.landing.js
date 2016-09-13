@@ -27,7 +27,8 @@ $(document).ready(function(){
               montacargas: $("#montacargas").val(),
               rutacv: $("#rutacv").val(),
               dia: $("#dia").val(),
-              hora: $("#hora").val()
+              hora: $("#hora").val(),
+              vh_cotizar: $("#vh_cotizar").val()
           }
 
           $.ajax({
