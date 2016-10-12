@@ -263,6 +263,13 @@ a:hover, a:focus{
 	height: 23px;
 	margin-bottom: 10px;
 }
+.whatsapp-icon{
+	background-image: url('../../../bundles/celmediatoyocostavehiculos/images/pirelli/iconos/whatsapp.png');
+	background-repeat: no-repeat;
+	background-position: 0px 0px;
+	height: 23px;
+	margin-bottom: 10px;
+}
 /*FOOTER BANNERS*/
 .cita-footer{
 	background-image: url("../../../bundles/celmediatoyocostavehiculos/images/pirelli/Banners/Cita.jpg");
