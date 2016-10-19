@@ -68,6 +68,12 @@ class VehiculoAdmin extends Admin
 
         }
 
+        if ( $obj->getCatalogoAccesorios() != null  ) {
+            
+            $obj->uploadFileAccesorios();
+
+        }
+
     }
 
     
@@ -189,6 +195,17 @@ class VehiculoAdmin extends Admin
             $fileFieldOptions3['help'] = '<a href="'.$fullPath.'" target="_blank"> Ficha Tecnica </a>';
         }
 
+        $fileFieldOptions4 = array('required' => false);
+        if ($obj && ($webPath = 'uploads/vehiculo/ficha/' .    $obj->getCatalogoAccesorios())) {
+            // get the container so the full path to the image can be set
+            $container = $this->getConfigurationPool()->getContainer();
+            $fullPath = $container->get('request')->getBasePath().'/'.$webPath;
+
+            // add a 'help' option containing the preview's img tag
+            $fileFieldOptions4['help'] = '<a href="'.$fullPath.'" target="_blank"> Catálogo de Accesorios</a>';
+        }
+
+
 
         $formMapper
             ->add('categoria')
@@ -200,6 +217,7 @@ class VehiculoAdmin extends Admin
             ->add('fileThumb' , 'file' , $fileFieldOptions2)
             ->add('fileBanner', 'file', $fileFieldOptions )
             ->add('fileFicha', 'file', $fileFieldOptions3 )
+            ->add('fileAccesorios', 'file', $fileFieldOptions4 )
             ->add('plazos')
             // GALERIA CON MEDIA BUNDLE ENTITY GALLERY
             ->add('imagenes', 'sonata_type_collection', array(

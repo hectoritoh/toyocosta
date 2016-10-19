@@ -605,11 +605,7 @@ class DefaultController extends Controller
 
             $em = $this->getDoctrine()->getManager(); 
 
-            $reservaTaller = $this->getDoctrine()->getRepository("CelmediaToyocostaContenidoBundle:TipoReserva")->findOneBy(array(
-                "estado" => 1 ,
-                "id" => $reserva_id
-                )
-            );
+            $reservaTaller = $this->getDoctrine()->getRepository("CelmediaToyocostaContenidoBundle:TipoReserva")->findOneBy(array("estado" => 1 , "id" => $reserva_id));
             
 
             $arrayEstablecimientos = array();

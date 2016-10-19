@@ -51,9 +51,9 @@
                         
                           <!-- Nav tabs -->
                           <ul class="nav nav-tabs nav-justified nav-taller" role="tablist">
-                            <li role="presentation" class="active"><a href="#citatalleres" aria-controls="citatalleres" role="tab" data-toggle="tab" class="dis">CITA TALLERES</a></li>
+                            <li role="presentation" class="active"><a href="#citatalleres" aria-controls="citatalleres" role="tab" data-toggle="tab" class="dis">TALLERES</a></li>
                             <li role="presentation"><a href="#tallermovil" aria-controls="tallermovil" role="tab" data-toggle="tab" class="dip">TALLER M&Oacute;VIL</a></li>
-                            <li role="presentation"><a href="#mantenimiento" aria-controls="mantenimiento" role="tab" data-toggle="tab" class="pla">MANTENIMINETO EXPRESS</a></li>
+                            <li role="presentation"><a href="#mantenimiento" aria-controls="mantenimiento" role="tab" data-toggle="tab" class="pla">MANTENIMIENTO EXPRESS</a></li>
                             <li role="presentation"><a href="#repuestos" aria-controls="repuestos" role="tab" data-toggle="tab" class="pla">REPUESTOS</a></li>
                             <li role="presentation"><a href="#pintura" aria-controls="pintura" role="tab" data-toggle="tab" class="pla">PINTURA</a></li>
                           </ul>
@@ -110,7 +110,7 @@
 
 
                                             <div class="row tb-20">
-                                                <a href="{{path('custom_cita', {'tipo':'Mantenimiento'})}}">
+                                                <a href="{{path('custom_cita', {'tipo':'Mantenimiento Regular'})}}">
                                                     <div class="btn btn-toyocosta col-md-4 col-md-offset-4">
                                                         RESERVE SU CITA
                                                     </div>
@@ -347,7 +347,8 @@
 
 
                                             <div class="row tb-20">
-                                                <a href="{{path('custom_mantenimientoexpress')}}">
+                                                {#<a href="{{path('custom_mantenimientoexpress')}}">#}
+                                                <a href="{{path('custom_cita', {'tipo':'Mantenimiento Express'})}}">
                                                     <div class="btn btn-toyocosta col-md-4 col-md-offset-4">
                                                         RESERVE SU CITA
                                                     </div>

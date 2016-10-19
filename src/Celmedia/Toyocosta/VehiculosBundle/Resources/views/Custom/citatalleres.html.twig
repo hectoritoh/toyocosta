@@ -15,9 +15,20 @@
 
         <header>
 
-            {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/citas.jpg' %}
-            <img src="{{ asset_url }}" id="logoblanco" alt="Toyocosta" class="img-responsive"  style="width:100%;" />
-            {% endimage %}
+
+            {% if tipo == "Mantenimiento Express" %}
+
+                {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/mantenimientoexpress.jpg' %}
+                <img src="{{ asset_url }}" id="logoblanco" alt="Toyocosta" class="img-responsive"  style="width:100%;" />
+                {% endimage %}
+
+            {% else %}
+
+                {% image '@CelmediaToyocostaVehiculosBundle/Resources/public/custom/img/citas.jpg' %}
+                <img src="{{ asset_url }}" id="logoblanco" alt="Toyocosta" class="img-responsive"  style="width:100%;" />
+                {% endimage %}
+
+            {% endif %}
 
         </header>
     
@@ -27,7 +38,7 @@
 {% block contenidotoyocosta %}
     
     {% if tipo is not defined or tipo is null %}
-        {% set tipo = "Mantenimiento" %}
+        {% set tipo = "Mantenimiento Regular" %}
     {% endif %} 
 
 
@@ -38,7 +49,10 @@
                     <li>
                         <a href="{{ path('toyocosta_homepage') }}">Inicio</a>
                     </li>
-                    <li class="active">Cita talleres</li>
+                    <li>
+                        <a href="{{ path('custom_postventa') }}">PosVenta</a>
+                    </li>
+                    <li class="active">{{tipo}}</li>
                 </ol>
             </div>
         </div>

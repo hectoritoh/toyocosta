@@ -54,7 +54,7 @@ custom_testdrive:
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Custom:testdriveCustom }
 
 custom_cita:
-    path:      /cita/{tipo}
+    path:      /postventa/{tipo}
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Custom:citatalleres }
 
 custom_tallermovil:

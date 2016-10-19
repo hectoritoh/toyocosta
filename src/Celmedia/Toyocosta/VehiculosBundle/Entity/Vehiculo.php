@@ -648,6 +648,7 @@ class Vehiculo
         $this->uploadFileThumb();
         $this->uploadFileBanner();
         $this->uploadFileFicha();
+        $this->uploadFileAccesorios();
     }
 
 
@@ -812,6 +813,88 @@ class Vehiculo
 
         // clean up the file property as you won't need it anymore
         $this->setFileFicha(null);
+    }
+
+
+
+    /**
+     * @var string
+     */
+    private $catalogo_accesorios;
+
+
+    /**
+     * Set catalogo_accesorios
+     *
+     * @param string $catalogoAccesorios
+     * @return Vehiculo
+     */
+    public function setCatalogoAccesorios($catalogoAccesorios)
+    {
+        $this->catalogo_accesorios = $catalogoAccesorios;
+
+        return $this;
+    }
+
+    /**
+     * Get catalogo_accesorios
+     *
+     * @return string 
+     */
+    public function getCatalogoAccesorios()
+    {
+        return $this->catalogo_accesorios;
+    }
+
+
+
+
+    /**
+     * Unmapped property to handle file uploads
+     */
+    private $fileAccesorios;
+
+    /**
+     * Sets file.
+     *
+     * @param UploadedFile $file
+     */
+    public function setFileAccesorios(UploadedFile $fileAccesorios = null)
+    {
+        $this->fileAccesorios = $fileAccesorios;
+    }
+
+    /**
+     * Get file.
+     *
+     * @return UploadedFile
+     */
+    public function getFileAccesorios()
+    {
+        return $this->fileAccesorios;
+    }
+
+    /**
+     * Manages the copying of the file to the relevant place on the server
+     */
+    public function uploadFileAccesorios()
+    {
+        // the file property can be empty if the field is not required
+        if (null === $this->getFileAccesorios()) {
+            return;
+        }
+
+        // move takes the target directory and target filename as params
+        $this->getFileAccesorios()->move(
+           __DIR__.'/../../../../../web/'. 'uploads/vehiculo/ficha' ,
+            $this->getFileAccesorios()->getClientOriginalName()
+        );
+
+        // set the path property to the filename where you've saved the file
+        $this->catalogo_accesorios = $this->getFileAccesorios()->getClientOriginalName();
+
+        // clean up the file property as you won't need it anymore
+        $this->setFileAccesorios(null);
     }
 
 

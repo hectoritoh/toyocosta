@@ -73,6 +73,10 @@
 
 				<a href="{{ asset('uploads/vehiculo/ficha/'   ~   vehiculo.ficha ) }}" target="_blank" class="btn btn-transparent">Ficha T&eacute;cnica</a>
 				{% endif %}
+				{% if vehiculo.catalogoAccesorios %}
+
+				<a href="{{ asset('uploads/vehiculo/ficha/'   ~   vehiculo.catalogoAccesorios ) }}" target="_blank" class="btn btn-transparent">Catálogo de Accesorios</a>
+				{% endif %}
 			</div>
 		</div>
 
@@ -138,6 +142,9 @@
 								    		<li data-target="#vehiculo-colores-carousel" data-slide-to="{{loop.index -1 }}"  class="vehic-miniaturas {% if loop.first %}active{% endif %}" style="background-color: {{vehiculoColor.coloresvehiculo.valor}} ;"></li>
 								    	{% endfor %}
 								    </ol>
+						    	</div>
+						    	<div class="row">
+						    		<p class="text-center">*Colores sujetos a disponibilidad</p>
 						    	</div>
 						    </div>
 
@@ -264,7 +271,7 @@
 						position:absolute; 
 						top:0;
 						right:0;
-						background:url(icon.png);
+						/*background:url(icon.png);*/
 					}
 
 					.zoom img {
@@ -492,10 +499,10 @@
 														<label for="vapellidoInput">Apellido:</label>
 														<input type="text" class="form-control" name="vapellidoInput" id="vapellidoInput" maxlength="50" placeholder="">
 													</div>
-													<div class="form-group">
+													{#<div class="form-group">
 														<label for="vcedulaInput">Cédula:</label>
 														<input type="number" class="form-control" name="vcedulaInput" id="vcedulaInput" maxlength="10" placeholder="">
-													</div>
+													</div>#}
 													<div class="form-group">
 														<label for="vtelefonoInput">Teléfono:</label>
 														<input type="number" class="form-control" name="vtelefonoInput" id="vtelefonoInput" maxlength="15" placeholder="">
@@ -506,10 +513,10 @@
 														<label for="vemailInput">Email:</label>
 														<input type="email" class="form-control" name="vemailInput" id="vemailInput" maxlength="50" placeholder="">
 													</div>
-													<div class="form-group">
+													{#<div class="form-group">
 														<label for="vciudadInput">Ciudad:</label>
 														<input type="text" class="form-control" name="vciudadInput" id="vciudadInput" maxlength="50" placeholder="">
-													</div>
+													</div>#}
 													<div class="form-group">
 														<label for="vmensajeInput">Mensaje:</label>
 														<textarea class="form-control" name="vmensajeInput" id="vmensajeInput" rows="5" maxlength="200"></textarea>

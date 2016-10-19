@@ -34,6 +34,9 @@ Celmedia\Toyocosta\VehiculosBundle\Entity\Vehiculo:
         ficha:
             type: text
             nullable: false
+        catalogo_accesorios:
+            type: text
+            nullable: false
         estado:
             type: integer
             unsigned: false

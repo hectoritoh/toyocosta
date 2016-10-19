@@ -25,7 +25,9 @@ body{
     margin-bottom: 15px;
     margin-top: 15px;
 }
-.btn-transparent:hover {
+.btn-transparent:hover,
+.btn-transparent:focus,
+.btn-transparent:active  {
     color: #df1928;
 }
 .btn-news{

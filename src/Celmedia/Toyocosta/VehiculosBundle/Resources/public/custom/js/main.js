@@ -769,30 +769,6 @@ $(document).ready(function(){
                 minlength:7,
                 maxlength:15,
                 number:true
-            },
-            mfecha: {
-              required: true
-            },
-            mreserva: { 
-              required: true
-            },
-            mobservaciones: {
-              required: true
-            },
-            mtaller: {
-              required: true
-            },
-            mcomentario: {
-              required: true
-            },
-            mmodelo: {
-              required: true
-            },
-            mkilometraje: {
-              required: true
-            },
-            regalo: {
-              required: true
             }
 
           },
@@ -842,16 +818,10 @@ $(document).ready(function(){
         vapellidoInput:{
           required: true
         },
-        vcedulaInput:{
-          required: true
-        },
-        vtelefonoInput:{
-          required: true
+        vtelefonoInput:{          
+          number: true
         },
         vemailInput:{
-          required: true
-        },
-        vciudadInput:{
           required: true
         },
         vmensajeInput:{
