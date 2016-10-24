@@ -345,6 +345,19 @@ class CustomController extends Controller
 
     }
 
+    public function landingExoneradosAction($tipo){
+
+        $tipo = $tipo;
+
+        return $this->render('CelmediaToyocostaVehiculosBundle:Custom:landing_exonerados.html.twig', array( "tipo" => $tipo ));
+
+
+    }
+
+    
+
+
+
     public function vehiculosAction()
     {
         $em = $this->getDoctrine()->getManager();

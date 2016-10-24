@@ -89,6 +89,12 @@ custom_contactenos_agencia:
     options:
         expose: true
 
+custom_landing_exonerados:
+    path:      /exonerados/{tipo}
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Custom:landingExonerados }
+    options:
+        expose: true
+
 
 
 
@@ -540,6 +546,10 @@ landing_openhouse:
 landing_gamamodelos:
     path:      /landing/gamademodelos
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:gamamodelos }
+
+landing_financia_diners:
+    path:      /landing/financiadiners
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:financiadiners }
 
 
 

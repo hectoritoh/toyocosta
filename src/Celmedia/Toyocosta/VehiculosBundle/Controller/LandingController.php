@@ -333,6 +333,13 @@ class LandingController extends Controller
         return $this->render('CelmediaToyocostaVehiculosBundle:Landing:gama_toyota.html.twig'); 
     }
 
+    public function financiadinersAction()
+    {
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:financia_diners.html.twig'); 
+    }
+
+
+
 
     public function envioLandingAction(Request $request){
 

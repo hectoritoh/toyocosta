@@ -1,0 +1,259 @@
+{% extends 'CelmediaToyocostaVehiculosBundle::template.html.twig' %}
+
+{% block seo %}
+    
+    <title>TOYOCOSTA | Autos Exonerados de Impuestos</title>
+    
+    <meta name="description" content="Conoce las características de todos los autos Toyota exonerados de impuestos disponibles en Toyocosta."/>
+
+    <meta name="keywords" content="concesionario toyota ecuador, autos toyota exonerados ecuador, autos toyota diplomáticos ecuador, autos toyota discapacitados ecuador, autos toyota plan renova ecuador." />
+
+{% endblock %}
+
+
+{% block bannercabecera %}
+
+        <header>
+
+            <img src="{{ asset('uploads/custom/exonerados.jpg' ) }}" alt="Landing Exonerados" class="img-responsive" style="width:100%;" />
+
+        </header>
+    
+{% endblock %}
+
+
+{% block contenidotoyocosta %}
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12" style="padding-left: 0px;">
+                <ol class="breadcrumb">
+                    <li>
+                        <a href="{{ path('toyocosta_homepage') }}">Inicio</a>
+                    </li>
+                    <li>
+                        <a href="{{ path('custom_exonerados') }}">Exonerados</a>
+                    </li>
+                    <li class="active">{{tipo}}</li>
+                </ol>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="text-center titular">¡EXONERADOS DE IMPUESTOS!</h1>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <p class="text-center parrafo">Por favor llene el siguiente formulario para que un representante de Toyocosta pueda comunicarse inmediatamente con usted.</p>
+            </div>
+        </div>
+
+        <form id="form-exonerados" class="form-info contenedor-centrar" enctype="multipart/form-data" >
+
+            
+            <div class="row">
+                <div class="col-md-12">
+
+                    <ul id="cbp-ntaccordion5" class="cbp-ntaccordion">
+                        
+                        
+                        <li class="cbp-ntopen">
+                            <h3 class="cbp-nttrigger">DATOS PERSONALES</h3>
+                            <div class="cbp-ntcontent">
+                                <p style="display:none;">Prueba</p>
+                                <div class="row tb-20"></div>
+
+                                <div class="row space-input">
+                                    <div class="col-md-10 col-md-offset-1">
+
+                                        <div class="row">
+                                            <div class="col-xs-4 col-xs-offset-1">
+                                                <label>Nombre:</label>
+
+                                                
+
+                                                <input id="mnombre" name="mnombre" type="text" class="form-control" placeholder="" />
+                                            </div>
+                                            <div class="col-xs-4 col-xs-offset-1">
+                                                <label>Apellido:</label>
+
+                                                
+                                                <input id="mapellido" name="mapellido" type="text" class="form-control" placeholder="" />
+                                            </div>
+
+                                        </div>  
+                                    </div>
+
+                                </div>
+
+
+                                <input type="hidden"  id="selectedRegalo" name="selectedRegalo"   value="noselected"  />
+                    
+
+                                <div class="row space-input">
+                                    <div class="col-md-10 col-md-offset-1">
+
+                                        <div class="row">
+                                            <div class="col-xs-4 col-xs-offset-1">
+                                                <label>Tel&eacute;fono:</label>
+                                                <input id="mtelefono" name="mtelefono" type="text" class="form-control" placeholder="" />
+                                            </div>
+                                            <div class="col-xs-4 col-xs-offset-1">
+                                                <label>Email:</label>
+                                                <input id="memail" name="memail" type="text" class="form-control" placeholder="" />
+                                            </div>
+
+                                        </div>  
+                                    </div>
+
+                                </div>
+
+
+                                <div class="row space-input">
+                                    <div class="col-md-10 col-md-offset-1">
+
+                                        <div class="row">
+                                            <div class="col-xs-4 col-xs-offset-1">
+                                                <label>Celular:</label>
+                                                <input id="mcelular" name="mcelular" type="text" class="form-control" placeholder="" />
+                                            </div>
+                                            <div class="col-xs-4 col-xs-offset-1">
+                                                <label>Cédula:</label>
+                                                <input id="mcedula" name="mcedula" type="text" class="form-control" placeholder="" />
+                                            </div>
+                                            
+                                        </div>  
+                                    </div>
+
+                                </div>
+
+
+                                <div class="row tb-20"></div>
+
+                            </div>
+                        </li>
+
+                        <li>
+                            <h3 class="cbp-nttrigger">DATOS DE LA CITA</h3>
+                            <div class="cbp-ntcontent">
+                                <p style="display:none;">
+                                    Prueba
+                                </p>
+                                <div class="row tb-20"></div>
+                                    
+                                <div class="row space-input">
+                                    <div class="col-md-10 col-md-offset-1">
+
+                                        <div class="row">
+                                            <div class="col-xs-4 col-xs-offset-1">
+                                                <label>Modelo:</label>
+                                                <select name="modeloexonerados" id="modeloexonerados" class="form-control txt-select">
+                                                    <option value="">Selecciona un modelo</option>
+                                                    <option value="Corolla">Corolla</option>
+                                                    <option value="GT-86">GT-86</option>
+                                                    <option value="HILUX CD 4X2">HILUX CD 4X2</option>
+                                                    <option value="HILUX CD 4x4">HILUX CD 4x4</option>
+                                                    <option value="4RUNNER">4RUNNER</option>
+                                                    <option value="FJ CRUISER">FJ CRUISER</option>
+                                                    <option value="PRIUS C SPORT">PRIUS C SPORT</option>
+                                                    <option value="PRIUS HIBRIDO">PRIUS HIBRIDO</option>
+                                                    <option value="YARIS TAXI">YARIS TAXI</option>
+                                                    <option value="HILUX CHASIS 4X2">HILUX CHASIS 4X2</option>
+                                                    <option value="HILUX CS">HILUX CS</option>
+                                                    <option value="FORTUNER">FORTUNER</option>
+                                                    <option value="FORTUNER">FORTUNER</option>
+                                                    <option value="LAND CRUISER">LAND CRUISER</option>
+                                                    <option value="RAV4">RAV4</option>
+                                                </select>
+                                            </div>
+                                            <div class="col-xs-4 col-xs-offset-1">
+                                                <label>Tipo de Exoneración:</label>
+                                                <select name="tipoexonerados" id="tipoexonerados" class="form-control txt-select">
+                                                    <option value="">Selecciona un tipo de exoneración</option>
+                                                    <option value="Discapacitados">Discapacitados</option>
+                                                    <option value="Diplomatico">Diplomático y ONG’s</option>
+                                                    {#<option value="Plan Renova">Plan Renova</option>#}
+                                                    <option value="Compras Publicas">Compras Públicas</option>
+                                                    <option value="Gama">Gama</option>
+                                                </select>
+
+
+                                            </div>
+
+                                        </div>  
+                                    </div>
+
+                                </div>
+
+                                <div class="row space-input">
+                                    <div class="col-md-10 col-md-offset-1">
+                                        <div class="row">
+                                            
+
+                                            <div class="col-xs-4 col-xs-offset-1">
+                                                <label>Comentario:</label>
+                                                <textarea id="mcomentario" name="mcomentario" class="form-control" rows="3"></textarea>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+
+                                <div class="row space-input">
+                                    <div class="col-md-10 col-md-offset-1" style="padding-top:40px;">
+                                        <div class="col-xs-4 col-xs-offset-4">
+                                            <div class="g-recaptcha" data-sitekey="6Ldz2AETAAAAAFVuBytqxNj6NvMtZnbCe1_Q_cgP"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row space-input">
+                                    <div class="col-md-10 col-md-offset-1" style="padding-top:20px;">
+                                        <h5 id="contenedorEspereMantenimiento" class="text-center" style="display:none;color:#df1928;">Enviando...</h5>
+                                        <div class="row">
+                                            <div class="col-md-2 col-md-offset-5">
+                                                <input id="btn-cita" type="submit" value="Enviar" class="btn btn-toyocosta" style="width:100%;">
+                                            </div>
+                                        </div>  
+                                    </div>
+
+                                </div>
+
+                                <div class="row tb-20"></div>
+                                
+
+                                <div class="row space-input">
+                                    <div class="col-md-10 col-md-offset-1 text-center">
+                                        <p>Esto no constituye una reserva de cita. Una operadora se comunicará con usted para confirmar sus datos y disponibilidad de la cita en la fecha requerida.</p>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </li>
+
+                            
+                    </ul> 
+
+
+
+                </div>
+            </div>
+
+
+        </form>
+
+        <div class="row" style="padding-bottom:50px;"></div>
+
+    </div>
+
+
+
+{% endblock %}
+
+
