@@ -551,6 +551,9 @@ landing_financia_diners:
     path:      /landing/financiadiners
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:financiadiners }
 
+landing_fortuner:
+    path:      /landing/fortuner
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:fortuner }
 
 
 envio_landing:
