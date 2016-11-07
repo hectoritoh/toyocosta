@@ -341,6 +341,10 @@ class LandingController extends Controller
     {
         return $this->render('CelmediaToyocostaVehiculosBundle:Landing:fortuner.html.twig'); 
     }
+    public function priusAction()
+    {
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:prius.html.twig'); 
+    }
 
 
 

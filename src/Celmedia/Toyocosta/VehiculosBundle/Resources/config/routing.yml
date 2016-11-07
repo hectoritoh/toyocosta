@@ -555,6 +555,11 @@ landing_fortuner:
     path:      /landing/fortuner
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:fortuner }
 
+landing_prius:
+    path:      /landing/prius
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:prius }
+
+
 
 envio_landing:
     path:      /landing/form
