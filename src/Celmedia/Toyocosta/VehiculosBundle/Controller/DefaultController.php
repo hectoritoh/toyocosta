@@ -1480,8 +1480,10 @@ class DefaultController extends Controller
             Tipo Reserva:  '. $mantenimiento->getTipoReserva()->getNombre() .' <br />
             Taller:  '. $nombretaller .' <br />
             Placa:  '. $placa .' <br />
-            ' . $extraMensaje . ' <br /> 
-            ' . $premio . ' <br />';
+            ' . $extraMensaje . ' <br /> <br/> <br/>
+            <strong>Recordamos que esta no es una cita confirmada, una operadora  se comunicará con usted
+             para confirmar los datos y agendar la cita de acuerdo a la disponibilidad de horarios</strong> 
+            ';
       
 
             $message = \Swift_Message::newInstance()
