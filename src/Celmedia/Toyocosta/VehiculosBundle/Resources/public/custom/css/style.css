@@ -984,7 +984,7 @@ label {
 }
 
 .destacado{
-	margin-right: 10px;
+	/*margin-right: 10px;*/
     right: 0px;
     position: absolute;
 }
