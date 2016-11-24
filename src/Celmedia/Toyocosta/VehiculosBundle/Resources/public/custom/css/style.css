@@ -1,6 +1,20 @@
 body{
 	letter-spacing: 2px;
 }
+.carousel-caption {
+    bottom: 70px;
+}
+.btn-ver-mas {
+    box-shadow: 0 4px 18px -4px #2C2929;
+    color: #DF182B;
+}
+.btn-blanco, .btn-ver-mas {
+    background-color: #FFF;
+    text-shadow: 0 0 0 transparent;
+    width: 100%;
+    border-radius: 3px;
+    text-transform: uppercase;
+}
 .btn-home{
 	background-color: #FFFFFF;
     border-radius: 0px;
