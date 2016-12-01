@@ -561,6 +561,12 @@ landing_prius:
 
 
 
+landing_citas_mantenimiento:
+    path:      /landing/citasmantenimiento
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:citas }
+
+
+
 envio_landing:
     path:      /landing/form
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:envioLanding }

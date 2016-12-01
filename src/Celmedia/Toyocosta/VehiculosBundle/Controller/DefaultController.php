@@ -1292,20 +1292,25 @@ class DefaultController extends Controller
             $placa = $request->request->get('placa');
             $regalo = $request->request->get('regalo');
 
+            $campana = $request->request->get('campana');
+
 
             $seleccionoRegalo = $request->request->get('selectedRegalo');
 
             $formulario = $request->request->get('formulario');
 
 
-
+            /*****VALIDACIONES******/
 
             if(!$nombre || !$apellido || !$telefono || !$email || !$fecha || !$reservaid){
                 return new JsonResponse(array(
                     'codigo' => 0,
                     'Mensaje' => "faltan parametros"
-                ), 200); //codigo de error diferente
+                ), 200); 
             }
+
+
+            /*****CONSULTAS BD******/
 
             $reserva = $em->getRepository('CelmediaToyocostaContenidoBundle:TipoReserva')->findOneBy(
                 array(
@@ -1313,8 +1318,6 @@ class DefaultController extends Controller
                     "estado" => 1
                 )
             );
-
-
             
             $obsequio = $em->getRepository('CelmediaToyocostaContenidoBundle:Obsequio')->findOneBy(
                 array(
@@ -1322,6 +1325,9 @@ class DefaultController extends Controller
                     "estado" => 1
                 )
             );
+
+
+            /********VALIDACIONES DESPUES DE BD******/
 
             if ($seleccionoRegalo !== "si" ) {
 
@@ -1465,9 +1471,14 @@ class DefaultController extends Controller
 			//echo "<pre>";
 			//\Doctrine\Common\Util\Debug::dump($arrayCorreo);
 			//die();
+            if ($campana) {
+                
+                $subject = "Pedido de Informacion de ".$campana." desde Web Toyocosta"; 
+            }else{
 
+                $subject = "Solicitud de Servicios desde Toyocosta";
+            }
 
-            $subject = "Solicitud de Servicios desde Toyocosta";
             $body = '<strong>Informaci&oacute;n de Solicitud:</strong> <br /><br />
             Formulario:  '.$formulario.' <br /><br />
             Nombre:  '.$mantenimiento->getNombre().' <br />
@@ -1491,11 +1502,9 @@ class DefaultController extends Controller
             ->setSubject($subject)
 
             ->setFrom(array('webtoyocosta@gmail.com' => 'Web Toyocosta'))
-            //->setFrom(array('citasweb@toyocosta.com.ec' => 'Web Toyocosta'))
 			
 
             ->setTo( $arrayCorreo )
-            //->setTo( array('ycosquillo@celmedia.com' => 'Admin' ))
             
             ->setContentType("text/html")
 

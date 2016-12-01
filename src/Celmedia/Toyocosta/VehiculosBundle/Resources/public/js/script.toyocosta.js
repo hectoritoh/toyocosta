@@ -1044,7 +1044,8 @@ $(document).ready(function(){
                 kilometraje: $("#mkilometraje").val(),
                 placa: $("#placa").val(),
                 regalo: $("#regalo").val(),
-                selectedRegalo: $("#selectedRegalo").val()
+                selectedRegalo: $("#selectedRegalo").val(),
+                campana: $("#campana").val()               
 
             }
             

@@ -345,6 +345,23 @@ class LandingController extends Controller
     {
         return $this->render('CelmediaToyocostaVehiculosBundle:Landing:prius.html.twig'); 
     }
+    public function citasAction()
+    {
+
+        $em = $this->getDoctrine()->getManager();        
+        
+        $vehiculos = $this->getDoctrine()->getRepository("CelmediaToyocostaVehiculosBundle:Vehiculo")->findBy(array(
+            "estado" => 1
+                )
+        );
+
+        $reservas = $this->getDoctrine()->getRepository("CelmediaToyocostaContenidoBundle:TipoReserva")->findBy(array(
+            "estado" => 1
+                )
+        );
+    
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:cita_mantenimiento.html.twig', array( "vehiculos" => $vehiculos , "reservas" => $reservas ));
+    }
 
 
 
