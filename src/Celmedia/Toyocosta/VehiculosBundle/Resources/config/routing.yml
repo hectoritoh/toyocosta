@@ -570,6 +570,12 @@ landing_mantenimiento_express:
     path:      /landing/mantenimientoexpress
     defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:mantenimientoexpress }
 
+landing_como_nuevo:
+    path:      /landing/comonuevo
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:comonuevo }
+
+
+
 
 
 

@@ -381,6 +381,24 @@ class LandingController extends Controller
         return $this->render('CelmediaToyocostaVehiculosBundle:Landing:mantenimiento_express.html.twig', array( "vehiculos" => $vehiculos , "reservas" => $reservas ));
     }
 
+    public function comonuevoAction()
+    {
+
+        $em = $this->getDoctrine()->getManager();        
+        
+        $vehiculos = $this->getDoctrine()->getRepository("CelmediaToyocostaVehiculosBundle:Vehiculo")->findBy(array(
+            "estado" => 1
+                )
+        );
+
+        $reservas = $this->getDoctrine()->getRepository("CelmediaToyocostaContenidoBundle:TipoReserva")->findBy(array(
+            "estado" => 1
+                )
+        );
+    
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:como_nuevo.html.twig', array( "vehiculos" => $vehiculos , "reservas" => $reservas ));
+    }
+
 
 
 
@@ -576,20 +594,20 @@ class LandingController extends Controller
 
             if ($taller) {
 
-                $to = array('tallermovil@toyocosta.com.ec'=> 'Taller Movil');
+                $to = array('tallermovil@toyocosta.com.ec'=> 'Taller Movil', 'citas@toyocosta.com.ec' => 'Citas Web');
                 
             }elseif ($montacargas) {
 
-                $to = array('conventos@toyocosta.com.ec'=> 'Ventas Montacargas');
+                $to = array('conventos@toyocosta.com.ec'=> 'Ventas Montacargas', 'citas@toyocosta.com.ec' => 'Citas Web');
 
             }else{
 
-                $to = array('cdnventas@toyocosta.com.ec'=> 'Toyocosta');
+                $to = array('cdnventas@toyocosta.com.ec'=> 'Toyocosta' , 'citas@toyocosta.com.ec' => 'Citas Web');
                 
             }
 
 
-            $subject = "Pedido de Informacion de ".$campana." desde Web Toyocosta"; 
+            $subject = "Pedido de Informacion ".$campana." "; 
 
             
             
