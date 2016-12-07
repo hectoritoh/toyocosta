@@ -148,8 +148,12 @@
 															<div class="col-md-10 col-md-offset-1 col-sm-10 col-sm-offset-1 text-center">
 																<h3 class="modelo-titular txt-negrita espacio-a">{{ vehiculoModelo.nombre }}</h3>
 																<p class="modelo-titular espacio-a">{{ vehiculoModelo.descripcion }}</p>
-																<h4 class="txt-negro espacio-a">SIN IVA: <span class="txt-rojo">${{ vehiculoModelo.precio }}</span></h4>
-																<h4 class="txt-negro espacio-a">CON IVA: <span class="txt-rojo">${{ vehiculoModelo.precioNeto }}</span></h4>
+																{% if vehiculoModelo.vehiculomodel.id == 11 %}
+																	<h4 class="txt-negro espacio-a">PRECIO: <span class="txt-rojo">${{ vehiculoModelo.precioNeto }}</span></h4>
+																{% else %}
+																	<h4 class="txt-negro espacio-a">SIN IVA: <span class="txt-rojo">${{ vehiculoModelo.precio }}</span></h4>
+																	<h4 class="txt-negro espacio-a">CON IVA: <span class="txt-rojo">${{ vehiculoModelo.precioNeto }}</span></h4>																    
+																{% endif %}
 															</div>
 														</div>
 														<div class="row">
