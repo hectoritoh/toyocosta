@@ -594,15 +594,15 @@ class LandingController extends Controller
 
             if ($taller) {
 
-                $to = array('tallermovil@toyocosta.com.ec'=> 'Taller Movil', 'citas@toyocosta.com.ec' => 'Citas Web');
+                $to = array('tallermovil@toyocosta.com.ec'=> 'Taller Movil');
                 
             }elseif ($montacargas) {
 
-                $to = array('conventos@toyocosta.com.ec'=> 'Ventas Montacargas', 'citas@toyocosta.com.ec' => 'Citas Web');
+                $to = array('conventos@toyocosta.com.ec'=> 'Ventas Montacargas');
 
             }else{
 
-                $to = array('cdnventas@toyocosta.com.ec'=> 'Toyocosta' , 'citas@toyocosta.com.ec' => 'Citas Web');
+                $to = array('cdnventas@toyocosta.com.ec'=> 'Toyocosta' );
                 
             }
 
