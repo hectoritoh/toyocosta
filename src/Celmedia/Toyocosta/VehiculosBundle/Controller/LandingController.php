@@ -402,6 +402,23 @@ class LandingController extends Controller
 
 
 
+    public function viajaseguroAction()
+    {
+
+        $em = $this->getDoctrine()->getManager();        
+        
+        $vehiculos = $this->getDoctrine()->getRepository("CelmediaToyocostaVehiculosBundle:Vehiculo")->findBy(array(
+            "estado" => 1
+                )
+        );
+
+        $reservas = $this->getDoctrine()->getRepository("CelmediaToyocostaContenidoBundle:TipoReserva")->findBy(array(
+            "estado" => 1
+                )
+        );
+    
+        return $this->render('CelmediaToyocostaVehiculosBundle:Landing:viajaseguro.html.twig', array( "vehiculos" => $vehiculos , "reservas" => $reservas ));
+    }
 
 
     public function envioLandingAction(Request $request){

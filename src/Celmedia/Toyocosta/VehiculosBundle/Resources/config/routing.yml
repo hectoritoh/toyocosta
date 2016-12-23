@@ -578,6 +578,11 @@ landing_como_nuevo:
 
 
 
+landing_viajaseguro:
+    path:      /landing/viajaseguro
+    defaults:  { _controller: CelmediaToyocostaVehiculosBundle:Landing:viajaseguro }
+
+
 
 envio_landing:
     path:      /landing/form
