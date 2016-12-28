@@ -239,7 +239,7 @@ class DefaultController extends Controller
     public function seminuevosAction()
     {
     	$em = $this->getDoctrine()->getManager();
-    	$seminuevos = $em->getRepository('CelmediaToyocostaSeminuevoBundle:Seminuevo')->findBy(array('estado_publicacion' => '1'));
+    	$seminuevos = $em->getRepository('CelmediaToyocostaSeminuevoBundle:Seminuevo')->findBy(array('estado_publicacion' => '1'), array('estado'=>'asc'));
 
         $banners = $this->getDoctrine()->getRepository("CelmediaToyocostaVehiculosBundle:SlidePrincipal")->findBy(array(
             "estado" => 1 , "seccion" => "seminuevo"
