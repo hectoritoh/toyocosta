@@ -127,19 +127,31 @@
                                     <div class="row relleno">
                                         <div class="col-md-8">
                                             <div class="txt-disponibilidad">
-                                                {% if seminuevo.estado == 1 %}
-                                                    {# 1 => 'Disponible' #}
+                                                {#{% if seminuevo.estado == 1 %}
                                                     <i class="ico-disponibilidad ico-disponible"></i>Disponible
                                                 {% elseif seminuevo.estado == 2 %}
-                                                    {# 2 => 'Proximammente' #}
                                                     <i class="ico-disponibilidad ico-proximamente"></i>Próximamente
                                                 {% elseif seminuevo.estado == 3 %}
-                                                    {# 3 => 'Reservado' #}
                                                     <i class="ico-disponibilidad ico-reservado"></i>Reservado
                                                 {% elseif seminuevo.estado == 4 %}
-                                                    {# 4 => 'Vendido' #}
+                                                    <i class="ico-disponibilidad ico-vendido"></i>Vendido
+                                                {% endif %}#}
+
+
+
+                                                {% if seminuevo.estado == 1 %}
+                                                    <i class="ico-disponibilidad ico-disponible"></i>Disponible
+                                                {% elseif seminuevo.estado == 2 %}
+                                                    <i class="ico-disponibilidad ico-disponible"></i>Disponible
+                                                {% elseif seminuevo.estado == 3 %}
+                                                    <i class="ico-disponibilidad ico-proximamente"></i>Próximamente
+                                                {% elseif seminuevo.estado == 4 %}
+                                                    <i class="ico-disponibilidad ico-reservado"></i>Reservado
+                                                {% elseif seminuevo.estado == 5 %}
                                                     <i class="ico-disponibilidad ico-vendido"></i>Vendido
                                                 {% endif %}
+
+
                                             </div>
                                         </div>
                                         <div class="col-md-4">
